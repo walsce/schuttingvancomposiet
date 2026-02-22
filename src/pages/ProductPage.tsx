@@ -114,8 +114,8 @@ const ProductPage = () => {
               {allImages.length > 1 && (
                 <div className="flex gap-2 overflow-x-auto">
                   {allImages.map((img, i) => (
-                    <button key={i} onClick={() => setSelectedImage(i)} className={`flex-shrink-0 w-20 h-20 rounded-md overflow-hidden border-2 transition-colors ${i === selectedImage ? "border-primary" : "border-border"}`}>
-                      <img src={img} alt="" className="w-full h-full object-cover" />
+                    <button key={i} onClick={() => setSelectedImage(i)} className={`flex-shrink-0 w-24 h-24 rounded-md overflow-hidden border-2 transition-colors bg-muted ${i === selectedImage ? "border-primary" : "border-border"}`}>
+                      <img src={img} alt="" className="w-full h-full object-contain p-1" />
                     </button>
                   ))}
                 </div>
