@@ -1,76 +1,53 @@
 
-# Mobile-Friendly Deck Planner with Fancy Branding
 
-## Overview
-Two changes: (1) rebrand the tool with a catchy name -- "TerrasDesigner Pro" -- and (2) make the entire planner page fully mobile-responsive so it works well on phones and tablets.
+# Fix Horizontal Overflow on Vlonder Planner (Mobile)
 
-## 1. Fancy Name & Branding
+## Problem
+The planner page creates unwanted horizontal scroll on mobile devices. Multiple elements can contribute to this: the header top bar, the `container` class with 2rem padding, the MaterialsList table, and content inside accordion panels that doesn't respect the viewport boundary.
 
-Rename from "Vlonderplanner" to **TerrasDesigner Pro** throughout:
+## Root Causes Identified
 
-- **Page title (H1):** "TerrasDesigner Pro"
-- **Badge:** "Gratis online tool"
-- **Subtitle:** "Ontwerp je droomterras in enkele minuten -- kies vorm, materiaal en ontvang direct je materiaallijst."
-- **SEO title:** "TerrasDesigner Pro | Ontwerp je composiet terras online | Schuttingvancomposiet.nl"
-- **Breadcrumb:** "TerrasDesigner Pro" instead of "Vlonderplanner"
-- **Route stays** `/vlonder-planner` (no URL change to avoid breaking links)
+1. **Root wrapper** on DeckPlannerPage has no overflow constraint -- only `<main>` has `overflow-x-hidden`, but the Header and Footer sit outside it
+2. **`container` class** uses `padding: 2rem` (32px each side), which on narrow phones can combine with wide child elements
+3. **MaterialsList Table** -- HTML tables expand to fit content and can push beyond viewport
+4. **Header top bar** text ("Gratis offerte aanvragen") may not wrap on narrow screens
+5. **Global CSS** -- no body-level overflow-x prevention
 
-## 2. Mobile Layout Changes
+## Fix Strategy
 
-### DeckPlannerPage.tsx
-- Change the two-column grid from `lg:grid-cols-[1fr_360px]` to a **stacked layout on mobile**: canvas on top, accordion sidebar below
-- On mobile, the canvas takes full width with reduced padding
-- Add `overflow-x-hidden` to prevent horizontal scroll
-- Reduce hero padding on small screens (`pt-4 sm:pt-8`)
-- Make the "Opnieuw" reset button smaller on mobile
+Apply a layered defense so no single element can cause horizontal scroll:
 
-### DeckCanvas.tsx
-- Remove `max-w-[600px]` constraint so the canvas fills the available width on mobile
-- The SVG viewBox stays at 600x450 but scales naturally via `w-full`
-- Touch event support: add `onTouchStart`, `onTouchMove`, `onTouchEnd` handlers mirroring the mouse handlers (for freehand drawing and point dragging)
+### 1. Global `overflow-x: hidden` on body (`src/index.css`)
+- Add `overflow-x: hidden` to the `body` rule to act as the ultimate safety net
 
-### ShapeSelector.tsx
-- Change grid from `grid-cols-5` to `grid-cols-3 sm:grid-cols-5` so shape buttons don't get too tiny on phones
+### 2. Root wrapper overflow on DeckPlannerPage (`src/pages/DeckPlannerPage.tsx`)
+- Add `overflow-x-hidden` to the outer `<div>` so the entire page (including Header/Footer) is clipped
 
-### LayingPatternSelector.tsx
-- The existing `grid-cols-3` works well, but reduce `p-3` to `p-2` on mobile for the icon buttons
-- Keep the "Hoek" stepper as-is (already compact)
+### 3. MaterialsList table scroll containment (`src/components/planner/MaterialsList.tsx`)
+- Wrap the table in a `div` with `overflow-x-auto` so it scrolls within its container instead of pushing the page
 
-### SubstructureOptions.tsx
-- Already uses `grid-cols-3` and `grid-cols-2` which works well on mobile -- no changes needed
+### 4. Header top bar mobile fix (`src/components/Header.tsx`)
+- Add `overflow-hidden` and `text-ellipsis` / `whitespace-nowrap` to prevent the top bar from pushing content
+- Reduce top bar padding on small screens
 
-### MaterialSelector.tsx
-- Already fully responsive with full-width cards -- no changes needed
+### 5. Accordion content overflow (`src/pages/DeckPlannerPage.tsx`)
+- Add `overflow-hidden` to the accordion sidebar wrapper to contain any rogue child elements
 
 ---
 
 ## Technical Details
 
-### Files to modify
+### `src/index.css`
+Add `overflow-x: hidden` to the `body` styles.
 
-**`src/pages/DeckPlannerPage.tsx`**
-- Update SEO title, H1 text, badge text, subtitle, and breadcrumb label
-- Change grid: `grid lg:grid-cols-[1fr_360px]` stays but canvas wrapper gets `w-full`
-- Add responsive padding: `px-3 sm:px-4`, `pt-4 sm:pt-8`
-- Add `overflow-x-hidden` to prevent scroll issues
+### `src/pages/DeckPlannerPage.tsx`
+- Line 140: Change outer `<div>` from `min-h-screen flex flex-col bg-background` to `min-h-screen flex flex-col bg-background overflow-x-hidden`
+- Line 213: Change sidebar `<div>` from `space-y-4` to `space-y-4 min-w-0 overflow-hidden`
 
-**`src/components/planner/DeckCanvas.tsx`**
-- Remove `max-w-[600px]` class from the SVG
-- Add touch event handlers (`onTouchStart`, `onTouchMove`, `onTouchEnd`) that extract coordinates from `e.touches[0]` and call the same logic as mouse handlers
-- Update `getSvgCoords` to accept both Mouse and Touch event coords
+### `src/components/planner/MaterialsList.tsx`
+- Line 19: Wrap the `<Table>` in `<div className="overflow-x-auto">` so wide tables scroll inside their box
 
-**`src/components/planner/ShapeSelector.tsx`**
-- Change grid to `grid-cols-3 sm:grid-cols-5`
+### `src/components/Header.tsx`
+- Line 22: Add `overflow-hidden` to top bar container
+- Line 23: Add `min-w-0` and `overflow-hidden` to the inner flex containers to prevent text overflow
 
-**`src/components/planner/LayingPatternSelector.tsx`**
-- Add responsive padding to icon buttons: `p-2 sm:p-3`
-
-### Touch Support Details (DeckCanvas)
-```
-getSvgCoords now accepts { clientX, clientY } instead of full MouseEvent
-
-onTouchStart -> same as onMouseDown (for dragging) or handleFreehandDown
-onTouchMove -> same as onMouseMove / handleFreehandMove  
-onTouchEnd -> same as onMouseUp / handleFreehandUp
-e.preventDefault() on touch events to prevent scroll while drawing
-```
