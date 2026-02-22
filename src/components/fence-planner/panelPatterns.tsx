@@ -122,6 +122,86 @@ export const panelPattern = (
           <ellipse cx={x + w * 0.7} cy={y + h * 0.7} rx={w * 0.2} ry={h * 0.12} fill={color} opacity={0.2} />
         </g>
       );
+    case "aluminium": {
+      return (
+        <g key={id}>
+          <rect x={x} y={y} width={w} height={h} fill={color} opacity={0.8} rx={1} />
+          <rect x={x} y={y} width={w} height={h} fill="url(#alu-shine)" opacity={0.15} rx={1} />
+          {Array.from({ length: Math.floor(h / 12) }, (_, i) => (
+            <line key={i} x1={x + 1} y1={y + i * 12} x2={x + w - 1} y2={y + i * 12} stroke="#fff" strokeWidth={0.3} opacity={0.2} />
+          ))}
+        </g>
+      );
+    }
+    case "lamellen-45": {
+      const slatH = 4.5;
+      const gap = 3;
+      const count = Math.floor(h / (slatH + gap));
+      return (
+        <g key={id}>
+          {Array.from({ length: count }, (_, i) => (
+            <rect key={i} x={x + 2} y={y + i * (slatH + gap)} width={w - 4} height={slatH} rx={0.5} fill={color} opacity={0.75 + (i % 2) * 0.1} />
+          ))}
+        </g>
+      );
+    }
+    case "lamellen-100": {
+      const slatH = 10;
+      const gap = 3;
+      const count = Math.floor(h / (slatH + gap));
+      return (
+        <g key={id}>
+          {Array.from({ length: count }, (_, i) => (
+            <rect key={i} x={x + 2} y={y + i * (slatH + gap)} width={w - 4} height={slatH} rx={0.5} fill={color} opacity={0.75 + (i % 2) * 0.08} />
+          ))}
+        </g>
+      );
+    }
+    case "rhombus-lamellen": {
+      const slatH = 7;
+      const gap = 2;
+      const count = Math.floor(h / (slatH + gap));
+      return (
+        <g key={id}>
+          {Array.from({ length: count }, (_, i) => {
+            const py = y + i * (slatH + gap);
+            return (
+              <polygon key={i} points={`${x + 2},${py + slatH / 2} ${x + 4},${py} ${x + w - 4},${py} ${x + w - 2},${py + slatH / 2} ${x + w - 4},${py + slatH} ${x + 4},${py + slatH}`} fill={color} opacity={0.7 + (i % 2) * 0.1} />
+            );
+          })}
+        </g>
+      );
+    }
+    case "glass-panel":
+      return (
+        <g key={id}>
+          <rect x={x} y={y} width={w} height={h} fill="#d0dce8" opacity={0.4} rx={2} />
+          <rect x={x + 2} y={y + 2} width={w - 4} height={h - 4} fill="#e8f0f8" opacity={0.3} rx={1} />
+          {/* Frost effect */}
+          {Array.from({ length: 6 }, (_, i) => (
+            <line key={i} x1={x + (i * w) / 6} y1={y} x2={x + (i * w) / 6 + w / 12} y2={y + h} stroke="#fff" strokeWidth={1} opacity={0.08} />
+          ))}
+        </g>
+      );
+    case "solar-panel":
+      return (
+        <g key={id}>
+          <rect x={x} y={y} width={w} height={h} fill="#1a2233" opacity={0.85} rx={2} />
+          {/* Solar cell grid */}
+          {Array.from({ length: 4 }, (_, row) =>
+            Array.from({ length: 3 }, (_, col) => (
+              <rect key={`${row}-${col}`} x={x + 3 + col * (w / 3 - 1)} y={y + 3 + row * (h / 4 - 1)} width={w / 3 - 5} height={h / 4 - 5} rx={1} fill="#2244aa" opacity={0.6} />
+            ))
+          ).flat()}
+          {/* Grid lines */}
+          {Array.from({ length: 3 }, (_, i) => (
+            <line key={`h-${i}`} x1={x + 1} y1={y + (i + 1) * (h / 4)} x2={x + w - 1} y2={y + (i + 1) * (h / 4)} stroke="#4466cc" strokeWidth={0.5} opacity={0.4} />
+          ))}
+          {Array.from({ length: 2 }, (_, i) => (
+            <line key={`v-${i}`} x1={x + (i + 1) * (w / 3)} y1={y + 1} x2={x + (i + 1) * (w / 3)} y2={y + h - 1} stroke="#4466cc" strokeWidth={0.5} opacity={0.4} />
+          ))}
+        </g>
+      );
     default:
       return <rect key={id} x={x} y={y} width={w} height={h} fill={color} opacity={0.55} rx={2} />;
   }
