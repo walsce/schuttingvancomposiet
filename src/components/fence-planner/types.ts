@@ -57,6 +57,7 @@ export interface PanelType {
   id: PanelStyleId;
   name: string;
   widthCm: number;
+  image: string;
 }
 
 export interface PlacedPanel {

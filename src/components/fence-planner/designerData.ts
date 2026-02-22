@@ -5,17 +5,17 @@ export const STANDARD_PANEL_WIDTH = 182;
 export const PANEL_HEIGHT_CM = 180;
 
 export const panelStyles: PanelType[] = [
-  { id: "horizontal-planks", name: "Horizontale planken", widthCm: STANDARD_PANEL_WIDTH },
-  { id: "decorative", name: "Decoratief", widthCm: STANDARD_PANEL_WIDTH },
-  { id: "mosaic", name: "Mozaïek", widthCm: STANDARD_PANEL_WIDTH },
-  { id: "louvers", name: "Lamellen", widthCm: STANDARD_PANEL_WIDTH },
-  { id: "vertical-slats", name: "Verticale latten", widthCm: STANDARD_PANEL_WIDTH },
-  { id: "aluminium", name: "Aluminium", widthCm: STANDARD_PANEL_WIDTH },
-  { id: "lamellen-45", name: "Lamellen 45mm", widthCm: STANDARD_PANEL_WIDTH },
-  { id: "lamellen-100", name: "Lamellen 100mm", widthCm: STANDARD_PANEL_WIDTH },
-  { id: "rhombus-lamellen", name: "Rhombus lamellen", widthCm: STANDARD_PANEL_WIDTH },
-  { id: "glass-panel", name: "Matglas paneel", widthCm: STANDARD_PANEL_WIDTH },
-  { id: "solar-panel", name: "Zonnepaneel", widthCm: STANDARD_PANEL_WIDTH },
+  { id: "horizontal-planks", name: "Horizontale planken", widthCm: STANDARD_PANEL_WIDTH, image: "https://felix-distribution.b-cdn.net/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/b/o/boston_-_houtcomposiet_fence_board_premium.png" },
+  { id: "decorative", name: "Decoratief", widthCm: STANDARD_PANEL_WIDTH, image: "https://felix-distribution.b-cdn.net/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/b/o/boston_-_decopaneel_paxos_horizontaal.png" },
+  { id: "mosaic", name: "Mozaïek", widthCm: STANDARD_PANEL_WIDTH, image: "https://felix-distribution.b-cdn.net/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/b/o/boston_-_decopaneel_crios_horizontaal.png" },
+  { id: "louvers", name: "Lamellen", widthCm: STANDARD_PANEL_WIDTH, image: "https://felix-distribution.b-cdn.net/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/b/o/boston_-_decopaneel_hera_horizontaal.png" },
+  { id: "vertical-slats", name: "Verticale latten", widthCm: STANDARD_PANEL_WIDTH, image: "https://felix-distribution.b-cdn.net/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/b/o/boston_-_houtcomposiet_fence_board_modern.png" },
+  { id: "aluminium", name: "Aluminium", widthCm: STANDARD_PANEL_WIDTH, image: "https://felix-distribution.b-cdn.net/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/b/o/boston_-_fence_board_aluminium.png" },
+  { id: "lamellen-45", name: "Lamellen 45mm", widthCm: STANDARD_PANEL_WIDTH, image: "https://felix-distribution.b-cdn.net/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/b/o/boston_-_aluminium_louver_45.png" },
+  { id: "lamellen-100", name: "Lamellen 100mm", widthCm: STANDARD_PANEL_WIDTH, image: "https://felix-distribution.b-cdn.net/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/b/o/boston_-_aluminium_louver_100.png" },
+  { id: "rhombus-lamellen", name: "Rhombus lamellen", widthCm: STANDARD_PANEL_WIDTH, image: "https://felix-distribution.b-cdn.net/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/b/o/boston_-_aluminium_rhombus_louver.png" },
+  { id: "glass-panel", name: "Matglas paneel", widthCm: STANDARD_PANEL_WIDTH, image: "https://felix-distribution.b-cdn.net/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/b/o/boston_-_decopaneel_matglas_300mm.png" },
+  { id: "solar-panel", name: "Zonnepaneel", widthCm: STANDARD_PANEL_WIDTH, image: "https://felix-distribution.b-cdn.net/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/h/e/helios_zonnepaneel.png" },
 ];
 
 // Color hex mapping from product tones
