@@ -24,7 +24,8 @@ import {
   TableCell,
   TableRow,
 } from "@/components/ui/table";
-import { Truck, Shield, CheckCircle, ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
+import { Truck, Shield, CheckCircle, ChevronLeft, ChevronRight, ArrowRight, Info } from "lucide-react";
+import ReactMarkdown from "react-markdown";
 
 const ProductPage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -53,7 +54,6 @@ const ProductPage = () => {
     .filter((p) => p.category === product.category && p.id !== product.id)
     .slice(0, 4);
 
-  // Find blog articles that reference this product
   const relatedArticles = blogArticles
     .filter((a) => a.relatedProducts.includes(product.slug))
     .slice(0, 3);
@@ -69,11 +69,14 @@ const ProductPage = () => {
     jsonLdData.push(faqSchema(product.faq.map(f => ({ q: f.question, a: f.answer }))));
   }
 
+  // Pick 3 key specs for the summary box
+  const keySpecs = Object.entries(product.specifications).slice(0, 4);
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <SEOHead
-        title={`${product.name} | Composiethekwerk.nl`}
-        description={product.description.slice(0, 155)}
+        title={product.seoTitle}
+        description={product.seoDescription}
         canonical={`/product/${product.slug}`}
         ogImage={product.image}
       />
@@ -183,24 +186,41 @@ const ProductPage = () => {
           </div>
         </section>
 
+        {/* "In het kort" Summary Box - Zero-Click Optimized */}
+        <section className="max-w-6xl mx-auto px-4 pb-8">
+          <div className="bg-secondary/50 border border-border rounded-xl p-6">
+            <div className="flex items-center gap-2 mb-3">
+              <Info className="h-5 w-5 text-primary" />
+              <h2 className="font-serif text-lg font-bold text-foreground">In het kort</h2>
+            </div>
+            <p className="text-sm text-foreground leading-relaxed mb-4">{product.description}</p>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              {keySpecs.map(([key, value]) => (
+                <div key={key} className="bg-card rounded-lg p-3 border border-border">
+                  <dt className="text-xs text-muted-foreground">{key}</dt>
+                  <dd className="text-sm font-semibold text-foreground">{value}</dd>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Tabs */}
         <section className="max-w-6xl mx-auto px-4 pb-16">
           <Tabs defaultValue="description" className="w-full">
             <TabsList className="w-full justify-start border-b rounded-none bg-transparent h-auto p-0 gap-0">
               <TabsTrigger value="description" className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent data-[state=active]:shadow-none px-6 py-3">Omschrijving</TabsTrigger>
               <TabsTrigger value="specs" className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent data-[state=active]:shadow-none px-6 py-3">Specificaties</TabsTrigger>
-              {product.faq && product.faq.length > 0 && (
-                <TabsTrigger value="faq" className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent data-[state=active]:shadow-none px-6 py-3">Veelgestelde vragen</TabsTrigger>
-              )}
             </TabsList>
 
             <TabsContent value="description" className="pt-6">
-              <div className="prose prose-sm max-w-none text-foreground">
-                <p className="text-base leading-relaxed">{product.description}</p>
-              </div>
+              <article className="prose prose-sm max-w-none text-foreground prose-headings:text-foreground prose-h2:text-xl prose-h2:font-serif prose-h3:text-base prose-strong:text-foreground prose-li:text-foreground">
+                <ReactMarkdown>{product.longDescription}</ReactMarkdown>
+              </article>
             </TabsContent>
 
             <TabsContent value="specs" className="pt-6">
+              <h2 className="font-serif text-xl font-bold text-foreground mb-4">Technische specificaties</h2>
               <div className="bg-card rounded-lg border border-border overflow-hidden">
                 <Table>
                   <TableBody>
@@ -214,21 +234,23 @@ const ProductPage = () => {
                 </Table>
               </div>
             </TabsContent>
-
-            {product.faq && product.faq.length > 0 && (
-              <TabsContent value="faq" className="pt-6">
-                <Accordion type="single" collapsible className="w-full">
-                  {product.faq.map((item, i) => (
-                    <AccordionItem key={i} value={`faq-${i}`}>
-                      <AccordionTrigger className="text-left">{item.question}</AccordionTrigger>
-                      <AccordionContent className="text-muted-foreground">{item.answer}</AccordionContent>
-                    </AccordionItem>
-                  ))}
-                </Accordion>
-              </TabsContent>
-            )}
           </Tabs>
         </section>
+
+        {/* On-page FAQ Section - Always visible for crawlers */}
+        {product.faq && product.faq.length > 0 && (
+          <section className="max-w-6xl mx-auto px-4 pb-16">
+            <h2 className="font-serif text-xl font-bold text-foreground mb-6">Veelgestelde vragen over {product.name}</h2>
+            <Accordion type="single" collapsible className="w-full">
+              {product.faq.map((item, i) => (
+                <AccordionItem key={i} value={`faq-${i}`}>
+                  <AccordionTrigger className="text-left text-sm">{item.question}</AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground text-sm">{item.answer}</AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </section>
+        )}
 
         {/* Internal links */}
         <section className="max-w-6xl mx-auto px-4 pb-12">
