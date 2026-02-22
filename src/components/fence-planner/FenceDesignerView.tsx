@@ -1,6 +1,7 @@
 import { useState, useCallback, useMemo, lazy, Suspense } from "react";
 import { SegmentInfo, PlacedPanel, ViewMode, PanelStyleId, FenceSystem } from "./types";
 import { POST_WIDTH_CM, STANDARD_PANEL_WIDTH, colorsByModel } from "./designerData";
+import { exportPanelConfigCsv } from "./exportCsv";
 import DesignerTopBar from "./DesignerTopBar";
 import BottomToolbar from "./BottomToolbar";
 import PanelDesignerCanvas from "./PanelDesignerCanvas";
@@ -84,6 +85,10 @@ const FenceDesignerView = ({
     );
   }, []);
 
+  const handleExportCsv = useCallback(() => {
+    exportPanelConfigCsv({ segments, placedPanels, model, product });
+  }, [segments, placedPanels, model, product]);
+
   return (
     <div className="h-screen flex flex-col bg-muted/30">
       <DesignerTopBar
@@ -95,6 +100,7 @@ const FenceDesignerView = ({
         onViewModeChange={setViewMode}
         zoom={zoom}
         onZoomChange={setZoom}
+        onExportCsv={handleExportCsv}
       />
 
       <div className="flex-1 flex relative overflow-hidden">
