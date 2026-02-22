@@ -26,7 +26,7 @@ const BlogPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="Blog & Advies over Composiet | Composietwinkel.nl"
+        title="Blog & Advies over Composiet | Composiethekwerk.nl"
         description="Koopgidsen, installatietips, onderhoudstips en inspiratie voor composiet gevelbekleding, schuttingen en vlonderplanken."
         canonical="/blog"
       />

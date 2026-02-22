@@ -24,12 +24,12 @@ export default JsonLd;
 export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "Composietwinkel.nl",
-  url: "https://composietwinkel.nl",
-  logo: "https://composietwinkel.nl/favicon.ico",
+  name: "Composiethekwerk.nl",
+  url: "https://composiethekwerk.nl",
+  logo: "https://composiethekwerk.nl/favicon.ico",
   contactPoint: {
     "@type": "ContactPoint",
-    email: "info@composietwinkel.nl",
+    email: "info@composiethekwerk.nl",
     contactType: "customer service",
     availableLanguage: "Dutch",
   },
@@ -38,11 +38,11 @@ export const organizationSchema = {
 export const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: "Composietwinkel.nl",
-  url: "https://composietwinkel.nl",
+  name: "Composiethekwerk.nl",
+  url: "https://composiethekwerk.nl",
   potentialAction: {
     "@type": "SearchAction",
-    target: "https://composietwinkel.nl/assortiment?q={search_term_string}",
+    target: "https://composiethekwerk.nl/assortiment?q={search_term_string}",
     "query-input": "required name=search_term_string",
   },
 };
@@ -56,7 +56,7 @@ export const breadcrumbSchema = (
     "@type": "ListItem",
     position: i + 1,
     name: item.name,
-    item: item.url.startsWith("http") ? item.url : `https://composietwinkel.nl${item.url}`,
+    item: item.url.startsWith("http") ? item.url : `https://composiethekwerk.nl${item.url}`,
   })),
 });
 
@@ -86,13 +86,13 @@ export const productSchema = (product: {
   name: product.name,
   description: product.description,
   image: product.image,
-  brand: { "@type": "Brand", name: "Composietwinkel.nl" },
+  brand: { "@type": "Brand", name: "Composiethekwerk.nl" },
   offers: {
     "@type": "Offer",
     price: product.price,
     priceCurrency: "EUR",
     availability: "https://schema.org/InStock",
-    url: `https://composietwinkel.nl/product/${product.slug}`,
+    url: `https://composiethekwerk.nl/product/${product.slug}`,
   },
 });
 
@@ -113,12 +113,12 @@ export const articleSchema = (article: {
   dateModified: article.date,
   author: {
     "@type": "Person",
-    name: article.author || "Composietwinkel.nl Redactie",
+    name: article.author || "Composiethekwerk.nl Redactie",
   },
   publisher: {
     "@type": "Organization",
-    name: "Composietwinkel.nl",
-    logo: { "@type": "ImageObject", url: "https://composietwinkel.nl/favicon.ico" },
+    name: "Composiethekwerk.nl",
+    logo: { "@type": "ImageObject", url: "https://composiethekwerk.nl/favicon.ico" },
   },
-  mainEntityOfPage: `https://composietwinkel.nl/blog/${article.slug}`,
+  mainEntityOfPage: `https://composiethekwerk.nl/blog/${article.slug}`,
 });

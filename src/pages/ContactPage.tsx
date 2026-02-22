@@ -21,7 +21,7 @@ const ContactPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="Contact & Offerte Aanvragen | Composietwinkel.nl"
+        title="Contact & Offerte Aanvragen | Composiethekwerk.nl"
         description="Neem contact op voor een vrijblijvende offerte of persoonlijk advies over composiet gevelbekleding, schuttingen en vlonderplanken."
         canonical="/contact"
       />
@@ -46,7 +46,7 @@ const ContactPage = () => {
                   <div className="p-2 bg-primary/10 rounded-lg"><Mail className="w-5 h-5 text-primary" /></div>
                   <div>
                     <p className="text-sm font-semibold text-foreground">E-mail</p>
-                    <p className="text-sm text-muted-foreground">info@composietwinkel.nl</p>
+                    <p className="text-sm text-muted-foreground">info@composiethekwerk.nl</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">

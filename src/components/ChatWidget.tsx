@@ -12,7 +12,7 @@ interface Message {
 const WELCOME_MESSAGE: Message = {
   role: "assistant",
   content:
-    "Welkom bij Composietwinkel.nl! 👋\n\nIk help je graag met:\n- **Productadvies** voor gevelbekleding, schuttingen of vlonderplanken\n- **Berekeningen** hoeveel materiaal je nodig hebt\n- **Prijsindicaties** en offertes\n\nWaar kan ik je mee helpen?",
+    "Welkom bij Composiethekwerk.nl! 👋\n\nIk help je graag met:\n- **Productadvies** voor gevelbekleding, schuttingen of vlonderplanken\n- **Berekeningen** hoeveel materiaal je nodig hebt\n- **Prijsindicaties** en offertes\n\nWaar kan ik je mee helpen?",
 };
 
 const ChatWidget = () => {
@@ -116,7 +116,7 @@ const ChatWidget = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-sm">Productadviseur</h3>
-                  <p className="text-xs text-primary-foreground/70">Composietwinkel.nl</p>
+                  <p className="text-xs text-primary-foreground/70">Composiethekwerk.nl</p>
                 </div>
               </div>
               <button

@@ -66,7 +66,7 @@ const ProductPage = () => {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <SEOHead
-        title={`${product.name} | Composietwinkel.nl`}
+        title={`${product.name} | Composiethekwerk.nl`}
         description={product.description.slice(0, 155)}
         canonical={`/product/${product.slug}`}
         ogImage={product.image}
