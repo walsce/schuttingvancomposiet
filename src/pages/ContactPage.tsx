@@ -1,65 +1,105 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEOHead from "@/components/SEOHead";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import FAQSection from "@/components/FAQSection";
+import JsonLd, { organizationSchema } from "@/components/JsonLd";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, Clock } from "lucide-react";
+import { Link } from "react-router-dom";
+
+const contactFaqs = [
+  { q: "Hoe snel ontvang ik een offerte?", a: "Wij streven ernaar om binnen 24 uur een vrijblijvende offerte te versturen na ontvangst van uw aanvraag." },
+  { q: "Leveren jullie ook in België?", a: "Ja, wij leveren door heel Nederland en België met onze eigen bezorgservice." },
+  { q: "Kan ik een sample aanvragen?", a: "Zeker! Neem contact met ons op en wij sturen u graag een gratis sample van het gewenste product." },
+  { q: "Wat zijn de levertijden?", a: "De levertijd is gemiddeld 2 tot 15 werkdagen, afhankelijk van het product en de beschikbaarheid." },
+];
 
 const ContactPage = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Contact & Offerte Aanvragen | Composietwinkel.nl"
+        description="Neem contact op voor een vrijblijvende offerte of persoonlijk advies over composiet gevelbekleding, schuttingen en vlonderplanken."
+        canonical="/contact"
+      />
+      <JsonLd data={organizationSchema} />
       <Header />
+      <Breadcrumbs items={[
+        { label: "Home", href: "/" },
+        { label: "Contact" },
+      ]} />
 
-      <section className="container py-12 md:py-20">
-        <div className="grid md:grid-cols-2 gap-12">
-          <div>
-            <h1 className="font-serif text-3xl md:text-4xl font-bold text-foreground">Contact & Offerte</h1>
-            <p className="text-muted-foreground mt-3 leading-relaxed">
-              Heeft u vragen over onze composiet producten of wilt u een vrijblijvende offerte? Neem contact met ons op!
-            </p>
+      <main>
+        <section className="container py-12 md:py-20">
+          <div className="grid md:grid-cols-2 gap-12">
+            <div>
+              <h1 className="font-serif text-3xl md:text-4xl font-bold text-foreground">Contact & Offerte</h1>
+              <p className="text-muted-foreground mt-3 leading-relaxed">
+                Heeft u vragen over onze composiet producten of wilt u een vrijblijvende offerte? Neem contact met ons op!
+              </p>
 
-            <div className="mt-8 space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="p-2 bg-primary/10 rounded-lg"><Mail className="w-5 h-5 text-primary" /></div>
-                <div>
-                  <p className="text-sm font-semibold text-foreground">E-mail</p>
-                  <p className="text-sm text-muted-foreground">info@composietwinkel.nl</p>
+              <div className="mt-8 space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="p-2 bg-primary/10 rounded-lg"><Mail className="w-5 h-5 text-primary" /></div>
+                  <div>
+                    <p className="text-sm font-semibold text-foreground">E-mail</p>
+                    <p className="text-sm text-muted-foreground">info@composietwinkel.nl</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="p-2 bg-primary/10 rounded-lg"><Phone className="w-5 h-5 text-primary" /></div>
+                  <div>
+                    <p className="text-sm font-semibold text-foreground">Telefoon</p>
+                    <p className="text-sm text-muted-foreground">Neem contact op voor persoonlijk advies</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="p-2 bg-primary/10 rounded-lg"><Clock className="w-5 h-5 text-primary" /></div>
+                  <div>
+                    <p className="text-sm font-semibold text-foreground">Openingstijden</p>
+                    <p className="text-sm text-muted-foreground">Ma - Vr: 08:00 - 17:00</p>
+                  </div>
                 </div>
               </div>
-              <div className="flex items-center gap-3">
-                <div className="p-2 bg-primary/10 rounded-lg"><Phone className="w-5 h-5 text-primary" /></div>
-                <div>
-                  <p className="text-sm font-semibold text-foreground">Telefoon</p>
-                  <p className="text-sm text-muted-foreground">Neem contact op voor persoonlijk advies</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="p-2 bg-primary/10 rounded-lg"><Clock className="w-5 h-5 text-primary" /></div>
-                <div>
-                  <p className="text-sm font-semibold text-foreground">Openingstijden</p>
-                  <p className="text-sm text-muted-foreground">Ma - Vr: 08:00 - 17:00</p>
+
+              {/* Internal links */}
+              <div className="mt-8 pt-6 border-t border-border">
+                <p className="text-sm font-semibold text-foreground mb-3">Bekijk ons assortiment</p>
+                <div className="flex flex-wrap gap-2">
+                  <Link to="/categorie/gevelbekleding" className="text-sm text-primary hover:underline">Gevelbekleding</Link>
+                  <span className="text-muted-foreground">·</span>
+                  <Link to="/categorie/schuttingen" className="text-sm text-primary hover:underline">Schuttingen</Link>
+                  <span className="text-muted-foreground">·</span>
+                  <Link to="/categorie/vlonderplanken" className="text-sm text-primary hover:underline">Vlonderplanken</Link>
+                  <span className="text-muted-foreground">·</span>
+                  <Link to="/vergelijken" className="text-sm text-primary hover:underline">Vergelijken</Link>
                 </div>
               </div>
             </div>
-          </div>
 
-          <div className="bg-card rounded-xl border border-border p-6 md:p-8">
-            <h2 className="font-serif text-xl font-bold text-foreground mb-6">Stuur ons een bericht</h2>
-            <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
-              <div className="grid grid-cols-2 gap-4">
-                <Input placeholder="Voornaam" />
-                <Input placeholder="Achternaam" />
-              </div>
-              <Input type="email" placeholder="E-mailadres" />
-              <Input type="tel" placeholder="Telefoonnummer" />
-              <Textarea placeholder="Uw bericht of offerte aanvraag..." rows={4} />
-              <Button type="submit" className="w-full bg-primary hover:bg-primary/90">
-                Verstuur bericht
-              </Button>
-            </form>
+            <div className="bg-card rounded-xl border border-border p-6 md:p-8">
+              <h2 className="font-serif text-xl font-bold text-foreground mb-6">Stuur ons een bericht</h2>
+              <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+                <div className="grid grid-cols-2 gap-4">
+                  <Input placeholder="Voornaam" />
+                  <Input placeholder="Achternaam" />
+                </div>
+                <Input type="email" placeholder="E-mailadres" />
+                <Input type="tel" placeholder="Telefoonnummer" />
+                <Textarea placeholder="Uw bericht of offerte aanvraag..." rows={4} />
+                <Button type="submit" className="w-full bg-primary hover:bg-primary/90">
+                  Verstuur bericht
+                </Button>
+              </form>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+
+        <FAQSection faqs={contactFaqs} title="Veelgestelde vragen over bestellen" />
+      </main>
 
       <Footer />
     </div>

@@ -4,17 +4,13 @@ import { products, categories } from "@/data/products";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ProductCard from "@/components/ProductCard";
+import SEOHead from "@/components/SEOHead";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import JsonLd, { productSchema, faqSchema } from "@/components/JsonLd";
+import CTASection from "@/components/CTASection";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
 import {
   Accordion,
   AccordionContent,
@@ -27,7 +23,7 @@ import {
   TableCell,
   TableRow,
 } from "@/components/ui/table";
-import { Truck, Shield, CheckCircle, ChevronLeft, ChevronRight } from "lucide-react";
+import { Truck, Shield, CheckCircle, ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 
 const ProductPage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -57,62 +53,50 @@ const ProductPage = () => {
     .slice(0, 4);
 
   const allImages = product.images.length > 0 ? product.images : [product.image];
-
   const nextImage = () => setSelectedImage((i) => (i + 1) % allImages.length);
   const prevImage = () => setSelectedImage((i) => (i - 1 + allImages.length) % allImages.length);
 
+  const jsonLdData: Record<string, unknown>[] = [
+    productSchema(product),
+  ];
+  if (product.faq && product.faq.length > 0) {
+    jsonLdData.push(faqSchema(product.faq.map(f => ({ q: f.question, a: f.answer }))));
+  }
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
+      <SEOHead
+        title={`${product.name} | Composietwinkel.nl`}
+        description={product.description.slice(0, 155)}
+        canonical={`/product/${product.slug}`}
+        ogImage={product.image}
+      />
+      <JsonLd data={jsonLdData} />
       <Header />
-      <main className="flex-1">
-        {/* Breadcrumb */}
-        <div className="max-w-6xl mx-auto px-4 py-4">
-          <Breadcrumb>
-            <BreadcrumbList>
-              <BreadcrumbItem>
-                <BreadcrumbLink asChild>
-                  <Link to="/">Home</Link>
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbLink asChild>
-                  <Link to={`/categorie/${product.category}`}>{category?.name}</Link>
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbPage>{product.name}</BreadcrumbPage>
-              </BreadcrumbItem>
-            </BreadcrumbList>
-          </Breadcrumb>
-        </div>
+      <Breadcrumbs items={[
+        { label: "Home", href: "/" },
+        { label: category?.name || "", href: `/categorie/${product.category}` },
+        { label: product.name },
+      ]} />
 
+      <main className="flex-1">
         {/* Product Hero */}
-        <section className="max-w-6xl mx-auto px-4 pb-12">
+        <section className="max-w-6xl mx-auto px-4 py-8 pb-12">
           <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
             {/* Image Gallery */}
             <div className="space-y-3">
               <div className="relative aspect-square bg-muted rounded-lg overflow-hidden">
                 <img
                   src={allImages[selectedImage]}
-                  alt={product.name}
+                  alt={`${product.name} - ${category?.name || "composiet"} product afbeelding`}
                   className="w-full h-full object-contain p-4"
                 />
                 {allImages.length > 1 && (
                   <>
-                    <button
-                      onClick={prevImage}
-                      className="absolute left-2 top-1/2 -translate-y-1/2 bg-card/80 backdrop-blur-sm rounded-full p-2 hover:bg-card transition-colors"
-                      aria-label="Vorige afbeelding"
-                    >
+                    <button onClick={prevImage} className="absolute left-2 top-1/2 -translate-y-1/2 bg-card/80 backdrop-blur-sm rounded-full p-2 hover:bg-card transition-colors" aria-label="Vorige afbeelding">
                       <ChevronLeft className="h-5 w-5 text-foreground" />
                     </button>
-                    <button
-                      onClick={nextImage}
-                      className="absolute right-2 top-1/2 -translate-y-1/2 bg-card/80 backdrop-blur-sm rounded-full p-2 hover:bg-card transition-colors"
-                      aria-label="Volgende afbeelding"
-                    >
+                    <button onClick={nextImage} className="absolute right-2 top-1/2 -translate-y-1/2 bg-card/80 backdrop-blur-sm rounded-full p-2 hover:bg-card transition-colors" aria-label="Volgende afbeelding">
                       <ChevronRight className="h-5 w-5 text-foreground" />
                     </button>
                   </>
@@ -121,13 +105,7 @@ const ProductPage = () => {
               {allImages.length > 1 && (
                 <div className="flex gap-2 overflow-x-auto">
                   {allImages.map((img, i) => (
-                    <button
-                      key={i}
-                      onClick={() => setSelectedImage(i)}
-                      className={`flex-shrink-0 w-20 h-20 rounded-md overflow-hidden border-2 transition-colors ${
-                        i === selectedImage ? "border-primary" : "border-border"
-                      }`}
-                    >
+                    <button key={i} onClick={() => setSelectedImage(i)} className={`flex-shrink-0 w-20 h-20 rounded-md overflow-hidden border-2 transition-colors ${i === selectedImage ? "border-primary" : "border-border"}`}>
                       <img src={img} alt="" className="w-full h-full object-cover" />
                     </button>
                   ))}
@@ -138,13 +116,10 @@ const ProductPage = () => {
             {/* Product Info */}
             <div className="space-y-6">
               <div>
-                <h1 className="text-2xl lg:text-3xl font-bold text-foreground mb-2">
-                  {product.name}
-                </h1>
+                <h1 className="text-2xl lg:text-3xl font-bold text-foreground mb-2">{product.name}</h1>
                 <p className="text-3xl font-bold text-primary">{product.priceLabel}</p>
               </div>
 
-              {/* Delivery & Guarantee */}
               <div className="flex flex-col gap-2">
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
                   <Truck className="h-4 w-4 text-primary" />
@@ -156,7 +131,6 @@ const ProductPage = () => {
                 </div>
               </div>
 
-              {/* Highlights */}
               {product.highlights.length > 0 && (
                 <ul className="space-y-1.5">
                   {product.highlights.map((h) => (
@@ -168,7 +142,6 @@ const ProductPage = () => {
                 </ul>
               )}
 
-              {/* Options */}
               {product.options && product.options.length > 0 && (
                 <div className="space-y-3">
                   {product.options.map((opt) => (
@@ -176,9 +149,7 @@ const ProductPage = () => {
                       <p className="text-sm font-semibold text-foreground mb-1.5">{opt.label}</p>
                       <div className="flex flex-wrap gap-2">
                         {opt.values.map((v) => (
-                          <Badge key={v} variant="outline" className="text-sm py-1 px-3">
-                            {v}
-                          </Badge>
+                          <Badge key={v} variant="outline" className="text-sm py-1 px-3">{v}</Badge>
                         ))}
                       </div>
                     </div>
@@ -186,7 +157,6 @@ const ProductPage = () => {
                 </div>
               )}
 
-              {/* CTAs */}
               <div className="flex flex-col sm:flex-row gap-3 pt-2">
                 <Button asChild size="lg" className="flex-1">
                   <Link to="/contact">Offerte Aanvragen</Link>
@@ -199,29 +169,14 @@ const ProductPage = () => {
           </div>
         </section>
 
-        {/* Tabs: Description / Specs / FAQ */}
+        {/* Tabs */}
         <section className="max-w-6xl mx-auto px-4 pb-16">
           <Tabs defaultValue="description" className="w-full">
             <TabsList className="w-full justify-start border-b rounded-none bg-transparent h-auto p-0 gap-0">
-              <TabsTrigger
-                value="description"
-                className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent data-[state=active]:shadow-none px-6 py-3"
-              >
-                Omschrijving
-              </TabsTrigger>
-              <TabsTrigger
-                value="specs"
-                className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent data-[state=active]:shadow-none px-6 py-3"
-              >
-                Specificaties
-              </TabsTrigger>
+              <TabsTrigger value="description" className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent data-[state=active]:shadow-none px-6 py-3">Omschrijving</TabsTrigger>
+              <TabsTrigger value="specs" className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent data-[state=active]:shadow-none px-6 py-3">Specificaties</TabsTrigger>
               {product.faq && product.faq.length > 0 && (
-                <TabsTrigger
-                  value="faq"
-                  className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent data-[state=active]:shadow-none px-6 py-3"
-                >
-                  Veelgestelde vragen
-                </TabsTrigger>
+                <TabsTrigger value="faq" className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent data-[state=active]:shadow-none px-6 py-3">Veelgestelde vragen</TabsTrigger>
               )}
             </TabsList>
 
@@ -237,9 +192,7 @@ const ProductPage = () => {
                   <TableBody>
                     {Object.entries(product.specifications).map(([key, value]) => (
                       <TableRow key={key}>
-                        <TableCell className="font-medium text-muted-foreground w-1/3">
-                          {key}
-                        </TableCell>
+                        <TableCell className="font-medium text-muted-foreground w-1/3">{key}</TableCell>
                         <TableCell className="text-foreground">{value}</TableCell>
                       </TableRow>
                     ))}
@@ -253,18 +206,29 @@ const ProductPage = () => {
                 <Accordion type="single" collapsible className="w-full">
                   {product.faq.map((item, i) => (
                     <AccordionItem key={i} value={`faq-${i}`}>
-                      <AccordionTrigger className="text-left">
-                        {item.question}
-                      </AccordionTrigger>
-                      <AccordionContent className="text-muted-foreground">
-                        {item.answer}
-                      </AccordionContent>
+                      <AccordionTrigger className="text-left">{item.question}</AccordionTrigger>
+                      <AccordionContent className="text-muted-foreground">{item.answer}</AccordionContent>
                     </AccordionItem>
                   ))}
                 </Accordion>
               </TabsContent>
             )}
           </Tabs>
+        </section>
+
+        {/* Internal links */}
+        <section className="max-w-6xl mx-auto px-4 pb-12">
+          <div className="flex flex-wrap gap-3">
+            <Button asChild variant="outline" size="sm">
+              <Link to="/vergelijken">Vergelijk categorieën</Link>
+            </Button>
+            <Button asChild variant="outline" size="sm">
+              <Link to="/blog">Blog & Advies</Link>
+            </Button>
+            <Button asChild variant="outline" size="sm">
+              <Link to={`/categorie/${product.category}`}>Meer {category?.name}</Link>
+            </Button>
+          </div>
         </section>
 
         {/* Video */}
@@ -274,7 +238,7 @@ const ProductPage = () => {
             <div className="aspect-video rounded-lg overflow-hidden bg-muted">
               <iframe
                 src={product.videoUrl.replace("watch?v=", "embed/")}
-                title="Montage video"
+                title={`${product.name} montage video`}
                 className="w-full h-full"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
