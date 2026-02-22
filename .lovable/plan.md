@@ -1,69 +1,64 @@
 
-# Make 3D Fence Preview 10x More Realistic
 
-## What Changes
+# Sun Direction Toggle for 3D Fence Preview
 
-The current 3D view uses basic flat colors, a tiny ground strip, and simple lighting. The reference images show a professional configurator with a large grass ground, realistic shadows, proper isometric camera angle, and detailed fence geometry.
+## Overview
 
-## Improvements
+Add an interactive sun position slider to the 3D view that lets users rotate the directional light around the fence, showing how shadows fall at different times of day. The reference image shows a slider with a sun icon on the left and a "cloudy/shade" icon on the right, controlling the sun angle.
 
-### 1. Ground and Environment
-- Replace the small green strip with a large grass-textured ground plane (20x20 meters) using a procedural noise pattern for realistic grass appearance
-- Add a subtle grid overlay on the ground for spatial reference (matching the light grey grid in image 50)
-- Use a soft sky-blue gradient background instead of flat grey-green
-- Add fog for depth perception
+## UI Control
 
-### 2. Lighting and Shadows
-- Add a shadow-casting directional light simulating the sun, with proper shadow map resolution (2048x2048)
-- Add hemisphere light (sky blue from above, ground green from below) for natural ambient
-- Enable shadow receiving on the ground plane
-- Enable shadow casting on posts and panels
-- Add a soft fill light from the opposite side to reduce harsh contrast
+- A floating overlay panel in the top-right area of the 3D canvas (similar to the existing segment label overlay)
+- Contains a horizontal slider with a sun icon on the left and a shade/overcast icon on the right
+- Slider value maps to a 0-360 degree rotation of the main directional light around the fence
+- Optionally includes a "Afmetingen tonen" (show dimensions) toggle, matching the reference
 
-### 3. Post Geometry
-- Make posts taller (extend 8cm above panel height as a cap)
-- Add a detailed post cap (pyramid or flat cap on top)
-- Use darker metallic material with higher metalness for realistic aluminum/steel look
-- Add a base plate detail at the bottom of each post
+## How It Works
 
-### 4. Panel Materials
-- Add subtle color variation per plank/slat for wood-grain realism
-- Increase depth of panels slightly for more 3D effect
-- Add a thin frame/rail at top and bottom of each panel section
-- For "decorative" and "mosaic" styles, render as a semi-transparent mesh pattern (like the wire-mesh look in the reference)
+- The slider value (0 to 1) maps the sun's horizontal angle from east (morning) through south (noon) to west (evening)
+- At the "sun" end (left): bright directional light, strong shadows, high intensity
+- At the "shade" end (right): diffuse light, soft/minimal shadows, lower intensity -- simulating overcast conditions
+- The directional light position is computed as a point on a circle around the fence, maintaining elevation
+- Shadow direction rotates in real-time as the slider moves
 
-### 5. Camera and Controls
-- Set initial camera to an isometric-like angle (elevated, looking down at ~30 degrees) matching reference images
-- Improve OrbitControls with smoother damping
-- Better auto-fit margins so the fence is centered with plenty of ground visible
+## Technical Changes
 
-### 6. Dimension Lines (optional visual)
-- Add 3D dimension arrows on the ground showing total fence length
-- Small label sprites showing measurements
+### File: `src/components/fence-planner/ThreeDViewCanvas.tsx`
 
-## Technical Details
+1. **Add state** for `sunAngle` (0-1 range) in the main `ThreeDViewCanvas` component
+2. **Add UI overlay** with a slider, sun icon (Lucide `Sun`), and shade icon (Lucide `CloudFog` or `Cloudy`)
+3. **Pass `sunAngle`** as a prop into `FenceScene`
+4. **Compute light position** from `sunAngle`:
+   - Horizontal angle: `sunAngle * Math.PI` (0 = east, PI = west)
+   - Light position: `[radius * cos(angle), height, radius * sin(angle)]`
+   - At high sunAngle values (toward shade end), reduce light intensity and increase ambient to simulate overcast
+5. **Adjust shadow softness**: As the slider moves toward shade, increase shadow bias slightly for softer edges
 
-### File Modified
-- `src/components/fence-planner/ThreeDViewCanvas.tsx` -- full rewrite of the scene
+### Light Calculation (pseudocode)
 
-### Key Changes in Code
+```text
+angle = sunAngle * Math.PI          // 0 to PI (east to west)
+radius = 12
+x = radius * cos(angle)
+z = radius * sin(angle)
+y = 10 + 2 * sin(angle)             // sun higher at midday
+intensity = lerp(1.8, 0.4, sunAngle) // bright sun to overcast
+ambientBoost = lerp(0.15, 0.5, sunAngle)
+```
 
-**Ground**: Large `PlaneGeometry(40, 40)` with a custom green material. Add a second transparent grid plane on top.
+### UI Layout
 
-**Shadows**: Enable `shadowMap` on Canvas, configure `directionalLight` with `shadow-mapSize={[2048, 2048]}`, set `shadow-camera` frustum to cover the fence area. All mesh objects get `castShadow` and ground gets `receiveShadow`.
+```text
++----------------------------------+
+|  [sun icon]  ====O========  [cloud icon]  |
++----------------------------------+
+```
 
-**Posts**: Taller box geometry with `meshPhysicalMaterial` using metalness 0.7, roughness 0.3 for realistic metal. Add pyramid cap mesh on top.
-
-**Panels**: Each plank/slat gets slight random color offset for wood grain. Use `meshPhysicalMaterial` with clearcoat for WPC-like sheen. Add horizontal rail meshes at top and bottom.
-
-**Lighting setup**:
-- `hemisphereLight` skyColor="#87ceeb" groundColor="#4a7c3f" intensity=0.4
-- `directionalLight` position=[8, 12, 6] intensity=1.5 castShadow
-- `directionalLight` position=[-4, 6, -3] intensity=0.3 (fill)
-
-**Camera**: Initial position offset to give an elevated isometric perspective, FOV reduced to 35 for flatter look.
-
-**Canvas config**: `shadows={{ type: THREE.PCFSoftShadowMap }}`, `dpr={[1, 2]}` for retina quality.
+- Positioned as an absolute overlay in the bottom-left or top-right of the 3D canvas
+- Uses existing Shadcn Slider component
+- Styled with `bg-background/80 backdrop-blur-sm` matching the existing overlays
 
 ## No New Dependencies
-All improvements use existing three.js and drei features already installed.
+
+Uses existing Lucide icons (`Sun`, `Cloud`) and Shadcn `Slider` component already installed.
+
