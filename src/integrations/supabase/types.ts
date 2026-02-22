@@ -442,9 +442,9 @@ export type Database = {
         | "delivered"
         | "cancelled"
       product_category: "gevelbekleding" | "schuttingen" | "vlonderplanken"
-      product_durability: "basis" | "premium" | "ultra"
-      product_tone: "warm" | "neutraal" | "koel"
-      product_type: "massief" | "holle-kamer" | "co-extrusie"
+      product_durability: "standaard" | "premium" | "massief"
+      product_tone: "teak" | "zwart" | "walnoot" | "eiken" | "grijs"
+      product_type: "plank" | "paneel" | "profiel"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -582,9 +582,9 @@ export const Constants = {
         "cancelled",
       ],
       product_category: ["gevelbekleding", "schuttingen", "vlonderplanken"],
-      product_durability: ["basis", "premium", "ultra"],
-      product_tone: ["warm", "neutraal", "koel"],
-      product_type: ["massief", "holle-kamer", "co-extrusie"],
+      product_durability: ["standaard", "premium", "massief"],
+      product_tone: ["teak", "zwart", "walnoot", "eiken", "grijs"],
+      product_type: ["plank", "paneel", "profiel"],
     },
   },
 } as const
