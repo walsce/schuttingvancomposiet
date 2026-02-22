@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { useCallback, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ProductCard from "@/components/ProductCard";
@@ -9,7 +9,7 @@ import { products, categories, Product } from "@/data/products";
 const CategoryPage = () => {
   const { slug } = useParams<{ slug: string }>();
   const category = categories.find((c) => c.slug === slug);
-  const categoryProducts = products.filter((p) => p.category === slug);
+  const categoryProducts = useMemo(() => products.filter((p) => p.category === slug), [slug]);
   const [filteredProducts, setFilteredProducts] = useState<Product[]>(categoryProducts);
 
   const handleFiltered = useCallback((result: Product[]) => {

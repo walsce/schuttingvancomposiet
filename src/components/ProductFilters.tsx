@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Product, Tone, Durability, ProductType, SortOption, toneLabels, durabilityLabels, productTypeLabels } from "@/data/products";
 import { SlidersHorizontal, X, ChevronDown } from "lucide-react";
 
@@ -38,7 +38,7 @@ const ProductFilters = ({ products, onFiltered }: ProductFiltersProps) => {
   const activeFilterCount = selectedTones.length + selectedDurability.length + selectedTypes.length;
 
   // Apply filters & sort
-  useMemo(() => {
+  const filtered = useMemo(() => {
     let result = [...products];
 
     if (selectedTones.length > 0) {
@@ -66,8 +66,12 @@ const ProductFilters = ({ products, onFiltered }: ProductFiltersProps) => {
         break;
     }
 
-    onFiltered(result);
-  }, [products, selectedTones, selectedDurability, selectedTypes, sort, onFiltered]);
+    return result;
+  }, [products, selectedTones, selectedDurability, selectedTypes, sort]);
+
+  useEffect(() => {
+    onFiltered(filtered);
+  }, [filtered, onFiltered]);
 
   const toggleTone = (t: Tone) =>
     setSelectedTones((prev) => (prev.includes(t) ? prev.filter((x) => x !== t) : [...prev, t]));
