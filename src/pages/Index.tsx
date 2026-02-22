@@ -34,7 +34,7 @@ const featuredProducts = [
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background overflow-x-hidden">
       <SEOHead
         title="Schuttingvancomposiet.nl | Premium Composiet voor Tuin & Gevel"
         description="Dé specialist in composiet gevelbekleding, schuttingen en vlonderplanken. Premium kwaliteit, 15 jaar garantie, eigen bezorgservice door heel Nederland."
@@ -50,24 +50,24 @@ const Index = () => {
             <img src={heroImage} alt="Composiet tuin met vlonderplanken en gevelbekleding" className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-r from-foreground/80 via-foreground/50 to-transparent" />
           </div>
-          <div className="container relative py-24 md:py-36">
+          <div className="container relative py-16 sm:py-24 md:py-36 px-4 sm:px-6">
             <div className="max-w-xl">
-              <span className="inline-block text-accent font-medium text-sm uppercase tracking-wider mb-4">
+              <span className="inline-block text-accent font-medium text-xs sm:text-sm uppercase tracking-wider mb-3 sm:mb-4">
                 Schuttingvancomposiet.nl
               </span>
-              <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-card leading-tight">
+              <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-card leading-tight">
                 Dé specialist in composiet producten
               </h1>
-              <p className="text-card/80 text-lg mt-4 leading-relaxed">
+              <p className="text-card/80 text-base sm:text-lg mt-3 sm:mt-4 leading-relaxed">
                 Premium composiet voor tuin en gevel. Onderhoudsvrij, duurzaam en altijd de scherpste prijzen van Nederland.
               </p>
-              <div className="flex flex-wrap gap-3 mt-8">
-                <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold">
+              <div className="flex flex-col sm:flex-row gap-3 mt-6 sm:mt-8">
+                <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold w-full sm:w-auto">
                   <Link to="/assortiment">
                     Bekijk Assortiment <ArrowRight className="w-4 h-4 ml-2" />
                   </Link>
                 </Button>
-                <Button asChild variant="outline" size="lg" className="border-card text-card bg-card/10 hover:bg-card/20 backdrop-blur-sm">
+                <Button asChild variant="outline" size="lg" className="border-card text-card bg-card/10 hover:bg-card/20 backdrop-blur-sm w-full sm:w-auto">
                   <Link to="/contact">Gratis Offerte</Link>
                 </Button>
               </div>
@@ -77,16 +77,16 @@ const Index = () => {
 
         {/* USPs */}
         <section className="border-b border-border bg-card">
-          <div className="container py-10">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="container py-6 sm:py-10 px-4 sm:px-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
               {usps.map((usp) => (
-                <div key={usp.title} className="flex items-start gap-3">
-                  <div className="p-2 bg-primary/10 rounded-lg shrink-0">
-                    <usp.icon className="w-5 h-5 text-primary" />
+                <div key={usp.title} className="flex items-start gap-2 sm:gap-3">
+                  <div className="p-1.5 sm:p-2 bg-primary/10 rounded-lg shrink-0">
+                    <usp.icon className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-sm text-foreground">{usp.title}</h3>
-                    <p className="text-xs text-muted-foreground mt-0.5">{usp.desc}</p>
+                    <h3 className="font-semibold text-xs sm:text-sm text-foreground">{usp.title}</h3>
+                    <p className="text-[11px] sm:text-xs text-muted-foreground mt-0.5 leading-snug">{usp.desc}</p>
                   </div>
                 </div>
               ))}
@@ -95,19 +95,19 @@ const Index = () => {
         </section>
 
         {/* Categories */}
-        <section className="container py-16 md:py-24">
-          <div className="text-center mb-12">
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground">Ons Assortiment</h2>
-            <p className="text-muted-foreground mt-3 max-w-lg mx-auto">
+        <section className="container py-12 sm:py-16 md:py-24 px-4 sm:px-6">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">Ons Assortiment</h2>
+            <p className="text-muted-foreground mt-2 sm:mt-3 max-w-lg mx-auto text-sm sm:text-base">
               Ontdek onze complete collectie composiet producten voor tuin en gevel
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
             {categories.map((cat) => (
               <CategoryCard key={cat.id} {...cat} />
             ))}
           </div>
-          <div className="text-center mt-8">
+          <div className="text-center mt-6 sm:mt-8">
             <Button asChild variant="outline">
               <Link to="/vergelijken">Vergelijk alle categorieën <ArrowRight className="w-4 h-4 ml-1" /></Link>
             </Button>
@@ -116,36 +116,41 @@ const Index = () => {
 
         {/* Featured products */}
         <section className="bg-secondary/50">
-          <div className="container py-16 md:py-24">
-            <div className="flex items-end justify-between mb-10">
+          <div className="container py-12 sm:py-16 md:py-24 px-4 sm:px-6">
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-6 sm:mb-10 gap-2">
               <div>
-                <h2 className="font-serif text-3xl font-bold text-foreground">Populaire producten</h2>
-                <p className="text-muted-foreground mt-2">Onze meest gekozen composiet producten</p>
+                <h2 className="font-serif text-2xl sm:text-3xl font-bold text-foreground">Populaire producten</h2>
+                <p className="text-muted-foreground mt-1 sm:mt-2 text-sm sm:text-base">Onze meest gekozen composiet producten</p>
               </div>
               <Button asChild variant="ghost" className="hidden sm:flex text-primary">
                 <Link to="/assortiment">Alle producten <ArrowRight className="w-4 h-4 ml-1" /></Link>
               </Button>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
               {featuredProducts.map((p) => (
                 <ProductCard key={p.id} product={p} />
               ))}
+            </div>
+            <div className="text-center mt-6 sm:hidden">
+              <Button asChild variant="ghost" className="text-primary">
+                <Link to="/assortiment">Alle producten <ArrowRight className="w-4 h-4 ml-1" /></Link>
+              </Button>
             </div>
           </div>
         </section>
 
         {/* Why composiet */}
-        <section className="container py-16 md:py-24">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+        <section className="container py-12 sm:py-16 md:py-24 px-4 sm:px-6">
+          <div className="grid md:grid-cols-2 gap-8 sm:gap-12 items-center">
             <div>
-              <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground">
+              <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
                 Waarom kiezen voor composiet?
               </h2>
-              <p className="text-muted-foreground mt-4 leading-relaxed">
+              <p className="text-muted-foreground mt-3 sm:mt-4 leading-relaxed text-sm sm:text-base">
                 Composiet combineert de warme uitstraling van hout met de duurzaamheid van moderne materialen.
                 Geen jaarlijks onderhoud, geen rotten of splinteren.
               </p>
-              <ul className="mt-6 space-y-3">
+              <ul className="mt-4 sm:mt-6 space-y-2 sm:space-y-3">
                 {[
                   "Minimaal onderhoud — afnemen met water is voldoende",
                   "UV-bestendig — behoudt jarenlang zijn kleur",
@@ -158,11 +163,11 @@ const Index = () => {
                   </li>
                 ))}
               </ul>
-              <div className="flex flex-wrap gap-3 mt-8">
-                <Button asChild className="bg-primary hover:bg-primary/90">
+              <div className="flex flex-col sm:flex-row gap-3 mt-6 sm:mt-8">
+                <Button asChild className="bg-primary hover:bg-primary/90 w-full sm:w-auto">
                   <Link to="/assortiment">Ontdek het assortiment</Link>
                 </Button>
-                <Button asChild variant="outline">
+                <Button asChild variant="outline" className="w-full sm:w-auto">
                   <Link to="/blog/composiet-vs-hout-vergelijking">Composiet vs. hout lezen</Link>
                 </Button>
               </div>
@@ -180,19 +185,19 @@ const Index = () => {
 
         {/* Blog teaser */}
         <section className="bg-card border-y border-border">
-          <div className="container py-16">
-            <div className="text-center mb-8">
-              <h2 className="font-serif text-3xl font-bold text-foreground">Kenniscentrum & Blog</h2>
-              <p className="text-muted-foreground mt-2">Koopgidsen, installatietips en inspiratie</p>
+          <div className="container py-10 sm:py-16 px-4 sm:px-6">
+            <div className="text-center mb-6 sm:mb-8">
+              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-foreground">Kenniscentrum & Blog</h2>
+              <p className="text-muted-foreground mt-2 text-sm sm:text-base">Koopgidsen, installatietips en inspiratie</p>
             </div>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Button asChild variant="outline">
+            <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4">
+              <Button asChild variant="outline" className="w-full sm:w-auto">
                 <Link to="/blog">Bekijk alle artikelen <ArrowRight className="w-4 h-4 ml-1" /></Link>
               </Button>
-              <Button asChild variant="ghost">
+              <Button asChild variant="ghost" className="w-full sm:w-auto">
                 <Link to="/blog/composiet-vlonderplanken-kiezen">Koopgids vlonderplanken</Link>
               </Button>
-              <Button asChild variant="ghost">
+              <Button asChild variant="ghost" className="w-full sm:w-auto">
                 <Link to="/blog/gevelbekleding-installeren-stap-voor-stap">Installatiehandleiding</Link>
               </Button>
             </div>
@@ -201,14 +206,14 @@ const Index = () => {
 
         {/* Deck Planner teaser */}
         <section className="bg-accent/10 border-b border-border">
-          <div className="container py-12 text-center">
-            <h2 className="font-serif text-2xl md:text-3xl font-bold text-foreground">
-              🛠️ Vlonderplanner
+          <div className="container py-10 sm:py-12 px-4 sm:px-6 text-center">
+            <h2 className="font-serif text-xl sm:text-2xl md:text-3xl font-bold text-foreground">
+              🛠️ TerrasDesigner Pro
             </h2>
-            <p className="text-muted-foreground mt-2 max-w-lg mx-auto">
+            <p className="text-muted-foreground mt-2 max-w-lg mx-auto text-sm sm:text-base">
               Ontwerp je terras online, kies je materiaal en ontvang direct een materiaallijst met prijsindicatie.
             </p>
-            <Button asChild className="mt-6 bg-accent text-accent-foreground hover:bg-accent/90">
+            <Button asChild className="mt-5 sm:mt-6 bg-accent text-accent-foreground hover:bg-accent/90 w-full sm:w-auto">
               <Link to="/vlonder-planner">Start de planner <ArrowRight className="w-4 h-4 ml-1" /></Link>
             </Button>
           </div>
@@ -216,14 +221,14 @@ const Index = () => {
 
         {/* Downloads teaser */}
         <section className="bg-primary/5 border-b border-border">
-          <div className="container py-12 text-center">
-            <h2 className="font-serif text-2xl md:text-3xl font-bold text-foreground">
+          <div className="container py-10 sm:py-12 px-4 sm:px-6 text-center">
+            <h2 className="font-serif text-xl sm:text-2xl md:text-3xl font-bold text-foreground">
               Gratis Gidsen & Checklists
             </h2>
-            <p className="text-muted-foreground mt-2 max-w-lg mx-auto">
+            <p className="text-muted-foreground mt-2 max-w-lg mx-auto text-sm sm:text-base">
               Download praktische PDF's over vergunningen, grondvoorbereiding, kleurkeuze en meer.
             </p>
-            <Button asChild className="mt-6 bg-accent text-accent-foreground hover:bg-accent/90">
+            <Button asChild className="mt-5 sm:mt-6 bg-accent text-accent-foreground hover:bg-accent/90 w-full sm:w-auto">
               <Link to="/downloads">Bekijk alle downloads <ArrowRight className="w-4 h-4 ml-1" /></Link>
             </Button>
           </div>
