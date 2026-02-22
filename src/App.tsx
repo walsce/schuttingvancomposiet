@@ -10,6 +10,7 @@ import ContactPage from "./pages/ContactPage";
 import ComparePage from "./pages/ComparePage";
 import BlogPage from "./pages/BlogPage";
 import BlogArticlePage from "./pages/BlogArticlePage";
+import ProductPage from "./pages/ProductPage";
 import NotFound from "./pages/NotFound";
 import ChatWidget from "./components/ChatWidget";
 
@@ -25,6 +26,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/assortiment" element={<AssortimentPage />} />
           <Route path="/categorie/:slug" element={<CategoryPage />} />
+          <Route path="/product/:slug" element={<ProductPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/vergelijken" element={<ComparePage />} />
           <Route path="/blog" element={<BlogPage />} />
