@@ -1,25 +1,29 @@
 
-# Make H2 Headings More Visible in Product Descriptions
+# Switch Product Page Colors from Green to Orange
 
-## Problem
+## What Changes
 
-The H2 headings in the product description tab (e.g., "Duurzaam en onderhoudsvrij", "Flexibele montage", "Voordelen in een oogopslag") are barely distinguishable from body text. They lack sufficient size, weight, and spacing to create a clear visual break.
+Replace the green (`text-primary`) color with the orange accent (`text-accent`) on key product page elements, matching the footer's branding style.
 
-## Changes
+## Affected Elements
 
-**File: `src/pages/ProductPage.tsx`** (line 217)
+**File: `src/pages/ProductPage.tsx`** -- 5 changes:
 
-Update the prose classes on the `article` element to make H2s stand out:
+| Element | Line | Change |
+|---|---|---|
+| Price label ("€25,95 per stuk") | 129 | `text-primary` to `text-accent` |
+| Delivery truck icon | 134 | `text-primary` to `text-accent` |
+| Guarantee shield icon | 138 | `text-primary` to `text-accent` |
+| Highlight checkmark icons | 147 | `text-primary` to `text-accent` |
+| "In het kort" info icon | 193 | `text-primary` to `text-accent` |
 
-- Increase H2 size from `prose-h2:text-xl` to `prose-h2:text-2xl` for more visual weight
-- Add `prose-h2:font-bold` to ensure they are clearly bold (headings, not body text)
-- Add `prose-h2:border-b prose-h2:border-border prose-h2:pb-2` to add a subtle bottom border separator
-- Increase top margin from `prose-h2:mt-8` to `prose-h2:mt-10` for more breathing room between sections
+**File: `src/components/ProductCard.tsx`** -- 1 change:
 
-This makes each H2 act as a clear section divider -- larger text, bold weight, and a subtle underline -- so readers can instantly scan the content structure.
+| Element | Line | Change |
+|---|---|---|
+| Price label on product cards | 34 | `text-primary` to `text-accent` |
 
-## Files Modified
+## What Stays Green
 
-| File | Change |
-|---|---|
-| `src/pages/ProductPage.tsx` | Update prose H2 classes for size, weight, and border separator |
+- CTA buttons ("Offerte Aanvragen") -- these use the green primary button style, which works well for action buttons
+- Related article hover color and internal link colors -- these are navigational and green is appropriate
