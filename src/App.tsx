@@ -14,6 +14,7 @@ import BlogArticlePage from "./pages/BlogArticlePage";
 import ProductPage from "./pages/ProductPage";
 import DownloadsPage from "./pages/DownloadsPage";
 import DeckPlannerPage from "./pages/DeckPlannerPage";
+import FencePlannerPage from "./pages/FencePlannerPage";
 import NotFound from "./pages/NotFound";
 import ChatWidget from "./components/ChatWidget";
 
@@ -37,6 +38,7 @@ const App = () => (
           <Route path="/blog/:slug" element={<BlogArticlePage />} />
           <Route path="/downloads" element={<DownloadsPage />} />
           <Route path="/vlonder-planner" element={<DeckPlannerPage />} />
+          <Route path="/schutting-planner" element={<FencePlannerPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <ChatWidget />
