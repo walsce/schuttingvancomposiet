@@ -1,77 +1,150 @@
 
-# Replace All MT Hekwerken Images with AI-Generated Product Images
+# Phase 1: Fix Build Errors + Full E-Commerce CMS Plan
 
-## Problem
-The product catalog contains ~80+ images hotlinked from `mthekwerken.nl`. These need to be replaced with original AI-generated images that depict the same type of products (composite fencing, cladding, decking) but are unique to this store.
+This plan has two parts: an immediate fix for the build errors, followed by a comprehensive roadmap for your own CMS/e-commerce platform.
 
-## Scope
-- **311 image references** across `src/data/products.ts` and `src/pages/Index.tsx`
-- **~30 products** across 3 categories: gevelbekleding (cladding), schuttingen (fencing), vlonderplanken (decking)
-- Each product has 1 primary image + 1-8 gallery images
-- The `designerData.ts` file already uses legitimate supplier CDN URLs and does NOT need changes
+---
 
-## Solution Architecture
+## Part A: Fix Build Errors (Immediate)
 
-### Phase 1: Infrastructure Setup
-1. **Create a Supabase Storage bucket** called `product-images` (public access) to host all generated images
-2. **Create an edge function** `generate-product-image` that:
-   - Accepts a text prompt describing the product
-   - Calls the Lovable AI image generation API (`google/gemini-2.5-flash-image`)
-   - Uploads the resulting image to the `product-images` storage bucket
-   - Returns the public URL
+Three TypeScript errors where `catch(err)` / `catch(error)` variables are typed as `unknown` and need casting.
 
-### Phase 2: Batch Image Generation
-3. **Create an admin edge function** `batch-generate-images` that:
-   - Contains a mapping of every product ID to descriptive prompts (e.g., "Professional product photo of a composite rhombus cladding plank in teak color, wood-grain texture, on white background, 290cm long, studio lighting")
-   - Calls the generation function for each product
-   - Returns a mapping of product ID to new image URLs
-   - Generates 1 primary image per product initially (gallery images can follow)
+### File 1: `supabase/functions/batch-generate-images/index.ts`
+- Line 242: Change `err.message` to `(err instanceof Error ? err.message : String(err))`
+- Line 253: Change `error.message` to `(error instanceof Error ? error.message : String(error))`
 
-### Phase 3: Update Product Data
-4. **Update `src/data/products.ts`**: Replace all `mthekwerken.nl` URLs with the new Supabase storage URLs
-5. **Update `src/pages/Index.tsx`**: Replace the hero/showcase image URL
+### File 2: `supabase/functions/generate-product-image/index.ts`
+- Line 127: Change `error.message` to `(error instanceof Error ? error.message : String(error))`
 
-## Image Generation Prompts Strategy
-Each prompt will be carefully crafted per product type:
+---
 
-- **Gevelbekleding (Cladding)**: "Studio product photograph of a single composite rhombus cladding plank, [COLOR] color with natural wood grain texture, angled view showing the rhombus profile, clean white background, professional commercial photography"
-- **Schuttingen (Fencing)**: "Professional product photograph of a composite fence panel section, [COLOR] color, [PROFILE] profile, showing multiple horizontal planks assembled, clean white background, studio lighting"
-- **Vlonderplanken (Decking)**: "Studio product photograph of composite decking boards in [COLOR] color, showing wood grain surface texture, angled perspective view, clean white background, professional commercial photography"
-- **In-situ/gallery images**: "Modern Dutch garden with composite [PRODUCT TYPE] in [COLOR], residential backyard setting, green lawn, contemporary architecture, professional architectural photography"
+## Part B: Full E-Commerce CMS Platform
 
-## Technical Details
+Yes, this is absolutely possible. Here is the complete architecture. Given the size, this will be built incrementally over multiple sessions.
 
-### Edge Function: `generate-product-image`
+### What You Get
+
+1. **Admin CMS Dashboard** (`/admin`) -- Full product management with CRUD
+2. **Google Shopping Feed** (`/api/google-feed`) -- Automated XML feed for Google Ads
+3. **Database-driven storefront** -- Products served from database instead of hardcoded file
+4. **Image upload system** -- Upload product images to storage
+5. **Mollie-ready checkout architecture** -- One-page checkout (Mollie integration added later)
+6. **Order management** -- Track orders and status
+7. **Customer accounts** -- Optional login for order history
+
+### Database Schema (New Tables)
+
 ```text
-Input: { prompt: string, fileName: string }
-Process:
-  1. Call Lovable AI gateway with google/gemini-2.5-flash-image
-  2. Receive base64 image
-  3. Convert to binary and upload to storage bucket
-  4. Return public URL
+cms_products
+  - id (uuid, PK)
+  - name, slug, price, price_label
+  - category (enum: gevelbekleding, schuttingen, vlonderplanken)
+  - tone, durability, product_type
+  - short_description, long_description
+  - seo_title, seo_description
+  - specifications (jsonb)
+  - highlights (text[])
+  - features (text[])
+  - guarantee, delivery_time
+  - dimensions (jsonb)
+  - options (jsonb)
+  - video_url
+  - is_published (boolean)
+  - sort_order (integer)
+  - created_at, updated_at
+
+cms_product_images
+  - id (uuid, PK)
+  - product_id (FK -> cms_products)
+  - image_url, alt_text
+  - is_primary (boolean)
+  - sort_order (integer)
+
+cms_product_faqs
+  - id (uuid, PK)
+  - product_id (FK -> cms_products)
+  - question, answer
+  - sort_order (integer)
+
+cms_categories
+  - id (uuid, PK)
+  - name, slug, description
+  - image_url
+  - seo_title, seo_description
+  - sort_order (integer)
+
+cms_orders
+  - id (uuid, PK)
+  - order_number (serial)
+  - customer_email, customer_name, customer_phone
+  - shipping_address (jsonb)
+  - billing_address (jsonb)
+  - items (jsonb)
+  - subtotal, shipping_cost, total
+  - status (enum: pending, paid, processing, shipped, delivered, cancelled)
+  - payment_id (for Mollie later)
+  - notes
+  - created_at, updated_at
+
+cms_order_items
+  - id (uuid, PK)
+  - order_id (FK -> cms_orders)
+  - product_id (FK -> cms_products)
+  - product_name, quantity, unit_price, total_price
+  - options (jsonb)
+
+google_feed_settings
+  - id (uuid, PK)
+  - store_name, store_url, currency
+  - brand_name, shipping_country, shipping_price
+  - updated_at
 ```
 
-### Storage Bucket
-- Name: `product-images`
-- Public access (no auth required for reading)
-- Organized by category: `gevelbekleding/`, `schuttingen/`, `vlonderplanken/`
+### Authentication and Roles
+- Admin users managed via `user_roles` table with `app_role` enum
+- RLS policies: Only admins can write to CMS tables
+- Public can read published products (for storefront)
 
-### Execution Order
-1. Create storage bucket (migration)
-2. Deploy `generate-product-image` edge function
-3. Generate images product by product (calling the edge function)
-4. Collect all new URLs
-5. Update `products.ts` with new URLs
-6. Update `Index.tsx` hero image
+### Admin Dashboard Pages
+- `/admin` -- Dashboard overview (order count, product count, revenue)
+- `/admin/products` -- Product list with search, filter, bulk actions
+- `/admin/products/new` -- Add product form (all fields, image upload, FAQ editor)
+- `/admin/products/:id` -- Edit product
+- `/admin/categories` -- Category management
+- `/admin/orders` -- Order list with status management
+- `/admin/feed` -- Google Shopping feed settings and preview
+- `/admin/settings` -- Store settings
 
-## Files Changed
-1. `supabase/functions/generate-product-image/index.ts` -- New edge function for AI image generation + storage upload
-2. `src/data/products.ts` -- Replace all ~80 mthekwerken.nl image URLs
-3. `src/pages/Index.tsx` -- Replace 1 hero image URL
-4. Database migration for storage bucket creation
+### Google Shopping Feed
+- Edge function that generates XML feed from `cms_products`
+- Fields: id, title, description, link, image_link, price, availability, brand, condition, google_product_category, gtin/mpn
+- Accessible at a public URL for Google Merchant Center
+- Auto-updates as products change in CMS
 
-## Risk Mitigation
-- AI-generated product images will be generic composite material photos, not copies of any existing brand imagery
-- Each prompt describes the material type, color, and profile in generic terms
-- Images are stored on your own infrastructure (Supabase storage)
-- The `designerData.ts` images from `cdn.forestia-group.com` are from your actual supplier (Felix Distribution / Forestia) and are legitimate to use -- these stay unchanged
+### One-Page Checkout (Mollie-Ready)
+- Cart stored in localStorage (or DB for logged-in users)
+- Single-page checkout: shipping info, order summary, payment
+- Creates order in `cms_orders` with status "pending"
+- Mollie webhook endpoint ready for payment confirmation (integration added later)
+
+### Migration from Hardcoded Data
+- Seed script to import current `products.ts` data into the new database tables
+- Storefront pages updated to query database instead of importing from file
+- Existing URLs and SEO preserved
+
+### Implementation Order
+1. Fix build errors (immediate)
+2. Create database tables + RLS policies + auth
+3. Admin login page
+4. Admin product CRUD (list, create, edit, delete)
+5. Image upload in admin
+6. Seed existing products into database
+7. Update storefront to read from database
+8. Google Shopping feed edge function
+9. Cart + one-page checkout UI
+10. Order management admin
+11. Mollie payment integration (future session)
+
+### Files Changed (Phase 1 only -- build fix)
+1. `supabase/functions/batch-generate-images/index.ts` -- Fix 2 TypeScript errors
+2. `supabase/functions/generate-product-image/index.ts` -- Fix 1 TypeScript error
