@@ -6,9 +6,7 @@ import DesignerTopBar from "./DesignerTopBar";
 import BottomToolbar from "./BottomToolbar";
 import PanelDesignerCanvas from "./PanelDesignerCanvas";
 import PlanViewCanvas from "./PlanViewCanvas";
-import { Button } from "@/components/ui/button";
-import { ChevronLeft, Loader2 } from "lucide-react";
-import { useIsMobile } from "@/hooks/use-mobile";
+import { Loader2 } from "lucide-react";
 
 const ThreeDViewCanvas = lazy(() => import("./ThreeDViewCanvas"));
 
@@ -23,7 +21,6 @@ const FenceDesignerView = ({
   selectedProduct,
   onBack,
 }: FenceDesignerViewProps) => {
-  const isMobile = useIsMobile();
   const [activeSegmentIndex, setActiveSegmentIndex] = useState(0);
   const [viewMode, setViewMode] = useState<ViewMode>("2d");
   const [zoom, setZoom] = useState(1);
@@ -46,9 +43,10 @@ const FenceDesignerView = ({
   }, [segmentPanels]);
 
   const remainingLength = activeSegment ? activeSegment.lengthCm - usedLength : 0;
+  const canAddPanel = remainingLength >= POST_WIDTH_CM + 10;
 
   const handleAddPanel = useCallback(() => {
-    if (remainingLength < POST_WIDTH_CM + 10) return;
+    if (!canAddPanel) return;
     const panelWidth = Math.min(STANDARD_PANEL_WIDTH, remainingLength - POST_WIDTH_CM);
     if (panelWidth <= 0) return;
 
@@ -61,7 +59,7 @@ const FenceDesignerView = ({
       position: segmentPanels.length,
     };
     setPlacedPanels((prev) => [...prev, newPanel]);
-  }, [remainingLength, panelStyle, colorHex, activeSegmentIndex, segmentPanels.length]);
+  }, [canAddPanel, remainingLength, panelStyle, colorHex, activeSegmentIndex, segmentPanels.length]);
 
   const handleRemovePanel = useCallback((id: string) => {
     setPlacedPanels((prev) => prev.filter((p) => p.id !== id));
@@ -86,7 +84,7 @@ const FenceDesignerView = ({
   }, [segments, placedPanels, selectedProduct]);
 
   return (
-    <div className="h-screen flex flex-col bg-muted/30">
+    <div className="h-screen flex flex-col bg-muted/20 overflow-hidden">
       <DesignerTopBar
         segments={segments}
         activeSegmentIndex={activeSegmentIndex}
@@ -97,67 +95,52 @@ const FenceDesignerView = ({
         zoom={zoom}
         onZoomChange={setZoom}
         onExportCsv={handleExportCsv}
-        onBack={isMobile ? onBack : undefined}
+        onBack={onBack}
+        onAddPanel={handleAddPanel}
+        canAddPanel={canAddPanel}
       />
 
-      <div className="flex-1 flex relative overflow-hidden">
-        {/* Left: back button (desktop only) */}
-        {!isMobile && (
-          <div className="absolute left-0 top-1/2 -translate-y-1/2 z-10">
-            <Button
-              variant="default"
-              size="sm"
-              className="rounded-l-none rounded-r-md h-20 w-8 px-0"
-              onClick={onBack}
-              title="Terug naar configuratie"
-            >
-              <ChevronLeft className="w-4 h-4" />
-            </Button>
-          </div>
+      {/* Canvas area */}
+      <div className="flex-1 flex items-center justify-center overflow-hidden p-2 sm:p-4 lg:p-6">
+        {viewMode === "2d" && activeSegment && (
+          <PanelDesignerCanvas
+            segmentLengthCm={activeSegment.lengthCm}
+            segmentLabel={activeSegment.label}
+            placedPanels={segmentPanels}
+            onAddPanel={handleAddPanel}
+            onRemovePanel={handleRemovePanel}
+            onReorderPanels={handleReorderPanels}
+            onResizePanel={handleResizePanel}
+            zoom={zoom}
+          />
         )}
-
-        {/* Canvas */}
-        <div className="flex-1 flex items-center justify-center p-2 sm:p-4 lg:p-8">
-          {viewMode === "2d" && activeSegment && (
-            <PanelDesignerCanvas
+        {viewMode === "plan" && activeSegment && (
+          <PlanViewCanvas
+            segmentLengthCm={activeSegment.lengthCm}
+            segmentLabel={activeSegment.label}
+            placedPanels={segmentPanels}
+            zoom={zoom}
+          />
+        )}
+        {viewMode === "3d" && activeSegment && (
+          <Suspense
+            fallback={
+              <div className="flex flex-col items-center justify-center gap-3 text-muted-foreground">
+                <Loader2 className="w-8 h-8 animate-spin" />
+                <p className="text-sm font-medium">3D weergave laden…</p>
+              </div>
+            }
+          >
+            <ThreeDViewCanvas
               segmentLengthCm={activeSegment.lengthCm}
               segmentLabel={activeSegment.label}
               placedPanels={segmentPanels}
               onAddPanel={handleAddPanel}
               onRemovePanel={handleRemovePanel}
               onReorderPanels={handleReorderPanels}
-              onResizePanel={handleResizePanel}
-              zoom={zoom}
             />
-          )}
-          {viewMode === "plan" && activeSegment && (
-            <PlanViewCanvas
-              segmentLengthCm={activeSegment.lengthCm}
-              segmentLabel={activeSegment.label}
-              placedPanels={segmentPanels}
-              zoom={zoom}
-            />
-          )}
-          {viewMode === "3d" && activeSegment && (
-            <Suspense
-              fallback={
-                <div className="flex flex-col items-center justify-center gap-3 text-muted-foreground">
-                  <Loader2 className="w-8 h-8 animate-spin" />
-                  <p className="text-sm">3D weergave laden...</p>
-                </div>
-              }
-            >
-              <ThreeDViewCanvas
-                segmentLengthCm={activeSegment.lengthCm}
-                segmentLabel={activeSegment.label}
-                placedPanels={segmentPanels}
-                onAddPanel={handleAddPanel}
-                onRemovePanel={handleRemovePanel}
-                onReorderPanels={handleReorderPanels}
-              />
-            </Suspense>
-          )}
-        </div>
+          </Suspense>
+        )}
       </div>
 
       <BottomToolbar
