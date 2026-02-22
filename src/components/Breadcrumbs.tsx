@@ -25,7 +25,7 @@ const Breadcrumbs = ({ items }: BreadcrumbsProps) => {
             <span key={i} className="flex items-center gap-2">
               {i > 0 && <span>/</span>}
               {item.href ? (
-                <Link to={item.href} className="hover:text-foreground transition-colors">
+                <Link to={item.href} className="hover:text-accent transition-colors">
                   {item.label}
                 </Link>
               ) : (
