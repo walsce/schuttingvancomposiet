@@ -1,88 +1,45 @@
 
 
-# Free Branded PDF Lead Magnets -- Downloads Page
+# Download Cards: Replace Icons with Stock Images + Gradient
 
-## PDF Content Ideas
+## Overview
 
-We will create a dedicated `/downloads` page offering 6 free branded PDF guides, each targeting a specific high-intent search cluster. Users provide their email to download (lead capture).
+Replace the current icon-based download cards with image-based cards featuring realistic stock photos and a gradient overlay, similar to the CategoryCard component style.
 
-### The 6 PDFs
+## Changes
 
-| # | Title (NL) | Topic | Search Intent |
-|---|---|---|---|
-| 1 | **Checklist: Composiet Schutting Plaatsen** | Step-by-step checklist for installing a composite fence -- tools needed, preparation, soil assessment, drainage, post spacing, mounting | MOFU |
-| 2 | **Vergelijking: Composiet vs. Houten Schuttingen** | Side-by-side comparison on price, lifespan, maintenance, aesthetics, environmental impact, warranty | MOFU |
-| 3 | **Gids: Vergunningen & Regels voor Schuttingen in Nederland** | Dutch local government rules (gemeente), maximum heights, boundary rules (erfgrens), burenrecht, permit requirements per situation | TOFU |
-| 4 | **Checklist: Grondvoorbereiding voor Schuttingen & Vlonders** | Soil types, drainage, foundation options (betonpoeren, paaltjes), frost depth, slope handling, ground preparation steps | TOFU |
-| 5 | **Kleurengids: Het Perfecte Composiet voor Jouw Tuin** | Color selection guide with style matching, tone guidance (warm/cool), combining with garden elements, fade resistance info | BOFU |
-| 6 | **Onderhoudsgids: Composiet Jarenlang Mooi Houden** | Seasonal maintenance calendar, cleaning instructions, stain removal, what to avoid, warranty conditions | TOFU |
+### 1. `src/data/downloads.ts`
 
-## Implementation
+- Add an `image` field to each download guide (URL to a relevant Unsplash stock photo)
+- Remove the `icon` import and field (no longer needed)
+- Update the `DownloadGuide` interface accordingly
 
-### 1. New page: `src/pages/DownloadsPage.tsx`
+Stock image mapping:
+| Guide | Image Theme |
+|---|---|
+| Checklist: Schutting Plaatsen | Person installing a fence / tools laid out |
+| Composiet vs. Hout | Side-by-side wood vs composite fence |
+| Vergunningen & Regels | Dutch house with garden fence |
+| Grondvoorbereiding | Soil preparation / digging foundations |
+| Kleurengids | Colorful composite boards / garden styling |
+| Onderhoudsgids | Clean composite deck / maintenance |
 
-A branded downloads/resources page at `/downloads` with:
-- SEO-optimized hero section with heading "Gratis Gidsen & Checklists"
-- 6 download cards in a responsive grid (2-3 columns)
-- Each card shows: title, short description, bullet points of what's inside, and a "Download Gratis" button
-- Clicking a download button opens a modal with an email capture form
-- After submitting email, show a success message (the actual PDF generation/hosting can be added later)
-- FAQ section with questions about the guides
-- CTA section at the bottom
+### 2. `src/pages/DownloadsPage.tsx`
 
-### 2. Download data: `src/data/downloads.ts`
+Redesign each card to use the image as a background with a gradient overlay (inspired by CategoryCard):
+- Card has a top image section (aspect ratio ~16/9 or 4/3) with gradient overlay
+- Badge and title overlaid on the image at the bottom
+- Below the image: description, bullet points, and download button
+- The gradient goes from dark at bottom to transparent at top, making white text readable over the photo
 
-A data file containing the 6 guide definitions with:
-- `id`, `title`, `slug`, `description`, `bulletPoints`, `category` (checklist/guide/comparison), `icon`, `relatedLinks`
+### 3. `src/pages/Index.tsx`
 
-### 3. Email capture modal component: `src/components/DownloadModal.tsx`
-
-A dialog/modal with:
-- Guide title displayed
-- Email input field
-- Name input field
-- Submit button "Download PDF"
-- Success state with confirmation message
-- Note: form submission will initially just show a success toast (no backend email storage yet -- can be added later with a database table)
-
-### 4. Route registration: `src/App.tsx`
-
-Add route `/downloads` pointing to `DownloadsPage`
-
-### 5. Footer link: `src/components/Footer.tsx`
-
-Add "Gratis Gidsen" link under "Informatie" section, linking to `/downloads`
-
-### 6. Homepage teaser: `src/pages/Index.tsx`
-
-Add a small section or banner promoting the free guides, between the blog teaser and FAQ sections
+If the downloads teaser section on the homepage also uses icons, update it to match the new image-based style.
 
 ## Technical Details
 
-### Download card structure
-Each card will use the existing Card component with:
-- A colored icon/badge indicating type (Checklist / Vergelijking / Gids)
-- Title as h3
-- 3-4 bullet points showing what's inside
-- "Download Gratis" CTA button
-
-### Email capture flow
-1. User clicks "Download Gratis" on a card
-2. Modal opens with guide title + email/name form
-3. User submits -> success toast appears
-4. Future enhancement: store leads in database table, send actual PDF via email
-
-### Files to create
-| File | Purpose |
-|---|---|
-| `src/data/downloads.ts` | Guide definitions data |
-| `src/components/DownloadModal.tsx` | Email capture modal |
-| `src/pages/DownloadsPage.tsx` | Downloads landing page |
-
-### Files to modify
-| File | Change |
-|---|---|
-| `src/App.tsx` | Add `/downloads` route |
-| `src/components/Footer.tsx` | Add "Gratis Gidsen" link |
-| `src/pages/Index.tsx` | Add downloads teaser section |
+- Images sourced from Unsplash (free, high-quality stock photos) via direct URLs
+- Each card structure: relative container with `<img>` + gradient div overlay + text content below
+- Lazy loading on all images for performance
+- No icon imports needed anymore -- Lucide icon imports removed from `downloads.ts`
 
