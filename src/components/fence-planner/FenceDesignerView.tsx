@@ -70,6 +70,20 @@ const FenceDesignerView = ({
     setPlacedPanels((prev) => prev.filter((p) => p.id !== id));
   }, []);
 
+  const handleReorderPanels = useCallback((reordered: PlacedPanel[]) => {
+    setPlacedPanels((prev) => {
+      const otherSegments = prev.filter((p) => p.segmentIndex !== activeSegmentIndex);
+      const updated = reordered.map((p, i) => ({ ...p, position: i }));
+      return [...otherSegments, ...updated];
+    });
+  }, [activeSegmentIndex]);
+
+  const handleResizePanel = useCallback((id: string, newWidthCm: number) => {
+    setPlacedPanels((prev) =>
+      prev.map((p) => (p.id === id ? { ...p, widthCm: newWidthCm } : p))
+    );
+  }, []);
+
   return (
     <div className="h-screen flex flex-col bg-muted/30">
       <DesignerTopBar
@@ -106,6 +120,8 @@ const FenceDesignerView = ({
               placedPanels={segmentPanels}
               onAddPanel={handleAddPanel}
               onRemovePanel={handleRemovePanel}
+              onReorderPanels={handleReorderPanels}
+              onResizePanel={handleResizePanel}
               zoom={zoom}
             />
           )}
