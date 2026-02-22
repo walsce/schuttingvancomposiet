@@ -1,5 +1,3 @@
-import { CheckSquare, GitCompareArrows, BookOpen, Layers, Palette, Sparkles } from "lucide-react";
-
 export type DownloadCategory = "checklist" | "vergelijking" | "gids";
 
 export interface DownloadGuide {
@@ -9,7 +7,7 @@ export interface DownloadGuide {
   description: string;
   bulletPoints: string[];
   category: DownloadCategory;
-  icon: typeof CheckSquare;
+  image: string;
   relatedLinks: { label: string; href: string }[];
 }
 
@@ -33,7 +31,7 @@ export const downloads: DownloadGuide[] = [
       "Veelgemaakte fouten vermijden",
     ],
     category: "checklist",
-    icon: CheckSquare,
+    image: "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=600&h=400&fit=crop",
     relatedLinks: [
       { label: "Schuttingen bekijken", href: "/categorie/schuttingen" },
     ],
@@ -51,7 +49,7 @@ export const downloads: DownloadGuide[] = [
       "Garantievoorwaarden vergeleken",
     ],
     category: "vergelijking",
-    icon: GitCompareArrows,
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=400&fit=crop",
     relatedLinks: [
       { label: "Lees: Composiet vs. Hout", href: "/blog/composiet-vs-hout-vergelijking" },
     ],
@@ -69,7 +67,7 @@ export const downloads: DownloadGuide[] = [
       "Handige links naar gemeentewebsites",
     ],
     category: "gids",
-    icon: BookOpen,
+    image: "https://images.unsplash.com/photo-1523217582562-09d0def993a6?w=600&h=400&fit=crop",
     relatedLinks: [
       { label: "Contact voor advies", href: "/contact" },
     ],
@@ -87,7 +85,7 @@ export const downloads: DownloadGuide[] = [
       "Hellingen & vorstdiepte berekenen",
     ],
     category: "checklist",
-    icon: Layers,
+    image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&h=400&fit=crop",
     relatedLinks: [
       { label: "Vlonderplanken bekijken", href: "/categorie/vlonderplanken" },
     ],
@@ -105,7 +103,7 @@ export const downloads: DownloadGuide[] = [
       "Stijlgids: modern, landelijk & stoer",
     ],
     category: "gids",
-    icon: Palette,
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&h=400&fit=crop",
     relatedLinks: [
       { label: "Bekijk alle kleuren", href: "/assortiment" },
     ],
@@ -123,7 +121,7 @@ export const downloads: DownloadGuide[] = [
       "Garantievoorwaarden behouden",
     ],
     category: "checklist",
-    icon: Sparkles,
+    image: "https://images.unsplash.com/photo-1591825729269-caeb344f6df2?w=600&h=400&fit=crop",
     relatedLinks: [
       { label: "Bekijk producten", href: "/assortiment" },
     ],
