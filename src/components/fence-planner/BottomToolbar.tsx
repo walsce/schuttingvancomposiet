@@ -1,16 +1,12 @@
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Diamond } from "lucide-react";
-import { FenceSystem, PanelStyleId } from "./types";
-import { modelOptions, productsByModel, colorsByModel, panelStyles } from "./designerData";
+import { PanelStyleId, SelectedProduct } from "./types";
+import { panelStyles, toneColorMap } from "./designerData";
 import { cn } from "@/lib/utils";
 
 interface BottomToolbarProps {
-  selectedModel: FenceSystem | null;
-  selectedProduct: string | null;
+  selectedProduct: SelectedProduct | null;
   selectedPanelStyle: PanelStyleId;
   selectedColorHex: string;
-  onModelChange: (model: FenceSystem) => void;
-  onProductChange: (product: string) => void;
   onPanelStyleChange: (style: PanelStyleId) => void;
   onColorChange: (hex: string) => void;
 }
@@ -60,7 +56,7 @@ const PanelThumbnail = ({ styleId, selected, onClick }: { styleId: PanelStyleId;
     <button
       onClick={onClick}
       className={cn(
-        "w-12 h-12 rounded-md border-2 p-1 text-foreground transition-colors",
+        "w-10 h-10 sm:w-12 sm:h-12 rounded-md border-2 p-1 text-foreground transition-colors flex-shrink-0",
         selected ? "border-primary bg-primary/10" : "border-border hover:border-primary/50"
       )}
     >
@@ -70,62 +66,31 @@ const PanelThumbnail = ({ styleId, selected, onClick }: { styleId: PanelStyleId;
 };
 
 const BottomToolbar = ({
-  selectedModel,
   selectedProduct,
   selectedPanelStyle,
   selectedColorHex,
-  onModelChange,
-  onProductChange,
   onPanelStyleChange,
   onColorChange,
 }: BottomToolbarProps) => {
-  const products = selectedModel ? productsByModel[selectedModel] : [];
-  const colors = selectedModel ? colorsByModel[selectedModel] : [];
+  const allColors = Object.entries(toneColorMap).map(([name, hex]) => ({ name, hex }));
 
   return (
-    <div className="border-t border-border bg-background px-4 py-3 flex-shrink-0">
-      <div className="flex items-center gap-4 overflow-x-auto">
-        {/* Model dropdown */}
-        <div className="flex items-center gap-2 flex-shrink-0">
-          <span className="text-xs text-muted-foreground">Model</span>
-          <Select value={selectedModel || ""} onValueChange={(v) => onModelChange(v as FenceSystem)}>
-            <SelectTrigger className="h-8 w-[100px] text-xs">
-              <SelectValue placeholder="Kies..." />
-            </SelectTrigger>
-            <SelectContent>
-              {modelOptions.map((m) => (
-                <SelectItem key={m.value} value={m.value}>{m.label}</SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </div>
+    <div className="border-t border-border bg-background px-3 sm:px-4 py-2 sm:py-3 flex-shrink-0">
+      <div className="flex items-center gap-3 sm:gap-4 overflow-x-auto">
+        {/* Product name */}
+        {selectedProduct && (
+          <div className="flex items-center gap-1.5 flex-shrink-0">
+            <Diamond className="w-3 h-3 text-primary" />
+            <span className="text-xs font-semibold truncate max-w-[120px] sm:max-w-none">
+              {selectedProduct.name.replace("Composiet schutting ", "")}
+            </span>
+          </div>
+        )}
 
-        {/* Product dropdown */}
-        <div className="flex items-center gap-2 flex-shrink-0">
-          <span className="text-xs text-muted-foreground">Product</span>
-          <Select value={selectedProduct || ""} onValueChange={onProductChange}>
-            <SelectTrigger className="h-8 w-[120px] text-xs">
-              <SelectValue placeholder="Kies..." />
-            </SelectTrigger>
-            <SelectContent>
-              {products.map((p) => (
-                <SelectItem key={p.value} value={p.value}>{p.label}</SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </div>
-
-        {/* Divider */}
-        <div className="h-8 w-px bg-border flex-shrink-0" />
-
-        {/* Label */}
-        <div className="flex items-center gap-1 flex-shrink-0">
-          <Diamond className="w-3 h-3 text-primary" />
-          <span className="text-xs font-semibold">Schutting</span>
-        </div>
+        <div className="h-6 w-px bg-border flex-shrink-0" />
 
         {/* Panel thumbnails */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1.5 sm:gap-2">
           {panelStyles.map((ps) => (
             <PanelThumbnail
               key={ps.id}
@@ -136,18 +101,17 @@ const BottomToolbar = ({
           ))}
         </div>
 
-        {/* Divider */}
-        <div className="h-8 w-px bg-border flex-shrink-0" />
+        <div className="h-6 w-px bg-border flex-shrink-0" />
 
         {/* Colors */}
-        <div className="flex items-center gap-2">
-          {colors.map((c) => (
+        <div className="flex items-center gap-1.5 sm:gap-2">
+          {allColors.map((c) => (
             <button
               key={c.hex}
               onClick={() => onColorChange(c.hex)}
               title={c.name}
               className={cn(
-                "w-7 h-7 rounded-md border-2 transition-colors",
+                "w-6 h-6 sm:w-7 sm:h-7 rounded-md border-2 transition-colors flex-shrink-0",
                 selectedColorHex === c.hex ? "border-primary ring-2 ring-primary/30" : "border-border"
               )}
               style={{ backgroundColor: c.hex }}
