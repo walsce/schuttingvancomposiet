@@ -51,7 +51,7 @@ export interface SegmentInfo {
 // Designer types (Step 2)
 export type ViewMode = "plan" | "2d" | "3d";
 
-export type PanelStyleId = "horizontal-planks" | "decorative" | "mosaic" | "louvers" | "vertical-slats";
+export type PanelStyleId = "horizontal-planks" | "decorative" | "mosaic" | "louvers" | "vertical-slats" | "aluminium" | "lamellen-45" | "lamellen-100" | "rhombus-lamellen" | "glass-panel" | "solar-panel";
 
 export interface PanelType {
   id: PanelStyleId;

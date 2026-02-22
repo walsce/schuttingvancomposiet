@@ -151,6 +151,9 @@ const FenceDesignerView = ({
                 segmentLengthCm={activeSegment.lengthCm}
                 segmentLabel={activeSegment.label}
                 placedPanels={segmentPanels}
+                onAddPanel={handleAddPanel}
+                onRemovePanel={handleRemovePanel}
+                onReorderPanels={handleReorderPanels}
               />
             </Suspense>
           )}

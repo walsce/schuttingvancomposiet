@@ -50,6 +50,51 @@ const PanelThumbnail = ({ styleId, selected, onClick }: { styleId: PanelStyleId;
         ))}
       </svg>
     ),
+    "aluminium": (
+      <svg viewBox="0 0 40 40" className="w-full h-full">
+        <rect x="2" y="2" width="36" height="36" rx="1" fill="currentColor" opacity="0.7" />
+        {[10, 20, 30].map((y) => (
+          <line key={y} x1="2" y1={y} x2="38" y2={y} stroke="white" strokeWidth="0.5" opacity="0.3" />
+        ))}
+      </svg>
+    ),
+    "lamellen-45": (
+      <svg viewBox="0 0 40 40" className="w-full h-full">
+        {[0, 6, 12, 18, 24, 30, 36].map((y) => (
+          <rect key={y} x="3" y={y} width="34" height="3.5" rx="0.5" fill="currentColor" opacity="0.6" />
+        ))}
+      </svg>
+    ),
+    "lamellen-100": (
+      <svg viewBox="0 0 40 40" className="w-full h-full">
+        {[0, 11, 22, 33].map((y) => (
+          <rect key={y} x="3" y={y} width="34" height="8" rx="0.5" fill="currentColor" opacity="0.6" />
+        ))}
+      </svg>
+    ),
+    "rhombus-lamellen": (
+      <svg viewBox="0 0 40 40" className="w-full h-full">
+        {[2, 10, 18, 26, 34].map((y) => (
+          <polygon key={y} points={`3,${y + 3} 5,${y} 35,${y} 37,${y + 3} 35,${y + 6} 5,${y + 6}`} fill="currentColor" opacity="0.6" />
+        ))}
+      </svg>
+    ),
+    "glass-panel": (
+      <svg viewBox="0 0 40 40" className="w-full h-full">
+        <rect x="2" y="2" width="36" height="36" rx="2" fill="#8ab4cc" opacity="0.4" />
+        <rect x="4" y="4" width="32" height="32" rx="1" fill="#c8e0f0" opacity="0.3" />
+      </svg>
+    ),
+    "solar-panel": (
+      <svg viewBox="0 0 40 40" className="w-full h-full">
+        <rect x="2" y="2" width="36" height="36" rx="1" fill="#1a2233" opacity="0.8" />
+        {[0, 1, 2].map((r) =>
+          [0, 1].map((c) => (
+            <rect key={`${r}-${c}`} x={4 + c * 18} y={4 + r * 12} width="14" height="10" rx="1" fill="#3366cc" opacity="0.6" />
+          ))
+        )}
+      </svg>
+    ),
   };
 
   return (
