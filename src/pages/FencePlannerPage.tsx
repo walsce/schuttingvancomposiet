@@ -76,7 +76,7 @@ const FencePlannerPage = () => {
     return (
       <>
         <SEOHead
-          title="Schutting Planner | S van Composiet.nl"
+          title="SchuttingPlanner Pro | S van Composiet.nl"
           description="Ontwerp uw composiet schutting online met onze gratis planner."
           canonical="/schutting-planner"
         />
@@ -90,7 +90,7 @@ const FencePlannerPage = () => {
     return (
       <>
         <SEOHead
-          title="Schutting Planner | S van Composiet.nl"
+          title="SchuttingPlanner Pro | S van Composiet.nl"
           description="Ontwerp uw composiet schutting online met onze gratis planner."
           canonical="/schutting-planner"
         />
@@ -186,7 +186,7 @@ const FencePlannerPage = () => {
     return (
       <>
         <SEOHead
-          title="Schutting Planner | S van Composiet.nl"
+          title="SchuttingPlanner Pro | S van Composiet.nl"
           description="Ontwerp uw composiet schutting online met onze gratis planner."
           canonical="/schutting-planner"
         />
@@ -196,7 +196,7 @@ const FencePlannerPage = () => {
           <div className="bg-background border-b border-border px-4 py-3">
             <div className="flex items-center gap-2 mb-3">
               <Diamond className="w-4 h-4 text-primary" />
-              <span className="font-serif font-bold text-base">Schutting Planner</span>
+              <span className="font-serif font-bold text-base">SchuttingPlanner Pro</span>
             </div>
             <div className="flex gap-1">
               {MOBILE_STEPS.map((s, i) => (
@@ -297,7 +297,7 @@ const FencePlannerPage = () => {
   return (
     <>
       <SEOHead
-        title="Schutting Planner | S van Composiet.nl"
+        title="SchuttingPlanner Pro | S van Composiet.nl"
         description="Ontwerp uw composiet schutting online met onze gratis planner."
         canonical="/schutting-planner"
       />
@@ -307,7 +307,7 @@ const FencePlannerPage = () => {
         <aside className="w-full lg:w-[340px] lg:min-w-[340px] bg-background border-r border-border overflow-y-auto p-4 lg:p-5 flex-shrink-0">
           <div className="flex items-center gap-2 mb-6">
             <Diamond className="w-5 h-5 text-primary" />
-            <span className="font-serif font-bold text-lg text-foreground">Schutting Planner</span>
+            <span className="font-serif font-bold text-lg text-foreground">SchuttingPlanner Pro</span>
           </div>
 
           <Accordion type="multiple" defaultValue={["shape", "ground", "post", "system"]} className="space-y-1">
