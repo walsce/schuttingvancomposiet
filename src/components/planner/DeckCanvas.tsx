@@ -1,5 +1,5 @@
 import { useRef, useState, useCallback, useMemo } from "react";
-import { Point, LayingPattern } from "./types";
+import { Point, LayingPattern, LayingMethod } from "./types";
 import { dist } from "./presets";
 
 interface FloorPlanBackground {
@@ -15,6 +15,8 @@ interface DeckCanvasProps {
   onPointsChange: (points: Point[]) => void;
   editable: boolean;
   layingPattern?: LayingPattern;
+  layingMethod?: LayingMethod;
+  selectedProduct?: string | null;
   areaM2: number;
   floorPlan?: FloorPlanBackground | null;
   freehandMode?: boolean;
@@ -28,6 +30,42 @@ const HANDLE_R = 7;
 const MID_HANDLE_R = 5;
 const GRID_STEP_PX = 40;
 const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+const PRODUCT_COLORS: Record<string, string> = {
+  "vlonder-donker-grijs": "#6B6B6B",
+  "vlonder-teak": "#B08050",
+  "vlonder-vergrijsd-eiken": "#9E9285",
+  "vlonder-walnoot": "#7A5C3E",
+  "vlonder-massief-grijs": "#808080",
+  "vlonder-massief-teak": "#C4935A",
+  "vlonder-massief-zwart": "#3A3A3A",
+};
+const DEFAULT_PLANK_COLOR = "#A08060";
+
+function hexToHsl(hex: string): [number, number, number] {
+  const r = parseInt(hex.slice(1, 3), 16) / 255;
+  const g = parseInt(hex.slice(3, 5), 16) / 255;
+  const b = parseInt(hex.slice(5, 7), 16) / 255;
+  const max = Math.max(r, g, b), min = Math.min(r, g, b);
+  let h = 0, s = 0;
+  const l = (max + min) / 2;
+  if (max !== min) {
+    const d = max - min;
+    s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+    if (max === r) h = ((g - b) / d + (g < b ? 6 : 0)) / 6;
+    else if (max === g) h = ((b - r) / d + 2) / 6;
+    else h = ((r - g) / d + 4) / 6;
+  }
+  return [Math.round(h * 360), Math.round(s * 100), Math.round(l * 100)];
+}
+
+function varyColor(hex: string, rowIndex: number): string {
+  const [h, s, l] = hexToHsl(hex);
+  // Alternate lightness +/- 3-5%
+  const variation = ((rowIndex * 7 + 3) % 11) - 5; // deterministic -5..+5
+  const newL = Math.max(10, Math.min(90, l + variation));
+  return `hsl(${h}, ${s}%, ${newL}%)`;
+}
 
 // Simplify a polyline using Ramer-Douglas-Peucker
 function rdpSimplify(pts: Point[], epsilon: number): Point[] {
@@ -55,11 +93,21 @@ function pointLineDistance(p: Point, a: Point, b: Point): number {
   return dist(p, { x: a.x + t * dx, y: a.y + t * dy });
 }
 
-const DeckCanvas = ({ points, onPointsChange, editable, layingPattern = "horizontal", areaM2, floorPlan, freehandMode = false, onFreehandComplete }: DeckCanvasProps) => {
+interface PlankRect {
+  x: number;
+  y: number;
+  w: number;
+  h: number;
+  fill: string;
+}
+
+const DeckCanvas = ({ points, onPointsChange, editable, layingPattern = "horizontal", layingMethod = "staggered", selectedProduct, areaM2, floorPlan, freehandMode = false, onFreehandComplete }: DeckCanvasProps) => {
   const svgRef = useRef<SVGSVGElement>(null);
   const [dragging, setDragging] = useState<number | null>(null);
   const [drawing, setDrawing] = useState(false);
   const [drawPoints, setDrawPoints] = useState<Point[]>([]);
+
+  const baseColor = selectedProduct ? (PRODUCT_COLORS[selectedProduct] || DEFAULT_PLANK_COLOR) : DEFAULT_PLANK_COLOR;
 
   // Fixed scale for freehand mode (10m x 7.5m canvas)
   const freehandScale = useMemo(() => {
@@ -123,9 +171,7 @@ const DeckCanvas = ({ points, onPointsChange, editable, layingPattern = "horizon
     if (!freehandMode || !drawing) return;
     setDrawing(false);
     if (drawPoints.length >= 3) {
-      // Simplify the drawn path
       const simplified = rdpSimplify(drawPoints, 0.15);
-      // Remove last point if it's too close to first (auto-close)
       const final = simplified.length > 3 && dist(simplified[0], simplified[simplified.length - 1]) < 0.3
         ? simplified.slice(0, -1)
         : simplified;
@@ -207,36 +253,97 @@ const DeckCanvas = ({ points, onPointsChange, editable, layingPattern = "horizon
     };
   });
 
-  // Plank pattern lines inside shape
-  const patternLines = useMemo(() => {
+  // Generate plank rectangles
+  const patternPlanks = useMemo((): PlankRect[] => {
     if (screenPoints.length < 3) return [];
     const xs = screenPoints.map((p) => p.x);
     const ys = screenPoints.map((p) => p.y);
     const minX = Math.min(...xs), maxX = Math.max(...xs);
     const minY = Math.min(...ys), maxY = Math.max(...ys);
-    const spacing = 8;
-    const lines: { x1: number; y1: number; x2: number; y2: number }[] = [];
 
-    if (layingPattern === "horizontal") {
-      for (let y = minY + spacing; y < maxY; y += spacing) {
-        lines.push({ x1: minX, y1: y, x2: maxX, y2: y });
+    const plankWidthPx = 0.138 * scale; // 13.8cm in world units -> pixels
+    const plankGap = 3;
+    const plankLengthPx = 3.0 * scale; // 3m plank length
+    const plankEndGap = 2;
+    const planks: PlankRect[] = [];
+
+    const isVertical = layingPattern === "vertical";
+    const isDiagonal = layingPattern === "diagonal" || layingPattern === "diagonal-left";
+    const isChevron = layingPattern === "chevron";
+
+    if (isVertical) {
+      // Vertical: planks run top-to-bottom, iterate columns left-to-right
+      let col = 0;
+      for (let x = minX; x < maxX; x += plankWidthPx + plankGap) {
+        const rowOffset = getOffset(col, plankLengthPx, layingMethod);
+        for (let y = minY - plankLengthPx + rowOffset; y < maxY; y += plankLengthPx + plankEndGap) {
+          planks.push({
+            x,
+            y,
+            w: Math.min(plankWidthPx, maxX - x),
+            h: plankLengthPx,
+            fill: varyColor(baseColor, col),
+          });
+        }
+        col++;
       }
-    } else if (layingPattern === "vertical") {
-      for (let x = minX + spacing; x < maxX; x += spacing) {
-        lines.push({ x1: x, y1: minY, x2: x, y2: maxY });
+    } else if (isDiagonal || isChevron) {
+      // For diagonal, generate in a rotated frame, then we'll wrap in transform
+      const cx = (minX + maxX) / 2;
+      const cy = (minY + maxY) / 2;
+      const diag = Math.sqrt((maxX - minX) ** 2 + (maxY - minY) ** 2);
+      const eMinX = cx - diag;
+      const eMaxX = cx + diag;
+      const eMinY = cy - diag;
+      const eMaxY = cy + diag;
+
+      let row = 0;
+      for (let y = eMinY; y < eMaxY; y += plankWidthPx + plankGap) {
+        const rowOffset = getOffset(row, plankLengthPx, layingMethod);
+        for (let x = eMinX - plankLengthPx + rowOffset; x < eMaxX; x += plankLengthPx + plankEndGap) {
+          planks.push({
+            x,
+            y,
+            w: plankLengthPx,
+            h: plankWidthPx,
+            fill: varyColor(baseColor, row),
+          });
+        }
+        row++;
       }
     } else {
-      const range = maxX - minX + maxY - minY;
-      for (let offset = -range; offset < range; offset += spacing * 1.4) {
-        lines.push({
-          x1: minX + offset,
-          y1: minY,
-          x2: minX + offset + (maxY - minY),
-          y2: maxY,
-        });
+      // Horizontal (default): planks run left-to-right
+      let row = 0;
+      for (let y = minY; y < maxY; y += plankWidthPx + plankGap) {
+        const rowOffset = getOffset(row, plankLengthPx, layingMethod);
+        for (let x = minX - plankLengthPx + rowOffset; x < maxX; x += plankLengthPx + plankEndGap) {
+          planks.push({
+            x,
+            y,
+            w: plankLengthPx,
+            h: Math.min(plankWidthPx, maxY - y),
+            fill: varyColor(baseColor, row),
+          });
+        }
+        row++;
       }
     }
-    return lines;
+
+    return planks;
+  }, [screenPoints, layingPattern, layingMethod, baseColor, scale]);
+
+  // Diagonal transform params
+  const diagonalTransform = useMemo(() => {
+    if (screenPoints.length < 3) return "";
+    const isDiagonal = layingPattern === "diagonal" || layingPattern === "diagonal-left";
+    const isChevron = layingPattern === "chevron";
+    if (!isDiagonal && !isChevron) return "";
+    const xs = screenPoints.map((p) => p.x);
+    const ys = screenPoints.map((p) => p.y);
+    const cx = (Math.min(...xs) + Math.max(...xs)) / 2;
+    const cy = (Math.min(...ys) + Math.max(...ys)) / 2;
+    const angle = layingPattern === "diagonal-left" ? -45 : 45;
+    return `rotate(${angle}, ${cx}, ${cy})`;
   }, [screenPoints, layingPattern]);
 
   return (
@@ -268,6 +375,12 @@ const DeckCanvas = ({ points, onPointsChange, editable, layingPattern = "horizon
           <clipPath id="shapeClip">
             <path d={pathD} />
           </clipPath>
+          {/* Subtle wood grain filter */}
+          <filter id="woodGrain" x="0" y="0" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.4 0.02" numOctaves="3" seed="2" result="noise" />
+            <feColorMatrix type="saturate" values="0" in="noise" result="grayNoise" />
+            <feBlend in="SourceGraphic" in2="grayNoise" mode="soft-light" />
+          </filter>
         </defs>
         <rect width={CANVAS_W} height={CANVAS_H} fill="url(#grid)" rx="12" />
 
@@ -296,23 +409,44 @@ const DeckCanvas = ({ points, onPointsChange, editable, layingPattern = "horizon
           </text>
         )}
 
-        {/* Shape fill */}
+        {/* Shape background fill with product color */}
         {screenPoints.length >= 3 && (
-          <path d={pathD} fill="hsl(var(--primary) / 0.12)" stroke="hsl(var(--primary))" strokeWidth="2" strokeLinejoin="round" />
+          <path
+            d={pathD}
+            fill={baseColor}
+            fillOpacity={0.3}
+            stroke="none"
+          />
         )}
 
-        {/* Plank pattern lines clipped to shape */}
-        {screenPoints.length >= 3 && (
+        {/* Plank rectangles clipped to shape */}
+        {screenPoints.length >= 3 && patternPlanks.length > 0 && (
           <g clipPath="url(#shapeClip)">
-            {patternLines.map((l, i) => (
-              <line
-                key={`pl-${i}`}
-                x1={l.x1} y1={l.y1} x2={l.x2} y2={l.y2}
-                stroke="hsl(var(--primary) / 0.25)"
-                strokeWidth="1"
-              />
-            ))}
+            <g transform={diagonalTransform} filter="url(#woodGrain)">
+              {patternPlanks.map((p, i) => (
+                <rect
+                  key={`plank-${i}`}
+                  x={p.x}
+                  y={p.y}
+                  width={p.w}
+                  height={p.h}
+                  fill={p.fill}
+                  rx={1}
+                />
+              ))}
+            </g>
           </g>
+        )}
+
+        {/* Shape outline on top */}
+        {screenPoints.length >= 3 && (
+          <path
+            d={pathD}
+            fill="none"
+            stroke="hsl(var(--primary))"
+            strokeWidth="2"
+            strokeLinejoin="round"
+          />
         )}
 
         {/* Live freehand drawing path */}
@@ -394,5 +528,18 @@ const DeckCanvas = ({ points, onPointsChange, editable, layingPattern = "horizon
     </div>
   );
 };
+
+function getOffset(rowIndex: number, plankLength: number, method: LayingMethod): number {
+  switch (method) {
+    case "brick":
+      return (rowIndex % 2) * (plankLength / 2);
+    case "running":
+      return (rowIndex % 3) * (plankLength / 3);
+    case "staggered":
+    default:
+      // Deterministic pseudo-random offset
+      return ((rowIndex * 137 + 43) % 100) / 100 * (plankLength * 0.6);
+  }
+}
 
 export default DeckCanvas;

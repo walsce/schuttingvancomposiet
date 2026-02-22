@@ -177,6 +177,8 @@ const DeckPlannerPage = () => {
                 onPointsChange={handlePointsChange}
                 editable={true}
                 layingPattern={layingConfig.pattern}
+                layingMethod={layingConfig.method}
+                selectedProduct={selectedProduct}
                 areaM2={areaM2}
                 floorPlan={floorPlanUrl ? {
                   imageUrl: floorPlanUrl,
