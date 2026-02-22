@@ -1,51 +1,25 @@
 
-# Deck Planner Landing Page + Schutting Planner Teaser on Homepage
+# Noindex + Custom Favicon
 
-## 1. New file: `src/components/planner/DeckPlannerHero.tsx`
+## 1. Add noindex to the entire site
 
-Create a landing/hero page for the Deck Planner, following the same pattern as `FencePlannerHero.tsx`:
+The simplest and most reliable approach: add a `<meta name="robots" content="noindex, nofollow">` tag directly in `index.html`. This ensures every page is noindexed regardless of which component renders -- no need to touch individual page components.
 
-- Full-width hero with `cta-bg.jpg` background, dark gradient overlay
-- Badge "Gratis Online Tool"
-- Serif heading: "TerrasDesigner Pro"
-- Subtitle about designing your deck online
-- CTA button "Start de Planner"
-- 3-step section ("Hoe werkt het?"):
-  - Step 1: Kies uw vorm (Ruler icon)
-  - Step 2: Kies materiaal & legpatroon (Settings2 icon) 
-  - Step 3: Ontvang materiaallijst (FileText icon)
-- USP bar (Gratis, Geen account nodig, Direct materiaallijst, Inclusief onderconstructie)
-- Final CTA section
-- Includes Header and Footer
+**File: `index.html`**
+- Add `<meta name="robots" content="noindex, nofollow" />` inside `<head>`
 
-## 2. Update: `src/pages/DeckPlannerPage.tsx`
+## 2. Create an SVG favicon (composiet fence)
 
-Add a `started` state (like the fence planner). When `started` is false, show the new `DeckPlannerHero` with an `onStart` callback. When true, show the current planner UI.
+Since I can create SVG files in code, I'll design a simple, clean fence icon as an SVG favicon -- vertical fence boards with a horizontal rail, using the site's primary green color (`#2F5233`). This will look crisp at any size.
 
-## 3. Update: `src/pages/Index.tsx`
+**File: `public/favicon.svg`** (new)
+- A minimal composiet fence silhouette: 4-5 vertical planks with a horizontal rail
+- Uses the site's primary green color
+- Clean, recognizable at 32x32px
 
-Replace the current simple "Deck Planner teaser" section (lines 207-220) with a richer two-column section featuring both planners side by side:
+**File: `index.html`**
+- Replace the current `<link rel="icon" href="/favicon.ico">` reference (currently implicit) with `<link rel="icon" href="/favicon.svg" type="image/svg+xml">`
 
-- Section title: "Online Planners" or "Gratis Ontwerp Tools"
-- Two cards side by side (stacking on mobile):
-  - Card 1: TerrasDesigner Pro -- icon, short description, CTA link to `/vlonder-planner`
-  - Card 2: Schutting Planner -- icon, short description, CTA link to `/schutting-planner`
-- Each card has a colored icon, title, 1-line description, and a button
-- Replaces the existing single deck planner teaser section
+### Technical details
 
-## Technical Details
-
-### `DeckPlannerHero.tsx` structure
-Mirrors `FencePlannerHero.tsx` exactly in layout and styling, with deck-specific content:
-- Steps adapted for deck workflow (shape, material/pattern, materials list)
-- USPs adapted (e.g., "Inclusief onderconstructie" instead of "Export naar CSV")
-
-### `DeckPlannerPage.tsx` changes
-- Add `const [started, setStarted] = useState(false);`
-- If not started, render `<DeckPlannerHero onStart={() => setStarted(true)} />`  with its own SEOHead
-- If started, render existing planner UI (unchanged)
-
-### `Index.tsx` changes
-- Replace the deck planner teaser (lines 207-220) with a new "Gratis Ontwerp Tools" section
-- Two side-by-side cards with icons (Layers for deck, Fence/Grid3x3 for schutting), title, description, and CTA button
-- Styled with `bg-accent/10 border-b border-border` matching current section
+Both changes happen in `index.html` (adding noindex meta + updating favicon link), plus one new SVG file in `public/`.
