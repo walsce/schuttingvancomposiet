@@ -1,55 +1,45 @@
 
-# Missing Features from MyDeckPlanner Screenshots
+# Realistic Plank Preview on Canvas
 
-After comparing the reference screenshots with the current implementation, here are the components and options that need to be added or enhanced.
+## Overview
+Replace the current simple line-based plank pattern on the canvas with realistic-looking plank rectangles that reflect the selected product color, laying direction, laying method (staggered/brick/running bond), and visible gaps between planks -- matching the MyDeckPlanner reference screenshot.
 
-## What's Missing
+## What Changes
 
-### 1. Extended Ground Types (image-28)
-The current dropdown has 3 options but the reference shows 4:
-- Bodem verdicht (exists)
-- Ondergrond van beton (exists as "Beton" -- rename)
-- Plat dak, dakterrassen met afdichtfolie (missing)
-- Zachte grond / zand (missing)
+### 1. Product Color Mapping
+Add a color lookup that maps each vlonderplank product slug to a realistic fill color:
+- `vlonder-donker-grijs` -> dark grey (#6B6B6B)
+- `vlonder-teak` -> warm teak (#B08050)
+- `vlonder-vergrijsd-eiken` -> weathered oak (#9E9285)
+- `vlonder-walnoot` -> walnut brown (#7A5C3E)
+- `vlonder-massief-grijs` -> medium grey (#808080)
+- `vlonder-massief-teak` -> rich teak (#C4935A)
+- `vlonder-massief-zwart` -> near-black (#3A3A3A)
+- Default (no product selected) -> neutral brown (#A08060)
 
-### 2. Usage Type with Visual Icons (image-29 + image-31)
-The reference shows "Type terrasgebruik" as 3 visual icon options (not 2 text buttons). Currently we only have "Privegebruik" and "Commercieel". The reference appears to show 3 distinct usage patterns. We'll add a third option ("Intensief") and use SVG icons matching the screenshot style.
+### 2. Plank Rendering Instead of Lines
+Replace the current `patternLines` (simple stroke lines) with `patternPlanks` -- filled rectangles representing individual planks:
+- Each plank has a width matching realistic proportions (~13.8cm scaled to canvas pixels)
+- A 3-4px gap between planks
+- Planks are clipped to the deck shape via the existing `clipPath`
+- Subtle wood-grain effect using alternating slightly varied fill colors per plank row
 
-### 3. Substructure Beam Selection (image-29)
-Currently missing entirely. The reference shows "Selecteer onderbouw" with a selectable beam product card (e.g., "StructurAL Alu 60x40mm - 400cm"). We'll add a substructure beam selector to the Onderconstructie accordion section.
+### 3. Laying Method Visualization
+The plank layout changes based on the selected `LayingMethod`:
+- **Staggered**: Random offset per row (current default behavior)
+- **Brick (half verband)**: Each row offset by exactly half a plank length
+- **Running (wild verband)**: Each row offset by a third of a plank length
 
-### 4. Joint Construction / Voegconstructie (image-29)
-Missing. The reference shows "Selecteer voegconstructie" with two options:
-- Dubbele balken
-- Xtend Stootbeugel
-Plus a "Wil je een dubbele balkconstructie gebruiken? Ja / Nee" toggle.
+### 4. Laying Direction Support
+Planks rotate based on `LayingPattern`:
+- **Horizontal**: Planks run left to right
+- **Vertical**: Planks run top to bottom
+- **Diagonal / Diagonal-left**: Planks at 45 degrees (with transform)
+- **Chevron**: V-pattern (two diagonal halves)
+- **Mixed**: Alternating sections
 
-### 5. Leveling / Nivellering (image-30)
-Missing entirely. The reference shows:
-- Stand (adjustable pedestal)
-- Fundatie-schroeven (foundation screws)
-These are visual card-style selections.
-
-### 6. Slope / Hoogtepunten (image-30)
-Missing. Simple toggle: "zonder helling" / "met helling" (without/with slope).
-
-### 7. Laying Methods / Legmethoden (image-31)
-The reference shows 3 laying methods (brick-like patterns): staggered, brick, and running bond. These are different from the existing "Legrichtingen" (directions). We need a separate "Legmethoden" selector alongside the existing direction selector.
-
-### 8. More Laying Directions / Legrichtingen (image-31)
-The reference shows 6 direction options (horizontal, vertical, diagonal-right, diagonal-left, chevron/herringbone, mixed). We currently only have 3. We need to expand to 6.
-
-### 9. Start Point Selection (image-31)
-Missing. A dropdown to select "Welk punt moet het startpunt van de terrasbekleding zijn?" with options A, B, C, D, etc. (matching the corner labels).
-
-### 10. Plank Offset / First Plank Position (image-31)
-Missing. Two inputs:
-- "naar links/rechts met: 0 cm"
-- "boven/onder door: 0 cm"
-These control where the first full plank starts.
-
-### 11. Freeform Drawing + Floor Plan Upload (image-32)
-The reference shows "Vrije vorm tekenen" (freeform draw) and "Plattegrond uploaden" (upload floor plan). We already have freeform via draggable points. We can add a visual option for "custom" in the shape selector and a placeholder for floor plan upload.
+### 5. Background Fill
+When a product is selected, the shape fill changes from the current transparent primary tint to the product's base color, giving a solid wood-look background behind the planks.
 
 ---
 
@@ -57,57 +47,44 @@ The reference shows "Vrije vorm tekenen" (freeform draw) and "Plattegrond upload
 
 ### Files to Modify
 
-**`src/components/planner/types.ts`**
-- Add `UsageType` value: "intensive"
-- Add `GroundType` values: "platdak" | "zand"
-- Expand `LayingPattern` to include: "diagonal-left" | "chevron" | "mixed"
-- Add `LayingMethod` type: "staggered" | "brick" | "running"
-- Add `LevelingType`: "stand" | "fundatie"
-- Expand `SubstructureConfig` with: `beam`, `jointType`, `doubleBeam`, `leveling`, `slope`, `layingMethod`, `startPoint`, `offsetX`, `offsetY`
-
-**`src/components/planner/SubstructureOptions.tsx`**
-- Add 3-icon usage type selector (Prive / Commercieel / Intensief)
-- Expand ground type dropdown with 2 new options
-- Add substructure beam selector (card-style)
-- Add joint construction selector (Dubbele balken / Xtend Stootbeugel) with image-style cards
-- Add "Dubbele balkconstructie?" Ja/Nee toggle
-- Add Nivellering selector (Stand / Fundatie-schroeven)
-- Add Hoogtepunten toggle (zonder helling / met helling)
-
-**`src/components/planner/LayingPatternSelector.tsx`**
-- Add "Legmethoden" section with 3 brick-pattern SVG options
-- Expand "Legrichtingen" from 3 to 6 direction options
-- Add start point dropdown (A, B, C, D...)
-- Add plank offset inputs (horizontal cm, vertical cm)
-
-**`src/components/planner/ShapeSelector.tsx`**
-- Add a "Vrije vorm" (freeform) option with a pencil/draw icon
-- Add a "Plattegrond uploaden" placeholder option
-
-**`src/components/planner/EdgeFinishing.tsx`**
-- Change "Randplanken toevoegen" switch to Ja/Nee button toggle (matching reference style)
-
-**`src/components/planner/calcMaterials.ts`**
-- Add beam materials to calculation
-- Add joint construction materials
-- Add leveling materials (stands or screws)
-- Adjust waste factors for new laying methods
+**`src/components/planner/DeckCanvas.tsx`**
+- Add a `selectedProduct` prop (string | null) to receive the selected product slug
+- Add a `PRODUCT_COLORS` map from slug to hex color
+- Add a `layingMethod` prop (LayingMethod) to control joint stagger pattern
+- Replace the `patternLines` useMemo with a `patternPlanks` useMemo that generates an array of plank rectangle objects: `{ x, y, w, h, fill }` -- accounting for direction, method offset, and gap spacing
+- Render planks as `<rect>` elements inside the existing `<g clipPath="url(#shapeClip)">` instead of `<line>` elements
+- Add subtle wood grain via an SVG filter (`<feTurbulence>` + `<feColorMatrix>`) or by alternating 2-3 slightly different shades per plank
+- Keep the shape outline stroke on top of the planks
 
 **`src/pages/DeckPlannerPage.tsx`**
-- Wire up new state fields for all additions
-- Pass new props to updated components
-- Reset new fields in handleReset
+- Pass `selectedProduct` and `layingConfig.method` to `DeckCanvas`
 
-### New State Fields in DeckPlannerPage
-- `substructure.beam`: string (selected beam product)
-- `substructure.jointType`: "dubbele-balken" | "stootbeugel"
-- `substructure.doubleBeam`: boolean
-- `substructure.leveling`: "stand" | "fundatie"
-- `substructure.slope`: boolean
-- `layingMethod`: "staggered" | "brick" | "running"
-- `startPoint`: string (corner letter, e.g. "A")
-- `plankOffsetX`: number (cm)
-- `plankOffsetY`: number (cm)
+### New Props on DeckCanvas
+```
+selectedProduct?: string | null;
+layingMethod?: LayingMethod;
+```
 
-### UI Style
-All new selectors follow the existing card-style pattern: bordered boxes with primary highlight when selected, SVG icons where applicable, consistent with the current design language.
+### Plank Generation Logic (pseudocode)
+```
+plankWidth = 13.8cm * scale (in pixels)
+plankGap = 3px
+plankLength varies: 300cm or 400cm scaled
+
+For each row (spaced by plankWidth + plankGap):
+  offset = method === "brick" ? halfLength * (row % 2)
+         : method === "running" ? (row * length/3) % length
+         : random seed based offset
+  
+  For each plank in row (spaced by plankLength + gap):
+    push { x: startX + offset, y: rowY, w: plankLength, h: plankWidth, fill: color }
+```
+
+For diagonal patterns, the entire plank group is wrapped in a `<g transform="rotate(45, cx, cy)">` with an expanded generation area to cover the rotated bounding box.
+
+### Visual Details
+- Gap between planks: 3px (representing ~5mm real gap)
+- Plank width: scaled from 13.8cm product width
+- Each plank gets a very slight color variation (+/- 5% lightness) for realism
+- SVG `<defs>` adds a subtle noise texture filter for wood grain effect
+- Shape outline (primary color, 2px stroke) renders on top of everything
