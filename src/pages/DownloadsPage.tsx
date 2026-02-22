@@ -1,4 +1,5 @@
 import { useState } from "react";
+import downloadsHero from "@/assets/downloads-hero.jpg";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
@@ -53,8 +54,10 @@ const DownloadsPage = () => {
 
       <main>
         {/* Hero */}
-        <section className="bg-foreground text-background">
-          <div className="container py-16 md:py-20">
+        <section className="relative text-background overflow-hidden">
+          <img src={downloadsHero} alt="" className="absolute inset-0 w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-foreground/90 via-foreground/80 to-foreground/50" />
+          <div className="container py-16 md:py-20 relative z-10">
             <div className="mb-6">
               <Breadcrumbs items={breadcrumbs} variant="dark" />
             </div>
