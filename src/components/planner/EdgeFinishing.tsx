@@ -1,6 +1,5 @@
 import { EdgeConfig } from "./types";
 import { Label } from "@/components/ui/label";
-import { Switch } from "@/components/ui/switch";
 import { Checkbox } from "@/components/ui/checkbox";
 
 interface EdgeFinishingProps {
@@ -42,13 +41,24 @@ const EdgeFinishing = ({ value, onChange, edgeCount }: EdgeFinishingProps) => {
         </div>
       </div>
 
-      {/* Edge boards toggle */}
-      <div className="flex items-center justify-between">
-        <Label className="text-xs">Randplanken toevoegen</Label>
-        <Switch
-          checked={value.addEdgeBoards}
-          onCheckedChange={(v) => onChange({ ...value, addEdgeBoards: v })}
-        />
+      {/* Edge boards Ja/Nee toggle */}
+      <div>
+        <Label className="text-xs mb-1.5 block">Randplanken toevoegen</Label>
+        <div className="grid grid-cols-2 gap-2">
+          {[true, false].map((v) => (
+            <button
+              key={String(v)}
+              onClick={() => onChange({ ...value, addEdgeBoards: v })}
+              className={`px-3 py-2 rounded-lg border-2 text-xs font-medium transition-all ${
+                value.addEdgeBoards === v
+                  ? "border-primary bg-primary/10 text-primary"
+                  : "border-border bg-card text-muted-foreground hover:border-primary/40"
+              }`}
+            >
+              {v ? "Ja" : "Nee"}
+            </button>
+          ))}
+        </div>
       </div>
     </div>
   );
