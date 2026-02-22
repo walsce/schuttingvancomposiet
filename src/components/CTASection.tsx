@@ -33,7 +33,7 @@ const CTASection = ({
           </Link>
         </Button>
         {secondaryLabel && (
-          <Button asChild variant="outline" size="lg" className="border-primary-foreground/60 text-primary-foreground hover:bg-primary-foreground/10">
+          <Button asChild variant="outline" size="lg" className="border-primary-foreground text-primary-foreground bg-primary-foreground/15 hover:bg-primary-foreground/25">
             <Link to={secondaryHref}>{secondaryLabel}</Link>
           </Button>
         )}
