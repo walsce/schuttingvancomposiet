@@ -8,7 +8,7 @@ interface ProductCardProps {
 
 const ProductCard = ({ product }: ProductCardProps) => (
   <Link
-    to={`/categorie/${product.category}`}
+    to={`/product/${product.slug}`}
     className="group bg-card rounded-lg border border-border overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
   >
     <div className="aspect-[3/2] overflow-hidden bg-muted">
