@@ -98,7 +98,7 @@ const LayingPatternSelector = ({ value, onChange, cornerCount }: LayingPatternSe
             <button
               key={m.id}
               onClick={() => onChange({ ...value, method: m.id })}
-              className={`flex flex-col items-center gap-1.5 p-3 rounded-xl border-2 transition-all ${
+              className={`flex flex-col items-center gap-1.5 p-2 sm:p-3 rounded-xl border-2 transition-all ${
                 value.method === m.id
                   ? "border-primary bg-primary/10 text-primary"
                   : "border-border bg-card text-muted-foreground hover:border-primary/40"
@@ -129,7 +129,7 @@ const LayingPatternSelector = ({ value, onChange, cornerCount }: LayingPatternSe
             <button
               key={p.id}
               onClick={() => onChange({ ...value, pattern: p.id })}
-              className={`flex flex-col items-center gap-1.5 p-3 rounded-xl border-2 transition-all ${
+              className={`flex flex-col items-center gap-1.5 p-2 sm:p-3 rounded-xl border-2 transition-all ${
                 value.pattern === p.id
                   ? "border-primary bg-primary/10 text-primary"
                   : "border-border bg-card text-muted-foreground hover:border-primary/40"

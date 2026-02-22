@@ -143,27 +143,26 @@ const DeckCanvas = ({ points, onPointsChange, editable, layingPattern = "horizon
     y: (sy - offsetY) / scale,
   }), [scale, offsetX, offsetY]);
 
-  const getSvgCoords = (e: React.MouseEvent): { x: number; y: number } => {
+  const getSvgCoords = (clientX: number, clientY: number): { x: number; y: number } => {
     const svg = svgRef.current!;
     const rect = svg.getBoundingClientRect();
     const scaleX = CANVAS_W / rect.width;
     const scaleY = CANVAS_H / rect.height;
-    return { x: (e.clientX - rect.left) * scaleX, y: (e.clientY - rect.top) * scaleY };
+    return { x: (clientX - rect.left) * scaleX, y: (clientY - rect.top) * scaleY };
   };
 
   // Freehand drawing handlers
-  const handleFreehandDown = (e: React.MouseEvent) => {
+  const handleFreehandDown = (clientX: number, clientY: number) => {
     if (!freehandMode) return;
-    e.preventDefault();
-    const coords = getSvgCoords(e);
+    const coords = getSvgCoords(clientX, clientY);
     const wp = toWorld(coords.x, coords.y);
     setDrawing(true);
     setDrawPoints([wp]);
   };
 
-  const handleFreehandMove = (e: React.MouseEvent) => {
+  const handleFreehandMove = (clientX: number, clientY: number) => {
     if (!freehandMode || !drawing) return;
-    const coords = getSvgCoords(e);
+    const coords = getSvgCoords(clientX, clientY);
     const wp = toWorld(coords.x, coords.y);
     setDrawPoints((prev) => [...prev, wp]);
   };
@@ -190,11 +189,11 @@ const DeckCanvas = ({ points, onPointsChange, editable, layingPattern = "horizon
 
   const handleMouseMove = (e: React.MouseEvent) => {
     if (freehandMode) {
-      handleFreehandMove(e);
+      handleFreehandMove(e.clientX, e.clientY);
       return;
     }
     if (dragging === null || !editable) return;
-    const { x, y } = getSvgCoords(e);
+    const { x, y } = getSvgCoords(e.clientX, e.clientY);
     const world = toWorld(x, y);
     world.x = Math.round(world.x * 10) / 10;
     world.y = Math.round(world.y * 10) / 10;
@@ -204,6 +203,43 @@ const DeckCanvas = ({ points, onPointsChange, editable, layingPattern = "horizon
   };
 
   const handleMouseUp = () => {
+    if (freehandMode) {
+      handleFreehandUp();
+      return;
+    }
+    setDragging(null);
+  };
+
+  // Touch handlers
+  const handleTouchStart = (e: React.TouchEvent) => {
+    if (freehandMode) {
+      e.preventDefault();
+      const touch = e.touches[0];
+      handleFreehandDown(touch.clientX, touch.clientY);
+    }
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (freehandMode && drawing) {
+      e.preventDefault();
+      const touch = e.touches[0];
+      handleFreehandMove(touch.clientX, touch.clientY);
+      return;
+    }
+    if (dragging !== null && editable) {
+      e.preventDefault();
+      const touch = e.touches[0];
+      const { x, y } = getSvgCoords(touch.clientX, touch.clientY);
+      const world = toWorld(x, y);
+      world.x = Math.round(world.x * 10) / 10;
+      world.y = Math.round(world.y * 10) / 10;
+      const next = [...points];
+      next[dragging] = world;
+      onPointsChange(next);
+    }
+  };
+
+  const handleTouchEnd = () => {
     if (freehandMode) {
       handleFreehandUp();
       return;
@@ -363,14 +399,17 @@ const DeckCanvas = ({ points, onPointsChange, editable, layingPattern = "horizon
       <svg
         ref={svgRef}
         viewBox={`0 0 ${CANVAS_W} ${CANVAS_H}`}
-        className={`w-full max-w-[600px] bg-card border border-border rounded-xl shadow-sm select-none ${
+        className={`w-full bg-card border border-border rounded-xl shadow-sm select-none touch-none ${
           freehandMode ? "cursor-crosshair" : ""
         }`}
         style={{ aspectRatio: `${CANVAS_W}/${CANVAS_H}` }}
-        onMouseDown={freehandMode ? handleFreehandDown : undefined}
+        onMouseDown={freehandMode ? (e) => { e.preventDefault(); handleFreehandDown(e.clientX, e.clientY); } : undefined}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseUp}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
       >
         {/* Grid */}
         <defs>
@@ -500,6 +539,7 @@ const DeckCanvas = ({ points, onPointsChange, editable, layingPattern = "horizon
             strokeWidth="2"
             className="cursor-grab active:cursor-grabbing"
             onMouseDown={handleMouseDown(i)}
+            onTouchStart={(e) => { e.preventDefault(); setDragging(i); }}
           />
         ))}
 
