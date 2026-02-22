@@ -1,92 +1,113 @@
 
-# Vlonderplanner Upgrade -- MyDeckPlanner-inspired Features
+# Missing Features from MyDeckPlanner Screenshots
 
-## Overview
-Upgrade the existing deck planner to match the feature set visible in the MyDeckPlanner screenshots. The current tool has 3 shapes and a simple 3-step flow. We will add more shape presets, corner labels on the canvas, accordion-based sidebar sections, laying pattern selection, substructure options, and edge finishing toggles.
+After comparing the reference screenshots with the current implementation, here are the components and options that need to be added or enhanced.
 
-## What Changes
+## What's Missing
 
-### 1. More Shape Presets (8 total)
-Add 5 new shapes to match the reference screenshots:
-- **Rectangle** (existing)
-- **L-shape top-right** (existing, rename to "L-vorm rechts")
-- **L-shape top-left** (new, mirrored L)
-- **L-shape bottom-right** (new)
-- **L-shape bottom-left** (new)
-- **U-shape** (existing)
-- **T-shape** (new)
-- **Circle / Ovaal** (new -- approximated as an octagon for polygon-based area calculation)
+### 1. Extended Ground Types (image-28)
+The current dropdown has 3 options but the reference shows 4:
+- Bodem verdicht (exists)
+- Ondergrond van beton (exists as "Beton" -- rename)
+- Plat dak, dakterrassen met afdichtfolie (missing)
+- Zachte grond / zand (missing)
 
-The ShapeSelector grid changes from 3 columns to 4 columns with 2 rows.
+### 2. Usage Type with Visual Icons (image-29 + image-31)
+The reference shows "Type terrasgebruik" as 3 visual icon options (not 2 text buttons). Currently we only have "Privegebruik" and "Commercieel". The reference appears to show 3 distinct usage patterns. We'll add a third option ("Intensief") and use SVG icons matching the screenshot style.
 
-### 2. Canvas Improvements
-- **Corner labels**: Show letters (A, B, C, D...) at each corner point of the shape, positioned just outside the polygon -- matching the reference screenshots
-- **Dimension labels in cm**: Switch display from meters (e.g. "4.80m") to centimeters (e.g. "480 cm") to match the reference
-- **Midpoint drag handles**: Add smaller midpoint handles on each edge for finer shape manipulation
-- **Area display above canvas** in green text like the reference ("Oppervlakte: 15.12 m2")
+### 3. Substructure Beam Selection (image-29)
+Currently missing entirely. The reference shows "Selecteer onderbouw" with a selectable beam product card (e.g., "StructurAL Alu 60x40mm - 400cm"). We'll add a substructure beam selector to the Onderconstructie accordion section.
 
-### 3. Accordion Sidebar (replaces step-based flow)
-Replace the current 3-step wizard with an accordion-based sidebar (like the reference), so all sections are visible and expandable simultaneously:
+### 4. Joint Construction / Voegconstructie (image-29)
+Missing. The reference shows "Selecteer voegconstructie" with two options:
+- Dubbele balken
+- Xtend Stootbeugel
+Plus a "Wil je een dubbele balkconstructie gebruiken? Ja / Nee" toggle.
 
-- **Terrasvorm** (expanded by default) -- shape selector + dimension inputs
-- **Keuze vlonderplank** -- material/product selector
-- **Legpatroon** -- laying pattern options (new)
-- **Onderconstructie** -- substructure options (new)
-- **Resultaat / Materiaallijst** -- final list (gated behind lead capture)
+### 5. Leveling / Nivellering (image-30)
+Missing entirely. The reference shows:
+- Stand (adjustable pedestal)
+- Fundatie-schroeven (foundation screws)
+These are visual card-style selections.
 
-### 4. Laying Pattern Selection (new section)
-Add a new component for choosing the plank laying direction/pattern:
-- **Horizontaal** (planks run left-right)
-- **Verticaal** (planks run top-bottom)  
-- **Diagonaal** (45 degrees)
+### 6. Slope / Hoogtepunten (image-30)
+Missing. Simple toggle: "zonder helling" / "met helling" (without/with slope).
 
-Each option shown as a small icon/thumbnail. This is stored in state and affects the visual preview on the canvas (planks drawn as lines inside the shape).
+### 7. Laying Methods / Legmethoden (image-31)
+The reference shows 3 laying methods (brick-like patterns): staggered, brick, and running bond. These are different from the existing "Legrichtingen" (directions). We need a separate "Legmethoden" selector alongside the existing direction selector.
 
-### 5. Substructure Options (new section)
-Add configuration options matching the reference:
-- **Gebruik**: Privegebruik / Commercieel gebruik (toggle)
-- **Ondergrond**: Dropdown -- Bodem verdicht, Beton, Tegels
-- **Opbouwhoogte**: Slider or input (in cm)
+### 8. More Laying Directions / Legrichtingen (image-31)
+The reference shows 6 direction options (horizontal, vertical, diagonal-right, diagonal-left, chevron/herringbone, mixed). We currently only have 3. We need to expand to 6.
 
-These feed into the materials calculation to adjust rail spacing and pad count.
+### 9. Start Point Selection (image-31)
+Missing. A dropdown to select "Welk punt moet het startpunt van de terrasbekleding zijn?" with options A, B, C, D, etc. (matching the corner labels).
 
-### 6. Edge Finishing / Randafwerking
-- **Welke kanten grenzen aan muur?**: Toggle per side (A-B, B-C, C-D, D-A)  
-- **Randplanken**: Ja / Nee toggle
-- Sides marked as "wall" get no edge trim; open sides get edge trim boards added to the materials list
+### 10. Plank Offset / First Plank Position (image-31)
+Missing. Two inputs:
+- "naar links/rechts met: 0 cm"
+- "boven/onder door: 0 cm"
+These control where the first full plank starts.
 
-### 7. Updated Materials Calculation
-Extend `calcMaterials.ts` to account for:
-- Laying pattern (diagonal adds ~15% waste)
-- Substructure type (commercial = closer rail spacing)
-- Edge trim boards when selected
-- More accurate clip/screw counts based on plank dimensions
-
-### 8. Plank Preview on Canvas
-When a product is selected, draw horizontal/vertical/diagonal lines inside the shape to visually represent the plank layout direction -- similar to the wood-texture view in the reference screenshots.
+### 11. Freeform Drawing + Floor Plan Upload (image-32)
+The reference shows "Vrije vorm tekenen" (freeform draw) and "Plattegrond uploaden" (upload floor plan). We already have freeform via draggable points. We can add a visual option for "custom" in the shape selector and a placeholder for floor plan upload.
 
 ---
 
 ## Technical Details
 
-### Files to Create
-- `src/components/planner/LayingPatternSelector.tsx` -- 3-option pattern selector with SVG icons
-- `src/components/planner/SubstructureOptions.tsx` -- usage type, ground type, build height inputs
-- `src/components/planner/EdgeFinishing.tsx` -- wall-side toggles and edge trim toggle
-
 ### Files to Modify
-- `src/components/planner/types.ts` -- add new PresetShape values, LayingPattern type, SubstructureConfig type, EdgeConfig type
-- `src/components/planner/presets.ts` -- add point generators for 5 new shapes
-- `src/components/planner/ShapeSelector.tsx` -- expand to 4x2 grid with 8 shapes and new SVG paths
-- `src/components/planner/DeckCanvas.tsx` -- add corner labels (A, B, C...), show dimensions in cm, draw plank pattern lines, add midpoint handles, move area display above canvas
-- `src/components/planner/DimensionInputs.tsx` -- show values in cm (multiply by 100 for display, divide for storage)
-- `src/components/planner/calcMaterials.ts` -- incorporate laying pattern waste factor, substructure adjustments, edge trim boards
-- `src/pages/DeckPlannerPage.tsx` -- replace step wizard with accordion layout using Radix Accordion, add new state for laying pattern / substructure / edge config, wire up new components
 
-### State Additions (DeckPlannerPage)
-- `layingPattern`: "horizontal" | "vertical" | "diagonal"
-- `substructure`: { usage: "private" | "commercial", ground: string, buildHeight: number }
-- `edgeConfig`: { wallSides: boolean[], addEdgeBoards: boolean }
+**`src/components/planner/types.ts`**
+- Add `UsageType` value: "intensive"
+- Add `GroundType` values: "platdak" | "zand"
+- Expand `LayingPattern` to include: "diagonal-left" | "chevron" | "mixed"
+- Add `LayingMethod` type: "staggered" | "brick" | "running"
+- Add `LevelingType`: "stand" | "fundatie"
+- Expand `SubstructureConfig` with: `beam`, `jointType`, `doubleBeam`, `leveling`, `slope`, `layingMethod`, `startPoint`, `offsetX`, `offsetY`
 
-### Layout Change
-The current layout is `grid lg:grid-cols-[1fr_340px]`. This stays the same but the sidebar switches from conditional step rendering to an always-visible accordion with all sections. The lead capture modal still gates the final materials list.
+**`src/components/planner/SubstructureOptions.tsx`**
+- Add 3-icon usage type selector (Prive / Commercieel / Intensief)
+- Expand ground type dropdown with 2 new options
+- Add substructure beam selector (card-style)
+- Add joint construction selector (Dubbele balken / Xtend Stootbeugel) with image-style cards
+- Add "Dubbele balkconstructie?" Ja/Nee toggle
+- Add Nivellering selector (Stand / Fundatie-schroeven)
+- Add Hoogtepunten toggle (zonder helling / met helling)
+
+**`src/components/planner/LayingPatternSelector.tsx`**
+- Add "Legmethoden" section with 3 brick-pattern SVG options
+- Expand "Legrichtingen" from 3 to 6 direction options
+- Add start point dropdown (A, B, C, D...)
+- Add plank offset inputs (horizontal cm, vertical cm)
+
+**`src/components/planner/ShapeSelector.tsx`**
+- Add a "Vrije vorm" (freeform) option with a pencil/draw icon
+- Add a "Plattegrond uploaden" placeholder option
+
+**`src/components/planner/EdgeFinishing.tsx`**
+- Change "Randplanken toevoegen" switch to Ja/Nee button toggle (matching reference style)
+
+**`src/components/planner/calcMaterials.ts`**
+- Add beam materials to calculation
+- Add joint construction materials
+- Add leveling materials (stands or screws)
+- Adjust waste factors for new laying methods
+
+**`src/pages/DeckPlannerPage.tsx`**
+- Wire up new state fields for all additions
+- Pass new props to updated components
+- Reset new fields in handleReset
+
+### New State Fields in DeckPlannerPage
+- `substructure.beam`: string (selected beam product)
+- `substructure.jointType`: "dubbele-balken" | "stootbeugel"
+- `substructure.doubleBeam`: boolean
+- `substructure.leveling`: "stand" | "fundatie"
+- `substructure.slope`: boolean
+- `layingMethod`: "staggered" | "brick" | "running"
+- `startPoint`: string (corner letter, e.g. "A")
+- `plankOffsetX`: number (cm)
+- `plankOffsetY`: number (cm)
+
+### UI Style
+All new selectors follow the existing card-style pattern: bordered boxes with primary highlight when selected, SVG icons where applicable, consistent with the current design language.
