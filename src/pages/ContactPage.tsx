@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+import { useSearchParams, Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
@@ -7,8 +9,8 @@ import JsonLd, { organizationSchema } from "@/components/JsonLd";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Phone, Mail, Clock } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Phone, Mail, Clock, Package } from "lucide-react";
+import { products } from "@/data/products";
 
 const contactFaqs = [
   { q: "Hoe snel ontvang ik een offerte?", a: "Wij streven ernaar om binnen 24 uur een vrijblijvende offerte te versturen na ontvangst van uw aanvraag." },
@@ -18,6 +20,24 @@ const contactFaqs = [
 ];
 
 const ContactPage = () => {
+  const [searchParams] = useSearchParams();
+  const type = searchParams.get("type");
+  const productSlug = searchParams.get("product");
+  const product = productSlug ? products.find((p) => p.slug === productSlug) : null;
+
+  const isSample = type === "sample";
+  const isOfferte = type === "offerte";
+
+  const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    if (isSample && product) {
+      setMessage(`Sample aanvraag voor: ${product.name}\n\nGraag ontvang ik een gratis sample van dit product om de kleur en kwaliteit te beoordelen.`);
+    } else if (isOfferte && product) {
+      setMessage(`Offerte aanvraag voor: ${product.name}\n\nGraag ontvang ik een vrijblijvende offerte voor dit product.`);
+    }
+  }, [isSample, isOfferte, product]);
+
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
@@ -34,11 +54,31 @@ const ContactPage = () => {
 
       <main>
         <section className="container py-12 md:py-20">
+          {/* Sample/offerte banner */}
+          {(isSample || isOfferte) && product && (
+            <div className="mb-8 rounded-xl border border-primary/30 bg-primary/5 p-4 flex items-start gap-3">
+              <Package className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+              <div>
+                <p className="font-semibold text-foreground">
+                  {isSample ? "U vraagt een gratis sample aan voor:" : "U vraagt een offerte aan voor:"}
+                </p>
+                <p className="text-sm text-muted-foreground mt-0.5">{product.name}</p>
+                <Link to={`/product/${product.slug}`} className="text-xs text-primary hover:underline mt-1 inline-block">
+                  ← Terug naar product
+                </Link>
+              </div>
+            </div>
+          )}
+
           <div className="grid md:grid-cols-2 gap-12">
             <div>
-              <h1 className="font-serif text-3xl md:text-4xl font-bold text-foreground">Contact & Offerte</h1>
+              <h1 className="font-serif text-3xl md:text-4xl font-bold text-foreground">
+                {isSample ? "Sample Aanvragen" : isOfferte ? "Offerte Aanvragen" : "Contact & Offerte"}
+              </h1>
               <p className="text-muted-foreground mt-3 leading-relaxed">
-                Heeft u vragen over onze composiet producten of wilt u een vrijblijvende offerte? Neem contact met ons op!
+                {isSample
+                  ? "Vraag een gratis sample aan en ervaar de kleur en kwaliteit van ons composiet thuis."
+                  : "Heeft u vragen over onze composiet producten of wilt u een vrijblijvende offerte? Neem contact met ons op!"}
               </p>
 
               <div className="mt-8 space-y-4">
@@ -81,7 +121,9 @@ const ContactPage = () => {
             </div>
 
             <div className="bg-card rounded-xl border border-border p-6 md:p-8">
-              <h2 className="font-serif text-xl font-bold text-foreground mb-6">Stuur ons een bericht</h2>
+              <h2 className="font-serif text-xl font-bold text-foreground mb-6">
+                {isSample ? "Sample aanvraagformulier" : "Stuur ons een bericht"}
+              </h2>
               <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
                 <div className="grid grid-cols-2 gap-4">
                   <Input placeholder="Voornaam" />
@@ -89,9 +131,14 @@ const ContactPage = () => {
                 </div>
                 <Input type="email" placeholder="E-mailadres" />
                 <Input type="tel" placeholder="Telefoonnummer" />
-                <Textarea placeholder="Uw bericht of offerte aanvraag..." rows={4} />
+                <Textarea
+                  placeholder="Uw bericht of offerte aanvraag..."
+                  rows={4}
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                />
                 <Button type="submit" className="w-full bg-primary hover:bg-primary/90">
-                  Verstuur bericht
+                  {isSample ? "Sample aanvragen" : "Verstuur bericht"}
                 </Button>
               </form>
             </div>
