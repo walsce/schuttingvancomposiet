@@ -103,7 +103,7 @@ export const downloads: DownloadGuide[] = [
       "Stijlgids: modern, landelijk & stoer",
     ],
     category: "gids",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=400&fit=crop",
+    image: "https://images.unsplash.com/photo-1525909002-1b05e0c869d8?w=600&h=400&fit=crop",
     relatedLinks: [
       { label: "Bekijk alle kleuren", href: "/assortiment" },
     ],
@@ -121,7 +121,7 @@ export const downloads: DownloadGuide[] = [
       "Garantievoorwaarden behouden",
     ],
     category: "checklist",
-    image: "https://images.unsplash.com/photo-1558317374-067fb5f30001?w=600&h=400&fit=crop",
+    image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&h=400&fit=crop",
     relatedLinks: [
       { label: "Bekijk producten", href: "/assortiment" },
     ],
