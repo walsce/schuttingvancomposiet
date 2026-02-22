@@ -1,4 +1,5 @@
 import { useState, useMemo, useCallback } from "react";
+import DeckPlannerHero from "@/components/planner/DeckPlannerHero";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
@@ -48,6 +49,7 @@ const defaultLayingConfig: LayingConfig = {
 };
 
 const DeckPlannerPage = () => {
+  const [started, setStarted] = useState(false);
   const [preset, setPreset] = useState<PresetShape>("rectangle");
   const [width, setWidth] = useState(5);
   const [depth, setDepth] = useState(3);
@@ -135,6 +137,19 @@ const DeckPlannerPage = () => {
     setFloorPlanOffsetX(0);
     setFloorPlanOffsetY(0);
   };
+
+  if (!started) {
+    return (
+      <>
+        <SEOHead
+          title="TerrasDesigner Pro | Ontwerp je composiet terras online | Schuttingvancomposiet.nl"
+          description="Ontwerp je ideale composiet vlonder met onze gratis online planner. Kies je vorm, afmetingen en materiaal en ontvang direct een materiaallijst met prijsindicatie."
+          canonical="/vlonder-planner"
+        />
+        <DeckPlannerHero onStart={() => setStarted(true)} />
+      </>
+    );
+  }
 
   return (
     <div className="min-h-screen flex flex-col bg-background overflow-x-hidden">

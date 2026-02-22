@@ -204,18 +204,45 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Deck Planner teaser */}
+        {/* Gratis Ontwerp Tools */}
         <section className="bg-accent/10 border-b border-border">
-          <div className="container py-10 sm:py-12 px-4 sm:px-6 text-center">
-            <h2 className="font-serif text-xl sm:text-2xl md:text-3xl font-bold text-foreground">
-              🛠️ TerrasDesigner Pro
-            </h2>
-            <p className="text-muted-foreground mt-2 max-w-lg mx-auto text-sm sm:text-base">
-              Ontwerp je terras online, kies je materiaal en ontvang direct een materiaallijst met prijsindicatie.
-            </p>
-            <Button asChild className="mt-5 sm:mt-6 bg-accent text-accent-foreground hover:bg-accent/90 w-full sm:w-auto">
-              <Link to="/vlonder-planner">Start de planner <ArrowRight className="w-4 h-4 ml-1" /></Link>
-            </Button>
+          <div className="container py-10 sm:py-16 px-4 sm:px-6">
+            <div className="text-center mb-8 sm:mb-10">
+              <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
+                Gratis Ontwerp Tools
+              </h2>
+              <p className="text-muted-foreground mt-2 max-w-lg mx-auto text-sm sm:text-base">
+                Ontwerp uw tuin online en ontvang direct een materiaallijst
+              </p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-3xl mx-auto">
+              {/* Deck planner card */}
+              <div className="bg-card border border-border rounded-xl p-6 sm:p-8 flex flex-col items-center text-center space-y-4">
+                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center">
+                  <Wrench className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="font-serif font-bold text-lg text-foreground">TerrasDesigner Pro</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Ontwerp uw composiet terras, kies materiaal en legpatroon, en ontvang een complete materiaallijst.
+                </p>
+                <Button asChild className="bg-accent text-accent-foreground hover:bg-accent/90 w-full">
+                  <Link to="/vlonder-planner">Start Terras Planner <ArrowRight className="w-4 h-4 ml-1" /></Link>
+                </Button>
+              </div>
+              {/* Fence planner card */}
+              <div className="bg-card border border-border rounded-xl p-6 sm:p-8 flex flex-col items-center text-center space-y-4">
+                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center">
+                  <Shield className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="font-serif font-bold text-lg text-foreground">Schutting Planner</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Configureer uw composiet schutting, kies systeem en kleur, en download de materiaallijst als CSV.
+                </p>
+                <Button asChild className="bg-accent text-accent-foreground hover:bg-accent/90 w-full">
+                  <Link to="/schutting-planner">Start Schutting Planner <ArrowRight className="w-4 h-4 ml-1" /></Link>
+                </Button>
+              </div>
+            </div>
           </div>
         </section>
 
