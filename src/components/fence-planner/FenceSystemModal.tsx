@@ -4,8 +4,10 @@ import { products } from "@/data/products";
 import { toneColorMap } from "./designerData";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { Check } from "lucide-react";
+import { Check, ExternalLink } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Link } from "react-router-dom";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 const schuttingProducts = products.filter((p) => p.category === "schuttingen");
 
@@ -46,50 +48,66 @@ const FenceSystemModal = ({
           <DialogDescription>Kies een composiet schutting uit ons assortiment.</DialogDescription>
         </DialogHeader>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
-          {schuttingProducts.map((product) => {
-            const isSelected = selectedSlug === product.slug;
-            return (
-              <button
-                key={product.slug}
-                onClick={() => setSelectedSlug(product.slug)}
-                className={cn(
-                  "relative rounded-lg border-2 overflow-hidden text-left transition-all",
-                  isSelected
-                    ? "border-primary ring-2 ring-primary/30"
-                    : "border-border hover:border-primary/40"
-                )}
-              >
-                {isSelected && (
-                  <div className="absolute top-2 right-2 z-10 bg-primary text-primary-foreground rounded-full p-0.5">
-                    <Check className="w-3 h-3" />
-                  </div>
-                )}
-                <div className="aspect-[3/2] bg-muted">
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="p-2">
-                  <p className="text-xs font-medium text-foreground leading-tight line-clamp-2">
-                    {product.name}
-                  </p>
-                  <div className="flex items-center justify-between mt-1">
-                    <span className="text-xs font-bold text-primary">{product.priceLabel}</span>
-                    <div
-                      className="w-4 h-4 rounded-full border border-border"
-                      style={{ backgroundColor: toneColorMap[product.tone] || "#8B4513" }}
-                      title={product.tone}
-                    />
-                  </div>
-                </div>
-              </button>
-            );
-          })}
-        </div>
+        <TooltipProvider delayDuration={300}>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
+            {schuttingProducts.map((product) => {
+              const isSelected = selectedSlug === product.slug;
+              return (
+                <Tooltip key={product.slug}>
+                  <TooltipTrigger asChild>
+                    <button
+                      onClick={() => setSelectedSlug(product.slug)}
+                      className={cn(
+                        "relative rounded-lg border-2 overflow-hidden text-left transition-all",
+                        isSelected
+                          ? "border-primary ring-2 ring-primary/30"
+                          : "border-border hover:border-primary/40"
+                      )}
+                    >
+                      {isSelected && (
+                        <div className="absolute top-2 right-2 z-10 bg-primary text-primary-foreground rounded-full p-0.5">
+                          <Check className="w-3 h-3" />
+                        </div>
+                      )}
+                      <div className="aspect-[3/2] bg-muted">
+                        <img
+                          src={product.image}
+                          alt={product.name}
+                          className="w-full h-full object-cover"
+                          loading="lazy"
+                        />
+                      </div>
+                      <div className="p-2">
+                        <p className="text-xs font-medium text-foreground leading-tight line-clamp-2">
+                          {product.name}
+                        </p>
+                        <div className="flex items-center justify-between mt-1">
+                          <span className="text-xs font-bold text-primary">{product.priceLabel}</span>
+                          <div
+                            className="w-4 h-4 rounded-full border border-border"
+                            style={{ backgroundColor: toneColorMap[product.tone] || "#8B4513" }}
+                            title={product.tone}
+                          />
+                        </div>
+                      </div>
+                    </button>
+                  </TooltipTrigger>
+                  <TooltipContent side="top" className="flex items-center gap-2 px-3 py-2">
+                    <span className="text-xs">{product.name}</span>
+                    <Link
+                      to={`/product/${product.slug}`}
+                      target="_blank"
+                      className="inline-flex items-center gap-1 text-xs font-medium text-primary hover:underline"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      Bekijk in winkel <ExternalLink className="w-3 h-3" />
+                    </Link>
+                  </TooltipContent>
+                </Tooltip>
+              );
+            })}
+          </div>
+        </TooltipProvider>
 
         <div className="flex justify-between pt-4">
           <Button variant="outline" onClick={() => onOpenChange(false)}>
