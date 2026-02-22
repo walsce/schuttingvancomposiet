@@ -1,6 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import { useState } from "react";
 import { products, categories } from "@/data/products";
+import { blogArticles } from "@/data/blogArticles";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ProductCard from "@/components/ProductCard";
@@ -51,6 +52,11 @@ const ProductPage = () => {
   const relatedProducts = products
     .filter((p) => p.category === product.category && p.id !== product.id)
     .slice(0, 4);
+
+  // Find blog articles that reference this product
+  const relatedArticles = blogArticles
+    .filter((a) => a.relatedProducts.includes(product.slug))
+    .slice(0, 3);
 
   const allImages = product.images.length > 0 ? product.images : [product.image];
   const nextImage = () => setSelectedImage((i) => (i + 1) % allImages.length);
@@ -243,6 +249,26 @@ const ProductPage = () => {
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               />
+            </div>
+          </section>
+        )}
+
+        {/* Related Blog Articles */}
+        {relatedArticles.length > 0 && (
+          <section className="max-w-6xl mx-auto px-4 pb-12">
+            <h2 className="text-xl font-bold text-foreground mb-4">Gerelateerde artikelen</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {relatedArticles.map((a) => (
+                <Link key={a.slug} to={`/blog/${a.slug}`} className="group bg-card border border-border rounded-xl overflow-hidden hover:shadow-md transition-shadow">
+                  <div className="aspect-[16/10] overflow-hidden">
+                    <img src={a.image} alt={a.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                  </div>
+                  <div className="p-4">
+                    <h3 className="font-serif text-sm font-semibold text-foreground group-hover:text-primary transition-colors leading-snug">{a.title}</h3>
+                    <p className="text-xs text-muted-foreground mt-1 line-clamp-2">{a.excerpt}</p>
+                  </div>
+                </Link>
+              ))}
             </div>
           </section>
         )}
