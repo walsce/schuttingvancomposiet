@@ -45,6 +45,7 @@ export interface LayingConfig {
   startPoint: string; // corner letter e.g. "A"
   offsetX: number; // cm
   offsetY: number; // cm
+  angle: number; // degrees
 }
 
 export interface EdgeConfig {
