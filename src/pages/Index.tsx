@@ -56,7 +56,7 @@ const Index = () => {
                   Bekijk Assortiment <ArrowRight className="w-4 h-4 ml-2" />
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="border-card/30 text-card hover:bg-card/10">
+              <Button asChild variant="outline" size="lg" className="border-card text-card bg-card/10 hover:bg-card/20 backdrop-blur-sm">
                 <Link to="/contact">Gratis Offerte</Link>
               </Button>
             </div>
