@@ -231,7 +231,7 @@ const ProductPage = () => {
         <section className="max-w-6xl mx-auto px-4 pb-12">
           <div className="border-l-4 border-primary/30 pl-6 lg:pl-8">
             <h2 className="font-serif text-2xl font-bold text-foreground mb-6">Omschrijving</h2>
-            <article className="prose prose-base max-w-3xl text-foreground prose-headings:text-foreground prose-h2:text-2xl prose-h2:font-serif prose-h2:font-bold prose-h2:mt-12 prose-h2:mb-4 prose-h2:border-b prose-h2:border-border prose-h2:pb-3 prose-h3:text-xl prose-h3:font-semibold prose-h3:mt-8 prose-h3:mb-3 prose-strong:text-foreground prose-li:text-foreground prose-p:leading-relaxed prose-p:mb-4 prose-li:leading-relaxed">
+            <article className="prose prose-base max-w-3xl text-foreground prose-headings:text-foreground prose-h2:text-2xl prose-h2:font-serif prose-h2:font-bold prose-h2:mt-12 prose-h2:mb-4 prose-h2:border-b prose-h2:border-border prose-h2:pb-3 prose-h3:text-xl prose-h3:font-semibold prose-h3:mt-10 prose-h3:mb-4 prose-strong:text-foreground prose-li:text-foreground prose-p:leading-relaxed prose-p:mt-0 prose-p:mb-4 prose-li:leading-relaxed prose-ul:mt-3 prose-ul:mb-6">
               <ReactMarkdown>{product.longDescription}</ReactMarkdown>
             </article>
           </div>
