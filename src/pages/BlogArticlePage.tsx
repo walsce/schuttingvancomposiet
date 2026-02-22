@@ -46,7 +46,7 @@ const BlogArticlePage = () => {
       <Header />
       <Breadcrumbs items={[
         { label: "Home", href: "/" },
-        { label: "Blog", href: "/blog" },
+        { label: "Artikelen", href: "/blog" },
         { label: article.title },
       ]} />
 

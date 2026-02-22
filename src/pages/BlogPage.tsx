@@ -26,14 +26,14 @@ const BlogPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="Blog & Advies over Composiet | Schuttingvancomposiet.nl"
+        title="Artikelen over Composiet | Schuttingvancomposiet.nl"
         description="Koopgidsen, installatietips, onderhoudstips en inspiratie voor composiet gevelbekleding, schuttingen en vlonderplanken."
         canonical="/blog"
       />
       <Header />
       <Breadcrumbs items={[
         { label: "Home", href: "/" },
-        { label: "Blog" },
+        { label: "Artikelen" },
       ]} />
 
       <main>
@@ -44,7 +44,7 @@ const BlogPage = () => {
               Kenniscentrum
             </span>
             <h1 className="font-serif text-4xl md:text-5xl font-bold text-primary-foreground mt-2">
-              Blog & Advies
+              Artikelen
             </h1>
             <p className="text-primary-foreground/80 mt-4 max-w-lg text-lg">
               Koopgidsen, installatietips en inspiratie voor jouw composiet project.
