@@ -10,27 +10,10 @@ import FAQSection from "@/components/FAQSection";
 import CTASection from "@/components/CTASection";
 import JsonLd, { breadcrumbSchema } from "@/components/JsonLd";
 import { products, categories, Product } from "@/data/products";
+import { blogArticles } from "@/data/blogArticles";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-
-const categoryFaqs: Record<string, { q: string; a: string }[]> = {
-  gevelbekleding: [
-    { q: "Wat kost composiet gevelbekleding per m²?", a: "Composiet gevelbekleding kost gemiddeld €40,95 per m². De exacte prijs hangt af van het gekozen profiel en de kleur." },
-    { q: "Hoe lang gaat composiet gevelbekleding mee?", a: "Met de Co-Extrusie beschermlaag gaat onze gevelbekleding 25+ jaar mee zonder noemenswaardig onderhoud." },
-    { q: "Kan ik composiet gevelbekleding zelf monteren?", a: "Ja, met een aluminium regelwerk en de meegeleverde clips kunt u de gevelbekleding zelf monteren. Bekijk onze installatiehandleiding voor een stap-voor-stap uitleg." },
-  ],
-  schuttingen: [
-    { q: "Wat zit er bij een composiet schuttingpakket?", a: "Een pakket bevat alle composiet planken en U-profielen voor één scherm. Aluminium palen zijn apart verkrijgbaar." },
-    { q: "Hoe hoog zijn de composiet schuttingen?", a: "Onze schuttingen zijn verkrijgbaar in 180 cm en 200 cm hoogte, met een standaard breedte van 180 cm." },
-    { q: "Zijn composiet schuttingen stormbestendig?", a: "Ja, mits correct gemonteerd op aluminium palen met een stevige fundering van betonpoeren of grondankers." },
-  ],
-  vlonderplanken: [
-    { q: "Wat is het verschil tussen massieve en holle vlonderplanken?", a: "Massieve planken zijn steviger en voelen meer als echt hout. Holle profielen zijn lichter en voordeliger." },
-    { q: "Zijn composiet vlonderplanken glad bij regen?", a: "Onze vlonderplanken met antislip coating bieden extra grip, ook bij nat weer. Ideaal voor terrassen bij het zwembad." },
-    { q: "Hoeveel vlonderplanken heb ik nodig?", a: "Bereken uw oppervlakte in m² en tel 10% extra op voor zaagverlies. Neem contact op voor een gratis berekening." },
-  ],
-};
 
 const CategoryPage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -54,14 +37,19 @@ const CategoryPage = () => {
     );
   }
 
-  const faqs = categoryFaqs[slug || ""] || [];
+  const faqs = category.faq || [];
   const otherCategories = categories.filter((c) => c.slug !== slug);
+
+  // Resolve related blog articles from category data
+  const relatedBlogs = (category.relatedBlogSlugs || [])
+    .map((s) => blogArticles.find((a) => a.slug === s))
+    .filter(Boolean);
 
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title={`${category.name} Kopen | Composiethekwerk.nl`}
-        description={`${category.description} Bekijk ons complete assortiment ${category.name.toLowerCase()} met 15 jaar garantie.`}
+        title={category.seoTitle || `${category.name} Kopen | Composiethekwerk.nl`}
+        description={category.seoDescription || `${category.description} Bekijk ons complete assortiment ${category.name.toLowerCase()} met 15 jaar garantie.`}
         canonical={`/categorie/${slug}`}
       />
       <Header />
@@ -107,6 +95,32 @@ const CategoryPage = () => {
             </div>
           )}
         </section>
+
+        {/* Related blog articles */}
+        {relatedBlogs.length > 0 && (
+          <section className="bg-secondary/50">
+            <div className="container py-12">
+              <h2 className="font-serif text-2xl font-bold text-foreground mb-6">Gerelateerde artikelen</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {relatedBlogs.map((blog) => blog && (
+                  <Link
+                    key={blog.slug}
+                    to={`/blog/${blog.slug}`}
+                    className="group flex gap-4 bg-card border border-border rounded-xl p-4 hover:shadow-md transition-shadow"
+                  >
+                    <div className="w-24 h-24 rounded-lg overflow-hidden flex-shrink-0">
+                      <img src={blog.image} alt={blog.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="font-serif text-sm font-semibold text-foreground group-hover:text-primary transition-colors leading-snug line-clamp-2">{blog.title}</h3>
+                      <p className="text-xs text-muted-foreground mt-1 line-clamp-2">{blog.excerpt}</p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* Related categories */}
         <section className="bg-card border-y border-border">

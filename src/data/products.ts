@@ -610,6 +610,14 @@ export const categories = [
     image: 'https://www.mthekwerken.nl/wp-content/uploads/gevelbekleding-rhombus-teakzwart-2-1110x840.jpg',
     slug: 'gevelbekleding',
     productCount: 18,
+    seoTitle: 'Composiet Gevelbekleding Kopen | Composiethekwerk.nl',
+    seoDescription: 'Premium composiet gevelbekleding met Co-Extrusie beschermlaag. Onderhoudsvrij, UV-bestendig en 15 jaar garantie. Bekijk ons assortiment.',
+    faq: [
+      { q: "Wat kost composiet gevelbekleding per m²?", a: "Composiet gevelbekleding kost gemiddeld €40,95 per m². De exacte prijs hangt af van het gekozen profiel en de kleur." },
+      { q: "Hoe lang gaat composiet gevelbekleding mee?", a: "Met de Co-Extrusie beschermlaag gaat onze gevelbekleding 25+ jaar mee zonder noemenswaardig onderhoud." },
+      { q: "Kan ik composiet gevelbekleding zelf monteren?", a: "Ja, met een aluminium regelwerk en de meegeleverde clips kunt u de gevelbekleding zelf monteren. Bekijk onze installatiehandleiding voor een stap-voor-stap uitleg." },
+    ],
+    relatedBlogSlugs: ['gevelbekleding-installeren-stap-voor-stap', 'composiet-vs-hout-vergelijking'],
   },
   {
     id: 'schuttingen',
@@ -618,6 +626,14 @@ export const categories = [
     image: 'https://www.mthekwerken.nl/wp-content/uploads/Highlander-Credits-Sven-Scholten-LR-23.JPG-website-1110x840.jpg',
     slug: 'schuttingen',
     productCount: 34,
+    seoTitle: 'Composiet Schuttingen Kopen | Composiethekwerk.nl',
+    seoDescription: 'Duurzame composiet schuttingen met extra dikke planken. Onderhoudsvrij, stormbestendig en 15 jaar garantie. Bestel direct online.',
+    faq: [
+      { q: "Wat zit er bij een composiet schuttingpakket?", a: "Een pakket bevat alle composiet planken en U-profielen voor één scherm. Aluminium palen zijn apart verkrijgbaar." },
+      { q: "Hoe hoog zijn de composiet schuttingen?", a: "Onze schuttingen zijn verkrijgbaar in 180 cm en 200 cm hoogte, met een standaard breedte van 180 cm." },
+      { q: "Zijn composiet schuttingen stormbestendig?", a: "Ja, mits correct gemonteerd op aluminium palen met een stevige fundering van betonpoeren of grondankers." },
+    ],
+    relatedBlogSlugs: ['composiet-schutting-plaatsen', 'composiet-vs-hout-vergelijking'],
   },
   {
     id: 'vlonderplanken',
@@ -626,5 +642,13 @@ export const categories = [
     image: 'https://www.mthekwerken.nl/wp-content/uploads/NoGap-AntislipTeak-5-1110x840.jpg',
     slug: 'vlonderplanken',
     productCount: 10,
+    seoTitle: 'Composiet Vlonderplanken Kopen | Composiethekwerk.nl',
+    seoDescription: 'Premium composiet vlonderplanken: splintervrij, kleurvast en onderhoudsvrij. Massief en NoGap profielen met 15 jaar garantie.',
+    faq: [
+      { q: "Wat is het verschil tussen massieve en holle vlonderplanken?", a: "Massieve planken zijn steviger en voelen meer als echt hout. Holle profielen zijn lichter en voordeliger." },
+      { q: "Zijn composiet vlonderplanken glad bij regen?", a: "Onze vlonderplanken met antislip coating bieden extra grip, ook bij nat weer. Ideaal voor terrassen bij het zwembad." },
+      { q: "Hoeveel vlonderplanken heb ik nodig?", a: "Bereken uw oppervlakte in m² en tel 10% extra op voor zaagverlies. Neem contact op voor een gratis berekening." },
+    ],
+    relatedBlogSlugs: ['composiet-vlonderplanken-kiezen', 'tuin-inspiratie-composiet-terras', 'composiet-onderhouden-seizoenstips'],
   },
 ];

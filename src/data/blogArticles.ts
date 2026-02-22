@@ -7,6 +7,11 @@ export interface BlogArticle {
   readTime: number;
   date: string;
   content: string;
+  author: { name: string; role: string };
+  updatedDate: string;
+  relatedProducts: string[];
+  relatedCategories: string[];
+  schemaType: "Article" | "HowTo" | "FAQPage";
 }
 
 export const categoryLabels: Record<BlogArticle["category"], string> = {
@@ -25,6 +30,11 @@ export const blogArticles: BlogArticle[] = [
     image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
     readTime: 8,
     date: "2026-02-10",
+    author: { name: "Mark de Vries", role: "Composiet specialist" },
+    updatedDate: "2026-02-15",
+    relatedProducts: ["nogap-vlonderplank-teak", "nogap-vlonderplank-walnoot", "nogap-vlonderplank-eiken"],
+    relatedCategories: ["vlonderplanken"],
+    schemaType: "Article",
     content: `## Waarom composiet vlonderplanken?
 
 Composiet vlonderplanken combineren de warme, natuurlijke uitstraling van hout met de duurzaamheid van moderne kunststoffen. Ze zijn ideaal voor terrassen, balkons en tuinpaden.
@@ -76,6 +86,11 @@ Investeer in kwaliteit en kies voor composiet met Co-Extrusie beschermlaag. Je g
     image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80",
     readTime: 12,
     date: "2026-02-05",
+    author: { name: "Jan Bakker", role: "Montage expert" },
+    updatedDate: "2026-02-12",
+    relatedProducts: ["rhombus-teak", "rhombus-zwart", "hoekprofiel-teak"],
+    relatedCategories: ["gevelbekleding"],
+    schemaType: "HowTo",
     content: `## Voorbereiding
 
 Een goede voorbereiding is het halve werk. Zorg dat je het volgende bij de hand hebt voordat je begint.
@@ -131,6 +146,11 @@ Gebruik hoekprofielen en eindstukken voor een strakke afwerking. Laat een dilata
     image: "https://images.unsplash.com/photo-1558171813-4c088753af8f?w=800&q=80",
     readTime: 10,
     date: "2026-01-28",
+    author: { name: "Jan Bakker", role: "Montage expert" },
+    updatedDate: "2026-02-01",
+    relatedProducts: ["schutting-rhombus-teak", "schutting-rhombus-zwart", "schutting-rhombus-walnoot"],
+    relatedCategories: ["schuttingen"],
+    schemaType: "HowTo",
     content: `## De juiste fundering
 
 Een composiet schutting begint bij een stevige fundering. Zonder goede basis verzakt je schutting binnen een paar jaar.
@@ -179,6 +199,11 @@ Je composiet schutting heeft nauwelijks onderhoud nodig:
     image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&q=80",
     readTime: 6,
     date: "2026-01-20",
+    author: { name: "Mark de Vries", role: "Composiet specialist" },
+    updatedDate: "2026-01-25",
+    relatedProducts: ["rhombus-teak", "nogap-vlonderplank-teak"],
+    relatedCategories: ["gevelbekleding", "vlonderplanken", "schuttingen"],
+    schemaType: "Article",
     content: `## De grote vraag
 
 "Is composiet beter dan hout?" Het antwoord hangt af van je prioriteiten. Laten we de feiten op een rij zetten.
@@ -232,6 +257,11 @@ Kies hout als je:
     image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=800&q=80",
     readTime: 5,
     date: "2026-01-15",
+    author: { name: "Lisa Jansen", role: "Onderhoud adviseur" },
+    updatedDate: "2026-02-01",
+    relatedProducts: ["nogap-vlonderplank-teak", "schutting-rhombus-teak"],
+    relatedCategories: ["vlonderplanken", "schuttingen"],
+    schemaType: "Article",
     content: `## Voorjaar: grote schoonmaak
 
 Na de winter is het tijd voor een grondige reiniging:
@@ -282,6 +312,11 @@ Breng jaarlijks een composiet-beschermer aan. Dit is geen noodzaak maar verlengt
     image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
     readTime: 4,
     date: "2026-01-08",
+    author: { name: "Sophie van Dijk", role: "Tuin & design specialist" },
+    updatedDate: "2026-01-20",
+    relatedProducts: ["nogap-vlonderplank-teak", "nogap-vlonderplank-walnoot", "massief-vlonderplank-zwart"],
+    relatedCategories: ["vlonderplanken"],
+    schemaType: "Article",
     content: `## 1. Het minimalistische stadsterras
 
 Een strak terras in antraciet composiet, gecombineerd met witte plantenbakken en siergrassen. Perfect voor kleine stadstuinen waar elke vierkante meter telt.

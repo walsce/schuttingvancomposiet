@@ -102,7 +102,8 @@ export const articleSchema = (article: {
   image: string;
   date: string;
   slug: string;
-  author?: string;
+  author?: { name: string; role: string } | string;
+  updatedDate?: string;
 }) => ({
   "@context": "https://schema.org",
   "@type": "Article",
@@ -110,10 +111,11 @@ export const articleSchema = (article: {
   description: article.excerpt,
   image: article.image,
   datePublished: article.date,
-  dateModified: article.date,
+  dateModified: article.updatedDate || article.date,
   author: {
     "@type": "Person",
-    name: article.author || "Composiethekwerk.nl Redactie",
+    name: typeof article.author === "string" ? article.author : article.author?.name || "Composiethekwerk.nl Redactie",
+    ...(typeof article.author === "object" && article.author?.role ? { jobTitle: article.author.role } : {}),
   },
   publisher: {
     "@type": "Organization",
@@ -121,4 +123,32 @@ export const articleSchema = (article: {
     logo: { "@type": "ImageObject", url: "https://composiethekwerk.nl/favicon.ico" },
   },
   mainEntityOfPage: `https://composiethekwerk.nl/blog/${article.slug}`,
+});
+
+export const howToSchema = (article: {
+  title: string;
+  excerpt: string;
+  image: string;
+  date: string;
+  content: string;
+}) => ({
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: article.title,
+  description: article.excerpt,
+  image: article.image,
+  datePublished: article.date,
+  step: article.content
+    .split(/###\s+Stap\s+\d+:\s+/)
+    .filter((s) => s.trim())
+    .slice(0, 10)
+    .map((s, i) => {
+      const lines = s.trim().split("\n");
+      return {
+        "@type": "HowToStep",
+        position: i + 1,
+        name: lines[0].replace(/^#+\s*/, "").trim(),
+        text: lines.slice(1).join(" ").replace(/[#*\-]/g, "").trim().slice(0, 300),
+      };
+    }),
 });

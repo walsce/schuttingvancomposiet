@@ -3,10 +3,11 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import JsonLd, { articleSchema } from "@/components/JsonLd";
+import JsonLd, { articleSchema, howToSchema, faqSchema } from "@/components/JsonLd";
 import { blogArticles, categoryLabels } from "@/data/blogArticles";
+import { products, categories } from "@/data/products";
 import { Badge } from "@/components/ui/badge";
-import { Clock, ArrowRight } from "lucide-react";
+import { Clock, ArrowRight, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ReactMarkdown from "react-markdown";
 
@@ -18,6 +19,20 @@ const BlogArticlePage = () => {
 
   const related = blogArticles.filter((a) => a.slug !== slug).slice(0, 3);
 
+  // Build JSON-LD based on schemaType
+  const jsonLdData: Record<string, unknown>[] = [articleSchema(article)];
+  if (article.schemaType === "HowTo") {
+    jsonLdData.push(howToSchema(article));
+  }
+
+  // Resolve related products and categories from data
+  const relatedProductData = article.relatedProducts
+    .map((slug) => products.find((p) => p.slug === slug))
+    .filter(Boolean);
+  const relatedCategoryData = article.relatedCategories
+    .map((slug) => categories.find((c) => c.slug === slug))
+    .filter(Boolean);
+
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
@@ -27,7 +42,7 @@ const BlogArticlePage = () => {
         ogImage={article.image}
         ogType="article"
       />
-      <JsonLd data={articleSchema(article)} />
+      <JsonLd data={jsonLdData} />
       <Header />
       <Breadcrumbs items={[
         { label: "Home", href: "/" },
@@ -39,7 +54,7 @@ const BlogArticlePage = () => {
         {/* Article header */}
         <section className="container py-10 md:py-14">
           <div className="max-w-3xl mx-auto">
-            <div className="flex items-center gap-3 mb-4">
+            <div className="flex items-center gap-3 mb-4 flex-wrap">
               <Badge variant="secondary">{categoryLabels[article.category]}</Badge>
               <span className="flex items-center gap-1 text-sm text-muted-foreground">
                 <Clock className="w-3.5 h-3.5" />
@@ -57,7 +72,13 @@ const BlogArticlePage = () => {
               {article.title}
             </h1>
             <p className="text-lg text-muted-foreground mt-4">{article.excerpt}</p>
-            <p className="text-sm text-muted-foreground mt-2">Door <strong className="text-foreground">Composiethekwerk.nl Redactie</strong></p>
+            <div className="flex items-center gap-2 mt-4">
+              <User className="w-4 h-4 text-primary" />
+              <span className="text-sm text-muted-foreground">
+                Door <strong className="text-foreground">{article.author.name}</strong>
+                <span className="text-muted-foreground"> — {article.author.role}</span>
+              </span>
+            </div>
           </div>
         </section>
 
@@ -90,20 +111,37 @@ const BlogArticlePage = () => {
             <ReactMarkdown>{article.content}</ReactMarkdown>
           </div>
 
-          {/* Internal links */}
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Button asChild variant="outline" size="sm">
-              <Link to="/categorie/gevelbekleding">Gevelbekleding bekijken</Link>
-            </Button>
-            <Button asChild variant="outline" size="sm">
-              <Link to="/categorie/schuttingen">Schuttingen bekijken</Link>
-            </Button>
-            <Button asChild variant="outline" size="sm">
-              <Link to="/categorie/vlonderplanken">Vlonderplanken bekijken</Link>
-            </Button>
-            <Button asChild variant="outline" size="sm">
-              <Link to="/vergelijken">Vergelijk producten</Link>
-            </Button>
+          {/* Auto-generated internal links from data */}
+          <div className="mt-8 space-y-4">
+            {relatedProductData.length > 0 && (
+              <div>
+                <h3 className="font-serif text-lg font-semibold text-foreground mb-2">Gerelateerde producten</h3>
+                <div className="flex flex-wrap gap-2">
+                  {relatedProductData.map((p) => p && (
+                    <Button key={p.slug} asChild variant="outline" size="sm">
+                      <Link to={`/product/${p.slug}`}>{p.name}</Link>
+                    </Button>
+                  ))}
+                </div>
+              </div>
+            )}
+            {relatedCategoryData.length > 0 && (
+              <div>
+                <h3 className="font-serif text-lg font-semibold text-foreground mb-2">Bekijk categorieën</h3>
+                <div className="flex flex-wrap gap-2">
+                  {relatedCategoryData.map((c) => c && (
+                    <Button key={c.slug} asChild variant="outline" size="sm">
+                      <Link to={`/categorie/${c.slug}`}>{c.name} <ArrowRight className="w-3.5 h-3.5 ml-1" /></Link>
+                    </Button>
+                  ))}
+                </div>
+              </div>
+            )}
+            <div className="flex flex-wrap gap-2">
+              <Button asChild variant="outline" size="sm">
+                <Link to="/vergelijken">Vergelijk producten</Link>
+              </Button>
+            </div>
           </div>
 
           {/* CTA */}
