@@ -20,7 +20,7 @@ export const categoryLabels: Record<DownloadCategory, string> = {
 export const downloads: DownloadGuide[] = [
   {
     id: "checklist-schutting-plaatsen",
-    title: "Checklist: Composiet Schutting Plaatsen",
+    title: "Checklist: composiet schutting plaatsen",
     slug: "checklist-schutting-plaatsen",
     description:
       "Stap-voor-stap checklist voor het plaatsen van een composiet schutting. Van voorbereiding tot afwerking.",
@@ -31,14 +31,14 @@ export const downloads: DownloadGuide[] = [
       "Veelgemaakte fouten vermijden",
     ],
     category: "checklist",
-    image: "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=600&h=400&fit=crop",
+    image: "https://images.unsplash.com/photo-1504148455328-c376907d081c?w=600&h=400&fit=crop",
     relatedLinks: [
       { label: "Schuttingen bekijken", href: "/categorie/schuttingen" },
     ],
   },
   {
     id: "composiet-vs-hout",
-    title: "Vergelijking: Composiet vs. Houten Schuttingen",
+    title: "Vergelijking: composiet vs. houten schuttingen",
     slug: "composiet-vs-hout",
     description:
       "Eerlijke vergelijking op prijs, levensduur, onderhoud, uitstraling en duurzaamheid.",
@@ -49,14 +49,14 @@ export const downloads: DownloadGuide[] = [
       "Garantievoorwaarden vergeleken",
     ],
     category: "vergelijking",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=400&fit=crop",
+    image: "https://images.unsplash.com/photo-1621155346337-1d19476ba7d6?w=600&h=400&fit=crop",
     relatedLinks: [
       { label: "Lees: Composiet vs. Hout", href: "/blog/composiet-vs-hout-vergelijking" },
     ],
   },
   {
     id: "vergunningen-regels",
-    title: "Gids: Vergunningen & Regels voor Schuttingen",
+    title: "Gids: vergunningen & regels voor schuttingen",
     slug: "vergunningen-regels",
     description:
       "Alles over gemeentelijke regels, maximale hoogtes, erfgrenzen en burenrecht in Nederland.",
@@ -67,14 +67,14 @@ export const downloads: DownloadGuide[] = [
       "Handige links naar gemeentewebsites",
     ],
     category: "gids",
-    image: "https://images.unsplash.com/photo-1523217582562-09d0def993a6?w=600&h=400&fit=crop",
+    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=400&fit=crop",
     relatedLinks: [
       { label: "Contact voor advies", href: "/contact" },
     ],
   },
   {
     id: "grondvoorbereiding",
-    title: "Checklist: Grondvoorbereiding voor Schuttingen & Vlonders",
+    title: "Checklist: grondvoorbereiding voor schuttingen & vlonders",
     slug: "grondvoorbereiding",
     description:
       "De juiste fundering begint bij de grond. Leer alles over grondtypen, drainage en funderingsopties.",
@@ -85,14 +85,14 @@ export const downloads: DownloadGuide[] = [
       "Hellingen & vorstdiepte berekenen",
     ],
     category: "checklist",
-    image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&h=400&fit=crop",
+    image: "https://images.unsplash.com/photo-1578496480157-697fc14d2e55?w=600&h=400&fit=crop",
     relatedLinks: [
       { label: "Vlonderplanken bekijken", href: "/categorie/vlonderplanken" },
     ],
   },
   {
     id: "kleurengids",
-    title: "Kleurengids: Het Perfecte Composiet voor Jouw Tuin",
+    title: "Kleurengids: het perfecte composiet voor jouw tuin",
     slug: "kleurengids",
     description:
       "Kies de ideale kleur composiet die past bij jouw tuin, gevel en persoonlijke stijl.",
@@ -103,14 +103,14 @@ export const downloads: DownloadGuide[] = [
       "Stijlgids: modern, landelijk & stoer",
     ],
     category: "gids",
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&h=400&fit=crop",
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=400&fit=crop",
     relatedLinks: [
       { label: "Bekijk alle kleuren", href: "/assortiment" },
     ],
   },
   {
     id: "onderhoudsgids",
-    title: "Onderhoudsgids: Composiet Jarenlang Mooi Houden",
+    title: "Onderhoudsgids: composiet jarenlang mooi houden",
     slug: "onderhoudsgids",
     description:
       "Seizoensgebonden onderhoudskalender en tips om jouw composiet er jarenlang als nieuw uit te laten zien.",
@@ -121,7 +121,7 @@ export const downloads: DownloadGuide[] = [
       "Garantievoorwaarden behouden",
     ],
     category: "checklist",
-    image: "https://images.unsplash.com/photo-1591825729269-caeb344f6df2?w=600&h=400&fit=crop",
+    image: "https://images.unsplash.com/photo-1558317374-067fb5f30001?w=600&h=400&fit=crop",
     relatedLinks: [
       { label: "Bekijk producten", href: "/assortiment" },
     ],

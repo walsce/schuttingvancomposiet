@@ -36,7 +36,7 @@ const DownloadsPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="Gratis Gidsen & Checklists | Schuttingvancomposiet.nl"
+        title="Gratis gidsen & checklists | Schuttingvancomposiet.nl"
         description="Download gratis checklists, vergelijkingen en gidsen over composiet schuttingen, vlonders en gevelbekleding. Van vergunningen tot onderhoud."
         canonical="/downloads"
       />
@@ -44,7 +44,7 @@ const DownloadsPage = () => {
         data={{
           "@context": "https://schema.org",
           "@type": "CollectionPage",
-          name: "Gratis Gidsen & Checklists",
+          name: "Gratis gidsen & checklists",
           description: "Gratis downloadbare gidsen over composiet producten",
           url: "https://schuttingvancomposiet.nl/downloads",
         }}
@@ -59,7 +59,7 @@ const DownloadsPage = () => {
               <Breadcrumbs items={breadcrumbs} />
             </div>
             <h1 className="font-serif text-3xl md:text-5xl font-bold">
-              Gratis Gidsen & Checklists
+              Gratis gidsen & checklists
             </h1>
             <p className="text-background/70 mt-4 max-w-xl text-lg">
               Praktische PDF's vol tips, regels en checklists. Download gratis en start je composiet project goed voorbereid.
