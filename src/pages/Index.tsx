@@ -199,6 +199,21 @@ const Index = () => {
           </div>
         </section>
 
+        {/* Downloads teaser */}
+        <section className="bg-primary/5 border-b border-border">
+          <div className="container py-12 text-center">
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-foreground">
+              Gratis Gidsen & Checklists
+            </h2>
+            <p className="text-muted-foreground mt-2 max-w-lg mx-auto">
+              Download praktische PDF's over vergunningen, grondvoorbereiding, kleurkeuze en meer.
+            </p>
+            <Button asChild className="mt-6 bg-accent text-accent-foreground hover:bg-accent/90">
+              <Link to="/downloads">Bekijk alle downloads <ArrowRight className="w-4 h-4 ml-1" /></Link>
+            </Button>
+          </div>
+        </section>
+
         {/* FAQ */}
         <FAQSection faqs={faqs} />
 

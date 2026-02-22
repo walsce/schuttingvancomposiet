@@ -11,6 +11,7 @@ import ComparePage from "./pages/ComparePage";
 import BlogPage from "./pages/BlogPage";
 import BlogArticlePage from "./pages/BlogArticlePage";
 import ProductPage from "./pages/ProductPage";
+import DownloadsPage from "./pages/DownloadsPage";
 import NotFound from "./pages/NotFound";
 import ChatWidget from "./components/ChatWidget";
 
@@ -31,6 +32,7 @@ const App = () => (
           <Route path="/vergelijken" element={<ComparePage />} />
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:slug" element={<BlogArticlePage />} />
+          <Route path="/downloads" element={<DownloadsPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <ChatWidget />

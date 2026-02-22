@@ -28,6 +28,7 @@ const Footer = () => (
           <h4 className="font-serif font-semibold text-background mb-4">Informatie</h4>
           <ul className="space-y-2 text-sm">
             <li><Link to="/blog" className="hover:text-background transition-colors">Artikelen</Link></li>
+            <li><Link to="/downloads" className="hover:text-background transition-colors">Gratis Gidsen</Link></li>
             <li><Link to="/contact" className="hover:text-background transition-colors">Contact & Offerte</Link></li>
             <li><span className="cursor-default">Verzending & Levering</span></li>
             <li><span className="cursor-default">Retourbeleid</span></li>
