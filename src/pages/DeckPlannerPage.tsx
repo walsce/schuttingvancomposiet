@@ -139,38 +139,38 @@ const DeckPlannerPage = () => {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <SEOHead
-        title="Vlonderplanner | Ontwerp je composiet terras | Schuttingvancomposiet.nl"
+        title="TerrasDesigner Pro | Ontwerp je composiet terras online | Schuttingvancomposiet.nl"
         description="Ontwerp je ideale composiet vlonder met onze gratis online planner. Kies je vorm, afmetingen en materiaal en ontvang direct een materiaallijst met prijsindicatie."
         canonical="/vlonder-planner"
       />
       <Header />
       <Breadcrumbs items={[
         { label: "Home", href: "/" },
-        { label: "Vlonderplanner" },
+        { label: "TerrasDesigner Pro" },
       ]} />
 
-      <main className="flex-1">
+      <main className="flex-1 overflow-x-hidden">
         {/* Hero */}
-        <section className="max-w-6xl mx-auto px-4 pt-8 pb-4">
-          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+        <section className="max-w-6xl mx-auto px-3 sm:px-4 pt-4 sm:pt-8 pb-4">
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 sm:gap-4">
             <div>
-              <Badge variant="secondary" className="mb-2">Gratis tool</Badge>
-              <h1 className="font-serif text-3xl lg:text-4xl font-bold text-foreground">
-                Vlonderplanner
+              <Badge variant="secondary" className="mb-2">Gratis online tool</Badge>
+              <h1 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">
+                TerrasDesigner Pro
               </h1>
-              <p className="text-muted-foreground mt-2 max-w-xl">
-                Ontwerp je terras: kies de vorm, afmetingen, materiaal en ontvang een complete materiaallijst.
+              <p className="text-muted-foreground mt-2 max-w-xl text-sm sm:text-base">
+                Ontwerp je droomterras in enkele minuten — kies vorm, materiaal en ontvang direct je materiaallijst.
               </p>
             </div>
-            <Button variant="outline" size="sm" onClick={handleReset} className="self-start">
-              <RotateCcw className="h-4 w-4 mr-1" /> Opnieuw
+            <Button variant="outline" size="sm" onClick={handleReset} className="self-start text-xs sm:text-sm">
+              <RotateCcw className="h-3.5 w-3.5 sm:h-4 sm:w-4 mr-1" /> Opnieuw
             </Button>
           </div>
         </section>
 
         {/* Main content */}
-        <section className="max-w-6xl mx-auto px-4 pb-16">
-          <div className="grid lg:grid-cols-[1fr_360px] gap-8">
+        <section className="max-w-6xl mx-auto px-3 sm:px-4 pb-16">
+          <div className="grid lg:grid-cols-[1fr_360px] gap-6 lg:gap-8">
             {/* Canvas */}
             <div>
               <DeckCanvas
