@@ -214,7 +214,7 @@ const ProductPage = () => {
             </TabsList>
 
             <TabsContent value="description" className="pt-6">
-              <article className="prose prose-sm max-w-none text-foreground prose-headings:text-foreground prose-h2:text-2xl prose-h2:font-serif prose-h2:font-bold prose-h2:mt-10 prose-h2:mb-3 prose-h2:border-b prose-h2:border-border prose-h2:pb-2 prose-h3:text-lg prose-h3:mt-6 prose-h3:mb-2 prose-strong:text-foreground prose-li:text-foreground prose-p:leading-relaxed prose-li:leading-relaxed">
+              <article className="prose prose-base max-w-none text-foreground prose-headings:text-foreground prose-h2:text-2xl prose-h2:font-serif prose-h2:font-bold prose-h2:mt-12 prose-h2:mb-4 prose-h2:border-b prose-h2:border-border prose-h2:pb-3 prose-h3:text-xl prose-h3:font-semibold prose-h3:mt-8 prose-h3:mb-3 prose-strong:text-foreground prose-li:text-foreground prose-p:leading-relaxed prose-p:mb-4 prose-li:leading-relaxed">
                 <ReactMarkdown>{product.longDescription}</ReactMarkdown>
               </article>
             </TabsContent>
