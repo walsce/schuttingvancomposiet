@@ -25,7 +25,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { RotateCcw, Info } from "lucide-react";
+import { RotateCcw, Info, Pencil } from "lucide-react";
 
 const defaultSubstructure: SubstructureConfig = {
   usage: "private",
@@ -63,6 +63,7 @@ const DeckPlannerPage = () => {
 
   const [showLeadModal, setShowLeadModal] = useState(false);
   const [unlocked, setUnlocked] = useState(false);
+  const [freehandMode, setFreehandMode] = useState(false);
   const [floorPlanUrl, setFloorPlanUrl] = useState<string | null>(null);
   const [floorPlanOpacity, setFloorPlanOpacity] = useState(0.4);
   const [floorPlanScale, setFloorPlanScale] = useState(1);
@@ -107,6 +108,12 @@ const DeckPlannerPage = () => {
 
   const handlePointsChange = useCallback((pts: Point[]) => {
     setCustomPoints(pts);
+  }, []);
+
+  const handleFreehandComplete = useCallback((pts: Point[]) => {
+    setCustomPoints(pts);
+    setPreset("custom");
+    setFreehandMode(false);
   }, []);
 
   const handleReset = () => {
@@ -178,10 +185,23 @@ const DeckPlannerPage = () => {
                   offsetX: floorPlanOffsetX,
                   offsetY: floorPlanOffsetY,
                 } : null}
+                freehandMode={freehandMode}
+                onFreehandComplete={handleFreehandComplete}
               />
-              <div className="flex items-center gap-2 mt-2 text-xs text-muted-foreground">
-                <div className="w-2.5 h-2.5 rounded-full bg-primary" />
-                <span>Versleep hoekpunten · Klik op middelpunten om punten toe te voegen</span>
+              <div className="flex items-center justify-between mt-2">
+                <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                  <div className="w-2.5 h-2.5 rounded-full bg-primary" />
+                  <span>{freehandMode ? "Teken een vorm op het canvas" : "Versleep hoekpunten · Klik op middelpunten"}</span>
+                </div>
+                <Button
+                  variant={freehandMode ? "default" : "outline"}
+                  size="sm"
+                  className="text-xs h-7 gap-1"
+                  onClick={() => setFreehandMode(!freehandMode)}
+                >
+                  <Pencil className="h-3 w-3" />
+                  {freehandMode ? "Tekenen aan" : "Vrij tekenen"}
+                </Button>
               </div>
             </div>
 
