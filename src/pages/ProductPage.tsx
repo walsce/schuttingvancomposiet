@@ -165,12 +165,20 @@ const ProductPage = () => {
 
               <div className="flex flex-col sm:flex-row gap-3 pt-2">
                 <Button asChild size="lg" className="flex-1">
-                  <Link to="/contact">Offerte Aanvragen</Link>
+                  <Link to={`/contact?type=offerte&product=${product.slug}`}>Offerte Aanvragen</Link>
                 </Button>
                 <Button asChild variant="outline" size="lg" className="flex-1">
-                  <Link to="/contact">Sample Aanvragen</Link>
+                  <Link to={`/contact?type=sample&product=${product.slug}`}>
+                    <span className="flex items-center gap-2">
+                      Sample Aanvragen
+                      <Badge variant="secondary" className="text-[10px] px-1.5 py-0">Gratis</Badge>
+                    </span>
+                  </Link>
                 </Button>
               </div>
+              <p className="text-xs text-muted-foreground">
+                Ontvang een gratis sample om de kleur en kwaliteit thuis te ervaren
+              </p>
             </div>
           </div>
         </section>

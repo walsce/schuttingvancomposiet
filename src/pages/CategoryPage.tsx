@@ -145,6 +145,21 @@ const CategoryPage = () => {
         {/* FAQ */}
         {faqs.length > 0 && <FAQSection faqs={faqs} />}
 
+        {/* Sample CTA */}
+        <section className="bg-secondary/30 border-y border-border">
+          <div className="container py-10 text-center">
+            <h2 className="font-serif text-2xl font-bold text-foreground mb-2">Sample aanvragen?</h2>
+            <p className="text-muted-foreground mb-4 max-w-lg mx-auto">
+              Ontvang een gratis sample om de kleur en kwaliteit van onze {category.name.toLowerCase()} thuis te ervaren.
+            </p>
+            <Button asChild>
+              <Link to={`/contact?type=sample&product=${categoryProducts[0]?.slug || ''}`}>
+                Gratis sample aanvragen
+              </Link>
+            </Button>
+          </div>
+        </section>
+
         {/* CTA */}
         <CTASection
           title={`${category.name} nodig?`}
