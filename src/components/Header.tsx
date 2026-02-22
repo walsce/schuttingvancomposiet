@@ -23,8 +23,8 @@ const Header = () => {
         <div className="container flex items-center justify-between gap-4">
           <div className="flex items-center gap-6">
             <span className="flex items-center gap-1.5"><Star className="w-3.5 h-3.5 fill-current" /> 4.9/5 beoordeling</span>
-            <span className="hidden sm:inline flex items-center gap-1.5"><Truck className="w-3.5 h-3.5" /> Snelle levering</span>
-            <span className="hidden md:inline flex items-center gap-1.5"><ShieldCheck className="w-3.5 h-3.5" /> 15 jaar garantie</span>
+            <span className="hidden sm:flex items-center gap-1.5"><Truck className="w-3.5 h-3.5" /> Snelle levering</span>
+            <span className="hidden md:flex items-center gap-1.5"><ShieldCheck className="w-3.5 h-3.5" /> 15 jaar garantie</span>
           </div>
           <div className="flex items-center gap-2">
             <Phone className="w-3.5 h-3.5" />
