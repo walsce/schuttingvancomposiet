@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
 import Index from "./pages/Index";
 import CategoryPage from "./pages/CategoryPage";
@@ -19,6 +19,13 @@ import NotFound from "./pages/NotFound";
 import ChatWidget from "./components/ChatWidget";
 
 const queryClient = new QueryClient();
+
+const ChatWidgetWrapper = () => {
+  const location = useLocation();
+  const hiddenPaths = ["/schutting-planner", "/vlonder-planner"];
+  if (hiddenPaths.includes(location.pathname)) return null;
+  return <ChatWidget />;
+};
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -41,7 +48,7 @@ const App = () => (
           <Route path="/schutting-planner" element={<FencePlannerPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-        <ChatWidget />
+        <ChatWidgetWrapper />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

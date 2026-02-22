@@ -228,7 +228,7 @@ const FencePlannerPage = () => {
           </div>
 
           {/* Navigation buttons */}
-          <div className="absolute bottom-6 right-6 flex gap-3">
+          <div className="absolute bottom-6 right-6 flex gap-3 z-50">
             <Button
               variant="outline"
               onClick={() => setStep(Math.max(0, step - 1))}

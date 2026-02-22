@@ -1,7 +1,6 @@
 import { useMemo } from "react";
 import { PlacedPanel, PanelStyleId } from "./types";
-import { POST_WIDTH_CM, PANEL_HEIGHT_CM } from "./designerData";
-import { Plus } from "lucide-react";
+import { POST_WIDTH_CM } from "./designerData";
 
 interface PanelDesignerCanvasProps {
   segmentLengthCm: number;
@@ -127,14 +126,12 @@ const PanelDesignerCanvas = ({ segmentLengthCm, segmentLabel, placedPanels, onAd
         <g
           onClick={onAddPanel}
           className="cursor-pointer"
+          style={{ pointerEvents: "all" }}
           transform={`translate(${startX + elements.usedLength * scale + 15}, ${PANEL_TOP + panelHeight / 2 - 15})`}
         >
           <rect x={0} y={0} width={30} height={30} rx={6} fill="hsl(var(--primary))" opacity={0.15} stroke="hsl(var(--primary))" strokeWidth={1.5} strokeDasharray="4 2" />
-          <foreignObject x={3} y={3} width={24} height={24}>
-            <div className="flex items-center justify-center w-full h-full text-primary">
-              <Plus className="w-4 h-4" />
-            </div>
-          </foreignObject>
+          <line x1={9} y1={15} x2={21} y2={15} stroke="hsl(var(--primary))" strokeWidth={2} />
+          <line x1={15} y1={9} x2={15} y2={21} stroke="hsl(var(--primary))" strokeWidth={2} />
         </g>
       )}
     </svg>
