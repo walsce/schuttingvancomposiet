@@ -17,6 +17,7 @@ const MaterialsList = ({ lines, areaM2 }: MaterialsListProps) => {
       </div>
 
       <div className="bg-card border border-border rounded-lg overflow-hidden">
+        <div className="overflow-x-auto">
         <Table>
           <TableHeader>
             <TableRow>
@@ -37,6 +38,7 @@ const MaterialsList = ({ lines, areaM2 }: MaterialsListProps) => {
             ))}
           </TableBody>
         </Table>
+        </div>
       </div>
 
       <div className="flex justify-between items-center pt-2 border-t border-border">

@@ -18,9 +18,9 @@ const Header = () => {
   return (
     <>
       {/* Top bar */}
-      <div className="bg-primary text-primary-foreground text-sm py-2">
-        <div className="container flex items-center justify-between gap-4">
-          <div className="flex items-center gap-6">
+      <div className="bg-primary text-primary-foreground text-sm py-2 overflow-hidden">
+        <div className="container flex items-center justify-between gap-4 min-w-0">
+          <div className="flex items-center gap-6 min-w-0 overflow-hidden">
             <span className="flex items-center gap-1.5"><Star className="w-3.5 h-3.5 fill-current" /> 4.9/5 beoordeling</span>
             <span className="hidden sm:flex items-center gap-1.5"><Truck className="w-3.5 h-3.5" /> Snelle levering</span>
             <span className="hidden md:flex items-center gap-1.5"><ShieldCheck className="w-3.5 h-3.5" /> 15 jaar garantie</span>
