@@ -74,7 +74,7 @@ export const products: Product[] = [
     productType: 'plank',
     description: 'De composiet gevelbekleding Rhombus in de kleur Teak geeft uw gevel een warme, natuurlijke uitstraling. Dankzij de co-extrusie beschermlaag is de plank extra bestendig tegen UV-straling, krassen en vlekken. De rhombus-profilering zorgt voor een moderne, strakke look met schaduwwerking.',
     seoTitle: 'Composiet Gevelbekleding Rhombus Teak Kopen | €25,95',
-    seoDescription: 'Composiet gevelbekleding Rhombus Teak met co-extrusie beschermlaag. UV-bestendig, onderhoudsvrij en 15 jaar garantie. Bestel nu bij Composiethekwerk.nl.',
+    seoDescription: 'Composiet gevelbekleding Rhombus Teak met co-extrusie beschermlaag. UV-bestendig, onderhoudsvrij en 15 jaar garantie. Bestel nu bij Schuttingvancomposiet.nl.',
     longDescription: `## Composiet gevelbekleding Rhombus Teak
 
 Geef jouw woning, schuur of uitbouw een moderne en hoogwaardige uitstraling met onze composiet gevelbekleding in Rhombus-profiel. De planken zijn voorzien van een co-extrusie beschermlaag, waardoor ze geen vocht opnemen, kleurvast blijven en extreem lang meegaan.
@@ -129,7 +129,7 @@ Met onze composiet gevelbekleding kies je voor een hoogwaardige, duurzame en sti
     productType: 'plank',
     description: 'Een unieke combinatie van Teak en Zwart. De ene zijde heeft een warme teakkleur, de andere een strak zwart. Ideaal als u twee stijlen in één plank wilt combineren.',
     seoTitle: 'Composiet Gevelbekleding Rhombus Teak/Zwart | €25,95',
-    seoDescription: 'Unieke composiet gevelbekleding met twee kleuren: Teak en Zwart in één plank. Co-extrusie beschermlaag, 15 jaar garantie. Bestel bij Composiethekwerk.nl.',
+    seoDescription: 'Unieke composiet gevelbekleding met twee kleuren: Teak en Zwart in één plank. Co-extrusie beschermlaag, 15 jaar garantie. Bestel bij Schuttingvancomposiet.nl.',
     longDescription: `## Composiet gevelbekleding Rhombus Teak/Zwart
 
 Geef jouw woning, schuur of uitbouw een moderne en hoogwaardige uitstraling met onze composiet gevelbekleding in Rhombus-profiel. De planken zijn voorzien van een co-extrusie beschermlaag, waardoor ze geen vocht opnemen, kleurvast blijven en extreem lang meegaan. Deze Teak planken met zwarte achtergrond zorgen voor een beeld van extra diepte.
@@ -239,7 +239,7 @@ Kies voor horizontale of verticale plaatsing — de planken zijn in beide richti
     productType: 'plank',
     description: 'Warme walnoottint met natuurlijke houtnerf structuur. De composiet gevelbekleding Rhombus Walnoot biedt de luxe uitstraling van echt hout zonder het onderhoud.',
     seoTitle: 'Composiet Gevelbekleding Rhombus Walnoot | €25,95',
-    seoDescription: 'Composiet gevelbekleding Rhombus Walnoot met warme houtlook en co-extrusie beschermlaag. Onderhoudsvrij, 15 jaar garantie. Bestel bij Composiethekwerk.nl.',
+    seoDescription: 'Composiet gevelbekleding Rhombus Walnoot met warme houtlook en co-extrusie beschermlaag. Onderhoudsvrij, 15 jaar garantie. Bestel bij Schuttingvancomposiet.nl.',
     longDescription: `## Composiet gevelbekleding Rhombus Walnoot
 
 Geef jouw woning een luxe, warme uitstraling met onze composiet gevelbekleding Rhombus in de kleur Walnoot. De donkere, rijke walnoottint met natuurlijke houtnerf structuur biedt de uitstraling van echt hout zonder het onderhoud.
@@ -291,7 +291,7 @@ Horizontale of verticale plaatsing — beide zijn mogelijk. De planken worden ee
     productType: 'plank',
     description: 'De composiet gevelbekleding Rhombus Eiken heeft een lichte, warme eikenkleur die perfect past bij zowel moderne als landelijke architectuur. Voorzien van co-extrusie beschermlaag.',
     seoTitle: 'Composiet Gevelbekleding Rhombus Eiken Kopen | €25,95',
-    seoDescription: 'Composiet gevelbekleding Rhombus Eiken met warme eikenkleur en co-extrusie beschermlaag. Onderhoudsvrij, 15 jaar garantie. Bestel bij Composiethekwerk.nl.',
+    seoDescription: 'Composiet gevelbekleding Rhombus Eiken met warme eikenkleur en co-extrusie beschermlaag. Onderhoudsvrij, 15 jaar garantie. Bestel bij Schuttingvancomposiet.nl.',
     longDescription: `## Composiet gevelbekleding Rhombus Eiken
 
 De composiet gevelbekleding Rhombus Eiken heeft een lichte, warme eikenkleur die perfect past bij zowel moderne als landelijke architectuur. De planken zijn voorzien van een co-extrusie beschermlaag voor langdurige bescherming.
@@ -392,7 +392,7 @@ Monteer horizontaal of verticaal op een aluminium regelwerk. Schroeven worden me
     productType: 'profiel',
     description: 'Het composiet hoekprofiel in Teak zorgt voor een strakke en professionele afwerking van uw gevelbekleding op hoeken en randen. Perfect passend bij de Rhombus gevelbekleding.',
     seoTitle: 'Hoekprofiel Composiet Gevelbekleding Teak | €19,95',
-    seoDescription: 'Composiet hoekprofiel Teak voor een strakke hoekafwerking van uw gevelbekleding. Passend bij Rhombus gevelbekleding. Bestel bij Composiethekwerk.nl.',
+    seoDescription: 'Composiet hoekprofiel Teak voor een strakke hoekafwerking van uw gevelbekleding. Passend bij Rhombus gevelbekleding. Bestel bij Schuttingvancomposiet.nl.',
     longDescription: `## Hoekprofiel Composiet gevelbekleding Teak
 
 Het composiet hoekprofiel in Teak zorgt voor een strakke en professionele afwerking van uw gevelbekleding op hoeken en randen. Het profiel past perfect bij de Rhombus gevelbekleding in de kleur Teak.
@@ -435,7 +435,7 @@ Hoeken en randen zijn het visitekaartje van een gevelafwerking. Met het composie
     productType: 'profiel',
     description: 'Het composiet hoekprofiel in Zwart voor een strakke afwerking van uw zwarte gevelbekleding. Passend bij alle zwarte Rhombus gevelbekleding varianten.',
     seoTitle: 'Hoekprofiel Composiet Gevelbekleding Zwart | €19,95',
-    seoDescription: 'Composiet hoekprofiel Zwart voor strakke hoekafwerking. Passend bij alle zwarte Rhombus gevelbekleding. Bestel bij Composiethekwerk.nl.',
+    seoDescription: 'Composiet hoekprofiel Zwart voor strakke hoekafwerking. Passend bij alle zwarte Rhombus gevelbekleding. Bestel bij Schuttingvancomposiet.nl.',
     longDescription: `## Hoekprofiel Composiet gevelbekleding Zwart
 
 Het composiet hoekprofiel in Zwart zorgt voor een strakke, naadloze afwerking van uw zwarte gevelbekleding op hoeken en randen. Past bij alle zwarte Rhombus gevelbekleding varianten.
@@ -480,7 +480,7 @@ Met het composiet hoekprofiel worden kopse kanten netjes afgedekt voor een profe
     productType: 'paneel',
     description: 'De composiet schutting Rhombus Teak combineert privacy met een stijlvolle, moderne uitstraling. De extra dikke planken van 2,5 cm zorgen voor een robuust en stevig scherm. Het rhombus profiel creëert een schaduwwerking die de schutting extra diepte geeft.',
     seoTitle: 'Composiet Schutting Rhombus Teak Kopen | Vanaf €139,95',
-    seoDescription: 'Composiet schutting Rhombus Teak met extra dikke 2,5cm planken en co-extrusie beschermlaag. Onderhoudsvrij, 15 jaar garantie. Bestel bij Composiethekwerk.nl.',
+    seoDescription: 'Composiet schutting Rhombus Teak met extra dikke 2,5cm planken en co-extrusie beschermlaag. Onderhoudsvrij, 15 jaar garantie. Bestel bij Schuttingvancomposiet.nl.',
     longDescription: `## Composiet schutting Rhombus Teak
 
 De composiet schutting Rhombus Teak combineert privacy met een stijlvolle, moderne uitstraling. De extra dikke planken van 2,5 cm zorgen voor een robuust en stevig scherm. Het rhombus profiel creëert een schaduwwerking die de schutting extra diepte en karakter geeft.
@@ -540,7 +540,7 @@ Het schuttingsysteem werkt met aluminium palen (apart verkrijgbaar) en U-profiel
     productType: 'paneel',
     description: 'De composiet schutting Teak met houtnerf profiel. Een warme, natuurlijke uitstraling dankzij de realistische houtnerf structuur. Extra dikke planken van 2,5 cm voor maximale stevigheid.',
     seoTitle: 'Composiet Schutting Teak Houtnerf Kopen | Vanaf €139,95',
-    seoDescription: 'Composiet schutting Teak met realistisch houtnerf profiel en extra dikke 2,5cm planken. Onderhoudsvrij, 15 jaar garantie. Bestel bij Composiethekwerk.nl.',
+    seoDescription: 'Composiet schutting Teak met realistisch houtnerf profiel en extra dikke 2,5cm planken. Onderhoudsvrij, 15 jaar garantie. Bestel bij Schuttingvancomposiet.nl.',
     longDescription: `## Composiet schutting Teak met Houtnerf profiel
 
 De composiet schutting Teak met houtnerf profiel biedt een warme, natuurlijke uitstraling dankzij de realistische houtnerf structuur. Extra dikke planken van 2,5 cm zorgen voor maximale stevigheid en een robuust gevoel.
@@ -655,7 +655,7 @@ Aluminium palen (apart verkrijgbaar) en U-profielen maken de montage eenvoudig. 
     productType: 'paneel',
     description: 'De composiet schutting Zwart met houtnerf profiel. Stijlvol en modern met een subtiele houtnerf structuur die diepte toevoegt aan het zwarte oppervlak.',
     seoTitle: 'Composiet Schutting Zwart Houtnerf Kopen | Vanaf €139,95',
-    seoDescription: 'Zwarte composiet schutting met houtnerf profiel en extra dikke 2,5cm planken. Stijlvol, onderhoudsvrij, 15 jaar garantie. Bestel bij Composiethekwerk.nl.',
+    seoDescription: 'Zwarte composiet schutting met houtnerf profiel en extra dikke 2,5cm planken. Stijlvol, onderhoudsvrij, 15 jaar garantie. Bestel bij Schuttingvancomposiet.nl.',
     longDescription: `## Composiet schutting Zwart met Houtnerf profiel
 
 De composiet schutting Zwart met houtnerf profiel is stijlvol en modern. De subtiele houtnerf structuur voegt diepte toe aan het zwarte oppervlak voor een verfijnd resultaat.
@@ -715,7 +715,7 @@ Aluminium palen en U-profielen maken de montage eenvoudig. Beschikbaar in 180 cm
     productType: 'paneel',
     description: 'De composiet schutting Rhombus Walnoot biedt een warme, donkere houtlook. Het rhombus profiel zorgt voor een speels schaduweffect dat de schutting extra karakter geeft.',
     seoTitle: 'Composiet Schutting Rhombus Walnoot | Vanaf €139,95',
-    seoDescription: 'Composiet schutting Rhombus Walnoot met warme houtlook en schaduwwerking. Extra dikke 2,5cm planken, onderhoudsvrij. Bestel bij Composiethekwerk.nl.',
+    seoDescription: 'Composiet schutting Rhombus Walnoot met warme houtlook en schaduwwerking. Extra dikke 2,5cm planken, onderhoudsvrij. Bestel bij Schuttingvancomposiet.nl.',
     longDescription: `## Composiet schutting Rhombus Walnoot
 
 De composiet schutting Rhombus Walnoot biedt een warme, donkere houtlook. Het rhombus profiel zorgt voor een speels schaduweffect dat de schutting extra karakter en diepte geeft.
@@ -774,7 +774,7 @@ Aluminium palen en U-profielen. Planken inschuiven. Beschikbaar in 180 cm of 200
     productType: 'paneel',
     description: 'De composiet schutting Walnoot met houtnerf profiel. Rijke walnoottint met realistische houtstructuur voor een natuurlijke look in uw tuin.',
     seoTitle: 'Composiet Schutting Walnoot Houtnerf | Vanaf €139,95',
-    seoDescription: 'Composiet schutting Walnoot met realistisch houtnerf profiel. Rijke walnoottint, onderhoudsvrij, 15 jaar garantie. Bestel bij Composiethekwerk.nl.',
+    seoDescription: 'Composiet schutting Walnoot met realistisch houtnerf profiel. Rijke walnoottint, onderhoudsvrij, 15 jaar garantie. Bestel bij Schuttingvancomposiet.nl.',
     longDescription: `## Composiet schutting Walnoot met Houtnerf profiel
 
 De composiet schutting Walnoot met houtnerf profiel biedt een rijke walnoottint met realistische houtstructuur. Perfect voor een natuurlijke, warme look in uw tuin.
@@ -833,7 +833,7 @@ Aluminium palen en U-profielen. Planken inschuiven. 180 cm of 200 cm hoogte besc
     productType: 'paneel',
     description: 'De composiet schutting Rhombus Eiken combineert de warme eikenkleur met het moderne rhombus profiel. Een schutting die past bij zowel klassieke als hedendaagse tuinen.',
     seoTitle: 'Composiet Schutting Rhombus Eiken Kopen | Vanaf €139,95',
-    seoDescription: 'Composiet schutting Rhombus Eiken met warme eikenkleur en schaduwwerking. Extra dikke 2,5cm planken, onderhoudsvrij. Bestel bij Composiethekwerk.nl.',
+    seoDescription: 'Composiet schutting Rhombus Eiken met warme eikenkleur en schaduwwerking. Extra dikke 2,5cm planken, onderhoudsvrij. Bestel bij Schuttingvancomposiet.nl.',
     longDescription: `## Composiet schutting Rhombus Eiken
 
 De composiet schutting Rhombus Eiken combineert de warme eikenkleur met het moderne rhombus profiel. Een schutting die past bij zowel klassieke als hedendaagse tuinen.
@@ -887,7 +887,7 @@ Aluminium palen en U-profielen. Planken inschuiven. 180 cm of 200 cm hoogte besc
     productType: 'paneel',
     description: 'De composiet schutting Rhombus Grijs biedt een neutrale, moderne uitstraling. Het grijze rhombus profiel past perfect bij strakke, hedendaagse tuinontwerpen.',
     seoTitle: 'Composiet Schutting Rhombus Grijs Kopen | Vanaf €139,95',
-    seoDescription: 'Grijze composiet schutting met rhombus profiel en extra dikke 2,5cm planken. Neutrale moderne uitstraling, onderhoudsvrij. Bestel bij Composiethekwerk.nl.',
+    seoDescription: 'Grijze composiet schutting met rhombus profiel en extra dikke 2,5cm planken. Neutrale moderne uitstraling, onderhoudsvrij. Bestel bij Schuttingvancomposiet.nl.',
     longDescription: `## Composiet schutting Rhombus Grijs
 
 De composiet schutting Rhombus Grijs biedt een neutrale, moderne uitstraling. Het grijze rhombus profiel past perfect bij strakke, hedendaagse tuinontwerpen en industriële stijlen.
@@ -999,7 +999,7 @@ Composiet vlonderplanken zijn 100% splintervrij — ideaal om blootsvoets over t
     productType: 'plank',
     description: 'De composiet vlonderplank Teak brengt warmte en sfeer op uw terras. Dubbelzijdige afwerking: kies voor fijne groef of houtnerf. Eenvoudig te bevestigen met schroeven of onzichtbare clips.',
     seoTitle: 'Composiet Vlonderplank Teak Kopen | Vanaf €16,95',
-    seoDescription: 'Composiet vlonderplank Teak met warme houtkleur en dubbelzijdige afwerking. Splintervrij, scherp geprijsd. Bestel bij Composiethekwerk.nl.',
+    seoDescription: 'Composiet vlonderplank Teak met warme houtkleur en dubbelzijdige afwerking. Splintervrij, scherp geprijsd. Bestel bij Schuttingvancomposiet.nl.',
     longDescription: `## Composiet vlonderplank Teak
 
 De composiet vlonderplank Teak brengt warmte en sfeer op uw terras. Dubbelzijdige afwerking: kies voor fijne groef of houtnerf. De warme teakkleur geeft uw terras de uitstraling van tropisch hout.
@@ -1052,7 +1052,7 @@ Bevestig los met schroeven of gebruik onzichtbare clips voor een strak resultaat
     productType: 'plank',
     description: 'De composiet vlonderplank Vergrijsd Eiken heeft een natuurlijke, verweerde uitstraling. Dubbelzijdig afgewerkt met fijne groef en houtnerf. Een populaire keuze voor een tijdloze look.',
     seoTitle: 'Composiet Vlonderplank Vergrijsd Eiken | Vanaf €16,95',
-    seoDescription: 'Composiet vlonderplank Vergrijsd Eiken met verweerde houtlook. Dubbelzijdig, splintervrij, scherp geprijsd. Bestel bij Composiethekwerk.nl.',
+    seoDescription: 'Composiet vlonderplank Vergrijsd Eiken met verweerde houtlook. Dubbelzijdig, splintervrij, scherp geprijsd. Bestel bij Schuttingvancomposiet.nl.',
     longDescription: `## Composiet vlonderplank Vergrijsd Eiken
 
 De composiet vlonderplank Vergrijsd Eiken heeft een natuurlijke, verweerde uitstraling die doet denken aan verouderd hout. Dubbelzijdig afgewerkt met fijne groef en houtnerf — een populaire keuze voor een tijdloze look.
@@ -1105,7 +1105,7 @@ Bevestig met schroeven of met onzichtbare clips. De clips creëren een strak ter
     productType: 'plank',
     description: 'De composiet vlonderplank Walnoot biedt een rijke, donkere houtlook. Dubbelzijdig afgewerkt zodat u kunt kiezen welke zijde u prefereert.',
     seoTitle: 'Composiet Vlonderplank Walnoot Kopen | Vanaf €16,95',
-    seoDescription: 'Composiet vlonderplank Walnoot met rijke donkere houtlook. Dubbelzijdig, splintervrij, scherp geprijsd. Bestel bij Composiethekwerk.nl.',
+    seoDescription: 'Composiet vlonderplank Walnoot met rijke donkere houtlook. Dubbelzijdig, splintervrij, scherp geprijsd. Bestel bij Schuttingvancomposiet.nl.',
     longDescription: `## Composiet vlonderplank Walnoot
 
 De composiet vlonderplank Walnoot biedt een rijke, donkere houtlook die warmte en sfeer toevoegt aan uw terras. Dubbelzijdig afgewerkt met fijne groef en houtnerf.
@@ -1158,7 +1158,7 @@ Bevestig met schroeven of met onzichtbare clips voor een strak eindresultaat.
     productType: 'plank',
     description: 'De naadloos massieve composiet vlonderplank in Donker Grijs is het topmodel uit ons assortiment. Volledig massief (geen holle kern), voorzien van een antislip coating en een naadloos ontwerp voor een strak eindresultaat.',
     seoTitle: 'Massief Composiet Vlonderplank Donker Grijs | Vanaf €24,95',
-    seoDescription: 'Naadloos massieve composiet vlonderplank Donker Grijs met antislip coating. Premium kwaliteit, 15 jaar garantie. Bestel bij Composiethekwerk.nl.',
+    seoDescription: 'Naadloos massieve composiet vlonderplank Donker Grijs met antislip coating. Premium kwaliteit, 15 jaar garantie. Bestel bij Schuttingvancomposiet.nl.',
     longDescription: `## Composiet vlonderplank naadloos massief Donker Grijs
 
 Het topmodel uit ons assortiment: de naadloos massieve composiet vlonderplank in Donker Grijs. Volledig massief (geen holle kern), voorzien van een antislip coating en een naadloos ontwerp voor een strak eindresultaat.
@@ -1269,7 +1269,7 @@ Strak, elegant eindresultaat zonder zichtbare groeven. De warme teakkleur geeft 
     productType: 'plank',
     description: 'De naadloos massieve composiet vlonderplank in Zwart. Een strakke, moderne keuze voor uw terras. Volledig massief met antislip coating.',
     seoTitle: 'Massief Composiet Vlonderplank Zwart Kopen | Vanaf €24,95',
-    seoDescription: 'Naadloos massieve composiet vlonderplank Zwart met antislip coating. Strak modern design, 15 jaar garantie. Bestel bij Composiethekwerk.nl.',
+    seoDescription: 'Naadloos massieve composiet vlonderplank Zwart met antislip coating. Strak modern design, 15 jaar garantie. Bestel bij Schuttingvancomposiet.nl.',
     longDescription: `## Composiet vlonderplank naadloos massief Zwart
 
 Een strakke, moderne keuze voor uw terras. De naadloos massieve composiet vlonderplank in Zwart is volledig massief met antislip coating voor maximale veiligheid.
@@ -1317,7 +1317,7 @@ export const categories = [
     image: 'https://www.mthekwerken.nl/wp-content/uploads/gevelbekleding-rhombus-teakzwart-2-1110x840.jpg',
     slug: 'gevelbekleding',
     productCount: 18,
-    seoTitle: 'Composiet Gevelbekleding Kopen | Composiethekwerk.nl',
+    seoTitle: 'Composiet Gevelbekleding Kopen | Schuttingvancomposiet.nl',
     seoDescription: 'Premium composiet gevelbekleding met Co-Extrusie beschermlaag. Onderhoudsvrij, UV-bestendig en 15 jaar garantie. Bekijk ons assortiment.',
     faq: [
       { q: "Wat kost composiet gevelbekleding per m²?", a: "Composiet gevelbekleding kost gemiddeld €40,95 per m². De exacte prijs hangt af van het gekozen profiel en de kleur." },
@@ -1333,7 +1333,7 @@ export const categories = [
     image: 'https://www.mthekwerken.nl/wp-content/uploads/Highlander-Credits-Sven-Scholten-LR-23.JPG-website-1110x840.jpg',
     slug: 'schuttingen',
     productCount: 34,
-    seoTitle: 'Composiet Schuttingen Kopen | Composiethekwerk.nl',
+    seoTitle: 'Composiet Schuttingen Kopen | Schuttingvancomposiet.nl',
     seoDescription: 'Duurzame composiet schuttingen met extra dikke planken. Onderhoudsvrij, stormbestendig en 15 jaar garantie. Bestel direct online.',
     faq: [
       { q: "Wat zit er bij een composiet schuttingpakket?", a: "Een pakket bevat alle composiet planken en U-profielen voor één scherm. Aluminium palen zijn apart verkrijgbaar." },
@@ -1349,7 +1349,7 @@ export const categories = [
     image: 'https://www.mthekwerken.nl/wp-content/uploads/NoGap-AntislipTeak-5-1110x840.jpg',
     slug: 'vlonderplanken',
     productCount: 10,
-    seoTitle: 'Composiet Vlonderplanken Kopen | Composiethekwerk.nl',
+    seoTitle: 'Composiet Vlonderplanken Kopen | Schuttingvancomposiet.nl',
     seoDescription: 'Premium composiet vlonderplanken: splintervrij, kleurvast en onderhoudsvrij. Massief en NoGap profielen met 15 jaar garantie.',
     faq: [
       { q: "Wat is het verschil tussen massieve en holle vlonderplanken?", a: "Massieve planken zijn steviger en voelen meer als echt hout. Holle profielen zijn lichter en voordeliger." },

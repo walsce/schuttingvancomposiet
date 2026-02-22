@@ -254,10 +254,10 @@ const ProductPage = () => {
           </div>
         </section>
 
-        {/* Waarom Composiethekwerk.nl? Trust Block */}
+        {/* Waarom Schuttingvancomposiet.nl? Trust Block */}
         <section className="max-w-6xl mx-auto px-4 pb-12">
           <div className="bg-primary/5 border border-primary/20 rounded-xl p-6">
-            <h2 className="font-serif text-xl font-bold text-foreground mb-4">Waarom Composiethekwerk.nl?</h2>
+            <h2 className="font-serif text-xl font-bold text-foreground mb-4">Waarom Schuttingvancomposiet.nl?</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div className="flex items-center gap-3">
                 <Truck className="h-5 w-5 text-primary flex-shrink-0" />
