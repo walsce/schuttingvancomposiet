@@ -332,6 +332,98 @@ export type Database = {
           },
         ]
       }
+      crm_activities: {
+        Row: {
+          contact_id: string
+          created_at: string
+          created_by: string | null
+          description: string | null
+          id: string
+          metadata: Json | null
+          title: string | null
+          type: Database["public"]["Enums"]["crm_activity_type"]
+        }
+        Insert: {
+          contact_id: string
+          created_at?: string
+          created_by?: string | null
+          description?: string | null
+          id?: string
+          metadata?: Json | null
+          title?: string | null
+          type?: Database["public"]["Enums"]["crm_activity_type"]
+        }
+        Update: {
+          contact_id?: string
+          created_at?: string
+          created_by?: string | null
+          description?: string | null
+          id?: string
+          metadata?: Json | null
+          title?: string | null
+          type?: Database["public"]["Enums"]["crm_activity_type"]
+        }
+        Relationships: [
+          {
+            foreignKeyName: "crm_activities_contact_id_fkey"
+            columns: ["contact_id"]
+            isOneToOne: false
+            referencedRelation: "crm_contacts"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      crm_contacts: {
+        Row: {
+          assigned_to: string | null
+          company: string | null
+          created_at: string
+          email: string
+          id: string
+          last_contact_at: string | null
+          name: string | null
+          notes: string | null
+          phone: string | null
+          pipeline_stage: Database["public"]["Enums"]["crm_pipeline_stage"]
+          source: string | null
+          tags: string[] | null
+          total_revenue: number | null
+          updated_at: string
+        }
+        Insert: {
+          assigned_to?: string | null
+          company?: string | null
+          created_at?: string
+          email: string
+          id?: string
+          last_contact_at?: string | null
+          name?: string | null
+          notes?: string | null
+          phone?: string | null
+          pipeline_stage?: Database["public"]["Enums"]["crm_pipeline_stage"]
+          source?: string | null
+          tags?: string[] | null
+          total_revenue?: number | null
+          updated_at?: string
+        }
+        Update: {
+          assigned_to?: string | null
+          company?: string | null
+          created_at?: string
+          email?: string
+          id?: string
+          last_contact_at?: string | null
+          name?: string | null
+          notes?: string | null
+          phone?: string | null
+          pipeline_stage?: Database["public"]["Enums"]["crm_pipeline_stage"]
+          source?: string | null
+          tags?: string[] | null
+          total_revenue?: number | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
       deck_planner_leads: {
         Row: {
           area_m2: number | null
@@ -434,6 +526,14 @@ export type Database = {
     }
     Enums: {
       app_role: "admin" | "moderator" | "user"
+      crm_activity_type: "note" | "call" | "email" | "status_change" | "order"
+      crm_pipeline_stage:
+        | "new"
+        | "contacted"
+        | "qualified"
+        | "proposal"
+        | "won"
+        | "lost"
       order_status:
         | "pending"
         | "paid"
@@ -573,6 +673,15 @@ export const Constants = {
   public: {
     Enums: {
       app_role: ["admin", "moderator", "user"],
+      crm_activity_type: ["note", "call", "email", "status_change", "order"],
+      crm_pipeline_stage: [
+        "new",
+        "contacted",
+        "qualified",
+        "proposal",
+        "won",
+        "lost",
+      ],
       order_status: [
         "pending",
         "paid",
