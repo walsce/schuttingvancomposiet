@@ -1,4 +1,4 @@
-import { useState, useCallback, useMemo } from "react";
+import { useState, useCallback, useMemo, lazy, Suspense } from "react";
 import { SegmentInfo, PlacedPanel, ViewMode, PanelStyleId, FenceSystem } from "./types";
 import { POST_WIDTH_CM, STANDARD_PANEL_WIDTH, colorsByModel } from "./designerData";
 import DesignerTopBar from "./DesignerTopBar";
@@ -6,7 +6,9 @@ import BottomToolbar from "./BottomToolbar";
 import PanelDesignerCanvas from "./PanelDesignerCanvas";
 import PlanViewCanvas from "./PlanViewCanvas";
 import { Button } from "@/components/ui/button";
-import { ChevronLeft, Box } from "lucide-react";
+import { ChevronLeft, Loader2 } from "lucide-react";
+
+const ThreeDViewCanvas = lazy(() => import("./ThreeDViewCanvas"));
 
 interface FenceDesignerViewProps {
   segments: SegmentInfo[];
@@ -49,12 +51,12 @@ const FenceDesignerView = ({
   const remainingLength = activeSegment ? activeSegment.lengthCm - usedLength : 0;
 
   const handleAddPanel = useCallback(() => {
-    if (remainingLength < STANDARD_PANEL_WIDTH + POST_WIDTH_CM && remainingLength < 30) return;
+    if (remainingLength < POST_WIDTH_CM + 10) return;
     const panelWidth = Math.min(STANDARD_PANEL_WIDTH, remainingLength - POST_WIDTH_CM);
     if (panelWidth <= 0) return;
 
     const newPanel: PlacedPanel = {
-      id: `panel-${Date.now()}`,
+      id: `panel-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`,
       panelStyleId: panelStyle,
       colorHex,
       widthCm: panelWidth,
@@ -63,6 +65,10 @@ const FenceDesignerView = ({
     };
     setPlacedPanels((prev) => [...prev, newPanel]);
   }, [remainingLength, panelStyle, colorHex, activeSegmentIndex, segmentPanels.length]);
+
+  const handleRemovePanel = useCallback((id: string) => {
+    setPlacedPanels((prev) => prev.filter((p) => p.id !== id));
+  }, []);
 
   return (
     <div className="h-screen flex flex-col bg-muted/30">
@@ -99,6 +105,7 @@ const FenceDesignerView = ({
               segmentLabel={activeSegment.label}
               placedPanels={segmentPanels}
               onAddPanel={handleAddPanel}
+              onRemovePanel={handleRemovePanel}
               zoom={zoom}
             />
           )}
@@ -110,11 +117,21 @@ const FenceDesignerView = ({
               zoom={zoom}
             />
           )}
-          {viewMode === "3d" && (
-            <div className="flex flex-col items-center justify-center gap-4 text-muted-foreground">
-              <Box className="w-16 h-16 opacity-30" />
-              <p className="text-sm">3D weergave - binnenkort beschikbaar</p>
-            </div>
+          {viewMode === "3d" && activeSegment && (
+            <Suspense
+              fallback={
+                <div className="flex flex-col items-center justify-center gap-3 text-muted-foreground">
+                  <Loader2 className="w-8 h-8 animate-spin" />
+                  <p className="text-sm">3D weergave laden...</p>
+                </div>
+              }
+            >
+              <ThreeDViewCanvas
+                segmentLengthCm={activeSegment.lengthCm}
+                segmentLabel={activeSegment.label}
+                placedPanels={segmentPanels}
+              />
+            </Suspense>
           )}
         </div>
       </div>
