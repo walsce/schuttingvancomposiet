@@ -1,89 +1,83 @@
 
 
-# Improve Product Page Readability and E-E-A-T Signals
+# Rebrand: Composiethekwerk.nl to Schuttingvancomposiet.nl
 
-## Problem
+## Overview
 
-The product description content appears flat and hard to read (as seen in the screenshot of the Walnoot schutting page). Key issues:
-- Description content is thin -- short, sparse paragraphs without enough depth
-- No E-E-A-T (Experience, Expertise, Authority, Trust) signals on product pages
-- No author/expert attribution
-- No "last updated" or "reviewed by" indicators
-- No trust badges or social proof near the content
-- The tab-hidden description hurts crawlability (content behind tabs is deprioritized by Google)
+Replace every occurrence of the old brand name with the new one across all files. The navbar and footer logo text will also be updated with a new accent-colored split.
 
-## Changes
+## Files to Update
 
-### 1. Remove tabs -- show description and specs together (readability + SEO)
+### 1. `index.html`
+- Update `<title>`, meta description, author, canonical URL, OpenGraph tags, and Twitter tags
+- Domain: `composiethekwerk.nl` becomes `schuttingvancomposiet.nl`
 
-**File: `src/pages/ProductPage.tsx`**
+### 2. `src/components/Header.tsx`
+- Change logo from `Composiet<span class="text-accent">hekwerk</span>.nl` to `Schuttingvan<span class="text-accent">composiet</span>.nl`
 
-Replace the `Tabs` component with sequential sections. This ensures all content is always visible to crawlers and easier to scan for users. The description and specifications will be displayed as separate sections stacked vertically, each with clear headings.
+### 3. `src/components/Footer.tsx`
+- Same logo text update
+- Email: `info@composiethekwerk.nl` becomes `info@schuttingvancomposiet.nl`
+- Copyright line: `Composiethekwerk.nl` becomes `Schuttingvancomposiet.nl`
+- Update the tagline from "composiet hekwerk" to "composiet schuttingen"
 
-### 2. Add E-E-A-T trust bar below the "In het kort" box
+### 4. `src/components/SEOHead.tsx`
+- `BASE_URL` from `https://composiethekwerk.nl` to `https://schuttingvancomposiet.nl`
 
-**File: `src/pages/ProductPage.tsx`**
+### 5. `src/components/JsonLd.tsx`
+- Organization schema: name, url, logo, email
+- Website schema: name, url, search target
+- Breadcrumb schema: base URL
+- Product schema: brand name, offer URL
+- Article schema: author fallback, publisher name, publisher logo, mainEntityOfPage URL
 
-Add a new trust/authority section with:
-- "Beoordeeld door een composiet specialist" badge with an icon
-- "Laatste update: [date]" indicator (using a new `updatedDate` field or fallback)
-- "15+ jaar ervaring in composiet materialen" credibility statement
-- Small trust icons (ShieldCheck, Award, Clock) for visual weight
+### 6. `src/components/ChatWidget.tsx`
+- Welcome message text
+- Chat header subtitle
 
-### 3. Add "Waarom Composiethekwerk.nl?" trust block
+### 7. `src/pages/Index.tsx`
+- SEO title, badge text
 
-**File: `src/pages/ProductPage.tsx`**
+### 8. `src/pages/ProductPage.tsx`
+- "Waarom Composiethekwerk.nl?" trust block heading and comment
 
-Add a compact trust/authority section before the CTA area with 3-4 trust points:
-- Eigen bezorgservice door heel Nederland
-- 15 jaar productgarantie
-- Persoonlijk advies van specialisten
-- Gratis sample beschikbaar
+### 9. `src/pages/CategoryPage.tsx`
+- SEO title fallback, category hero badge text
 
-### 4. Add `updatedDate` field to product data model
+### 10. `src/pages/AssortimentPage.tsx`
+- SEO title
 
-**File: `src/data/products.ts`**
+### 11. `src/pages/BlogPage.tsx`
+- SEO title
 
-- Add optional `updatedDate: string` field to the `Product` interface
-- Add `updatedDate` to each product (e.g., `"2026-02-15"`)
-- This feeds the E-E-A-T "freshness" signal on the page
+### 12. `src/pages/BlogArticlePage.tsx`
+- SEO title
 
-### 5. Improve description content styling
+### 13. `src/pages/ComparePage.tsx`
+- SEO title
 
-**File: `src/pages/ProductPage.tsx`**
+### 14. `src/pages/ContactPage.tsx`
+- SEO title, email address displayed on page
 
-- Add a subtle left border accent on the description section for visual hierarchy
-- Add more generous padding and max-width for comfortable reading
-- Style the bullet lists with checkmark icons instead of plain dots (via prose customization)
+### 15. `src/data/products.ts`
+- All `seoDescription` fields that end with "Bestel bij Composiethekwerk.nl." (approx. 20+ products)
 
-### 6. Add CTASection at the bottom of product pages
+### 16. `supabase/functions/chat-advisor/index.ts`
+- System prompt brand name reference
 
-**File: `src/pages/ProductPage.tsx`**
+## Brand Name Styling
 
-Add the existing `CTASection` component before the footer, which is currently imported but never used on the product page.
+The accent-colored portion changes:
+- **Old**: Composiet **hekwerk** .nl
+- **New**: Schuttingvan **composiet** .nl
 
----
+The "composiet" part gets the orange accent color (`text-accent`) in both header and footer.
 
-## Technical Details
+## Technical Notes
 
-### Product interface change (`src/data/products.ts`)
-```
-// Add to Product interface:
-updatedDate?: string;
-```
-
-### E-E-A-T trust bar component (inline in ProductPage.tsx)
-A small horizontal bar with icons showing:
-- Shield icon + "15 jaar garantie"
-- Award icon + "Composiet specialist beoordeeld"  
-- Clock icon + "Bijgewerkt: feb 2026"
-
-### Tab removal
-Replace the `Tabs`/`TabsList`/`TabsContent` structure with two plain `section` elements, each with their own `h2` heading. This makes all content immediately visible and crawlable.
-
-### Files modified
-| File | Change |
-|---|---|
-| `src/data/products.ts` | Add `updatedDate` to interface + all products |
-| `src/pages/ProductPage.tsx` | Remove tabs, add E-E-A-T bar, add trust block, add CTASection, improve description styling |
+- All canonical URLs, schema URLs, and OG URLs switch to `schuttingvancomposiet.nl`
+- Email addresses update to `info@schuttingvancomposiet.nl`
+- The edge function (chat-advisor) will be redeployed automatically after the update
+- No database changes needed
+- The custom knowledge/memory note about brand styling will be updated to reflect the new name
 
