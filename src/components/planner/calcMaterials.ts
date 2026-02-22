@@ -1,26 +1,32 @@
 import { products } from "@/data/products";
-import { MaterialLine } from "./types";
+import { MaterialLine, LayingPattern, SubstructureConfig, EdgeConfig } from "./types";
 
 /**
- * Given area in m² and a product slug, produce a simplified materials list.
- * Uses product price + estimated substructure & accessories.
+ * Calculate materials list based on area, product, and configuration options.
  */
-export function calcMaterials(areaM2: number, productSlug: string | null): MaterialLine[] {
+export function calcMaterials(
+  areaM2: number,
+  productSlug: string | null,
+  layingPattern: LayingPattern = "horizontal",
+  substructure: SubstructureConfig = { usage: "private", ground: "verdicht", buildHeight: 5 },
+  edgeConfig: EdgeConfig = { wallSides: [], addEdgeBoards: false },
+  edgeCount = 4,
+  perimeterM = 0
+): MaterialLine[] {
   if (areaM2 <= 0 || !productSlug) return [];
 
   const product = products.find((p) => p.slug === productSlug);
   if (!product) return [];
 
-  // Parse plank dimensions from specifications
   const lengthM = parseFloat(product.specifications?.["Lengte"]?.replace(",", ".")) || 3.9;
   const widthMM = parseFloat(product.specifications?.["Breedte"]?.replace(",", ".")) || 145;
-  const widthM = widthMM > 10 ? widthMM / 1000 : widthMM; // handle mm vs m
-
-  // Coverage per plank in m²
+  const widthM = widthMM > 10 ? widthMM / 1000 : widthMM;
   const coveragePerPlank = lengthM * widthM;
 
-  // Number of planks needed (+5% waste)
-  const planksNeeded = Math.ceil((areaM2 * 1.05) / coveragePerPlank);
+  // Waste factor based on laying pattern
+  const wasteFactor = layingPattern === "diagonal" ? 1.15 : 1.05;
+
+  const planksNeeded = Math.ceil((areaM2 * wasteFactor) / coveragePerPlank);
 
   const lines: MaterialLine[] = [];
 
@@ -33,9 +39,9 @@ export function calcMaterials(areaM2: number, productSlug: string | null): Mater
     totalPrice: planksNeeded * product.price,
   });
 
-  // 2. Substructure (aluminium rails) — roughly 3 running meters per m²
-  const railLengthM = 4; // standard rail 4m
-  const railsPerM2 = 3;
+  // 2. Substructure rails — spacing depends on usage type
+  const railLengthM = 4;
+  const railsPerM2 = substructure.usage === "commercial" ? 4 : 3;
   const totalRailMeters = areaM2 * railsPerM2;
   const railCount = Math.ceil(totalRailMeters / railLengthM);
   lines.push({
@@ -46,7 +52,7 @@ export function calcMaterials(areaM2: number, productSlug: string | null): Mater
     totalPrice: railCount * 18.95,
   });
 
-  // 3. Clips — roughly 20 per m²
+  // 3. Clips
   const clipsPerM2 = 20;
   const totalClips = Math.ceil(areaM2 * clipsPerM2);
   const clipBags = Math.ceil(totalClips / 100);
@@ -68,8 +74,9 @@ export function calcMaterials(areaM2: number, productSlug: string | null): Mater
     totalPrice: screwBoxes * 19.95,
   });
 
-  // 5. Rubber pads
-  const padCount = Math.ceil(areaM2 * 4);
+  // 5. Rubber pads — more for higher build heights
+  const padDensity = substructure.buildHeight > 10 ? 5 : 4;
+  const padCount = Math.ceil(areaM2 * padDensity);
   lines.push({
     name: "Rubber ondersteuningspads",
     unit: "stuks",
@@ -77,6 +84,31 @@ export function calcMaterials(areaM2: number, productSlug: string | null): Mater
     pricePerUnit: 0.75,
     totalPrice: padCount * 0.75,
   });
+
+  // 6. Edge trim boards (if enabled)
+  if (edgeConfig.addEdgeBoards && perimeterM > 0) {
+    // Calculate open-side perimeter (exclude wall sides)
+    let openPerimeter = 0;
+    // Simple: use total perimeter minus wall sides
+    // We approximate each side as perimeterM / edgeCount
+    const sideLength = perimeterM / Math.max(edgeCount, 1);
+    for (let i = 0; i < edgeCount; i++) {
+      if (!edgeConfig.wallSides[i]) {
+        openPerimeter += sideLength;
+      }
+    }
+    if (openPerimeter > 0) {
+      const trimLength = 3.9; // standard trim board length
+      const trimCount = Math.ceil(openPerimeter / trimLength);
+      lines.push({
+        name: "Randafwerkingsplank (3.9m)",
+        unit: "stuks",
+        quantity: trimCount,
+        pricePerUnit: 32.95,
+        totalPrice: trimCount * 32.95,
+      });
+    }
+  }
 
   return lines;
 }

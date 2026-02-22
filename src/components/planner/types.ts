@@ -8,14 +8,39 @@ export interface DeckShape {
   closed: boolean;
 }
 
-export type PresetShape = 'rectangle' | 'l-shape' | 'u-shape' | 'custom';
+export type PresetShape =
+  | "rectangle"
+  | "l-shape"
+  | "l-shape-left"
+  | "l-shape-bottom-right"
+  | "l-shape-bottom-left"
+  | "u-shape"
+  | "t-shape"
+  | "circle"
+  | "custom";
+
+export type LayingPattern = "horizontal" | "vertical" | "diagonal";
+
+export type UsageType = "private" | "commercial";
+export type GroundType = "verdicht" | "beton" | "tegels";
+
+export interface SubstructureConfig {
+  usage: UsageType;
+  ground: GroundType;
+  buildHeight: number; // cm
+}
+
+export interface EdgeConfig {
+  wallSides: boolean[]; // per edge index
+  addEdgeBoards: boolean;
+}
 
 export interface PlannerState {
   shape: DeckShape;
   preset: PresetShape;
   dimensions: {
-    width: number;   // meters
-    depth: number;   // meters
+    width: number;
+    depth: number;
     cutWidth?: number;
     cutDepth?: number;
   };
