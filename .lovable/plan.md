@@ -1,150 +1,153 @@
 
-# Phase 1: Fix Build Errors + Full E-Commerce CMS Plan
+# Full CRM System with Analytics Dashboard
 
-This plan has two parts: an immediate fix for the build errors, followed by a comprehensive roadmap for your own CMS/e-commerce platform.
-
----
-
-## Part A: Fix Build Errors (Immediate)
-
-Three TypeScript errors where `catch(err)` / `catch(error)` variables are typed as `unknown` and need casting.
-
-### File 1: `supabase/functions/batch-generate-images/index.ts`
-- Line 242: Change `err.message` to `(err instanceof Error ? err.message : String(err))`
-- Line 253: Change `error.message` to `(error instanceof Error ? error.message : String(error))`
-
-### File 2: `supabase/functions/generate-product-image/index.ts`
-- Line 127: Change `error.message` to `(error instanceof Error ? error.message : String(error))`
+This plan adds a complete CRM (Customer Relationship Management) system to your admin backend, including lead management, customer tracking, activity logging, analytics charts, and automated pipeline stages.
 
 ---
 
-## Part B: Full E-Commerce CMS Platform
+## What You Get
 
-Yes, this is absolutely possible. Here is the complete architecture. Given the size, this will be built incrementally over multiple sessions.
+1. **CRM Contacts** -- Unified view of all customers and leads in one place, with source tracking (order, deck planner, contact form, manual entry)
+2. **Lead Pipeline** -- Visual pipeline with stages: New, Contacted, Qualified, Proposal, Won, Lost
+3. **Activity Log** -- Timeline of notes, calls, emails per contact for full interaction history
+4. **Analytics Dashboard** -- Revenue over time, orders per status, leads per source, conversion funnel charts using Recharts
+5. **Contact Detail Page** -- Full profile with order history, activity timeline, notes, and status management
+6. **Deck Planner Leads Integration** -- Existing `deck_planner_leads` data pulled into the CRM automatically
 
-### What You Get
+---
 
-1. **Admin CMS Dashboard** (`/admin`) -- Full product management with CRUD
-2. **Google Shopping Feed** (`/api/google-feed`) -- Automated XML feed for Google Ads
-3. **Database-driven storefront** -- Products served from database instead of hardcoded file
-4. **Image upload system** -- Upload product images to storage
-5. **Mollie-ready checkout architecture** -- One-page checkout (Mollie integration added later)
-6. **Order management** -- Track orders and status
-7. **Customer accounts** -- Optional login for order history
+## New Database Tables
 
-### Database Schema (New Tables)
+### `crm_contacts`
+Unified contact record merging customers and leads.
 
-```text
-cms_products
-  - id (uuid, PK)
-  - name, slug, price, price_label
-  - category (enum: gevelbekleding, schuttingen, vlonderplanken)
-  - tone, durability, product_type
-  - short_description, long_description
-  - seo_title, seo_description
-  - specifications (jsonb)
-  - highlights (text[])
-  - features (text[])
-  - guarantee, delivery_time
-  - dimensions (jsonb)
-  - options (jsonb)
-  - video_url
-  - is_published (boolean)
-  - sort_order (integer)
-  - created_at, updated_at
+| Column | Type | Notes |
+|--------|------|-------|
+| id | uuid PK | |
+| email | text NOT NULL | |
+| name | text | |
+| phone | text | |
+| company | text | |
+| source | text | order, deck_planner, contact_form, manual, fence_planner |
+| pipeline_stage | enum | new, contacted, qualified, proposal, won, lost |
+| assigned_to | text | Admin name or email |
+| tags | text[] | Flexible tagging |
+| notes | text | General notes |
+| total_revenue | numeric | Cached total from orders |
+| last_contact_at | timestamptz | |
+| created_at | timestamptz | |
+| updated_at | timestamptz | |
 
-cms_product_images
-  - id (uuid, PK)
-  - product_id (FK -> cms_products)
-  - image_url, alt_text
-  - is_primary (boolean)
-  - sort_order (integer)
+### `crm_activities`
+Activity log per contact.
 
-cms_product_faqs
-  - id (uuid, PK)
-  - product_id (FK -> cms_products)
-  - question, answer
-  - sort_order (integer)
+| Column | Type | Notes |
+|--------|------|-------|
+| id | uuid PK | |
+| contact_id | uuid FK -> crm_contacts | |
+| type | enum | note, call, email, status_change, order |
+| title | text | Short summary |
+| description | text | Full details |
+| metadata | jsonb | Extra data (old/new status, order_id, etc.) |
+| created_by | uuid | Admin user who logged it |
+| created_at | timestamptz | |
 
-cms_categories
-  - id (uuid, PK)
-  - name, slug, description
-  - image_url
-  - seo_title, seo_description
-  - sort_order (integer)
+### New Enum Types
+- `crm_pipeline_stage`: new, contacted, qualified, proposal, won, lost
+- `crm_activity_type`: note, call, email, status_change, order
 
-cms_orders
-  - id (uuid, PK)
-  - order_number (serial)
-  - customer_email, customer_name, customer_phone
-  - shipping_address (jsonb)
-  - billing_address (jsonb)
-  - items (jsonb)
-  - subtotal, shipping_cost, total
-  - status (enum: pending, paid, processing, shipped, delivered, cancelled)
-  - payment_id (for Mollie later)
-  - notes
-  - created_at, updated_at
+### RLS Policies
+- Admins: full CRUD on both tables
+- No public access (CRM is admin-only)
 
-cms_order_items
-  - id (uuid, PK)
-  - order_id (FK -> cms_orders)
-  - product_id (FK -> cms_products)
-  - product_name, quantity, unit_price, total_price
-  - options (jsonb)
+---
 
-google_feed_settings
-  - id (uuid, PK)
-  - store_name, store_url, currency
-  - brand_name, shipping_country, shipping_price
-  - updated_at
-```
+## New Admin Pages
 
-### Authentication and Roles
-- Admin users managed via `user_roles` table with `app_role` enum
-- RLS policies: Only admins can write to CMS tables
-- Public can read published products (for storefront)
+### 1. `/admin/crm` -- CRM Contacts List
+- Searchable, filterable table of all contacts
+- Filter by pipeline stage, source, tags
+- Quick-edit pipeline stage inline
+- Sort by last contact, revenue, created date
+- Button to add new contact manually
 
-### Admin Dashboard Pages
-- `/admin` -- Dashboard overview (order count, product count, revenue)
-- `/admin/products` -- Product list with search, filter, bulk actions
-- `/admin/products/new` -- Add product form (all fields, image upload, FAQ editor)
-- `/admin/products/:id` -- Edit product
-- `/admin/categories` -- Category management
-- `/admin/orders` -- Order list with status management
-- `/admin/feed` -- Google Shopping feed settings and preview
-- `/admin/settings` -- Store settings
+### 2. `/admin/crm/:id` -- Contact Detail
+- Contact info card (name, email, phone, company, source)
+- Pipeline stage selector with visual indicator
+- Tags editor
+- Order history section (linked from `cms_orders` by email)
+- Activity timeline with ability to add notes, log calls/emails
+- Revenue summary
 
-### Google Shopping Feed
-- Edge function that generates XML feed from `cms_products`
-- Fields: id, title, description, link, image_link, price, availability, brand, condition, google_product_category, gtin/mpn
-- Accessible at a public URL for Google Merchant Center
-- Auto-updates as products change in CMS
+### 3. `/admin/analytics` -- Analytics Dashboard (replaces basic dashboard)
+Enhanced dashboard with Recharts charts:
+- **Revenue over time** -- Line chart (daily/weekly/monthly)
+- **Orders by status** -- Pie chart
+- **Leads by source** -- Bar chart
+- **Pipeline funnel** -- Funnel visualization showing conversion at each stage
+- **Top products** -- Bar chart of best-selling products
+- **Recent activity** -- Live feed of latest CRM activities
+- **KPI cards** -- Total contacts, conversion rate, average order value, total revenue
 
-### One-Page Checkout (Mollie-Ready)
-- Cart stored in localStorage (or DB for logged-in users)
-- Single-page checkout: shipping info, order summary, payment
-- Creates order in `cms_orders` with status "pending"
-- Mollie webhook endpoint ready for payment confirmation (integration added later)
+---
 
-### Migration from Hardcoded Data
-- Seed script to import current `products.ts` data into the new database tables
-- Storefront pages updated to query database instead of importing from file
-- Existing URLs and SEO preserved
+## Updated Files
+
+### Navigation
+- `src/components/admin/AdminLayout.tsx` -- Add "CRM" and "Analytics" nav items
+
+### Routes
+- `src/App.tsx` -- Add routes for `/admin/crm`, `/admin/crm/:id`, `/admin/analytics`
+
+---
+
+## New Files
+
+| File | Purpose |
+|------|---------|
+| `src/pages/admin/AdminCRMPage.tsx` | Contact list with search, filters, pipeline stage |
+| `src/pages/admin/AdminContactDetailPage.tsx` | Single contact view with orders, activities, notes |
+| `src/pages/admin/AdminAnalyticsPage.tsx` | Full analytics dashboard with charts |
+| `src/components/admin/PipelineBadge.tsx` | Colored badge for pipeline stages |
+| `src/components/admin/ActivityTimeline.tsx` | Activity log timeline component |
+| `src/components/admin/AddActivityModal.tsx` | Modal to log a note/call/email |
+| `src/components/admin/AnalyticsCharts.tsx` | Recharts chart components (revenue, orders, leads) |
+
+---
+
+## Data Sync Logic
+
+- When a new order is created, auto-create or update a `crm_contacts` record by email
+- Import existing `deck_planner_leads` into `crm_contacts` via a one-time sync button in the CRM page
+- Activity entries auto-created on pipeline stage changes and order events
+
+---
+
+## Technical Details
+
+### Database Migration
+Single migration file that:
+1. Creates `crm_pipeline_stage` and `crm_activity_type` enums
+2. Creates `crm_contacts` table with indexes on email, pipeline_stage, source
+3. Creates `crm_activities` table with index on contact_id
+4. Enables RLS on both tables
+5. Creates admin-only RLS policies using `has_role(auth.uid(), 'admin')`
+6. Adds `updated_at` trigger on `crm_contacts`
+
+### Charts Library
+Uses `recharts` (already installed) for:
+- `LineChart` for revenue trends
+- `PieChart` for order status distribution
+- `BarChart` for lead sources and top products
+- Custom funnel using stacked bars
+
+### Analytics Queries
+All analytics queries run client-side against the database using the Supabase JS client, aggregating data in the frontend. For large datasets in the future, this can be moved to database views or Edge Functions.
 
 ### Implementation Order
-1. Fix build errors (immediate)
-2. Create database tables + RLS policies + auth
-3. Admin login page
-4. Admin product CRUD (list, create, edit, delete)
-5. Image upload in admin
-6. Seed existing products into database
-7. Update storefront to read from database
-8. Google Shopping feed edge function
-9. Cart + one-page checkout UI
-10. Order management admin
-11. Mollie payment integration (future session)
-
-### Files Changed (Phase 1 only -- build fix)
-1. `supabase/functions/batch-generate-images/index.ts` -- Fix 2 TypeScript errors
-2. `supabase/functions/generate-product-image/index.ts` -- Fix 1 TypeScript error
+1. Database migration (tables + RLS)
+2. CRM contacts list page
+3. Contact detail page with activity timeline
+4. Analytics dashboard with charts
+5. Auto-sync logic (orders -> contacts)
+6. Navigation and routing updates
