@@ -53,7 +53,7 @@ const FencePlannerHero = ({ onStart }: FencePlannerHeroProps) => {
             Gratis Online Tool
           </Badge>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white leading-tight">
-            Schutting Planner
+            SchuttingPlanner Pro
           </h1>
           <p className="mt-4 text-white/80 text-lg md:text-xl max-w-xl mx-auto leading-relaxed">
             Ontwerp uw ideale composiet schutting in enkele stappen en ontvang direct een materiaallijst.

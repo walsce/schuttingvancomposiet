@@ -234,12 +234,12 @@ const Index = () => {
                 <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center">
                   <Shield className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="font-serif font-bold text-lg text-foreground">Schutting Planner</h3>
+                <h3 className="font-serif font-bold text-lg text-foreground">SchuttingPlanner Pro</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   Configureer uw composiet schutting, kies systeem en kleur, en download de materiaallijst als CSV.
                 </p>
                 <Button asChild className="bg-accent text-accent-foreground hover:bg-accent/90 w-full">
-                  <Link to="/schutting-planner">Start Schutting Planner <ArrowRight className="w-4 h-4 ml-1" /></Link>
+                  <Link to="/schutting-planner">Start SchuttingPlanner Pro <ArrowRight className="w-4 h-4 ml-1" /></Link>
                 </Button>
               </div>
             </div>
