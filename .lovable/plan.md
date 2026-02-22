@@ -1,76 +1,75 @@
 
-# Product Images & Sample Ordering Upgrade
 
-## Problem
+# Full E-E-A-T Product Content Upgrade
 
-1. **Most products only have 1 image** in their `images` array, even though the source website (mthekwerken.nl) has 2-10 gallery images per product. The product page gallery code already supports multiple images (with prev/next buttons and thumbnails), but the data only contains single images.
+## The Problem
 
-2. **Sample ordering just links to the Contact page** with no context about which product the user wants. The source website has dedicated sample products (at 3.95 EUR) per category. We need a proper sample request flow that pre-fills the product name.
+Right now, product pages are SEO-thin and will lose in both traditional rankings and Zero-Click/AI-search results:
 
----
+- Descriptions are 1-3 sentences (the source website has 300+ words per product with multiple sections)
+- Only 2 out of 23 products have FAQs
+- No per-product `seoTitle` or `seoDescription` fields
+- The description tab renders a single `<p>` tag -- no headings, no bullet lists, no structure
+- No definition blocks, comparison tables, or step-by-step sections that AI search engines extract for Zero-Click answers
+- Missing E-E-A-T signals like material expertise content, sustainability credentials, montage guidance
 
-## Part 1: Add All Scraped Product Images
+## What Changes
 
-Update the `images` array for every product in `src/data/products.ts` with the full gallery images scraped from mthekwerken.nl. Here is the complete mapping:
+### 1. Expand Product Interface (`src/data/products.ts`)
 
-### Gevelbekleding (8 products)
+Add new fields to the `Product` interface:
 
-| Product | Current images | Images to add |
+| Field | Type | Purpose |
 |---|---|---|
-| Rhombus Teak (gv-1) | 2 | +1: `composiet-gevelbekleding-Teak-300x174-2.png`, `Teak-gevelbekleding-300x225-2.jpg` |
-| Rhombus Teak/Zwart (gv-2) | 1 | +4: `gevelbekleding-rhombus-teakzwart-2.jpg`, `foto-gevel-rhombus-teakzwart-2.jpg`, `gevelbekleding-rhombus-teak-zwarte-achtergrond-2.jpg`, `teak-zwart-twee-300x200-2.png` |
-| Rhombus Zwart (gv-3) | 1 | +2: `gevelbeklding-zwart-twee-300x200-2.png`, `Gevelbekleding-zwart-300x400-2.jpg` |
-| Rhombus Walnoot (gv-4) | 1 | Needs scraping for extra images |
-| Rhombus Eiken (gv-5) | 1 | Needs scraping for extra images |
-| Rhombus Grijs/Zwart (gv-6) | 1 | Needs scraping for extra images |
-| Hoekprofiel Teak (gv-7) | 1 | Keep as-is (accessory) |
-| Hoekprofiel Zwart (gv-8) | 1 | Keep as-is (accessory) |
+| `seoTitle` | `string` | Keyword-optimized meta title (60 chars) |
+| `seoDescription` | `string` | Keyword-optimized meta description (155 chars) |
+| `longDescription` | `string` (markdown) | Full rich product content (300-500 words) with H2/H3, bullet lists, bold text |
 
-### Schuttingen (8 products)
+### 2. Scrape and Write Full Descriptions for All 23 Products
 
-| Product | Current images | Images to add |
-|---|---|---|
-| Schutting Rhombus Teak (sc-1) | 1 | +9: `PHOTO-2025-05-15-18-27-42.jpg`, `foto-rhombus-Teak-1.jpg`, `IMG_2101-3-4.jpg`, `IMG_5099-9.jpg`, `7c3fa9a2-...4.jpg`, `IMG_3952-4.jpg`, `7FC631AB-...4.jpg`, `IMG_4881-3.jpg`, `Macom-composiet-plank-modern-teak-5.png` |
-| Schutting Teak (sc-2) | 1 | Needs scraping |
-| Schutting Rhombus Zwart (sc-3) | 1 | +7: `IMG_2102-1-4.jpg`, `foto-Rhombus-zwart-scaled-4.jpg`, `Rhombus-zwart-met-hekwerk-scaled-3.jpg`, `4ea6febf-...4.jpg`, `c938138b-...3.jpg`, `Rhombus-zwart-met-staafmat-hekwerk-scaled-3.jpg`, `Macom-composiet-modern-zwart-plank-6.png` |
-| Schutting Zwart (sc-4) | 1 | Needs scraping |
-| Schutting Rhombus Walnoot (sc-5) | 1 | Needs scraping |
-| Schutting Walnoot (sc-6) | 1 | Needs scraping |
-| Schutting Rhombus Eiken (sc-7) | 1 | Needs scraping |
-| Schutting Rhombus Grijs (sc-8) | 1 | Needs scraping |
+Each product page on mthekwerken.nl will be scraped to extract the full description content. The `longDescription` field will contain structured markdown with:
 
-### Vlonderplanken (7 products)
+- **Product introduction** (what it is, key benefit)
+- **"Duurzaam en onderhoudsvrij"** section (sustainability, materials, 0% moisture)
+- **"Flexibele montage"** section (installation method, screws/clips)
+- **"Voordelen in een oogopslag"** bulleted list
+- **Closing paragraph** with call-to-action text
 
-| Product | Current images | Images to add |
-|---|---|---|
-| Vlonder Donker Grijs (vl-1) | 1 | +1: `Deck-Dark-Grey-5.png` |
-| Vlonder Teak (vl-2) | 1 | Needs scraping |
-| Vlonder Vergrijsd Eiken (vl-3) | 1 | Needs scraping |
-| Vlonder Walnoot (vl-4) | 1 | Needs scraping |
-| Vlonder Massief Grijs (vl-5) | 1 | +4: `Massief-plank-donker-grijs-close-scaled.jpg`, `Massief-plank-donker-grijs.png`, `massief-plank-donkergrijs-met-clips-scaled.jpg`, `Vlonderplank-massief-donkergrijd-rails-en-clips-scaled.jpg` |
-| Vlonder Massief Teak (vl-6) | 1 | Needs scraping |
-| Vlonder Massief Zwart (vl-7) | 1 | Needs scraping |
+The existing short `description` stays as-is (used for cards, meta fallbacks, excerpts).
 
-For products marked "Needs scraping" -- we will scrape each individual product page during implementation to collect all gallery images and add the full-resolution URLs (without size suffixes like `-300x200`) to the `images` arrays.
+### 3. Add FAQs to All 21 Products That Are Missing Them
 
----
+Every product will get 3-5 product-specific FAQs based on common questions from the source site:
 
-## Part 2: Sample Request Flow
+- Installation questions ("Hoe monteer ik...?")
+- Material/durability questions ("Hoe lang gaat het mee?")
+- Sizing/measurement questions ("Hoeveel heb ik nodig?")
+- Maintenance questions ("Hoe onderhoud ik...?")
+- Comparison questions ("Wat is het verschil tussen...?")
 
-Currently the "Sample Aanvragen" button on the product page just links to `/contact` with no context. We need to improve this:
+### 4. Add `seoTitle` and `seoDescription` to All 23 Products
 
-### Changes to `ContactPage.tsx`
-- Accept a `product` query parameter (e.g., `/contact?type=sample&product=rhombus-teak`)
-- Pre-fill the form textarea with "Sample aanvraag voor: [product name]"
-- Show a highlighted banner when arriving from a sample request: "U vraagt een sample aan voor: [product name]"
+Each product gets a unique, keyword-optimized:
+- `seoTitle`: "{Product Name} Kopen | Composiethekwerk.nl" (60 chars)
+- `seoDescription`: Feature-benefit description with primary keyword (155 chars)
 
-### Changes to `ProductPage.tsx`
-- Update the "Sample Aanvragen" button to pass the product name: `<Link to={'/contact?type=sample&product=' + product.slug}>Sample Aanvragen</Link>`
-- Add a "Gratis sample" badge/indicator near the sample button (samples are 3.95 EUR on the source site)
-- Add a small info text: "Ontvang een gratis sample om de kleur en kwaliteit thuis te ervaren"
+### 5. Upgrade ProductPage.tsx for Rich Content Rendering
 
-### Changes to `CategoryPage.tsx`
-- Add a "Sample aanvragen" button in the category page linking to the contact page with the category pre-filled
+The description tab currently renders `<p>{product.description}</p>`. It needs to become a full content engine:
+
+- Render `longDescription` as markdown (using `react-markdown` already installed) with proper H2/H3, lists, bold
+- Add a **"Voordelen"** visual section with checkmark icons (extracted from highlights but rendered prominently)
+- Add a **"Technische samenvatting"** definition block above the tabs -- a quick-reference box with key specs that AI search engines will extract for Zero-Click results
+- Use `seoTitle` and `seoDescription` in the SEOHead component instead of auto-generating them
+- Ensure every product page has FAQ schema (JSON-LD) emitted
+
+### 6. Add Zero-Click Optimized Sections to ProductPage
+
+New sections designed specifically for Google SGE / Bing Copilot / Perplexity extraction:
+
+- **"In het kort"** summary box: 2-3 sentence product summary at the top of the description, wrapped in a visually distinct card. This is the snippet AI engines will pull.
+- **Specifications table** stays but gets a visible H2 heading for crawlability
+- **FAQ section** rendered directly on-page (not just inside a tab) so crawlers always see it
 
 ---
 
@@ -78,16 +77,14 @@ Currently the "Sample Aanvragen" button on the product page just links to `/cont
 
 | File | Changes |
 |---|---|
-| `src/data/products.ts` | Add multiple gallery images to all 23 products' `images` arrays |
-| `src/pages/ProductPage.tsx` | Update Sample button link with query params, add sample info text |
-| `src/pages/ContactPage.tsx` | Read `type` and `product` query params, pre-fill form, show sample banner |
-| `src/pages/CategoryPage.tsx` | Add sample request link |
+| `src/data/products.ts` | Add `seoTitle`, `seoDescription`, `longDescription` to interface. Populate all 23 products with scraped full descriptions, per-product SEO fields, and 3-5 FAQs each |
+| `src/pages/ProductPage.tsx` | Render `longDescription` as markdown, add "In het kort" summary box, show FAQ on-page, use `seoTitle`/`seoDescription` from data, add definition block for Zero-Click |
 
 ---
 
-## Technical Notes
+## Implementation Approach
 
-- All image URLs use the full-resolution versions from mthekwerken.nl (without `-300x200` size suffixes where possible)
-- The product page gallery already has working prev/next navigation and thumbnail strip -- once we populate the `images` arrays, it will "just work"
-- The contact form pre-fill uses `useSearchParams` from react-router-dom (already installed)
-- Implementation will require scraping the remaining ~15 product pages that weren't scraped yet to collect their full image galleries
+The product descriptions will be scraped from mthekwerken.nl for each of the 23 products during implementation, then rewritten for Composiethekwerk.nl branding. This ensures authentic, detailed product content rather than thin AI-generated text.
+
+The ProductPage upgrade focuses on semantic HTML structure (proper heading hierarchy, definition lists, structured FAQ) that both traditional Googlebot and AI-search retrievers can parse effectively.
+
