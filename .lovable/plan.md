@@ -1,53 +1,119 @@
 
 
-# Fix Horizontal Overflow on Vlonder Planner (Mobile)
+# Hekplanner (Fence Planner) - Build Plan
 
-## Problem
-The planner page creates unwanted horizontal scroll on mobile devices. Multiple elements can contribute to this: the header top bar, the `container` class with 2rem padding, the MaterialsList table, and content inside accordion panels that doesn't respect the viewport boundary.
+## Overview
+Build a new "SchuttingPlanner" page modeled after the MyFencePlanner screenshots. The planner lets users design a fence layout on a grid canvas, configure ground conditions, choose post types, and select a fence panel system -- then generate a materials list with lead capture.
 
-## Root Causes Identified
+## Page Structure
 
-1. **Root wrapper** on DeckPlannerPage has no overflow constraint -- only `<main>` has `overflow-x-hidden`, but the Header and Footer sit outside it
-2. **`container` class** uses `padding: 2rem` (32px each side), which on narrow phones can combine with wide child elements
-3. **MaterialsList Table** -- HTML tables expand to fit content and can push beyond viewport
-4. **Header top bar** text ("Gratis offerte aanvragen") may not wrap on narrow screens
-5. **Global CSS** -- no body-level overflow-x prevention
+The planner is a full-screen tool (no site Header/Footer) with:
+- A **landing/hero section** shown initially with a CTA "EEN PROJECT STARTEN" button
+- After clicking, the **main planner view** appears with a left sidebar + grid canvas layout
 
-## Fix Strategy
+## New Files to Create
 
-Apply a layered defense so no single element can cause horizontal scroll:
+### 1. `src/pages/FencePlannerPage.tsx`
+- Landing hero state vs planner state toggle
+- Layout: left sidebar (~340px) + canvas area (flex-1)
+- Bottom-right navigation buttons: "VERDER" (next step) and "TERUG" (back)
+- Accordion sidebar with 4 sections
+- Mobile responsive (sidebar collapses or stacks)
 
-### 1. Global `overflow-x: hidden` on body (`src/index.css`)
-- Add `overflow-x: hidden` to the `body` rule to act as the ultimate safety net
+### 2. `src/components/fence-planner/types.ts`
+Types for the fence planner:
+- `FenceShape`: "straight" | "l-shape" | "u-shape" | "custom" | "location"
+- `GroundType`: "flat" | "linear-change" | "wall"
+- `PostType`: "inground" | "bolt-down" | "base-plate"
+- `PostColor`: "black" | "grey"
+- `FenceSystem`: "wpc" | "alu" | "combo" | "decor"
+- `FencePanel`: id, name, system, image placeholder
+- `FenceColor`: id, name, hex, system
+- `FenceSegment`: pointA, pointB, lengthCm
+- `FencePlannerState`: shape, segments (array of points), ground config per segment, post config, selected system + panel + color
 
-### 2. Root wrapper overflow on DeckPlannerPage (`src/pages/DeckPlannerPage.tsx`)
-- Add `overflow-x-hidden` to the outer `<div>` so the entire page (including Header/Footer) is clipped
+### 3. `src/components/fence-planner/FenceCanvas.tsx`
+SVG canvas similar to DeckCanvas but for fence lines (not areas):
+- Grid background with light lines
+- Fence segments drawn as thick lines between points (A, B, C...)
+- Segment labels showing "Segment A - B" and length in cm
+- Draggable endpoint handles (black circles)
+- Green highlight on the active/selected line
+- Green diamond icon at center-bottom of canvas
 
-### 3. MaterialsList table scroll containment (`src/components/planner/MaterialsList.tsx`)
-- Wrap the table in a `div` with `overflow-x-auto` so it scrolls within its container instead of pushing the page
+### 4. `src/components/fence-planner/FenceShapeSelector.tsx`
+Shape selector with 5 icon buttons in a 3+2 grid:
+- Straight line (horizontal bar)
+- L-shape right
+- U-shape
+- Custom draw (pencil icon)
+- Location pin
+Each changes the number of fence segments/points on the canvas
 
-### 4. Header top bar mobile fix (`src/components/Header.tsx`)
-- Add `overflow-hidden` and `text-ellipsis` / `whitespace-nowrap` to prevent the top bar from pushing content
-- Reduce top bar padding on small screens
+### 5. `src/components/fence-planner/GroundConfig.tsx`
+Ground configuration panel with:
+- 3 selectable options with SVG icons: "Vlak terrein", "Lineaire wijziging", "Muur invoegen"
+- When "Lineaire wijziging" selected: segment selector dropdown (A-B, B-C...) + "Diff. Niveau" input in cm
+- When "Muur invoegen" selected: segment selector + "Hoogte" input in cm
 
-### 5. Accordion content overflow (`src/pages/DeckPlannerPage.tsx`)
-- Add `overflow-hidden` to the accordion sidebar wrapper to contain any rogue child elements
+### 6. `src/components/fence-planner/PostModelSelector.tsx`
+Post model configuration:
+- "Type paalbevestiging" label with 3 icon options (in-ground, bolt-down, base-plate)
+- "Kleur" label with 2 color swatches (black, grey/dark-grey)
 
----
+### 7. `src/components/fence-planner/FenceSystemModal.tsx`
+A dialog/modal triggered from the "Schuttingsysteem" accordion:
+- Title: "Schuttingsytsteem selecteren"
+- Green progress bar at top
+- Grid of 4 main categories: WPC, Alu, Combo, Decor (image cards with green border on selected)
+- Below: sub-panel types in a 4-column grid (Opale/Premium, Opale/Modern, Rhombus/Premium, etc.)
+- Color swatches section per system type (WPC colors: Cedar, Teak, Ipe, Lichtgrijs, Donkergrijs, Ebony Black; ALU colors: Donkergrijs, Zwart)
+- Two bottom buttons: "TERUG NAAR CONFIGURATIE" (outline) and "OVERNEMEN" (green)
 
-## Technical Details
+### 8. `src/components/fence-planner/FencePlannerHero.tsx`
+Landing hero component:
+- Left half: large background image of composite fence (use a placeholder gradient/color)
+- Right half: white area with fence panel preview images and green "EEN PROJECT STARTEN" button
+- Branding text overlay on left: "Mijn Hek Planner" styled
 
-### `src/index.css`
-Add `overflow-x: hidden` to the `body` styles.
+### 9. `src/components/fence-planner/fencePresets.ts`
+Utility functions:
+- `getFencePoints(shape, totalLength)` -- returns Point[] for each shape preset
+- `calcSegmentLength(a, b)` -- distance between two points
+- `getSegmentLabels(points)` -- returns array of {label: "A - B", length: number}
 
-### `src/pages/DeckPlannerPage.tsx`
-- Line 140: Change outer `<div>` from `min-h-screen flex flex-col bg-background` to `min-h-screen flex flex-col bg-background overflow-x-hidden`
-- Line 213: Change sidebar `<div>` from `space-y-4` to `space-y-4 min-w-0 overflow-hidden`
+## Files to Modify
 
-### `src/components/planner/MaterialsList.tsx`
-- Line 19: Wrap the `<Table>` in `<div className="overflow-x-auto">` so wide tables scroll inside their box
+### `src/App.tsx`
+- Add route: `/schutting-planner` pointing to `FencePlannerPage`
 
-### `src/components/Header.tsx`
-- Line 22: Add `overflow-hidden` to top bar container
-- Line 23: Add `min-w-0` and `overflow-hidden` to the inner flex containers to prevent text overflow
+## UI/UX Details from Screenshots
+
+- Sidebar background: light grey (`bg-gray-50`)
+- Accordion headers: bold serif font with green diamond bullet
+- Canvas: white with subtle grid lines
+- Selected items get a green border
+- Navigation buttons: "VERDER" = green filled, "TERUG" = outlined with border
+- The planner is full-viewport height (no site header/footer visible in planner mode)
+- Color swatches are small squares with labels beneath
+
+## Technical Approach
+
+- Reuse existing UI components: Accordion, Button, Dialog, Select, Input, Slider
+- SVG-based canvas similar to DeckCanvas pattern but simplified for line segments instead of polygons
+- State managed with useState in FencePlannerPage (same pattern as DeckPlannerPage)
+- Lead capture modal can reuse the existing LeadCaptureModal pattern
+- Mobile: sidebar stacks above canvas on small screens, or use a sheet/drawer
+
+## Implementation Order
+
+1. Types + presets utilities
+2. FenceCanvas (core SVG component)
+3. FenceShapeSelector
+4. GroundConfig
+5. PostModelSelector
+6. FenceSystemModal
+7. FencePlannerHero
+8. FencePlannerPage (assembles everything)
+9. Route in App.tsx
 
