@@ -13,6 +13,7 @@ import BlogPage from "./pages/BlogPage";
 import BlogArticlePage from "./pages/BlogArticlePage";
 import ProductPage from "./pages/ProductPage";
 import DownloadsPage from "./pages/DownloadsPage";
+import DeckPlannerPage from "./pages/DeckPlannerPage";
 import NotFound from "./pages/NotFound";
 import ChatWidget from "./components/ChatWidget";
 
@@ -35,6 +36,7 @@ const App = () => (
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:slug" element={<BlogArticlePage />} />
           <Route path="/downloads" element={<DownloadsPage />} />
+          <Route path="/vlonder-planner" element={<DeckPlannerPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <ChatWidget />

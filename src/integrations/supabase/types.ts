@@ -14,7 +14,42 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      deck_planner_leads: {
+        Row: {
+          area_m2: number | null
+          created_at: string
+          email: string
+          id: string
+          materials_list: Json | null
+          name: string | null
+          phone: string | null
+          selected_product: string | null
+          shape_data: Json
+        }
+        Insert: {
+          area_m2?: number | null
+          created_at?: string
+          email: string
+          id?: string
+          materials_list?: Json | null
+          name?: string | null
+          phone?: string | null
+          selected_product?: string | null
+          shape_data?: Json
+        }
+        Update: {
+          area_m2?: number | null
+          created_at?: string
+          email?: string
+          id?: string
+          materials_list?: Json | null
+          name?: string | null
+          phone?: string | null
+          selected_product?: string | null
+          shape_data?: Json
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
