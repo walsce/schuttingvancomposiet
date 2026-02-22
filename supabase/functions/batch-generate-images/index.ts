@@ -239,7 +239,7 @@ serve(async (req) => {
         await new Promise((resolve) => setTimeout(resolve, 2000));
       } catch (err) {
         console.error(`Error generating ${id}:`, err);
-        results[id] = { error: err.message };
+        results[id] = { error: err instanceof Error ? err.message : String(err) };
       }
     }
 
@@ -250,7 +250,7 @@ serve(async (req) => {
   } catch (error) {
     console.error("Batch error:", error);
     return new Response(
-      JSON.stringify({ error: error.message }),
+      JSON.stringify({ error: error instanceof Error ? error.message : String(error) }),
       { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
   }
