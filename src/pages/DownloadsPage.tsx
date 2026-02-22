@@ -55,8 +55,8 @@ const DownloadsPage = () => {
         {/* Hero */}
         <section className="bg-foreground text-background">
           <div className="container py-16 md:py-20">
-            <div className="mb-6 text-background/60">
-              <Breadcrumbs items={breadcrumbs} />
+            <div className="mb-6">
+              <Breadcrumbs items={breadcrumbs} variant="dark" />
             </div>
             <h1 className="font-serif text-3xl md:text-5xl font-bold">
               Gratis gidsen & checklists
