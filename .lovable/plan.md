@@ -1,64 +1,46 @@
 
 
-# Sun Direction Toggle for 3D Fence Preview
+# Redesign Fence Planner Hero Page
 
-## Overview
+## Problem
+The current hero page is plain -- a flat green gradient on the left with placeholder panels on the right. It doesn't match the polished, professional style of the rest of the website (hero images, accent colors, USPs, serif headings, etc.).
 
-Add an interactive sun position slider to the 3D view that lets users rotate the directional light around the fence, showing how shadows fall at different times of day. The reference image shows a slider with a sun icon on the left and a "cloudy/shade" icon on the right, controlling the sun angle.
+## Design Approach
+Redesign to match the main website's aesthetic: full-width hero with a real background image, clear value proposition, step indicators, and trust signals -- all using the existing design system (primary green, accent orange, Fraunces serif headings, DM Sans body).
 
-## UI Control
+## Changes to `src/components/fence-planner/FencePlannerHero.tsx`
 
-- A floating overlay panel in the top-right area of the 3D canvas (similar to the existing segment label overlay)
-- Contains a horizontal slider with a sun icon on the left and a shade/overcast icon on the right
-- Slider value maps to a 0-360 degree rotation of the main directional light around the fence
-- Optionally includes a "Afmetingen tonen" (show dimensions) toggle, matching the reference
+### 1. Full-Width Hero Section (top)
+- Full-width hero with the existing `cta-bg.jpg` as background (reusing the asset already in `src/assets/`)
+- Dark gradient overlay (matching homepage hero pattern)
+- Large serif heading: "Schutting Planner"
+- Subtitle explaining the tool
+- Prominent CTA button using accent color (orange, matching site convention)
+- Badge/pill above the heading: "Gratis Online Tool"
 
-## How It Works
+### 2. Steps Section (below hero)
+- Replace the 4 blank "Paneel" boxes with 3 illustrated steps:
+  - Step 1: Kies uw vorm (icon: layout/shapes)
+  - Step 2: Configureer panelen (icon: settings)
+  - Step 3: Ontvang materiaallijst (icon: file-text/download)
+- Each step shown as a card with an icon, number badge, title, and short description
+- Uses the existing card styling with primary/accent colors
 
-- The slider value (0 to 1) maps the sun's horizontal angle from east (morning) through south (noon) to west (evening)
-- At the "sun" end (left): bright directional light, strong shadows, high intensity
-- At the "shade" end (right): diffuse light, soft/minimal shadows, lower intensity -- simulating overcast conditions
-- The directional light position is computed as a point on a circle around the fence, maintaining elevation
-- Shadow direction rotates in real-time as the slider moves
+### 3. Trust/USP Bar
+- A compact bar with 3-4 USPs (Gratis, Geen account nodig, Direct materiaallijst, Export naar CSV)
+- Matches the homepage USP bar pattern
 
-## Technical Changes
+### 4. Final CTA
+- Large centered button "Start de Planner" with arrow icon
+- Secondary text: "Geen account nodig -- direct beginnen"
 
-### File: `src/components/fence-planner/ThreeDViewCanvas.tsx`
+### Layout
+- Single-column, vertically stacked (no split screen)
+- Header and Footer included for consistent navigation (currently missing)
+- Responsive: stacks naturally on mobile
 
-1. **Add state** for `sunAngle` (0-1 range) in the main `ThreeDViewCanvas` component
-2. **Add UI overlay** with a slider, sun icon (Lucide `Sun`), and shade icon (Lucide `CloudFog` or `Cloudy`)
-3. **Pass `sunAngle`** as a prop into `FenceScene`
-4. **Compute light position** from `sunAngle`:
-   - Horizontal angle: `sunAngle * Math.PI` (0 = east, PI = west)
-   - Light position: `[radius * cos(angle), height, radius * sin(angle)]`
-   - At high sunAngle values (toward shade end), reduce light intensity and increase ambient to simulate overcast
-5. **Adjust shadow softness**: As the slider moves toward shade, increase shadow bias slightly for softer edges
-
-### Light Calculation (pseudocode)
-
-```text
-angle = sunAngle * Math.PI          // 0 to PI (east to west)
-radius = 12
-x = radius * cos(angle)
-z = radius * sin(angle)
-y = 10 + 2 * sin(angle)             // sun higher at midday
-intensity = lerp(1.8, 0.4, sunAngle) // bright sun to overcast
-ambientBoost = lerp(0.15, 0.5, sunAngle)
-```
-
-### UI Layout
-
-```text
-+----------------------------------+
-|  [sun icon]  ====O========  [cloud icon]  |
-+----------------------------------+
-```
-
-- Positioned as an absolute overlay in the bottom-left or top-right of the 3D canvas
-- Uses existing Shadcn Slider component
-- Styled with `bg-background/80 backdrop-blur-sm` matching the existing overlays
-
-## No New Dependencies
-
-Uses existing Lucide icons (`Sun`, `Cloud`) and Shadcn `Slider` component already installed.
-
+### Technical Notes
+- Import `Header` and `Footer` components
+- Import `cta-bg.jpg` from assets (already exists)
+- Use Lucide icons: `Ruler`, `Settings2`, `FileText`, `ArrowRight`, `Check`
+- No new dependencies needed
