@@ -9,6 +9,7 @@ import AssortimentPage from "./pages/AssortimentPage";
 import ContactPage from "./pages/ContactPage";
 import ComparePage from "./pages/ComparePage";
 import NotFound from "./pages/NotFound";
+import ChatWidget from "./components/ChatWidget";
 
 const queryClient = new QueryClient();
 
@@ -26,6 +27,7 @@ const App = () => (
           <Route path="/vergelijken" element={<ComparePage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <ChatWidget />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
