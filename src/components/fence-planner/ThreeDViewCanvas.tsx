@@ -1,10 +1,10 @@
 import { useState, useMemo, Suspense, useEffect, useRef, useCallback } from "react";
-import { Canvas, useThree, useFrame } from "@react-three/fiber";
+import { Canvas, useThree, useFrame, ThreeEvent } from "@react-three/fiber";
 import { OrbitControls, PerspectiveCamera, Bounds, useBounds, Html } from "@react-three/drei";
 import { PlacedPanel, PanelStyleId } from "./types";
 import { POST_WIDTH_CM, PANEL_HEIGHT_CM } from "./designerData";
 import * as THREE from "three";
-import { Sun, CloudFog, Plus, Trash2, ArrowLeft, ArrowRight } from "lucide-react";
+import { Sun, CloudFog, Plus, Trash2, ArrowLeft, ArrowRight, GripVertical } from "lucide-react";
 import { Slider } from "@/components/ui/slider";
 import { useIsMobile } from "@/hooks/use-mobile";
 
@@ -94,11 +94,12 @@ function Rail({ x, y, width }: { x: number; y: number; width: number }) {
 /* ── Interactive Panel ── */
 function Panel({
   x, width, height, color, styleId,
-  isSelected, isHovered, onPointerOver, onPointerOut, onClick,
+  isSelected, isHovered, onPointerOver, onPointerOut, onClick, onPointerDown,
 }: {
   x: number; width: number; height: number; color: string; styleId: PanelStyleId;
   isSelected?: boolean; isHovered?: boolean;
   onPointerOver?: () => void; onPointerOut?: () => void; onClick?: () => void;
+  onPointerDown?: (e: ThreeEvent<PointerEvent>) => void;
 }) {
   const threeColor = useMemo(() => hexToThreeColor(color), [color]);
   const emissiveColor = useMemo(() => new THREE.Color(isSelected ? "#4488ff" : isHovered ? "#6699ff" : "#000000"), [isSelected, isHovered]);
@@ -108,6 +109,7 @@ function Panel({
     onPointerOver: (e: any) => { e.stopPropagation(); onPointerOver?.(); },
     onPointerOut: (e: any) => { e.stopPropagation(); onPointerOut?.(); },
     onClick: (e: any) => { e.stopPropagation(); onClick?.(); },
+    onPointerDown: (e: any) => { e.stopPropagation(); onPointerDown?.(e); },
   };
 
   // Aluminium solid panel
@@ -430,6 +432,21 @@ function AddPanelZone({ x, height, onAdd }: { x: number; height: number; onAdd?:
   );
 }
 
+/* ── Drag helpers ── */
+function screenToWorldX(e: ThreeEvent<PointerEvent>, camera: THREE.Camera, gl: THREE.WebGLRenderer): number {
+  const rect = gl.domElement.getBoundingClientRect();
+  const ndc = new THREE.Vector2(
+    ((e.nativeEvent.clientX - rect.left) / rect.width) * 2 - 1,
+    -((e.nativeEvent.clientY - rect.top) / rect.height) * 2 + 1
+  );
+  const raycaster = new THREE.Raycaster();
+  raycaster.setFromCamera(ndc, camera);
+  const plane = new THREE.Plane(new THREE.Vector3(0, 0, 1), 0);
+  const intersection = new THREE.Vector3();
+  raycaster.ray.intersectPlane(plane, intersection);
+  return intersection?.x ?? 0;
+}
+
 /* ── Scene content ── */
 function FenceScene({
   segmentLengthCm,
@@ -441,6 +458,10 @@ function FenceScene({
   onPanelHover,
   onPanelLeave,
   onAddPanel,
+  onReorderPanels,
+  dragState,
+  onDragStart,
+  onDragEnd,
 }: {
   segmentLengthCm: number;
   placedPanels: PlacedPanel[];
@@ -451,8 +472,65 @@ function FenceScene({
   onPanelHover: (id: string) => void;
   onPanelLeave: () => void;
   onAddPanel?: () => void;
+  onReorderPanels?: (panels: PlacedPanel[]) => void;
+  dragState: { panelId: string; startWorldX: number; currentOffsetX: number } | null;
+  onDragStart: (panelId: string, worldX: number) => void;
+  onDragEnd: () => void;
 }) {
+  const { camera, gl } = useThree();
   const totalLength = segmentLengthCm * SCALE;
+
+  // Compute panel center positions for swap detection
+  const panelCenters = useMemo(() => {
+    const centers: number[] = [];
+    let cursor = 0;
+    cursor += POST_W; // first post
+    for (const p of placedPanels) {
+      const pw = p.widthCm * SCALE;
+      centers.push(cursor + pw / 2);
+      cursor += pw + POST_W;
+    }
+    return centers;
+  }, [placedPanels]);
+
+  // Handle drag move - detect swaps
+  const currentOrder = useRef(placedPanels);
+  currentOrder.current = placedPanels;
+
+  const handlePointerMove = useCallback((e: ThreeEvent<PointerEvent>) => {
+    if (!dragState || !onReorderPanels) return;
+    const worldX = screenToWorldX(e, camera, gl);
+    const offset = worldX - dragState.startWorldX;
+    // Update drag offset via parent
+    dragState.currentOffsetX = offset;
+
+    // Find dragged panel index in current order
+    const dragIdx = currentOrder.current.findIndex(p => p.id === dragState.panelId);
+    if (dragIdx < 0) return;
+
+    // Check if we should swap with neighbor
+    const dragCenterX = panelCenters[dragIdx];
+    if (dragCenterX === undefined) return;
+    const movedCenter = dragCenterX + offset;
+
+    if (offset > 0 && dragIdx < currentOrder.current.length - 1) {
+      const neighborCenter = panelCenters[dragIdx + 1];
+      if (neighborCenter !== undefined && movedCenter > neighborCenter) {
+        const arr = [...currentOrder.current];
+        [arr[dragIdx], arr[dragIdx + 1]] = [arr[dragIdx + 1], arr[dragIdx]];
+        onReorderPanels(arr);
+        dragState.startWorldX = worldX; // reset to prevent jitter
+      }
+    } else if (offset < 0 && dragIdx > 0) {
+      const neighborCenter = panelCenters[dragIdx - 1];
+      if (neighborCenter !== undefined && movedCenter < neighborCenter) {
+        const arr = [...currentOrder.current];
+        [arr[dragIdx - 1], arr[dragIdx]] = [arr[dragIdx], arr[dragIdx - 1]];
+        onReorderPanels(arr);
+        dragState.startWorldX = worldX;
+      }
+    }
+  }, [dragState, onReorderPanels, camera, gl, panelCenters]);
 
   const { fenceElements, fenceWidth, addZoneX } = useMemo(() => {
     const els: React.ReactNode[] = [];
@@ -461,20 +539,26 @@ function FenceScene({
     cursor += POST_W;
     placedPanels.forEach((p, i) => {
       const pw = p.widthCm * SCALE;
+      const isDragging = dragState?.panelId === p.id;
       els.push(
-        <Panel
-          key={`panel-${i}`}
-          x={cursor + pw / 2}
-          width={pw}
-          height={PANEL_H}
-          color={p.colorHex}
-          styleId={p.panelStyleId}
-          isSelected={selectedPanelId === p.id}
-          isHovered={hoveredPanelId === p.id}
-          onClick={() => onPanelClick(p.id)}
-          onPointerOver={() => onPanelHover(p.id)}
-          onPointerOut={onPanelLeave}
-        />,
+        <group key={`panel-${i}`} position={[isDragging ? dragState!.currentOffsetX : 0, 0, isDragging ? 0.1 : 0]}>
+          <Panel
+            x={cursor + pw / 2}
+            width={pw}
+            height={PANEL_H}
+            color={p.colorHex}
+            styleId={p.panelStyleId}
+            isSelected={selectedPanelId === p.id || isDragging}
+            isHovered={hoveredPanelId === p.id}
+            onClick={() => onPanelClick(p.id)}
+            onPointerOver={() => onPanelHover(p.id)}
+            onPointerOut={onPanelLeave}
+            onPointerDown={onReorderPanels ? (e: ThreeEvent<PointerEvent>) => {
+              const worldX = screenToWorldX(e, camera, gl);
+              onDragStart(p.id, worldX);
+            } : undefined}
+          />
+        </group>,
       );
       cursor += pw;
       els.push(<Post key={`post-${i + 1}`} x={cursor + POST_W / 2} height={PANEL_H} />);
@@ -483,7 +567,7 @@ function FenceScene({
     const panelsW = placedPanels.reduce((s, p) => s + p.widthCm * SCALE, 0);
     const fw = panelsW + (placedPanels.length + 1) * POST_W;
     return { fenceElements: els, fenceWidth: fw, addZoneX: cursor + 0.3 };
-  }, [placedPanels, selectedPanelId, hoveredPanelId, onPanelClick, onPanelHover, onPanelLeave]);
+  }, [placedPanels, selectedPanelId, hoveredPanelId, onPanelClick, onPanelHover, onPanelLeave, dragState, camera, gl, onDragStart, onReorderPanels]);
 
   const camTarget = useMemo(() => [0, PANEL_H * 0.4, 0] as [number, number, number], []);
   const camPos = useMemo(() => {
@@ -496,7 +580,7 @@ function FenceScene({
       <color attach="background" args={["#c8dce8"]} />
       <fog attach="fog" args={["#c8dce8", 15, 50]} />
       <PerspectiveCamera makeDefault position={camPos} fov={35} near={0.1} far={100} />
-      <OrbitControls target={camTarget} maxPolarAngle={Math.PI / 2 - 0.05} minPolarAngle={0.1} minDistance={0.8} maxDistance={25} enableDamping dampingFactor={0.06} />
+      <OrbitControls target={camTarget} maxPolarAngle={Math.PI / 2 - 0.05} minPolarAngle={0.1} minDistance={0.8} maxDistance={25} enableDamping dampingFactor={0.06} enabled={!dragState} />
       <KeyboardOrbit />
 
       {(() => {
@@ -517,6 +601,18 @@ function FenceScene({
         );
       })()}
 
+      {/* Invisible drag plane to capture pointer moves */}
+      {dragState && (
+        <mesh
+          position={[0, PANEL_H / 2, 0.5]}
+          onPointerMove={handlePointerMove}
+          onPointerUp={(e) => { e.stopPropagation(); onDragEnd(); }}
+        >
+          <planeGeometry args={[100, 100]} />
+          <meshBasicMaterial transparent opacity={0} />
+        </mesh>
+      )}
+
       <Bounds fit clip observe margin={1.6}>
         <AutoFit placedPanels={placedPanels} segmentLengthCm={segmentLengthCm} />
         <group position={[-fenceWidth / 2, 0, 0]}>
@@ -534,11 +630,13 @@ const ThreeDViewCanvas = ({ segmentLengthCm, segmentLabel, placedPanels, onAddPa
   const [sunAngle, setSunAngle] = useState([0.25]);
   const [selectedPanelId, setSelectedPanelId] = useState<string | null>(null);
   const [hoveredPanelId, setHoveredPanelId] = useState<string | null>(null);
+  const [dragState, setDragState] = useState<{ panelId: string; startWorldX: number; currentOffsetX: number } | null>(null);
   const isMobile = useIsMobile();
 
   const handlePanelClick = useCallback((id: string) => {
+    if (dragState) return; // don't select during drag
     setSelectedPanelId((prev) => (prev === id ? null : id));
-  }, []);
+  }, [dragState]);
 
   const selectedIndex = useMemo(() => placedPanels.findIndex((p) => p.id === selectedPanelId), [placedPanels, selectedPanelId]);
 
@@ -562,6 +660,15 @@ const ThreeDViewCanvas = ({ segmentLengthCm, segmentLabel, placedPanels, onAddPa
       setSelectedPanelId(null);
     }
   }, [selectedPanelId, onRemovePanel]);
+
+  const handleDragStart = useCallback((panelId: string, worldX: number) => {
+    setDragState({ panelId, startWorldX: worldX, currentOffsetX: 0 });
+    setSelectedPanelId(panelId);
+  }, []);
+
+  const handleDragEnd = useCallback(() => {
+    setDragState(null);
+  }, []);
 
   const interactive = !!(onAddPanel || onRemovePanel || onReorderPanels);
 
@@ -588,7 +695,7 @@ const ThreeDViewCanvas = ({ segmentLengthCm, segmentLabel, placedPanels, onAddPa
       </div>
 
       {/* Selected panel controls */}
-      {selectedPanelId && interactive && (
+      {selectedPanelId && interactive && !dragState && (
         <div className="absolute bottom-16 left-1/2 -translate-x-1/2 z-10 bg-background/90 backdrop-blur-sm px-3 py-2 rounded-lg border border-border flex items-center gap-2">
           <button onClick={handleMoveLeft} disabled={selectedIndex <= 0} className="p-1.5 rounded hover:bg-muted disabled:opacity-30">
             <ArrowLeft className="w-4 h-4" />
@@ -599,13 +706,25 @@ const ThreeDViewCanvas = ({ segmentLengthCm, segmentLabel, placedPanels, onAddPa
           <button onClick={handleMoveRight} disabled={selectedIndex >= placedPanels.length - 1} className="p-1.5 rounded hover:bg-muted disabled:opacity-30">
             <ArrowRight className="w-4 h-4" />
           </button>
+          {!isMobile && (
+            <span className="text-xs text-muted-foreground ml-1 flex items-center gap-1">
+              <GripVertical className="w-3 h-3" /> Sleep om te verplaatsen
+            </span>
+          )}
+        </div>
+      )}
+
+      {/* Drag indicator */}
+      {dragState && (
+        <div className="absolute bottom-16 left-1/2 -translate-x-1/2 z-10 bg-primary/90 backdrop-blur-sm px-4 py-2 rounded-lg border border-primary text-primary-foreground">
+          <p className="text-sm font-medium">Paneel verslepen… laat los om te plaatsen</p>
         </div>
       )}
 
       <Canvas
         shadows={{ type: THREE.PCFSoftShadowMap }}
         className="flex-1"
-        style={{ width: "100%", height: "100%", minHeight: 400 }}
+        style={{ width: "100%", height: "100%", minHeight: 400, cursor: dragState ? "grabbing" : "auto" }}
         gl={{ antialias: true, alpha: false }}
         dpr={[1, 2]}
         resize={{ debounce: 100, scroll: false }}
@@ -621,6 +740,10 @@ const ThreeDViewCanvas = ({ segmentLengthCm, segmentLabel, placedPanels, onAddPa
             onPanelHover={setHoveredPanelId}
             onPanelLeave={() => setHoveredPanelId(null)}
             onAddPanel={onAddPanel}
+            onReorderPanels={onReorderPanels}
+            dragState={dragState}
+            onDragStart={handleDragStart}
+            onDragEnd={handleDragEnd}
           />
         </Suspense>
       </Canvas>
@@ -628,7 +751,7 @@ const ThreeDViewCanvas = ({ segmentLengthCm, segmentLabel, placedPanels, onAddPa
       {/* Controls hint */}
       <div className="absolute bottom-4 right-4 bg-background/70 backdrop-blur-sm px-3 py-1.5 rounded-md border border-border">
         <p className="text-xs text-muted-foreground">
-          {interactive ? "🖱️ Klik paneel om te selecteren · " : ""}🖱️ Sleep om te draaien · Scroll om te zoomen
+          {interactive ? "🖱️ Klik paneel · Sleep om te verplaatsen · " : ""}🖱️ Sleep om te draaien · Scroll om te zoomen
         </p>
       </div>
     </div>
