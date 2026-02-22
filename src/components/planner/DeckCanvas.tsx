@@ -2,12 +2,21 @@ import { useRef, useState, useCallback, useMemo } from "react";
 import { Point, LayingPattern } from "./types";
 import { dist } from "./presets";
 
+interface FloorPlanBackground {
+  imageUrl: string;
+  opacity: number;
+  scale: number;
+  offsetX: number;
+  offsetY: number;
+}
+
 interface DeckCanvasProps {
   points: Point[];
   onPointsChange: (points: Point[]) => void;
   editable: boolean;
   layingPattern?: LayingPattern;
   areaM2: number;
+  floorPlan?: FloorPlanBackground | null;
 }
 
 const CANVAS_W = 600;
@@ -18,7 +27,7 @@ const MID_HANDLE_R = 5;
 const GRID_STEP_PX = 40;
 const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-const DeckCanvas = ({ points, onPointsChange, editable, layingPattern = "horizontal", areaM2 }: DeckCanvasProps) => {
+const DeckCanvas = ({ points, onPointsChange, editable, layingPattern = "horizontal", areaM2, floorPlan }: DeckCanvasProps) => {
   const svgRef = useRef<SVGSVGElement>(null);
   const [dragging, setDragging] = useState<number | null>(null);
 
@@ -169,6 +178,19 @@ const DeckCanvas = ({ points, onPointsChange, editable, layingPattern = "horizon
           </clipPath>
         </defs>
         <rect width={CANVAS_W} height={CANVAS_H} fill="url(#grid)" rx="12" />
+
+        {/* Floor plan background image */}
+        {floorPlan?.imageUrl && (
+          <image
+            href={floorPlan.imageUrl}
+            x={CANVAS_W / 2 + floorPlan.offsetX - (CANVAS_W * floorPlan.scale) / 2}
+            y={CANVAS_H / 2 + floorPlan.offsetY - (CANVAS_H * floorPlan.scale) / 2}
+            width={CANVAS_W * floorPlan.scale}
+            height={CANVAS_H * floorPlan.scale}
+            opacity={floorPlan.opacity}
+            preserveAspectRatio="xMidYMid meet"
+          />
+        )}
 
         {/* Shape fill */}
         {screenPoints.length >= 3 && (

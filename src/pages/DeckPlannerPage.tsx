@@ -11,6 +11,7 @@ import MaterialSelector from "@/components/planner/MaterialSelector";
 import MaterialsList from "@/components/planner/MaterialsList";
 import LeadCaptureModal from "@/components/planner/LeadCaptureModal";
 import LayingPatternSelector from "@/components/planner/LayingPatternSelector";
+import FloorPlanUpload from "@/components/planner/FloorPlanUpload";
 import SubstructureOptions from "@/components/planner/SubstructureOptions";
 import EdgeFinishing from "@/components/planner/EdgeFinishing";
 import { PresetShape, Point, SubstructureConfig, EdgeConfig, LayingConfig } from "@/components/planner/types";
@@ -62,6 +63,11 @@ const DeckPlannerPage = () => {
 
   const [showLeadModal, setShowLeadModal] = useState(false);
   const [unlocked, setUnlocked] = useState(false);
+  const [floorPlanUrl, setFloorPlanUrl] = useState<string | null>(null);
+  const [floorPlanOpacity, setFloorPlanOpacity] = useState(0.4);
+  const [floorPlanScale, setFloorPlanScale] = useState(1);
+  const [floorPlanOffsetX, setFloorPlanOffsetX] = useState(0);
+  const [floorPlanOffsetY, setFloorPlanOffsetY] = useState(0);
 
   const points = useMemo(() => {
     if (customPoints) return customPoints;
@@ -115,6 +121,11 @@ const DeckPlannerPage = () => {
     setLayingConfig(defaultLayingConfig);
     setSubstructure(defaultSubstructure);
     setEdgeConfig({ wallSides: [], addEdgeBoards: false });
+    setFloorPlanUrl(null);
+    setFloorPlanOpacity(0.4);
+    setFloorPlanScale(1);
+    setFloorPlanOffsetX(0);
+    setFloorPlanOffsetY(0);
   };
 
   return (
@@ -160,6 +171,13 @@ const DeckPlannerPage = () => {
                 editable={true}
                 layingPattern={layingConfig.pattern}
                 areaM2={areaM2}
+                floorPlan={floorPlanUrl ? {
+                  imageUrl: floorPlanUrl,
+                  opacity: floorPlanOpacity,
+                  scale: floorPlanScale,
+                  offsetX: floorPlanOffsetX,
+                  offsetY: floorPlanOffsetY,
+                } : null}
               />
               <div className="flex items-center gap-2 mt-2 text-xs text-muted-foreground">
                 <div className="w-2.5 h-2.5 rounded-full bg-primary" />
@@ -182,6 +200,25 @@ const DeckPlannerPage = () => {
                       cutWidth={cutWidth}
                       cutDepth={cutDepth}
                       onChange={handleDimensionChange}
+                    />
+                  </AccordionContent>
+                </AccordionItem>
+
+                {/* Floor plan import */}
+                <AccordionItem value="floorplan" className="border rounded-xl px-4">
+                  <AccordionTrigger className="text-sm font-bold font-serif">Plattegrond importeren</AccordionTrigger>
+                  <AccordionContent className="pb-4">
+                    <FloorPlanUpload
+                      imageUrl={floorPlanUrl}
+                      opacity={floorPlanOpacity}
+                      scale={floorPlanScale}
+                      offsetX={floorPlanOffsetX}
+                      offsetY={floorPlanOffsetY}
+                      onImageChange={setFloorPlanUrl}
+                      onOpacityChange={setFloorPlanOpacity}
+                      onScaleChange={setFloorPlanScale}
+                      onOffsetXChange={setFloorPlanOffsetX}
+                      onOffsetYChange={setFloorPlanOffsetY}
                     />
                   </AccordionContent>
                 </AccordionItem>
