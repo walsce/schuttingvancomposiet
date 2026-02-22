@@ -19,16 +19,18 @@ const Footer = () => (
             <li><Link to="/categorie/gevelbekleding" className="hover:text-background transition-colors">Gevelbekleding</Link></li>
             <li><Link to="/categorie/schuttingen" className="hover:text-background transition-colors">Schuttingen</Link></li>
             <li><Link to="/categorie/vlonderplanken" className="hover:text-background transition-colors">Vlonderplanken</Link></li>
+            <li><Link to="/assortiment" className="hover:text-background transition-colors">Alle producten</Link></li>
+            <li><Link to="/vergelijken" className="hover:text-background transition-colors">Vergelijken</Link></li>
           </ul>
         </div>
 
         <div>
-          <h4 className="font-serif font-semibold text-background mb-4">Klantenservice</h4>
+          <h4 className="font-serif font-semibold text-background mb-4">Informatie</h4>
           <ul className="space-y-2 text-sm">
-            <li><Link to="/contact" className="hover:text-background transition-colors">Contact</Link></li>
+            <li><Link to="/blog" className="hover:text-background transition-colors">Blog & Advies</Link></li>
+            <li><Link to="/contact" className="hover:text-background transition-colors">Contact & Offerte</Link></li>
             <li><span className="cursor-default">Verzending & Levering</span></li>
             <li><span className="cursor-default">Retourbeleid</span></li>
-            <li><span className="cursor-default">Veelgestelde vragen</span></li>
           </ul>
         </div>
 

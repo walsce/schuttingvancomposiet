@@ -42,7 +42,7 @@ const Header = () => {
             </span>
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-8" aria-label="Hoofdnavigatie">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -71,7 +71,7 @@ const Header = () => {
         {/* Mobile menu */}
         {mobileOpen && (
           <div className="lg:hidden border-t border-border bg-card pb-4">
-            <nav className="container flex flex-col gap-2 pt-4">
+            <nav className="container flex flex-col gap-2 pt-4" aria-label="Mobiele navigatie">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
