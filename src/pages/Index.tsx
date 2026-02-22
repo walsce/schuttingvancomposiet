@@ -174,7 +174,7 @@ const Index = () => {
             </div>
             <div className="rounded-xl overflow-hidden">
               <img
-                src="https://www.mthekwerken.nl/wp-content/uploads/Highlander-Credits-Sven-Scholten-LR-23.JPG-website-1110x840.jpg"
+                src="https://jakqbjeukobtyxxxpzcr.supabase.co/storage/v1/object/public/product-images/hero/why-composiet.png"
                 alt="Composiet schutting in tuin omgeving met moderne uitstraling"
                 className="w-full h-full object-cover"
                 loading="lazy"
