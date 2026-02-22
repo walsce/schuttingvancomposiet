@@ -31,7 +31,7 @@ const ProductCard = ({ product }: ProductCardProps) => (
         ))}
       </div>
       <div className="flex items-center justify-between">
-        <span className="text-sm font-bold text-accent">{product.priceLabel}</span>
+        <span className="text-sm font-bold text-primary">{product.priceLabel}</span>
         <span className="text-xs text-muted-foreground">{product.guarantee}</span>
       </div>
     </div>

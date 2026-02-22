@@ -126,16 +126,16 @@ const ProductPage = () => {
             <div className="space-y-6">
               <div>
                 <h1 className="text-2xl lg:text-3xl font-bold text-foreground mb-2">{product.name}</h1>
-                <p className="text-3xl font-bold text-accent">{product.priceLabel}</p>
+                <p className="text-3xl font-bold text-primary">{product.priceLabel}</p>
               </div>
 
               <div className="flex flex-col gap-2">
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <Truck className="h-4 w-4 text-accent" />
+                  <Truck className="h-4 w-4 text-primary" />
                   <span>{product.deliveryTime}</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <Shield className="h-4 w-4 text-accent" />
+                  <Shield className="h-4 w-4 text-primary" />
                   <span>{product.guarantee}</span>
                 </div>
               </div>
@@ -144,7 +144,7 @@ const ProductPage = () => {
                 <ul className="space-y-1.5">
                   {product.highlights.map((h) => (
                     <li key={h} className="flex items-start gap-2 text-sm text-foreground">
-                      <CheckCircle className="h-4 w-4 text-accent mt-0.5 flex-shrink-0" />
+                      <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
                       {h}
                     </li>
                   ))}
@@ -190,7 +190,7 @@ const ProductPage = () => {
         <section className="max-w-6xl mx-auto px-4 pb-8">
           <div className="bg-secondary/50 border border-border rounded-xl p-6">
             <div className="flex items-center gap-2 mb-3">
-              <Info className="h-5 w-5 text-accent" />
+              <Info className="h-5 w-5 text-primary" />
               <h2 className="font-serif text-lg font-bold text-foreground">In het kort</h2>
             </div>
             <p className="text-sm text-foreground leading-relaxed mb-4">{product.description}</p>
