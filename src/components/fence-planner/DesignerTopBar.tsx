@@ -1,6 +1,6 @@
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
-import { ZoomIn, ZoomOut, Maximize, LayoutGrid, Square, Box } from "lucide-react";
+import { ZoomIn, ZoomOut, Maximize, LayoutGrid, Square, Box, Download } from "lucide-react";
 import { ViewMode, SegmentInfo } from "./types";
 
 interface DesignerTopBarProps {
@@ -12,6 +12,7 @@ interface DesignerTopBarProps {
   onViewModeChange: (mode: ViewMode) => void;
   zoom: number;
   onZoomChange: (zoom: number) => void;
+  onExportCsv?: () => void;
 }
 
 const DesignerTopBar = ({
@@ -23,6 +24,7 @@ const DesignerTopBar = ({
   onViewModeChange,
   zoom,
   onZoomChange,
+  onExportCsv,
 }: DesignerTopBarProps) => {
   return (
     <div className="h-12 border-b border-border bg-background flex items-center justify-between px-3 gap-3 flex-shrink-0">
@@ -93,6 +95,16 @@ const DesignerTopBar = ({
         </Button>
         <Button variant="ghost" size="icon" className="h-7 w-7">
           <Maximize className="w-3.5 h-3.5" />
+        </Button>
+        <Button
+          variant="ghost"
+          size="sm"
+          className="h-7 gap-1 text-xs"
+          onClick={onExportCsv}
+          title="Exporteer als CSV"
+        >
+          <Download className="w-3.5 h-3.5" />
+          <span className="hidden sm:inline">CSV</span>
         </Button>
         <span className="text-xs text-muted-foreground hidden md:block">Config-nr.: Niet opgeslagen</span>
       </div>
