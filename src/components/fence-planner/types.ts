@@ -58,3 +58,34 @@ export interface SegmentInfo {
   start: Point;
   end: Point;
 }
+
+// Designer types (Step 2)
+export type ViewMode = "plan" | "2d" | "3d";
+
+export type PanelStyleId = "horizontal-planks" | "decorative" | "mosaic" | "louvers" | "vertical-slats";
+
+export interface PanelType {
+  id: PanelStyleId;
+  name: string;
+  widthCm: number;
+}
+
+export interface PlacedPanel {
+  id: string;
+  panelStyleId: PanelStyleId;
+  colorHex: string;
+  widthCm: number;
+  segmentIndex: number;
+  position: number; // index within segment
+}
+
+export interface DesignerState {
+  placedPanels: PlacedPanel[];
+  activeSegmentIndex: number;
+  viewMode: ViewMode;
+  selectedModel: FenceSystem | null;
+  selectedProduct: string | null;
+  selectedPanelStyle: PanelStyleId;
+  selectedColorHex: string;
+  zoom: number;
+}

@@ -7,6 +7,7 @@ import FenceShapeSelector from "@/components/fence-planner/FenceShapeSelector";
 import GroundConfig from "@/components/fence-planner/GroundConfig";
 import PostModelSelector from "@/components/fence-planner/PostModelSelector";
 import FenceSystemModal from "@/components/fence-planner/FenceSystemModal";
+import FenceDesignerView from "@/components/fence-planner/FenceDesignerView";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -75,6 +76,26 @@ const FencePlannerPage = () => {
           canonical="/schutting-planner"
         />
         <FencePlannerHero onStart={() => setStarted(true)} />
+      </>
+    );
+  }
+
+  // Step 1+: Designer view
+  if (step >= 1) {
+    return (
+      <>
+        <SEOHead
+          title="Schutting Planner | S van Composiet.nl"
+          description="Ontwerp uw composiet schutting online met onze gratis planner."
+          canonical="/schutting-planner"
+        />
+        <FenceDesignerView
+          segments={segments}
+          selectedSystem={selectedSystem}
+          selectedPanel={selectedPanel}
+          selectedColor={selectedColor}
+          onBack={() => setStep(0)}
+        />
       </>
     );
   }
