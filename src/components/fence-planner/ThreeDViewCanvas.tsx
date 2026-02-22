@@ -1,9 +1,11 @@
-import { useMemo, Suspense, useEffect, useRef, useCallback } from "react";
+import { useState, useMemo, Suspense, useEffect, useRef, useCallback } from "react";
 import { Canvas, useThree, useFrame } from "@react-three/fiber";
 import { OrbitControls, PerspectiveCamera, Bounds, useBounds, Html } from "@react-three/drei";
 import { PlacedPanel, PanelStyleId } from "./types";
 import { POST_WIDTH_CM, PANEL_HEIGHT_CM } from "./designerData";
 import * as THREE from "three";
+import { Sun, CloudFog } from "lucide-react";
+import { Slider } from "@/components/ui/slider";
 
 interface ThreeDViewCanvasProps {
   segmentLengthCm: number;
@@ -327,9 +329,11 @@ function KeyboardOrbit() {
 function FenceScene({
   segmentLengthCm,
   placedPanels,
+  sunAngle,
 }: {
   segmentLengthCm: number;
   placedPanels: PlacedPanel[];
+  sunAngle: number;
 }) {
   const totalLength = segmentLengthCm * SCALE;
   const postHeight = PANEL_H + POST_CAP_OVERHANG;
@@ -384,23 +388,36 @@ function FenceScene({
       />
       <KeyboardOrbit />
 
-      {/* Lighting */}
-      <hemisphereLight args={["#87ceeb", "#4a7c3f", 0.4]} />
-      <ambientLight intensity={0.15} />
-      <directionalLight
-        position={[8, 12, 6]}
-        intensity={1.5}
-        castShadow
-        shadow-mapSize-width={2048}
-        shadow-mapSize-height={2048}
-        shadow-camera-far={60}
-        shadow-camera-left={-15}
-        shadow-camera-right={15}
-        shadow-camera-top={15}
-        shadow-camera-bottom={-15}
-        shadow-bias={-0.001}
-      />
-      <directionalLight position={[-4, 6, -3]} intensity={0.3} />
+      {/* Lighting - dynamic sun */}
+      {(() => {
+        const angle = sunAngle * Math.PI;
+        const radius = 12;
+        const sx = radius * Math.cos(angle);
+        const sz = radius * Math.sin(angle);
+        const sy = 10 + 2 * Math.sin(angle);
+        const intensity = 1.8 - sunAngle * 1.4; // 1.8 → 0.4
+        const ambientBoost = 0.15 + sunAngle * 0.35; // 0.15 → 0.5
+        return (
+          <>
+            <hemisphereLight args={["#87ceeb", "#4a7c3f", 0.4]} />
+            <ambientLight intensity={ambientBoost} />
+            <directionalLight
+              position={[sx, sy, sz]}
+              intensity={intensity}
+              castShadow
+              shadow-mapSize-width={2048}
+              shadow-mapSize-height={2048}
+              shadow-camera-far={60}
+              shadow-camera-left={-15}
+              shadow-camera-right={15}
+              shadow-camera-top={15}
+              shadow-camera-bottom={-15}
+              shadow-bias={-0.001 - sunAngle * 0.002}
+            />
+            <directionalLight position={[-sx * 0.3, 6, -sz * 0.3]} intensity={0.3} />
+          </>
+        );
+      })()}
 
       <Bounds fit clip observe margin={1.6}>
         <AutoFit placedPanels={placedPanels} segmentLengthCm={segmentLengthCm} />
@@ -419,6 +436,8 @@ function FenceScene({
 }
 
 const ThreeDViewCanvas = ({ segmentLengthCm, segmentLabel, placedPanels }: ThreeDViewCanvasProps) => {
+  const [sunAngle, setSunAngle] = useState([0.25]);
+
   return (
     <div className="w-full h-full min-h-[400px] relative flex flex-col" style={{ height: "100%" }}>
       {/* Overlay label */}
@@ -431,6 +450,20 @@ const ThreeDViewCanvas = ({ segmentLengthCm, segmentLabel, placedPanels }: Three
         )}
       </div>
 
+      {/* Sun direction slider */}
+      <div className="absolute top-4 right-4 z-10 bg-background/80 backdrop-blur-sm px-4 py-3 rounded-lg border border-border flex items-center gap-3 min-w-[200px]">
+        <Sun className="h-5 w-5 text-amber-500 shrink-0" />
+        <Slider
+          value={sunAngle}
+          onValueChange={setSunAngle}
+          min={0}
+          max={1}
+          step={0.01}
+          className="flex-1"
+        />
+        <CloudFog className="h-5 w-5 text-muted-foreground shrink-0" />
+      </div>
+
       <Canvas
         shadows={{ type: THREE.PCFSoftShadowMap }}
         className="flex-1"
@@ -440,7 +473,7 @@ const ThreeDViewCanvas = ({ segmentLengthCm, segmentLabel, placedPanels }: Three
         resize={{ debounce: 100, scroll: false }}
       >
         <Suspense fallback={null}>
-          <FenceScene segmentLengthCm={segmentLengthCm} placedPanels={placedPanels} />
+          <FenceScene segmentLengthCm={segmentLengthCm} placedPanels={placedPanels} sunAngle={sunAngle[0]} />
         </Suspense>
       </Canvas>
 
