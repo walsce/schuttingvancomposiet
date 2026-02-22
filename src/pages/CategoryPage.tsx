@@ -1,13 +1,20 @@
 import { useParams } from "react-router-dom";
+import { useCallback, useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ProductCard from "@/components/ProductCard";
-import { products, categories } from "@/data/products";
+import ProductFilters from "@/components/ProductFilters";
+import { products, categories, Product } from "@/data/products";
 
 const CategoryPage = () => {
   const { slug } = useParams<{ slug: string }>();
   const category = categories.find((c) => c.slug === slug);
   const categoryProducts = products.filter((p) => p.category === slug);
+  const [filteredProducts, setFilteredProducts] = useState<Product[]>(categoryProducts);
+
+  const handleFiltered = useCallback((result: Product[]) => {
+    setFilteredProducts(result);
+  }, []);
 
   if (!category) {
     return (
@@ -40,14 +47,26 @@ const CategoryPage = () => {
 
       {/* Products grid */}
       <section className="container py-12 md:py-20">
-        <div className="flex items-center justify-between mb-8">
-          <p className="text-sm text-muted-foreground">{categoryProducts.length} producten</p>
+        <ProductFilters products={categoryProducts} onFiltered={handleFiltered} />
+
+        <div className="flex items-center justify-between mb-6">
+          <p className="text-sm text-muted-foreground">
+            {filteredProducts.length} van {categoryProducts.length} producten
+          </p>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-          {categoryProducts.map((p) => (
-            <ProductCard key={p.id} product={p} />
-          ))}
-        </div>
+
+        {filteredProducts.length > 0 ? (
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+            {filteredProducts.map((p) => (
+              <ProductCard key={p.id} product={p} />
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-16">
+            <p className="text-muted-foreground text-lg">Geen producten gevonden met deze filters.</p>
+            <p className="text-sm text-muted-foreground mt-1">Probeer andere filtercombinaties.</p>
+          </div>
+        )}
       </section>
 
       <Footer />
