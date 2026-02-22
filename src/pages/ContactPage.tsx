@@ -11,6 +11,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, Clock, Package } from "lucide-react";
 import { products } from "@/data/products";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
 
 const contactFaqs = [
   { q: "Hoe snel ontvang ik een offerte?", a: "Wij streven ernaar om binnen 24 uur een vrijblijvende offerte te versturen na ontvangst van uw aanvraag." },
@@ -28,7 +30,12 @@ const ContactPage = () => {
   const isSample = type === "sample";
   const isOfferte = type === "offerte";
 
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
+  const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
     if (isSample && product) {
@@ -37,6 +44,48 @@ const ContactPage = () => {
       setMessage(`Offerte aanvraag voor: ${product.name}\n\nGraag ontvang ik een vrijblijvende offerte voor dit product.`);
     }
   }, [isSample, isOfferte, product]);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) { toast.error("E-mailadres is verplicht"); return; }
+    setSubmitting(true);
+
+    const fullName = [firstName, lastName].filter(Boolean).join(" ") || null;
+
+    // Upsert into CRM contacts
+    const { error } = await supabase.from("crm_contacts").upsert({
+      email,
+      name: fullName,
+      phone: phone || null,
+      source: "contact_form",
+    }, { onConflict: "email" } as any);
+
+    if (!error) {
+      // Log activity
+      const { data: contact } = await supabase.from("crm_contacts").select("id").eq("email", email).single();
+      if (contact) {
+        await supabase.from("crm_activities").insert({
+          contact_id: contact.id,
+          type: "email" as any,
+          title: isSample ? "Sample aanvraag" : isOfferte ? "Offerte aanvraag" : "Contactformulier",
+          description: message,
+          metadata: { product: product?.name || null, type: type || "general" },
+        });
+      }
+    }
+
+    setSubmitting(false);
+    if (error) {
+      toast.error("Er ging iets mis. Probeer het opnieuw.");
+    } else {
+      toast.success("Bericht verstuurd! Wij nemen zo snel mogelijk contact op.");
+      setFirstName("");
+      setLastName("");
+      setEmail("");
+      setPhone("");
+      setMessage("");
+    }
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -54,7 +103,6 @@ const ContactPage = () => {
 
       <main>
         <section className="container py-12 md:py-20">
-          {/* Sample/offerte banner */}
           {(isSample || isOfferte) && product && (
             <div className="mb-8 rounded-xl border border-primary/30 bg-primary/5 p-4 flex items-start gap-3">
               <Package className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
@@ -105,7 +153,6 @@ const ContactPage = () => {
                 </div>
               </div>
 
-              {/* Internal links */}
               <div className="mt-8 pt-6 border-t border-border">
                 <p className="text-sm font-semibold text-foreground mb-3">Bekijk ons assortiment</p>
                 <div className="flex flex-wrap gap-2">
@@ -124,21 +171,21 @@ const ContactPage = () => {
               <h2 className="font-serif text-xl font-bold text-foreground mb-6">
                 {isSample ? "Sample aanvraagformulier" : "Stuur ons een bericht"}
               </h2>
-              <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+              <form className="space-y-4" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-2 gap-4">
-                  <Input placeholder="Voornaam" />
-                  <Input placeholder="Achternaam" />
+                  <Input placeholder="Voornaam" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+                  <Input placeholder="Achternaam" value={lastName} onChange={(e) => setLastName(e.target.value)} />
                 </div>
-                <Input type="email" placeholder="E-mailadres" />
-                <Input type="tel" placeholder="Telefoonnummer" />
+                <Input type="email" placeholder="E-mailadres" required value={email} onChange={(e) => setEmail(e.target.value)} />
+                <Input type="tel" placeholder="Telefoonnummer" value={phone} onChange={(e) => setPhone(e.target.value)} />
                 <Textarea
                   placeholder="Uw bericht of offerte aanvraag..."
                   rows={4}
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                 />
-                <Button type="submit" className="w-full bg-primary hover:bg-primary/90">
-                  {isSample ? "Sample aanvragen" : "Verstuur bericht"}
+                <Button type="submit" className="w-full bg-primary hover:bg-primary/90" disabled={submitting}>
+                  {submitting ? "Versturen…" : isSample ? "Sample aanvragen" : "Verstuur bericht"}
                 </Button>
               </form>
             </div>
