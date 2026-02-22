@@ -33,6 +33,7 @@ export interface Product {
   options?: { label: string; values: string[] }[];
   videoUrl?: string;
   faq?: { question: string; answer: string }[];
+  updatedDate?: string;
 }
 
 export const toneLabels: Record<Tone, string> = {
@@ -59,6 +60,7 @@ export const products: Product[] = [
   // ─── GEVELBEKLEDING ──────────────────────────────────────────
   {
     id: 'gv-1',
+    updatedDate: '2026-02-15',
     name: 'Composiet gevelbekleding Rhombus Teak',
     price: 25.95,
     priceLabel: '€25,95 per stuk',
@@ -113,6 +115,7 @@ Met onze composiet gevelbekleding kies je voor een hoogwaardige, duurzame en sti
   },
   {
     id: 'gv-2',
+    updatedDate: '2026-02-10',
     name: 'Composiet gevelbekleding Rhombus Teak/Zwart',
     price: 25.95,
     priceLabel: '€25,95 per stuk',
@@ -170,6 +173,7 @@ Met onze composiet gevelbekleding kies je voor een hoogwaardige, duurzame en sti
   },
   {
     id: 'gv-3',
+    updatedDate: '2026-02-12',
     name: 'Composiet gevelbekleding Rhombus Zwart',
     price: 25.95,
     priceLabel: '€25,95 per stuk',
@@ -221,6 +225,7 @@ Kies voor horizontale of verticale plaatsing — de planken zijn in beide richti
   },
   {
     id: 'gv-4',
+    updatedDate: '2026-02-14',
     name: 'Composiet gevelbekleding Rhombus Walnoot',
     price: 25.95,
     priceLabel: '€25,95 per stuk',
@@ -272,6 +277,7 @@ Horizontale of verticale plaatsing — beide zijn mogelijk. De planken worden ee
   },
   {
     id: 'gv-5',
+    updatedDate: '2026-02-13',
     name: 'Composiet gevelbekleding Rhombus Eiken',
     price: 25.95,
     priceLabel: '€25,95 per stuk',
@@ -322,6 +328,7 @@ Monteer horizontaal of verticaal op een aluminium regelwerk. Schroeven worden st
   },
   {
     id: 'gv-6',
+    updatedDate: '2026-02-11',
     name: 'Composiet gevelbekleding Rhombus Grijs/Zwart',
     price: 25.95,
     priceLabel: '€25,95 per stuk',
@@ -371,6 +378,7 @@ Monteer horizontaal of verticaal op een aluminium regelwerk. Schroeven worden me
   },
   {
     id: 'gv-7',
+    updatedDate: '2026-02-08',
     name: 'Hoekprofiel Composiet gevelbekleding Teak',
     price: 19.95,
     priceLabel: '€19,95 per stuk',
@@ -413,6 +421,7 @@ Hoeken en randen zijn het visitekaartje van een gevelafwerking. Met het composie
   },
   {
     id: 'gv-8',
+    updatedDate: '2026-02-08',
     name: 'Hoekprofiel Composiet gevelbekleding Zwart',
     price: 19.95,
     priceLabel: '€19,95 per stuk',
@@ -457,6 +466,7 @@ Met het composiet hoekprofiel worden kopse kanten netjes afgedekt voor een profe
   // ─── SCHUTTINGEN ──────────────────────────────────────────────
   {
     id: 'sc-1',
+    updatedDate: '2026-02-15',
     name: 'Composiet schutting Rhombus Teak',
     price: 139.95,
     priceLabel: 'Vanaf €139,95',
@@ -516,6 +526,7 @@ Het schuttingsysteem werkt met aluminium palen (apart verkrijgbaar) en U-profiel
   },
   {
     id: 'sc-2',
+    updatedDate: '2026-02-14',
     name: 'Composiet schutting Teak',
     price: 139.95,
     priceLabel: 'Vanaf €139,95',
@@ -573,6 +584,7 @@ Het systeem werkt met aluminium palen en U-profielen. Planken schuif je eenvoudi
   },
   {
     id: 'sc-3',
+    updatedDate: '2026-02-13',
     name: 'Composiet schutting Rhombus Zwart',
     price: 139.95,
     priceLabel: 'Vanaf €139,95',
@@ -629,6 +641,7 @@ Aluminium palen (apart verkrijgbaar) en U-profielen maken de montage eenvoudig. 
   },
   {
     id: 'sc-4',
+    updatedDate: '2026-02-12',
     name: 'Composiet schutting Zwart',
     price: 139.95,
     priceLabel: 'Vanaf €139,95',
@@ -688,6 +701,7 @@ Aluminium palen en U-profielen maken de montage eenvoudig. Beschikbaar in 180 cm
   },
   {
     id: 'sc-5',
+    updatedDate: '2026-02-11',
     name: 'Composiet schutting Rhombus Walnoot',
     price: 139.95,
     priceLabel: 'Vanaf €139,95',
@@ -746,6 +760,7 @@ Aluminium palen en U-profielen. Planken inschuiven. Beschikbaar in 180 cm of 200
   },
   {
     id: 'sc-6',
+    updatedDate: '2026-02-10',
     name: 'Composiet schutting Walnoot',
     price: 139.95,
     priceLabel: 'Vanaf €139,95',
@@ -804,6 +819,7 @@ Aluminium palen en U-profielen. Planken inschuiven. 180 cm of 200 cm hoogte besc
   },
   {
     id: 'sc-7',
+    updatedDate: '2026-02-09',
     name: 'Composiet schutting Rhombus Eiken',
     price: 139.95,
     priceLabel: 'Vanaf €139,95',
@@ -857,6 +873,7 @@ Aluminium palen en U-profielen. Planken inschuiven. 180 cm of 200 cm hoogte besc
   },
   {
     id: 'sc-8',
+    updatedDate: '2026-02-08',
     name: 'Composiet schutting Rhombus Grijs',
     price: 139.95,
     priceLabel: 'Vanaf €139,95',
@@ -913,6 +930,7 @@ Aluminium palen en U-profielen. Planken inschuiven. 180 cm of 200 cm hoogte.
   // ─── VLONDERPLANKEN ──────────────────────────────────────────
   {
     id: 'vl-1',
+    updatedDate: '2026-02-15',
     name: 'Composiet vlonderplank Donker Grijs',
     price: 16.95,
     priceLabel: 'Vanaf €16,95',
@@ -967,6 +985,7 @@ Composiet vlonderplanken zijn 100% splintervrij — ideaal om blootsvoets over t
   },
   {
     id: 'vl-2',
+    updatedDate: '2026-02-14',
     name: 'Composiet vlonderplank Teak',
     price: 16.95,
     priceLabel: 'Vanaf €16,95',
@@ -1019,6 +1038,7 @@ Bevestig los met schroeven of gebruik onzichtbare clips voor een strak resultaat
   },
   {
     id: 'vl-3',
+    updatedDate: '2026-02-13',
     name: 'Composiet vlonderplank Vergrijsd Eiken',
     price: 16.95,
     priceLabel: 'Vanaf €16,95',
@@ -1071,6 +1091,7 @@ Bevestig met schroeven of met onzichtbare clips. De clips creëren een strak ter
   },
   {
     id: 'vl-4',
+    updatedDate: '2026-02-12',
     name: 'Composiet vlonderplank Walnoot',
     price: 16.95,
     priceLabel: 'Vanaf €16,95',
@@ -1123,6 +1144,7 @@ Bevestig met schroeven of met onzichtbare clips voor een strak eindresultaat.
   },
   {
     id: 'vl-5',
+    updatedDate: '2026-02-15',
     name: 'Composiet vlonderplank naadloos massief Donker Grijs',
     price: 24.95,
     priceLabel: 'Vanaf €24,95',
@@ -1180,6 +1202,7 @@ Het naadloze ontwerp zorgt voor een strak, elegant eindresultaat zonder zichtbar
   },
   {
     id: 'vl-6',
+    updatedDate: '2026-02-14',
     name: 'Composiet vlonderplank naadloos massief Teak',
     price: 24.95,
     priceLabel: 'Vanaf €24,95',
@@ -1232,6 +1255,7 @@ Strak, elegant eindresultaat zonder zichtbare groeven. De warme teakkleur geeft 
   },
   {
     id: 'vl-7',
+    updatedDate: '2026-02-13',
     name: 'Composiet vlonderplank naadloos massief Zwart',
     price: 24.95,
     priceLabel: 'Vanaf €24,95',

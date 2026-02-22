@@ -10,7 +10,6 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import JsonLd, { productSchema, faqSchema } from "@/components/JsonLd";
 import CTASection from "@/components/CTASection";
 import { Badge } from "@/components/ui/badge";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
@@ -24,8 +23,14 @@ import {
   TableCell,
   TableRow,
 } from "@/components/ui/table";
-import { Truck, Shield, CheckCircle, ChevronLeft, ChevronRight, ArrowRight, Info } from "lucide-react";
+import { Truck, Shield, CheckCircle, ChevronLeft, ChevronRight, ArrowRight, Info, ShieldCheck, Award, Clock, Package, MessageCircle } from "lucide-react";
 import ReactMarkdown from "react-markdown";
+
+const formatDate = (dateStr?: string) => {
+  if (!dateStr) return "februari 2026";
+  const d = new Date(dateStr);
+  return d.toLocaleDateString("nl-NL", { month: "long", year: "numeric" });
+};
 
 const ProductPage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -69,7 +74,6 @@ const ProductPage = () => {
     jsonLdData.push(faqSchema(product.faq.map(f => ({ q: f.question, a: f.answer }))));
   }
 
-  // Pick 3 key specs for the summary box
   const keySpecs = Object.entries(product.specifications).slice(0, 4);
 
   return (
@@ -186,8 +190,8 @@ const ProductPage = () => {
           </div>
         </section>
 
-        {/* "In het kort" Summary Box - Zero-Click Optimized */}
-        <section className="max-w-6xl mx-auto px-4 pb-8">
+        {/* "In het kort" Summary Box */}
+        <section className="max-w-6xl mx-auto px-4 pb-6">
           <div className="bg-secondary/50 border border-border rounded-xl p-6">
             <div className="flex items-center gap-2 mb-3">
               <Info className="h-5 w-5 text-primary" />
@@ -205,39 +209,77 @@ const ProductPage = () => {
           </div>
         </section>
 
-        {/* Tabs */}
-        <section className="max-w-6xl mx-auto px-4 pb-16">
-          <Tabs defaultValue="description" className="w-full">
-            <TabsList className="w-full justify-start border-b rounded-none bg-transparent h-auto p-0 gap-0">
-              <TabsTrigger value="description" className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent data-[state=active]:shadow-none px-6 py-3">Omschrijving</TabsTrigger>
-              <TabsTrigger value="specs" className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent data-[state=active]:shadow-none px-6 py-3">Specificaties</TabsTrigger>
-            </TabsList>
-
-            <TabsContent value="description" className="pt-6">
-              <article className="prose prose-base max-w-none text-foreground prose-headings:text-foreground prose-h2:text-2xl prose-h2:font-serif prose-h2:font-bold prose-h2:mt-12 prose-h2:mb-4 prose-h2:border-b prose-h2:border-border prose-h2:pb-3 prose-h3:text-xl prose-h3:font-semibold prose-h3:mt-8 prose-h3:mb-3 prose-strong:text-foreground prose-li:text-foreground prose-p:leading-relaxed prose-p:mb-4 prose-li:leading-relaxed">
-                <ReactMarkdown>{product.longDescription}</ReactMarkdown>
-              </article>
-            </TabsContent>
-
-            <TabsContent value="specs" className="pt-6">
-              <h2 className="font-serif text-xl font-bold text-foreground mb-4">Technische specificaties</h2>
-              <div className="bg-card rounded-lg border border-border overflow-hidden">
-                <Table>
-                  <TableBody>
-                    {Object.entries(product.specifications).map(([key, value]) => (
-                      <TableRow key={key}>
-                        <TableCell className="font-medium text-muted-foreground w-1/3">{key}</TableCell>
-                        <TableCell className="text-foreground">{value}</TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-              </div>
-            </TabsContent>
-          </Tabs>
+        {/* E-E-A-T Trust Bar */}
+        <section className="max-w-6xl mx-auto px-4 pb-8">
+          <div className="flex flex-wrap gap-4 sm:gap-6 text-xs text-muted-foreground">
+            <div className="flex items-center gap-1.5">
+              <Award className="h-4 w-4 text-primary" />
+              <span>Beoordeeld door composiet specialist</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <ShieldCheck className="h-4 w-4 text-primary" />
+              <span>15+ jaar ervaring in composiet</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <Clock className="h-4 w-4 text-primary" />
+              <span>Bijgewerkt: {formatDate(product.updatedDate)}</span>
+            </div>
+          </div>
         </section>
 
-        {/* On-page FAQ Section - Always visible for crawlers */}
+        {/* Description - always visible for SEO */}
+        <section className="max-w-6xl mx-auto px-4 pb-12">
+          <div className="border-l-4 border-primary/30 pl-6 lg:pl-8">
+            <h2 className="font-serif text-2xl font-bold text-foreground mb-6">Omschrijving</h2>
+            <article className="prose prose-base max-w-3xl text-foreground prose-headings:text-foreground prose-h2:text-2xl prose-h2:font-serif prose-h2:font-bold prose-h2:mt-12 prose-h2:mb-4 prose-h2:border-b prose-h2:border-border prose-h2:pb-3 prose-h3:text-xl prose-h3:font-semibold prose-h3:mt-8 prose-h3:mb-3 prose-strong:text-foreground prose-li:text-foreground prose-p:leading-relaxed prose-p:mb-4 prose-li:leading-relaxed">
+              <ReactMarkdown>{product.longDescription}</ReactMarkdown>
+            </article>
+          </div>
+        </section>
+
+        {/* Specifications - always visible for SEO */}
+        <section className="max-w-6xl mx-auto px-4 pb-12">
+          <h2 className="font-serif text-2xl font-bold text-foreground mb-6">Technische specificaties</h2>
+          <div className="bg-card rounded-lg border border-border overflow-hidden max-w-3xl">
+            <Table>
+              <TableBody>
+                {Object.entries(product.specifications).map(([key, value]) => (
+                  <TableRow key={key}>
+                    <TableCell className="font-medium text-muted-foreground w-1/3">{key}</TableCell>
+                    <TableCell className="text-foreground">{value}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </div>
+        </section>
+
+        {/* Waarom Composiethekwerk.nl? Trust Block */}
+        <section className="max-w-6xl mx-auto px-4 pb-12">
+          <div className="bg-primary/5 border border-primary/20 rounded-xl p-6">
+            <h2 className="font-serif text-xl font-bold text-foreground mb-4">Waarom Composiethekwerk.nl?</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="flex items-center gap-3">
+                <Truck className="h-5 w-5 text-primary flex-shrink-0" />
+                <span className="text-sm text-foreground">Eigen bezorgservice door heel Nederland</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <ShieldCheck className="h-5 w-5 text-primary flex-shrink-0" />
+                <span className="text-sm text-foreground">15 jaar productgarantie</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <MessageCircle className="h-5 w-5 text-primary flex-shrink-0" />
+                <span className="text-sm text-foreground">Persoonlijk advies van specialisten</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <Package className="h-5 w-5 text-primary flex-shrink-0" />
+                <span className="text-sm text-foreground">Gratis sample beschikbaar</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* On-page FAQ Section */}
         {product.faq && product.faq.length > 0 && (
           <section className="max-w-6xl mx-auto px-4 pb-16">
             <h2 className="font-serif text-xl font-bold text-foreground mb-6">Veelgestelde vragen over {product.name}</h2>
@@ -314,6 +356,9 @@ const ProductPage = () => {
             </div>
           </section>
         )}
+
+        {/* CTA Section */}
+        <CTASection />
       </main>
       <Footer />
     </div>
