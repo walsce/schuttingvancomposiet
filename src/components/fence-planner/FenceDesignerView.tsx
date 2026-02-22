@@ -1,6 +1,6 @@
 import { useState, useCallback, useMemo, lazy, Suspense } from "react";
-import { SegmentInfo, PlacedPanel, ViewMode, PanelStyleId, FenceSystem } from "./types";
-import { POST_WIDTH_CM, STANDARD_PANEL_WIDTH, colorsByModel } from "./designerData";
+import { SegmentInfo, PlacedPanel, ViewMode, PanelStyleId, SelectedProduct } from "./types";
+import { POST_WIDTH_CM, STANDARD_PANEL_WIDTH, toneColorMap } from "./designerData";
 import { exportPanelConfigCsv } from "./exportCsv";
 import DesignerTopBar from "./DesignerTopBar";
 import BottomToolbar from "./BottomToolbar";
@@ -8,33 +8,29 @@ import PanelDesignerCanvas from "./PanelDesignerCanvas";
 import PlanViewCanvas from "./PlanViewCanvas";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, Loader2 } from "lucide-react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const ThreeDViewCanvas = lazy(() => import("./ThreeDViewCanvas"));
 
 interface FenceDesignerViewProps {
   segments: SegmentInfo[];
-  selectedSystem: FenceSystem | null;
-  selectedPanel: string | null;
-  selectedColor: string | null;
+  selectedProduct: SelectedProduct | null;
   onBack: () => void;
 }
 
 const FenceDesignerView = ({
   segments,
-  selectedSystem,
-  selectedPanel: _,
-  selectedColor: initialColor,
+  selectedProduct,
   onBack,
 }: FenceDesignerViewProps) => {
+  const isMobile = useIsMobile();
   const [activeSegmentIndex, setActiveSegmentIndex] = useState(0);
   const [viewMode, setViewMode] = useState<ViewMode>("2d");
   const [zoom, setZoom] = useState(1);
   const [placedPanels, setPlacedPanels] = useState<PlacedPanel[]>([]);
-  const [model, setModel] = useState<FenceSystem | null>(selectedSystem);
-  const [product, setProduct] = useState<string | null>(null);
   const [panelStyle, setPanelStyle] = useState<PanelStyleId>("horizontal-planks");
   const [colorHex, setColorHex] = useState<string>(
-    initialColor || (selectedSystem ? colorsByModel[selectedSystem]?.[0]?.hex : "") || "#8B4513"
+    selectedProduct?.colorHex || toneColorMap.teak || "#A0785A"
   );
 
   const activeSegment = segments[activeSegmentIndex] || segments[0];
@@ -86,8 +82,8 @@ const FenceDesignerView = ({
   }, []);
 
   const handleExportCsv = useCallback(() => {
-    exportPanelConfigCsv({ segments, placedPanels, model, product });
-  }, [segments, placedPanels, model, product]);
+    exportPanelConfigCsv({ segments, placedPanels, productName: selectedProduct?.name || null });
+  }, [segments, placedPanels, selectedProduct]);
 
   return (
     <div className="h-screen flex flex-col bg-muted/30">
@@ -101,24 +97,27 @@ const FenceDesignerView = ({
         zoom={zoom}
         onZoomChange={setZoom}
         onExportCsv={handleExportCsv}
+        onBack={isMobile ? onBack : undefined}
       />
 
       <div className="flex-1 flex relative overflow-hidden">
-        {/* Left: back button */}
-        <div className="absolute left-0 top-1/2 -translate-y-1/2 z-10">
-          <Button
-            variant="default"
-            size="sm"
-            className="rounded-l-none rounded-r-md h-20 w-8 px-0"
-            onClick={onBack}
-            title="Terug naar configuratie"
-          >
-            <ChevronLeft className="w-4 h-4" />
-          </Button>
-        </div>
+        {/* Left: back button (desktop only) */}
+        {!isMobile && (
+          <div className="absolute left-0 top-1/2 -translate-y-1/2 z-10">
+            <Button
+              variant="default"
+              size="sm"
+              className="rounded-l-none rounded-r-md h-20 w-8 px-0"
+              onClick={onBack}
+              title="Terug naar configuratie"
+            >
+              <ChevronLeft className="w-4 h-4" />
+            </Button>
+          </div>
+        )}
 
         {/* Canvas */}
-        <div className="flex-1 flex items-center justify-center p-4 lg:p-8">
+        <div className="flex-1 flex items-center justify-center p-2 sm:p-4 lg:p-8">
           {viewMode === "2d" && activeSegment && (
             <PanelDesignerCanvas
               segmentLengthCm={activeSegment.lengthCm}
@@ -159,12 +158,9 @@ const FenceDesignerView = ({
       </div>
 
       <BottomToolbar
-        selectedModel={model}
-        selectedProduct={product}
+        selectedProduct={selectedProduct}
         selectedPanelStyle={panelStyle}
         selectedColorHex={colorHex}
-        onModelChange={setModel}
-        onProductChange={setProduct}
         onPanelStyleChange={setPanelStyle}
         onColorChange={setColorHex}
       />

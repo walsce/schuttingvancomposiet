@@ -11,27 +11,11 @@ export type PostType = "inground" | "bolt-down" | "base-plate";
 
 export type PostColor = "black" | "grey";
 
-export type FenceSystem = "wpc" | "alu" | "combo" | "decor";
-
-export interface FencePanel {
-  id: string;
-  name: string;
-  system: FenceSystem;
-  image?: string;
-}
-
-export interface FenceColor {
-  id: string;
-  name: string;
-  hex: string;
-  system: FenceSystem;
-}
-
 export interface GroundSegmentConfig {
   segmentIndex: number;
   type: GroundType;
-  diffLevel?: number; // cm, for linear-change
-  wallHeight?: number; // cm, for wall
+  diffLevel?: number;
+  wallHeight?: number;
 }
 
 export interface PostConfig {
@@ -39,14 +23,19 @@ export interface PostConfig {
   color: PostColor;
 }
 
+export interface SelectedProduct {
+  slug: string;
+  name: string;
+  colorHex: string;
+  image: string;
+}
+
 export interface FencePlannerState {
   shape: FenceShape;
   points: Point[];
   groundConfigs: GroundSegmentConfig[];
   postConfig: PostConfig;
-  selectedSystem: FenceSystem | null;
-  selectedPanel: string | null;
-  selectedColor: string | null;
+  selectedProduct: SelectedProduct | null;
   totalLengthCm: number;
 }
 
@@ -76,15 +65,13 @@ export interface PlacedPanel {
   colorHex: string;
   widthCm: number;
   segmentIndex: number;
-  position: number; // index within segment
+  position: number;
 }
 
 export interface DesignerState {
   placedPanels: PlacedPanel[];
   activeSegmentIndex: number;
   viewMode: ViewMode;
-  selectedModel: FenceSystem | null;
-  selectedProduct: string | null;
   selectedPanelStyle: PanelStyleId;
   selectedColorHex: string;
   zoom: number;
