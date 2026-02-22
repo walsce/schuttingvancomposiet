@@ -75,20 +75,20 @@ export const products: Product[] = [
     seoDescription: 'Composiet gevelbekleding Rhombus Teak met co-extrusie beschermlaag. UV-bestendig, onderhoudsvrij en 15 jaar garantie. Bestel nu bij Composiethekwerk.nl.',
     longDescription: `## Composiet gevelbekleding Rhombus Teak
 
-Geef jouw woning, schuur of uitbouw een moderne en hoogwaardige uitstraling met onze composiet gevelbekleding in Rhombus-profiel. De planken zijn voorzien van een **co-extrusie beschermlaag**, waardoor ze geen vocht opnemen, kleurvast blijven en extreem lang meegaan.
+Geef jouw woning, schuur of uitbouw een moderne en hoogwaardige uitstraling met onze composiet gevelbekleding in Rhombus-profiel. De planken zijn voorzien van een co-extrusie beschermlaag, waardoor ze geen vocht opnemen, kleurvast blijven en extreem lang meegaan.
 
 ### Duurzaam en onderhoudsvrij
 
-De combinatie van gerecycled kunststof en houtvezels maakt de productie van deze gevelbekleding zeer duurzaam. Tijdens productie ontstaat geen restmateriaal. Deze materialen zorgen voor **ongevoeligheid voor rot, schimmel en verkleuring**. Je hoeft nooit meer te schilderen en dankzij de co-extrusie laag blijft het oppervlak kleurvast en eenvoudig te reinigen. De vochtopname is **0%**.
+De combinatie van gerecycled kunststof en houtvezels maakt de productie van deze gevelbekleding zeer duurzaam. Tijdens productie ontstaat geen restmateriaal. Deze materialen zorgen voor ongevoeligheid voor rot, schimmel en verkleuring. Je hoeft nooit meer te schilderen en dankzij de co-extrusie laag blijft het oppervlak kleurvast en eenvoudig te reinigen. De vochtopname is 0%.
 
 ### Flexibele montage
 
-Of je nu kiest voor horizontale of verticale plaatsing, de planken zijn in beide richtingen eenvoudig vast te schroeven op het regelwerk. We leveren standaard **schroeven mee bij elke plank**. De strakke, smalle openingen tussen de stroken zorgen voor een subtiel diepte-effect en een luxe, eigentijdse look. Daarnaast kun je de planken gemakkelijk inkorten of op maat maken.
+Of je nu kiest voor horizontale of verticale plaatsing, de planken zijn in beide richtingen eenvoudig vast te schroeven op het regelwerk. We leveren standaard schroeven mee bij elke plank. De strakke, smalle openingen tussen de stroken zorgen voor een subtiel diepte-effect en een luxe, eigentijdse look. Daarnaast kun je de planken gemakkelijk inkorten of op maat maken.
 
 ### Voordelen in één oogopslag
 
 - Natuurlijke houtstructuur met duurzame co-extrusie beschermlaag
-- Extreem duurzame productie bestaand uit **95% gerecycled materiaal**
+- Extreem duurzame productie bestaand uit 95% gerecycled materiaal
 - Kleurvast, rotvrij en onderhoudsarm
 - Geen schilderwerk nodig, eenvoudig te reinigen
 - Perfect voor elk klimaat
@@ -129,20 +129,20 @@ Met onze composiet gevelbekleding kies je voor een hoogwaardige, duurzame en sti
     seoDescription: 'Unieke composiet gevelbekleding met twee kleuren: Teak en Zwart in één plank. Co-extrusie beschermlaag, 15 jaar garantie. Bestel bij Composiethekwerk.nl.',
     longDescription: `## Composiet gevelbekleding Rhombus Teak/Zwart
 
-Geef jouw woning, schuur of uitbouw een moderne en hoogwaardige uitstraling met onze composiet gevelbekleding in Rhombus-profiel. De planken zijn voorzien van een **co-extrusie beschermlaag**, waardoor ze geen vocht opnemen, kleurvast blijven en extreem lang meegaan. Deze Teak planken met **zwarte achtergrond** zorgen voor een beeld van extra diepte.
+Geef jouw woning, schuur of uitbouw een moderne en hoogwaardige uitstraling met onze composiet gevelbekleding in Rhombus-profiel. De planken zijn voorzien van een co-extrusie beschermlaag, waardoor ze geen vocht opnemen, kleurvast blijven en extreem lang meegaan. Deze Teak planken met zwarte achtergrond zorgen voor een beeld van extra diepte.
 
 ### Duurzaam en onderhoudsvrij
 
-De combinatie van gerecycled kunststof en houtvezels maakt de productie van deze gevelbekleding zeer duurzaam. Tijdens productie ontstaat geen restmateriaal. Deze materialen zorgen voor ongevoeligheid voor rot, schimmel en verkleuring. Je hoeft nooit meer te schilderen en dankzij de co-extrusie laag blijft het oppervlak kleurvast en eenvoudig te reinigen. De vochtopname is **0%**.
+De combinatie van gerecycled kunststof en houtvezels maakt de productie van deze gevelbekleding zeer duurzaam. Tijdens productie ontstaat geen restmateriaal. Deze materialen zorgen voor ongevoeligheid voor rot, schimmel en verkleuring. Je hoeft nooit meer te schilderen en dankzij de co-extrusie laag blijft het oppervlak kleurvast en eenvoudig te reinigen. De vochtopname is 0%.
 
 ### Flexibele montage
 
-Of je nu kiest voor horizontale of verticale plaatsing, de planken zijn in beide richtingen eenvoudig vast te schroeven op het regelwerk. We leveren standaard **schroeven mee bij elke plank**. De strakke, smalle openingen tussen de stroken zorgen voor een subtiel diepte-effect en een luxe, eigentijdse look.
+Of je nu kiest voor horizontale of verticale plaatsing, de planken zijn in beide richtingen eenvoudig vast te schroeven op het regelwerk. We leveren standaard schroeven mee bij elke plank. De strakke, smalle openingen tussen de stroken zorgen voor een subtiel diepte-effect en een luxe, eigentijdse look.
 
 ### Voordelen in één oogopslag
 
 - Twee kleuren in één plank: Teak voorzijde, Zwart achterzijde
-- Door de zwarte achtergrond creëer je **extra diepte**
+- Door de zwarte achtergrond creëer je extra diepte
 - Extreem duurzame productie bestaand uit 95% gerecycled materiaal
 - Kleurvast, rotvrij en onderhoudsarm
 - Geen schilderwerk nodig, eenvoudig te reinigen
@@ -186,11 +186,11 @@ Met onze composiet gevelbekleding kies je voor een hoogwaardige, duurzame en sti
     seoDescription: 'Zwarte composiet gevelbekleding met rhombus profiel en co-extrusie beschermlaag. Onderhoudsvrij, kleurvast en 15 jaar garantie. Bestel online.',
     longDescription: `## Composiet gevelbekleding Rhombus Zwart
 
-Geef jouw woning een **moderne, tijdloze uitstraling** met onze zwarte composiet gevelbekleding in Rhombus-profiel. De planken zijn voorzien van een co-extrusie beschermlaag, waardoor ze geen vocht opnemen, kleurvast blijven en extreem lang meegaan.
+Geef jouw woning een moderne, tijdloze uitstraling met onze zwarte composiet gevelbekleding in Rhombus-profiel. De planken zijn voorzien van een co-extrusie beschermlaag, waardoor ze geen vocht opnemen, kleurvast blijven en extreem lang meegaan.
 
 ### Duurzaam en onderhoudsvrij
 
-De combinatie van gerecycled kunststof en houtvezels maakt deze gevelbekleding zeer duurzaam. De materialen zijn **ongevoelig voor rot, schimmel en verkleuring**. Je hoeft nooit meer te schilderen en dankzij de co-extrusie laag blijft het zwarte oppervlak kleurvast. De vochtopname is 0%.
+De combinatie van gerecycled kunststof en houtvezels maakt deze gevelbekleding zeer duurzaam. De materialen zijn ongevoelig voor rot, schimmel en verkleuring. Je hoeft nooit meer te schilderen en dankzij de co-extrusie laag blijft het zwarte oppervlak kleurvast. De vochtopname is 0%.
 
 ### Flexibele montage
 
@@ -237,11 +237,11 @@ Kies voor horizontale of verticale plaatsing — de planken zijn in beide richti
     seoDescription: 'Composiet gevelbekleding Rhombus Walnoot met warme houtlook en co-extrusie beschermlaag. Onderhoudsvrij, 15 jaar garantie. Bestel bij Composiethekwerk.nl.',
     longDescription: `## Composiet gevelbekleding Rhombus Walnoot
 
-Geef jouw woning een **luxe, warme uitstraling** met onze composiet gevelbekleding Rhombus in de kleur Walnoot. De donkere, rijke walnoottint met natuurlijke houtnerf structuur biedt de uitstraling van echt hout zonder het onderhoud.
+Geef jouw woning een luxe, warme uitstraling met onze composiet gevelbekleding Rhombus in de kleur Walnoot. De donkere, rijke walnoottint met natuurlijke houtnerf structuur biedt de uitstraling van echt hout zonder het onderhoud.
 
 ### Duurzaam en onderhoudsvrij
 
-Dankzij de combinatie van gerecycled kunststof en houtvezels is deze gevelbekleding ongevoelig voor rot, schimmel en verkleuring. De **co-extrusie beschermlaag** zorgt voor langdurige kleurvastheid. Je hoeft nooit meer te schilderen. De vochtopname is 0%.
+Dankzij de combinatie van gerecycled kunststof en houtvezels is deze gevelbekleding ongevoelig voor rot, schimmel en verkleuring. De co-extrusie beschermlaag zorgt voor langdurige kleurvastheid. Je hoeft nooit meer te schilderen. De vochtopname is 0%.
 
 ### Flexibele montage
 
@@ -288,11 +288,11 @@ Horizontale of verticale plaatsing — beide zijn mogelijk. De planken worden ee
     seoDescription: 'Composiet gevelbekleding Rhombus Eiken met warme eikenkleur en co-extrusie beschermlaag. Onderhoudsvrij, 15 jaar garantie. Bestel bij Composiethekwerk.nl.',
     longDescription: `## Composiet gevelbekleding Rhombus Eiken
 
-De composiet gevelbekleding Rhombus Eiken heeft een **lichte, warme eikenkleur** die perfect past bij zowel moderne als landelijke architectuur. De planken zijn voorzien van een co-extrusie beschermlaag voor langdurige bescherming.
+De composiet gevelbekleding Rhombus Eiken heeft een lichte, warme eikenkleur die perfect past bij zowel moderne als landelijke architectuur. De planken zijn voorzien van een co-extrusie beschermlaag voor langdurige bescherming.
 
 ### Duurzaam en onderhoudsvrij
 
-Geproduceerd uit 95% gerecycled materiaal, zijn deze planken ongevoelig voor rot, schimmel en verkleuring. De vochtopname is **0%** — geen schilderwerk, geen onderhoud. Gewoon reinigen met water en een zachte borstel.
+Geproduceerd uit 95% gerecycled materiaal, zijn deze planken ongevoelig voor rot, schimmel en verkleuring. De vochtopname is 0% — geen schilderwerk, geen onderhoud. Gewoon reinigen met water en een zachte borstel.
 
 ### Flexibele montage
 
@@ -338,11 +338,11 @@ Monteer horizontaal of verticaal op een aluminium regelwerk. Schroeven worden st
     seoDescription: 'Composiet gevelbekleding met twee kleuren: Grijs en Zwart in één plank. Industriële look, co-extrusie beschermlaag, 15 jaar garantie. Bestel nu.',
     longDescription: `## Composiet gevelbekleding Rhombus Grijs/Zwart
 
-Een **stijlvolle combinatie van grijs en zwart** in één plank. Ideaal voor een industriële of moderne gevelafwerking. Kies zelf welke zijde u naar buiten richt, of combineer beide voor een uniek ontwerp.
+Een stijlvolle combinatie van grijs en zwart in één plank. Ideaal voor een industriële of moderne gevelafwerking. Kies zelf welke zijde u naar buiten richt, of combineer beide voor een uniek ontwerp.
 
 ### Duurzaam en onderhoudsvrij
 
-De planken zijn vervaardigd uit 95% gerecycled materiaal en voorzien van een co-extrusie beschermlaag. Hierdoor zijn ze **ongevoelig voor rot, schimmel en verkleuring**. De vochtopname is 0%.
+De planken zijn vervaardigd uit 95% gerecycled materiaal en voorzien van een co-extrusie beschermlaag. Hierdoor zijn ze ongevoelig voor rot, schimmel en verkleuring. De vochtopname is 0%.
 
 ### Flexibele montage
 
@@ -387,11 +387,11 @@ Monteer horizontaal of verticaal op een aluminium regelwerk. Schroeven worden me
     seoDescription: 'Composiet hoekprofiel Teak voor een strakke hoekafwerking van uw gevelbekleding. Passend bij Rhombus gevelbekleding. Bestel bij Composiethekwerk.nl.',
     longDescription: `## Hoekprofiel Composiet gevelbekleding Teak
 
-Het composiet hoekprofiel in Teak zorgt voor een **strakke en professionele afwerking** van uw gevelbekleding op hoeken en randen. Het profiel past perfect bij de Rhombus gevelbekleding in de kleur Teak.
+Het composiet hoekprofiel in Teak zorgt voor een strakke en professionele afwerking van uw gevelbekleding op hoeken en randen. Het profiel past perfect bij de Rhombus gevelbekleding in de kleur Teak.
 
 ### Waarom een hoekprofiel?
 
-Hoeken en randen zijn het visitekaartje van een gevelafwerking. Met het composiet hoekprofiel creëert u een **naadloze overgang** op buitenhoeken. Het profiel wordt eenvoudig over de hoek geplaatst en vastgeschroefd.
+Hoeken en randen zijn het visitekaartje van een gevelafwerking. Met het composiet hoekprofiel creëert u een naadloze overgang op buitenhoeken. Het profiel wordt eenvoudig over de hoek geplaatst en vastgeschroefd.
 
 ### Voordelen
 
@@ -429,11 +429,11 @@ Hoeken en randen zijn het visitekaartje van een gevelafwerking. Met het composie
     seoDescription: 'Composiet hoekprofiel Zwart voor strakke hoekafwerking. Passend bij alle zwarte Rhombus gevelbekleding. Bestel bij Composiethekwerk.nl.',
     longDescription: `## Hoekprofiel Composiet gevelbekleding Zwart
 
-Het composiet hoekprofiel in Zwart zorgt voor een **strakke, naadloze afwerking** van uw zwarte gevelbekleding op hoeken en randen. Past bij alle zwarte Rhombus gevelbekleding varianten.
+Het composiet hoekprofiel in Zwart zorgt voor een strakke, naadloze afwerking van uw zwarte gevelbekleding op hoeken en randen. Past bij alle zwarte Rhombus gevelbekleding varianten.
 
 ### Waarom een hoekprofiel?
 
-Met het composiet hoekprofiel worden kopse kanten netjes afgedekt voor een **professioneel eindresultaat**. Het profiel wordt eenvoudig over de hoek geplaatst en vastgeschroefd.
+Met het composiet hoekprofiel worden kopse kanten netjes afgedekt voor een professioneel eindresultaat. Het profiel wordt eenvoudig over de hoek geplaatst en vastgeschroefd.
 
 ### Voordelen
 
@@ -473,15 +473,15 @@ Met het composiet hoekprofiel worden kopse kanten netjes afgedekt voor een **pro
     seoDescription: 'Composiet schutting Rhombus Teak met extra dikke 2,5cm planken en co-extrusie beschermlaag. Onderhoudsvrij, 15 jaar garantie. Bestel bij Composiethekwerk.nl.',
     longDescription: `## Composiet schutting Rhombus Teak
 
-De composiet schutting Rhombus Teak combineert **privacy met een stijlvolle, moderne uitstraling**. De extra dikke planken van 2,5 cm zorgen voor een robuust en stevig scherm. Het rhombus profiel creëert een schaduwwerking die de schutting extra diepte en karakter geeft.
+De composiet schutting Rhombus Teak combineert privacy met een stijlvolle, moderne uitstraling. De extra dikke planken van 2,5 cm zorgen voor een robuust en stevig scherm. Het rhombus profiel creëert een schaduwwerking die de schutting extra diepte en karakter geeft.
 
 ### Duurzaam en onderhoudsvrij
 
-Vervaardigd uit gerecycled kunststof en houtvezels met een co-extrusie beschermlaag. De schutting is **ongevoelig voor rot, schimmel en verkleuring**. Geen schilderwerk, geen onderhoud — gewoon genieten van een mooie erfafscheiding. De vochtopname is 0%.
+Vervaardigd uit gerecycled kunststof en houtvezels met een co-extrusie beschermlaag. De schutting is ongevoelig voor rot, schimmel en verkleuring. Geen schilderwerk, geen onderhoud — gewoon genieten van een mooie erfafscheiding. De vochtopname is 0%.
 
 ### Eenvoudige montage
 
-Het schuttingsysteem werkt met **aluminium palen** (apart verkrijgbaar) en U-profielen. De planken schuif je eenvoudig in de palen. Geen ingewikkeld gereedschap nodig. Beschikbaar in 180 cm of 200 cm hoogte.
+Het schuttingsysteem werkt met aluminium palen (apart verkrijgbaar) en U-profielen. De planken schuif je eenvoudig in de palen. Geen ingewikkeld gereedschap nodig. Beschikbaar in 180 cm of 200 cm hoogte.
 
 ### Voordelen in één oogopslag
 
@@ -532,15 +532,15 @@ Het schuttingsysteem werkt met **aluminium palen** (apart verkrijgbaar) en U-pro
     seoDescription: 'Composiet schutting Teak met realistisch houtnerf profiel en extra dikke 2,5cm planken. Onderhoudsvrij, 15 jaar garantie. Bestel bij Composiethekwerk.nl.',
     longDescription: `## Composiet schutting Teak met Houtnerf profiel
 
-De composiet schutting Teak met houtnerf profiel biedt een **warme, natuurlijke uitstraling** dankzij de realistische houtnerf structuur. Extra dikke planken van 2,5 cm zorgen voor maximale stevigheid en een robuust gevoel.
+De composiet schutting Teak met houtnerf profiel biedt een warme, natuurlijke uitstraling dankzij de realistische houtnerf structuur. Extra dikke planken van 2,5 cm zorgen voor maximale stevigheid en een robuust gevoel.
 
 ### Duurzaam en onderhoudsvrij
 
-Vervaardigd uit gerecycled kunststof en houtvezels met co-extrusie beschermlaag. **Geen rot, geen schimmel, geen verkleuring.** De vochtopname is 0% — de schutting behoudt jarenlang zijn mooie uitstraling zonder onderhoud.
+Vervaardigd uit gerecycled kunststof en houtvezels met co-extrusie beschermlaag. Geen rot, geen schimmel, geen verkleuring. De vochtopname is 0% — de schutting behoudt jarenlang zijn mooie uitstraling zonder onderhoud.
 
 ### Eenvoudige montage
 
-Het systeem werkt met aluminium palen en U-profielen. Planken schuif je eenvoudig in de palen. Beschikbaar in **180 cm of 200 cm hoogte**.
+Het systeem werkt met aluminium palen en U-profielen. Planken schuif je eenvoudig in de palen. Beschikbaar in 180 cm of 200 cm hoogte.
 
 ### Voordelen in één oogopslag
 
@@ -589,15 +589,15 @@ Het systeem werkt met aluminium palen en U-profielen. Planken schuif je eenvoudi
     seoDescription: 'Zwarte composiet schutting met rhombus profiel en 2,5cm dikke planken. Moderne uitstraling, onderhoudsvrij, 15 jaar garantie. Bestel online.',
     longDescription: `## Composiet schutting Rhombus Zwart
 
-Een **strakke, zwarte composiet schutting** met rhombus profiel voor een moderne, tijdloze erfafscheiding. De donkere kleur in combinatie met het rhombus profiel creëert diepte en karakter.
+Een strakke, zwarte composiet schutting met rhombus profiel voor een moderne, tijdloze erfafscheiding. De donkere kleur in combinatie met het rhombus profiel creëert diepte en karakter.
 
 ### Duurzaam en onderhoudsvrij
 
-De schutting is vervaardigd uit gerecycled kunststof en houtvezels met co-extrusie beschermlaag. **Geen rot, geen schimmel, geen verkleuring.** De vochtopname is 0%. Zwarte schuttingen blijven dankzij de beschermlaag kleurvast — ook na jaren in de zon.
+De schutting is vervaardigd uit gerecycled kunststof en houtvezels met co-extrusie beschermlaag. Geen rot, geen schimmel, geen verkleuring. De vochtopname is 0%. Zwarte schuttingen blijven dankzij de beschermlaag kleurvast — ook na jaren in de zon.
 
 ### Eenvoudige montage
 
-Aluminium palen (apart verkrijgbaar) en U-profielen maken de montage eenvoudig. Planken schuif je in de palen. Beschikbaar in **180 cm of 200 cm hoogte**.
+Aluminium palen (apart verkrijgbaar) en U-profielen maken de montage eenvoudig. Planken schuif je in de palen. Beschikbaar in 180 cm of 200 cm hoogte.
 
 ### Voordelen in één oogopslag
 
@@ -645,15 +645,15 @@ Aluminium palen (apart verkrijgbaar) en U-profielen maken de montage eenvoudig. 
     seoDescription: 'Zwarte composiet schutting met houtnerf profiel en extra dikke 2,5cm planken. Stijlvol, onderhoudsvrij, 15 jaar garantie. Bestel bij Composiethekwerk.nl.',
     longDescription: `## Composiet schutting Zwart met Houtnerf profiel
 
-De composiet schutting Zwart met houtnerf profiel is **stijlvol en modern**. De subtiele houtnerf structuur voegt diepte toe aan het zwarte oppervlak voor een verfijnd resultaat.
+De composiet schutting Zwart met houtnerf profiel is stijlvol en modern. De subtiele houtnerf structuur voegt diepte toe aan het zwarte oppervlak voor een verfijnd resultaat.
 
 ### Duurzaam en onderhoudsvrij
 
-Vervaardigd uit gerecycled materiaal met co-extrusie beschermlaag. Ongevoelig voor rot, schimmel en verkleuring. **0% vochtopname** — de schutting vervormt niet en hoeft nooit geschilderd te worden.
+Vervaardigd uit gerecycled materiaal met co-extrusie beschermlaag. Ongevoelig voor rot, schimmel en verkleuring. 0% vochtopname — de schutting vervormt niet en hoeft nooit geschilderd te worden.
 
 ### Eenvoudige montage
 
-Aluminium palen en U-profielen maken de montage eenvoudig. Beschikbaar in **180 cm of 200 cm hoogte**.
+Aluminium palen en U-profielen maken de montage eenvoudig. Beschikbaar in 180 cm of 200 cm hoogte.
 
 ### Voordelen in één oogopslag
 
@@ -704,15 +704,15 @@ Aluminium palen en U-profielen maken de montage eenvoudig. Beschikbaar in **180 
     seoDescription: 'Composiet schutting Rhombus Walnoot met warme houtlook en schaduwwerking. Extra dikke 2,5cm planken, onderhoudsvrij. Bestel bij Composiethekwerk.nl.',
     longDescription: `## Composiet schutting Rhombus Walnoot
 
-De composiet schutting Rhombus Walnoot biedt een **warme, donkere houtlook**. Het rhombus profiel zorgt voor een speels schaduweffect dat de schutting extra karakter en diepte geeft.
+De composiet schutting Rhombus Walnoot biedt een warme, donkere houtlook. Het rhombus profiel zorgt voor een speels schaduweffect dat de schutting extra karakter en diepte geeft.
 
 ### Duurzaam en onderhoudsvrij
 
-Vervaardigd uit gerecycled materiaal met co-extrusie beschermlaag. De warme walnoottint blijft jarenlang **kleurvast**. Geen rot, geen schimmel, 0% vochtopname.
+Vervaardigd uit gerecycled materiaal met co-extrusie beschermlaag. De warme walnoottint blijft jarenlang kleurvast. Geen rot, geen schimmel, 0% vochtopname.
 
 ### Eenvoudige montage
 
-Aluminium palen en U-profielen. Planken inschuiven. Beschikbaar in **180 cm of 200 cm hoogte**.
+Aluminium palen en U-profielen. Planken inschuiven. Beschikbaar in 180 cm of 200 cm hoogte.
 
 ### Voordelen in één oogopslag
 
@@ -762,15 +762,15 @@ Aluminium palen en U-profielen. Planken inschuiven. Beschikbaar in **180 cm of 2
     seoDescription: 'Composiet schutting Walnoot met realistisch houtnerf profiel. Rijke walnoottint, onderhoudsvrij, 15 jaar garantie. Bestel bij Composiethekwerk.nl.',
     longDescription: `## Composiet schutting Walnoot met Houtnerf profiel
 
-De composiet schutting Walnoot met houtnerf profiel biedt een **rijke walnoottint met realistische houtstructuur**. Perfect voor een natuurlijke, warme look in uw tuin.
+De composiet schutting Walnoot met houtnerf profiel biedt een rijke walnoottint met realistische houtstructuur. Perfect voor een natuurlijke, warme look in uw tuin.
 
 ### Duurzaam en onderhoudsvrij
 
-Co-extrusie beschermlaag, gerecycled materiaal, **0% vochtopname**. Geen rot, geen schimmel, geen schilderwerk. De walnoottint blijft jarenlang kleurvast.
+Co-extrusie beschermlaag, gerecycled materiaal, 0% vochtopname. Geen rot, geen schimmel, geen schilderwerk. De walnoottint blijft jarenlang kleurvast.
 
 ### Eenvoudige montage
 
-Aluminium palen en U-profielen. Planken inschuiven. **180 cm of 200 cm** hoogte beschikbaar.
+Aluminium palen en U-profielen. Planken inschuiven. 180 cm of 200 cm hoogte beschikbaar.
 
 ### Voordelen in één oogopslag
 
@@ -820,15 +820,15 @@ Aluminium palen en U-profielen. Planken inschuiven. **180 cm of 200 cm** hoogte 
     seoDescription: 'Composiet schutting Rhombus Eiken met warme eikenkleur en schaduwwerking. Extra dikke 2,5cm planken, onderhoudsvrij. Bestel bij Composiethekwerk.nl.',
     longDescription: `## Composiet schutting Rhombus Eiken
 
-De composiet schutting Rhombus Eiken combineert de **warme eikenkleur** met het moderne rhombus profiel. Een schutting die past bij zowel klassieke als hedendaagse tuinen.
+De composiet schutting Rhombus Eiken combineert de warme eikenkleur met het moderne rhombus profiel. Een schutting die past bij zowel klassieke als hedendaagse tuinen.
 
 ### Duurzaam en onderhoudsvrij
 
-Co-extrusie beschermlaag, gerecycled materiaal, 0% vochtopname. De eikenkleur blijft jarenlang **kleurvast** zonder schilderwerk.
+Co-extrusie beschermlaag, gerecycled materiaal, 0% vochtopname. De eikenkleur blijft jarenlang kleurvast zonder schilderwerk.
 
 ### Eenvoudige montage
 
-Aluminium palen en U-profielen. Planken inschuiven. **180 cm of 200 cm** hoogte beschikbaar.
+Aluminium palen en U-profielen. Planken inschuiven. 180 cm of 200 cm hoogte beschikbaar.
 
 ### Voordelen in één oogopslag
 
@@ -873,7 +873,7 @@ Aluminium palen en U-profielen. Planken inschuiven. **180 cm of 200 cm** hoogte 
     seoDescription: 'Grijze composiet schutting met rhombus profiel en extra dikke 2,5cm planken. Neutrale moderne uitstraling, onderhoudsvrij. Bestel bij Composiethekwerk.nl.',
     longDescription: `## Composiet schutting Rhombus Grijs
 
-De composiet schutting Rhombus Grijs biedt een **neutrale, moderne uitstraling**. Het grijze rhombus profiel past perfect bij strakke, hedendaagse tuinontwerpen en industriële stijlen.
+De composiet schutting Rhombus Grijs biedt een neutrale, moderne uitstraling. Het grijze rhombus profiel past perfect bij strakke, hedendaagse tuinontwerpen en industriële stijlen.
 
 ### Duurzaam en onderhoudsvrij
 
@@ -881,7 +881,7 @@ Co-extrusie beschermlaag, gerecycled materiaal, 0% vochtopname. De grijze kleur 
 
 ### Eenvoudige montage
 
-Aluminium palen en U-profielen. Planken inschuiven. **180 cm of 200 cm** hoogte.
+Aluminium palen en U-profielen. Planken inschuiven. 180 cm of 200 cm hoogte.
 
 ### Voordelen in één oogopslag
 
@@ -929,15 +929,15 @@ Aluminium palen en U-profielen. Planken inschuiven. **180 cm of 200 cm** hoogte.
     seoDescription: 'Composiet vlonderplank Donker Grijs met dubbelzijdige afwerking. Splintervrij, bevestig met schroeven of clips. Scherp geprijsd. Bestel nu.',
     longDescription: `## Composiet vlonderplank Donker Grijs
 
-De composiet vlonderplank Donker Grijs is een **veelzijdige plank met twee afwerkingen**: een fijne groef aan de ene zijde en een houtnerf structuur aan de andere. Kies zelf welke kant boven komt voor het gewenste effect.
+De composiet vlonderplank Donker Grijs is een veelzijdige plank met twee afwerkingen: een fijne groef aan de ene zijde en een houtnerf structuur aan de andere. Kies zelf welke kant boven komt voor het gewenste effect.
 
 ### Twee bevestigingsmogelijkheden
 
-Bevestig de planken **los met schroeven** voor een eenvoudige montage, of gebruik **onzichtbare clips** voor een strak eindresultaat zonder zichtbare bevestigingen. Beide opties zijn verkrijgbaar.
+Bevestig de planken los met schroeven voor een eenvoudige montage, of gebruik onzichtbare clips voor een strak eindresultaat zonder zichtbare bevestigingen. Beide opties zijn verkrijgbaar.
 
 ### Splintervrij en comfortabel
 
-Composiet vlonderplanken zijn **100% splintervrij** — ideaal om blootsvoets over te lopen. De planken worden niet glad bij nattigheid en zijn veilig voor kinderen en huisdieren.
+Composiet vlonderplanken zijn 100% splintervrij — ideaal om blootsvoets over te lopen. De planken worden niet glad bij nattigheid en zijn veilig voor kinderen en huisdieren.
 
 ### Voordelen in één oogopslag
 
@@ -983,11 +983,11 @@ Composiet vlonderplanken zijn **100% splintervrij** — ideaal om blootsvoets ov
     seoDescription: 'Composiet vlonderplank Teak met warme houtkleur en dubbelzijdige afwerking. Splintervrij, scherp geprijsd. Bestel bij Composiethekwerk.nl.',
     longDescription: `## Composiet vlonderplank Teak
 
-De composiet vlonderplank Teak brengt **warmte en sfeer** op uw terras. Dubbelzijdige afwerking: kies voor fijne groef of houtnerf. De warme teakkleur geeft uw terras de uitstraling van tropisch hout.
+De composiet vlonderplank Teak brengt warmte en sfeer op uw terras. Dubbelzijdige afwerking: kies voor fijne groef of houtnerf. De warme teakkleur geeft uw terras de uitstraling van tropisch hout.
 
 ### Twee bevestigingsmogelijkheden
 
-Bevestig **los met schroeven** of gebruik **onzichtbare clips** voor een strak resultaat. De clips zorgen automatisch voor de juiste tussenruimte.
+Bevestig los met schroeven of gebruik onzichtbare clips voor een strak resultaat. De clips zorgen automatisch voor de juiste tussenruimte.
 
 ### Splintervrij en duurzaam
 
@@ -1035,7 +1035,7 @@ Bevestig **los met schroeven** of gebruik **onzichtbare clips** voor een strak r
     seoDescription: 'Composiet vlonderplank Vergrijsd Eiken met verweerde houtlook. Dubbelzijdig, splintervrij, scherp geprijsd. Bestel bij Composiethekwerk.nl.',
     longDescription: `## Composiet vlonderplank Vergrijsd Eiken
 
-De composiet vlonderplank Vergrijsd Eiken heeft een **natuurlijke, verweerde uitstraling** die doet denken aan verouderd hout. Dubbelzijdig afgewerkt met fijne groef en houtnerf — een populaire keuze voor een tijdloze look.
+De composiet vlonderplank Vergrijsd Eiken heeft een natuurlijke, verweerde uitstraling die doet denken aan verouderd hout. Dubbelzijdig afgewerkt met fijne groef en houtnerf — een populaire keuze voor een tijdloze look.
 
 ### Twee bevestigingsmogelijkheden
 
@@ -1087,7 +1087,7 @@ Bevestig met schroeven of met onzichtbare clips. De clips creëren een strak ter
     seoDescription: 'Composiet vlonderplank Walnoot met rijke donkere houtlook. Dubbelzijdig, splintervrij, scherp geprijsd. Bestel bij Composiethekwerk.nl.',
     longDescription: `## Composiet vlonderplank Walnoot
 
-De composiet vlonderplank Walnoot biedt een **rijke, donkere houtlook** die warmte en sfeer toevoegt aan uw terras. Dubbelzijdig afgewerkt met fijne groef en houtnerf.
+De composiet vlonderplank Walnoot biedt een rijke, donkere houtlook die warmte en sfeer toevoegt aan uw terras. Dubbelzijdig afgewerkt met fijne groef en houtnerf.
 
 ### Twee bevestigingsmogelijkheden
 
@@ -1139,19 +1139,19 @@ Bevestig met schroeven of met onzichtbare clips voor een strak eindresultaat.
     seoDescription: 'Naadloos massieve composiet vlonderplank Donker Grijs met antislip coating. Premium kwaliteit, 15 jaar garantie. Bestel bij Composiethekwerk.nl.',
     longDescription: `## Composiet vlonderplank naadloos massief Donker Grijs
 
-Het **topmodel uit ons assortiment**: de naadloos massieve composiet vlonderplank in Donker Grijs. Volledig massief (geen holle kern), voorzien van een antislip coating en een naadloos ontwerp voor een strak eindresultaat.
+Het topmodel uit ons assortiment: de naadloos massieve composiet vlonderplank in Donker Grijs. Volledig massief (geen holle kern), voorzien van een antislip coating en een naadloos ontwerp voor een strak eindresultaat.
 
 ### 100% massief
 
-In tegenstelling tot standaard holle kern vlonderplanken is deze plank **volledig massief**. Dit betekent maximale draagkracht, stevigheid en duurzaamheid. Ideaal voor intensief gebruik en commerciële toepassingen.
+In tegenstelling tot standaard holle kern vlonderplanken is deze plank volledig massief. Dit betekent maximale draagkracht, stevigheid en duurzaamheid. Ideaal voor intensief gebruik en commerciële toepassingen.
 
 ### Antislip coating
 
-De plank is voorzien van een **antislip coating** voor maximale veiligheid, ook bij nat weer. Perfect rondom zwembaden, bij restaurants of op openbare terrassen.
+De plank is voorzien van een antislip coating voor maximale veiligheid, ook bij nat weer. Perfect rondom zwembaden, bij restaurants of op openbare terrassen.
 
 ### Naadloos design
 
-Het naadloze ontwerp zorgt voor een **strak, elegant eindresultaat** zonder zichtbare groeven of naden. Een luxe uitstraling voor uw terras.
+Het naadloze ontwerp zorgt voor een strak, elegant eindresultaat zonder zichtbare groeven of naden. Een luxe uitstraling voor uw terras.
 
 ### Voordelen in één oogopslag
 
@@ -1196,11 +1196,11 @@ Het naadloze ontwerp zorgt voor een **strak, elegant eindresultaat** zonder zich
     seoDescription: 'Naadloos massieve composiet vlonderplank Teak met antislip coating. Warme houtkleur, premium kwaliteit, 15 jaar garantie. Bestel online.',
     longDescription: `## Composiet vlonderplank naadloos massief Teak
 
-De naadloos massieve composiet vlonderplank in Teak combineert **premium kwaliteit met een warme houtuitstraling**. Volledig massief met antislip coating voor maximale veiligheid.
+De naadloos massieve composiet vlonderplank in Teak combineert premium kwaliteit met een warme houtuitstraling. Volledig massief met antislip coating voor maximale veiligheid.
 
 ### 100% massief
 
-Volledig massief composiet — geen holle kern. **Maximale draagkracht en stevigheid** voor intensief gebruik.
+Volledig massief composiet — geen holle kern. Maximale draagkracht en stevigheid voor intensief gebruik.
 
 ### Antislip coating
 
@@ -1208,7 +1208,7 @@ Voorzien van antislip coating voor veiligheid bij nat weer. Perfect rondom zwemb
 
 ### Naadloos design
 
-Strak, elegant eindresultaat zonder zichtbare groeven. De warme teakkleur geeft uw terras een **luxe, tropische uitstraling**.
+Strak, elegant eindresultaat zonder zichtbare groeven. De warme teakkleur geeft uw terras een luxe, tropische uitstraling.
 
 ### Voordelen in één oogopslag
 
@@ -1248,11 +1248,11 @@ Strak, elegant eindresultaat zonder zichtbare groeven. De warme teakkleur geeft 
     seoDescription: 'Naadloos massieve composiet vlonderplank Zwart met antislip coating. Strak modern design, 15 jaar garantie. Bestel bij Composiethekwerk.nl.',
     longDescription: `## Composiet vlonderplank naadloos massief Zwart
 
-Een **strakke, moderne keuze** voor uw terras. De naadloos massieve composiet vlonderplank in Zwart is volledig massief met antislip coating voor maximale veiligheid.
+Een strakke, moderne keuze voor uw terras. De naadloos massieve composiet vlonderplank in Zwart is volledig massief met antislip coating voor maximale veiligheid.
 
 ### 100% massief
 
-Geen holle kern — volledig massief composiet voor **maximale draagkracht en duurzaamheid**.
+Geen holle kern — volledig massief composiet voor maximale draagkracht en duurzaamheid.
 
 ### Antislip coating
 
@@ -1260,7 +1260,7 @@ Veilig bij nat weer dankzij de ingebouwde antislip coating. Geschikt voor alle t
 
 ### Naadloos design
 
-Het zwarte naadloze design geeft uw terras een **ultra-moderne, minimalistische uitstraling**.
+Het zwarte naadloze design geeft uw terras een ultra-moderne, minimalistische uitstraling.
 
 ### Voordelen in één oogopslag
 
