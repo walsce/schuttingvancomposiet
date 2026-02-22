@@ -6,10 +6,10 @@ const Footer = () => (
       <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
         <div>
           <span className="font-serif text-xl font-bold text-background tracking-tight">
-            Composiet<span className="text-accent">hekwerk</span>.nl
+            Schuttingvan<span className="text-accent">composiet</span>.nl
           </span>
           <p className="mt-4 text-sm leading-relaxed text-background/60">
-            Dé specialist in composiet hekwerk, schuttingen en tuinafscheidingen. Premium kwaliteit tegen eerlijke prijzen.
+            Dé specialist in composiet schuttingen, gevelbekleding en tuinafscheidingen. Premium kwaliteit tegen eerlijke prijzen.
           </p>
         </div>
 
@@ -37,7 +37,7 @@ const Footer = () => (
         <div>
           <h4 className="font-serif font-semibold text-background mb-4">Contact</h4>
           <ul className="space-y-2 text-sm">
-            <li>info@composiethekwerk.nl</li>
+            <li>info@schuttingvancomposiet.nl</li>
             <li>Ma - Vr: 08:00 - 17:00</li>
             <li>Nederland & België</li>
           </ul>
@@ -45,7 +45,7 @@ const Footer = () => (
       </div>
 
       <div className="border-t border-background/10 mt-12 pt-8 text-center text-sm text-background/40">
-        © {new Date().getFullYear()} Composiethekwerk.nl — Alle rechten voorbehouden
+        © {new Date().getFullYear()} Schuttingvancomposiet.nl — Alle rechten voorbehouden
       </div>
     </div>
   </footer>

@@ -14,7 +14,7 @@ const AssortimentPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="Composiet Assortiment | Alle Producten | Composiethekwerk.nl"
+        title="Composiet Assortiment | Alle Producten | Schuttingvancomposiet.nl"
         description="Bekijk ons complete assortiment composiet gevelbekleding, schuttingen en vlonderplanken. Premium kwaliteit met 15 jaar garantie."
         canonical="/assortiment"
       />

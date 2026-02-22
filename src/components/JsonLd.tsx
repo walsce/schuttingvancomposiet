@@ -24,12 +24,12 @@ export default JsonLd;
 export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "Composiethekwerk.nl",
-  url: "https://composiethekwerk.nl",
-  logo: "https://composiethekwerk.nl/favicon.ico",
+  name: "Schuttingvancomposiet.nl",
+  url: "https://schuttingvancomposiet.nl",
+  logo: "https://schuttingvancomposiet.nl/favicon.ico",
   contactPoint: {
     "@type": "ContactPoint",
-    email: "info@composiethekwerk.nl",
+    email: "info@schuttingvancomposiet.nl",
     contactType: "customer service",
     availableLanguage: "Dutch",
   },
@@ -38,11 +38,11 @@ export const organizationSchema = {
 export const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: "Composiethekwerk.nl",
-  url: "https://composiethekwerk.nl",
+  name: "Schuttingvancomposiet.nl",
+  url: "https://schuttingvancomposiet.nl",
   potentialAction: {
     "@type": "SearchAction",
-    target: "https://composiethekwerk.nl/assortiment?q={search_term_string}",
+    target: "https://schuttingvancomposiet.nl/assortiment?q={search_term_string}",
     "query-input": "required name=search_term_string",
   },
 };
@@ -56,7 +56,7 @@ export const breadcrumbSchema = (
     "@type": "ListItem",
     position: i + 1,
     name: item.name,
-    item: item.url.startsWith("http") ? item.url : `https://composiethekwerk.nl${item.url}`,
+    item: item.url.startsWith("http") ? item.url : `https://schuttingvancomposiet.nl${item.url}`,
   })),
 });
 
@@ -86,13 +86,13 @@ export const productSchema = (product: {
   name: product.name,
   description: product.description,
   image: product.image,
-  brand: { "@type": "Brand", name: "Composiethekwerk.nl" },
+  brand: { "@type": "Brand", name: "Schuttingvancomposiet.nl" },
   offers: {
     "@type": "Offer",
     price: product.price,
     priceCurrency: "EUR",
     availability: "https://schema.org/InStock",
-    url: `https://composiethekwerk.nl/product/${product.slug}`,
+    url: `https://schuttingvancomposiet.nl/product/${product.slug}`,
   },
 });
 
@@ -114,15 +114,15 @@ export const articleSchema = (article: {
   dateModified: article.updatedDate || article.date,
   author: {
     "@type": "Person",
-    name: typeof article.author === "string" ? article.author : article.author?.name || "Composiethekwerk.nl Redactie",
+    name: typeof article.author === "string" ? article.author : article.author?.name || "Schuttingvancomposiet.nl Redactie",
     ...(typeof article.author === "object" && article.author?.role ? { jobTitle: article.author.role } : {}),
   },
   publisher: {
     "@type": "Organization",
-    name: "Composiethekwerk.nl",
-    logo: { "@type": "ImageObject", url: "https://composiethekwerk.nl/favicon.ico" },
+    name: "Schuttingvancomposiet.nl",
+    logo: { "@type": "ImageObject", url: "https://schuttingvancomposiet.nl/favicon.ico" },
   },
-  mainEntityOfPage: `https://composiethekwerk.nl/blog/${article.slug}`,
+  mainEntityOfPage: `https://schuttingvancomposiet.nl/blog/${article.slug}`,
 });
 
 export const howToSchema = (article: {

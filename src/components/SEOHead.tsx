@@ -11,7 +11,7 @@ interface SEOHeadProps {
   noindex?: boolean;
 }
 
-const BASE_URL = "https://composiethekwerk.nl";
+const BASE_URL = "https://schuttingvancomposiet.nl";
 
 const SEOHead = ({
   title,

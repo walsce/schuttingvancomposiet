@@ -36,7 +36,7 @@ const BlogArticlePage = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title={`${article.title} | Composiethekwerk.nl`}
+        title={`${article.title} | Schuttingvancomposiet.nl`}
         description={article.excerpt.slice(0, 155)}
         canonical={`/blog/${article.slug}`}
         ogImage={article.image}
