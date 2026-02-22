@@ -30,7 +30,7 @@ const DimensionInputs = ({ preset, width, depth, cutWidth, cutDepth, onChange }:
         </div>
       </div>
 
-      {(preset === "l-shape" || preset === "u-shape") && (
+      {(preset === "l-shape" || preset === "l-shape-left" || preset === "l-shape-bottom-right" || preset === "l-shape-bottom-left" || preset === "u-shape" || preset === "t-shape") && (
         <div className="grid grid-cols-2 gap-3">
           <div>
             <Label htmlFor="dim-cw" className="text-xs">Uitsnede breedte (m)</Label>

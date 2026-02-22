@@ -8,7 +8,7 @@ export function calcMaterials(
   areaM2: number,
   productSlug: string | null,
   layingPattern: LayingPattern = "horizontal",
-  substructure: SubstructureConfig = { usage: "private", ground: "verdicht", buildHeight: 5 },
+  substructure: SubstructureConfig = { usage: "private", ground: "verdicht", buildHeight: 5, beam: "alu-60x40-400", jointType: "dubbele-balken", doubleBeam: false, leveling: "none", slope: false },
   edgeConfig: EdgeConfig = { wallSides: [], addEdgeBoards: false },
   edgeCount = 4,
   perimeterM = 0

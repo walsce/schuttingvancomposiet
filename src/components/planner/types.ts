@@ -19,15 +19,32 @@ export type PresetShape =
   | "circle"
   | "custom";
 
-export type LayingPattern = "horizontal" | "vertical" | "diagonal";
+export type LayingPattern = "horizontal" | "vertical" | "diagonal" | "diagonal-left" | "chevron" | "mixed";
 
-export type UsageType = "private" | "commercial";
-export type GroundType = "verdicht" | "beton" | "tegels";
+export type LayingMethod = "staggered" | "brick" | "running";
+
+export type UsageType = "private" | "commercial" | "intensive";
+export type GroundType = "verdicht" | "beton" | "tegels" | "platdak" | "zand";
+export type LevelingType = "stand" | "fundatie" | "none";
+export type JointType = "dubbele-balken" | "stootbeugel" | "none";
 
 export interface SubstructureConfig {
   usage: UsageType;
   ground: GroundType;
   buildHeight: number; // cm
+  beam: string; // selected beam product id
+  jointType: JointType;
+  doubleBeam: boolean;
+  leveling: LevelingType;
+  slope: boolean;
+}
+
+export interface LayingConfig {
+  pattern: LayingPattern;
+  method: LayingMethod;
+  startPoint: string; // corner letter e.g. "A"
+  offsetX: number; // cm
+  offsetY: number; // cm
 }
 
 export interface EdgeConfig {

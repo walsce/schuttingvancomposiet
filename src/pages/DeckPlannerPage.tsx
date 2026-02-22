@@ -13,7 +13,7 @@ import LeadCaptureModal from "@/components/planner/LeadCaptureModal";
 import LayingPatternSelector from "@/components/planner/LayingPatternSelector";
 import SubstructureOptions from "@/components/planner/SubstructureOptions";
 import EdgeFinishing from "@/components/planner/EdgeFinishing";
-import { PresetShape, Point, LayingPattern, SubstructureConfig, EdgeConfig } from "@/components/planner/types";
+import { PresetShape, Point, SubstructureConfig, EdgeConfig, LayingConfig } from "@/components/planner/types";
 import { getPresetPoints, calcArea, dist } from "@/components/planner/presets";
 import { calcMaterials } from "@/components/planner/calcMaterials";
 import { Button } from "@/components/ui/button";
@@ -26,6 +26,25 @@ import {
 } from "@/components/ui/accordion";
 import { RotateCcw, Info } from "lucide-react";
 
+const defaultSubstructure: SubstructureConfig = {
+  usage: "private",
+  ground: "verdicht",
+  buildHeight: 5,
+  beam: "alu-60x40-400",
+  jointType: "dubbele-balken",
+  doubleBeam: false,
+  leveling: "none",
+  slope: false,
+};
+
+const defaultLayingConfig: LayingConfig = {
+  pattern: "horizontal",
+  method: "staggered",
+  startPoint: "A",
+  offsetX: 0,
+  offsetY: 0,
+};
+
 const DeckPlannerPage = () => {
   const [preset, setPreset] = useState<PresetShape>("rectangle");
   const [width, setWidth] = useState(5);
@@ -34,12 +53,8 @@ const DeckPlannerPage = () => {
   const [cutDepth, setCutDepth] = useState(1.5);
   const [customPoints, setCustomPoints] = useState<Point[] | null>(null);
   const [selectedProduct, setSelectedProduct] = useState<string | null>(null);
-  const [layingPattern, setLayingPattern] = useState<LayingPattern>("horizontal");
-  const [substructure, setSubstructure] = useState<SubstructureConfig>({
-    usage: "private",
-    ground: "verdicht",
-    buildHeight: 5,
-  });
+  const [layingConfig, setLayingConfig] = useState<LayingConfig>(defaultLayingConfig);
+  const [substructure, setSubstructure] = useState<SubstructureConfig>(defaultSubstructure);
   const [edgeConfig, setEdgeConfig] = useState<EdgeConfig>({
     wallSides: [],
     addEdgeBoards: false,
@@ -64,8 +79,8 @@ const DeckPlannerPage = () => {
   }, [points]);
 
   const materialsList = useMemo(
-    () => calcMaterials(areaM2, selectedProduct, layingPattern, substructure, edgeConfig, points.length, perimeterM),
-    [areaM2, selectedProduct, layingPattern, substructure, edgeConfig, points.length, perimeterM]
+    () => calcMaterials(areaM2, selectedProduct, layingConfig.pattern, substructure, edgeConfig, points.length, perimeterM),
+    [areaM2, selectedProduct, layingConfig.pattern, substructure, edgeConfig, points.length, perimeterM]
   );
 
   const handlePresetChange = useCallback((p: PresetShape) => {
@@ -97,8 +112,8 @@ const DeckPlannerPage = () => {
     setCustomPoints(null);
     setSelectedProduct(null);
     setUnlocked(false);
-    setLayingPattern("horizontal");
-    setSubstructure({ usage: "private", ground: "verdicht", buildHeight: 5 });
+    setLayingConfig(defaultLayingConfig);
+    setSubstructure(defaultSubstructure);
     setEdgeConfig({ wallSides: [], addEdgeBoards: false });
   };
 
@@ -143,7 +158,7 @@ const DeckPlannerPage = () => {
                 points={points}
                 onPointsChange={handlePointsChange}
                 editable={true}
-                layingPattern={layingPattern}
+                layingPattern={layingConfig.pattern}
                 areaM2={areaM2}
               />
               <div className="flex items-center gap-2 mt-2 text-xs text-muted-foreground">
@@ -179,11 +194,11 @@ const DeckPlannerPage = () => {
                   </AccordionContent>
                 </AccordionItem>
 
-                {/* 3. Laying pattern */}
+                {/* 3. Laying pattern & method */}
                 <AccordionItem value="pattern" className="border rounded-xl px-4">
-                  <AccordionTrigger className="text-sm font-bold font-serif">Legpatroon</AccordionTrigger>
+                  <AccordionTrigger className="text-sm font-bold font-serif">Legpatroon & richting</AccordionTrigger>
                   <AccordionContent className="pb-4">
-                    <LayingPatternSelector value={layingPattern} onChange={setLayingPattern} />
+                    <LayingPatternSelector value={layingConfig} onChange={setLayingConfig} cornerCount={points.length} />
                   </AccordionContent>
                 </AccordionItem>
 
