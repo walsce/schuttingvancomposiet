@@ -16,6 +16,7 @@ interface DeckCanvasProps {
   editable: boolean;
   layingPattern?: LayingPattern;
   layingMethod?: LayingMethod;
+  layingAngle?: number;
   selectedProduct?: string | null;
   areaM2: number;
   floorPlan?: FloorPlanBackground | null;
@@ -101,7 +102,7 @@ interface PlankRect {
   fill: string;
 }
 
-const DeckCanvas = ({ points, onPointsChange, editable, layingPattern = "horizontal", layingMethod = "staggered", selectedProduct, areaM2, floorPlan, freehandMode = false, onFreehandComplete }: DeckCanvasProps) => {
+const DeckCanvas = ({ points, onPointsChange, editable, layingPattern = "horizontal", layingMethod = "staggered", layingAngle = 0, selectedProduct, areaM2, floorPlan, freehandMode = false, onFreehandComplete }: DeckCanvasProps) => {
   const svgRef = useRef<SVGSVGElement>(null);
   const [dragging, setDragging] = useState<number | null>(null);
   const [drawing, setDrawing] = useState(false);
@@ -332,19 +333,23 @@ const DeckCanvas = ({ points, onPointsChange, editable, layingPattern = "horizon
     return planks;
   }, [screenPoints, layingPattern, layingMethod, baseColor, scale]);
 
-  // Diagonal transform params
-  const diagonalTransform = useMemo(() => {
+  // Plank group transform (diagonal base + custom angle)
+  const plankTransform = useMemo(() => {
     if (screenPoints.length < 3) return "";
-    const isDiagonal = layingPattern === "diagonal" || layingPattern === "diagonal-left";
-    const isChevron = layingPattern === "chevron";
-    if (!isDiagonal && !isChevron) return "";
     const xs = screenPoints.map((p) => p.x);
     const ys = screenPoints.map((p) => p.y);
     const cx = (Math.min(...xs) + Math.max(...xs)) / 2;
     const cy = (Math.min(...ys) + Math.max(...ys)) / 2;
-    const angle = layingPattern === "diagonal-left" ? -45 : 45;
-    return `rotate(${angle}, ${cx}, ${cy})`;
-  }, [screenPoints, layingPattern]);
+    const isDiagonal = layingPattern === "diagonal" || layingPattern === "diagonal-left";
+    const isChevron = layingPattern === "chevron";
+    let baseAngle = 0;
+    if (isDiagonal || isChevron) {
+      baseAngle = layingPattern === "diagonal-left" ? -45 : 45;
+    }
+    const totalAngle = baseAngle + (layingAngle || 0);
+    if (totalAngle === 0) return "";
+    return `rotate(${totalAngle}, ${cx}, ${cy})`;
+  }, [screenPoints, layingPattern, layingAngle]);
 
   return (
     <div className="space-y-2">
@@ -422,7 +427,7 @@ const DeckCanvas = ({ points, onPointsChange, editable, layingPattern = "horizon
         {/* Plank rectangles clipped to shape */}
         {screenPoints.length >= 3 && patternPlanks.length > 0 && (
           <g clipPath="url(#shapeClip)">
-            <g transform={diagonalTransform} filter="url(#woodGrain)">
+            <g transform={plankTransform} filter="url(#woodGrain)">
               {patternPlanks.map((p, i) => (
                 <rect
                   key={`plank-${i}`}

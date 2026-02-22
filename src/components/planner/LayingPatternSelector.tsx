@@ -1,7 +1,9 @@
 import { LayingPattern, LayingMethod, LayingConfig } from "./types";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Minus, Plus } from "lucide-react";
 
 interface LayingPatternSelectorProps {
   value: LayingConfig;
@@ -145,6 +147,35 @@ const LayingPatternSelector = ({ value, onChange, cornerCount }: LayingPatternSe
               <span className="text-[10px] font-medium leading-tight text-center">{p.label}</span>
             </button>
           ))}
+        </div>
+      </div>
+
+      {/* Angle */}
+      <div>
+        <Label className="text-xs mb-1.5 block">Hoek</Label>
+        <div className="flex items-center gap-2">
+          <Button
+            variant="outline"
+            size="icon"
+            className="h-9 w-9 shrink-0"
+            onClick={() => onChange({ ...value, angle: (value.angle ?? 0) - 5 })}
+          >
+            <Minus className="h-4 w-4" />
+          </Button>
+          <Input
+            type="number"
+            className="text-center"
+            value={value.angle ?? 0}
+            onChange={(e) => onChange({ ...value, angle: parseFloat(e.target.value) || 0 })}
+          />
+          <Button
+            variant="outline"
+            size="icon"
+            className="h-9 w-9 shrink-0"
+            onClick={() => onChange({ ...value, angle: (value.angle ?? 0) + 5 })}
+          >
+            <Plus className="h-4 w-4" />
+          </Button>
         </div>
       </div>
 

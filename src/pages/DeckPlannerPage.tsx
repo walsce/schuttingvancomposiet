@@ -44,6 +44,7 @@ const defaultLayingConfig: LayingConfig = {
   startPoint: "A",
   offsetX: 0,
   offsetY: 0,
+  angle: 0,
 };
 
 const DeckPlannerPage = () => {
@@ -178,6 +179,7 @@ const DeckPlannerPage = () => {
                 editable={true}
                 layingPattern={layingConfig.pattern}
                 layingMethod={layingConfig.method}
+                layingAngle={layingConfig.angle}
                 selectedProduct={selectedProduct}
                 areaM2={areaM2}
                 floorPlan={floorPlanUrl ? {
