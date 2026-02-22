@@ -178,42 +178,40 @@ const ComparePage = () => {
 
           {/* Advice section */}
           <div className="mt-16 grid md:grid-cols-3 gap-6">
-            <div className="bg-card rounded-xl border border-border p-6">
-              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                <span className="text-xl">🏠</span>
-              </div>
-              <h3 className="font-serif font-bold text-foreground mb-2">Gevel upgraden?</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                Kies gevelbekleding voor een moderne, onderhoudsvriendelijke gevel die jarenlang mooi blijft.
-              </p>
-              <Button asChild variant="outline" size="sm">
-                <Link to="/categorie/gevelbekleding">Bekijk gevelbekleding</Link>
-              </Button>
-            </div>
-            <div className="bg-card rounded-xl border border-border p-6">
-              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                <span className="text-xl">🌿</span>
-              </div>
-              <h3 className="font-serif font-bold text-foreground mb-2">Privacy in de tuin?</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                Composiet schuttingen bieden privacy met stijl. Extra dikke 2,5cm planken voor een robuust resultaat.
-              </p>
-              <Button asChild variant="outline" size="sm">
-                <Link to="/categorie/schuttingen">Bekijk schuttingen</Link>
-              </Button>
-            </div>
-            <div className="bg-card rounded-xl border border-border p-6">
-              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                <span className="text-xl">☀️</span>
-              </div>
-              <h3 className="font-serif font-bold text-foreground mb-2">Droomterras aanleggen?</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                Vlonderplanken met antislip en naadloze montage. Splintervrij en veilig voor blote voeten.
-              </p>
-              <Button asChild variant="outline" size="sm">
-                <Link to="/categorie/vlonderplanken">Bekijk vlonderplanken</Link>
-              </Button>
-            </div>
+            {allCategories.map((cat) => {
+              const catData = categories.find((c) => c.id === cat);
+              const advice: Record<CompareCategory, { title: string; description: string }> = {
+                gevelbekleding: { title: "Gevel upgraden?", description: "Kies gevelbekleding voor een moderne, onderhoudsvriendelijke gevel die jarenlang mooi blijft." },
+                schuttingen: { title: "Privacy in de tuin?", description: "Composiet schuttingen bieden privacy met stijl. Extra dikke 2,5cm planken voor een robuust resultaat." },
+                vlonderplanken: { title: "Droomterras aanleggen?", description: "Vlonderplanken met antislip en naadloze montage. Splintervrij en veilig voor blote voeten." },
+              };
+              return (
+                <Link
+                  key={cat}
+                  to={`/categorie/${categoryMeta[cat].slug}`}
+                  className="group rounded-xl overflow-hidden border border-border bg-card hover:shadow-md transition-shadow flex flex-col"
+                >
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    <img
+                      src={catData?.image}
+                      alt={advice[cat].title}
+                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/20 to-transparent" />
+                    <div className="absolute bottom-0 left-0 right-0 p-5">
+                      <h3 className="font-serif text-lg font-bold text-background leading-snug">{advice[cat].title}</h3>
+                    </div>
+                  </div>
+                  <div className="p-5 flex flex-col flex-1">
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">{advice[cat].description}</p>
+                    <span className="inline-flex items-center gap-1 text-sm font-medium text-accent group-hover:gap-2 transition-all mt-auto">
+                      Bekijk {categoryMeta[cat].name.toLowerCase()} <ArrowRight className="w-4 h-4" />
+                    </span>
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </section>
 
