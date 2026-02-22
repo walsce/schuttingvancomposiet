@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import CategoryPage from "./pages/CategoryPage";
 import AssortimentPage from "./pages/AssortimentPage";
 import ContactPage from "./pages/ContactPage";
+import ComparePage from "./pages/ComparePage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -22,6 +23,7 @@ const App = () => (
           <Route path="/assortiment" element={<AssortimentPage />} />
           <Route path="/categorie/:slug" element={<CategoryPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/vergelijken" element={<ComparePage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

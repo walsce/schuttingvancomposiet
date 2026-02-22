@@ -8,6 +8,7 @@ const navLinks = [
   { label: "Gevelbekleding", href: "/categorie/gevelbekleding" },
   { label: "Schuttingen", href: "/categorie/schuttingen" },
   { label: "Vlonderplanken", href: "/categorie/vlonderplanken" },
+  { label: "Vergelijken", href: "/vergelijken" },
   { label: "Contact", href: "/contact" },
 ];
 
