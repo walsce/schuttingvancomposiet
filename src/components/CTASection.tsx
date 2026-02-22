@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import ctaBg from "@/assets/cta-bg.jpg";
 
 interface CTASectionProps {
   title?: string;
@@ -19,8 +20,10 @@ const CTASection = ({
   secondaryLabel = "Bekijk Assortiment",
   secondaryHref = "/assortiment",
 }: CTASectionProps) => (
-  <section className="bg-primary">
-    <div className="container py-16 text-center">
+  <section className="relative overflow-hidden">
+    <img src={ctaBg} alt="" className="absolute inset-0 w-full h-full object-cover" />
+    <div className="absolute inset-0 bg-primary/85" />
+    <div className="container py-16 text-center relative z-10">
       <h2 className="font-serif text-3xl font-bold text-primary-foreground">{title}</h2>
       <p className="text-primary-foreground/80 mt-3 max-w-md mx-auto">{description}</p>
       <div className="flex flex-wrap gap-3 justify-center mt-8">
