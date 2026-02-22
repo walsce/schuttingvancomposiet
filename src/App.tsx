@@ -8,6 +8,8 @@ import CategoryPage from "./pages/CategoryPage";
 import AssortimentPage from "./pages/AssortimentPage";
 import ContactPage from "./pages/ContactPage";
 import ComparePage from "./pages/ComparePage";
+import BlogPage from "./pages/BlogPage";
+import BlogArticlePage from "./pages/BlogArticlePage";
 import NotFound from "./pages/NotFound";
 import ChatWidget from "./components/ChatWidget";
 
@@ -25,6 +27,8 @@ const App = () => (
           <Route path="/categorie/:slug" element={<CategoryPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/vergelijken" element={<ComparePage />} />
+          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/blog/:slug" element={<BlogArticlePage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <ChatWidget />
