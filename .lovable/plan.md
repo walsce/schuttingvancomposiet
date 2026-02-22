@@ -1,45 +1,42 @@
 
 
-# Download Cards: Replace Icons with Stock Images + Gradient
+# Downloads page: fix titles and images
 
-## Overview
+## 1. `src/data/downloads.ts` — Title casing and images
 
-Replace the current icon-based download cards with image-based cards featuring realistic stock photos and a gradient overlay, similar to the CategoryCard component style.
+Change all titles from title case to sentence case (only capitalize the first word and proper nouns):
 
-## Changes
-
-### 1. `src/data/downloads.ts`
-
-- Add an `image` field to each download guide (URL to a relevant Unsplash stock photo)
-- Remove the `icon` import and field (no longer needed)
-- Update the `DownloadGuide` interface accordingly
-
-Stock image mapping:
-| Guide | Image Theme |
+| Current title | New title |
 |---|---|
-| Checklist: Schutting Plaatsen | Person installing a fence / tools laid out |
-| Composiet vs. Hout | Side-by-side wood vs composite fence |
-| Vergunningen & Regels | Dutch house with garden fence |
-| Grondvoorbereiding | Soil preparation / digging foundations |
-| Kleurengids | Colorful composite boards / garden styling |
-| Onderhoudsgids | Clean composite deck / maintenance |
+| Checklist: Composiet Schutting Plaatsen | Checklist: composiet schutting plaatsen |
+| Vergelijking: Composiet vs. Houten Schuttingen | Vergelijking: composiet vs. houten schuttingen |
+| Gids: Vergunningen & Regels voor Schuttingen | Gids: vergunningen & regels voor schuttingen |
+| Checklist: Grondvoorbereiding voor Schuttingen & Vlonders | Checklist: grondvoorbereiding voor schuttingen & vlonders |
+| Kleurengids: Het Perfecte Composiet voor Jouw Tuin | Kleurengids: het perfecte composiet voor jouw tuin |
+| Onderhoudsgids: Composiet Jarenlang Mooi Houden | Onderhoudsgids: composiet jarenlang mooi houden |
 
-### 2. `src/pages/DownloadsPage.tsx`
+Replace images with more topic-relevant Unsplash photos:
 
-Redesign each card to use the image as a background with a gradient overlay (inspired by CategoryCard):
-- Card has a top image section (aspect ratio ~16/9 or 4/3) with gradient overlay
-- Badge and title overlaid on the image at the bottom
-- Below the image: description, bullet points, and download button
-- The gradient goes from dark at bottom to transparent at top, making white text readable over the photo
+| Guide | Current image issue | New image theme |
+|---|---|---|
+| Schutting plaatsen | Generic fence photo | Fence installation / construction tools on wood |
+| Composiet vs. hout | Abstract texture | Wood planks vs composite side by side / old vs new fence |
+| Vergunningen & regels | House exterior (not related) | Dutch neighborhood with fences / official documents |
+| Grondvoorbereiding | Garden plants (not soil) | Soil digging / foundation work / concrete posts |
+| Kleurengids | Modern house (not colors) | Composite board color samples / garden styling |
+| Onderhoudsgids | Generic house | Cleaning a deck / pressure washer / maintenance |
 
-### 3. `src/pages/Index.tsx`
+## 2. `src/pages/DownloadsPage.tsx` — Page heading casing
 
-If the downloads teaser section on the homepage also uses icons, update it to match the new image-based style.
+Update the hero heading from "Gratis Gidsen & Checklists" to "Gratis gidsen & checklists" for consistent sentence case.
 
-## Technical Details
+## 3. `src/components/Footer.tsx`
 
-- Images sourced from Unsplash (free, high-quality stock photos) via direct URLs
-- Each card structure: relative container with `<img>` + gradient div overlay + text content below
-- Lazy loading on all images for performance
-- No icon imports needed anymore -- Lucide icon imports removed from `downloads.ts`
+Check and update the "Gratis Gidsen" footer link to "Gratis gidsen" if needed.
+
+## Files to modify
+
+- `src/data/downloads.ts` — titles (sentence case) + image URLs
+- `src/pages/DownloadsPage.tsx` — hero heading + SEO title casing
+- `src/components/Footer.tsx` — link text casing
 
