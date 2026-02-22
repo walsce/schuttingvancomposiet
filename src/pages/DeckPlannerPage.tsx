@@ -137,7 +137,7 @@ const DeckPlannerPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-background">
+    <div className="min-h-screen flex flex-col bg-background overflow-x-hidden">
       <SEOHead
         title="TerrasDesigner Pro | Ontwerp je composiet terras online | Schuttingvancomposiet.nl"
         description="Ontwerp je ideale composiet vlonder met onze gratis online planner. Kies je vorm, afmetingen en materiaal en ontvang direct een materiaallijst met prijsindicatie."
@@ -210,7 +210,7 @@ const DeckPlannerPage = () => {
             </div>
 
             {/* Accordion sidebar */}
-            <div className="space-y-4">
+            <div className="space-y-4 min-w-0 overflow-hidden">
               <Accordion type="multiple" defaultValue={["shape"]} className="space-y-2">
                 {/* 1. Shape & dimensions */}
                 <AccordionItem value="shape" className="border rounded-xl px-4">
