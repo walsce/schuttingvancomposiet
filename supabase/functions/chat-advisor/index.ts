@@ -3,7 +3,7 @@ const corsHeaders = {
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
 };
 
-const SYSTEM_PROMPT = `Je bent de productadviseur van Composietwinkel.nl — dé specialist in composiet producten voor tuin en gevel. Je helpt klanten bij het kiezen van het juiste product en het opvragen van offertes.
+const SYSTEM_PROMPT = `Je bent de productadviseur van Composiethekwerk.nl — dé specialist in composiet producten voor tuin en gevel. Je helpt klanten bij het kiezen van het juiste product en het opvragen van offertes.
 
 ## Je kennis over het assortiment:
 

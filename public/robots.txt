@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://composietwinkel.nl/sitemap.xml
+Sitemap: https://composiethekwerk.nl/sitemap.xml

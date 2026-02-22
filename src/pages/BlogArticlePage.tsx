@@ -21,7 +21,7 @@ const BlogArticlePage = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title={`${article.title} | Composietwinkel.nl`}
+        title={`${article.title} | Composiethekwerk.nl`}
         description={article.excerpt.slice(0, 155)}
         canonical={`/blog/${article.slug}`}
         ogImage={article.image}
@@ -57,7 +57,7 @@ const BlogArticlePage = () => {
               {article.title}
             </h1>
             <p className="text-lg text-muted-foreground mt-4">{article.excerpt}</p>
-            <p className="text-sm text-muted-foreground mt-2">Door <strong className="text-foreground">Composietwinkel.nl Redactie</strong></p>
+            <p className="text-sm text-muted-foreground mt-2">Door <strong className="text-foreground">Composiethekwerk.nl Redactie</strong></p>
           </div>
         </section>
 

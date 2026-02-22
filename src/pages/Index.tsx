@@ -36,7 +36,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="Composietwinkel.nl | Premium Composiet voor Tuin & Gevel"
+        title="Composiethekwerk.nl | Premium Composiet voor Tuin & Gevel"
         description="Dé specialist in composiet gevelbekleding, schuttingen en vlonderplanken. Premium kwaliteit, 15 jaar garantie, eigen bezorgservice door heel Nederland."
         canonical="/"
       />
@@ -53,7 +53,7 @@ const Index = () => {
           <div className="container relative py-24 md:py-36">
             <div className="max-w-xl">
               <span className="inline-block text-accent font-medium text-sm uppercase tracking-wider mb-4">
-                Composietwinkel.nl
+                Composiethekwerk.nl
               </span>
               <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-card leading-tight">
                 Dé specialist in composiet producten

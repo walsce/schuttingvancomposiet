@@ -60,7 +60,7 @@ const CategoryPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title={`${category.name} Kopen | Composietwinkel.nl`}
+        title={`${category.name} Kopen | Composiethekwerk.nl`}
         description={`${category.description} Bekijk ons complete assortiment ${category.name.toLowerCase()} met 15 jaar garantie.`}
         canonical={`/categorie/${slug}`}
       />
@@ -78,7 +78,7 @@ const CategoryPage = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/40 to-foreground/20" />
           </div>
           <div className="container relative py-20 md:py-28">
-            <span className="text-accent text-sm font-medium uppercase tracking-wider">Composietwinkel.nl</span>
+            <span className="text-accent text-sm font-medium uppercase tracking-wider">Composiethekwerk.nl</span>
             <h1 className="font-serif text-3xl md:text-5xl font-bold text-card mt-2">{category.name}</h1>
             <p className="text-card/80 mt-3 max-w-lg">{category.description}</p>
           </div>

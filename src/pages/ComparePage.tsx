@@ -69,7 +69,7 @@ const ComparePage = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="Composiet Vergelijken | Gevelbekleding vs Schuttingen vs Vlonderplanken"
+        title="Composiet Vergelijken | Composiethekwerk.nl"
         description="Vergelijk composiet gevelbekleding, schuttingen en vlonderplanken op prijs, eigenschappen en toepassingen. Vind het beste product voor jouw project."
         canonical="/vergelijken"
       />
