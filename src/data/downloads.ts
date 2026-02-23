@@ -188,6 +188,67 @@ export const downloads: DownloadGuide[] = [
     relatedCategory: "vlonderplanken",
   },
 
+  {
+    id: "handleiding-vlonderplanken",
+    title: "Montagehandleiding: composiet vlonderplanken leggen",
+    slug: "montagehandleiding-vlonderplanken",
+    description:
+      "De complete montagehandleiding voor Silvadec composiet vlonderplanken. Van planning en lay-out tot de laatste afwerking.",
+    bulletPoints: [
+      "Lay-out berekenen: materiaal per m²",
+      "Onderconstructie & balkafstanden (max. 40 cm)",
+      "Clips plaatsen & planken monteren",
+      "Elegance, Emotion & Atmosphere specificaties",
+    ],
+    category: "handleiding",
+    image: "https://www.silvadec.com/sites/default/files/styles/max_1300x1300/public/2024-11/terrasse-silvadec-bois-composite-atmosphere-cayenne-gris-ambiance.jpg",
+    relatedLinks: [
+      { label: "Vlonderplanken bekijken", href: "/categorie/vlonderplanken" },
+    ],
+    pdfPath: "/downloads/montagehandleiding-vlonderplanken.pdf",
+    relatedCategory: "vlonderplanken",
+  },
+  {
+    id: "handleiding-vlonder-accessoires",
+    title: "Montagehandleiding: vlonder accessoires & afwerking",
+    slug: "montagehandleiding-vlonder-accessoires",
+    description:
+      "Installatiehandleiding voor Silvadec vlonder accessoires: aluminium balken, plots, rubberstroken, afwerkingsprofielen en randafwerking.",
+    bulletPoints: [
+      "Aluminium balken op plots of rubberstroken",
+      "Plotafstanden: max. 90 cm privé / 60 cm openbaar",
+      "Afwerkingsprofielen & plintplanken",
+      "LED-verlichting & traptreden monteren",
+    ],
+    category: "handleiding",
+    image: "https://www.silvadec.com/sites/default/files/styles/max_1300x1300/public/2024-11/terrasse-silvadec-bois-composite-atmosphere-belem-gris-ambiance.jpg",
+    relatedLinks: [
+      { label: "Vlonderplanken bekijken", href: "/categorie/vlonderplanken" },
+    ],
+    pdfPath: "/downloads/montagehandleiding-vlonder-accessoires.pdf",
+    relatedCategory: "vlonderplanken",
+  },
+  {
+    id: "snelstartgids-vlonder",
+    title: "Snelstartgids: vlonder monteren in 4 m²/uur",
+    slug: "snelstartgids-vlonder-montage",
+    description:
+      "Visuele snelstartgids met de belangrijkste montagestappen voor Silvadec composiet vlonders. Perfect als naslagwerk op de bouwplaats.",
+    bulletPoints: [
+      "Overzichtelijke visuele montagestappen",
+      "Balkinstallatie & clipmontage",
+      "Afwerkingsdetails & randprofielen",
+      "Tempo: ca. 4 m² per uur",
+    ],
+    category: "handleiding",
+    image: "https://www.silvadec.com/sites/default/files/styles/max_1300x1300/public/2024-11/terrasse-silvadec-bois-composite-atmosphere-lima-brun-ambiance-piscine.jpg",
+    relatedLinks: [
+      { label: "Vlonderplanken bekijken", href: "/categorie/vlonderplanken" },
+    ],
+    pdfPath: "/downloads/snelstartgids-vlonder-montage.pdf",
+    relatedCategory: "vlonderplanken",
+  },
+
   // ─── ONDERHOUD (Maintenance) ───────────────────────────────────────────
   {
     id: "onderhoud-silvawash",
