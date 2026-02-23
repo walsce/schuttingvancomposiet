@@ -12,6 +12,8 @@ import { ArrowRight, Shield, Truck, ThumbsUp, Wrench } from "lucide-react";
 import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-composite.jpg";
 
+const HERO_VIDEO_ID = "InRwr4SPnB4";
+
 const usps = [
   { icon: Truck, title: "Snelle levering", desc: "Eigen bezorgservice door heel Nederland en België" },
   { icon: Shield, title: "15 jaar garantie", desc: "Op al onze composiet producten" },
@@ -51,12 +53,27 @@ const Index = () => {
 
       <main>
         {/* Hero */}
-        <section className="relative overflow-hidden">
-          <div className="absolute inset-0">
-            <img src={heroImage} alt="Composiet tuin met vlonderplanken en gevelbekleding" className="w-full h-full object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-r from-foreground/80 via-foreground/50 to-transparent" />
+        <section className="relative overflow-hidden min-h-[70vh] sm:min-h-[80vh] flex items-center">
+          {/* Video background */}
+          <div className="absolute inset-0 pointer-events-none overflow-hidden">
+            <img
+              src={heroImage}
+              alt=""
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            <iframe
+              src={`https://www.youtube.com/embed/${HERO_VIDEO_ID}?autoplay=1&mute=1&loop=1&playlist=${HERO_VIDEO_ID}&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1&origin=${window.location.origin}`}
+              title="Composiet producten video"
+              allow="autoplay; encrypted-media"
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300%] h-[300%] sm:w-[200%] sm:h-[200%] min-w-full min-h-full"
+              style={{ border: 0 }}
+              loading="eager"
+            />
+            {/* Gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-r from-foreground/85 via-foreground/60 to-foreground/30" />
+            <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 via-transparent to-transparent" />
           </div>
-          <div className="container relative py-16 sm:py-24 md:py-36 px-4 sm:px-6">
+          <div className="container relative py-20 sm:py-28 md:py-40 px-4 sm:px-6">
             <div className="max-w-xl">
               <span className="inline-block text-accent font-medium text-xs sm:text-sm uppercase tracking-wider mb-3 sm:mb-4">
                 Schuttingvancomposiet.nl
@@ -180,7 +197,7 @@ const Index = () => {
             </div>
             <div className="rounded-xl overflow-hidden">
               <img
-                src="https://jakqbjeukobtyxxxpzcr.supabase.co/storage/v1/object/public/product-images/hero/why-composiet.png"
+                src="https://en.silvadec.com/sites/default/files/styles/square/public/2024-02/silvadec_atmosphere_B0040_13.jpg?itok=v_iEy2r1"
                 alt="Composiet schutting in tuin omgeving met moderne uitstraling"
                 className="w-full h-full object-cover"
                 loading="lazy"
