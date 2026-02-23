@@ -82,6 +82,21 @@ const App = () => (
               <Route path="/gamma-composiet-schutting" element={<SEOContentPage />} />
               <Route path="/composiet-schutting-met-beton" element={<SEOContentPage />} />
               <Route path="/elephant-schutting" element={<SEOContentPage />} />
+              {/* Pillar 2: Vlonderplanken */}
+              <Route path="/composiet-vlonderplanken" element={<SEOContentPage />} />
+              <Route path="/composiet-vlonder-prijs" element={<SEOContentPage />} />
+              <Route path="/composiet-terras-aanleggen" element={<SEOContentPage />} />
+              <Route path="/composiet-vlonder-onderhoud" element={<SEOContentPage />} />
+              <Route path="/composiet-vlonderplanken-nadelen" element={<SEOContentPage />} />
+              <Route path="/composiet-vs-hout-vlonder" element={<SEOContentPage />} />
+              <Route path="/composiet-vlonder-kleuren" element={<SEOContentPage />} />
+              <Route path="/co-extrusie-vlonderplanken" element={<SEOContentPage />} />
+              <Route path="/composiet-vlonder-op-beton" element={<SEOContentPage />} />
+              <Route path="/composiet-vlonder-zelf-leggen" element={<SEOContentPage />} />
+              <Route path="/wpc-terrasplanken" element={<SEOContentPage />} />
+              <Route path="/vlonder-onderconstructie" element={<SEOContentPage />} />
+              <Route path="/hornbach-composiet-vlonder" element={<SEOContentPage />} />
+              <Route path="/gamma-composiet-vlonder" element={<SEOContentPage />} />
               {/* Admin routes */}
               <Route path="/admin/login" element={<AdminLoginPage />} />
               <Route path="/admin" element={<AdminDashboard />} />
