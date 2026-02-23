@@ -1,153 +1,169 @@
 
-# Full CRM System with Analytics Dashboard
 
-This plan adds a complete CRM (Customer Relationship Management) system to your admin backend, including lead management, customer tracking, activity logging, analytics charts, and automated pipeline stages.
+# Replace All Products with Silvadec Catalog
 
----
+## Overview
 
-## What You Get
-
-1. **CRM Contacts** -- Unified view of all customers and leads in one place, with source tracking (order, deck planner, contact form, manual entry)
-2. **Lead Pipeline** -- Visual pipeline with stages: New, Contacted, Qualified, Proposal, Won, Lost
-3. **Activity Log** -- Timeline of notes, calls, emails per contact for full interaction history
-4. **Analytics Dashboard** -- Revenue over time, orders per status, leads per source, conversion funnel charts using Recharts
-5. **Contact Detail Page** -- Full profile with order history, activity timeline, notes, and status management
-6. **Deck Planner Leads Integration** -- Existing `deck_planner_leads` data pulled into the CRM automatically
+This plan replaces the entire product inventory with real Silvadec products scraped from en.silvadec.com. All product images will be hotlinked directly from the Silvadec CDN (which serves public product images). Product descriptions, specs, and FAQs will be written in Dutch to match the existing site language.
 
 ---
 
-## New Database Tables
+## Product Inventory (from scraped data)
 
-### `crm_contacts`
-Unified contact record merging customers and leads.
+### Category: Vlonderplanken (Decking) -- 8 products
 
-| Column | Type | Notes |
-|--------|------|-------|
-| id | uuid PK | |
-| email | text NOT NULL | |
-| name | text | |
-| phone | text | |
-| company | text | |
-| source | text | order, deck_planner, contact_form, manual, fence_planner |
-| pipeline_stage | enum | new, contacted, qualified, proposal, won, lost |
-| assigned_to | text | Admin name or email |
-| tags | text[] | Flexible tagging |
-| notes | text | General notes |
-| total_revenue | numeric | Cached total from orders |
-| last_contact_at | timestamptz | |
-| created_at | timestamptz | |
-| updated_at | timestamptz | |
+| Product | Color | Range | Type | Finish |
+|---------|-------|-------|------|--------|
+| Atmosphere Ushuaia Grijs | Grey | Atmosphere | Co-extrusie | Brushed |
+| Atmosphere Cayenne Grijs | Grey | Atmosphere | Co-extrusie | Brushed |
+| Atmosphere Belem Grijs | Grey | Atmosphere | Co-extrusie | Brushed |
+| Atmosphere Lima Bruin | Brown | Atmosphere | Co-extrusie | Brushed |
+| Atmosphere Sao Paulo Bruin | Brown | Atmosphere | Co-extrusie | Brushed |
+| Atmosphere Rio Bruin | Brown | Atmosphere | Co-extrusie | Brushed |
+| Nuances Ipe | Brown | Nuances | Co-extrusie | Brushed |
+| Nuances Licht Eiken | Brown | Nuances | Co-extrusie | Brushed |
+| Elegance Colorado Bruin (grooved) | Brown | Elegance | Mono-extrusie | Grooved |
+| Elegance Exotic Bruin (grooved) | Brown | Elegance | Mono-extrusie | Grooved |
+| Elegance Iroise Grijs (grooved) | Grey | Elegance | Mono-extrusie | Grooved |
+| Elegance Antraciet Grijs (grooved) | Grey | Elegance | Mono-extrusie | Grooved |
+| Emotion Savanne Bruin | Brown | Emotion | Mono-extrusie | Smooth |
+| Emotion Equateur Bruin | Brown | Emotion | Mono-extrusie | Smooth |
 
-### `crm_activities`
-Activity log per contact.
+### Category: Schuttingen (Fencing) -- 8 products
 
-| Column | Type | Notes |
-|--------|------|-------|
-| id | uuid PK | |
-| contact_id | uuid FK -> crm_contacts | |
-| type | enum | note, call, email, status_change, order |
-| title | text | Short summary |
-| description | text | Full details |
-| metadata | jsonb | Extra data (old/new status, order_id, etc.) |
-| created_by | uuid | Admin user who logged it |
-| created_at | timestamptz | |
+| Product | Color | Range |
+|---------|-------|-------|
+| Atmosphere Antraciet Grijs | Grey | Composite |
+| Atmosphere Licht Grijs | Grey | Composite |
+| Atmosphere Wild Grijs | Grey | Composite |
+| Atmosphere Zonnig Bruin | Brown | Composite |
+| Atmosphere Licht Eiken | Brown | Composite |
+| Aluminium Antraciet Grijs | Grey | Aluminium |
+| Aluminium Metaal Grijs | Grey | Aluminium |
+| Aluminium Zwart | Black | Aluminium |
 
-### New Enum Types
-- `crm_pipeline_stage`: new, contacted, qualified, proposal, won, lost
-- `crm_activity_type`: note, call, email, status_change, order
+### Category: Gevelbekleding (Cladding) -- 6 products
 
-### RLS Policies
-- Admins: full CRUD on both tables
-- No public access (CRM is admin-only)
+| Product | Color | Range |
+|---------|-------|-------|
+| Atmosphere 175 Wit Ceruse | White | Cladding 175 |
+| Atmosphere 175 Zonnig Bruin | Brown | Cladding 175 |
+| Atmosphere 175 Donker Bruin | Brown | Cladding 175 |
+| Open Rhombus Licht Bruin | Brown | Open Rhombus |
+| Open Rhombus Donker Bruin | Brown | Open Rhombus |
+| Open Rhombus Antraciet Grijs | Grey | Open Rhombus |
 
----
-
-## New Admin Pages
-
-### 1. `/admin/crm` -- CRM Contacts List
-- Searchable, filterable table of all contacts
-- Filter by pipeline stage, source, tags
-- Quick-edit pipeline stage inline
-- Sort by last contact, revenue, created date
-- Button to add new contact manually
-
-### 2. `/admin/crm/:id` -- Contact Detail
-- Contact info card (name, email, phone, company, source)
-- Pipeline stage selector with visual indicator
-- Tags editor
-- Order history section (linked from `cms_orders` by email)
-- Activity timeline with ability to add notes, log calls/emails
-- Revenue summary
-
-### 3. `/admin/analytics` -- Analytics Dashboard (replaces basic dashboard)
-Enhanced dashboard with Recharts charts:
-- **Revenue over time** -- Line chart (daily/weekly/monthly)
-- **Orders by status** -- Pie chart
-- **Leads by source** -- Bar chart
-- **Pipeline funnel** -- Funnel visualization showing conversion at each stage
-- **Top products** -- Bar chart of best-selling products
-- **Recent activity** -- Live feed of latest CRM activities
-- **KPI cards** -- Total contacts, conversion rate, average order value, total revenue
+**Total: ~28 products** (trimmed from 38 to avoid duplicates like grooved/smooth/embossed variants of the same color)
 
 ---
 
-## Updated Files
+## Image Strategy
 
-### Navigation
-- `src/components/admin/AdminLayout.tsx` -- Add "CRM" and "Analytics" nav items
+All product images will be hotlinked from the Silvadec CDN URLs already scraped. Each product will have:
+- 1 primary product shot (packshot/close-up)
+- 2-4 additional lifestyle/installation images
+- Images sourced from the `max_1300x1300` size variant for quality
 
-### Routes
-- `src/App.tsx` -- Add routes for `/admin/crm`, `/admin/crm/:id`, `/admin/analytics`
-
----
-
-## New Files
-
-| File | Purpose |
-|------|---------|
-| `src/pages/admin/AdminCRMPage.tsx` | Contact list with search, filters, pipeline stage |
-| `src/pages/admin/AdminContactDetailPage.tsx` | Single contact view with orders, activities, notes |
-| `src/pages/admin/AdminAnalyticsPage.tsx` | Full analytics dashboard with charts |
-| `src/components/admin/PipelineBadge.tsx` | Colored badge for pipeline stages |
-| `src/components/admin/ActivityTimeline.tsx` | Activity log timeline component |
-| `src/components/admin/AddActivityModal.tsx` | Modal to log a note/call/email |
-| `src/components/admin/AnalyticsCharts.tsx` | Recharts chart components (revenue, orders, leads) |
+Category hero images will also use Silvadec lifestyle shots from the homepage.
 
 ---
 
-## Data Sync Logic
+## Files to Modify
 
-- When a new order is created, auto-create or update a `crm_contacts` record by email
-- Import existing `deck_planner_leads` into `crm_contacts` via a one-time sync button in the CRM page
-- Activity entries auto-created on pipeline stage changes and order events
+### 1. `src/data/products.ts` -- Complete rewrite
+- Replace all 38 existing products with ~28 Silvadec products
+- Update `Tone` type to: `'bruin' | 'grijs' | 'zwart' | 'wit' | 'eiken'`
+- Update `Durability` type to: `'standaard' | 'premium' | 'co-extrusie'`
+- Keep `ProductType` as is
+- Update `toneLabels`, `durabilityLabels` accordingly
+- Each product includes: Dutch name, Dutch descriptions, Silvadec CDN images, realistic specs, FAQs, SEO titles/descriptions
+- Categories array updated with new Silvadec imagery
+
+### 2. `src/data/blogArticles.ts` -- Update `relatedProducts`
+- Update `relatedProducts` slugs to match new product slugs
+
+### 3. `supabase/functions/seed-products/index.ts` -- Complete rewrite
+- Replace all seed data with new Silvadec products
+- Update images, FAQs, descriptions to match new inventory
+
+### 4. `src/components/fence-planner/designerData.ts` -- Update panel images
+- Replace panel style images with Silvadec fencing product images
+
+### 5. `src/components/fence-planner/FenceSystemModal.tsx` -- No code change needed
+- Already reads from `products.ts` filtered by `schuttingen` category
+
+### 6. `src/pages/Index.tsx` -- Update featured products
+- Update `featuredSlugs` array to reference new product slugs
+- Update hero image and category images
+
+### 7. `src/components/ProductFilters.tsx` -- Update tone colors
+- Update `toneColors` map to match new tone values
 
 ---
 
-## Technical Details
+## Data Shape Per Product (example)
 
-### Database Migration
-Single migration file that:
-1. Creates `crm_pipeline_stage` and `crm_activity_type` enums
-2. Creates `crm_contacts` table with indexes on email, pipeline_stage, source
-3. Creates `crm_activities` table with index on contact_id
-4. Enables RLS on both tables
-5. Creates admin-only RLS policies using `has_role(auth.uid(), 'admin')`
-6. Adds `updated_at` trigger on `crm_contacts`
+```text
+{
+  id: "silvadec-atmo-ushuaia",
+  name: "Silvadec Atmosphere Ushuaia Grijs",
+  price: 89,
+  priceLabel: "Vanaf EUR 89,- /m2",
+  image: "[Silvadec CDN URL]",
+  category: "vlonderplanken",
+  tone: "grijs",
+  durability: "co-extrusie",
+  productType: "plank",
+  slug: "atmosphere-ushuaia-grijs-vlonderplank",
+  features: ["Co-extrusie", "Geborsteld", "25 jaar garantie"],
+  guarantee: "25 jaar fabrieksgarantie",
+  deliveryTime: "5-8 werkdagen",
+  description: "...",
+  longDescription: "... (markdown, ~800 words)",
+  specifications: { Breedte: "138 mm", Dikte: "23 mm", ... },
+  images: ["url1", "url2", "url3"],
+  highlights: ["Kleurvast door co-extrusie", ...],
+  faq: [{ question: "...", answer: "..." }],
+  seoTitle: "Silvadec Atmosphere Ushuaia Grijs | Composiet Vlonderplank",
+  seoDescription: "..."
+}
+```
 
-### Charts Library
-Uses `recharts` (already installed) for:
-- `LineChart` for revenue trends
-- `PieChart` for order status distribution
-- `BarChart` for lead sources and top products
-- Custom funnel using stacked bars
+---
 
-### Analytics Queries
-All analytics queries run client-side against the database using the Supabase JS client, aggregating data in the frontend. For large datasets in the future, this can be moved to database views or Edge Functions.
+## Database Sync
 
-### Implementation Order
-1. Database migration (tables + RLS)
-2. CRM contacts list page
-3. Contact detail page with activity timeline
-4. Analytics dashboard with charts
-5. Auto-sync logic (orders -> contacts)
-6. Navigation and routing updates
+After updating `products.ts`, the seed Edge Function will also be updated. We will then re-run the seed to update the database with the new Silvadec products, ensuring admin CMS, Google Feed, and storefront all reflect the new inventory.
+
+---
+
+## Enum Migration
+
+A database migration will update the `product_tone` enum to match the new values:
+- Old: `teak, zwart, walnoot, eiken, grijs`
+- New: `bruin, grijs, zwart, wit, eiken`
+
+---
+
+## What Stays the Same
+
+- All page templates (ProductPage, CategoryPage, etc.) -- no changes needed
+- Product card component -- no changes
+- CRM system -- no changes
+- Admin pages -- no changes (they read from DB)
+- Fence planner logic -- only image URLs change
+- Deck planner -- only product data changes
+
+---
+
+## Implementation Order
+
+1. Update `src/data/products.ts` with all Silvadec products and new types
+2. Update `src/data/blogArticles.ts` related product slugs
+3. Update `src/components/fence-planner/designerData.ts` panel images
+4. Update `src/components/ProductFilters.tsx` tone color map
+5. Update `src/pages/Index.tsx` featured products and hero images
+6. Database migration for updated enums
+7. Update and re-run `seed-products` Edge Function
+8. Verify all pages render correctly
+
