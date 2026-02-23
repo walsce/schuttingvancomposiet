@@ -32,6 +32,7 @@ import AdminSettingsPage from "./pages/admin/AdminSettingsPage";
 import AdminCRMPage from "./pages/admin/AdminCRMPage";
 import AdminContactDetailPage from "./pages/admin/AdminContactDetailPage";
 import AdminAnalyticsPage from "./pages/admin/AdminAnalyticsPage";
+import AdminAutomationsPage from "./pages/admin/AdminAutomationsPage";
 import NotFound from "./pages/NotFound";
 import ChatWidget from "./components/ChatWidget";
 
@@ -87,6 +88,7 @@ const App = () => (
               <Route path="/admin/crm" element={<AdminCRMPage />} />
               <Route path="/admin/crm/:id" element={<AdminContactDetailPage />} />
               <Route path="/admin/analytics" element={<AdminAnalyticsPage />} />
+              <Route path="/admin/automations" element={<AdminAutomationsPage />} />
               <Route path="/admin/products" element={<AdminProductsPage />} />
               <Route path="/admin/products/:id" element={<AdminProductEditPage />} />
               <Route path="/admin/categories" element={<AdminCategoriesPage />} />

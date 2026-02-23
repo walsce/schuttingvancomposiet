@@ -4,14 +4,15 @@ import AdminLayout from "@/components/admin/AdminLayout";
 import { supabase } from "@/integrations/supabase/client";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
 import PipelineBadge, { PIPELINE_STAGES } from "@/components/admin/PipelineBadge";
-import { Plus, Search, Download } from "lucide-react";
+import { Plus, Search, Download, Users, TrendingUp, UserPlus, DollarSign } from "lucide-react";
 import { toast } from "sonner";
-import { format } from "date-fns";
+import { format, subDays } from "date-fns";
 import { nl } from "date-fns/locale";
 
 interface Contact {
@@ -28,6 +29,16 @@ interface Contact {
   tags: string[] | null;
 }
 
+const SOURCE_LABELS: Record<string, string> = {
+  order: "Bestelling",
+  deck_planner: "Vlonder Planner",
+  fence_planner: "Schutting Planner",
+  contact_form: "Contactformulier",
+  quote_request: "Offerte aanvraag",
+  sample_request: "Sample aanvraag",
+  manual: "Handmatig",
+};
+
 const AdminCRMPage = () => {
   const [contacts, setContacts] = useState<Contact[]>([]);
   const [loading, setLoading] = useState(true);
@@ -37,13 +48,25 @@ const AdminCRMPage = () => {
   const [addOpen, setAddOpen] = useState(false);
   const [newContact, setNewContact] = useState({ email: "", name: "", phone: "", company: "", source: "manual" });
   const [syncing, setSyncing] = useState(false);
+  const [stats, setStats] = useState({ total: 0, newThisWeek: 0, openQuotes: 0, totalRevenue: 0 });
 
   const fetchContacts = async () => {
     let query = supabase.from("crm_contacts").select("*").order("created_at", { ascending: false });
     if (stageFilter !== "all") query = query.eq("pipeline_stage", stageFilter as any);
     if (sourceFilter !== "all") query = query.eq("source", sourceFilter);
     const { data } = await query;
-    setContacts((data as any[]) || []);
+    const all = (data as any[]) || [];
+    setContacts(all);
+
+    // Calculate stats
+    const weekAgo = subDays(new Date(), 7).toISOString();
+    setStats({
+      total: all.length,
+      newThisWeek: all.filter((c) => c.created_at >= weekAgo).length,
+      openQuotes: all.filter((c) => ["new", "contacted", "qualified", "proposal"].includes(c.pipeline_stage)).length,
+      totalRevenue: all.reduce((s, c) => s + (c.total_revenue || 0), 0),
+    });
+
     setLoading(false);
   };
 
@@ -58,7 +81,6 @@ const AdminCRMPage = () => {
     const contact = contacts.find((c) => c.id === id);
     const oldStage = contact?.pipeline_stage;
     await supabase.from("crm_contacts").update({ pipeline_stage: stage as any }).eq("id", id);
-    // Log stage change activity
     await supabase.from("crm_activities").insert({
       contact_id: id,
       type: "status_change" as any,
@@ -111,12 +133,52 @@ const AdminCRMPage = () => {
           <div className="flex gap-2">
             <Button variant="outline" size="sm" onClick={syncDeckLeads} disabled={syncing}>
               <Download className="h-4 w-4 mr-1" />
-              {syncing ? "Syncing…" : "Import Vlonder Leads"}
+              {syncing ? "Syncing…" : "Import Leads"}
             </Button>
             <Button size="sm" onClick={() => setAddOpen(true)}>
               <Plus className="h-4 w-4 mr-1" /> Nieuw contact
             </Button>
           </div>
+        </div>
+
+        {/* Stats cards */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <Card>
+            <CardContent className="p-4 flex items-center gap-3">
+              <Users className="h-8 w-8 text-primary" />
+              <div>
+                <p className="text-2xl font-bold">{stats.total}</p>
+                <p className="text-xs text-muted-foreground">Totaal contacten</p>
+              </div>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardContent className="p-4 flex items-center gap-3">
+              <UserPlus className="h-8 w-8 text-primary" />
+              <div>
+                <p className="text-2xl font-bold">{stats.newThisWeek}</p>
+                <p className="text-xs text-muted-foreground">Nieuw deze week</p>
+              </div>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardContent className="p-4 flex items-center gap-3">
+              <TrendingUp className="h-8 w-8 text-primary" />
+              <div>
+                <p className="text-2xl font-bold">{stats.openQuotes}</p>
+                <p className="text-xs text-muted-foreground">Open leads</p>
+              </div>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardContent className="p-4 flex items-center gap-3">
+              <DollarSign className="h-8 w-8 text-primary" />
+              <div>
+                <p className="text-2xl font-bold">€{stats.totalRevenue.toFixed(0)}</p>
+                <p className="text-xs text-muted-foreground">Totale omzet</p>
+              </div>
+            </CardContent>
+          </Card>
         </div>
 
         <div className="flex flex-wrap gap-3">
@@ -132,13 +194,12 @@ const AdminCRMPage = () => {
             </SelectContent>
           </Select>
           <Select value={sourceFilter} onValueChange={setSourceFilter}>
-            <SelectTrigger className="w-[160px]"><SelectValue placeholder="Bron" /></SelectTrigger>
+            <SelectTrigger className="w-[180px]"><SelectValue placeholder="Bron" /></SelectTrigger>
             <SelectContent>
               <SelectItem value="all">Alle bronnen</SelectItem>
-              <SelectItem value="order">Bestelling</SelectItem>
-              <SelectItem value="deck_planner">Vlonder Planner</SelectItem>
-              <SelectItem value="contact_form">Contactformulier</SelectItem>
-              <SelectItem value="manual">Handmatig</SelectItem>
+              {Object.entries(SOURCE_LABELS).map(([k, v]) => (
+                <SelectItem key={k} value={k}>{v}</SelectItem>
+              ))}
             </SelectContent>
           </Select>
         </div>
@@ -167,7 +228,7 @@ const AdminCRMPage = () => {
                       </Link>
                     </TableCell>
                     <TableCell className="text-sm">{c.email}</TableCell>
-                    <TableCell className="text-sm capitalize">{c.source || "—"}</TableCell>
+                    <TableCell className="text-sm">{SOURCE_LABELS[c.source || ""] || c.source || "—"}</TableCell>
                     <TableCell>
                       <Select value={c.pipeline_stage} onValueChange={(v) => handleStageChange(c.id, v)}>
                         <SelectTrigger className="w-[140px] h-8">

@@ -14,6 +14,39 @@ export type Database = {
   }
   public: {
     Tables: {
+      abandoned_carts: {
+        Row: {
+          cart_data: Json
+          checkout_started: boolean
+          created_at: string
+          email: string | null
+          id: string
+          recovered: boolean
+          session_id: string
+          updated_at: string
+        }
+        Insert: {
+          cart_data?: Json
+          checkout_started?: boolean
+          created_at?: string
+          email?: string | null
+          id?: string
+          recovered?: boolean
+          session_id: string
+          updated_at?: string
+        }
+        Update: {
+          cart_data?: Json
+          checkout_started?: boolean
+          created_at?: string
+          email?: string | null
+          id?: string
+          recovered?: boolean
+          session_id?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       cms_categories: {
         Row: {
           created_at: string
@@ -460,6 +493,48 @@ export type Database = {
         }
         Relationships: []
       }
+      email_automations: {
+        Row: {
+          created_at: string
+          html_body: string | null
+          id: string
+          metadata: Json | null
+          recipient_email: string
+          recipient_name: string | null
+          scheduled_for: string
+          sent_at: string | null
+          status: Database["public"]["Enums"]["email_status"]
+          subject: string | null
+          type: Database["public"]["Enums"]["email_automation_type"]
+        }
+        Insert: {
+          created_at?: string
+          html_body?: string | null
+          id?: string
+          metadata?: Json | null
+          recipient_email: string
+          recipient_name?: string | null
+          scheduled_for?: string
+          sent_at?: string | null
+          status?: Database["public"]["Enums"]["email_status"]
+          subject?: string | null
+          type: Database["public"]["Enums"]["email_automation_type"]
+        }
+        Update: {
+          created_at?: string
+          html_body?: string | null
+          id?: string
+          metadata?: Json | null
+          recipient_email?: string
+          recipient_name?: string | null
+          scheduled_for?: string
+          sent_at?: string | null
+          status?: Database["public"]["Enums"]["email_status"]
+          subject?: string | null
+          type?: Database["public"]["Enums"]["email_automation_type"]
+        }
+        Relationships: []
+      }
       google_feed_settings: {
         Row: {
           brand_name: string | null
@@ -534,6 +609,13 @@ export type Database = {
         | "proposal"
         | "won"
         | "lost"
+      email_automation_type:
+        | "order_confirmation"
+        | "cart_abandonment_1"
+        | "cart_abandonment_2"
+        | "checkout_abandonment_1"
+        | "checkout_abandonment_2"
+      email_status: "queued" | "sent" | "failed" | "cancelled"
       order_status:
         | "pending"
         | "paid"
@@ -689,6 +771,14 @@ export const Constants = {
         "won",
         "lost",
       ],
+      email_automation_type: [
+        "order_confirmation",
+        "cart_abandonment_1",
+        "cart_abandonment_2",
+        "checkout_abandonment_1",
+        "checkout_abandonment_2",
+      ],
+      email_status: ["queued", "sent", "failed", "cancelled"],
       order_status: [
         "pending",
         "paid",
