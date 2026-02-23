@@ -8,11 +8,11 @@ interface ProductFiltersProps {
 }
 
 const toneColors: Record<Tone, string> = {
-  teak: "bg-teak",
-  zwart: "bg-foreground",
-  walnoot: "bg-walnut",
-  eiken: "bg-oak",
+  bruin: "bg-[#8B5E3C]",
   grijs: "bg-muted-foreground",
+  zwart: "bg-foreground",
+  wit: "bg-[#E8E0D8]",
+  eiken: "bg-[#C4A56E]",
 };
 
 const sortLabels: Record<SortOption, string> = {

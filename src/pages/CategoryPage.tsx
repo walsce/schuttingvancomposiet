@@ -41,9 +41,7 @@ const CategoryPage = () => {
   const otherCategories = categories.filter((c) => c.slug !== slug);
 
   // Resolve related blog articles from category data
-  const relatedBlogs = (category.relatedBlogSlugs || [])
-    .map((s) => blogArticles.find((a) => a.slug === s))
-    .filter(Boolean);
+  const relatedBlogs = blogArticles.filter((a) => a.relatedCategories.includes(slug || '')).slice(0, 3);
 
   return (
     <div className="min-h-screen bg-background">
@@ -143,7 +141,7 @@ const CategoryPage = () => {
         </section>
 
         {/* FAQ */}
-        {faqs.length > 0 && <FAQSection faqs={faqs} />}
+        {faqs.length > 0 && <FAQSection faqs={faqs.map(f => ({ q: f.question, a: f.answer }))} />}
 
         {/* Sample CTA */}
         <section className="bg-secondary/30 border-y border-border">

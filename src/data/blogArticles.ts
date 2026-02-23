@@ -32,7 +32,7 @@ export const blogArticles: BlogArticle[] = [
     date: "2026-02-10",
     author: { name: "Mark de Vries", role: "Composiet specialist" },
     updatedDate: "2026-02-15",
-    relatedProducts: ["nogap-vlonderplank-teak", "nogap-vlonderplank-walnoot", "nogap-vlonderplank-eiken"],
+    relatedProducts: ["nuances-ipe-vlonderplank", "nuances-licht-eiken-vlonderplank", "atmosphere-ushuaia-grijs-vlonderplank"],
     relatedCategories: ["vlonderplanken"],
     schemaType: "Article",
     content: `## Waarom composiet vlonderplanken?
@@ -48,35 +48,31 @@ Composiet vlonderplanken combineren de warme, natuurlijke uitstraling van hout m
 
 ## Waar moet je op letten?
 
-### 1. Massief vs. hol profiel
+### 1. Co-extrusie vs. Mono-extrusie
 
-**Massieve planken** zijn steviger en voelen meer als echt hout. Ze zijn ideaal voor terrassen met veel belasting. **Holle profielen** zijn lichter en goedkoper, maar minder geschikt voor zware meubels.
+**Co-extrusie planken** (zoals Silvadec Atmosphere en Nuances) hebben een extra beschermlaag die zorgt voor maximale kleurvastheid en vlekbestendigheid. **Mono-extrusie planken** (zoals Elegance en Emotion) zijn budget-vriendelijker maar ontwikkelen na verloop van tijd een patina.
 
-### 2. Co-Extrusie beschermlaag
+### 2. Afwerking
 
-Kies altijd voor planken met een Co-Extrusie beschermlaag. Deze extra laag beschermt tegen:
-- UV-straling en verkleuring
-- Wateropname en zwelling
-- Krassen en vlekken
+Kies tussen geborsteld, gegroefde, glad of gestructureerd. Geborsteld geeft de meest natuurlijke houtlook, gegroefde biedt optimale antislip-eigenschappen.
 
 ### 3. Afmetingen
 
-Standaard lengtes variëren van 2,4 tot 4,8 meter. Bereken altijd je benodigde oppervlakte plus 10% extra voor zaagverlies.
+Standaard lengtes variëren van 3,6 tot 4,0 meter. Bereken altijd je benodigde oppervlakte plus 10% extra voor zaagverlies.
 
 ### 4. Kleurkeuze
 
-Onze vlonderplanken zijn beschikbaar in drie tinten:
-- **Teak** — warm en licht, perfect voor moderne tuinen
-- **Eiken** — klassiek en veelzijdig
-- **Walnoot** — donker en luxe, voor een stijlvol terras
+Silvadec vlonderplanken zijn beschikbaar in twee kleurenfamilies:
+- **Bruin** — van licht goudbruin tot diep donkerbruin
+- **Grijs** — van fris lichtgrijs tot diep antraciet
 
 ## Prijsindicatie
 
-Reken op €45–€75 per vierkante meter voor premium composiet vlonderplanken. De investering verdient zich terug door het ontbreken van onderhoudskosten.
+Reken op €49–€89 per vierkante meter. Co-extrusie planken zijn duurder maar bieden langere garantie (25 jaar vs. 15 jaar).
 
 ## Conclusie
 
-Investeer in kwaliteit en kies voor composiet met Co-Extrusie beschermlaag. Je geniet jarenlang van een prachtig terras zonder gedoe.`,
+Investeer in kwaliteit en kies voor composiet met co-extrusie beschermlaag als budget het toelaat. Je geniet jarenlang van een prachtig terras zonder gedoe.`,
   },
   {
     slug: "gevelbekleding-installeren-stap-voor-stap",
@@ -88,7 +84,7 @@ Investeer in kwaliteit en kies voor composiet met Co-Extrusie beschermlaag. Je g
     date: "2026-02-05",
     author: { name: "Jan Bakker", role: "Montage expert" },
     updatedDate: "2026-02-12",
-    relatedProducts: ["rhombus-teak", "rhombus-zwart", "hoekprofiel-teak"],
+    relatedProducts: ["atmosphere-175-wit-ceruse", "atmosphere-175-zonnig-bruin", "open-rhombus-antraciet-grijs"],
     relatedCategories: ["gevelbekleding"],
     schemaType: "HowTo",
     content: `## Voorbereiding
@@ -148,7 +144,7 @@ Gebruik hoekprofielen en eindstukken voor een strakke afwerking. Laat een dilata
     date: "2026-01-28",
     author: { name: "Jan Bakker", role: "Montage expert" },
     updatedDate: "2026-02-01",
-    relatedProducts: ["schutting-rhombus-teak", "schutting-rhombus-zwart", "schutting-rhombus-walnoot"],
+    relatedProducts: ["atmosphere-schutting-antraciet-grijs", "aluminium-schutting-zwart", "atmosphere-schutting-wild-grijs"],
     relatedCategories: ["schuttingen"],
     schemaType: "HowTo",
     content: `## De juiste fundering
@@ -201,7 +197,7 @@ Je composiet schutting heeft nauwelijks onderhoud nodig:
     date: "2026-01-20",
     author: { name: "Mark de Vries", role: "Composiet specialist" },
     updatedDate: "2026-01-25",
-    relatedProducts: ["rhombus-teak", "nogap-vlonderplank-teak"],
+    relatedProducts: ["atmosphere-175-zonnig-bruin", "nuances-ipe-vlonderplank"],
     relatedCategories: ["gevelbekleding", "vlonderplanken", "schuttingen"],
     schemaType: "Article",
     content: `## De grote vraag
@@ -212,9 +208,9 @@ Je composiet schutting heeft nauwelijks onderhoud nodig:
 
 | | Composiet | Hardhout | Zachthout |
 |---|---|---|---|
-| Aanschafprijs per m² | €45–€75 | €50–€100 | €15–€30 |
+| Aanschafprijs per m² | €49–€89 | €50–€100 | €15–€30 |
 | Onderhoudskosten (10 jaar) | €0 | €200–€400 | €300–€500 |
-| **Totaalkosten (10 jaar)** | **€45–€75** | **€250–€500** | **€315–€530** |
+| **Totaalkosten (10 jaar)** | **€49–€89** | **€250–€500** | **€315–€530** |
 
 Composiet is op lange termijn bijna altijd goedkoper.
 
@@ -259,7 +255,7 @@ Kies hout als je:
     date: "2026-01-15",
     author: { name: "Lisa Jansen", role: "Onderhoud adviseur" },
     updatedDate: "2026-02-01",
-    relatedProducts: ["nogap-vlonderplank-teak", "schutting-rhombus-teak"],
+    relatedProducts: ["atmosphere-ushuaia-grijs-vlonderplank", "atmosphere-schutting-antraciet-grijs"],
     relatedCategories: ["vlonderplanken", "schuttingen"],
     schemaType: "Article",
     content: `## Voorjaar: grote schoonmaak
@@ -314,18 +310,18 @@ Breng jaarlijks een composiet-beschermer aan. Dit is geen noodzaak maar verlengt
     date: "2026-01-08",
     author: { name: "Sophie van Dijk", role: "Tuin & design specialist" },
     updatedDate: "2026-01-20",
-    relatedProducts: ["nogap-vlonderplank-teak", "nogap-vlonderplank-walnoot", "massief-vlonderplank-zwart"],
+    relatedProducts: ["nuances-ipe-vlonderplank", "atmosphere-rio-bruin-vlonderplank", "atmosphere-belem-grijs-vlonderplank"],
     relatedCategories: ["vlonderplanken"],
     schemaType: "Article",
     content: `## 1. Het minimalistische stadsterras
 
 Een strak terras in antraciet composiet, gecombineerd met witte plantenbakken en siergrassen. Perfect voor kleine stadstuinen waar elke vierkante meter telt.
 
-**Tip:** Kies smalle planken (140 mm) voor een moderne uitstraling en leg ze in de lengterichting om de tuin groter te laten lijken.
+**Tip:** Kies smalle planken (138 mm) voor een moderne uitstraling en leg ze in de lengterichting om de tuin groter te laten lijken.
 
 ## 2. Het familievriendelijke tuinterras
 
-Een ruim terras in warm teak composiet met een ingebouwde zandbak en speelhoek. Splintervrij en veilig voor de kleintjes.
+Een ruim terras in warm bruin composiet met een ingebouwde zandbak en speelhoek. Splintervrij en veilig voor de kleintjes.
 
 **Tip:** Combineer verschillende niveaus voor een speels effect. Gebruik trapprofielen voor veilige overgangen.
 
@@ -337,7 +333,7 @@ Lichte eiken composiet vlonders gecombineerd met een pergola, klimplanten en com
 
 ## 4. Het verhoogde terras
 
-Een verhoogd platform in walnoot composiet, bereikbaar via brede treden. Ideaal voor tuinen met hoogteverschillen of als uitbreiding van de woonkamer.
+Een verhoogd platform in donkerbruin composiet, bereikbaar via brede treden. Ideaal voor tuinen met hoogteverschillen of als uitbreiding van de woonkamer.
 
 **Tip:** Integreer LED-stripverlichting in de traptreden voor sfeervolle avondverlichting.
 

@@ -26,11 +26,17 @@ const faqs = [
   { q: "Wat zijn de voordelen van Co-Extrusie?", a: "De Co-Extrusie beschermlaag voorkomt wateropname en beschermt extra tegen UV-straling. Hierdoor gaat je composiet langer mee en behoudt het zijn kleur." },
 ];
 
-const featuredProducts = [
-  ...products.filter(p => p.category === 'gevelbekleding').slice(0, 2),
-  ...products.filter(p => p.category === 'schuttingen').slice(0, 2),
-  ...products.filter(p => p.category === 'vlonderplanken').slice(0, 2),
+const featuredSlugs = [
+  'atmosphere-175-wit-ceruse',
+  'open-rhombus-antraciet-grijs',
+  'atmosphere-schutting-antraciet-grijs',
+  'aluminium-schutting-zwart',
+  'nuances-ipe-vlonderplank',
+  'atmosphere-ushuaia-grijs-vlonderplank',
 ];
+const featuredProducts = featuredSlugs
+  .map(slug => products.find(p => p.slug === slug))
+  .filter(Boolean) as typeof products;
 
 const Index = () => {
   return (
