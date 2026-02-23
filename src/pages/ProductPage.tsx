@@ -2,6 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import { useState } from "react";
 import { products, categories } from "@/data/products";
 import { useCart } from "@/contexts/CartContext";
+import VariantSelector from "@/components/VariantSelector";
 import { toast } from "@/hooks/use-toast";
 import { blogArticles } from "@/data/blogArticles";
 import { downloads } from "@/data/downloads";
@@ -184,6 +185,9 @@ const ProductPage = () => {
                   ))}
                 </div>
               )}
+
+              {/* Variant Selector */}
+              <VariantSelector product={product} />
 
               {/* Quantity + Add to cart */}
               <div className="flex items-center gap-3 pt-2">
