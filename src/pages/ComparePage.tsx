@@ -113,7 +113,7 @@ const ComparePage = () => {
             <div className="grid border-b border-border" style={{ gridTemplateColumns: `200px repeat(${visibleCategories.length}, 1fr)` }}>
               <div className="p-4 bg-muted/50" />
               {visibleCategories.map((cat) => {
-                const catData = categories.find((c) => c.id === cat);
+                const catData = categories.find((c) => c.slug === cat);
                 return (
                   <div key={cat} className="p-5 text-center border-l border-border">
                     <div className="w-full aspect-[16/9] rounded-lg overflow-hidden mb-3">
@@ -179,7 +179,7 @@ const ComparePage = () => {
           {/* Advice section */}
           <div className="mt-16 grid md:grid-cols-3 gap-6">
             {allCategories.map((cat) => {
-              const catData = categories.find((c) => c.id === cat);
+              const catData = categories.find((c) => c.slug === cat);
               const advice: Record<CompareCategory, { title: string; description: string }> = {
                 gevelbekleding: { title: "Gevel upgraden?", description: "Kies gevelbekleding voor een moderne, onderhoudsvriendelijke gevel die jarenlang mooi blijft." },
                 schuttingen: { title: "Privacy in de tuin?", description: "Composiet schuttingen bieden privacy met stijl. Extra dikke 2,5cm planken voor een robuust resultaat." },
