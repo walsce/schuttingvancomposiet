@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield, Truck, ThumbsUp, Wrench } from "lucide-react";
 import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-composite.jpg";
+import PressBar from "@/components/PressBar";
 
 const usps = [
   { icon: Truck, title: "Snelle levering", desc: "Eigen bezorgservice door heel Nederland en België" },
@@ -95,6 +96,9 @@ const Index = () => {
             </div>
           </div>
         </section>
+
+        {/* Press / Bekend van bar */}
+        <PressBar />
 
         {/* USPs */}
         <section className="border-b border-border bg-card">

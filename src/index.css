@@ -103,6 +103,15 @@
   }
 }
 
+/* Marquee animation for press bar */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
 /* Safe area insets for notched devices */
 @supports (padding: env(safe-area-inset-bottom)) {
   .safe-bottom {
