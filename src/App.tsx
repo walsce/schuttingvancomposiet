@@ -97,6 +97,16 @@ const App = () => (
               <Route path="/vlonder-onderconstructie" element={<SEOContentPage />} />
               <Route path="/hornbach-composiet-vlonder" element={<SEOContentPage />} />
               <Route path="/gamma-composiet-vlonder" element={<SEOContentPage />} />
+              {/* Pillar 3: Gevelbekleding */}
+              <Route path="/composiet-gevelbekleding" element={<SEOContentPage />} />
+              <Route path="/composiet-gevelbekleding-prijs" element={<SEOContentPage />} />
+              <Route path="/gevelbekleding-zonder-onderhoud" element={<SEOContentPage />} />
+              <Route path="/rhombus-gevelbekleding-composiet" element={<SEOContentPage />} />
+              <Route path="/gevelbekleding-composiet-nadelen" element={<SEOContentPage />} />
+              <Route path="/composiet-gevelplanken-monteren" element={<SEOContentPage />} />
+              <Route path="/composiet-vs-hout-gevelbekleding" element={<SEOContentPage />} />
+              <Route path="/gevelbekleding-kleuren" element={<SEOContentPage />} />
+              <Route path="/composiet-gevelbekleding-zwart" element={<SEOContentPage />} />
               {/* Admin routes */}
               <Route path="/admin/login" element={<AdminLoginPage />} />
               <Route path="/admin" element={<AdminDashboard />} />
