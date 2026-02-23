@@ -286,7 +286,7 @@ export const downloads: DownloadGuide[] = [
     relatedLinks: [
       { label: "Vlonderplanken bekijken", href: "/categorie/vlonderplanken" },
     ],
-    pdfPath: "/downloads/onderhoudsadvies-elegance-emotion-vlonder.pdf",
+    pdfPath: "https://jakqbjeukobtyxxxpzcr.supabase.co/storage/v1/object/public/product-images/branded-pdfs/onderhoud-elegance-emotion.pdf",
     relatedCategory: "vlonderplanken",
   },
   {
@@ -306,7 +306,7 @@ export const downloads: DownloadGuide[] = [
     relatedLinks: [
       { label: "Vlonderplanken bekijken", href: "/categorie/vlonderplanken" },
     ],
-    pdfPath: "/downloads/milieu-productverklaring-vlonderplanken.pdf",
+    pdfPath: "https://jakqbjeukobtyxxxpzcr.supabase.co/storage/v1/object/public/product-images/branded-pdfs/epd-vlonderplanken.pdf",
     relatedCategory: "vlonderplanken",
   },
   {
@@ -409,6 +409,7 @@ export const downloads: DownloadGuide[] = [
     relatedLinks: [
       { label: "Schuttingen bekijken", href: "/categorie/schuttingen" },
     ],
+    pdfPath: "https://jakqbjeukobtyxxxpzcr.supabase.co/storage/v1/object/public/product-images/branded-pdfs/checklist-schutting-plaatsen.pdf",
     relatedCategory: "schuttingen",
   },
   {
@@ -428,6 +429,7 @@ export const downloads: DownloadGuide[] = [
     relatedLinks: [
       { label: "Vlonderplanken bekijken", href: "/categorie/vlonderplanken" },
     ],
+    pdfPath: "https://jakqbjeukobtyxxxpzcr.supabase.co/storage/v1/object/public/product-images/branded-pdfs/grondvoorbereiding.pdf",
   },
   {
     id: "vergunningen-regels",
@@ -446,6 +448,7 @@ export const downloads: DownloadGuide[] = [
     relatedLinks: [
       { label: "Contact voor advies", href: "/contact" },
     ],
+    pdfPath: "https://jakqbjeukobtyxxxpzcr.supabase.co/storage/v1/object/public/product-images/branded-pdfs/vergunningen-regels.pdf",
   },
   {
     id: "kleurengids",
@@ -464,5 +467,6 @@ export const downloads: DownloadGuide[] = [
     relatedLinks: [
       { label: "Bekijk alle kleuren", href: "/assortiment" },
     ],
+    pdfPath: "https://jakqbjeukobtyxxxpzcr.supabase.co/storage/v1/object/public/product-images/branded-pdfs/kleurengids.pdf",
   },
 ];
