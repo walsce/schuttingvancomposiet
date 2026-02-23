@@ -1,169 +1,115 @@
 
 
-# Replace All Products with Silvadec Catalog
+# Remove Silvadec Branding and Create Branded PDFs
 
 ## Overview
 
-This plan replaces the entire product inventory with real Silvadec products scraped from en.silvadec.com. All product images will be hotlinked directly from the Silvadec CDN (which serves public product images). Product descriptions, specs, and FAQs will be written in Dutch to match the existing site language.
+Two major changes: (1) strip all "Silvadec" references across the entire site, replacing with generic composiet terminology or "SchuttingenvanComposiet.nl" where appropriate, and (2) generate new branded PDF documents from the extracted content using a server-side PDF generator.
 
 ---
 
-## Product Inventory (from scraped data)
+## Part 1: Remove "Silvadec" from All Content
 
-### Category: Vlonderplanken (Decking) -- 8 products
+### Files affected
 
-| Product | Color | Range | Type | Finish |
-|---------|-------|-------|------|--------|
-| Atmosphere Ushuaia Grijs | Grey | Atmosphere | Co-extrusie | Brushed |
-| Atmosphere Cayenne Grijs | Grey | Atmosphere | Co-extrusie | Brushed |
-| Atmosphere Belem Grijs | Grey | Atmosphere | Co-extrusie | Brushed |
-| Atmosphere Lima Bruin | Brown | Atmosphere | Co-extrusie | Brushed |
-| Atmosphere Sao Paulo Bruin | Brown | Atmosphere | Co-extrusie | Brushed |
-| Atmosphere Rio Bruin | Brown | Atmosphere | Co-extrusie | Brushed |
-| Nuances Ipe | Brown | Nuances | Co-extrusie | Brushed |
-| Nuances Licht Eiken | Brown | Nuances | Co-extrusie | Brushed |
-| Elegance Colorado Bruin (grooved) | Brown | Elegance | Mono-extrusie | Grooved |
-| Elegance Exotic Bruin (grooved) | Brown | Elegance | Mono-extrusie | Grooved |
-| Elegance Iroise Grijs (grooved) | Grey | Elegance | Mono-extrusie | Grooved |
-| Elegance Antraciet Grijs (grooved) | Grey | Elegance | Mono-extrusie | Grooved |
-| Emotion Savanne Bruin | Brown | Emotion | Mono-extrusie | Smooth |
-| Emotion Equateur Bruin | Brown | Emotion | Mono-extrusie | Smooth |
+| File | Occurrences | Change |
+|------|------------|--------|
+| `src/data/products.ts` | ~735 | Remove "Silvadec" from all product names, descriptions, longDescriptions, seoTitles, seoDescriptions, FAQs, and specifications (remove `Merk: 'Silvadec'`) |
+| `src/data/downloads.ts` | ~30 | Remove "Silvadec" from all download descriptions and bullet points |
+| `src/data/blogArticles.ts` | ~10 | Remove "Silvadec" from blog article content |
+| `src/pages/DownloadsPage.tsx` | ~3 | Remove from FAQ answers, SEO meta, and JSON-LD |
 
-### Category: Schuttingen (Fencing) -- 8 products
+### Naming convention after removal
 
-| Product | Color | Range |
-|---------|-------|-------|
-| Atmosphere Antraciet Grijs | Grey | Composite |
-| Atmosphere Licht Grijs | Grey | Composite |
-| Atmosphere Wild Grijs | Grey | Composite |
-| Atmosphere Zonnig Bruin | Brown | Composite |
-| Atmosphere Licht Eiken | Brown | Composite |
-| Aluminium Antraciet Grijs | Grey | Aluminium |
-| Aluminium Metaal Grijs | Grey | Aluminium |
-| Aluminium Zwart | Black | Aluminium |
-
-### Category: Gevelbekleding (Cladding) -- 6 products
-
-| Product | Color | Range |
-|---------|-------|-------|
-| Atmosphere 175 Wit Ceruse | White | Cladding 175 |
-| Atmosphere 175 Zonnig Bruin | Brown | Cladding 175 |
-| Atmosphere 175 Donker Bruin | Brown | Cladding 175 |
-| Open Rhombus Licht Bruin | Brown | Open Rhombus |
-| Open Rhombus Donker Bruin | Brown | Open Rhombus |
-| Open Rhombus Antraciet Grijs | Grey | Open Rhombus |
-
-**Total: ~28 products** (trimmed from 38 to avoid duplicates like grooved/smooth/embossed variants of the same color)
+- "Silvadec Atmosphere 175 Wit Ceruse" becomes "Atmosphere 175 Wit Ceruse"
+- "Silvadec composiet schuttingen" becomes "composiet schuttingen"
+- "Silvadec Reversil aluminium onderbalken" becomes "Reversil aluminium onderbalken"
+- Product range names (Atmosphere, Elegance, Emotion, Nuances) stay -- these describe the product line, not the manufacturer
+- "Silvawash" and "Silvaction" product names stay as-is -- these are specific product names for cleaning/maintenance items
 
 ---
 
-## Image Strategy
+## Part 2: Generate Branded PDFs
 
-All product images will be hotlinked from the Silvadec CDN URLs already scraped. Each product will have:
-- 1 primary product shot (packshot/close-up)
-- 2-4 additional lifestyle/installation images
-- Images sourced from the `max_1300x1300` size variant for quality
+Since the original PDFs contain complex technical diagrams that cannot be recreated, we will take a hybrid approach:
 
-Category hero images will also use Silvadec lifestyle shots from the homepage.
+### A. Text-based guides (checklists, gidsen) -- Generate new branded PDFs
 
----
+Create a backend function that generates branded PDF documents for the non-technical guides:
+- Checklist: composiet schutting plaatsen
+- Checklist: grondvoorbereiding
+- Gids: vergunningen en regels
+- Kleurengids
+- Milieuverklaring (EPD) summary
+- Onderhoudsadvies
 
-## Files to Modify
+Each generated PDF will include:
+- SchuttingenvanComposiet.nl header with accent color branding
+- Dutch content extracted from the download data
+- Bullet points, tables, and structured sections
+- Footer with website URL and contact info
+- No Silvadec references
 
-### 1. `src/data/products.ts` -- Complete rewrite
-- Replace all 38 existing products with ~28 Silvadec products
-- Update `Tone` type to: `'bruin' | 'grijs' | 'zwart' | 'wit' | 'eiken'`
-- Update `Durability` type to: `'standaard' | 'premium' | 'co-extrusie'`
-- Keep `ProductType` as is
-- Update `toneLabels`, `durabilityLabels` accordingly
-- Each product includes: Dutch name, Dutch descriptions, Silvadec CDN images, realistic specs, FAQs, SEO titles/descriptions
-- Categories array updated with new Silvadec imagery
+### B. Technical installation PDFs -- Keep originals with disclaimer
 
-### 2. `src/data/blogArticles.ts` -- Update `relatedProducts`
-- Update `relatedProducts` slugs to match new product slugs
+The 8 technical installation PDFs contain detailed engineering diagrams, exploded views, and measurement tables that cannot be programmatically recreated. These will:
+- Remain as-is in `public/downloads/`
+- Have their download card descriptions updated to say "Fabrikantdocumentatie" (manufacturer documentation) rather than referencing Silvadec by name
 
-### 3. `supabase/functions/seed-products/index.ts` -- Complete rewrite
-- Replace all seed data with new Silvadec products
-- Update images, FAQs, descriptions to match new inventory
+### Technical approach for PDF generation
 
-### 4. `src/components/fence-planner/designerData.ts` -- Update panel images
-- Replace panel style images with Silvadec fencing product images
-
-### 5. `src/components/fence-planner/FenceSystemModal.tsx` -- No code change needed
-- Already reads from `products.ts` filtered by `schuttingen` category
-
-### 6. `src/pages/Index.tsx` -- Update featured products
-- Update `featuredSlugs` array to reference new product slugs
-- Update hero image and category images
-
-### 7. `src/components/ProductFilters.tsx` -- Update tone colors
-- Update `toneColors` map to match new tone values
-
----
-
-## Data Shape Per Product (example)
-
-```text
-{
-  id: "silvadec-atmo-ushuaia",
-  name: "Silvadec Atmosphere Ushuaia Grijs",
-  price: 89,
-  priceLabel: "Vanaf EUR 89,- /m2",
-  image: "[Silvadec CDN URL]",
-  category: "vlonderplanken",
-  tone: "grijs",
-  durability: "co-extrusie",
-  productType: "plank",
-  slug: "atmosphere-ushuaia-grijs-vlonderplank",
-  features: ["Co-extrusie", "Geborsteld", "25 jaar garantie"],
-  guarantee: "25 jaar fabrieksgarantie",
-  deliveryTime: "5-8 werkdagen",
-  description: "...",
-  longDescription: "... (markdown, ~800 words)",
-  specifications: { Breedte: "138 mm", Dikte: "23 mm", ... },
-  images: ["url1", "url2", "url3"],
-  highlights: ["Kleurvast door co-extrusie", ...],
-  faq: [{ question: "...", answer: "..." }],
-  seoTitle: "Silvadec Atmosphere Ushuaia Grijs | Composiet Vlonderplank",
-  seoDescription: "..."
-}
-```
-
----
-
-## Database Sync
-
-After updating `products.ts`, the seed Edge Function will also be updated. We will then re-run the seed to update the database with the new Silvadec products, ensuring admin CMS, Google Feed, and storefront all reflect the new inventory.
-
----
-
-## Enum Migration
-
-A database migration will update the `product_tone` enum to match the new values:
-- Old: `teak, zwart, walnoot, eiken, grijs`
-- New: `bruin, grijs, zwart, wit, eiken`
-
----
-
-## What Stays the Same
-
-- All page templates (ProductPage, CategoryPage, etc.) -- no changes needed
-- Product card component -- no changes
-- CRM system -- no changes
-- Admin pages -- no changes (they read from DB)
-- Fence planner logic -- only image URLs change
-- Deck planner -- only product data changes
+- Create a backend function `generate-branded-pdf` using Deno + jsPDF (or similar)
+- The function takes a document ID, pulls content from a structured data source, and returns a branded PDF
+- Generated PDFs are stored in file storage and served from there
+- Download cards link to the generated PDFs instead of the originals
 
 ---
 
 ## Implementation Order
 
-1. Update `src/data/products.ts` with all Silvadec products and new types
-2. Update `src/data/blogArticles.ts` related product slugs
-3. Update `src/components/fence-planner/designerData.ts` panel images
-4. Update `src/components/ProductFilters.tsx` tone color map
-5. Update `src/pages/Index.tsx` featured products and hero images
-6. Database migration for updated enums
-7. Update and re-run `seed-products` Edge Function
-8. Verify all pages render correctly
+1. Strip "Silvadec" from `src/data/products.ts` (~28 products: names, descriptions, SEO, FAQs, specs)
+2. Strip "Silvadec" from `src/data/downloads.ts` (descriptions, bullet points)
+3. Strip "Silvadec" from `src/data/blogArticles.ts` (article content)
+4. Strip "Silvadec" from `src/pages/DownloadsPage.tsx` (FAQ, meta, JSON-LD)
+5. Create `generate-branded-pdf` backend function
+6. Generate branded PDFs for the 6 text-based guides
+7. Update download paths to point to new branded PDFs
+8. Update seed-products function to match de-branded data
+
+---
+
+## Technical Details
+
+### Backend function: `generate-branded-pdf`
+
+```text
+supabase/functions/generate-branded-pdf/index.ts
+
+- Uses jsPDF library for PDF generation
+- Accepts document config (title, sections, bullets, tables)
+- Applies branded header: "SchuttingenvanComposiet.nl" in accent color
+- Generates A4 PDF with proper margins
+- Uploads to Lovable Cloud file storage
+- Returns public URL
+```
+
+### Product name examples (before/after)
+
+```text
+BEFORE: "Silvadec Atmosphere 175 Wit Ceruse"
+AFTER:  "Atmosphere 175 Wit Ceruse"
+
+BEFORE: "Silvadec Nuances Ipe Vlonderplank"  
+AFTER:  "Nuances Ipe Vlonderplank"
+
+BEFORE: "Silvadec Aluminium Schutting Zwart"
+AFTER:  "Aluminium Schutting Zwart"
+```
+
+### SEO title examples (before/after)
+
+```text
+BEFORE: "Silvadec Atmosphere 175 Wit Ceruse | Composiet Gevelbekleding"
+AFTER:  "Atmosphere 175 Wit Ceruse | Composiet Gevelbekleding"
+```
 
