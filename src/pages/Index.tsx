@@ -312,8 +312,7 @@ const Index = () => {
         {/* FAQ */}
         <FAQSection faqs={faqs} />
 
-        {/* CTA */}
-        <CTASection />
+        {/* CTA removed */}
       </main>
 
       <Footer />
