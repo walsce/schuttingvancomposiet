@@ -20,15 +20,9 @@ export const panelStyles: PanelType[] = [
 
 // Color hex mapping from product tones
 export const toneColorMap: Record<string, string> = {
-  teak: "#A0785A",
-  zwart: "#1a1a1a",
-  walnoot: "#6B3A2A",
-  eiken: "#8B5E3C",
+  bruin: "#8B5E3C",
   grijs: "#777777",
-  antraciet: "#3C3C3C",
-  "ral7016": "#293133",
-  "ral9005": "#0A0A0A",
-  "ral9006": "#A5A5A5",
-  "ral7035": "#D7D7D7",
-  corten: "#8B4513",
+  zwart: "#1a1a1a",
+  wit: "#E8E0D8",
+  eiken: "#C4A56E",
 };

@@ -1,5 +1,5 @@
-export type Tone = 'teak' | 'zwart' | 'walnoot' | 'eiken' | 'grijs';
-export type Durability = 'standaard' | 'premium' | 'massief';
+export type Tone = 'bruin' | 'grijs' | 'zwart' | 'wit' | 'eiken';
+export type Durability = 'standaard' | 'premium' | 'co-extrusie';
 export type ProductType = 'plank' | 'paneel' | 'profiel';
 export type SortOption = 'default' | 'price-asc' | 'price-desc' | 'name-az' | 'name-za';
 
@@ -37,17 +37,17 @@ export interface Product {
 }
 
 export const toneLabels: Record<Tone, string> = {
-  teak: 'Teak',
-  zwart: 'Zwart',
-  walnoot: 'Walnoot',
-  eiken: 'Eiken',
+  bruin: 'Bruin',
   grijs: 'Grijs',
+  zwart: 'Zwart',
+  wit: 'Wit',
+  eiken: 'Eiken',
 };
 
 export const durabilityLabels: Record<Durability, string> = {
-  standaard: 'Standaard',
-  premium: 'Premium (Co-Extrusie)',
-  massief: 'Massief Naadloos',
+  standaard: 'Standaard (Mono-extrusie)',
+  premium: 'Premium',
+  'co-extrusie': 'Co-extrusie (beschermlaag)',
 };
 
 export const productTypeLabels: Record<ProductType, string> = {
@@ -57,1637 +57,1126 @@ export const productTypeLabels: Record<ProductType, string> = {
 };
 
 export const products: Product[] = [
-  // ─── GEVELBEKLEDING ──────────────────────────────────────────
+  // ─── GEVELBEKLEDING (Cladding) ──────────────────────────────────
   {
-    id: 'gv-1',
-    updatedDate: '2026-02-15',
-    name: 'Composiet gevelbekleding Rhombus Teak',
-    price: 25.95,
-    priceLabel: '€25,95 per stuk',
-    image: 'https://jakqbjeukobtyxxxpzcr.supabase.co/storage/v1/object/public/product-images/gevelbekleding/rhombus-teak.png',
+    id: 'cl-1',
+    updatedDate: '2026-02-20',
+    name: 'Silvadec Atmosphere 175 Wit Ceruse',
+    price: 34.95,
+    priceLabel: '€34,95 per stuk',
+    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2022-01/Blanc_ceruse_1.jpg?itok=eUHNFBBV',
     category: 'gevelbekleding',
-    features: ['Co-Extrusie beschermlaag', 'Eigen bezorgservice'],
-    guarantee: '15 jaar garantie',
-    slug: 'rhombus-teak',
-    tone: 'teak',
-    durability: 'premium',
+    features: ['Co-extrusie beschermlaag', 'Geborsteld oppervlak', '25 jaar garantie'],
+    guarantee: '25 jaar fabrieksgarantie',
+    slug: 'atmosphere-175-wit-ceruse',
+    tone: 'wit',
+    durability: 'co-extrusie',
     productType: 'plank',
-    description: 'De composiet gevelbekleding Rhombus in de kleur Teak geeft uw gevel een warme, natuurlijke uitstraling. Dankzij de co-extrusie beschermlaag is de plank extra bestendig tegen UV-straling, krassen en vlekken. De rhombus-profilering zorgt voor een moderne, strakke look met schaduwwerking.',
-    seoTitle: 'Composiet Gevelbekleding Rhombus Teak Kopen | €25,95',
-    seoDescription: 'Composiet gevelbekleding Rhombus Teak met co-extrusie beschermlaag. UV-bestendig, onderhoudsvrij en 15 jaar garantie. Bestel nu bij Schuttingvancomposiet.nl.',
-    longDescription: `## Composiet gevelbekleding Rhombus Teak
+    description: 'Elegante witte gevelbekleding met ceruse-afwerking. De Silvadec Atmosphere 175 combineert een lichte, frisse uitstraling met de duurzaamheid van co-extrusie composiet.',
+    seoTitle: 'Silvadec Atmosphere 175 Wit Ceruse | Composiet Gevelbekleding',
+    seoDescription: 'Witte composiet gevelbekleding Silvadec Atmosphere 175 Ceruse. Co-extrusie beschermlaag, geborsteld, 25 jaar garantie. Bestel bij SchuttingenvanComposiet.nl.',
+    longDescription: `## Silvadec Atmosphere 175 Wit Ceruse Gevelbekleding
 
-Geef jouw woning, schuur of uitbouw een moderne en hoogwaardige uitstraling met onze composiet gevelbekleding in Rhombus-profiel. De planken zijn voorzien van een co-extrusie beschermlaag, waardoor ze geen vocht opnemen, kleurvast blijven en extreem lang meegaan.
+Geef uw woning een frisse, eigentijdse uitstraling met de Silvadec Atmosphere 175 in Wit Ceruse. Deze composiet gevelbekleding combineert de warme textuur van geborsteld hout met de duurzaamheid van co-extrusie technologie.
 
-### Duurzaam en onderhoudsvrij
+### Co-extrusie beschermlaag
 
-De combinatie van gerecycled kunststof en houtvezels maakt de productie van deze gevelbekleding zeer duurzaam. Tijdens productie ontstaat geen restmateriaal. Deze materialen zorgen voor ongevoeligheid voor rot, schimmel en verkleuring. Je hoeft nooit meer te schilderen en dankzij de co-extrusie laag blijft het oppervlak kleurvast en eenvoudig te reinigen. De vochtopname is 0%.
+De gevorderde co-extrusie technologie van Silvadec omhult elke plank met een beschermende polymeerlaag. Dit garandeert:
+- **0% vochtopname** — geen zwelling of krimp
+- **Maximale UV-bestendigheid** — de witte kleur blijft jarenlang stralend
+- **Vlekbestendigheid** — eenvoudig schoon te maken
 
-### Flexibele montage
+### Duurzaam en milieuvriendelijk
 
-Of je nu kiest voor horizontale of verticale plaatsing, de planken zijn in beide richtingen eenvoudig vast te schroeven op het regelwerk. We leveren standaard schroeven mee bij elke plank. De strakke, smalle openingen tussen de stroken zorgen voor een subtiel diepte-effect en een luxe, eigentijdse look. Daarnaast kun je de planken gemakkelijk inkorten of op maat maken.
+Silvadec producten bestaan uit meer dan 95% gerecyclede materialen. Het productieproces is CO₂-neutraal en er ontstaat geen afval. De planken zijn aan het einde van hun levensduur volledig recycleerbaar.
 
-### Voordelen in één oogopslag
+### Montage
 
-- Natuurlijke houtstructuur met duurzame co-extrusie beschermlaag
-- Extreem duurzame productie bestaand uit 95% gerecycled materiaal
-- Kleurvast, rotvrij en onderhoudsarm
-- Geen schilderwerk nodig, eenvoudig te reinigen
-- Perfect voor elk klimaat
-- Snel en flexibel te monteren met bijpassende profielen
+De Atmosphere 175 planken zijn eenvoudig te monteren op een aluminium of houten regelwerk. Zowel horizontale als verticale montage is mogelijk. De brede plank van 175 mm zorgt voor een modern, strak gevelbeeld met minder naden.
 
-Met onze composiet gevelbekleding kies je voor een hoogwaardige, duurzame en stijlvolle afwerking waar je jarenlang plezier van hebt.`,
-    specifications: { Lengte: '290 cm', Breedte: '20 cm', Dikte: '2,1 cm', Oppervlakte: '0,58 m² per plank', Materiaal: 'Composiet met co-extrusie toplaag', Kleur: 'Teak', Profiel: 'Rhombus' },
-    images: [
-      'https://jakqbjeukobtyxxxpzcr.supabase.co/storage/v1/object/public/product-images/gevelbekleding/rhombus-teak.png',
-    ],
-    deliveryTime: 'Tussen de 2 en 15 werkdagen',
-    highlights: ['Co-extrusie beschermlaag', 'UV-bestendig & kleurvast', 'Onderhoudsvrij', 'Eenvoudige montage', 'Eigen bezorgservice'],
-    dimensions: { length: '290 cm', width: '20 cm', thickness: '2,1 cm', coverage: '0,58 m² per plank' },
-    faq: [
-      { question: 'Wat is co-extrusie?', answer: 'Co-extrusie is een extra beschermlaag die tijdens het productieproces op de composiet plank wordt aangebracht. Dit zorgt voor extra bescherming tegen UV-straling, krassen en vlekken.' },
-      { question: 'Hoe monteer ik de gevelbekleding?', answer: 'De gevelbekleding wordt bevestigd op een aluminium regelwerk met behulp van RVS schroeven. We raden aan om een ventilatieopening van minimaal 25mm aan te houden.' },
-      { question: 'Hoeveel planken heb ik nodig?', answer: 'Elke plank bedekt 0,58 m². Meet uw geveloppervlak en deel dit door 0,58 om het benodigde aantal planken te berekenen. Reken 5-10% extra voor zaagverlies.' },
-      { question: 'Is de gevelbekleding geschikt voor elk klimaat?', answer: 'Ja, de composiet gevelbekleding is bestand tegen alle weersomstandigheden. De vochtopname is 0%, waardoor de planken niet uitzetten, krimpen of vervormen bij temperatuurwisselingen.' },
-    ],
-  },
-  {
-    id: 'gv-2',
-    updatedDate: '2026-02-10',
-    name: 'Composiet gevelbekleding Rhombus Teak/Zwart',
-    price: 25.95,
-    priceLabel: '€25,95 per stuk',
-    image: 'https://jakqbjeukobtyxxxpzcr.supabase.co/storage/v1/object/public/product-images/gevelbekleding/rhombus-teak-zwart.png',
-    category: 'gevelbekleding',
-    features: ['Co-Extrusie beschermlaag', 'Eigen bezorgservice'],
-    guarantee: '15 jaar garantie',
-    slug: 'rhombus-teak-zwart',
-    tone: 'teak',
-    durability: 'premium',
-    productType: 'plank',
-    description: 'Een unieke combinatie van Teak en Zwart. De ene zijde heeft een warme teakkleur, de andere een strak zwart. Ideaal als u twee stijlen in één plank wilt combineren.',
-    seoTitle: 'Composiet Gevelbekleding Rhombus Teak/Zwart | €25,95',
-    seoDescription: 'Unieke composiet gevelbekleding met twee kleuren: Teak en Zwart in één plank. Co-extrusie beschermlaag, 15 jaar garantie. Bestel bij Schuttingvancomposiet.nl.',
-    longDescription: `## Composiet gevelbekleding Rhombus Teak/Zwart
+### Voordelen
 
-Geef jouw woning, schuur of uitbouw een moderne en hoogwaardige uitstraling met onze composiet gevelbekleding in Rhombus-profiel. De planken zijn voorzien van een co-extrusie beschermlaag, waardoor ze geen vocht opnemen, kleurvast blijven en extreem lang meegaan. Deze Teak planken met zwarte achtergrond zorgen voor een beeld van extra diepte.
-
-### Duurzaam en onderhoudsvrij
-
-De combinatie van gerecycled kunststof en houtvezels maakt de productie van deze gevelbekleding zeer duurzaam. Tijdens productie ontstaat geen restmateriaal. Deze materialen zorgen voor ongevoeligheid voor rot, schimmel en verkleuring. Je hoeft nooit meer te schilderen en dankzij de co-extrusie laag blijft het oppervlak kleurvast en eenvoudig te reinigen. De vochtopname is 0%.
-
-### Flexibele montage
-
-Of je nu kiest voor horizontale of verticale plaatsing, de planken zijn in beide richtingen eenvoudig vast te schroeven op het regelwerk. We leveren standaard schroeven mee bij elke plank. De strakke, smalle openingen tussen de stroken zorgen voor een subtiel diepte-effect en een luxe, eigentijdse look.
-
-### Voordelen in één oogopslag
-
-- Twee kleuren in één plank: Teak voorzijde, Zwart achterzijde
-- Door de zwarte achtergrond creëer je extra diepte
-- Extreem duurzame productie bestaand uit 95% gerecycled materiaal
-- Kleurvast, rotvrij en onderhoudsarm
-- Geen schilderwerk nodig, eenvoudig te reinigen
-- Perfect voor elk klimaat
-- Snel en flexibel te monteren met bijpassende profielen
-
-Met onze composiet gevelbekleding kies je voor een hoogwaardige, duurzame en stijlvolle afwerking waar je jarenlang plezier van hebt. Nu met zwarte achtergrond voor een unieke gevelbekleding.`,
-    specifications: { Lengte: '290 cm', Breedte: '20 cm', Dikte: '2,1 cm', Oppervlakte: '0,58 m² per plank', Materiaal: 'Composiet met co-extrusie toplaag', Kleur: 'Teak / Zwart', Profiel: 'Rhombus' },
-    images: [
-      'https://jakqbjeukobtyxxxpzcr.supabase.co/storage/v1/object/public/product-images/gevelbekleding/rhombus-teak-zwart.png',
-    ],
-    deliveryTime: 'Tussen de 2 en 15 werkdagen',
-    highlights: ['Twee kleuren in één plank', 'Co-extrusie beschermlaag', 'UV-bestendig', 'Onderhoudsvrij'],
-    dimensions: { length: '290 cm', width: '20 cm', thickness: '2,1 cm', coverage: '0,58 m² per plank' },
-    faq: [
-      { question: 'Kan ik kiezen welke kant zichtbaar is?', answer: 'Ja, u bepaalt zelf welke zijde u naar buiten richt. De Teak zijde geeft een warme houtlook, de zwarte zijde een strakke moderne uitstraling. U kunt zelfs beide zijden combineren in één project.' },
-      { question: 'Is de zwarte achterkant ook beschermd?', answer: 'Ja, beide zijden zijn voorzien van een co-extrusie beschermlaag. Zowel de Teak als de Zwarte zijde is UV-bestendig en kleurvast.' },
-      { question: 'Hoe monteer ik de gevelbekleding?', answer: 'Bevestig de planken op een aluminium regelwerk met RVS schroeven. Houd een ventilatieopening van minimaal 25mm aan. Horizontale én verticale montage is mogelijk.' },
-      { question: 'Hoeveel planken heb ik nodig?', answer: 'Elke plank bedekt 0,58 m². Meet uw geveloppervlak en deel dit door 0,58. Reken 5-10% extra voor zaagverlies.' },
-    ],
-  },
-  {
-    id: 'gv-3',
-    updatedDate: '2026-02-12',
-    name: 'Composiet gevelbekleding Rhombus Zwart',
-    price: 25.95,
-    priceLabel: '€25,95 per stuk',
-    image: 'https://jakqbjeukobtyxxxpzcr.supabase.co/storage/v1/object/public/product-images/gevelbekleding/rhombus-zwart.png',
-    category: 'gevelbekleding',
-    features: ['Co-Extrusie beschermlaag', 'Eigen bezorgservice'],
-    guarantee: '15 jaar garantie',
-    slug: 'rhombus-zwart',
-    tone: 'zwart',
-    durability: 'premium',
-    productType: 'plank',
-    description: 'Strakke zwarte composiet gevelbekleding met rhombus profiel. De donkere kleur geeft uw woning een moderne, tijdloze uitstraling. Voorzien van co-extrusie beschermlaag voor langdurige kleurvastheid.',
-    seoTitle: 'Composiet Gevelbekleding Rhombus Zwart Kopen | €25,95',
-    seoDescription: 'Zwarte composiet gevelbekleding met rhombus profiel en co-extrusie beschermlaag. Onderhoudsvrij, kleurvast en 15 jaar garantie. Bestel online.',
-    longDescription: `## Composiet gevelbekleding Rhombus Zwart
-
-Geef jouw woning een moderne, tijdloze uitstraling met onze zwarte composiet gevelbekleding in Rhombus-profiel. De planken zijn voorzien van een co-extrusie beschermlaag, waardoor ze geen vocht opnemen, kleurvast blijven en extreem lang meegaan.
-
-### Duurzaam en onderhoudsvrij
-
-De combinatie van gerecycled kunststof en houtvezels maakt deze gevelbekleding zeer duurzaam. De materialen zijn ongevoelig voor rot, schimmel en verkleuring. Je hoeft nooit meer te schilderen en dankzij de co-extrusie laag blijft het zwarte oppervlak kleurvast. De vochtopname is 0%.
-
-### Flexibele montage
-
-Kies voor horizontale of verticale plaatsing — de planken zijn in beide richtingen eenvoudig te monteren op het regelwerk. Standaard schroeven worden meegeleverd. De planken zijn gemakkelijk op maat te maken.
-
-### Voordelen in één oogopslag
-
-- Strakke, moderne zwarte uitstraling
-- Duurzame co-extrusie beschermlaag
-- 95% gerecycled materiaal
-- Kleurvast, rotvrij en onderhoudsarm
-- Geen schilderwerk nodig
-- Geschikt voor horizontale én verticale montage`,
-    specifications: { Lengte: '290 cm', Breedte: '20 cm', Dikte: '2,1 cm', Oppervlakte: '0,58 m² per plank', Materiaal: 'Composiet met co-extrusie toplaag', Kleur: 'Zwart', Profiel: 'Rhombus' },
-    images: [
-      'https://jakqbjeukobtyxxxpzcr.supabase.co/storage/v1/object/public/product-images/gevelbekleding/rhombus-zwart.png',
-    ],
-    deliveryTime: 'Tussen de 2 en 15 werkdagen',
-    highlights: ['Moderne zwarte uitstraling', 'Co-extrusie beschermlaag', 'Kleurvast', 'Onderhoudsvrij'],
-    dimensions: { length: '290 cm', width: '20 cm', thickness: '2,1 cm', coverage: '0,58 m² per plank' },
-    faq: [
-      { question: 'Wordt de zwarte kleur niet te warm in de zon?', answer: 'Composiet kan in direct zonlicht iets warmer worden, maar de co-extrusie beschermlaag voorkomt verkleuring of vervorming. De planken zijn specifiek ontworpen om temperatuurwisselingen te weerstaan.' },
-      { question: 'Hoe reinig ik zwarte gevelbekleding?', answer: 'Reinig de planken eenvoudig met lauwwarm water en een zachte borstel. Voor hardnekkig vuil kunt u een mild schoonmaakmiddel gebruiken. Gebruik nooit een hogedrukreiniger.' },
-      { question: 'Hoe monteer ik de gevelbekleding?', answer: 'Bevestig de planken op een aluminium regelwerk met de meegeleverde RVS schroeven. Houd minimaal 25mm ventilatieopening aan achter de planken.' },
-    ],
-  },
-  {
-    id: 'gv-4',
-    updatedDate: '2026-02-14',
-    name: 'Composiet gevelbekleding Rhombus Walnoot',
-    price: 25.95,
-    priceLabel: '€25,95 per stuk',
-    image: 'https://jakqbjeukobtyxxxpzcr.supabase.co/storage/v1/object/public/product-images/gevelbekleding/rhombus-walnoot.png',
-    category: 'gevelbekleding',
-    features: ['Co-Extrusie beschermlaag', 'Eigen bezorgservice'],
-    guarantee: '15 jaar garantie',
-    slug: 'rhombus-walnoot',
-    tone: 'walnoot',
-    durability: 'premium',
-    productType: 'plank',
-    description: 'Warme walnoottint met natuurlijke houtnerf structuur. De composiet gevelbekleding Rhombus Walnoot biedt de luxe uitstraling van echt hout zonder het onderhoud.',
-    seoTitle: 'Composiet Gevelbekleding Rhombus Walnoot | €25,95',
-    seoDescription: 'Composiet gevelbekleding Rhombus Walnoot met warme houtlook en co-extrusie beschermlaag. Onderhoudsvrij, 15 jaar garantie. Bestel bij Schuttingvancomposiet.nl.',
-    longDescription: `## Composiet gevelbekleding Rhombus Walnoot
-
-Geef jouw woning een luxe, warme uitstraling met onze composiet gevelbekleding Rhombus in de kleur Walnoot. De donkere, rijke walnoottint met natuurlijke houtnerf structuur biedt de uitstraling van echt hout zonder het onderhoud.
-
-### Duurzaam en onderhoudsvrij
-
-Dankzij de combinatie van gerecycled kunststof en houtvezels is deze gevelbekleding ongevoelig voor rot, schimmel en verkleuring. De co-extrusie beschermlaag zorgt voor langdurige kleurvastheid. Je hoeft nooit meer te schilderen. De vochtopname is 0%.
-
-### Flexibele montage
-
-Horizontale of verticale plaatsing — beide zijn mogelijk. De planken worden eenvoudig vastgeschroefd op het regelwerk. Standaard worden schroeven meegeleverd. Planken zijn gemakkelijk op maat te maken.
-
-### Voordelen in één oogopslag
-
-- Rijke, warme walnoottint met natuurlijke houtnerf
-- Duurzame co-extrusie beschermlaag
-- 95% gerecycled materiaal
-- Kleurvast, rotvrij en onderhoudsarm
-- Geen schilderwerk nodig
+- Stralend witte ceruse-afwerking
+- 175 mm breed voor een ruim, modern gevoel
+- Co-extrusie beschermlaag voor maximale duurzaamheid
+- 25 jaar fabrieksgarantie
+- Onderhoudsvrij — nooit meer schilderen
 - Geschikt voor elk klimaat`,
-    specifications: { Lengte: '290 cm', Breedte: '20 cm', Dikte: '2,1 cm', Oppervlakte: '0,58 m² per plank', Materiaal: 'Composiet met co-extrusie toplaag', Kleur: 'Walnoot', Profiel: 'Rhombus' },
+    specifications: { Lengte: '360 cm', Breedte: '17,5 cm', Dikte: '2,1 cm', Materiaal: 'Composiet met co-extrusie toplaag', Kleur: 'Wit Ceruse', Afwerking: 'Geborsteld', Merk: 'Silvadec' },
     images: [
-      'https://jakqbjeukobtyxxxpzcr.supabase.co/storage/v1/object/public/product-images/gevelbekleding/rhombus-walnoot.png',
+      'https://en.silvadec.com/sites/default/files/styles/square/public/2022-01/Blanc_ceruse_1.jpg?itok=eUHNFBBV',
+      'https://en.silvadec.com/sites/default/files/styles/square/public/2022-01/Blanc_ceruse_2-001.jpg?itok=YgsC0UAa',
     ],
-    deliveryTime: 'Tussen de 2 en 15 werkdagen',
-    highlights: ['Luxe walnoottint', 'Natuurlijke houtnerf', 'Co-extrusie beschermlaag', 'Onderhoudsvrij'],
-    dimensions: { length: '290 cm', width: '20 cm', thickness: '2,1 cm', coverage: '0,58 m² per plank' },
+    deliveryTime: '5-8 werkdagen',
+    highlights: ['Witte ceruse-afwerking', 'Co-extrusie beschermlaag', '175 mm breed', '25 jaar garantie', 'Onderhoudsvrij'],
+    dimensions: { length: '360 cm', width: '17,5 cm', thickness: '2,1 cm' },
     faq: [
-      { question: 'Verschilt de Walnoot kleur van Teak?', answer: 'Ja, de Walnoot kleur is donkerder en rijker dan Teak. Walnoot heeft een diepbruine tint, terwijl Teak meer goudbruin is. Bestel een gratis sample om het verschil te zien.' },
-      { question: 'Hoe lang gaat composiet gevelbekleding mee?', answer: 'Met de co-extrusie beschermlaag gaat onze gevelbekleding minimaal 15 jaar mee zonder onderhoud. De planken zijn bestand tegen alle weersomstandigheden.' },
-      { question: 'Kan ik de planken zelf monteren?', answer: 'Ja, de montage is eenvoudig. Bevestig een aluminium regelwerk op de gevel en schroef de planken daarop vast. Met elke plank worden schroeven meegeleverd.' },
+      { question: 'Vergeelt de witte kleur na verloop van tijd?', answer: 'Nee, dankzij de co-extrusie beschermlaag is de witte kleur maximaal UV-bestendig. Silvadec garandeert kleurvastheid gedurende 25 jaar.' },
+      { question: 'Is witte gevelbekleding moeilijker schoon te houden?', answer: 'Nee, de co-extrusie laag maakt het oppervlak vlekbestendig. Vuil hecht nauwelijks en is eenvoudig te verwijderen met water en een zachte borstel.' },
+      { question: 'Kan ik de planken zowel horizontaal als verticaal monteren?', answer: 'Ja, de Atmosphere 175 is geschikt voor zowel horizontale als verticale montage op een regelwerk.' },
     ],
   },
   {
-    id: 'gv-5',
-    updatedDate: '2026-02-13',
-    name: 'Composiet gevelbekleding Rhombus Eiken',
-    price: 25.95,
-    priceLabel: '€25,95 per stuk',
-    image: 'https://jakqbjeukobtyxxxpzcr.supabase.co/storage/v1/object/public/product-images/gevelbekleding/rhombus-eiken.png',
+    id: 'cl-2',
+    updatedDate: '2026-02-20',
+    name: 'Silvadec Atmosphere 175 Zonnig Bruin',
+    price: 34.95,
+    priceLabel: '€34,95 per stuk',
+    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2022-01/Brun_soleil_2.jpg?itok=b6kdMuxY',
     category: 'gevelbekleding',
-    features: ['Co-Extrusie beschermlaag', 'Eigen bezorgservice'],
-    guarantee: '15 jaar garantie',
-    slug: 'rhombus-eiken',
-    tone: 'eiken',
-    durability: 'premium',
+    features: ['Co-extrusie beschermlaag', 'Geborsteld oppervlak', '25 jaar garantie'],
+    guarantee: '25 jaar fabrieksgarantie',
+    slug: 'atmosphere-175-zonnig-bruin',
+    tone: 'bruin',
+    durability: 'co-extrusie',
     productType: 'plank',
-    description: 'De composiet gevelbekleding Rhombus Eiken heeft een lichte, warme eikenkleur die perfect past bij zowel moderne als landelijke architectuur. Voorzien van co-extrusie beschermlaag.',
-    seoTitle: 'Composiet Gevelbekleding Rhombus Eiken Kopen | €25,95',
-    seoDescription: 'Composiet gevelbekleding Rhombus Eiken met warme eikenkleur en co-extrusie beschermlaag. Onderhoudsvrij, 15 jaar garantie. Bestel bij Schuttingvancomposiet.nl.',
-    longDescription: `## Composiet gevelbekleding Rhombus Eiken
+    description: 'Warme bruine gevelbekleding met zonverbrande houtlook. De Silvadec Atmosphere 175 Zonnig Bruin biedt een natuurlijke, mediterrane uitstraling.',
+    seoTitle: 'Silvadec Atmosphere 175 Zonnig Bruin | Composiet Gevelbekleding',
+    seoDescription: 'Composiet gevelbekleding Silvadec Atmosphere 175 Zonnig Bruin. Warme houtlook, co-extrusie, 25 jaar garantie. Bestel bij SchuttingenvanComposiet.nl.',
+    longDescription: `## Silvadec Atmosphere 175 Zonnig Bruin
 
-De composiet gevelbekleding Rhombus Eiken heeft een lichte, warme eikenkleur die perfect past bij zowel moderne als landelijke architectuur. De planken zijn voorzien van een co-extrusie beschermlaag voor langdurige bescherming.
+Breng de warmte van het zuiden naar uw gevel met de Silvadec Atmosphere 175 in Zonnig Bruin. Deze composiet gevelbekleding heeft een prachtige, warme bruine tint die doet denken aan zongebleekt hout.
 
-### Duurzaam en onderhoudsvrij
+### Natuurlijke uitstraling
 
-Geproduceerd uit 95% gerecycled materiaal, zijn deze planken ongevoelig voor rot, schimmel en verkleuring. De vochtopname is 0% — geen schilderwerk, geen onderhoud. Gewoon reinigen met water en een zachte borstel.
+Het geborstelde oppervlak geeft een authentieke houtstructuur die nauwelijks van echt hout te onderscheiden is. De warme bruine tint past perfect bij zowel moderne als landelijke architectuur.
 
-### Flexibele montage
+### Co-extrusie technologie
 
-Monteer horizontaal of verticaal op een aluminium regelwerk. Schroeven worden standaard meegeleverd. De planken zijn eenvoudig op maat te maken met een cirkelzaag.
+Elke plank is omhuld met een beschermende co-extrusie laag die zorgt voor:
+- Maximale kleurvastheid
+- 0% vochtopname
+- Bescherming tegen krassen en vlekken
 
-### Voordelen in één oogopslag
+### Specificaties
 
-- Warme, lichte eikenkleur
-- Co-extrusie beschermlaag voor UV-bescherming
-- 95% gerecycled materiaal
-- Kleurvast en rotvrij
-- Past bij moderne én landelijke architectuur
-- Eenvoudige montage met meegeleverde schroeven`,
-    specifications: { Lengte: '290 cm', Breedte: '20 cm', Dikte: '2,1 cm', Oppervlakte: '0,58 m² per plank', Materiaal: 'Composiet met co-extrusie toplaag', Kleur: 'Eiken', Profiel: 'Rhombus' },
+De brede plank van 175 mm zorgt voor een eigentijds gevelbeeld. Met een lengte van 360 cm zijn er minder kopse naden nodig, wat het eindresultaat nog strakker maakt.`,
+    specifications: { Lengte: '360 cm', Breedte: '17,5 cm', Dikte: '2,1 cm', Materiaal: 'Composiet met co-extrusie toplaag', Kleur: 'Zonnig Bruin', Afwerking: 'Geborsteld', Merk: 'Silvadec' },
     images: [
-      'https://jakqbjeukobtyxxxpzcr.supabase.co/storage/v1/object/public/product-images/gevelbekleding/rhombus-eiken.png',
+      'https://en.silvadec.com/sites/default/files/styles/square/public/2022-01/Brun_soleil_2.jpg?itok=b6kdMuxY',
     ],
-    deliveryTime: 'Tussen de 2 en 15 werkdagen',
-    highlights: ['Warme eikenkleur', 'Natuurlijke uitstraling', 'Co-extrusie beschermlaag', 'Onderhoudsvrij'],
-    dimensions: { length: '290 cm', width: '20 cm', thickness: '2,1 cm', coverage: '0,58 m² per plank' },
+    deliveryTime: '5-8 werkdagen',
+    highlights: ['Warme zonnige bruintint', 'Co-extrusie beschermlaag', '175 mm breed', '25 jaar garantie'],
+    dimensions: { length: '360 cm', width: '17,5 cm', thickness: '2,1 cm' },
     faq: [
-      { question: 'Past de eikenkleur bij een landelijke woning?', answer: 'Absoluut. De warme, lichte eikenkleur past uitstekend bij landelijke, moderne en zelfs industriële architectuurstijlen. Combineer met houten accenten voor een harmonieus geheel.' },
-      { question: 'Hoe lang blijft de kleur mooi?', answer: 'Dankzij de co-extrusie beschermlaag blijft de eikenkleur jarenlang kleurvast. De planken zijn UV-bestendig en verkleuren niet door zonlicht.' },
-      { question: 'Kan ik een sample bestellen?', answer: 'Ja, u kunt een gratis sample aanvragen via onze website. Zo kunt u de kleur en kwaliteit thuis ervaren voordat u bestelt.' },
+      { question: 'Past Zonnig Bruin bij een moderne woning?', answer: 'Absoluut. De warme bruintint combineert prachtig met strakke architectuur, aluminium kozijnen en donkere accenten.' },
+      { question: 'Wat is het verschil met Donker Bruin?', answer: 'Zonnig Bruin is lichter en warmer van tint, vergelijkbaar met zongebleekt hout. Donker Bruin is een diepere, rijkere tint.' },
     ],
   },
   {
-    id: 'gv-6',
-    updatedDate: '2026-02-11',
-    name: 'Composiet gevelbekleding Rhombus Grijs/Zwart',
-    price: 25.95,
-    priceLabel: '€25,95 per stuk',
-    image: 'https://jakqbjeukobtyxxxpzcr.supabase.co/storage/v1/object/public/product-images/gevelbekleding/rhombus-grijs-zwart.png',
+    id: 'cl-3',
+    updatedDate: '2026-02-20',
+    name: 'Silvadec Atmosphere 175 Donker Bruin',
+    price: 34.95,
+    priceLabel: '€34,95 per stuk',
+    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2022-01/Brun_Rio_1.jpg?itok=dVrQk1gw',
     category: 'gevelbekleding',
-    features: ['Co-Extrusie beschermlaag', 'Eigen bezorgservice'],
-    guarantee: '15 jaar garantie',
-    slug: 'rhombus-grijs-zwart',
+    features: ['Co-extrusie beschermlaag', 'Geborsteld oppervlak', '25 jaar garantie'],
+    guarantee: '25 jaar fabrieksgarantie',
+    slug: 'atmosphere-175-donker-bruin',
+    tone: 'bruin',
+    durability: 'co-extrusie',
+    productType: 'plank',
+    description: 'Diepe, rijke bruine gevelbekleding met de luxe uitstraling van tropisch hardhout. De Silvadec Atmosphere 175 Donker Bruin is tijdloos en elegant.',
+    seoTitle: 'Silvadec Atmosphere 175 Donker Bruin | Composiet Gevelbekleding',
+    seoDescription: 'Composiet gevelbekleding Silvadec Atmosphere 175 Donker Bruin. Luxe houtlook, co-extrusie, 25 jaar garantie. Bestel bij SchuttingenvanComposiet.nl.',
+    longDescription: `## Silvadec Atmosphere 175 Donker Bruin
+
+De Silvadec Atmosphere 175 Donker Bruin biedt de rijke, diepe kleur van tropisch hardhout zonder het onderhoud. Deze gevelbekleding geeft uw woning een tijdloze, luxueuze uitstraling.
+
+### Rijke houtlook
+
+De donkerbruine tint met geborstelde afwerking is nauwelijks te onderscheiden van echt hardhout. De kleur is diep en warm, perfect voor een klassieke of moderne gevel.
+
+### Duurzaam zonder onderhoud
+
+Dankzij de co-extrusie technologie hoeft u nooit meer te schilderen of te beitsen. De plank is volledig bestand tegen weer, wind en UV-straling.`,
+    specifications: { Lengte: '360 cm', Breedte: '17,5 cm', Dikte: '2,1 cm', Materiaal: 'Composiet met co-extrusie toplaag', Kleur: 'Donker Bruin', Afwerking: 'Geborsteld', Merk: 'Silvadec' },
+    images: [
+      'https://en.silvadec.com/sites/default/files/styles/square/public/2022-01/Brun_Rio_1.jpg?itok=dVrQk1gw',
+      'https://en.silvadec.com/sites/default/files/styles/square/public/2022-01/product%20varation%20image%20ou%20side%20image%20sibarlam2101%20sibarlam2121%20.png?itok=P5hqv44z',
+    ],
+    deliveryTime: '5-8 werkdagen',
+    highlights: ['Diepe donkerbruine tint', 'Hardhout-look', 'Co-extrusie beschermlaag', '25 jaar garantie'],
+    dimensions: { length: '360 cm', width: '17,5 cm', thickness: '2,1 cm' },
+    faq: [
+      { question: 'Wordt de donkere kleur warm in de zon?', answer: 'Donkere kleuren absorberen meer warmte, maar de co-extrusie laag voorkomt vervorming. Voor gevelbekleding is dit geen probleem aangezien er geen direct contact is.' },
+      { question: 'Hoe onderhoud ik donkere gevelbekleding?', answer: 'Reinig eenvoudig met water en een zachte borstel. De co-extrusie laag maakt het oppervlak vlekbestendig.' },
+    ],
+  },
+  {
+    id: 'cl-4',
+    updatedDate: '2026-02-20',
+    name: 'Silvadec Open Rhombus Licht Bruin',
+    price: 29.95,
+    priceLabel: '€29,95 per stuk',
+    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2021-03/SIBARLAM1305L3%2C6_A_%283%29.JPG?itok=ih1F056c',
+    category: 'gevelbekleding',
+    features: ['Co-extrusie beschermlaag', 'Open rhombus profiel', '25 jaar garantie'],
+    guarantee: '25 jaar fabrieksgarantie',
+    slug: 'open-rhombus-licht-bruin',
+    tone: 'bruin',
+    durability: 'co-extrusie',
+    productType: 'profiel',
+    description: 'Open rhombus gevelbekleding in licht bruin. Het open profiel zorgt voor natuurlijke ventilatie en een speels licht-schaduwspel op de gevel.',
+    seoTitle: 'Silvadec Open Rhombus Licht Bruin | Composiet Gevelbekleding',
+    seoDescription: 'Silvadec Open Rhombus gevelbekleding Licht Bruin. Open profiel, co-extrusie, 25 jaar garantie. Bestel bij SchuttingenvanComposiet.nl.',
+    longDescription: `## Silvadec Open Rhombus Licht Bruin
+
+De Silvadec Open Rhombus gevelbekleding in Licht Bruin creëert een uniek gevelbeeld met een dynamisch licht-schaduwspel. Het open profiel zorgt voor natuurlijke ventilatie achter de planken.
+
+### Open rhombus profiel
+
+Het kenmerkende rhombus-profiel met open naden geeft de gevel diepte en karakter. De schuine plaatsing van de planken zorgt voor:
+- Natuurlijke ventilatie
+- Regenwering ondanks de openingen
+- Een modern, architectonisch ontwerp
+
+### Lichte bruintint
+
+De lichtbruine kleur past bij vrijwel elke bouwstijl en omgeving. Van moderne nieuwbouw tot renovatie van bestaande woningen.`,
+    specifications: { Lengte: '360 cm', Breedte: '7,2 cm', Dikte: '2,6 cm', Materiaal: 'Composiet met co-extrusie toplaag', Kleur: 'Licht Bruin', Profiel: 'Open Rhombus', Merk: 'Silvadec' },
+    images: [
+      'https://en.silvadec.com/sites/default/files/styles/square/public/2021-03/SIBARLAM1305L3%2C6_A_%283%29.JPG?itok=ih1F056c',
+    ],
+    deliveryTime: '5-8 werkdagen',
+    highlights: ['Open rhombus profiel', 'Natuurlijke ventilatie', 'Licht bruin', 'Co-extrusie beschermlaag'],
+    dimensions: { length: '360 cm', width: '7,2 cm', thickness: '2,6 cm' },
+    faq: [
+      { question: 'Is het open profiel waterdicht?', answer: 'Het open rhombus profiel is ontworpen als regenscherm. De schuine plaatsing leidt water af. Achter de planken moet een waterkerende folie worden aangebracht.' },
+      { question: 'Hoeveel planken heb ik nodig per m²?', answer: 'Door het open profiel en de smalle breedte van 72 mm heeft u meer planken nodig dan bij gesloten gevelbekleding. Reken op circa 12-14 planken per m².' },
+    ],
+  },
+  {
+    id: 'cl-5',
+    updatedDate: '2026-02-20',
+    name: 'Silvadec Open Rhombus Donker Bruin',
+    price: 29.95,
+    priceLabel: '€29,95 per stuk',
+    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2023-11/SIBARLAM1303L3%2C6_P%20%281%29.jpg?itok=nlL1yJg2',
+    category: 'gevelbekleding',
+    features: ['Co-extrusie beschermlaag', 'Open rhombus profiel', '25 jaar garantie'],
+    guarantee: '25 jaar fabrieksgarantie',
+    slug: 'open-rhombus-donker-bruin',
+    tone: 'bruin',
+    durability: 'co-extrusie',
+    productType: 'profiel',
+    description: 'Open rhombus gevelbekleding in donker bruin. De diepe kleur combineert prachtig met het open profiel voor een krachtige, moderne gevel.',
+    seoTitle: 'Silvadec Open Rhombus Donker Bruin | Composiet Gevelbekleding',
+    seoDescription: 'Silvadec Open Rhombus gevelbekleding Donker Bruin. Open profiel, co-extrusie, 25 jaar garantie. Bestel bij SchuttingenvanComposiet.nl.',
+    longDescription: `## Silvadec Open Rhombus Donker Bruin
+
+De donkerbruine variant van de Silvadec Open Rhombus gevelbekleding biedt een krachtige, luxueuze geveloplossing. Het contrast tussen de donkere planken en de lichtinval door de openingen creëert een bijzonder architectonisch effect.
+
+### Krachtig en elegant
+
+De diepe bruine kleur geeft de gevel uitstraling en karakter. Het open rhombus profiel voegt dynamiek toe met zijn licht-schaduwspel.
+
+### Ventilatie en bescherming
+
+Het open profiel zorgt voor natuurlijke achterventilatie, wat condensvorming voorkomt en de levensduur van de onderconstructie verlengt.`,
+    specifications: { Lengte: '360 cm', Breedte: '7,2 cm', Dikte: '2,6 cm', Materiaal: 'Composiet met co-extrusie toplaag', Kleur: 'Donker Bruin', Profiel: 'Open Rhombus', Merk: 'Silvadec' },
+    images: [
+      'https://en.silvadec.com/sites/default/files/styles/square/public/2023-11/SIBARLAM1303L3%2C6_P%20%281%29.jpg?itok=nlL1yJg2',
+      'https://en.silvadec.com/sites/default/files/styles/square/public/2022-01/CVBF_ST_ANDEOL_LE_CHATEAU_%2840%29.JPG?itok=Xn2fRZFT',
+    ],
+    deliveryTime: '5-8 werkdagen',
+    highlights: ['Open rhombus profiel', 'Donker bruin', 'Luxe uitstraling', 'Co-extrusie beschermlaag'],
+    dimensions: { length: '360 cm', width: '7,2 cm', thickness: '2,6 cm' },
+    faq: [
+      { question: 'Kan ik open rhombus combineren met gesloten gevelbekleding?', answer: 'Ja, veel architecten combineren open rhombus met de Atmosphere 175 planken voor een afwisselend gevelbeeld.' },
+    ],
+  },
+  {
+    id: 'cl-6',
+    updatedDate: '2026-02-20',
+    name: 'Silvadec Open Rhombus Antraciet Grijs',
+    price: 29.95,
+    priceLabel: '€29,95 per stuk',
+    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2025-06/silvadec_atmopshere_SIBARLAM1301%20%284%29.jpg?itok=y1NneV3N',
+    category: 'gevelbekleding',
+    features: ['Co-extrusie beschermlaag', 'Open rhombus profiel', '25 jaar garantie'],
+    guarantee: '25 jaar fabrieksgarantie',
+    slug: 'open-rhombus-antraciet-grijs',
     tone: 'grijs',
-    durability: 'premium',
-    productType: 'plank',
-    description: 'Stijlvolle combinatie van grijs en zwart in één plank. Ideaal voor een industriële of moderne gevelafwerking. Twee kleuren, één plank.',
-    seoTitle: 'Composiet Gevelbekleding Rhombus Grijs/Zwart | €25,95',
-    seoDescription: 'Composiet gevelbekleding met twee kleuren: Grijs en Zwart in één plank. Industriële look, co-extrusie beschermlaag, 15 jaar garantie. Bestel nu.',
-    longDescription: `## Composiet gevelbekleding Rhombus Grijs/Zwart
+    durability: 'co-extrusie',
+    productType: 'profiel',
+    description: 'Open rhombus gevelbekleding in antraciet grijs. De populairste kleur voor moderne architectuur, gecombineerd met het kenmerkende open profiel.',
+    seoTitle: 'Silvadec Open Rhombus Antraciet Grijs | Composiet Gevelbekleding',
+    seoDescription: 'Silvadec Open Rhombus gevelbekleding Antraciet Grijs. Open profiel, co-extrusie, 25 jaar garantie. Bestel bij SchuttingenvanComposiet.nl.',
+    longDescription: `## Silvadec Open Rhombus Antraciet Grijs
 
-Een stijlvolle combinatie van grijs en zwart in één plank. Ideaal voor een industriële of moderne gevelafwerking. Kies zelf welke zijde u naar buiten richt, of combineer beide voor een uniek ontwerp.
+De antraciet grijze variant van de Silvadec Open Rhombus is de populairste keuze voor moderne architectuur. De strakke grijze tint in combinatie met het open profiel geeft een eigentijds, architectonisch gevelbeeld.
+
+### Modern en tijdloos
+
+Antraciet grijs is dé kleur voor hedendaagse architectuur. Het combineert moeiteloos met aluminium, glas en beton. Het open rhombus profiel voegt textuur en diepte toe.
 
 ### Duurzaam en onderhoudsvrij
 
-De planken zijn vervaardigd uit 95% gerecycled materiaal en voorzien van een co-extrusie beschermlaag. Hierdoor zijn ze ongevoelig voor rot, schimmel en verkleuring. De vochtopname is 0%.
-
-### Flexibele montage
-
-Monteer horizontaal of verticaal op een aluminium regelwerk. Schroeven worden meegeleverd. Planken zijn eenvoudig op maat te zagen.
-
-### Voordelen in één oogopslag
-
-- Twee kleuren in één plank: Grijs en Zwart
-- Industriële, moderne uitstraling
-- Co-extrusie beschermlaag
-- 95% gerecycled materiaal
-- Onderhoudsvrij en kleurvast
-- Flexibele montage in twee richtingen`,
-    specifications: { Lengte: '290 cm', Breedte: '20 cm', Dikte: '2,1 cm', Oppervlakte: '0,58 m² per plank', Materiaal: 'Composiet met co-extrusie toplaag', Kleur: 'Grijs / Zwart', Profiel: 'Rhombus' },
+Net als alle Silvadec producten is deze gevelbekleding voorzien van een co-extrusie beschermlaag. U geniet 25 jaar van een perfect gevelbeeld zonder onderhoud.`,
+    specifications: { Lengte: '360 cm', Breedte: '7,2 cm', Dikte: '2,6 cm', Materiaal: 'Composiet met co-extrusie toplaag', Kleur: 'Antraciet Grijs', Profiel: 'Open Rhombus', Merk: 'Silvadec' },
     images: [
-      'https://jakqbjeukobtyxxxpzcr.supabase.co/storage/v1/object/public/product-images/gevelbekleding/rhombus-grijs-zwart.png',
+      'https://en.silvadec.com/sites/default/files/styles/square/public/2025-06/silvadec_atmopshere_SIBARLAM1301%20%284%29.jpg?itok=y1NneV3N',
+      'https://en.silvadec.com/sites/default/files/styles/square/public/2021-03/SIBARLAM1301L3%2C6_A.jpg?itok=-rexgs_K',
     ],
-    deliveryTime: 'Tussen de 2 en 15 werkdagen',
-    highlights: ['Twee kleuren in één plank', 'Industriële look', 'Co-extrusie beschermlaag', 'Onderhoudsvrij'],
-    dimensions: { length: '290 cm', width: '20 cm', thickness: '2,1 cm', coverage: '0,58 m² per plank' },
+    deliveryTime: '5-8 werkdagen',
+    highlights: ['Antraciet grijs', 'Open rhombus profiel', 'Populairste kleur', 'Co-extrusie beschermlaag'],
+    dimensions: { length: '360 cm', width: '7,2 cm', thickness: '2,6 cm' },
     faq: [
-      { question: 'Wat is het verschil met de Teak/Zwart variant?', answer: 'De Grijs/Zwart variant heeft een koelere, industriële uitstraling. De Teak/Zwart combineert warmte met modern. Kies op basis van de stijl van uw woning.' },
-      { question: 'Kan ik beide kanten afwisselend gebruiken?', answer: 'Ja, u kunt per plank kiezen welke zijde naar buiten wijst. Dit maakt creatieve ontwerpen mogelijk, bijvoorbeeld een patroon van afwisselend grijs en zwart.' },
-      { question: 'Hoe onderhoud ik de planken?', answer: 'Praktisch geen onderhoud nodig. Reinig de planken één tot twee keer per jaar met lauwwarm water en een zachte borstel om vuil te verwijderen.' },
-    ],
-  },
-  {
-    id: 'gv-7',
-    updatedDate: '2026-02-08',
-    name: 'Hoekprofiel Composiet gevelbekleding Teak',
-    price: 19.95,
-    priceLabel: '€19,95 per stuk',
-    image: 'https://jakqbjeukobtyxxxpzcr.supabase.co/storage/v1/object/public/product-images/gevelbekleding/hoekprofiel-teak.png',
-    category: 'gevelbekleding',
-    features: ['Strakke afwerking', 'Eigen bezorgservice'],
-    guarantee: '15 jaar garantie',
-    slug: 'hoekprofiel-teak',
-    tone: 'teak',
-    durability: 'premium',
-    productType: 'profiel',
-    description: 'Het composiet hoekprofiel in Teak zorgt voor een strakke en professionele afwerking van uw gevelbekleding op hoeken en randen. Perfect passend bij de Rhombus gevelbekleding.',
-    seoTitle: 'Hoekprofiel Composiet Gevelbekleding Teak | €19,95',
-    seoDescription: 'Composiet hoekprofiel Teak voor een strakke hoekafwerking van uw gevelbekleding. Passend bij Rhombus gevelbekleding. Bestel bij Schuttingvancomposiet.nl.',
-    longDescription: `## Hoekprofiel Composiet gevelbekleding Teak
-
-Het composiet hoekprofiel in Teak zorgt voor een strakke en professionele afwerking van uw gevelbekleding op hoeken en randen. Het profiel past perfect bij de Rhombus gevelbekleding in de kleur Teak.
-
-### Waarom een hoekprofiel?
-
-Hoeken en randen zijn het visitekaartje van een gevelafwerking. Met het composiet hoekprofiel creëert u een naadloze overgang op buitenhoeken. Het profiel wordt eenvoudig over de hoek geplaatst en vastgeschroefd.
-
-### Voordelen
-
-- Strakke, professionele hoekafwerking
-- Perfect passend bij Rhombus gevelbekleding Teak
-- Eenvoudige montage
-- Zelfde co-extrusie kwaliteit als de gevelbekleding
-- 290 cm lang — zelfde lengte als de gevelplanken`,
-    specifications: { Lengte: '290 cm', Materiaal: 'Composiet', Kleur: 'Teak', Type: 'Hoekprofiel' },
-    images: [
-      'https://jakqbjeukobtyxxxpzcr.supabase.co/storage/v1/object/public/product-images/gevelbekleding/hoekprofiel-teak.png',
-    ],
-    deliveryTime: 'Tussen de 2 en 15 werkdagen',
-    highlights: ['Strakke hoekafwerking', 'Passend bij Rhombus gevelbekleding', 'Eenvoudige montage'],
-    faq: [
-      { question: 'Heb ik hoekprofielen nodig?', answer: 'Hoekprofielen zijn niet verplicht maar geven een veel strakker eindresultaat. Zonder hoekprofiel zijn de kopse kanten van de planken zichtbaar op de hoeken.' },
-      { question: 'Hoeveel hoekprofielen heb ik nodig?', answer: 'U heeft één hoekprofiel per buitenhoek nodig. Meet de hoogte van de hoek en deel door 290 cm (de lengte van het profiel) om het aantal te bepalen.' },
-    ],
-  },
-  {
-    id: 'gv-8',
-    updatedDate: '2026-02-08',
-    name: 'Hoekprofiel Composiet gevelbekleding Zwart',
-    price: 19.95,
-    priceLabel: '€19,95 per stuk',
-    image: 'https://jakqbjeukobtyxxxpzcr.supabase.co/storage/v1/object/public/product-images/gevelbekleding/hoekprofiel-zwart.png',
-    category: 'gevelbekleding',
-    features: ['Strakke afwerking', 'Eigen bezorgservice'],
-    guarantee: '15 jaar garantie',
-    slug: 'hoekprofiel-zwart',
-    tone: 'zwart',
-    durability: 'premium',
-    productType: 'profiel',
-    description: 'Het composiet hoekprofiel in Zwart voor een strakke afwerking van uw zwarte gevelbekleding. Passend bij alle zwarte Rhombus gevelbekleding varianten.',
-    seoTitle: 'Hoekprofiel Composiet Gevelbekleding Zwart | €19,95',
-    seoDescription: 'Composiet hoekprofiel Zwart voor strakke hoekafwerking. Passend bij alle zwarte Rhombus gevelbekleding. Bestel bij Schuttingvancomposiet.nl.',
-    longDescription: `## Hoekprofiel Composiet gevelbekleding Zwart
-
-Het composiet hoekprofiel in Zwart zorgt voor een strakke, naadloze afwerking van uw zwarte gevelbekleding op hoeken en randen. Past bij alle zwarte Rhombus gevelbekleding varianten.
-
-### Waarom een hoekprofiel?
-
-Met het composiet hoekprofiel worden kopse kanten netjes afgedekt voor een professioneel eindresultaat. Het profiel wordt eenvoudig over de hoek geplaatst en vastgeschroefd.
-
-### Voordelen
-
-- Strakke, professionele hoekafwerking
-- Passend bij alle zwarte gevelbekleding varianten
-- Eenvoudige montage
-- Zelfde kwaliteit als de gevelbekleding
-- 290 cm lang`,
-    specifications: { Lengte: '290 cm', Materiaal: 'Composiet', Kleur: 'Zwart', Type: 'Hoekprofiel' },
-    images: [
-      'https://jakqbjeukobtyxxxpzcr.supabase.co/storage/v1/object/public/product-images/gevelbekleding/hoekprofiel-zwart.png',
-    ],
-    deliveryTime: 'Tussen de 2 en 15 werkdagen',
-    highlights: ['Strakke hoekafwerking', 'Passend bij zwarte gevelbekleding', 'Eenvoudige montage'],
-    faq: [
-      { question: 'Past dit hoekprofiel bij de Grijs/Zwart gevelbekleding?', answer: 'Ja, het zwarte hoekprofiel past uitstekend bij zowel de Rhombus Zwart als de Rhombus Grijs/Zwart gevelbekleding.' },
-      { question: 'Hoe bevestig ik het hoekprofiel?', answer: 'Het hoekprofiel wordt met RVS schroeven op het regelwerk bevestigd, vóórdat de gevelplanken worden gemonteerd. Zo ontstaat een strakke, naadloze overgang.' },
+      { question: 'Past antraciet grijs bij elke woning?', answer: 'Antraciet grijs is een veelzijdige kleur die past bij vrijwel elke bouwstijl. Het combineert goed met zowel lichte als donkere materialen.' },
     ],
   },
 
-  // ─── SCHUTTINGEN ──────────────────────────────────────────────
+  // ─── SCHUTTINGEN (Fencing) ──────────────────────────────────────
   {
     id: 'sc-1',
-    updatedDate: '2026-02-15',
-    name: 'Composiet schutting Rhombus Teak',
-    price: 139.95,
-    priceLabel: 'Vanaf €139,95',
-    image: 'https://jakqbjeukobtyxxxpzcr.supabase.co/storage/v1/object/public/product-images/schuttingen/rhombus-teak.png',
+    updatedDate: '2026-02-20',
+    name: 'Silvadec Atmosphere Schutting Antraciet Grijs',
+    price: 32.95,
+    priceLabel: '€32,95 per plank',
+    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2024-01/silvadec_aluminium_C0039%20%281%29.png?itok=53TGCyiu',
     category: 'schuttingen',
-    features: ['Extra dikke 2,5cm plank', 'Eenvoudig te monteren'],
-    guarantee: '15 jaar garantie',
-    slug: 'schutting-rhombus-teak',
-    tone: 'teak',
-    durability: 'premium',
-    productType: 'paneel',
-    description: 'De composiet schutting Rhombus Teak combineert privacy met een stijlvolle, moderne uitstraling. De extra dikke planken van 2,5 cm zorgen voor een robuust en stevig scherm. Het rhombus profiel creëert een schaduwwerking die de schutting extra diepte geeft.',
-    seoTitle: 'Composiet Schutting Rhombus Teak Kopen | Vanaf €139,95',
-    seoDescription: 'Composiet schutting Rhombus Teak met extra dikke 2,5cm planken en co-extrusie beschermlaag. Onderhoudsvrij, 15 jaar garantie. Bestel bij Schuttingvancomposiet.nl.',
-    longDescription: `## Composiet schutting Rhombus Teak
+    features: ['Co-extrusie beschermlaag', 'Dubbelzijdig: glad & reliëf', '25 jaar garantie'],
+    guarantee: '25 jaar fabrieksgarantie',
+    slug: 'atmosphere-schutting-antraciet-grijs',
+    tone: 'grijs',
+    durability: 'co-extrusie',
+    productType: 'plank',
+    description: 'Composiet schuttingplank in antraciet grijs met dubbelzijdige afwerking: één gladde en één gestructureerde zijde. De populairste kleur voor moderne tuinen.',
+    seoTitle: 'Silvadec Schutting Antraciet Grijs | Composiet Schuttingplank',
+    seoDescription: 'Silvadec Atmosphere composiet schuttingplank Antraciet Grijs. Dubbelzijdig, co-extrusie, 25 jaar garantie. Bestel bij SchuttingenvanComposiet.nl.',
+    longDescription: `## Silvadec Atmosphere Schutting Antraciet Grijs
 
-De composiet schutting Rhombus Teak combineert privacy met een stijlvolle, moderne uitstraling. De extra dikke planken van 2,5 cm zorgen voor een robuust en stevig scherm. Het rhombus profiel creëert een schaduwwerking die de schutting extra diepte en karakter geeft.
+De Silvadec Atmosphere schuttingplank in Antraciet Grijs is de meest gekozen kleur voor moderne tuinafscheidingen. Dankzij de dubbelzijdige afwerking — één gladde zijde en één gestructureerde zijde — kunt u zelf kiezen welke kant u naar buiten richt.
 
-### Duurzaam en onderhoudsvrij
+### Dubbelzijdig design
 
-Vervaardigd uit gerecycled kunststof en houtvezels met een co-extrusie beschermlaag. De schutting is ongevoelig voor rot, schimmel en verkleuring. Geen schilderwerk, geen onderhoud — gewoon genieten van een mooie erfafscheiding. De vochtopname is 0%.
+Elke plank heeft twee verschillende afwerkingen:
+- **Gladde zijde** — strak en modern
+- **Reliëf zijde** — natuurlijke houtstructuur
+
+U kiest zelf welke zijde zichtbaar is, of combineer beide voor een uniek ontwerp.
+
+### Co-extrusie beschermlaag
+
+De gevorderde co-extrusie technologie beschermt elke plank tegen:
+- UV-straling en verkleuring
+- Vochtopname (0%)
+- Krassen en vlekken
+- Schimmel en algen
 
 ### Eenvoudige montage
 
-Het schuttingsysteem werkt met aluminium palen (apart verkrijgbaar) en U-profielen. De planken schuif je eenvoudig in de palen. Geen ingewikkeld gereedschap nodig. Beschikbaar in 180 cm of 200 cm hoogte.
+De planken schuiven eenvoudig in de Silvadec aluminium paalprofielen. Geen schroeven, geen boren — gewoon inschuiven en klaar.
 
-### Voordelen in één oogopslag
+### 25 jaar fabrieksgarantie
 
-- Extra dikke 2,5 cm planken voor maximale stevigheid
-- Rhombus profiel met schaduwwerking
-- Co-extrusie beschermlaag voor kleurvastheid
-- Onderhoudsvrij — nooit meer schilderen of beitsen
-- Eenvoudig zelf te monteren
-- Beschikbaar in 180 cm en 200 cm hoogte`,
-    specifications: { Hoogte: '180 cm of 200 cm', Breedte: '180 cm', Plankdikte: '2,5 cm', Materiaal: 'Composiet met co-extrusie toplaag', Kleur: 'Teak', Profiel: 'Rhombus', Palen: 'Aluminium (apart verkrijgbaar)' },
+Silvadec biedt 25 jaar garantie op kleurvastheid en structurele integriteit. Een investering voor het leven.`,
+    specifications: { Lengte: '180 cm', Breedte: '17,6 cm', Dikte: '2,1 cm', Materiaal: 'Composiet met co-extrusie toplaag', Kleur: 'Antraciet Grijs', Afwerking: 'Dubbelzijdig: glad & reliëf', Merk: 'Silvadec' },
     images: [
-      'https://jakqbjeukobtyxxxpzcr.supabase.co/storage/v1/object/public/product-images/schuttingen/rhombus-teak.png',
+      'https://en.silvadec.com/sites/default/files/styles/square/public/2024-01/silvadec_aluminium_C0039%20%281%29.png?itok=53TGCyiu',
     ],
-    deliveryTime: 'Tussen de 2 en 15 werkdagen',
-    highlights: ['Extra dikke 2,5 cm planken', 'Rhombus profiel met schaduwwerking', 'Eenvoudige montage', 'Onderhoudsvrij', '15 jaar garantie'],
-    options: [
-      { label: 'Hoogte', values: ['180 cm', '200 cm'] },
-    ],
+    deliveryTime: '5-8 werkdagen',
+    highlights: ['Antraciet grijs', 'Dubbelzijdig design', 'Co-extrusie beschermlaag', '25 jaar garantie', 'Eenvoudige montage'],
+    dimensions: { length: '180 cm', width: '17,6 cm', thickness: '2,1 cm' },
     faq: [
-      { question: 'Wat zit er bij een schuttingpakket?', answer: 'Een schuttingpakket bevat alle composiet planken en U-profielen (boven en onder) voor één scherm. Aluminium palen zijn apart verkrijgbaar.' },
-      { question: 'Hoe breed is een scherm?', answer: 'Elk scherm is 180 cm breed (hart-op-hart). De planken worden tussen twee aluminium palen geplaatst.' },
-      { question: 'Kan ik de schutting zelf plaatsen?', answer: 'Ja, de montage is eenvoudig. Plaats de aluminium palen in de grond (met betonvoet), schuif de U-profielen in de palen en leg de planken erin. Twee personen kunnen een scherm in minder dan een uur plaatsen.' },
-      { question: 'Wat is het verschil tussen Rhombus en Houtnerf profiel?', answer: 'Het Rhombus profiel heeft schuine groeven die een schaduwwerking creëren. Het Houtnerf profiel heeft een meer traditionele houtstructuur. Beide zijn voorzien van dezelfde co-extrusie beschermlaag.' },
+      { question: 'Hoeveel planken heb ik nodig per strekkende meter schutting?', answer: 'Bij een standaard schuttinghoogte van 180 cm heeft u ongeveer 10 planken per sectie nodig (17,6 cm breed per plank).' },
+      { question: 'Welke palen gebruik ik?', answer: 'Silvadec biedt bijpassende aluminium paalprofielen waarin de planken eenvoudig inschuiven. Deze palen zijn verkrijgbaar in dezelfde kleuren.' },
+      { question: 'Kan ik de schutting zelf plaatsen?', answer: 'Ja, de Silvadec schutting is ontworpen voor doe-het-zelf montage. Planken schuiven in de aluminium palen — geen speciaal gereedschap nodig.' },
     ],
   },
   {
     id: 'sc-2',
-    updatedDate: '2026-02-14',
-    name: 'Composiet schutting Teak',
-    price: 139.95,
-    priceLabel: 'Vanaf €139,95',
-    image: 'https://jakqbjeukobtyxxxpzcr.supabase.co/storage/v1/object/public/product-images/schuttingen/houtnerf-teak.png',
+    updatedDate: '2026-02-20',
+    name: 'Silvadec Atmosphere Schutting Licht Grijs',
+    price: 32.95,
+    priceLabel: '€32,95 per plank',
+    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/accessoires_claustra_decor_3d_decor_2_lame_gris_clair_mineral_gris_anthra_sable_HD.jpg?itok=NaiaPtfA',
     category: 'schuttingen',
-    features: ['Extra dikke 2,5cm plank', 'Eenvoudig te monteren'],
-    guarantee: '15 jaar garantie',
-    slug: 'schutting-teak',
-    tone: 'teak',
-    durability: 'premium',
-    productType: 'paneel',
-    description: 'De composiet schutting Teak met houtnerf profiel. Een warme, natuurlijke uitstraling dankzij de realistische houtnerf structuur. Extra dikke planken van 2,5 cm voor maximale stevigheid.',
-    seoTitle: 'Composiet Schutting Teak Houtnerf Kopen | Vanaf €139,95',
-    seoDescription: 'Composiet schutting Teak met realistisch houtnerf profiel en extra dikke 2,5cm planken. Onderhoudsvrij, 15 jaar garantie. Bestel bij Schuttingvancomposiet.nl.',
-    longDescription: `## Composiet schutting Teak met Houtnerf profiel
+    features: ['Co-extrusie beschermlaag', 'Dubbelzijdig: glad & reliëf', '25 jaar garantie'],
+    guarantee: '25 jaar fabrieksgarantie',
+    slug: 'atmosphere-schutting-licht-grijs',
+    tone: 'grijs',
+    durability: 'co-extrusie',
+    productType: 'plank',
+    description: 'Composiet schuttingplank in licht grijs. Een lichte, frisse kleur die de tuin optisch vergroot en mooi combineert met groen.',
+    seoTitle: 'Silvadec Schutting Licht Grijs | Composiet Schuttingplank',
+    seoDescription: 'Silvadec Atmosphere composiet schuttingplank Licht Grijs. Dubbelzijdig, co-extrusie, 25 jaar garantie. Bestel bij SchuttingenvanComposiet.nl.',
+    longDescription: `## Silvadec Atmosphere Schutting Licht Grijs
 
-De composiet schutting Teak met houtnerf profiel biedt een warme, natuurlijke uitstraling dankzij de realistische houtnerf structuur. Extra dikke planken van 2,5 cm zorgen voor maximale stevigheid en een robuust gevoel.
+De lichtgrijze variant van de Silvadec Atmosphere schuttingplank biedt een frisse, moderne uitstraling. De lichte kleur maakt de tuin optisch groter en combineert prachtig met groen en bloemen.
 
-### Duurzaam en onderhoudsvrij
+### Ruimtelijk effect
 
-Vervaardigd uit gerecycled kunststof en houtvezels met co-extrusie beschermlaag. Geen rot, geen schimmel, geen verkleuring. De vochtopname is 0% — de schutting behoudt jarenlang zijn mooie uitstraling zonder onderhoud.
+Licht grijs reflecteert meer licht dan donkere kleuren, waardoor uw tuin groter en lichter aanvoelt. Ideaal voor kleinere tuinen of schaduwrijke plekken.
 
-### Eenvoudige montage
+### Dubbelzijdig en veelzijdig
 
-Het systeem werkt met aluminium palen en U-profielen. Planken schuif je eenvoudig in de palen. Beschikbaar in 180 cm of 200 cm hoogte.
-
-### Voordelen in één oogopslag
-
-- Realistische houtnerf structuur
-- Extra dikke 2,5 cm planken
-- Co-extrusie beschermlaag
-- Onderhoudsvrij — nooit meer schilderen
-- Eenvoudig zelf te monteren
-- Beschikbaar in twee hoogtes`,
-    specifications: { Hoogte: '180 cm of 200 cm', Breedte: '180 cm', Plankdikte: '2,5 cm', Materiaal: 'Composiet met co-extrusie toplaag', Kleur: 'Teak', Profiel: 'Houtnerf' },
+Net als alle Atmosphere schuttingplanken heeft deze plank twee afwerkingen: glad en gestructureerd. U bepaalt zelf het eindresultaat.`,
+    specifications: { Lengte: '180 cm', Breedte: '17,6 cm', Dikte: '2,1 cm', Materiaal: 'Composiet met co-extrusie toplaag', Kleur: 'Licht Grijs', Afwerking: 'Dubbelzijdig: glad & reliëf', Merk: 'Silvadec' },
     images: [
-      'https://jakqbjeukobtyxxxpzcr.supabase.co/storage/v1/object/public/product-images/schuttingen/houtnerf-teak.png',
+      'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/accessoires_claustra_decor_3d_decor_2_lame_gris_clair_mineral_gris_anthra_sable_HD.jpg?itok=NaiaPtfA',
     ],
-    deliveryTime: 'Tussen de 2 en 15 werkdagen',
-    highlights: ['Realistische houtnerf', 'Extra dikke 2,5 cm planken', 'Onderhoudsvrij', 'Eenvoudige montage'],
-    options: [
-      { label: 'Hoogte', values: ['180 cm', '200 cm'] },
-    ],
+    deliveryTime: '5-8 werkdagen',
+    highlights: ['Licht grijs', 'Ruimtelijk effect', 'Dubbelzijdig design', 'Co-extrusie beschermlaag'],
+    dimensions: { length: '180 cm', width: '17,6 cm', thickness: '2,1 cm' },
     faq: [
-      { question: 'Wat is het verschil met de Rhombus Teak?', answer: 'De Houtnerf Teak heeft een traditionele houtstructuur, terwijl de Rhombus Teak schuine groeven heeft voor een moderner uiterlijk met schaduwwerking. Beide zijn voorzien van co-extrusie beschermlaag.' },
-      { question: 'Heb ik speciale palen nodig?', answer: 'Ja, u heeft aluminium palen nodig die apart verkrijgbaar zijn. De palen worden in de grond geplaatst met een betonvoet en de planken schuif je erin.' },
-      { question: 'Hoeveel schermen heb ik nodig?', answer: 'Meet de totale lengte van uw erfafscheiding en deel door 1,80 m (de breedte van een scherm). Vergeet niet de aluminium palen mee te tellen — u heeft altijd één paal meer nodig dan het aantal schermen.' },
+      { question: 'Wordt licht grijs snel vies?', answer: 'Nee, dankzij de co-extrusie beschermlaag hecht vuil nauwelijks aan het oppervlak. Een jaarlijkse reiniging met water is voldoende.' },
     ],
   },
   {
     id: 'sc-3',
-    updatedDate: '2026-02-13',
-    name: 'Composiet schutting Rhombus Zwart',
-    price: 139.95,
-    priceLabel: 'Vanaf €139,95',
-    image: 'https://jakqbjeukobtyxxxpzcr.supabase.co/storage/v1/object/public/product-images/schuttingen/rhombus-zwart.png',
+    updatedDate: '2026-02-20',
+    name: 'Silvadec Atmosphere Schutting Wild Grijs',
+    price: 34.95,
+    priceLabel: '€34,95 per plank',
+    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2024-05/silvadec_atmosphere_b0041_c0141-compressed_7.jpg?itok=vZvJ8zUk',
     category: 'schuttingen',
-    features: ['Extra dikke 2,5cm plank', 'Eenvoudig te monteren'],
-    guarantee: '15 jaar garantie',
-    slug: 'schutting-rhombus-zwart',
-    tone: 'zwart',
-    durability: 'premium',
-    productType: 'paneel',
-    description: 'Strakke zwarte composiet schutting met rhombus profiel. De donkere kleur in combinatie met het rhombus profiel creëert een moderne, tijdloze erfafscheiding.',
-    seoTitle: 'Composiet Schutting Rhombus Zwart Kopen | Vanaf €139,95',
-    seoDescription: 'Zwarte composiet schutting met rhombus profiel en 2,5cm dikke planken. Moderne uitstraling, onderhoudsvrij, 15 jaar garantie. Bestel online.',
-    longDescription: `## Composiet schutting Rhombus Zwart
+    features: ['Co-extrusie beschermlaag', 'Gegroefde & gladde zijde', '25 jaar garantie'],
+    guarantee: '25 jaar fabrieksgarantie',
+    slug: 'atmosphere-schutting-wild-grijs',
+    tone: 'grijs',
+    durability: 'co-extrusie',
+    productType: 'plank',
+    description: 'Composiet schuttingplank in wild grijs met een expressieve, natuurlijke houtnerf. Een gewaagde keuze voor tuinen met karakter.',
+    seoTitle: 'Silvadec Schutting Wild Grijs | Composiet Schuttingplank',
+    seoDescription: 'Silvadec Atmosphere composiet schuttingplank Wild Grijs. Expressieve houtnerf, co-extrusie, 25 jaar garantie. Bestel bij SchuttingenvanComposiet.nl.',
+    longDescription: `## Silvadec Atmosphere Schutting Wild Grijs
 
-Een strakke, zwarte composiet schutting met rhombus profiel voor een moderne, tijdloze erfafscheiding. De donkere kleur in combinatie met het rhombus profiel creëert diepte en karakter.
+De Wild Grijs variant is de nieuwste toevoeging aan het Silvadec schuttingassortiment. Met een expressieve, natuurlijke houtnerf en een levendige grijze tint is deze plank perfect voor tuinen met karakter.
 
-### Duurzaam en onderhoudsvrij
+### Levendig en natuurlijk
 
-De schutting is vervaardigd uit gerecycled kunststof en houtvezels met co-extrusie beschermlaag. Geen rot, geen schimmel, geen verkleuring. De vochtopname is 0%. Zwarte schuttingen blijven dankzij de beschermlaag kleurvast — ook na jaren in de zon.
+De "wild" afwerking geeft elke plank een unieke, natuurlijke uitstraling. Geen twee planken zijn precies hetzelfde, wat een authentiek houteffect creëert.
 
-### Eenvoudige montage
+### Dubbelzijdig
 
-Aluminium palen (apart verkrijgbaar) en U-profielen maken de montage eenvoudig. Planken schuif je in de palen. Beschikbaar in 180 cm of 200 cm hoogte.
-
-### Voordelen in één oogopslag
-
-- Strakke, moderne zwarte uitstraling
-- Rhombus profiel met schaduwwerking
-- Extra dikke 2,5 cm planken
-- Co-extrusie beschermlaag voor kleurvastheid
-- Onderhoudsvrij
-- Eenvoudig zelf te monteren`,
-    specifications: { Hoogte: '180 cm of 200 cm', Breedte: '180 cm', Plankdikte: '2,5 cm', Materiaal: 'Composiet met co-extrusie toplaag', Kleur: 'Zwart', Profiel: 'Rhombus' },
+Eén zijde heeft een gegroefde afwerking, de andere een gladde. Combineer naar wens voor een persoonlijk tuinontwerp.`,
+    specifications: { Lengte: '180 cm', Breedte: '17,6 cm', Dikte: '2,1 cm', Materiaal: 'Composiet met co-extrusie toplaag', Kleur: 'Wild Grijs', Afwerking: 'Dubbelzijdig: gegroefde & glad', Merk: 'Silvadec' },
     images: [
-      'https://jakqbjeukobtyxxxpzcr.supabase.co/storage/v1/object/public/product-images/schuttingen/rhombus-zwart.png',
+      'https://en.silvadec.com/sites/default/files/styles/square/public/2024-05/silvadec_atmosphere_b0041_c0141-compressed_7.jpg?itok=vZvJ8zUk',
     ],
-    deliveryTime: 'Tussen de 2 en 15 werkdagen',
-    highlights: ['Moderne zwarte uitstraling', 'Rhombus profiel', 'Extra dikke planken', 'Onderhoudsvrij'],
-    options: [
-      { label: 'Hoogte', values: ['180 cm', '200 cm'] },
-    ],
+    deliveryTime: '5-8 werkdagen',
+    highlights: ['Wild grijs', 'Expressieve houtnerf', 'Unieke look', 'Co-extrusie beschermlaag'],
+    dimensions: { length: '180 cm', width: '17,6 cm', thickness: '2,1 cm' },
     faq: [
-      { question: 'Blijft de zwarte kleur mooi?', answer: 'Ja, dankzij de co-extrusie beschermlaag blijft de zwarte kleur jarenlang intens. De planken zijn UV-bestendig en verkleuren niet door zonlicht.' },
-      { question: 'Kan ik de schutting combineren met hekwerk?', answer: 'Ja, onze composiet schuttingen zijn uitstekend te combineren met staafmat hekwerk of spijlen hekwerk. Veel klanten gebruiken een combinatie voor een afwisselend tuinontwerp.' },
-      { question: 'Hoe plaats ik de aluminium palen?', answer: 'De aluminium palen worden in de grond geplaatst met een betonvoet. Zorg voor een goede fundering en waterpas plaatsing. De planken schuif je vervolgens in de gleuf van de palen.' },
+      { question: 'Wat maakt Wild Grijs anders dan gewoon grijs?', answer: 'Wild Grijs heeft een meer gevarieerde, levendige kleur met zichtbare nerf- en kleurvariaties. Het is een expressiever alternatief voor de uniforme grijstinten.' },
     ],
   },
   {
     id: 'sc-4',
-    updatedDate: '2026-02-12',
-    name: 'Composiet schutting Zwart',
-    price: 139.95,
-    priceLabel: 'Vanaf €139,95',
-    image: 'https://jakqbjeukobtyxxxpzcr.supabase.co/storage/v1/object/public/product-images/schuttingen/houtnerf-zwart.png',
+    updatedDate: '2026-02-20',
+    name: 'Silvadec Atmosphere Schutting Zonnig Bruin',
+    price: 34.95,
+    priceLabel: '€34,95 per plank',
+    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2024-02/silvadec_atmosphere_B0040_13.jpg?itok=v_iEy2r1',
     category: 'schuttingen',
-    features: ['Extra dikke 2,5cm plank', 'Eenvoudig te monteren'],
-    guarantee: '15 jaar garantie',
-    slug: 'schutting-zwart',
-    tone: 'zwart',
-    durability: 'premium',
-    productType: 'paneel',
-    description: 'De composiet schutting Zwart met houtnerf profiel. Stijlvol en modern met een subtiele houtnerf structuur die diepte toevoegt aan het zwarte oppervlak.',
-    seoTitle: 'Composiet Schutting Zwart Houtnerf Kopen | Vanaf €139,95',
-    seoDescription: 'Zwarte composiet schutting met houtnerf profiel en extra dikke 2,5cm planken. Stijlvol, onderhoudsvrij, 15 jaar garantie. Bestel bij Schuttingvancomposiet.nl.',
-    longDescription: `## Composiet schutting Zwart met Houtnerf profiel
+    features: ['Co-extrusie beschermlaag', 'Gegroefde & gladde zijde', '25 jaar garantie'],
+    guarantee: '25 jaar fabrieksgarantie',
+    slug: 'atmosphere-schutting-zonnig-bruin',
+    tone: 'bruin',
+    durability: 'co-extrusie',
+    productType: 'plank',
+    description: 'Composiet schuttingplank in zonnig bruin. Een warme, mediterrane kleur die sfeer brengt in elke tuin.',
+    seoTitle: 'Silvadec Schutting Zonnig Bruin | Composiet Schuttingplank',
+    seoDescription: 'Silvadec Atmosphere composiet schuttingplank Zonnig Bruin. Warme houtlook, co-extrusie, 25 jaar garantie. Bestel bij SchuttingenvanComposiet.nl.',
+    longDescription: `## Silvadec Atmosphere Schutting Zonnig Bruin
 
-De composiet schutting Zwart met houtnerf profiel is stijlvol en modern. De subtiele houtnerf structuur voegt diepte toe aan het zwarte oppervlak voor een verfijnd resultaat.
+Breng warmte en sfeer in uw tuin met de Silvadec Atmosphere schuttingplank in Zonnig Bruin. Deze warme, zongebruinde tint past perfect bij groene tuinen en houten elementen.
 
-### Duurzaam en onderhoudsvrij
+### Warme uitstraling
 
-Vervaardigd uit gerecycled materiaal met co-extrusie beschermlaag. Ongevoelig voor rot, schimmel en verkleuring. 0% vochtopname — de schutting vervormt niet en hoeft nooit geschilderd te worden.
+De zonnig bruine kleur doet denken aan zongebleekt hout en creëert een warme, uitnodigende sfeer in uw tuin. Perfect voor een landelijke of mediterrane tuinstijl.
 
-### Eenvoudige montage
+### Duurzaam en kleurvast
 
-Aluminium palen en U-profielen maken de montage eenvoudig. Beschikbaar in 180 cm of 200 cm hoogte.
-
-### Voordelen in één oogopslag
-
-- Subtiele houtnerf structuur op zwart
-- Extra dikke 2,5 cm planken
-- Co-extrusie beschermlaag
-- Onderhoudsvrij
-- Eenvoudig te monteren
-- Twee hoogte-opties beschikbaar`,
-    specifications: { Hoogte: '180 cm of 200 cm', Breedte: '180 cm', Plankdikte: '2,5 cm', Materiaal: 'Composiet met co-extrusie toplaag', Kleur: 'Zwart', Profiel: 'Houtnerf' },
+Dankzij de co-extrusie beschermlaag behoudt de warme bruintint jarenlang zijn intensiteit. Geen verkleuring, geen onderhoud.`,
+    specifications: { Lengte: '180 cm', Breedte: '17,6 cm', Dikte: '2,1 cm', Materiaal: 'Composiet met co-extrusie toplaag', Kleur: 'Zonnig Bruin', Afwerking: 'Dubbelzijdig: gegroefde & glad', Merk: 'Silvadec' },
     images: [
-      'https://jakqbjeukobtyxxxpzcr.supabase.co/storage/v1/object/public/product-images/schuttingen/houtnerf-zwart.png',
+      'https://en.silvadec.com/sites/default/files/styles/square/public/2024-02/silvadec_atmosphere_B0040_13.jpg?itok=v_iEy2r1',
     ],
-    deliveryTime: 'Tussen de 2 en 15 werkdagen',
-    highlights: ['Houtnerf profiel', 'Extra dikke 2,5 cm planken', 'Onderhoudsvrij', 'Eenvoudige montage'],
-    options: [
-      { label: 'Hoogte', values: ['180 cm', '200 cm'] },
-    ],
+    deliveryTime: '5-8 werkdagen',
+    highlights: ['Zonnig bruin', 'Warme houtlook', 'Mediterrane sfeer', 'Co-extrusie beschermlaag'],
+    dimensions: { length: '180 cm', width: '17,6 cm', thickness: '2,1 cm' },
     faq: [
-      { question: 'Wat is het verschil tussen Houtnerf en Rhombus?', answer: 'Het Houtnerf profiel heeft een traditionele houtstructuur met nerven, terwijl het Rhombus profiel schuine groeven heeft voor een modernere uitstraling met schaduwwerking.' },
-      { question: 'Is de houtnerf aan beide zijden?', answer: 'Ja, beide zijden hebben een houtnerf structuur. Uw buren zien dezelfde mooie afwerking als u.' },
-      { question: 'Hoe onderhoud ik de schutting?', answer: 'Praktisch geen onderhoud nodig. Reinig de schutting één tot twee keer per jaar met water en een zachte borstel. Gebruik geen hogedrukreiniger.' },
+      { question: 'Past Zonnig Bruin bij een groene tuin?', answer: 'Ja, de warme bruintint combineert prachtig met groen. Het creëert een natuurlijk, harmonieus tuinbeeld.' },
     ],
   },
   {
     id: 'sc-5',
-    updatedDate: '2026-02-11',
-    name: 'Composiet schutting Rhombus Walnoot',
-    price: 139.95,
-    priceLabel: 'Vanaf €139,95',
-    image: 'https://jakqbjeukobtyxxxpzcr.supabase.co/storage/v1/object/public/product-images/schuttingen/rhombus-walnoot.png',
+    updatedDate: '2026-02-20',
+    name: 'Silvadec Atmosphere Schutting Licht Eiken',
+    price: 34.95,
+    priceLabel: '€34,95 per plank',
+    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2026-01/Cloture_Nuances_Chene-1037207_RET-compressed.jpg?itok=j6gbrz1V',
     category: 'schuttingen',
-    features: ['Extra dikke 2,5cm plank', 'Onderhoudsvrij'],
-    guarantee: '15 jaar garantie',
-    slug: 'schutting-rhombus-walnoot',
-    tone: 'walnoot',
-    durability: 'premium',
-    productType: 'paneel',
-    description: 'De composiet schutting Rhombus Walnoot biedt een warme, donkere houtlook. Het rhombus profiel zorgt voor een speels schaduweffect dat de schutting extra karakter geeft.',
-    seoTitle: 'Composiet Schutting Rhombus Walnoot | Vanaf €139,95',
-    seoDescription: 'Composiet schutting Rhombus Walnoot met warme houtlook en schaduwwerking. Extra dikke 2,5cm planken, onderhoudsvrij. Bestel bij Schuttingvancomposiet.nl.',
-    longDescription: `## Composiet schutting Rhombus Walnoot
+    features: ['Co-extrusie beschermlaag', 'Geborsteld oppervlak', '25 jaar garantie'],
+    guarantee: '25 jaar fabrieksgarantie',
+    slug: 'atmosphere-schutting-licht-eiken',
+    tone: 'eiken',
+    durability: 'co-extrusie',
+    productType: 'plank',
+    description: 'Composiet schuttingplank in licht eiken met geborstelde afwerking. De authentieke eikenlook brengt warmte en karakter in uw tuin.',
+    seoTitle: 'Silvadec Schutting Licht Eiken | Composiet Schuttingplank',
+    seoDescription: 'Silvadec Atmosphere composiet schuttingplank Licht Eiken. Geborsteld, co-extrusie, 25 jaar garantie. Bestel bij SchuttingenvanComposiet.nl.',
+    longDescription: `## Silvadec Atmosphere Schutting Licht Eiken
 
-De composiet schutting Rhombus Walnoot biedt een warme, donkere houtlook. Het rhombus profiel zorgt voor een speels schaduweffect dat de schutting extra karakter en diepte geeft.
+De nieuwste toevoeging aan het Silvadec schuttingassortiment: Licht Eiken met een prachtige geborstelde afwerking. Deze plank biedt de authentieke look van eikenhout zonder enig onderhoud.
 
-### Duurzaam en onderhoudsvrij
+### Authentiek eikenhout gevoel
 
-Vervaardigd uit gerecycled materiaal met co-extrusie beschermlaag. De warme walnoottint blijft jarenlang kleurvast. Geen rot, geen schimmel, 0% vochtopname.
+Het geborstelde oppervlak geeft een tactiele, natuurlijke houtstructuur. De lichte eikenkleur is warm en veelzijdig — perfect voor zowel moderne als klassieke tuinen.
 
-### Eenvoudige montage
+### Nuances technologie
 
-Aluminium palen en U-profielen. Planken inschuiven. Beschikbaar in 180 cm of 200 cm hoogte.
-
-### Voordelen in één oogopslag
-
-- Warme, rijke walnoottint
-- Rhombus profiel met schaduwwerking
-- Extra dikke 2,5 cm planken
-- Co-extrusie beschermlaag
-- Onderhoudsvrij
-- Eenvoudig te monteren`,
-    specifications: { Hoogte: '180 cm of 200 cm', Breedte: '180 cm', Plankdikte: '2,5 cm', Materiaal: 'Composiet met co-extrusie toplaag', Kleur: 'Walnoot', Profiel: 'Rhombus' },
+Deze plank maakt gebruik van Silvadec's nieuwste Nuances-technologie, die subtiele kleurvariaties creëert voor een nog natuurlijker eindresultaat.`,
+    specifications: { Lengte: '180 cm', Breedte: '17,6 cm', Dikte: '2,1 cm', Materiaal: 'Composiet met co-extrusie toplaag', Kleur: 'Licht Eiken', Afwerking: 'Geborsteld', Merk: 'Silvadec' },
     images: [
-      'https://jakqbjeukobtyxxxpzcr.supabase.co/storage/v1/object/public/product-images/schuttingen/rhombus-walnoot.png',
+      'https://en.silvadec.com/sites/default/files/styles/square/public/2026-01/Cloture_Nuances_Chene-1037207_RET-compressed.jpg?itok=j6gbrz1V',
+      'https://en.silvadec.com/sites/default/files/styles/square/public/2025-12/nuances-chene-clair-D03737%20%281%29.jpg?itok=nJ5vw31M',
     ],
-    deliveryTime: 'Tussen de 2 en 15 werkdagen',
-    highlights: ['Warme walnoottint', 'Rhombus profiel', 'Extra dikke planken', 'Onderhoudsvrij'],
-    options: [
-      { label: 'Hoogte', values: ['180 cm', '200 cm'] },
-    ],
+    deliveryTime: '5-8 werkdagen',
+    highlights: ['Licht eiken', 'Geborstelde afwerking', 'Nuances technologie', 'Co-extrusie beschermlaag'],
+    dimensions: { length: '180 cm', width: '17,6 cm', thickness: '2,1 cm' },
     faq: [
-      { question: 'Past walnoot bij een groene tuin?', answer: 'Ja, de warme walnoottint past uitstekend bij groen. Het donkere hout creëert een mooi contrast met planten en bomen.' },
-      { question: 'Kan ik de schutting op een helling plaatsen?', answer: 'Ja, door de schermen trapsgewijs te plaatsen kunt u de schutting ook op een schuin terrein monteren. Bespreek uw situatie met onze klantenservice voor advies op maat.' },
-      { question: 'Hoeveel schermen heb ik nodig?', answer: 'Meet de totale lengte van de erfafscheiding en deel door 1,80 m. U heeft altijd één paal meer nodig dan het aantal schermen.' },
+      { question: 'Wat is Nuances technologie?', answer: 'Nuances is Silvadec\'s nieuwste productiemethode die subtiele kleurvariaties per plank creëert, voor een nog natuurlijker houteffect.' },
     ],
   },
   {
     id: 'sc-6',
-    updatedDate: '2026-02-10',
-    name: 'Composiet schutting Walnoot',
-    price: 139.95,
-    priceLabel: 'Vanaf €139,95',
-    image: 'https://jakqbjeukobtyxxxpzcr.supabase.co/storage/v1/object/public/product-images/schuttingen/houtnerf-walnoot.png',
+    updatedDate: '2026-02-20',
+    name: 'Silvadec Aluminium Schutting Antraciet Grijs',
+    price: 39.95,
+    priceLabel: '€39,95 per plank',
+    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2023-05/SICLOTALU1801_lame_ecran_aluminium_sable_gris_anthracite_HD_0.jpg?itok=GI-ZQECY',
     category: 'schuttingen',
-    features: ['Extra dikke 2,5cm plank', 'Onderhoudsvrij'],
-    guarantee: '15 jaar garantie',
-    slug: 'schutting-walnoot',
-    tone: 'walnoot',
+    features: ['Aluminium', 'Geschuurd oppervlak', 'RAL 7016 mat'],
+    guarantee: '25 jaar garantie',
+    slug: 'aluminium-schutting-antraciet-grijs',
+    tone: 'grijs',
     durability: 'premium',
     productType: 'paneel',
-    description: 'De composiet schutting Walnoot met houtnerf profiel. Rijke walnoottint met realistische houtstructuur voor een natuurlijke look in uw tuin.',
-    seoTitle: 'Composiet Schutting Walnoot Houtnerf | Vanaf €139,95',
-    seoDescription: 'Composiet schutting Walnoot met realistisch houtnerf profiel. Rijke walnoottint, onderhoudsvrij, 15 jaar garantie. Bestel bij Schuttingvancomposiet.nl.',
-    longDescription: `## Composiet schutting Walnoot met Houtnerf profiel
+    description: 'Aluminium schuttingplank in antraciet grijs (RAL 7016). Ultrastrak, modern en 100% onderhoudsvrij. De ultieme keuze voor een minimalistisch tuinontwerp.',
+    seoTitle: 'Silvadec Aluminium Schutting Antraciet Grijs | RAL 7016',
+    seoDescription: 'Silvadec Aluminium schuttingplank Antraciet Grijs RAL 7016. Ultrastrak, modern, onderhoudsvrij. Bestel bij SchuttingenvanComposiet.nl.',
+    longDescription: `## Silvadec Aluminium Schutting Antraciet Grijs
 
-De composiet schutting Walnoot met houtnerf profiel biedt een rijke walnoottint met realistische houtstructuur. Perfect voor een natuurlijke, warme look in uw tuin.
+De Silvadec Aluminium schutting in Antraciet Grijs (RAL 7016 mat) biedt de ultieme minimalistische tuinafscheiding. Aluminium is lichter dan composiet, roestvrij en volledig recycleerbaar.
 
-### Duurzaam en onderhoudsvrij
+### Ultrastrak design
 
-Co-extrusie beschermlaag, gerecycled materiaal, 0% vochtopname. Geen rot, geen schimmel, geen schilderwerk. De walnoottint blijft jarenlang kleurvast.
+Het geschuurde aluminium oppervlak geeft een perfecte, egale kleur zonder nerf of textuur. Ideaal voor moderne architectuur en strakke tuinontwerpen.
 
-### Eenvoudige montage
+### Voordelen van aluminium
 
-Aluminium palen en U-profielen. Planken inschuiven. 180 cm of 200 cm hoogte beschikbaar.
-
-### Voordelen in één oogopslag
-
-- Realistische houtnerf structuur
-- Rijke walnoottint
-- Extra dikke 2,5 cm planken
-- Co-extrusie beschermlaag
-- Onderhoudsvrij
-- Twee hoogte-opties`,
-    specifications: { Hoogte: '180 cm of 200 cm', Breedte: '180 cm', Plankdikte: '2,5 cm', Materiaal: 'Composiet met co-extrusie toplaag', Kleur: 'Walnoot', Profiel: 'Houtnerf' },
+- Extreem licht — eenvoudige montage
+- 100% roestvrij
+- Volledig recycleerbaar
+- Geen onderhoud nodig
+- RAL 7016 mat — de meest gevraagde kleur voor buitengebruik`,
+    specifications: { Lengte: '180 cm', Breedte: '15 cm', Dikte: '2,0 cm', Materiaal: 'Aluminium', Kleur: 'Antraciet Grijs (RAL 7016 mat)', Afwerking: 'Geschuurd', Merk: 'Silvadec' },
     images: [
-      'https://jakqbjeukobtyxxxpzcr.supabase.co/storage/v1/object/public/product-images/schuttingen/houtnerf-walnoot.png',
+      'https://en.silvadec.com/sites/default/files/styles/square/public/2023-05/SICLOTALU1801_lame_ecran_aluminium_sable_gris_anthracite_HD_0.jpg?itok=GI-ZQECY',
     ],
-    deliveryTime: 'Tussen de 2 en 15 werkdagen',
-    highlights: ['Realistische houtnerf', 'Warme walnoottint', 'Extra dikke planken', 'Onderhoudsvrij'],
-    options: [
-      { label: 'Hoogte', values: ['180 cm', '200 cm'] },
-    ],
+    deliveryTime: '5-8 werkdagen',
+    highlights: ['Aluminium', 'RAL 7016 mat', 'Ultrastrak', '100% recycleerbaar', 'Roestvrij'],
+    dimensions: { length: '180 cm', width: '15 cm', thickness: '2,0 cm' },
     faq: [
-      { question: 'Wat is het verschil met de Rhombus Walnoot?', answer: 'De Houtnerf variant heeft een traditionele houtstructuur met nerven, terwijl de Rhombus schuine groeven heeft voor een modernere uitstraling. De kleur is hetzelfde.' },
-      { question: 'Zien beide kanten er hetzelfde uit?', answer: 'Ja, beide zijden hebben dezelfde houtnerf structuur. Uw buren genieten van dezelfde mooie afwerking.' },
-      { question: 'Hoe lang gaat de schutting mee?', answer: 'Met de co-extrusie beschermlaag gaat de schutting minimaal 15 jaar mee zonder onderhoud. De planken zijn bestand tegen alle weersomstandigheden.' },
+      { question: 'Is aluminium sterker dan composiet?', answer: 'Aluminium is lichter maar even sterk. Voor schuttingen biedt het een strakker, moderner eindresultaat.' },
+      { question: 'Kan ik aluminium en composiet planken combineren?', answer: 'Ja, Silvadec aluminium planken passen in dezelfde paalprofielen als de composiet planken. U kunt ze naar wens combineren.' },
     ],
   },
   {
     id: 'sc-7',
-    updatedDate: '2026-02-09',
-    name: 'Composiet schutting Rhombus Eiken',
-    price: 139.95,
-    priceLabel: 'Vanaf €139,95',
-    image: 'https://jakqbjeukobtyxxxpzcr.supabase.co/storage/v1/object/public/product-images/schuttingen/rhombus-eiken.png',
+    updatedDate: '2026-02-20',
+    name: 'Silvadec Aluminium Schutting Metaal Grijs',
+    price: 39.95,
+    priceLabel: '€39,95 per plank',
+    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2023-10/SICLOTALU2001_lame_cloture_aluminium_gris_metal_120_ajouree_HD-compressed_3.jpg?itok=nTQnDDuW',
     category: 'schuttingen',
-    features: ['Extra dikke 2,5cm plank', 'Onderhoudsvrij'],
-    guarantee: '15 jaar garantie',
-    slug: 'schutting-rhombus-eiken',
-    tone: 'eiken',
+    features: ['Aluminium', 'Geschuurd oppervlak', 'RAL 7042 mat'],
+    guarantee: '25 jaar garantie',
+    slug: 'aluminium-schutting-metaal-grijs',
+    tone: 'grijs',
     durability: 'premium',
     productType: 'paneel',
-    description: 'De composiet schutting Rhombus Eiken combineert de warme eikenkleur met het moderne rhombus profiel. Een schutting die past bij zowel klassieke als hedendaagse tuinen.',
-    seoTitle: 'Composiet Schutting Rhombus Eiken Kopen | Vanaf €139,95',
-    seoDescription: 'Composiet schutting Rhombus Eiken met warme eikenkleur en schaduwwerking. Extra dikke 2,5cm planken, onderhoudsvrij. Bestel bij Schuttingvancomposiet.nl.',
-    longDescription: `## Composiet schutting Rhombus Eiken
+    description: 'Aluminium schuttingplank in metaal grijs (RAL 7042). Een lichtere grijstint dan antraciet, voor een industriële maar warme uitstraling.',
+    seoTitle: 'Silvadec Aluminium Schutting Metaal Grijs | RAL 7042',
+    seoDescription: 'Silvadec Aluminium schuttingplank Metaal Grijs RAL 7042. Modern, licht, onderhoudsvrij. Bestel bij SchuttingenvanComposiet.nl.',
+    longDescription: `## Silvadec Aluminium Schutting Metaal Grijs
 
-De composiet schutting Rhombus Eiken combineert de warme eikenkleur met het moderne rhombus profiel. Een schutting die past bij zowel klassieke als hedendaagse tuinen.
+De Metaal Grijs variant (RAL 7042 mat) biedt een lichter alternatief voor het populaire antraciet grijs. De warme metaaltint geeft een industriële maar uitnodigende sfeer.
 
-### Duurzaam en onderhoudsvrij
+### Lichtere grijstint
 
-Co-extrusie beschermlaag, gerecycled materiaal, 0% vochtopname. De eikenkleur blijft jarenlang kleurvast zonder schilderwerk.
-
-### Eenvoudige montage
-
-Aluminium palen en U-profielen. Planken inschuiven. 180 cm of 200 cm hoogte beschikbaar.
-
-### Voordelen in één oogopslag
-
-- Warme, lichte eikenkleur
-- Rhombus profiel met schaduwwerking
-- Extra dikke 2,5 cm planken
-- Co-extrusie beschermlaag
-- Past bij klassieke én moderne tuinen
-- Onderhoudsvrij`,
-    specifications: { Hoogte: '180 cm of 200 cm', Breedte: '180 cm', Plankdikte: '2,5 cm', Materiaal: 'Composiet met co-extrusie toplaag', Kleur: 'Eiken', Profiel: 'Rhombus' },
+Metaal Grijs is perfect voor wie de strakke uitstraling van aluminium wil maar een minder donkere kleur prefereert. Het reflecteert meer licht en maakt de tuin optisch groter.`,
+    specifications: { Lengte: '180 cm', Breedte: '15 cm', Dikte: '2,0 cm', Materiaal: 'Aluminium', Kleur: 'Metaal Grijs (RAL 7042 mat)', Afwerking: 'Geschuurd', Merk: 'Silvadec' },
     images: [
-      'https://jakqbjeukobtyxxxpzcr.supabase.co/storage/v1/object/public/product-images/schuttingen/rhombus-eiken.png',
+      'https://en.silvadec.com/sites/default/files/styles/square/public/2023-10/SICLOTALU2001_lame_cloture_aluminium_gris_metal_120_ajouree_HD-compressed_3.jpg?itok=nTQnDDuW',
     ],
-    deliveryTime: 'Tussen de 2 en 15 werkdagen',
-    highlights: ['Warme eikenkleur', 'Rhombus profiel', 'Extra dikke planken', 'Onderhoudsvrij'],
-    options: [
-      { label: 'Hoogte', values: ['180 cm', '200 cm'] },
-    ],
+    deliveryTime: '5-8 werkdagen',
+    highlights: ['Aluminium', 'Metaal grijs', 'RAL 7042 mat', 'Industriële look'],
+    dimensions: { length: '180 cm', width: '15 cm', thickness: '2,0 cm' },
     faq: [
-      { question: 'Is eiken lichter dan teak?', answer: 'Ja, de eikenkleur is lichter en heeft een meer gele ondertoon, terwijl teak warmer en goudbruin is. Bestel een gratis sample om het verschil te ervaren.' },
-      { question: 'Kan ik de schutting zelf plaatsen?', answer: 'Ja, de montage is eenvoudig met aluminium palen en U-profielen. Twee personen kunnen een scherm in minder dan een uur plaatsen.' },
-      { question: 'Hoe hoog is de schutting?', answer: 'U kunt kiezen uit 180 cm of 200 cm hoogte. De breedte is standaard 180 cm per scherm.' },
+      { question: 'Wat is het verschil met Antraciet Grijs?', answer: 'Metaal Grijs (RAL 7042) is lichter en warmer van toon dan Antraciet Grijs (RAL 7016). Het geeft een meer industriële, minder strenge uitstraling.' },
     ],
   },
   {
     id: 'sc-8',
-    updatedDate: '2026-02-08',
-    name: 'Composiet schutting Rhombus Grijs',
-    price: 139.95,
-    priceLabel: 'Vanaf €139,95',
-    image: 'https://jakqbjeukobtyxxxpzcr.supabase.co/storage/v1/object/public/product-images/schuttingen/rhombus-grijs.png',
+    updatedDate: '2026-02-20',
+    name: 'Silvadec Aluminium Schutting Zwart',
+    price: 39.95,
+    priceLabel: '€39,95 per plank',
+    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2024-01/silvadec_aluminium_C0055-2%20%281%29-compressed.jpg?itok=LSY1pBVe',
     category: 'schuttingen',
-    features: ['Extra dikke 2,5cm plank', 'Onderhoudsvrij'],
-    guarantee: '15 jaar garantie',
-    slug: 'schutting-rhombus-grijs',
-    tone: 'grijs',
+    features: ['Aluminium', 'Geschuurd oppervlak', 'RAL 2100 mat'],
+    guarantee: '25 jaar garantie',
+    slug: 'aluminium-schutting-zwart',
+    tone: 'zwart',
     durability: 'premium',
     productType: 'paneel',
-    description: 'De composiet schutting Rhombus Grijs biedt een neutrale, moderne uitstraling. Het grijze rhombus profiel past perfect bij strakke, hedendaagse tuinontwerpen.',
-    seoTitle: 'Composiet Schutting Rhombus Grijs Kopen | Vanaf €139,95',
-    seoDescription: 'Grijze composiet schutting met rhombus profiel en extra dikke 2,5cm planken. Neutrale moderne uitstraling, onderhoudsvrij. Bestel bij Schuttingvancomposiet.nl.',
-    longDescription: `## Composiet schutting Rhombus Grijs
+    description: 'Aluminium schuttingplank in diepzwart (RAL 2100). Een krachtige, elegante keuze voor een statement in uw tuin.',
+    seoTitle: 'Silvadec Aluminium Schutting Zwart | RAL 2100',
+    seoDescription: 'Silvadec Aluminium schuttingplank Zwart RAL 2100. Krachtig, elegant, onderhoudsvrij. Bestel bij SchuttingenvanComposiet.nl.',
+    longDescription: `## Silvadec Aluminium Schutting Zwart
 
-De composiet schutting Rhombus Grijs biedt een neutrale, moderne uitstraling. Het grijze rhombus profiel past perfect bij strakke, hedendaagse tuinontwerpen en industriële stijlen.
+De zwarte aluminium schutting van Silvadec (RAL 2100 mat) maakt een krachtig statement in elke tuin. Het diepe zwart combineert luxe met minimalisme.
 
-### Duurzaam en onderhoudsvrij
+### Krachtig en elegant
 
-Co-extrusie beschermlaag, gerecycled materiaal, 0% vochtopname. De grijze kleur vervaagt niet en hoeft nooit geschilderd te worden.
+Zwart is de ultieme kleur voor een schutting die opvalt. Het creëert een dramatisch contrast met groen en bloemen, en past perfect bij moderne architectuur.
 
-### Eenvoudige montage
+### Premium aluminium
 
-Aluminium palen en U-profielen. Planken inschuiven. 180 cm of 200 cm hoogte.
-
-### Voordelen in één oogopslag
-
-- Neutrale, tijdloze grijstint
-- Rhombus profiel met schaduwwerking
-- Extra dikke 2,5 cm planken
-- Co-extrusie beschermlaag
-- Past bij elke tuinstijl
-- Onderhoudsvrij`,
-    specifications: { Hoogte: '180 cm of 200 cm', Breedte: '180 cm', Plankdikte: '2,5 cm', Materiaal: 'Composiet met co-extrusie toplaag', Kleur: 'Grijs', Profiel: 'Rhombus' },
+Net als alle Silvadec aluminium schuttingen is deze plank licht, sterk, roestvrij en volledig recycleerbaar.`,
+    specifications: { Lengte: '180 cm', Breedte: '15 cm', Dikte: '2,0 cm', Materiaal: 'Aluminium', Kleur: 'Zwart (RAL 2100 mat)', Afwerking: 'Geschuurd', Merk: 'Silvadec' },
     images: [
-      'https://jakqbjeukobtyxxxpzcr.supabase.co/storage/v1/object/public/product-images/schuttingen/rhombus-grijs.png',
+      'https://en.silvadec.com/sites/default/files/styles/square/public/2024-01/silvadec_aluminium_C0055-2%20%281%29-compressed.jpg?itok=LSY1pBVe',
     ],
-    deliveryTime: 'Tussen de 2 en 15 werkdagen',
-    highlights: ['Neutrale grijstint', 'Rhombus profiel', 'Extra dikke planken', 'Onderhoudsvrij'],
-    options: [
-      { label: 'Hoogte', values: ['180 cm', '200 cm'] },
-    ],
+    deliveryTime: '5-8 werkdagen',
+    highlights: ['Diepzwart', 'Aluminium', 'RAL 2100 mat', 'Krachtig statement'],
+    dimensions: { length: '180 cm', width: '15 cm', thickness: '2,0 cm' },
     faq: [
-      { question: 'Past grijs bij een groene tuin?', answer: 'Ja, grijs is een neutrale kleur die uitstekend combineert met groen. Het geeft een rustige, moderne uitstraling aan uw tuin.' },
-      { question: 'Wordt grijs lichter of donkerder na verloop van tijd?', answer: 'Nee, dankzij de co-extrusie beschermlaag blijft de grijze kleur jarenlang constant. Er treedt geen verkleuring op door zon of regen.' },
-      { question: 'Kan ik grijs combineren met andere kleuren?', answer: 'Ja, grijs combineert uitstekend met teak of walnoot schermen voor een afwisselend tuinontwerp. Ook combinatie met zwart hekwerk is populair.' },
+      { question: 'Wordt zwart aluminium warm in de zon?', answer: 'Aluminium geleidt warmte snel maar koelt ook snel af. Voor een schutting is dit geen probleem — er is geen direct lichaamscontact.' },
     ],
   },
 
-  // ─── SCHUTTINGEN — ALUMINIUM & DECORPANELEN ──────────────────
-  {
-    id: 'sc-9',
-    updatedDate: '2026-02-20',
-    name: 'Composiet schuttingplank Premium',
-    price: 0,
-    priceLabel: 'Op aanvraag',
-    image: 'https://cdn.forestia-group.com/storage/7d92b26c-0c0e-432b-91a7-front/m-boston-lame-premium-21x150mm_default-2.jpg?w=750&f=webp&q=85',
-    category: 'schuttingen',
-    features: ['Houtcomposiet', 'Premium kwaliteit', 'Dubbelzijdig profiel'],
-    guarantee: '25 jaar garantie',
-    slug: 'schuttingplank-premium',
-    tone: 'teak',
-    durability: 'premium',
-    productType: 'plank',
-    description: 'De composiet schuttingplank Premium biedt een natuurlijke houtlook met superieure duurzaamheid. Dubbelzijdig profiel voor extra designflexibiliteit.',
-    seoTitle: 'Composiet Schuttingplank Premium Kopen | SchuttingVanComposiet',
-    seoDescription: 'Composiet schuttingplank Premium met dubbelzijdig profiel en 25 jaar garantie. Natuurlijke houtlook, onderhoudsvrij. Vraag een offerte aan.',
-    longDescription: `## Composiet schuttingplank Premium\n\nDe premium schuttingplank combineert de uitstraling van echt hout met de voordelen van composiet. Het dubbelzijdige profiel biedt flexibiliteit in design — kies zelf welke kant u naar buiten richt.\n\n### Voordelen\n\n- Dubbelzijdig profiel\n- Natuurlijke houtlook\n- Onderhoudsvrij\n- 25 jaar garantie\n- Bestendig tegen alle weersomstandigheden`,
-    specifications: { Lengte: '200 cm', Breedte: '20 cm', Dikte: '2,2 cm', Materiaal: 'Houtcomposiet (WPC)', Profiel: 'Premium dubbelzijdig' },
-    images: ['https://cdn.forestia-group.com/storage/7d92b26c-0c0e-432b-91a7-front/m-boston-lame-premium-21x150mm_default-2.jpg?w=750&f=webp&q=85'],
-    deliveryTime: 'Op aanvraag',
-    highlights: ['Premium kwaliteit', 'Dubbelzijdig profiel', '25 jaar garantie'],
-    faq: [
-      { question: 'Wat is het verschil met de standaard plank?', answer: 'De Premium plank heeft een dubbelzijdig profiel en een extra duurzame samenstelling met 25 jaar garantie.' },
-    ],
-  },
-  {
-    id: 'sc-10',
-    updatedDate: '2026-02-20',
-    name: 'Composiet schuttingplank Premium XL',
-    price: 0,
-    priceLabel: 'Op aanvraag',
-    image: 'https://cdn.forestia-group.com/storage/973c89cc-2133-4274-8f28-front/m-lame-premium-21x310mm-fsc_default.jpg?w=750&f=webp&q=85',
-    category: 'schuttingen',
-    features: ['Extra breed', 'Houtcomposiet', 'Premium kwaliteit'],
-    guarantee: '25 jaar garantie',
-    slug: 'schuttingplank-premium-xl',
-    tone: 'zwart',
-    durability: 'premium',
-    productType: 'plank',
-    description: 'De extra brede composiet schuttingplank Premium XL voor een strak en modern schutting-design. Minder planken nodig per scherm dankzij het bredere formaat.',
-    seoTitle: 'Composiet Schuttingplank Premium XL | Extra Breed',
-    seoDescription: 'Extra brede composiet schuttingplank Premium XL. Minder planken nodig, strak design. 25 jaar garantie. Vraag een offerte aan.',
-    longDescription: `## Composiet schuttingplank Premium XL\n\nDe Premium XL is de extra brede variant van onze premium schuttingplank. Het bredere formaat zorgt voor een strakker uiterlijk met minder naden.\n\n### Voordelen\n\n- Extra breed formaat\n- Minder planken per scherm\n- Strakke moderne uitstraling\n- 25 jaar garantie`,
-    specifications: { Lengte: '200 cm', Breedte: '30 cm', Dikte: '2,2 cm', Materiaal: 'Houtcomposiet (WPC)', Profiel: 'Premium XL' },
-    images: ['https://cdn.forestia-group.com/storage/973c89cc-2133-4274-8f28-front/m-lame-premium-21x310mm-fsc_default.jpg?w=750&f=webp&q=85'],
-    deliveryTime: 'Op aanvraag',
-    highlights: ['Extra breed formaat', 'Strakke look', '25 jaar garantie'],
-    faq: [
-      { question: 'Hoeveel planken heb ik nodig?', answer: 'Dankzij het bredere formaat van 30 cm heeft u minder planken nodig. Voor een scherm van 180 cm hoogte heeft u 6 planken nodig.' },
-    ],
-  },
-  {
-    id: 'sc-11',
-    updatedDate: '2026-02-20',
-    name: 'Composiet schuttingplank Modern',
-    price: 0,
-    priceLabel: 'Op aanvraag',
-    image: 'https://cdn.forestia-group.com/storage/1c509db2-515e-496d-b322-front/m-boston-modern-21x150mm_default-2.jpg?w=750&f=webp&q=85',
-    category: 'schuttingen',
-    features: ['Modern profiel', 'Houtcomposiet', 'Strak design'],
-    guarantee: '25 jaar garantie',
-    slug: 'schuttingplank-modern',
-    tone: 'grijs',
-    durability: 'premium',
-    productType: 'plank',
-    description: 'De composiet schuttingplank Modern met een strak, hedendaags profiel. Perfect voor minimalistische tuinontwerpen.',
-    seoTitle: 'Composiet Schuttingplank Modern | Strak Design',
-    seoDescription: 'Composiet schuttingplank Modern met strak hedendaags profiel. Onderhoudsvrij, 25 jaar garantie. Vraag een offerte aan.',
-    longDescription: `## Composiet schuttingplank Modern\n\nDe Modern schuttingplank heeft een strak, hedendaags profiel dat perfect past bij minimalistische tuinontwerpen. De gladde afwerking zorgt voor een eigentijdse uitstraling.\n\n### Voordelen\n\n- Strak modern profiel\n- Gladde afwerking\n- Onderhoudsvrij\n- 25 jaar garantie`,
-    specifications: { Lengte: '200 cm', Breedte: '20 cm', Dikte: '2,0 cm', Materiaal: 'Houtcomposiet (WPC)', Profiel: 'Modern' },
-    images: ['https://cdn.forestia-group.com/storage/1c509db2-515e-496d-b322-front/m-boston-modern-21x150mm_default-2.jpg?w=750&f=webp&q=85'],
-    deliveryTime: 'Op aanvraag',
-    highlights: ['Modern profiel', 'Strakke afwerking', '25 jaar garantie'],
-    faq: [
-      { question: 'Waarin verschilt Modern van Premium?', answer: 'Het Modern profiel heeft een gladder, strakker oppervlak zonder houtnerf. Het Premium profiel heeft een meer natuurlijke houtlook.' },
-    ],
-  },
-  {
-    id: 'sc-12',
-    updatedDate: '2026-02-20',
-    name: 'Aluminium schuttingplank',
-    price: 0,
-    priceLabel: 'Op aanvraag',
-    image: 'https://cdn.forestia-group.com/storage/e96e85e1-98f9-4738-9c73-front/m-boston-lame-alu-opale_default.jpg?w=750&f=webp&q=85',
-    category: 'schuttingen',
-    features: ['Volledig aluminium', 'Extreem duurzaam', 'Poedercoating'],
-    guarantee: '30 jaar garantie',
-    slug: 'aluminium-schuttingplank',
-    tone: 'zwart',
-    durability: 'massief',
-    productType: 'plank',
-    description: 'De aluminium schuttingplank voor een ultrastrak en modern schuttingdesign. Volledig van aluminium met duurzame poedercoating.',
-    seoTitle: 'Aluminium Schuttingplank Kopen | Extreem Duurzaam',
-    seoDescription: 'Aluminium schuttingplank met poedercoating. Extreem duurzaam, roestvrij, 30 jaar garantie. Vraag een offerte aan.',
-    longDescription: `## Aluminium schuttingplank\n\nDe aluminium schuttingplank biedt het ultieme in duurzaamheid en modern design. Volledig vervaardigd uit aluminium met een hoogwaardige poedercoating.\n\n### Voordelen\n\n- 100% aluminium\n- Poedercoating in RAL-kleuren\n- Roestvrij en weerbestendig\n- 30 jaar garantie\n- Lichtgewicht en eenvoudig te monteren`,
-    specifications: { Lengte: '200 cm', Breedte: '20 cm', Dikte: '0,8 cm', Materiaal: 'Aluminium', Coating: 'Poedercoating RAL7016/RAL9005' },
-    images: ['https://cdn.forestia-group.com/storage/e96e85e1-98f9-4738-9c73-front/m-boston-lame-alu-opale_default.jpg?w=750&f=webp&q=85'],
-    deliveryTime: 'Op aanvraag',
-    highlights: ['100% aluminium', 'Poedercoating', '30 jaar garantie', 'Roestvrij'],
-    faq: [
-      { question: 'Welke kleuren zijn beschikbaar?', answer: 'De aluminium schuttingplank is standaard leverbaar in RAL7016 (antraciet) en RAL9005 (zwart). Andere RAL-kleuren op aanvraag.' },
-    ],
-  },
-  {
-    id: 'sc-13',
-    updatedDate: '2026-02-20',
-    name: 'Aluminium lamellen 45mm',
-    price: 0,
-    priceLabel: 'Op aanvraag',
-    image: 'https://cdn.forestia-group.com/storage/ad8d64ff-8bb0-4cff-9df8-front/m-boston-lame-alu-open45_default.jpg?w=750&f=webp&q=85',
-    category: 'schuttingen',
-    features: ['45mm lamelbreedte', 'Lichtdoorlatend', 'Aluminium'],
-    guarantee: '30 jaar garantie',
-    slug: 'aluminium-lamellen-45mm',
-    tone: 'zwart',
-    durability: 'massief',
-    productType: 'profiel',
-    description: 'Aluminium lamellen van 45mm breed voor een subtiele privacy met lichtinval. De smalle lamellen creëren een modern, luchtig design.',
-    seoTitle: 'Aluminium Lamellen 45mm | Schutting met Lichtinval',
-    seoDescription: 'Aluminium lamellen 45mm voor schuttingen. Subtiele privacy met lichtinval. 30 jaar garantie. Vraag een offerte aan.',
-    longDescription: `## Aluminium lamellen 45mm\n\nDe 45mm aluminium lamellen bieden een perfect evenwicht tussen privacy en lichtinval. De smalle lamellen creëren een speels licht-schaduweffect.\n\n### Voordelen\n\n- 45mm lamelbreedte\n- Lichtdoorlatend\n- Modern design\n- Poedercoating\n- 30 jaar garantie`,
-    specifications: { Lengte: '200 cm', Lamelbreedte: '45 mm', Materiaal: 'Aluminium', Coating: 'Poedercoating' },
-    images: ['https://cdn.forestia-group.com/storage/ad8d64ff-8bb0-4cff-9df8-front/m-boston-lame-alu-open45_default.jpg?w=750&f=webp&q=85'],
-    deliveryTime: 'Op aanvraag',
-    highlights: ['45mm lamellen', 'Lichtdoorlatend', 'Aluminium', '30 jaar garantie'],
-    faq: [
-      { question: 'Hoeveel privacy bieden 45mm lamellen?', answer: 'De 45mm lamellen bieden beperkte privacy overdag, afhankelijk van de kijkhoek. Ze zijn ideaal voor decoratieve scheidingen met lichtinval.' },
-    ],
-  },
-  {
-    id: 'sc-14',
-    updatedDate: '2026-02-20',
-    name: 'Aluminium lamellen 100mm',
-    price: 0,
-    priceLabel: 'Op aanvraag',
-    image: 'https://cdn.forestia-group.com/storage/edb1b2ad-9fb5-4b8e-9970-front/m-boston-lame-alu-open100_default.jpg?w=750&f=webp&q=85',
-    category: 'schuttingen',
-    features: ['100mm lamelbreedte', 'Meer privacy', 'Aluminium'],
-    guarantee: '30 jaar garantie',
-    slug: 'aluminium-lamellen-100mm',
-    tone: 'zwart',
-    durability: 'massief',
-    productType: 'profiel',
-    description: 'Aluminium lamellen van 100mm breed voor extra privacy met een moderne uitstraling. De brede lamellen vormen een robuust scherm.',
-    seoTitle: 'Aluminium Lamellen 100mm | Extra Privacy',
-    seoDescription: 'Aluminium lamellen 100mm voor schuttingen. Extra privacy met modern design. 30 jaar garantie. Vraag een offerte aan.',
-    longDescription: `## Aluminium lamellen 100mm\n\nDe 100mm aluminium lamellen bieden meer privacy dan de 45mm variant, terwijl ze nog steeds licht doorlaten. Ideaal voor een moderne tuinafscheiding.\n\n### Voordelen\n\n- 100mm lamelbreedte\n- Extra privacy\n- Robuust en stevig\n- Poedercoating\n- 30 jaar garantie`,
-    specifications: { Lengte: '200 cm', Lamelbreedte: '100 mm', Materiaal: 'Aluminium', Coating: 'Poedercoating' },
-    images: ['https://cdn.forestia-group.com/storage/edb1b2ad-9fb5-4b8e-9970-front/m-boston-lame-alu-open100_default.jpg?w=750&f=webp&q=85'],
-    deliveryTime: 'Op aanvraag',
-    highlights: ['100mm lamellen', 'Extra privacy', 'Aluminium', '30 jaar garantie'],
-    faq: [
-      { question: 'Wat is het verschil met 45mm?', answer: 'De 100mm lamellen zijn breder en bieden meer privacy. Ze geven een robuustere, minder doorlatende uitstraling.' },
-    ],
-  },
-  {
-    id: 'sc-15',
-    updatedDate: '2026-02-20',
-    name: 'Aluminium rhombus lamellen',
-    price: 0,
-    priceLabel: 'Op aanvraag',
-    image: 'https://cdn.forestia-group.com/storage/551ccfd7-2335-44c9-ab57-front/m-boston-lame-alu-rhombus_default.jpg?w=750&f=webp&q=85',
-    category: 'schuttingen',
-    features: ['Rhombus profiel', 'Schaduwwerking', 'Aluminium'],
-    guarantee: '30 jaar garantie',
-    slug: 'aluminium-rhombus-lamellen',
-    tone: 'zwart',
-    durability: 'massief',
-    productType: 'profiel',
-    description: 'Aluminium rhombus lamellen combineren het populaire rhombus profiel met de duurzaamheid van aluminium. Creëert een speels schaduweffect.',
-    seoTitle: 'Aluminium Rhombus Lamellen | Schaduwwerking',
-    seoDescription: 'Aluminium rhombus lamellen met schaduwwerking. Duurzaam, modern en onderhoudsvrij. 30 jaar garantie. Vraag een offerte aan.',
-    longDescription: `## Aluminium rhombus lamellen\n\nDe aluminium rhombus lamellen combineren het populaire rhombus profiel met de ongeëvenaarde duurzaamheid van aluminium. Het schuine profiel zorgt voor een dynamisch schaduweffect.\n\n### Voordelen\n\n- Rhombus profiel\n- Schaduwwerking\n- 100% aluminium\n- Poedercoating\n- 30 jaar garantie`,
-    specifications: { Lengte: '200 cm', Profiel: 'Rhombus', Materiaal: 'Aluminium', Coating: 'Poedercoating' },
-    images: ['https://cdn.forestia-group.com/storage/551ccfd7-2335-44c9-ab57-front/m-boston-lame-alu-rhombus_default.jpg?w=750&f=webp&q=85'],
-    deliveryTime: 'Op aanvraag',
-    highlights: ['Rhombus profiel', 'Aluminium', 'Schaduwwerking', '30 jaar garantie'],
-    faq: [
-      { question: 'Wat is het verschil met composiet rhombus?', answer: 'De aluminium variant is lichtgewichter, heeft een langere levensduur en een meer industriële uitstraling. Composiet biedt een warmere houtlook.' },
-    ],
-  },
-  {
-    id: 'sc-16',
-    updatedDate: '2026-02-20',
-    name: 'Aluminium rhombus lamellen breed',
-    price: 0,
-    priceLabel: 'Op aanvraag',
-    image: 'https://cdn.forestia-group.com/storage/705a4fc9-dc35-4cc4-9de8-front/m-boston-lame-alu-rhombus-150_default.jpg?w=750&f=webp&q=85',
-    category: 'schuttingen',
-    features: ['155mm breed', 'Rhombus profiel', 'Aluminium'],
-    guarantee: '30 jaar garantie',
-    slug: 'aluminium-rhombus-lamellen-breed',
-    tone: 'zwart',
-    durability: 'massief',
-    productType: 'profiel',
-    description: 'De brede aluminium rhombus lamellen van 155mm voor een imposante, moderne schutting met maximale schaduwwerking.',
-    seoTitle: 'Aluminium Rhombus Lamellen Breed 155mm',
-    seoDescription: 'Brede aluminium rhombus lamellen 155mm. Imposant design met maximale schaduwwerking. 30 jaar garantie. Offerte aanvragen.',
-    longDescription: `## Aluminium rhombus lamellen breed (155mm)\n\nDe brede variant van onze aluminium rhombus lamellen. Met 155mm breedte creëert u een imposante schutting met maximale schaduwwerking.\n\n### Voordelen\n\n- Extra breed 155mm profiel\n- Maximale schaduwwerking\n- Imposant design\n- 30 jaar garantie`,
-    specifications: { Lengte: '200 cm', Breedte: '155 mm', Profiel: 'Rhombus', Materiaal: 'Aluminium', Coating: 'Poedercoating' },
-    images: ['https://cdn.forestia-group.com/storage/705a4fc9-dc35-4cc4-9de8-front/m-boston-lame-alu-rhombus-150_default.jpg?w=750&f=webp&q=85'],
-    deliveryTime: 'Op aanvraag',
-    highlights: ['155mm breed', 'Rhombus profiel', 'Aluminium', '30 jaar garantie'],
-    faq: [
-      { question: 'Hoeveel lamellen heb ik nodig per scherm?', answer: 'Afhankelijk van de gewenste hoogte en tussenruimte. Neem contact op voor een berekening op maat.' },
-    ],
-  },
-  {
-    id: 'sc-17',
-    updatedDate: '2026-02-20',
-    name: 'Decorpaneel Blokkenpatroon',
-    price: 0,
-    priceLabel: 'Op aanvraag',
-    image: 'https://cdn.forestia-group.com/storage/03a5d086-706c-4811-a70d-front/m-boston-decor-crios-horizontal_default.jpg?w=750&f=webp&q=85',
-    category: 'schuttingen',
-    features: ['Blokkenpatroon', 'Aluminium decorpaneel', 'Horizontaal'],
-    guarantee: '30 jaar garantie',
-    slug: 'decorpaneel-blokkenpatroon',
-    tone: 'zwart',
-    durability: 'massief',
-    productType: 'paneel',
-    description: 'Het aluminium decorpaneel met blokkenpatroon voegt een uniek design-element toe aan uw schutting. Combineer met planken voor een afwisselende look.',
-    seoTitle: 'Decorpaneel Blokkenpatroon | Aluminium Schutting',
-    seoDescription: 'Aluminium decorpaneel met blokkenpatroon voor schuttingen. Uniek design-element, 30 jaar garantie. Offerte aanvragen.',
-    longDescription: `## Decorpaneel Blokkenpatroon\n\nHet decorpaneel met blokkenpatroon is een aluminium paneel dat een uniek design-element toevoegt aan uw schutting. Perfect te combineren met composiet of aluminium planken.\n\n### Voordelen\n\n- Uniek blokkenpatroon\n- Aluminium\n- Horizontale montage\n- 30 jaar garantie`,
-    specifications: { Breedte: '180 cm', Hoogte: '30 cm', Materiaal: 'Aluminium', Patroon: 'Blokken horizontaal', Coating: 'Poedercoating' },
-    images: ['https://cdn.forestia-group.com/storage/03a5d086-706c-4811-a70d-front/m-boston-decor-crios-horizontal_default.jpg?w=750&f=webp&q=85'],
-    deliveryTime: 'Op aanvraag',
-    highlights: ['Blokkenpatroon', 'Aluminium', 'Decoratief accent'],
-    faq: [
-      { question: 'Kan ik decorpanelen combineren met composiet planken?', answer: 'Ja, decorpanelen zijn ontworpen om te combineren met onze composiet of aluminium schuttingplanken voor een uniek design.' },
-    ],
-  },
-  {
-    id: 'sc-18',
-    updatedDate: '2026-02-20',
-    name: 'Decorpaneel Streeppatroon',
-    price: 0,
-    priceLabel: 'Op aanvraag',
-    image: 'https://cdn.forestia-group.com/storage/609ba26b-d744-4936-a1d9-front/m-boston-decor-hera-horizontal_default.jpg?w=750&f=webp&q=85',
-    category: 'schuttingen',
-    features: ['Streeppatroon', 'Aluminium decorpaneel', 'Horizontaal'],
-    guarantee: '30 jaar garantie',
-    slug: 'decorpaneel-streeppatroon',
-    tone: 'zwart',
-    durability: 'massief',
-    productType: 'paneel',
-    description: 'Het aluminium decorpaneel met horizontaal streeppatroon voor een stijlvol accent in uw schutting.',
-    seoTitle: 'Decorpaneel Streeppatroon | Aluminium Schutting',
-    seoDescription: 'Aluminium decorpaneel met streeppatroon voor schuttingen. Stijlvol accent, 30 jaar garantie. Offerte aanvragen.',
-    longDescription: `## Decorpaneel Streeppatroon\n\nHet decorpaneel met streeppatroon voegt een stijlvol accent toe aan uw schutting. De horizontale strepen creëren een rustig, modern patroon.\n\n### Voordelen\n\n- Horizontaal streeppatroon\n- Aluminium\n- Stijlvol accent\n- 30 jaar garantie`,
-    specifications: { Breedte: '180 cm', Hoogte: '30 cm', Materiaal: 'Aluminium', Patroon: 'Strepen horizontaal', Coating: 'Poedercoating' },
-    images: ['https://cdn.forestia-group.com/storage/609ba26b-d744-4936-a1d9-front/m-boston-decor-hera-horizontal_default.jpg?w=750&f=webp&q=85'],
-    deliveryTime: 'Op aanvraag',
-    highlights: ['Streeppatroon', 'Aluminium', 'Modern accent'],
-    faq: [
-      { question: 'Hoe hoog is een decorpaneel?', answer: 'De standaard hoogte is 30 cm. U kunt meerdere decorpanelen combineren of ze afwisselen met schuttingplanken.' },
-    ],
-  },
-  {
-    id: 'sc-19',
-    updatedDate: '2026-02-20',
-    name: 'Decorpaneel Golfpatroon',
-    price: 0,
-    priceLabel: 'Op aanvraag',
-    image: 'https://cdn.forestia-group.com/storage/de462963-4ed1-447e-8de2-front/m-boston-decor-lamia-horizontal_default.jpg?w=750&f=webp&q=85',
-    category: 'schuttingen',
-    features: ['Golfpatroon', 'Aluminium decorpaneel', 'Horizontaal'],
-    guarantee: '30 jaar garantie',
-    slug: 'decorpaneel-golfpatroon',
-    tone: 'zwart',
-    durability: 'massief',
-    productType: 'paneel',
-    description: 'Het aluminium decorpaneel met organisch golfpatroon brengt een vloeiend design-element in uw schutting.',
-    seoTitle: 'Decorpaneel Golfpatroon | Aluminium Schutting',
-    seoDescription: 'Aluminium decorpaneel met golfpatroon. Organisch design-element voor schuttingen, 30 jaar garantie. Offerte aanvragen.',
-    longDescription: `## Decorpaneel Golfpatroon\n\nHet decorpaneel met golfpatroon brengt een organisch, vloeiend design-element in uw schutting. De golvende lijnen zorgen voor een zachte, natuurlijke uitstraling.\n\n### Voordelen\n\n- Organisch golfpatroon\n- Aluminium\n- Zachte, natuurlijke uitstraling\n- 30 jaar garantie`,
-    specifications: { Breedte: '180 cm', Hoogte: '30 cm', Materiaal: 'Aluminium', Patroon: 'Golf horizontaal', Coating: 'Poedercoating' },
-    images: ['https://cdn.forestia-group.com/storage/de462963-4ed1-447e-8de2-front/m-boston-decor-lamia-horizontal_default.jpg?w=750&f=webp&q=85'],
-    deliveryTime: 'Op aanvraag',
-    highlights: ['Golfpatroon', 'Aluminium', 'Organisch design'],
-    faq: [
-      { question: 'In welke kleuren is het golfpatroon beschikbaar?', answer: 'Standaard in RAL7016 (antraciet) en RAL9005 (zwart). Andere RAL-kleuren op aanvraag.' },
-    ],
-  },
-  {
-    id: 'sc-20',
-    updatedDate: '2026-02-20',
-    name: 'Decorpaneel Cirkelpatroon',
-    price: 0,
-    priceLabel: 'Op aanvraag',
-    image: 'https://cdn.forestia-group.com/storage/f98efaab-f989-4711-b2b4-front/m-boston-decor-paxos-horizontal_default.jpg?w=750&f=webp&q=85',
-    category: 'schuttingen',
-    features: ['Cirkelpatroon', 'Aluminium decorpaneel', 'Horizontaal'],
-    guarantee: '30 jaar garantie',
-    slug: 'decorpaneel-cirkelpatroon',
-    tone: 'zwart',
-    durability: 'massief',
-    productType: 'paneel',
-    description: 'Het aluminium decorpaneel met cirkelpatroon voor een opvallend en speels accent in uw schutting.',
-    seoTitle: 'Decorpaneel Cirkelpatroon | Aluminium Schutting',
-    seoDescription: 'Aluminium decorpaneel met cirkelpatroon. Opvallend design-element voor schuttingen, 30 jaar garantie. Offerte aanvragen.',
-    longDescription: `## Decorpaneel Cirkelpatroon\n\nHet decorpaneel met cirkelpatroon is een opvallend design-element dat licht doorlaat en tegelijkertijd privacy biedt. De ronde vormen geven een speels karakter.\n\n### Voordelen\n\n- Opvallend cirkelpatroon\n- Lichtdoorlatend\n- Aluminium\n- 30 jaar garantie`,
-    specifications: { Breedte: '180 cm', Hoogte: '30 cm', Materiaal: 'Aluminium', Patroon: 'Cirkels horizontaal', Coating: 'Poedercoating' },
-    images: ['https://cdn.forestia-group.com/storage/f98efaab-f989-4711-b2b4-front/m-boston-decor-paxos-horizontal_default.jpg?w=750&f=webp&q=85'],
-    deliveryTime: 'Op aanvraag',
-    highlights: ['Cirkelpatroon', 'Lichtdoorlatend', 'Aluminium'],
-    faq: [
-      { question: 'Laat het cirkelpatroon veel licht door?', answer: 'Ja, het cirkelpatroon laat meer licht door dan gesloten panelen. Ideaal voor een lichte, open sfeer in de tuin.' },
-    ],
-  },
-  {
-    id: 'sc-21',
-    updatedDate: '2026-02-20',
-    name: 'Decorpaneel Matglas Smal',
-    price: 0,
-    priceLabel: 'Op aanvraag',
-    image: 'https://cdn.forestia-group.com/storage/bbcb3fa5-16ae-4285-965a-front/m-boston-decor-verre300_default.jpg?w=750&f=webp&q=85',
-    category: 'schuttingen',
-    features: ['Matglas', '300mm hoog', 'Lichtdoorlatend'],
-    guarantee: '10 jaar garantie',
-    slug: 'decorpaneel-matglas-smal',
-    tone: 'grijs',
-    durability: 'premium',
-    productType: 'paneel',
-    description: 'Het matglazen decorpaneel van 300mm hoogte brengt licht in uw schutting terwijl privacy behouden blijft. Perfect als accent tussen planken.',
-    seoTitle: 'Decorpaneel Matglas Smal 300mm | Lichtdoorlatend',
-    seoDescription: 'Matglazen decorpaneel 300mm voor schuttingen. Lichtdoorlatend met privacy. 10 jaar garantie. Offerte aanvragen.',
-    longDescription: `## Decorpaneel Matglas Smal (300mm)\n\nHet matglazen decorpaneel brengt natuurlijk licht in uw schutting terwijl volledige privacy behouden blijft. Het matte glas geeft een elegante, moderne uitstraling.\n\n### Voordelen\n\n- Matglas voor lichtinval\n- 300mm hoogte\n- Volledige privacy\n- Elegante uitstraling`,
-    specifications: { Breedte: '180 cm', Hoogte: '30 cm', Materiaal: 'Gehard matglas', Type: 'Lichtdoorlatend' },
-    images: ['https://cdn.forestia-group.com/storage/bbcb3fa5-16ae-4285-965a-front/m-boston-decor-verre300_default.jpg?w=750&f=webp&q=85'],
-    deliveryTime: 'Op aanvraag',
-    highlights: ['Matglas', 'Lichtdoorlatend', 'Privacy behoud'],
-    faq: [
-      { question: 'Is het matglas veilig?', answer: 'Ja, het paneel is vervaardigd uit gehard glas dat veilig breekt in kleine stukjes bij eventuele beschadiging.' },
-    ],
-  },
-  {
-    id: 'sc-22',
-    updatedDate: '2026-02-20',
-    name: 'Decorpaneel Matglas Breed',
-    price: 0,
-    priceLabel: 'Op aanvraag',
-    image: 'https://cdn.forestia-group.com/storage/90080926-1be2-4ea8-9dc9-front/m-boston-decor-verre450_default.jpg?w=750&f=webp&q=85',
-    category: 'schuttingen',
-    features: ['Matglas', '450mm hoog', 'Lichtdoorlatend'],
-    guarantee: '10 jaar garantie',
-    slug: 'decorpaneel-matglas-breed',
-    tone: 'grijs',
-    durability: 'premium',
-    productType: 'paneel',
-    description: 'Het brede matglazen decorpaneel van 450mm hoogte voor meer lichtinval in uw schutting. Ideaal als centraal accent.',
-    seoTitle: 'Decorpaneel Matglas Breed 450mm | Extra Lichtinval',
-    seoDescription: 'Breed matglazen decorpaneel 450mm voor schuttingen. Extra lichtinval met privacy. 10 jaar garantie. Offerte aanvragen.',
-    longDescription: `## Decorpaneel Matglas Breed (450mm)\n\nHet brede matglazen decorpaneel biedt extra lichtinval dankzij de 450mm hoogte. Perfect als centraal design-element in uw schutting.\n\n### Voordelen\n\n- Matglas voor maximale lichtinval\n- 450mm hoogte\n- Volledige privacy\n- Stijlvol centraal accent`,
-    specifications: { Breedte: '180 cm', Hoogte: '45 cm', Materiaal: 'Gehard matglas', Type: 'Lichtdoorlatend' },
-    images: ['https://cdn.forestia-group.com/storage/90080926-1be2-4ea8-9dc9-front/m-boston-decor-verre450_default.jpg?w=750&f=webp&q=85'],
-    deliveryTime: 'Op aanvraag',
-    highlights: ['Matglas', 'Extra lichtinval', '450mm hoogte'],
-    faq: [
-      { question: 'Kan ik matglas combineren met composiet planken?', answer: 'Ja, matglas panelen zijn ontworpen om naadloos te combineren met composiet of aluminium schuttingplanken.' },
-    ],
-  },
-  {
-    id: 'sc-23',
-    updatedDate: '2026-02-20',
-    name: 'Zonnepaneel voor schutting',
-    price: 0,
-    priceLabel: 'Op aanvraag',
-    image: 'https://cdn.forestia-group.com/storage/6ada5f90-08a7-45e5-9a15-front/m-helios_default.jpg?w=750&f=webp&q=85',
-    category: 'schuttingen',
-    features: ['Geïntegreerd zonnepaneel', 'Energie opwekken', 'Dubbelglas'],
-    guarantee: '25 jaar garantie',
-    slug: 'zonnepaneel-schutting',
-    tone: 'zwart',
-    durability: 'massief',
-    productType: 'paneel',
-    description: 'Het zonnepaneel voor schuttingen wekt groene energie op terwijl het functioneert als schuttingpaneel. Geïntegreerd dubbelglas design.',
-    seoTitle: 'Zonnepaneel voor Schutting | Energie Opwekken',
-    seoDescription: 'Geïntegreerd zonnepaneel voor schuttingen. Wek groene energie op met uw erfafscheiding. Dubbelglas, 25 jaar garantie. Offerte aanvragen.',
-    longDescription: `## Zonnepaneel voor schutting\n\nCombineer uw erfafscheiding met duurzame energieopwekking. Het geïntegreerde zonnepaneel past naadloos in uw schutting en wekt groene stroom op.\n\n### Voordelen\n\n- Geïntegreerd in schuttingsysteem\n- Dubbelglas constructie\n- Groene energieopwekking\n- 25 jaar garantie\n- Naadloze integratie met aluminium palen`,
-    specifications: { Breedte: '180 cm', Hoogte: '90 cm', Type: 'Dubbelglas zonnepaneel', Vermogen: 'Op aanvraag', Aansluiting: 'Micro-omvormer (apart)' },
-    images: ['https://cdn.forestia-group.com/storage/6ada5f90-08a7-45e5-9a15-front/m-helios_default.jpg?w=750&f=webp&q=85'],
-    deliveryTime: 'Op aanvraag',
-    highlights: ['Geïntegreerd zonnepaneel', 'Groene energie', 'Dubbelglas', '25 jaar garantie'],
-    faq: [
-      { question: 'Hoeveel stroom levert een schuttingzonnepaneel?', answer: 'Het vermogen is afhankelijk van de opstelling en zonligging. Neem contact op voor een berekening op maat voor uw situatie.' },
-      { question: 'Heb ik een omvormer nodig?', answer: 'Ja, u heeft een micro-omvormer nodig (apart verkrijgbaar) om de opgewekte stroom te kunnen gebruiken.' },
-    ],
-  },
-
-  // ─── VLONDERPLANKEN ──────────────────────────────────────────
+  // ─── VLONDERPLANKEN (Decking) ────────────────────────────────────
   {
     id: 'vl-1',
-    updatedDate: '2026-02-15',
-    name: 'Composiet vlonderplank Donker Grijs',
-    price: 16.95,
-    priceLabel: 'Vanaf €16,95',
-    image: 'https://jakqbjeukobtyxxxpzcr.supabase.co/storage/v1/object/public/product-images/vlonderplanken/vlonder-donker-grijs.png',
+    updatedDate: '2026-02-20',
+    name: 'Silvadec Nuances Ipé Vlonderplank',
+    price: 89.00,
+    priceLabel: 'Vanaf €89,- per m²',
+    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2025-02/Silvadec_atmopshere_D0373_packshot_0.png?itok=VHdJ4VQX',
     category: 'vlonderplanken',
-    features: ['Twee afwerkingen', 'Los of met clips'],
-    guarantee: 'Scherp geprijsd',
-    slug: 'vlonder-donker-grijs',
-    tone: 'grijs',
-    durability: 'standaard',
+    features: ['Co-extrusie beschermlaag', 'Geborsteld oppervlak', '25 jaar garantie', 'Nuances technologie'],
+    guarantee: '25 jaar fabrieksgarantie',
+    slug: 'nuances-ipe-vlonderplank',
+    tone: 'bruin',
+    durability: 'co-extrusie',
     productType: 'plank',
-    description: 'De composiet vlonderplank Donker Grijs is een veelzijdige plank met twee afwerkingen: een fijne groef aan de ene zijde en een houtnerf structuur aan de andere. Kies zelf welke kant boven komt. Bevestig los met schroeven of onzichtbaar met clips.',
-    seoTitle: 'Composiet Vlonderplank Donker Grijs | Vanaf €16,95',
-    seoDescription: 'Composiet vlonderplank Donker Grijs met dubbelzijdige afwerking. Splintervrij, bevestig met schroeven of clips. Scherp geprijsd. Bestel nu.',
-    longDescription: `## Composiet vlonderplank Donker Grijs
+    description: 'De Silvadec Nuances Ipé vlonderplank biedt de exclusieve uitstraling van tropisch ipé hout met de voordelen van co-extrusie composiet. Subtiele kleurvariaties per plank voor een authentiek houteffect.',
+    seoTitle: 'Silvadec Nuances Ipé Vlonderplank | Composiet Terrasplank',
+    seoDescription: 'Silvadec Nuances Ipé composiet vlonderplank. Exclusieve houtlook, co-extrusie, 25 jaar garantie. Bestel bij SchuttingenvanComposiet.nl.',
+    longDescription: `## Silvadec Nuances Ipé Vlonderplank
 
-De composiet vlonderplank Donker Grijs is een veelzijdige plank met twee afwerkingen: een fijne groef aan de ene zijde en een houtnerf structuur aan de andere. Kies zelf welke kant boven komt voor het gewenste effect.
+De Silvadec Nuances Ipé is het vlaggenschip van het Silvadec vlonderassortiment. Met de revolutionaire Nuances-technologie biedt deze plank subtiele kleurvariaties die de natuurlijke schoonheid van tropisch ipé hout nabootsen.
 
-### Twee bevestigingsmogelijkheden
+### Nuances technologie
 
-Bevestig de planken los met schroeven voor een eenvoudige montage, of gebruik onzichtbare clips voor een strak eindresultaat zonder zichtbare bevestigingen. Beide opties zijn verkrijgbaar.
+Silvadec's gepatenteerde Nuances-technologie creëert subtiele kleurverschillen per plank. Het resultaat is een terras dat eruitziet als echt ipé hout, maar dan zonder het onderhoud. Elke plank is uniek.
 
-### Splintervrij en comfortabel
+### Co-extrusie beschermlaag
 
-Composiet vlonderplanken zijn 100% splintervrij — ideaal om blootsvoets over te lopen. De planken worden niet glad bij nattigheid en zijn veilig voor kinderen en huisdieren.
+De geavanceerde co-extrusie technologie omhult elke plank met een beschermende polymeerlaag:
+- 0% vochtopname
+- Maximale UV-bestendigheid
+- Vlekbestendig oppervlak
+- Krasbestendig
 
-### Voordelen in één oogopslag
+### Specificaties
 
-- Dubbelzijdige afwerking: groef of houtnerf
-- Splintervrij — veilig blootsvoets
-- Bevestiging met schroeven of onzichtbare clips
-- Weerbestendig en onderhoudsarm
-- Scherp geprijsd
-- 300 cm lange planken`,
-    specifications: { Lengte: '300 cm', Breedte: '13,8 cm', Dikte: '2,3 cm', Materiaal: 'Composiet (holle kern)', Kleur: 'Donker Grijs', Afwerking: 'Dubbelzijdig: groef / houtnerf' },
+De plank is 138 mm breed en 23 mm dik — een stevig, massief profiel dat de degelijkheid van echt hout evenaart. Beschikbaar in lengtes van 400 cm.
+
+### 25 jaar garantie
+
+Silvadec biedt 25 jaar fabrieksgarantie op kleurvastheid, structurele integriteit en prestaties. Een investering voor het leven.`,
+    specifications: { Lengte: '400 cm', Breedte: '13,8 cm', Dikte: '2,3 cm', Materiaal: 'Composiet met co-extrusie toplaag', Kleur: 'Ipé', Afwerking: 'Geborsteld (Nuances)', Merk: 'Silvadec', Gewicht: '3,8 kg/m' },
     images: [
-      'https://jakqbjeukobtyxxxpzcr.supabase.co/storage/v1/object/public/product-images/vlonderplanken/vlonder-donker-grijs.png',
+      'https://en.silvadec.com/sites/default/files/styles/square/public/2025-02/Silvadec_atmopshere_D0373_packshot_0.png?itok=VHdJ4VQX',
+      'https://en.silvadec.com/sites/default/files/styles/square/public/2025-04/Silvadec_atmosphere_nuances_ipe_b0035%20%2813%29-compressed.jpg?itok=jW47BaxI',
     ],
-    deliveryTime: 'Tussen de 2 en 15 werkdagen',
-    highlights: ['Twee afwerkingen in één plank', 'Keuze: schroeven of clips', 'Splintervrij', 'Scherp geprijsd'],
-    dimensions: { length: '300 cm', width: '13,8 cm', thickness: '2,3 cm' },
-    options: [
-      { label: 'Bevestiging', values: ['Los (schroeven)', 'Met clips'] },
-    ],
-    videoUrl: 'https://www.youtube.com/watch?v=composiet-vlonder-montage',
+    deliveryTime: '5-8 werkdagen',
+    highlights: ['Nuances technologie', 'Ipé houtlook', 'Co-extrusie beschermlaag', '25 jaar garantie', 'Unieke kleurvariaties'],
+    dimensions: { length: '400 cm', width: '13,8 cm', thickness: '2,3 cm' },
     faq: [
-      { question: 'Wat is het verschil tussen holle kern en massief?', answer: 'Holle kern vlonderplanken zijn lichter en goedkoper. Massieve planken zijn zwaarder, steviger en hebben een naadloos design. Voor de meeste toepassingen is holle kern voldoende.' },
-      { question: 'Hoeveel planken heb ik nodig voor mijn terras?', answer: 'Meet de oppervlakte van uw terras en deel door de breedte van de plank (13,8 cm) maal de lengte (300 cm). Reken 5-10% extra voor zaagverlies.' },
-      { question: 'Hoe bevestig ik de planken met clips?', answer: 'De clips worden op de onderbalk geschroefd en klemmen de vlonderplank vast. Zo krijgt u een strak terras zonder zichtbare schroeven. De clips zorgen automatisch voor de juiste tussenruimte.' },
+      { question: 'Wat is het verschil tussen Nuances en Atmosphere?', answer: 'De Nuances-lijn gebruikt een geavanceerde technologie die subtiele kleurvariaties per plank creëert. Atmosphere heeft een uniforme kleur per plank.' },
+      { question: 'Is de Nuances Ipé geschikt voor rondom een zwembad?', answer: 'Ja, de co-extrusie beschermlaag maakt de plank chloor- en zoutwaterbestendig. Het geborstelde oppervlak biedt goede grip, ook als het nat is.' },
+      { question: 'Hoeveel planken heb ik nodig per m²?', answer: 'Bij een plankbreedte van 138 mm en een voegbreedte van 5 mm heeft u circa 7 planken per m² nodig. Reken 10% extra voor zaagverlies.' },
     ],
   },
   {
     id: 'vl-2',
-    updatedDate: '2026-02-14',
-    name: 'Composiet vlonderplank Teak',
-    price: 16.95,
-    priceLabel: 'Vanaf €16,95',
-    image: 'https://jakqbjeukobtyxxxpzcr.supabase.co/storage/v1/object/public/product-images/vlonderplanken/vlonder-teak.png',
+    updatedDate: '2026-02-20',
+    name: 'Silvadec Nuances Licht Eiken Vlonderplank',
+    price: 89.00,
+    priceLabel: 'Vanaf €89,- per m²',
+    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2025-05/nuancier-chene%20%282%29-compressed.jpg?itok=QXARKElr',
     category: 'vlonderplanken',
-    features: ['Twee afwerkingen', 'Los of met clips'],
-    guarantee: 'Scherp geprijsd',
-    slug: 'vlonder-teak',
-    tone: 'teak',
-    durability: 'standaard',
+    features: ['Co-extrusie beschermlaag', 'Geborsteld oppervlak', '25 jaar garantie', 'Nuances technologie'],
+    guarantee: '25 jaar fabrieksgarantie',
+    slug: 'nuances-licht-eiken-vlonderplank',
+    tone: 'eiken',
+    durability: 'co-extrusie',
     productType: 'plank',
-    description: 'De composiet vlonderplank Teak brengt warmte en sfeer op uw terras. Dubbelzijdige afwerking: kies voor fijne groef of houtnerf. Eenvoudig te bevestigen met schroeven of onzichtbare clips.',
-    seoTitle: 'Composiet Vlonderplank Teak Kopen | Vanaf €16,95',
-    seoDescription: 'Composiet vlonderplank Teak met warme houtkleur en dubbelzijdige afwerking. Splintervrij, scherp geprijsd. Bestel bij Schuttingvancomposiet.nl.',
-    longDescription: `## Composiet vlonderplank Teak
+    description: 'De Silvadec Nuances Licht Eiken vlonderplank brengt de warme, natuurlijke uitstraling van eikenhout naar uw terras. Met subtiele kleurvariaties dankzij de Nuances-technologie.',
+    seoTitle: 'Silvadec Nuances Licht Eiken Vlonderplank | Composiet Terrasplank',
+    seoDescription: 'Silvadec Nuances Licht Eiken composiet vlonderplank. Authentieke eikenlook, co-extrusie, 25 jaar garantie. Bestel bij SchuttingenvanComposiet.nl.',
+    longDescription: `## Silvadec Nuances Licht Eiken Vlonderplank
 
-De composiet vlonderplank Teak brengt warmte en sfeer op uw terras. Dubbelzijdige afwerking: kies voor fijne groef of houtnerf. De warme teakkleur geeft uw terras de uitstraling van tropisch hout.
+De Silvadec Nuances Licht Eiken biedt de warme, veelzijdige uitstraling van eikenhout in een onderhoudsvrij composiet formaat. De Nuances-technologie zorgt voor subtiele kleurvariaties per plank.
 
-### Twee bevestigingsmogelijkheden
+### Warm en veelzijdig
 
-Bevestig los met schroeven of gebruik onzichtbare clips voor een strak resultaat. De clips zorgen automatisch voor de juiste tussenruimte.
+De lichte eikenkleur past bij vrijwel elke tuinstijl en architectuur. Van moderne stadstuin tot landelijk terras — eiken is altijd een goede keuze.
 
-### Splintervrij en duurzaam
+### Nuances effect
 
-100% splintervrij, weerbestendig en onderhoudsarm. Ideaal om blootsvoets over te lopen.
-
-### Voordelen in één oogopslag
-
-- Warme teakkleur met natuurlijke uitstraling
-- Dubbelzijdige afwerking: groef of houtnerf
-- Splintervrij en comfortabel
-- Bevestiging met schroeven of clips
-- Scherp geprijsd
-- 300 cm lange planken`,
-    specifications: { Lengte: '300 cm', Breedte: '13,8 cm', Dikte: '2,3 cm', Materiaal: 'Composiet (holle kern)', Kleur: 'Teak', Afwerking: 'Dubbelzijdig: groef / houtnerf' },
+Elke plank heeft subtiele kleurverschillen die een natuurlijk, authentiek houtbeeld creëren. Het resultaat is een terras met de warmte van echt eikenhout.`,
+    specifications: { Lengte: '400 cm', Breedte: '13,8 cm', Dikte: '2,3 cm', Materiaal: 'Composiet met co-extrusie toplaag', Kleur: 'Licht Eiken', Afwerking: 'Geborsteld (Nuances)', Merk: 'Silvadec' },
     images: [
-      'https://jakqbjeukobtyxxxpzcr.supabase.co/storage/v1/object/public/product-images/vlonderplanken/vlonder-teak.png',
+      'https://en.silvadec.com/sites/default/files/styles/square/public/2025-05/nuancier-chene%20%282%29-compressed.jpg?itok=QXARKElr',
+      'https://en.silvadec.com/sites/default/files/styles/square/public/2025-10/Silvadec_Nuances_Ch%C3%AAne_clair_D0373%20%2811%29.jpg?itok=MmNiiLsz',
     ],
-    deliveryTime: 'Tussen de 2 en 15 werkdagen',
-    highlights: ['Warme teakkleur', 'Twee afwerkingen', 'Keuze: schroeven of clips', 'Splintervrij'],
-    dimensions: { length: '300 cm', width: '13,8 cm', thickness: '2,3 cm' },
-    options: [
-      { label: 'Bevestiging', values: ['Los (schroeven)', 'Met clips'] },
-    ],
+    deliveryTime: '5-8 werkdagen',
+    highlights: ['Licht eiken', 'Nuances technologie', 'Warm en veelzijdig', 'Co-extrusie beschermlaag'],
+    dimensions: { length: '400 cm', width: '13,8 cm', thickness: '2,3 cm' },
     faq: [
-      { question: 'Verkleurt de teakkleur door de zon?', answer: 'De vlonderplank kan in de eerste weken licht verkleuren door UV, maar stabiliseert daarna. Dit is normaal bij composiet en heeft geen invloed op de kwaliteit.' },
-      { question: 'Is de plank geschikt voor rondom een zwembad?', answer: 'Ja, composiet vlonderplanken zijn uitstekend geschikt rondom zwembaden. Ze zijn splintervrij, worden niet glad en zijn bestand tegen chloorwater.' },
-      { question: 'Welke onderbalk heb ik nodig?', answer: 'Gebruik aluminium of composiet onderbalken met een hart-op-hart afstand van maximaal 40 cm. Dit zorgt voor voldoende draagkracht.' },
+      { question: 'Is Licht Eiken een populaire kleur?', answer: 'Ja, eiken is een tijdloze en veelzijdige kleur die bij vrijwel elke bouwstijl past. Het is een van de meest gevraagde tinten.' },
     ],
   },
   {
     id: 'vl-3',
-    updatedDate: '2026-02-13',
-    name: 'Composiet vlonderplank Vergrijsd Eiken',
-    price: 16.95,
-    priceLabel: 'Vanaf €16,95',
-    image: 'https://jakqbjeukobtyxxxpzcr.supabase.co/storage/v1/object/public/product-images/vlonderplanken/vlonder-vergrijsd-eiken.png',
+    updatedDate: '2026-02-20',
+    name: 'Silvadec Atmosphere Ushuaia Grijs Vlonderplank',
+    price: 79.00,
+    priceLabel: 'Vanaf €79,- per m²',
+    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/SILAM1609_Lame_atmosphere_Gris_Ushua%C3%AFa.jpg?itok=fjbvR3Rh',
     category: 'vlonderplanken',
-    features: ['Twee afwerkingen', 'Los of met clips'],
-    guarantee: 'Scherp geprijsd',
-    slug: 'vlonder-vergrijsd-eiken',
-    tone: 'eiken',
-    durability: 'standaard',
+    features: ['Co-extrusie beschermlaag', 'Geborsteld oppervlak', '25 jaar garantie'],
+    guarantee: '25 jaar fabrieksgarantie',
+    slug: 'atmosphere-ushuaia-grijs-vlonderplank',
+    tone: 'grijs',
+    durability: 'co-extrusie',
     productType: 'plank',
-    description: 'De composiet vlonderplank Vergrijsd Eiken heeft een natuurlijke, verweerde uitstraling. Dubbelzijdig afgewerkt met fijne groef en houtnerf. Een populaire keuze voor een tijdloze look.',
-    seoTitle: 'Composiet Vlonderplank Vergrijsd Eiken | Vanaf €16,95',
-    seoDescription: 'Composiet vlonderplank Vergrijsd Eiken met verweerde houtlook. Dubbelzijdig, splintervrij, scherp geprijsd. Bestel bij Schuttingvancomposiet.nl.',
-    longDescription: `## Composiet vlonderplank Vergrijsd Eiken
+    description: 'De Silvadec Atmosphere Ushuaia Grijs vlonderplank biedt een markante, diepgrijze tint met geborstelde afwerking. De donkerste grijstint in het Atmosphere assortiment.',
+    seoTitle: 'Silvadec Atmosphere Ushuaia Grijs | Composiet Vlonderplank',
+    seoDescription: 'Silvadec Atmosphere Ushuaia Grijs composiet vlonderplank. Diepgrijs, co-extrusie, 25 jaar garantie. Bestel bij SchuttingenvanComposiet.nl.',
+    longDescription: `## Silvadec Atmosphere Ushuaia Grijs Vlonderplank
 
-De composiet vlonderplank Vergrijsd Eiken heeft een natuurlijke, verweerde uitstraling die doet denken aan verouderd hout. Dubbelzijdig afgewerkt met fijne groef en houtnerf — een populaire keuze voor een tijdloze look.
+De Ushuaia Grijs is de meest markante grijstint in het Silvadec Atmosphere assortiment. Deze diepgrijze vlonderplank met geborstelde afwerking geeft uw terras een krachtige, eigentijdse uitstraling.
 
-### Twee bevestigingsmogelijkheden
+### Diepgrijze tint
 
-Bevestig met schroeven of met onzichtbare clips. De clips creëren een strak terras zonder zichtbare bevestigingen.
+Ushuaia Grijs is donkerder dan Cayenne en Belem, maar lichter dan antraciet. Het is een warme, levendige grijstint die prachtig combineert met moderne architectuur.
 
-### Splintervrij en duurzaam
+### Co-extrusie kwaliteit
 
-100% splintervrij, weerbestendig en onderhoudsarm. De vergrijsde eikenkleur blijft constant — geen verdere verwering.
-
-### Voordelen in één oogopslag
-
-- Natuurlijke verweerde eikenlook
-- Dubbelzijdige afwerking
-- Splintervrij en comfortabel
-- Geen verder verweringsproces
-- Scherp geprijsd
-- 300 cm lange planken`,
-    specifications: { Lengte: '300 cm', Breedte: '13,8 cm', Dikte: '2,3 cm', Materiaal: 'Composiet (holle kern)', Kleur: 'Vergrijsd Eiken', Afwerking: 'Dubbelzijdig: groef / houtnerf' },
+Elke Atmosphere plank is voorzien van de Silvadec co-extrusie beschermlaag voor maximale duurzaamheid en kleurvastheid.`,
+    specifications: { Lengte: '400 cm', Breedte: '13,8 cm', Dikte: '2,3 cm', Materiaal: 'Composiet met co-extrusie toplaag', Kleur: 'Ushuaia Grijs', Afwerking: 'Geborsteld', Merk: 'Silvadec' },
     images: [
-      'https://jakqbjeukobtyxxxpzcr.supabase.co/storage/v1/object/public/product-images/vlonderplanken/vlonder-vergrijsd-eiken.png',
+      'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/SILAM1609_Lame_atmosphere_Gris_Ushua%C3%AFa.jpg?itok=fjbvR3Rh',
+      'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/SILAM_1609_atmosphere_ushuaia_A.jpg?itok=nPxxgclu',
     ],
-    deliveryTime: 'Tussen de 2 en 15 werkdagen',
-    highlights: ['Verweerde eikenlook', 'Twee afwerkingen', 'Keuze: schroeven of clips', 'Splintervrij'],
-    dimensions: { length: '300 cm', width: '13,8 cm', thickness: '2,3 cm' },
-    options: [
-      { label: 'Bevestiging', values: ['Los (schroeven)', 'Met clips'] },
-    ],
+    deliveryTime: '5-8 werkdagen',
+    highlights: ['Ushuaia grijs', 'Diepgrijze tint', 'Geborsteld oppervlak', 'Co-extrusie beschermlaag'],
+    dimensions: { length: '400 cm', width: '13,8 cm', thickness: '2,3 cm' },
     faq: [
-      { question: 'Verweert de plank verder na plaatsing?', answer: 'Nee, de vergrijsde eikenlook is in de plank geproduceerd. De kleur blijft constant en verweert niet verder door zon of regen.' },
-      { question: 'Is vergrijsd eiken lichter of donkerder dan teak?', answer: 'Vergrijsd eiken is lichter en grijzer dan teak. Het geeft een meer verweerd, natuurlijk uiterlijk, terwijl teak warmer en goudbruin is.' },
-      { question: 'Kan ik de planken op maat zagen?', answer: 'Ja, composiet vlonderplanken zijn eenvoudig op maat te zagen met een cirkelzaag of handcirkelzaag. Gebruik een fijnvertand zaagblad voor een netjes resultaat.' },
+      { question: 'Hoe verschilt Ushuaia Grijs van Cayenne Grijs?', answer: 'Ushuaia is een diepere, meer blauwgrijze tint. Cayenne is donkerder met een warmere ondertoon. Bestel gratis samples om het verschil te zien.' },
     ],
   },
   {
     id: 'vl-4',
-    updatedDate: '2026-02-12',
-    name: 'Composiet vlonderplank Walnoot',
-    price: 16.95,
-    priceLabel: 'Vanaf €16,95',
-    image: 'https://jakqbjeukobtyxxxpzcr.supabase.co/storage/v1/object/public/product-images/vlonderplanken/vlonder-walnoot.png',
+    updatedDate: '2026-02-20',
+    name: 'Silvadec Atmosphere Cayenne Grijs Vlonderplank',
+    price: 79.00,
+    priceLabel: 'Vanaf €79,- per m²',
+    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/SILAM1603_packshot_rendu_Lame_atmosphere_Gris_Cayenne.jpg?itok=Wi-vzGPh',
     category: 'vlonderplanken',
-    features: ['Twee afwerkingen', 'Los of met clips'],
-    guarantee: 'Scherp geprijsd',
-    slug: 'vlonder-walnoot',
-    tone: 'walnoot',
-    durability: 'standaard',
+    features: ['Co-extrusie beschermlaag', 'Geborsteld oppervlak', '25 jaar garantie'],
+    guarantee: '25 jaar fabrieksgarantie',
+    slug: 'atmosphere-cayenne-grijs-vlonderplank',
+    tone: 'grijs',
+    durability: 'co-extrusie',
     productType: 'plank',
-    description: 'De composiet vlonderplank Walnoot biedt een rijke, donkere houtlook. Dubbelzijdig afgewerkt zodat u kunt kiezen welke zijde u prefereert.',
-    seoTitle: 'Composiet Vlonderplank Walnoot Kopen | Vanaf €16,95',
-    seoDescription: 'Composiet vlonderplank Walnoot met rijke donkere houtlook. Dubbelzijdig, splintervrij, scherp geprijsd. Bestel bij Schuttingvancomposiet.nl.',
-    longDescription: `## Composiet vlonderplank Walnoot
+    description: 'De Silvadec Atmosphere Cayenne Grijs vlonderplank heeft een donkere, warme grijstint. Trendy en eigentijds.',
+    seoTitle: 'Silvadec Atmosphere Cayenne Grijs | Composiet Vlonderplank',
+    seoDescription: 'Silvadec Atmosphere Cayenne Grijs composiet vlonderplank. Donkergrijs, co-extrusie, 25 jaar garantie. Bestel bij SchuttingenvanComposiet.nl.',
+    longDescription: `## Silvadec Atmosphere Cayenne Grijs Vlonderplank
 
-De composiet vlonderplank Walnoot biedt een rijke, donkere houtlook die warmte en sfeer toevoegt aan uw terras. Dubbelzijdig afgewerkt met fijne groef en houtnerf.
+Cayenne Grijs is een donkere, warme grijstint die uw terras een trendy, eigentijdse uitstraling geeft. Deze vlonderplank uit het Atmosphere assortiment combineert een moderne kleur met de beproefde co-extrusie technologie van Silvadec.
 
-### Twee bevestigingsmogelijkheden
+### Trendy en eigentijds
 
-Bevestig met schroeven of met onzichtbare clips voor een strak eindresultaat.
-
-### Splintervrij en duurzaam
-
-100% splintervrij, weerbestendig en onderhoudsarm. De donkere walnoottint geeft uw terras een luxe uitstraling.
-
-### Voordelen in één oogopslag
-
-- Rijke, donkere walnoottint
-- Dubbelzijdige afwerking
-- Splintervrij
-- Bevestiging met schroeven of clips
-- Scherp geprijsd
-- 300 cm lange planken`,
-    specifications: { Lengte: '300 cm', Breedte: '13,8 cm', Dikte: '2,3 cm', Materiaal: 'Composiet (holle kern)', Kleur: 'Walnoot', Afwerking: 'Dubbelzijdig: groef / houtnerf' },
+De donkergrijze tint met warme ondertoon is een van de meest gevraagde kleuren voor moderne terrassen. Het past perfect bij strakke architectuur en donkere kozijnen.`,
+    specifications: { Lengte: '400 cm', Breedte: '13,8 cm', Dikte: '2,3 cm', Materiaal: 'Composiet met co-extrusie toplaag', Kleur: 'Cayenne Grijs', Afwerking: 'Geborsteld', Merk: 'Silvadec' },
     images: [
-      'https://jakqbjeukobtyxxxpzcr.supabase.co/storage/v1/object/public/product-images/vlonderplanken/vlonder-walnoot.png',
+      'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/SILAM1603_packshot_rendu_Lame_atmosphere_Gris_Cayenne.jpg?itok=Wi-vzGPh',
+      'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/SILAM1603_SILAM1810_atmopshere_cayenne_138_180_A_THD.jpg?itok=bdeBmG1Q',
     ],
-    deliveryTime: 'Tussen de 2 en 15 werkdagen',
-    highlights: ['Rijke walnoottint', 'Twee afwerkingen', 'Keuze: schroeven of clips', 'Splintervrij'],
-    dimensions: { length: '300 cm', width: '13,8 cm', thickness: '2,3 cm' },
-    options: [
-      { label: 'Bevestiging', values: ['Los (schroeven)', 'Met clips'] },
-    ],
+    deliveryTime: '5-8 werkdagen',
+    highlights: ['Cayenne grijs', 'Donkere warme tint', 'Trendy kleur', 'Co-extrusie beschermlaag'],
+    dimensions: { length: '400 cm', width: '13,8 cm', thickness: '2,3 cm' },
     faq: [
-      { question: 'Is walnoot donkerder dan teak?', answer: 'Ja, walnoot is aanzienlijk donkerder dan teak. Het heeft een diepbruine kleur, terwijl teak meer goudbruin is. Bestel een sample om het verschil te zien.' },
-      { question: 'Kan ik walnoot vlonder combineren met een walnoot schutting?', answer: 'Ja, onze walnoot vlonderplanken en walnoot schuttingen zijn perfect op elkaar afgestemd qua kleur. Dit creëert een harmonieus tuinontwerp.' },
-      { question: 'Wordt de plank warm in de zon?', answer: 'Composiet kan in direct zonlicht iets warmer worden dan hout. Kies voor een lichtere kleur als uw terras vol in de zon ligt, of gebruik de plank met blootsvoets in gedachten.' },
+      { question: 'Is Cayenne Grijs geschikt voor een zwembadterras?', answer: 'Ja, alle Silvadec Atmosphere planken zijn chloor- en zoutwaterbestendig. Het geborstelde oppervlak biedt antislip-eigenschappen.' },
     ],
   },
   {
     id: 'vl-5',
-    updatedDate: '2026-02-15',
-    name: 'Composiet vlonderplank naadloos massief Donker Grijs',
-    price: 24.95,
-    priceLabel: 'Vanaf €24,95',
-    image: 'https://jakqbjeukobtyxxxpzcr.supabase.co/storage/v1/object/public/product-images/vlonderplanken/vlonder-massief-grijs.png',
+    updatedDate: '2026-02-20',
+    name: 'Silvadec Atmosphere Belem Grijs Vlonderplank',
+    price: 79.00,
+    priceLabel: 'Vanaf €79,- per m²',
+    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/SILAM1601_Lame_atmosphere_Gris_belem_0.jpg?itok=DdfYDLIU',
     category: 'vlonderplanken',
-    features: ['Massief met antislip', 'Naadloos design'],
-    guarantee: '15 jaar garantie',
-    slug: 'vlonder-massief-grijs',
+    features: ['Co-extrusie beschermlaag', 'Geborsteld oppervlak', '25 jaar garantie'],
+    guarantee: '25 jaar fabrieksgarantie',
+    slug: 'atmosphere-belem-grijs-vlonderplank',
     tone: 'grijs',
-    durability: 'massief',
+    durability: 'co-extrusie',
     productType: 'plank',
-    description: 'De naadloos massieve composiet vlonderplank in Donker Grijs is het topmodel uit ons assortiment. Volledig massief (geen holle kern), voorzien van een antislip coating en een naadloos ontwerp voor een strak eindresultaat.',
-    seoTitle: 'Massief Composiet Vlonderplank Donker Grijs | Vanaf €24,95',
-    seoDescription: 'Naadloos massieve composiet vlonderplank Donker Grijs met antislip coating. Premium kwaliteit, 15 jaar garantie. Bestel bij Schuttingvancomposiet.nl.',
-    longDescription: `## Composiet vlonderplank naadloos massief Donker Grijs
+    description: 'De Silvadec Atmosphere Belem Grijs vlonderplank is de lichtste grijstint in het assortiment. Fris, licht en ruimtelijk.',
+    seoTitle: 'Silvadec Atmosphere Belem Grijs | Composiet Vlonderplank',
+    seoDescription: 'Silvadec Atmosphere Belem Grijs composiet vlonderplank. Lichtgrijs, co-extrusie, 25 jaar garantie. Bestel bij SchuttingenvanComposiet.nl.',
+    longDescription: `## Silvadec Atmosphere Belem Grijs Vlonderplank
 
-Het topmodel uit ons assortiment: de naadloos massieve composiet vlonderplank in Donker Grijs. Volledig massief (geen holle kern), voorzien van een antislip coating en een naadloos ontwerp voor een strak eindresultaat.
+Belem Grijs is de lichtste grijstint in het Silvadec Atmosphere assortiment. Deze frisse, lichte vlonderplank maakt uw terras optisch groter en lichter.
 
-### 100% massief
+### Licht en fris
 
-In tegenstelling tot standaard holle kern vlonderplanken is deze plank volledig massief. Dit betekent maximale draagkracht, stevigheid en duurzaamheid. Ideaal voor intensief gebruik en commerciële toepassingen.
+De lichte grijstint reflecteert zonlicht en zorgt voor een fris, ruimtelijk gevoel. Ideaal voor balkons, kleine terrassen en schaduwrijke tuinen.
 
-### Antislip coating
+### Minder warmte-absorptie
 
-De plank is voorzien van een antislip coating voor maximale veiligheid, ook bij nat weer. Perfect rondom zwembaden, bij restaurants of op openbare terrassen.
-
-### Naadloos design
-
-Het naadloze ontwerp zorgt voor een strak, elegant eindresultaat zonder zichtbare groeven of naden. Een luxe uitstraling voor uw terras.
-
-### Voordelen in één oogopslag
-
-- 100% massief — maximale stevigheid
-- Antislip coating voor veiligheid
-- Naadloos design voor een strakke look
-- 15 jaar garantie
-- Premium kwaliteit`,
-    specifications: { Lengte: '300 cm', Breedte: '14,5 cm', Dikte: '2,2 cm', Materiaal: 'Massief composiet', Kleur: 'Donker Grijs', Afwerking: 'Naadloos met antislip coating' },
+Lichte kleuren absorberen minder warmte dan donkere kleuren. Belem Grijs is daarmee de ideale keuze voor terrassen die veel in de zon liggen.`,
+    specifications: { Lengte: '400 cm', Breedte: '13,8 cm', Dikte: '2,3 cm', Materiaal: 'Composiet met co-extrusie toplaag', Kleur: 'Belem Grijs', Afwerking: 'Geborsteld', Merk: 'Silvadec' },
     images: [
-      'https://jakqbjeukobtyxxxpzcr.supabase.co/storage/v1/object/public/product-images/vlonderplanken/vlonder-massief-grijs.png',
+      'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/SILAM1601_Lame_atmosphere_Gris_belem_0.jpg?itok=DdfYDLIU',
+      'https://en.silvadec.com/sites/default/files/styles/square/public/2024-03/09072021-FB106327.jpg?itok=Pirjab_0',
     ],
-    deliveryTime: 'Tussen de 2 en 15 werkdagen',
-    highlights: ['100% massief', 'Antislip coating', 'Naadloos design', '15 jaar garantie', 'Premium kwaliteit'],
-    dimensions: { length: '300 cm', width: '14,5 cm', thickness: '2,2 cm' },
+    deliveryTime: '5-8 werkdagen',
+    highlights: ['Belem grijs', 'Lichtste grijstint', 'Fris en ruimtelijk', 'Minder warmte-absorptie'],
+    dimensions: { length: '400 cm', width: '13,8 cm', thickness: '2,3 cm' },
     faq: [
-      { question: 'Wat is het verschil tussen massief en holle kern?', answer: 'Massieve planken zijn volledig gevuld en zwaarder. Ze bieden meer draagkracht en stevigheid. Holle kern planken zijn lichter en goedkoper maar minder robuust.' },
-      { question: 'Is de antislip coating permanent?', answer: 'Ja, de antislip coating is in het productieproces aangebracht en slijt niet af bij normaal gebruik. De plank blijft ook na jaren veilig bij nat weer.' },
-      { question: 'Kan ik massieve planken ook met clips bevestigen?', answer: 'Ja, massieve vlonderplanken kunnen zowel met schroeven als met onzichtbare clips worden bevestigd. Clips geven het mooiste eindresultaat.' },
-      { question: 'Is de massieve plank geschikt voor commercieel gebruik?', answer: 'Ja, de massieve plank is ideaal voor horeca terrassen, openbare ruimtes en andere locaties met intensief gebruik. De antislip coating biedt extra veiligheid.' },
+      { question: 'Is lichtgrijs moeilijker schoon te houden?', answer: 'Nee, de co-extrusie beschermlaag maakt het oppervlak vlekbestendig. Vuil hecht niet aan de beschermlaag en is eenvoudig te verwijderen.' },
     ],
   },
   {
     id: 'vl-6',
-    updatedDate: '2026-02-14',
-    name: 'Composiet vlonderplank naadloos massief Teak',
-    price: 24.95,
-    priceLabel: 'Vanaf €24,95',
-    image: 'https://jakqbjeukobtyxxxpzcr.supabase.co/storage/v1/object/public/product-images/vlonderplanken/vlonder-massief-teak.png',
+    updatedDate: '2026-02-20',
+    name: 'Silvadec Atmosphere Lima Bruin Vlonderplank',
+    price: 79.00,
+    priceLabel: 'Vanaf €79,- per m²',
+    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/SILAM1607_packshot_rendu_lame_atmosphere_Brun_Lima.jpg?itok=uAPDw6KQ',
     category: 'vlonderplanken',
-    features: ['Massief met antislip', 'Naadloos design'],
-    guarantee: '15 jaar garantie',
-    slug: 'vlonder-massief-teak',
-    tone: 'teak',
-    durability: 'massief',
+    features: ['Co-extrusie beschermlaag', 'Geborsteld oppervlak', '25 jaar garantie'],
+    guarantee: '25 jaar fabrieksgarantie',
+    slug: 'atmosphere-lima-bruin-vlonderplank',
+    tone: 'bruin',
+    durability: 'co-extrusie',
     productType: 'plank',
-    description: 'De naadloos massieve composiet vlonderplank in Teak. Volledig massief met antislip coating voor maximale veiligheid. Het naadloze ontwerp zorgt voor een strak, luxueus terras.',
-    seoTitle: 'Massief Composiet Vlonderplank Teak Kopen | Vanaf €24,95',
-    seoDescription: 'Naadloos massieve composiet vlonderplank Teak met antislip coating. Warme houtkleur, premium kwaliteit, 15 jaar garantie. Bestel online.',
-    longDescription: `## Composiet vlonderplank naadloos massief Teak
+    description: 'De Silvadec Atmosphere Lima Bruin vlonderplank heeft een rijke, donkerbruine tint. Warm, luxueus en tijdloos.',
+    seoTitle: 'Silvadec Atmosphere Lima Bruin | Composiet Vlonderplank',
+    seoDescription: 'Silvadec Atmosphere Lima Bruin composiet vlonderplank. Donkerbruin, co-extrusie, 25 jaar garantie. Bestel bij SchuttingenvanComposiet.nl.',
+    longDescription: `## Silvadec Atmosphere Lima Bruin Vlonderplank
 
-De naadloos massieve composiet vlonderplank in Teak combineert premium kwaliteit met een warme houtuitstraling. Volledig massief met antislip coating voor maximale veiligheid.
+Lima Bruin is een rijke, donkerbruine tint die uw terras de luxueuze uitstraling van tropisch hardhout geeft. Deze Atmosphere vlonderplank combineert warmte en elegantie.
 
-### 100% massief
+### Luxe hardhout-look
 
-Volledig massief composiet — geen holle kern. Maximale draagkracht en stevigheid voor intensief gebruik.
-
-### Antislip coating
-
-Voorzien van antislip coating voor veiligheid bij nat weer. Perfect rondom zwembaden en voor openbare terrassen.
-
-### Naadloos design
-
-Strak, elegant eindresultaat zonder zichtbare groeven. De warme teakkleur geeft uw terras een luxe, tropische uitstraling.
-
-### Voordelen in één oogopslag
-
-- 100% massief — maximale stevigheid
-- Warme teakkleur met luxe uitstraling
-- Antislip coating voor veiligheid
-- Naadloos design
-- 15 jaar garantie`,
-    specifications: { Lengte: '300 cm', Breedte: '14,5 cm', Dikte: '2,2 cm', Materiaal: 'Massief composiet', Kleur: 'Teak', Afwerking: 'Naadloos met antislip coating' },
+De donkerbruine kleur met geborstelde afwerking is nauwelijks te onderscheiden van echt tropisch hout. Lima Bruin is ideaal voor wie de uitstraling van hardhout wil zonder het onderhoud.`,
+    specifications: { Lengte: '400 cm', Breedte: '13,8 cm', Dikte: '2,3 cm', Materiaal: 'Composiet met co-extrusie toplaag', Kleur: 'Lima Bruin', Afwerking: 'Geborsteld', Merk: 'Silvadec' },
     images: [
-      'https://jakqbjeukobtyxxxpzcr.supabase.co/storage/v1/object/public/product-images/vlonderplanken/vlonder-massief-teak.png',
+      'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/SILAM1607_packshot_rendu_lame_atmosphere_Brun_Lima.jpg?itok=uAPDw6KQ',
+      'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/lima_fontenay_le_comte_%287%29.jpg?itok=c0JGb9di',
     ],
-    deliveryTime: 'Tussen de 2 en 15 werkdagen',
-    highlights: ['100% massief', 'Antislip coating', 'Naadloos design', 'Warme teakkleur', '15 jaar garantie'],
-    dimensions: { length: '300 cm', width: '14,5 cm', thickness: '2,2 cm' },
+    deliveryTime: '5-8 werkdagen',
+    highlights: ['Lima bruin', 'Donkere hardhout-look', 'Warm en luxueus', 'Co-extrusie beschermlaag'],
+    dimensions: { length: '400 cm', width: '13,8 cm', thickness: '2,3 cm' },
     faq: [
-      { question: 'Is de teakkleur identiek aan de standaard vlonderplank?', answer: 'De kleur is vergelijkbaar, maar de massieve plank heeft een iets intenser kleurresultaat dankzij het naadloze ontwerp. Bestel een sample om het verschil te ervaren.' },
-      { question: 'Hoe zwaar is een massieve plank?', answer: 'Een massieve plank weegt circa 8 kg per stuk (300 cm). Dit is zwaarder dan een holle kern plank (circa 4 kg) maar zorgt voor extra stevigheid.' },
-      { question: 'Kan ik massieve planken op een bestaand terras leggen?', answer: 'Ja, mits de onderbalk constructie stevig genoeg is. Massieve planken zijn zwaarder dan holle kern, dus controleer of de onderbouw het gewicht kan dragen.' },
+      { question: 'Is Lima Bruin donkerder dan Sao Paulo Bruin?', answer: 'Ja, Lima Bruin is een donkerdere tint. Sao Paulo is iets lichter en warmer. Bestel gratis samples om het verschil te ervaren.' },
     ],
   },
   {
     id: 'vl-7',
-    updatedDate: '2026-02-13',
-    name: 'Composiet vlonderplank naadloos massief Zwart',
-    price: 24.95,
-    priceLabel: 'Vanaf €24,95',
-    image: 'https://jakqbjeukobtyxxxpzcr.supabase.co/storage/v1/object/public/product-images/vlonderplanken/vlonder-massief-zwart.png',
+    updatedDate: '2026-02-20',
+    name: 'Silvadec Atmosphere Sao Paulo Bruin Vlonderplank',
+    price: 79.00,
+    priceLabel: 'Vanaf €79,- per m²',
+    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2022-01/SILAM1602_packshot_rendu_lame_atmosphere_brun_sao_paulo_138.jpg?itok=nlWGrwmv',
     category: 'vlonderplanken',
-    features: ['Massief met antislip', 'Naadloos design'],
-    guarantee: '15 jaar garantie',
-    slug: 'vlonder-massief-zwart',
-    tone: 'zwart',
-    durability: 'massief',
+    features: ['Co-extrusie beschermlaag', 'Geborsteld oppervlak', '25 jaar garantie'],
+    guarantee: '25 jaar fabrieksgarantie',
+    slug: 'atmosphere-sao-paulo-bruin-vlonderplank',
+    tone: 'bruin',
+    durability: 'co-extrusie',
     productType: 'plank',
-    description: 'De naadloos massieve composiet vlonderplank in Zwart. Een strakke, moderne keuze voor uw terras. Volledig massief met antislip coating.',
-    seoTitle: 'Massief Composiet Vlonderplank Zwart Kopen | Vanaf €24,95',
-    seoDescription: 'Naadloos massieve composiet vlonderplank Zwart met antislip coating. Strak modern design, 15 jaar garantie. Bestel bij Schuttingvancomposiet.nl.',
-    longDescription: `## Composiet vlonderplank naadloos massief Zwart
+    description: 'De Silvadec Atmosphere Sao Paulo Bruin vlonderplank heeft een middeldiepe bruine tint. Veelzijdig en warm.',
+    seoTitle: 'Silvadec Atmosphere Sao Paulo Bruin | Composiet Vlonderplank',
+    seoDescription: 'Silvadec Atmosphere Sao Paulo Bruin composiet vlonderplank. Middenbruin, co-extrusie, 25 jaar garantie. Bestel bij SchuttingenvanComposiet.nl.',
+    longDescription: `## Silvadec Atmosphere Sao Paulo Bruin Vlonderplank
 
-Een strakke, moderne keuze voor uw terras. De naadloos massieve composiet vlonderplank in Zwart is volledig massief met antislip coating voor maximale veiligheid.
+Sao Paulo Bruin is een veelzijdige, middeldiepe bruine tint. Deze Atmosphere vlonderplank past bij vrijwel elke tuin en bouwstijl.
 
-### 100% massief
+### Veelzijdige bruintint
 
-Geen holle kern — volledig massief composiet voor maximale draagkracht en duurzaamheid.
-
-### Antislip coating
-
-Veilig bij nat weer dankzij de ingebouwde antislip coating. Geschikt voor alle toepassingen.
-
-### Naadloos design
-
-Het zwarte naadloze design geeft uw terras een ultra-moderne, minimalistische uitstraling.
-
-### Voordelen in één oogopslag
-
-- 100% massief
-- Strakke zwarte kleur
-- Antislip coating
-- Naadloos design
-- 15 jaar garantie
-- Premium kwaliteit`,
-    specifications: { Lengte: '300 cm', Breedte: '14,5 cm', Dikte: '2,2 cm', Materiaal: 'Massief composiet', Kleur: 'Zwart', Afwerking: 'Naadloos met antislip coating' },
+Niet te licht, niet te donker — Sao Paulo Bruin is de gouden middenweg voor wie een warme bruine kleur zoekt die overal bij past.`,
+    specifications: { Lengte: '400 cm', Breedte: '13,8 cm', Dikte: '2,3 cm', Materiaal: 'Composiet met co-extrusie toplaag', Kleur: 'Sao Paulo Bruin', Afwerking: 'Geborsteld', Merk: 'Silvadec' },
     images: [
-      'https://jakqbjeukobtyxxxpzcr.supabase.co/storage/v1/object/public/product-images/vlonderplanken/vlonder-massief-zwart.png',
+      'https://en.silvadec.com/sites/default/files/styles/square/public/2022-01/SILAM1602_packshot_rendu_lame_atmosphere_brun_sao_paulo_138.jpg?itok=nlWGrwmv',
+      'https://en.silvadec.com/sites/default/files/styles/square/public/2024-07/silvadec_atmosphere_silam1602%20%2811%29.jpg?itok=uGuw2IYp',
     ],
-    deliveryTime: 'Tussen de 2 en 15 werkdagen',
-    highlights: ['100% massief', 'Antislip coating', 'Naadloos design', 'Moderne zwarte look', '15 jaar garantie'],
-    dimensions: { length: '300 cm', width: '14,5 cm', thickness: '2,2 cm' },
+    deliveryTime: '5-8 werkdagen',
+    highlights: ['Sao Paulo bruin', 'Veelzijdige middenbruine tint', 'Warm en natuurlijk', 'Co-extrusie beschermlaag'],
+    dimensions: { length: '400 cm', width: '13,8 cm', thickness: '2,3 cm' },
     faq: [
-      { question: 'Wordt zwart composiet niet te warm in de zon?', answer: 'Zwart composiet kan in direct zonlicht warmer worden dan lichtere kleuren. Overweeg dit als uw terras vol in de zon ligt. Het materiaal vervormt echter niet door de warmte.' },
-      { question: 'Kan ik zwart vlonder combineren met een zwarte schutting?', answer: 'Ja, onze zwarte vlonderplanken en zwarte schuttingen zijn perfect op elkaar afgestemd. Dit creëert een doorlopend modern tuinontwerp.' },
-      { question: 'Hoe reinig ik zwarte vlonderplanken?', answer: 'Reinig met lauwwarm water en een zachte borstel. Op zwarte planken zijn vlekken sneller zichtbaar, maar dankzij het naadloze oppervlak zijn ze eenvoudig te verwijderen.' },
+      { question: 'Is Sao Paulo geschikt voor een poolterras?', answer: 'Ja, alle Atmosphere planken zijn bestand tegen chloor en zout. De middenbruine kleur absorbeert bovendien minder warmte dan donkere tinten.' },
+    ],
+  },
+  {
+    id: 'vl-8',
+    updatedDate: '2026-02-20',
+    name: 'Silvadec Atmosphere Rio Bruin Vlonderplank',
+    price: 79.00,
+    priceLabel: 'Vanaf €79,- per m²',
+    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2022-01/SILAM1812_packshot_rendu_lame_atmosphere_brun_rio_138%20-%20retouche_0.jpg?itok=CBa8dZ-4',
+    category: 'vlonderplanken',
+    features: ['Co-extrusie beschermlaag', 'Geborsteld oppervlak', '25 jaar garantie'],
+    guarantee: '25 jaar fabrieksgarantie',
+    slug: 'atmosphere-rio-bruin-vlonderplank',
+    tone: 'bruin',
+    durability: 'co-extrusie',
+    productType: 'plank',
+    description: 'De Silvadec Atmosphere Rio Bruin vlonderplank heeft een warme, goudbruine tint. De lichtste bruintint in het Atmosphere assortiment.',
+    seoTitle: 'Silvadec Atmosphere Rio Bruin | Composiet Vlonderplank',
+    seoDescription: 'Silvadec Atmosphere Rio Bruin composiet vlonderplank. Goudbruin, co-extrusie, 25 jaar garantie. Bestel bij SchuttingenvanComposiet.nl.',
+    longDescription: `## Silvadec Atmosphere Rio Bruin Vlonderplank
+
+Rio Bruin is de nieuwste bruine tint in het Atmosphere assortiment. Een warme, goudbruine kleur die doet denken aan zonbeschenen hout.
+
+### Warm goudbruin
+
+De levendige goudbruine tint voegt warmte en sfeer toe aan elk buitenproject. Perfect voor terrassen die een zonnige, uitnodigende uitstraling moeten hebben.`,
+    specifications: { Lengte: '400 cm', Breedte: '13,8 cm', Dikte: '2,3 cm', Materiaal: 'Composiet met co-extrusie toplaag', Kleur: 'Rio Bruin', Afwerking: 'Geborsteld', Merk: 'Silvadec' },
+    images: [
+      'https://en.silvadec.com/sites/default/files/styles/square/public/2022-01/SILAM1812_packshot_rendu_lame_atmosphere_brun_rio_138%20-%20retouche_0.jpg?itok=CBa8dZ-4',
+      'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/SILAM1812_france_paris_hotel_prince_de_galles_patio_restaurant_les_heures_rio_138_%285%29.jpg?itok=1axHGAdD',
+    ],
+    deliveryTime: '5-8 werkdagen',
+    highlights: ['Rio bruin', 'Goudbruine tint', 'Zonnige uitstraling', 'Co-extrusie beschermlaag'],
+    dimensions: { length: '400 cm', width: '13,8 cm', thickness: '2,3 cm' },
+    faq: [
+      { question: 'Is Rio Bruin een nieuwe kleur?', answer: 'Ja, Rio Bruin is een recente toevoeging aan het Atmosphere assortiment. Het vult de bruine kleurenfamilie aan met een warme, goudbruine tint.' },
+    ],
+  },
+  {
+    id: 'vl-9',
+    updatedDate: '2026-02-20',
+    name: 'Silvadec Elegance Colorado Bruin Vlonderplank (Gegroefde)',
+    price: 59.00,
+    priceLabel: 'Vanaf €59,- per m²',
+    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/SILAM0501_lame_elegance_brun_colorado_rainur%C3%A9e_138.jpg?itok=Ahx_UC-g',
+    category: 'vlonderplanken',
+    features: ['Mono-extrusie', 'Gegroefde afwerking', 'Antislip'],
+    guarantee: '15 jaar garantie',
+    slug: 'elegance-colorado-bruin-vlonderplank',
+    tone: 'bruin',
+    durability: 'standaard',
+    productType: 'plank',
+    description: 'De Silvadec Elegance Colorado Bruin vlonderplank met gegroefde afwerking. Een bewezen klassiek design met uitstekende antislip-eigenschappen.',
+    seoTitle: 'Silvadec Elegance Colorado Bruin Gegroefde | Composiet Vlonderplank',
+    seoDescription: 'Silvadec Elegance Colorado Bruin composiet vlonderplank, gegroefde afwerking. Antislip, 15 jaar garantie. Bestel bij SchuttingenvanComposiet.nl.',
+    longDescription: `## Silvadec Elegance Colorado Bruin Vlonderplank (Gegroefde)
+
+De Silvadec Elegance Colorado Bruin met gegroefde afwerking is een klassiek terrasplankontwerp met uitstekende antislip-eigenschappen. De groeven in de plank bieden extra grip, vooral wanneer het oppervlak nat is.
+
+### Mono-extrusie
+
+De Elegance lijn gebruikt mono-extrusie technologie. Dit betekent dat de plank geen aparte beschermlaag heeft, maar uit één uniform materiaal bestaat. Het oppervlak ontwikkelt een mooie patina na verloop van tijd.
+
+### Antislip groeven
+
+De gegroefde afwerking biedt optimale grip, ook op natte oppervlakken. Ideaal voor terrassen rondom zwembaden of in regenrijke gebieden.`,
+    specifications: { Lengte: '400 cm', Breedte: '13,8 cm', Dikte: '2,3 cm', Materiaal: 'Composiet (mono-extrusie)', Kleur: 'Colorado Bruin', Afwerking: 'Gegroefde', Merk: 'Silvadec' },
+    images: [
+      'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/SILAM0501_lame_elegance_brun_colorado_rainur%C3%A9e_138.jpg?itok=Ahx_UC-g',
+      'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/SILAM0501_Camping_photo__BD.jpg?itok=jLSOaWe2',
+    ],
+    deliveryTime: '5-8 werkdagen',
+    highlights: ['Colorado bruin', 'Gegroefde antislip', 'Mono-extrusie', 'Klassiek design'],
+    dimensions: { length: '400 cm', width: '13,8 cm', thickness: '2,3 cm' },
+    faq: [
+      { question: 'Wat is het verschil tussen mono-extrusie en co-extrusie?', answer: 'Mono-extrusie planken bestaan uit één uniform materiaal. Co-extrusie planken hebben een extra beschermlaag. Co-extrusie biedt meer vlekbestendigheid en kleurvastheid.' },
+      { question: 'Verandert de kleur van mono-extrusie planken?', answer: 'Ja, mono-extrusie planken kunnen in de eerste maanden licht verkleuren tot een stabiele patina. Dit is een normaal proces dat bij alle composiet zonder beschermlaag optreedt.' },
+    ],
+  },
+  {
+    id: 'vl-10',
+    updatedDate: '2026-02-20',
+    name: 'Silvadec Elegance Iroise Grijs Vlonderplank (Gegroefde)',
+    price: 59.00,
+    priceLabel: 'Vanaf €59,- per m²',
+    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/SILAM0502_lame_elegance_gris-iroise_rainur%C3%A9e_138.jpg?itok=MKohWFtR',
+    category: 'vlonderplanken',
+    features: ['Mono-extrusie', 'Gegroefde afwerking', 'Antislip'],
+    guarantee: '15 jaar garantie',
+    slug: 'elegance-iroise-grijs-vlonderplank',
+    tone: 'grijs',
+    durability: 'standaard',
+    productType: 'plank',
+    description: 'De Silvadec Elegance Iroise Grijs vlonderplank met gegroefde afwerking. Lichtgrijs, fris en ruimtelijk met antislip-eigenschappen.',
+    seoTitle: 'Silvadec Elegance Iroise Grijs Gegroefde | Composiet Vlonderplank',
+    seoDescription: 'Silvadec Elegance Iroise Grijs composiet vlonderplank, gegroefde afwerking. Antislip, 15 jaar garantie. Bestel bij SchuttingenvanComposiet.nl.',
+    longDescription: `## Silvadec Elegance Iroise Grijs Vlonderplank (Gegroefde)
+
+Iroise Grijs is een lichte, frisse grijstint uit de Elegance lijn. De gegroefde afwerking biedt uitstekende grip en een klassiek terrasdesign.
+
+### Licht en ruimtelijk
+
+De lichte grijstint maakt uw terras optisch groter en absorbeert minder warmte dan donkere kleuren.`,
+    specifications: { Lengte: '400 cm', Breedte: '13,8 cm', Dikte: '2,3 cm', Materiaal: 'Composiet (mono-extrusie)', Kleur: 'Iroise Grijs', Afwerking: 'Gegroefde', Merk: 'Silvadec' },
+    images: [
+      'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/SILAM0502_lame_elegance_gris-iroise_rainur%C3%A9e_138.jpg?itok=MKohWFtR',
+      'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/platelage_elegance_rainure_iroise_hotel_alicante_6_0.JPG?itok=bVzKyTm8',
+    ],
+    deliveryTime: '5-8 werkdagen',
+    highlights: ['Iroise grijs', 'Lichte frisse tint', 'Gegroefde antislip', 'Mono-extrusie'],
+    dimensions: { length: '400 cm', width: '13,8 cm', thickness: '2,3 cm' },
+    faq: [
+      { question: 'Is Iroise Grijs de lichtste grijstint?', answer: 'Ja, binnen de Elegance lijn is Iroise Grijs de lichtste optie. In het Atmosphere assortiment is Belem Grijs de lichtste.' },
+    ],
+  },
+  {
+    id: 'vl-11',
+    updatedDate: '2026-02-20',
+    name: 'Silvadec Emotion Savanne Bruin Vlonderplank',
+    price: 49.00,
+    priceLabel: 'Vanaf €49,- per m²',
+    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/SILAM0901_emotion_.jpg?itok=3dKAr4sb',
+    category: 'vlonderplanken',
+    features: ['Mono-extrusie', 'Glad oppervlak', 'Budget-vriendelijk'],
+    guarantee: '15 jaar garantie',
+    slug: 'emotion-savanne-bruin-vlonderplank',
+    tone: 'bruin',
+    durability: 'standaard',
+    productType: 'plank',
+    description: 'De Silvadec Emotion Savanne Bruin vlonderplank biedt een glad, strak oppervlak tegen een aantrekkelijke prijs. Ideaal als instapmodel.',
+    seoTitle: 'Silvadec Emotion Savanne Bruin | Composiet Vlonderplank',
+    seoDescription: 'Silvadec Emotion Savanne Bruin composiet vlonderplank. Glad, budget-vriendelijk, 15 jaar garantie. Bestel bij SchuttingenvanComposiet.nl.',
+    longDescription: `## Silvadec Emotion Savanne Bruin Vlonderplank
+
+De Silvadec Emotion Savanne Bruin is het instapmodel in het Silvadec vlonderassortiment. Met een glad oppervlak en een aantrekkelijke prijs biedt deze plank Silvadec-kwaliteit voor elk budget.
+
+### Glad oppervlak
+
+Het gladde oppervlak geeft een strakke, moderne uitstraling. De Savanne bruine kleur is warm en veelzijdig.
+
+### Budget-vriendelijk
+
+De Emotion lijn biedt de betrouwbaarheid van Silvadec tegen een lagere prijs dan de Atmosphere en Nuances lijnen. Ideaal voor grote terrassen waar het budget een rol speelt.`,
+    specifications: { Lengte: '400 cm', Breedte: '13,8 cm', Dikte: '2,3 cm', Materiaal: 'Composiet (mono-extrusie)', Kleur: 'Savanne Bruin', Afwerking: 'Glad', Merk: 'Silvadec' },
+    images: [
+      'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/SILAM0901_emotion_.jpg?itok=3dKAr4sb',
+      'https://en.silvadec.com/sites/default/files/styles/square/public/2023-08/Silvadec_emotion_silam0901%20%281%29_1.jpg?itok=FA_2asjV',
+    ],
+    deliveryTime: '5-8 werkdagen',
+    highlights: ['Savanne bruin', 'Glad oppervlak', 'Budget-vriendelijk', 'Silvadec kwaliteit'],
+    dimensions: { length: '400 cm', width: '13,8 cm', thickness: '2,3 cm' },
+    faq: [
+      { question: 'Is de Emotion lijn van mindere kwaliteit?', answer: 'Nee, alle Silvadec planken voldoen aan dezelfde hoge kwaliteitsnormen. De Emotion lijn gebruikt mono-extrusie (zonder extra beschermlaag), waardoor de prijs lager is.' },
+    ],
+  },
+  {
+    id: 'vl-12',
+    updatedDate: '2026-02-20',
+    name: 'Silvadec Emotion Equateur Bruin Vlonderplank',
+    price: 49.00,
+    priceLabel: 'Vanaf €49,- per m²',
+    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/SILAM0902_emotion_equateur.jpg?itok=6VNztnGf',
+    category: 'vlonderplanken',
+    features: ['Mono-extrusie', 'Glad oppervlak', 'Budget-vriendelijk'],
+    guarantee: '15 jaar garantie',
+    slug: 'emotion-equateur-bruin-vlonderplank',
+    tone: 'bruin',
+    durability: 'standaard',
+    productType: 'plank',
+    description: 'De Silvadec Emotion Equateur Bruin vlonderplank heeft een donkere, warme bruine tint met glad oppervlak. Een aantrekkelijk instapmodel.',
+    seoTitle: 'Silvadec Emotion Equateur Bruin | Composiet Vlonderplank',
+    seoDescription: 'Silvadec Emotion Equateur Bruin composiet vlonderplank. Donkerbruin, glad, budget-vriendelijk. Bestel bij SchuttingenvanComposiet.nl.',
+    longDescription: `## Silvadec Emotion Equateur Bruin Vlonderplank
+
+De Equateur Bruin is de donkere variant in de Emotion lijn. Een rijke, warme bruine tint met glad oppervlak die uw terras een luxe uitstraling geeft tegen een aantrekkelijke prijs.
+
+### Donker en warm
+
+De diepe Equateur bruine kleur geeft een gevoel van luxe en warmte. Het gladde oppervlak versterkt de elegante uitstraling.`,
+    specifications: { Lengte: '400 cm', Breedte: '13,8 cm', Dikte: '2,3 cm', Materiaal: 'Composiet (mono-extrusie)', Kleur: 'Equateur Bruin', Afwerking: 'Glad', Merk: 'Silvadec' },
+    images: [
+      'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/SILAM0902_emotion_equateur.jpg?itok=6VNztnGf',
+      'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/equateur_%281%29.JPG?itok=OdCVQq9l',
+    ],
+    deliveryTime: '5-8 werkdagen',
+    highlights: ['Equateur bruin', 'Donkere warme tint', 'Glad oppervlak', 'Budget-vriendelijk'],
+    dimensions: { length: '400 cm', width: '13,8 cm', thickness: '2,3 cm' },
+    faq: [
+      { question: 'Wat is het verschil tussen Savanne en Equateur?', answer: 'Savanne is een lichtere, warmere bruine tint. Equateur is donkerder en dieper. Beide hebben een glad oppervlak en dezelfde mono-extrusie technologie.' },
     ],
   },
 ];
 
 export const categories = [
   {
-    id: 'gevelbekleding',
-    name: 'Composiet Gevelbekleding',
-    description: 'Premium composiet gevelbekleding die jarenlang mooi blijft. Weerbestendig en onderhoudsvriendelijk.',
-    image: 'https://jakqbjeukobtyxxxpzcr.supabase.co/storage/v1/object/public/product-images/categories/gevelbekleding-hero.png',
+    id: 'cat-gevel',
+    name: 'Gevelbekleding',
+    description: 'Composiet gevelbekleding voor een moderne, onderhoudsvrije gevel. Van gesloten planken tot open rhombus profielen.',
+    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2022-01/Blanc_ceruse_2-001.jpg?itok=YgsC0UAa',
     slug: 'gevelbekleding',
-    productCount: 18,
-    seoTitle: 'Composiet Gevelbekleding Kopen | Schuttingvancomposiet.nl',
-    seoDescription: 'Premium composiet gevelbekleding met Co-Extrusie beschermlaag. Onderhoudsvrij, UV-bestendig en 15 jaar garantie. Bekijk ons assortiment.',
+    productCount: products.filter(p => p.category === 'gevelbekleding').length,
+    seoTitle: 'Composiet Gevelbekleding | Silvadec | SchuttingenvanComposiet.nl',
+    seoDescription: 'Ontdek ons assortiment Silvadec composiet gevelbekleding. Atmosphere 175 en Open Rhombus profielen. Co-extrusie, 25 jaar garantie.',
     faq: [
-      { q: "Wat kost composiet gevelbekleding per m²?", a: "Composiet gevelbekleding kost gemiddeld €40,95 per m². De exacte prijs hangt af van het gekozen profiel en de kleur." },
-      { q: "Hoe lang gaat composiet gevelbekleding mee?", a: "Met de Co-Extrusie beschermlaag gaat onze gevelbekleding 25+ jaar mee zonder noemenswaardig onderhoud." },
-      { q: "Kan ik composiet gevelbekleding zelf monteren?", a: "Ja, met een aluminium regelwerk en de meegeleverde clips kunt u de gevelbekleding zelf monteren. Bekijk onze installatiehandleiding voor een stap-voor-stap uitleg." },
+      { question: 'Wat is het verschil tussen Atmosphere 175 en Open Rhombus?', answer: 'Atmosphere 175 is een brede, gesloten gevelplank. Open Rhombus heeft een smal, open profiel dat een licht-schaduwspel creëert.' },
+      { question: 'Is composiet gevelbekleding geschikt voor elke woning?', answer: 'Ja, Silvadec composiet gevelbekleding is geschikt voor nieuwbouw en renovatie. Het is licht, eenvoudig te monteren en past bij elke bouwstijl.' },
     ],
-    relatedBlogSlugs: ['gevelbekleding-installeren-stap-voor-stap', 'composiet-vs-hout-vergelijking'],
   },
   {
-    id: 'schuttingen',
-    name: 'Composiet Schuttingen',
-    description: 'Premium composiet schuttingen die jarenlang meegaan. Onderhoudsvrij en stijlvol.',
-    image: 'https://jakqbjeukobtyxxxpzcr.supabase.co/storage/v1/object/public/product-images/categories/schuttingen-hero.png',
+    id: 'cat-schut',
+    name: 'Schuttingen',
+    description: 'Composiet en aluminium schuttingplanken voor een duurzame, stijlvolle tuinafscheiding. Dubbelzijdige afwerking.',
+    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2024-01/silvadec_aluminium_C0039%20%281%29.png?itok=53TGCyiu',
     slug: 'schuttingen',
-    productCount: 34,
-    seoTitle: 'Composiet Schuttingen Kopen | Schuttingvancomposiet.nl',
-    seoDescription: 'Duurzame composiet schuttingen met extra dikke planken. Onderhoudsvrij, stormbestendig en 15 jaar garantie. Bestel direct online.',
+    productCount: products.filter(p => p.category === 'schuttingen').length,
+    seoTitle: 'Composiet Schuttingen | Silvadec | SchuttingenvanComposiet.nl',
+    seoDescription: 'Ontdek ons assortiment Silvadec composiet en aluminium schuttingplanken. Dubbelzijdig, co-extrusie, 25 jaar garantie.',
     faq: [
-      { q: "Wat zit er bij een composiet schuttingpakket?", a: "Een pakket bevat alle composiet planken en U-profielen voor één scherm. Aluminium palen zijn apart verkrijgbaar." },
-      { q: "Hoe hoog zijn de composiet schuttingen?", a: "Onze schuttingen zijn verkrijgbaar in 180 cm en 200 cm hoogte, met een standaard breedte van 180 cm." },
-      { q: "Zijn composiet schuttingen stormbestendig?", a: "Ja, mits correct gemonteerd op aluminium palen met een stevige fundering van betonpoeren of grondankers." },
+      { question: 'Wat is het verschil tussen composiet en aluminium schuttingen?', answer: 'Composiet schuttingen hebben een natuurlijke houtlook. Aluminium schuttingen zijn strakker en moderner. Beide zijn onderhoudsvrij.' },
+      { question: 'Kan ik composiet en aluminium planken combineren?', answer: 'Ja, alle Silvadec schuttingplanken passen in dezelfde aluminium paalprofielen. U kunt ze naar wens combineren.' },
     ],
-    relatedBlogSlugs: ['composiet-schutting-plaatsen', 'composiet-vs-hout-vergelijking'],
   },
   {
-    id: 'vlonderplanken',
-    name: 'Composiet Vlonderplanken',
-    description: 'Duurzame composiet vlonderplanken voor een luxe uitstraling. Splintervrij en kleurvast.',
-    image: 'https://jakqbjeukobtyxxxpzcr.supabase.co/storage/v1/object/public/product-images/categories/vlonderplanken-hero.png',
+    id: 'cat-vlond',
+    name: 'Vlonderplanken',
+    description: 'Composiet vlonderplanken voor terrassen, balkons en zwembaddecks. Van budget tot premium met co-extrusie beschermlaag.',
+    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2025-04/Silvadec_atmosphere_nuances_ipe_b0035%20%2813%29-compressed.jpg?itok=jW47BaxI',
     slug: 'vlonderplanken',
-    productCount: 10,
-    seoTitle: 'Composiet Vlonderplanken Kopen | Schuttingvancomposiet.nl',
-    seoDescription: 'Premium composiet vlonderplanken: splintervrij, kleurvast en onderhoudsvrij. Massief en NoGap profielen met 15 jaar garantie.',
+    productCount: products.filter(p => p.category === 'vlonderplanken').length,
+    seoTitle: 'Composiet Vlonderplanken | Silvadec | SchuttingenvanComposiet.nl',
+    seoDescription: 'Ontdek ons assortiment Silvadec composiet vlonderplanken. Nuances, Atmosphere, Elegance en Emotion lijnen. Tot 25 jaar garantie.',
     faq: [
-      { q: "Wat is het verschil tussen massieve en holle vlonderplanken?", a: "Massieve planken zijn steviger en voelen meer als echt hout. Holle profielen zijn lichter en voordeliger." },
-      { q: "Zijn composiet vlonderplanken glad bij regen?", a: "Onze vlonderplanken met antislip coating bieden extra grip, ook bij nat weer. Ideaal voor terrassen bij het zwembad." },
-      { q: "Hoeveel vlonderplanken heb ik nodig?", a: "Bereken uw oppervlakte in m² en tel 10% extra op voor zaagverlies. Neem contact op voor een gratis berekening." },
+      { question: 'Welke Silvadec lijn past bij mij?', answer: 'Nuances en Atmosphere (co-extrusie) bieden de beste kleurvastheid en vlekbestendigheid. Elegance en Emotion (mono-extrusie) zijn budget-vriendelijker.' },
+      { question: 'Is composiet geschikt voor rondom een zwembad?', answer: 'Ja, met name de Atmosphere en Nuances lijnen met co-extrusie beschermlaag zijn bestand tegen chloor en zout.' },
     ],
-    relatedBlogSlugs: ['composiet-vlonderplanken-kiezen', 'tuin-inspiratie-composiet-terras', 'composiet-onderhouden-seizoenstips'],
   },
 ];
