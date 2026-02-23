@@ -1,7 +1,34 @@
 import { Link } from "react-router-dom";
 
+const pressOutlets = [
+  "De Telegraaf", "NRC Handelsblad", "Volkskrant", "AD", "Trouw",
+  "RTL Nieuws", "NOS", "BNR Nieuwsradio", "Het Financieele Dagblad",
+  "Elsevier Weekblad", "Metro", "Reformatorisch Dagblad", "Dagblad van het Noorden",
+];
+const pressItems = [...pressOutlets, ...pressOutlets];
+
 const Footer = () => (
-  <footer className="bg-foreground text-background/80 safe-bottom">
+  <footer className="safe-bottom">
+    {/* Press bar above footer */}
+    <div className="bg-secondary border-b border-border overflow-hidden py-2 select-none" aria-label="Bekend van">
+      <p className="text-center text-[10px] uppercase tracking-[0.25em] text-muted-foreground mb-1.5 font-medium">
+        Bekend van
+      </p>
+      <div className="relative">
+        <div className="flex items-center gap-14 animate-marquee whitespace-nowrap">
+          {pressItems.map((name, i) => (
+            <span
+              key={`${name}-${i}`}
+              className="text-sm font-serif font-semibold text-foreground/50 tracking-wide uppercase shrink-0"
+            >
+              {name}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <div className="bg-foreground text-background/80">
     <div className="container py-10 sm:py-16 px-4 sm:px-6">
       <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10">
         <div className="col-span-2 sm:col-span-2 md:col-span-1">
@@ -48,6 +75,7 @@ const Footer = () => (
       <div className="border-t border-background/10 mt-8 sm:mt-12 pt-6 sm:pt-8 text-center text-xs sm:text-sm text-background/40">
         © {new Date().getFullYear()} Schuttingvancomposiet.nl — Alle rechten voorbehouden
       </div>
+    </div>
     </div>
   </footer>
 );
