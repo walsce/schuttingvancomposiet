@@ -1094,9 +1094,10 @@ Wil je langere garantie, meer kleurkeuze of professionele montage? Bekijk dan on
 
 // ── IMPORTS FROM SPLIT FILES ─────────────────────────────────────────────────
 import { allVlonderSEOPages } from "./seoVlonderPages";
+import { allGevelSEOPages } from "./seoGevelPages";
 
 // ── ALL PAGES COMBINED ──────────────────────────────────────────────────────
-export const allSEOPages: SEOPage[] = [pillarPage, ...clusterPages, ...comparisonPages, ...allVlonderSEOPages];
+export const allSEOPages: SEOPage[] = [pillarPage, ...clusterPages, ...comparisonPages, ...allVlonderSEOPages, ...allGevelSEOPages];
 
 export const getSEOPageBySlug = (slug: string): SEOPage | undefined =>
   allSEOPages.find((p) => p.slug === slug);
