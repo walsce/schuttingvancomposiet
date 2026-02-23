@@ -50,7 +50,7 @@ Composiet vlonderplanken combineren de warme, natuurlijke uitstraling van hout m
 
 ### 1. Co-extrusie vs. Mono-extrusie
 
-**Co-extrusie planken** (zoals Silvadec Atmosphere en Nuances) hebben een extra beschermlaag die zorgt voor maximale kleurvastheid en vlekbestendigheid. **Mono-extrusie planken** (zoals Elegance en Emotion) zijn budget-vriendelijker maar ontwikkelen na verloop van tijd een patina.
+**Co-extrusie planken** (zoals de Atmosphere en Nuances lijnen) hebben een extra beschermlaag die zorgt voor maximale kleurvastheid en vlekbestendigheid. **Mono-extrusie planken** (zoals Elegance en Emotion) zijn budget-vriendelijker maar ontwikkelen na verloop van tijd een patina.
 
 ### 2. Afwerking
 
@@ -62,7 +62,7 @@ Standaard lengtes variëren van 3,6 tot 4,0 meter. Bereken altijd je benodigde o
 
 ### 4. Kleurkeuze
 
-Silvadec vlonderplanken zijn beschikbaar in twee kleurenfamilies:
+Composiet vlonderplanken zijn beschikbaar in twee kleurenfamilies:
 - **Bruin** — van licht goudbruin tot diep donkerbruin
 - **Grijs** — van fris lichtgrijs tot diep antraciet
 

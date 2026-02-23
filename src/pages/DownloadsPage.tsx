@@ -17,7 +17,7 @@ const faqs = [
   { q: "Zijn de handleidingen gratis?", a: "Ja, alle montagehandleidingen en gidsen zijn 100% gratis te downloaden of te bekijken." },
   { q: "In welk formaat zijn de handleidingen?", a: "Alle montagehandleidingen worden als PDF geleverd. Video's kun je direct op de pagina bekijken." },
   { q: "Kan ik de handleidingen uitprinten?", a: "Absoluut! Alle PDF's zijn ontworpen om uitgeprint te worden, zodat je ze bij de hand hebt tijdens je project." },
-  { q: "Hoe actueel is de informatie?", a: "Onze handleidingen zijn afkomstig van Silvadec en worden regelmatig bijgewerkt met de nieuwste installatietechnieken." },
+  { q: "Hoe actueel is de informatie?", a: "Onze handleidingen worden regelmatig bijgewerkt met de nieuwste installatietechnieken en productinformatie." },
 ];
 
 const breadcrumbs = [
@@ -60,7 +60,7 @@ const DownloadsPage = () => {
     <div className="min-h-screen bg-background">
       <SEOHead
         title="Documentatie & handleidingen | SchuttingenvanComposiet.nl"
-        description="Download gratis montagehandleidingen, bekijk installatievideo's en lees onderhoudsgidsen voor Silvadec composiet schuttingen, vlonders en gevelbekleding."
+        description="Download gratis montagehandleidingen, bekijk installatievideo's en lees onderhoudsgidsen voor composiet schuttingen, vlonders en gevelbekleding."
         canonical="/downloads"
       />
       <JsonLd
@@ -68,7 +68,7 @@ const DownloadsPage = () => {
           "@context": "https://schema.org",
           "@type": "CollectionPage",
           name: "Documentatie & handleidingen",
-          description: "Gratis montagehandleidingen, installatievideo's en onderhoudsgidsen voor Silvadec composiet producten",
+          description: "Gratis montagehandleidingen, installatievideo's en onderhoudsgidsen voor composiet producten",
           url: "https://schuttingvancomposiet.nl/downloads",
         }}
       />
