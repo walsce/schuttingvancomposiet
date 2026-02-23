@@ -88,9 +88,24 @@
 
   body {
     @apply bg-background text-foreground font-sans overflow-x-hidden;
+    -webkit-text-size-adjust: 100%;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Fraunces', serif;
+  }
+}
+
+/* Landscape hero height constraint */
+@media (orientation: landscape) and (max-height: 500px) {
+  .hero-landscape {
+    min-height: 60vh !important;
+  }
+}
+
+/* Safe area insets for notched devices */
+@supports (padding: env(safe-area-inset-bottom)) {
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
   }
 }

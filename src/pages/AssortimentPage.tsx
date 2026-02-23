@@ -25,8 +25,8 @@ const AssortimentPage = () => {
       ]} />
 
       <main>
-        <section className="container py-12 md:py-20">
-          <h1 className="font-serif text-3xl md:text-4xl font-bold text-foreground mb-3">Ons Assortiment</h1>
+        <section className="container py-8 sm:py-12 md:py-20 px-4 sm:px-6">
+          <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-2 sm:mb-3">Ons Assortiment</h1>
           <p className="text-muted-foreground mb-10 max-w-lg">
             Ontdek onze complete collectie premium composiet producten voor tuin en gevel. Alle producten worden geleverd met 15 jaar garantie en eigen bezorgservice.
           </p>

@@ -76,24 +76,24 @@ const DownloadsPage = () => {
 
       <main>
         {/* Hero */}
-        <section className="relative text-background overflow-hidden">
+        <section className="relative text-background overflow-hidden hero-landscape">
           <img src={downloadsHero} alt="" className="absolute inset-0 w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-foreground/90 via-foreground/80 to-foreground/50" />
-          <div className="container py-16 md:py-20 relative z-10">
-            <div className="mb-6">
+          <div className="container py-10 sm:py-16 md:py-20 relative z-10 px-4 sm:px-6">
+            <div className="mb-4 sm:mb-6">
               <Breadcrumbs items={breadcrumbs} variant="dark" />
             </div>
-            <h1 className="font-serif text-3xl md:text-5xl font-bold">
+            <h1 className="font-serif text-2xl sm:text-3xl md:text-5xl font-bold">
               Documentatie & handleidingen
             </h1>
-            <p className="text-background/70 mt-4 max-w-xl text-lg">
+            <p className="text-background/70 mt-3 sm:mt-4 max-w-xl text-base sm:text-lg">
               Montagehandleidingen, installatievideo's en onderhoudstips. Alles wat je nodig hebt voor een perfect composiet project.
             </p>
           </div>
         </section>
 
         {/* Filter Bar */}
-        <section className="container pt-10 pb-4">
+        <section className="container pt-6 sm:pt-10 pb-4 px-4 sm:px-6">
           <div className="flex items-center gap-2 flex-wrap">
             <Filter className="w-4 h-4 text-muted-foreground mr-1" />
             {categoryFilters.map((f) => (
@@ -111,8 +111,8 @@ const DownloadsPage = () => {
         </section>
 
         {/* Download Cards */}
-        <section className="container pb-16 md:pb-24 pt-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <section className="container pb-12 sm:pb-16 md:pb-24 pt-4 px-4 sm:px-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {filtered.map((guide) => (
               <div
                 key={guide.id}

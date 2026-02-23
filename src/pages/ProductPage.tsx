@@ -81,7 +81,7 @@ const ProductPage = () => {
   const keySpecs = Object.entries(product.specifications).slice(0, 4);
 
   return (
-    <div className="min-h-screen flex flex-col bg-background" style={{ zoom: 0.9 }}>
+    <div className="min-h-screen flex flex-col bg-background" style={{ zoom: typeof window !== 'undefined' && window.innerWidth >= 640 ? 0.9 : 1 }}>
       <SEOHead
         title={product.seoTitle}
         description={product.seoDescription}

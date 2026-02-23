@@ -80,7 +80,7 @@ const ComparePage = () => {
       ]} />
 
       <main>
-        <section className="container py-12 md:py-20">
+        <section className="container py-8 sm:py-12 md:py-20 px-4 sm:px-6">
           <div className="max-w-3xl mb-10">
             <span className="text-accent text-sm font-medium uppercase tracking-wider">Vergelijken</span>
             <h1 className="font-serif text-3xl md:text-4xl font-bold text-foreground mt-2">
@@ -109,8 +109,8 @@ const ComparePage = () => {
           </div>
 
           {/* Comparison table */}
-          <div className="rounded-xl border border-border overflow-hidden bg-card">
-            <div className="grid border-b border-border" style={{ gridTemplateColumns: `200px repeat(${visibleCategories.length}, 1fr)` }}>
+          <div className="rounded-xl border border-border overflow-x-auto bg-card -mx-4 sm:mx-0">
+            <div className="grid border-b border-border min-w-[600px]" style={{ gridTemplateColumns: `160px repeat(${visibleCategories.length}, 1fr)` }}>
               <div className="p-4 bg-muted/50" />
               {visibleCategories.map((cat) => {
                 const catData = categories.find((c) => c.slug === cat);
@@ -129,8 +129,8 @@ const ComparePage = () => {
             {comparisonData.map((row, i) => (
               <div
                 key={row.label}
-                className={`grid ${i % 2 === 0 ? "bg-card" : "bg-muted/30"} ${i < comparisonData.length - 1 ? "border-b border-border" : ""}`}
-                style={{ gridTemplateColumns: `200px repeat(${visibleCategories.length}, 1fr)` }}
+                className={`grid ${i % 2 === 0 ? "bg-card" : "bg-muted/30"} ${i < comparisonData.length - 1 ? "border-b border-border" : ""} min-w-[600px]`}
+                style={{ gridTemplateColumns: `160px repeat(${visibleCategories.length}, 1fr)` }}
               >
                 <div className="p-4 flex items-center gap-1.5 text-sm font-medium text-foreground">
                   {row.label}
@@ -160,8 +160,8 @@ const ComparePage = () => {
             ))}
 
             <div
-              className="grid border-t border-border bg-muted/50"
-              style={{ gridTemplateColumns: `200px repeat(${visibleCategories.length}, 1fr)` }}
+              className="grid border-t border-border bg-muted/50 min-w-[600px]"
+              style={{ gridTemplateColumns: `160px repeat(${visibleCategories.length}, 1fr)` }}
             >
               <div className="p-5" />
               {visibleCategories.map((cat) => (

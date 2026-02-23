@@ -63,20 +63,20 @@ const CategoryPage = () => {
 
       <main>
         {/* Hero */}
-        <section className="relative overflow-hidden">
+        <section className="relative overflow-hidden hero-landscape">
           <div className="absolute inset-0">
             <img src={category.image} alt={`${category.name} composiet producten`} className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/40 to-foreground/20" />
           </div>
-          <div className="container relative py-20 md:py-28">
-            <span className="text-accent text-sm font-medium uppercase tracking-wider">Schuttingvancomposiet.nl</span>
-            <h1 className="font-serif text-3xl md:text-5xl font-bold text-card mt-2">{category.name}</h1>
-            <p className="text-card/80 mt-3 max-w-lg">{category.description}</p>
+          <div className="container relative py-14 sm:py-20 md:py-28 px-4 sm:px-6">
+            <span className="text-accent text-xs sm:text-sm font-medium uppercase tracking-wider">Schuttingvancomposiet.nl</span>
+            <h1 className="font-serif text-2xl sm:text-3xl md:text-5xl font-bold text-card mt-2">{category.name}</h1>
+            <p className="text-card/80 mt-2 sm:mt-3 max-w-lg text-sm sm:text-base">{category.description}</p>
           </div>
         </section>
 
         {/* Products grid */}
-        <section className="container py-12 md:py-20">
+        <section className="container py-8 sm:py-12 md:py-20 px-4 sm:px-6">
           <ProductFilters products={categoryProducts} onFiltered={handleFiltered} />
 
           <div className="flex items-center justify-between mb-6">
