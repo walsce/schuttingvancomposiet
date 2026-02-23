@@ -11,9 +11,10 @@ import CTASection from "@/components/CTASection";
 import JsonLd, { breadcrumbSchema } from "@/components/JsonLd";
 import { products, categories, Product } from "@/data/products";
 import { blogArticles } from "@/data/blogArticles";
+import { downloads } from "@/data/downloads";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, FileText, Download } from "lucide-react";
 
 const CategoryPage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -39,6 +40,10 @@ const CategoryPage = () => {
 
   const faqs = category.faq || [];
   const otherCategories = categories.filter((c) => c.slug !== slug);
+
+  const relatedDownloads = downloads.filter(
+    (d) => d.relatedCategory === slug && d.pdfPath
+  );
 
   // Resolve related blog articles from category data
   const relatedBlogs = blogArticles.filter((a) => a.relatedCategories.includes(slug || '')).slice(0, 3);
@@ -115,6 +120,47 @@ const CategoryPage = () => {
                     </div>
                   </Link>
                 ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* Downloads & Handleidingen */}
+        {relatedDownloads.length > 0 && (
+          <section className="bg-secondary/30 border-y border-border">
+            <div className="container py-12">
+              <h2 className="font-serif text-2xl font-bold text-foreground mb-2 flex items-center gap-2">
+                <FileText className="h-5 w-5 text-primary" />
+                Downloads & Handleidingen
+              </h2>
+              <p className="text-sm text-muted-foreground mb-6">
+                Gratis montagehandleidingen en documentatie voor {category.name.toLowerCase()}.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                {relatedDownloads.map((dl) => (
+                  <a
+                    key={dl.id}
+                    href={dl.pdfPath}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-start gap-3 p-4 bg-card border border-border rounded-xl hover:shadow-md hover:border-primary/30 transition-all"
+                  >
+                    <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                      <Download className="w-5 h-5 text-primary" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors leading-snug line-clamp-2">
+                        {dl.title}
+                      </h3>
+                      <p className="text-xs text-muted-foreground mt-1 line-clamp-1">PDF — Gratis download</p>
+                    </div>
+                  </a>
+                ))}
+              </div>
+              <div className="mt-4">
+                <Button asChild variant="outline" size="sm">
+                  <Link to="/downloads">Alle downloads bekijken <ArrowRight className="w-4 h-4 ml-1" /></Link>
+                </Button>
               </div>
             </div>
           </section>

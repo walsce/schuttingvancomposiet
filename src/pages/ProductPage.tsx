@@ -2,6 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import { useState } from "react";
 import { products, categories } from "@/data/products";
 import { blogArticles } from "@/data/blogArticles";
+import { downloads } from "@/data/downloads";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ProductCard from "@/components/ProductCard";
@@ -23,7 +24,7 @@ import {
   TableCell,
   TableRow,
 } from "@/components/ui/table";
-import { Truck, Shield, CheckCircle, ChevronLeft, ChevronRight, ArrowRight, Info, ShieldCheck, Award, Clock, Package, MessageCircle } from "lucide-react";
+import { Truck, Shield, CheckCircle, ChevronLeft, ChevronRight, ArrowRight, Info, ShieldCheck, Award, Clock, Package, MessageCircle, FileText, Download } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 
 const formatDate = (dateStr?: string) => {
@@ -63,6 +64,9 @@ const ProductPage = () => {
     .filter((a) => a.relatedProducts.includes(product.slug))
     .slice(0, 3);
 
+  const relatedDownloads = downloads.filter(
+    (d) => d.relatedCategory === product.category && d.pdfPath
+  );
   const allImages = product.images.length > 0 ? product.images : [product.image];
   const nextImage = () => setSelectedImage((i) => (i + 1) % allImages.length);
   const prevImage = () => setSelectedImage((i) => (i - 1 + allImages.length) % allImages.length);
@@ -294,6 +298,37 @@ const ProductPage = () => {
           </section>
         )}
 
+        {/* Related Downloads */}
+        {relatedDownloads.length > 0 && (
+          <section className="max-w-6xl mx-auto px-4 pb-12">
+            <h2 className="font-serif text-xl font-bold text-foreground mb-4 flex items-center gap-2">
+              <FileText className="h-5 w-5 text-primary" />
+              Downloads & Handleidingen
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+              {relatedDownloads.map((dl) => (
+                <a
+                  key={dl.id}
+                  href={dl.pdfPath}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-start gap-3 p-4 bg-card border border-border rounded-xl hover:shadow-md hover:border-primary/30 transition-all"
+                >
+                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                    <Download className="w-5 h-5 text-primary" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors leading-snug line-clamp-2">
+                      {dl.title}
+                    </h3>
+                    <p className="text-xs text-muted-foreground mt-1 line-clamp-1">PDF — Gratis download</p>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </section>
+        )}
+
         {/* Internal links */}
         <section className="max-w-6xl mx-auto px-4 pb-12">
           <div className="flex flex-wrap gap-3">
@@ -305,6 +340,9 @@ const ProductPage = () => {
             </Button>
             <Button asChild variant="outline" size="sm">
               <Link to={`/categorie/${product.category}`}>Meer {category?.name}</Link>
+            </Button>
+            <Button asChild variant="outline" size="sm">
+              <Link to="/downloads">Alle downloads</Link>
             </Button>
           </div>
         </section>
