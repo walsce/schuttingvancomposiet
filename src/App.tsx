@@ -20,6 +20,7 @@ import FencePlannerPage from "./pages/FencePlannerPage";
 import CartPage from "./pages/CartPage";
 import CheckoutPage from "./pages/CheckoutPage";
 import OrderConfirmationPage from "./pages/OrderConfirmationPage";
+import SEOContentPage from "./pages/SEOContentPage";
 import AdminLoginPage from "./pages/admin/AdminLoginPage";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import AdminProductsPage from "./pages/admin/AdminProductsPage";
@@ -67,6 +68,17 @@ const App = () => (
               <Route path="/winkelwagen" element={<CartPage />} />
               <Route path="/afrekenen" element={<CheckoutPage />} />
               <Route path="/bestelling-bevestigd/:orderId" element={<OrderConfirmationPage />} />
+              {/* SEO Content Pages — Pillar, Clusters, Comparisons */}
+              <Route path="/schutting-van-composiet" element={<SEOContentPage />} />
+              <Route path="/kunststof-schutting" element={<SEOContentPage />} />
+              <Route path="/onderhoudsvrije-schutting" element={<SEOContentPage />} />
+              <Route path="/composiet-schutting-nadelen" element={<SEOContentPage />} />
+              <Route path="/composiet-schutting-prijs-per-meter" element={<SEOContentPage />} />
+              <Route path="/composiet-vs-hout-schutting" element={<SEOContentPage />} />
+              <Route path="/zwarte-composiet-schutting" element={<SEOContentPage />} />
+              <Route path="/antraciet-composiet-schutting" element={<SEOContentPage />} />
+              <Route path="/hornbach-composiet-schutting" element={<SEOContentPage />} />
+              <Route path="/gamma-composiet-schutting" element={<SEOContentPage />} />
               {/* Admin routes */}
               <Route path="/admin/login" element={<AdminLoginPage />} />
               <Route path="/admin" element={<AdminDashboard />} />
