@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import CTASection from "@/components/CTASection";
+
 import { blogArticles, categoryLabels, BlogArticle } from "@/data/blogArticles";
 import { Link } from "react-router-dom";
 import { Clock, ArrowRight } from "lucide-react";
@@ -139,7 +139,7 @@ const BlogPage = () => {
           </div>
         </section>
 
-        <CTASection />
+        
       </main>
 
       <Footer />

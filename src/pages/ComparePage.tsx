@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import FAQSection from "@/components/FAQSection";
-import CTASection from "@/components/CTASection";
+
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Check, X, ArrowRight, Info } from "lucide-react";
@@ -216,7 +216,7 @@ const ComparePage = () => {
         </section>
 
         <FAQSection faqs={compareFaqs} />
-        <CTASection />
+        
       </main>
 
       <Footer />

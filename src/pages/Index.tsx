@@ -5,7 +5,7 @@ import ProductCard from "@/components/ProductCard";
 import SEOHead from "@/components/SEOHead";
 import JsonLd, { organizationSchema, websiteSchema } from "@/components/JsonLd";
 import FAQSection from "@/components/FAQSection";
-import CTASection from "@/components/CTASection";
+
 import { categories, products } from "@/data/products";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield, Truck, ThumbsUp, Wrench } from "lucide-react";

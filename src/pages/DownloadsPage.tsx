@@ -6,7 +6,7 @@ import SEOHead from "@/components/SEOHead";
 import JsonLd from "@/components/JsonLd";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import FAQSection from "@/components/FAQSection";
-import CTASection from "@/components/CTASection";
+
 import DownloadModal from "@/components/DownloadModal";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -185,7 +185,7 @@ const DownloadsPage = () => {
         </section>
 
         <FAQSection faqs={faqs} />
-        <CTASection />
+        
       </main>
 
       <Footer />

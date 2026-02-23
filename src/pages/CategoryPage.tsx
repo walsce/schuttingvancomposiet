@@ -7,7 +7,7 @@ import ProductFilters from "@/components/ProductFilters";
 import SEOHead from "@/components/SEOHead";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import FAQSection from "@/components/FAQSection";
-import CTASection from "@/components/CTASection";
+
 import JsonLd, { breadcrumbSchema } from "@/components/JsonLd";
 import { products, categories, Product } from "@/data/products";
 import { blogArticles } from "@/data/blogArticles";
@@ -204,11 +204,6 @@ const CategoryPage = () => {
           </div>
         </section>
 
-        {/* CTA */}
-        <CTASection
-          title={`${category.name} nodig?`}
-          description="Vraag een gratis offerte aan en ontvang persoonlijk advies over de beste keuze voor jouw project."
-        />
       </main>
 
       <Footer />
