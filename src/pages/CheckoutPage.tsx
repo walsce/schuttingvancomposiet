@@ -20,7 +20,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { toast } from "@/hooks/use-toast";
-import { CreditCard, Building2, Loader2, ShieldCheck, Lock } from "lucide-react";
+import { Loader2, ShieldCheck, Lock } from "lucide-react";
+import { IdealLogo, VisaLogo, MastercardLogo, bankLogos } from "@/components/checkout/PaymentIcons";
 
 const schema = z.object({
   name: z.string().trim().min(2, "Vul je naam in").max(100),
@@ -209,7 +210,7 @@ const CheckoutPage = () => {
               >
                 <label className={`flex items-center gap-3 border rounded-xl p-4 cursor-pointer transition-colors ${paymentMethod === "ideal" ? "border-primary bg-primary/5" : "border-border"}`}>
                   <RadioGroupItem value="ideal" id="pay-ideal" />
-                  <Building2 className="w-5 h-5 text-primary" />
+                  <IdealLogo className="w-8 h-8" />
                   <div>
                     <p className="font-medium text-sm text-foreground">iDEAL</p>
                     <p className="text-xs text-muted-foreground">Direct betalen via je bank</p>
@@ -217,7 +218,10 @@ const CheckoutPage = () => {
                 </label>
                 <label className={`flex items-center gap-3 border rounded-xl p-4 cursor-pointer transition-colors ${paymentMethod === "card" ? "border-primary bg-primary/5" : "border-border"}`}>
                   <RadioGroupItem value="card" id="pay-card" />
-                  <CreditCard className="w-5 h-5 text-primary" />
+                  <div className="flex items-center gap-1">
+                    <VisaLogo className="h-6 w-auto" />
+                    <MastercardLogo className="h-6 w-auto" />
+                  </div>
                   <div>
                     <p className="font-medium text-sm text-foreground">Creditcard</p>
                     <p className="text-xs text-muted-foreground">Visa, Mastercard</p>
@@ -231,9 +235,14 @@ const CheckoutPage = () => {
                   <Select onValueChange={(v) => setValue("idealBank", v)}>
                     <SelectTrigger><SelectValue placeholder="Selecteer je bank" /></SelectTrigger>
                     <SelectContent>
-                      {idealBanks.map((b) => (
-                        <SelectItem key={b} value={b}>{b}</SelectItem>
-                      ))}
+                      {idealBanks.map((b) => {
+                        const BankIcon = bankLogos[b];
+                        return (
+                          <SelectItem key={b} value={b}>
+                            {BankIcon ? <BankIcon /> : b}
+                          </SelectItem>
+                        );
+                      })}
                     </SelectContent>
                   </Select>
                 </div>
