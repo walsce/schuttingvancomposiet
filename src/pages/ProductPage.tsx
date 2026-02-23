@@ -1,6 +1,8 @@
 import { useParams, Link } from "react-router-dom";
 import { useState } from "react";
 import { products, categories } from "@/data/products";
+import { useCart } from "@/contexts/CartContext";
+import { toast } from "@/hooks/use-toast";
 import { blogArticles } from "@/data/blogArticles";
 import { downloads } from "@/data/downloads";
 import Header from "@/components/Header";
@@ -24,7 +26,7 @@ import {
   TableCell,
   TableRow,
 } from "@/components/ui/table";
-import { Truck, Shield, CheckCircle, ChevronLeft, ChevronRight, ArrowRight, Info, ShieldCheck, Award, Clock, Package, MessageCircle, FileText, Download } from "lucide-react";
+import { Truck, Shield, CheckCircle, ChevronLeft, ChevronRight, ArrowRight, Info, ShieldCheck, Award, Clock, Package, MessageCircle, FileText, Download, Minus, Plus, ShoppingCart } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 
 const formatDate = (dateStr?: string) => {
@@ -37,6 +39,15 @@ const ProductPage = () => {
   const { slug } = useParams<{ slug: string }>();
   const product = products.find((p) => p.slug === slug);
   const [selectedImage, setSelectedImage] = useState(0);
+  const [quantity, setQuantity] = useState(1);
+  const { addItem } = useCart();
+
+  const handleAddToCart = () => {
+    if (!product) return;
+    addItem(product, quantity);
+    toast({ title: "Toegevoegd aan winkelwagen", description: `${quantity}× ${product.name}` });
+    setQuantity(1);
+  };
 
   if (!product) {
     return (
@@ -174,11 +185,23 @@ const ProductPage = () => {
                 </div>
               )}
 
-              <div className="flex flex-col sm:flex-row gap-3 pt-2">
-                <Button asChild size="lg" className="flex-1">
+              {/* Quantity + Add to cart */}
+              <div className="flex items-center gap-3 pt-2">
+                <div className="flex items-center border border-border rounded-lg">
+                  <button onClick={() => setQuantity(q => Math.max(1, q - 1))} className="p-2.5 hover:bg-muted transition-colors"><Minus className="w-4 h-4" /></button>
+                  <span className="px-4 font-medium min-w-[3rem] text-center">{quantity}</span>
+                  <button onClick={() => setQuantity(q => q + 1)} className="p-2.5 hover:bg-muted transition-colors"><Plus className="w-4 h-4" /></button>
+                </div>
+                <Button size="lg" className="flex-1 gap-2" onClick={handleAddToCart}>
+                  <ShoppingCart className="w-4 h-4" /> In winkelwagen
+                </Button>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-3">
+                <Button asChild variant="outline" size="lg" className="flex-1">
                   <Link to={`/contact?type=offerte&product=${product.slug}`}>Offerte Aanvragen</Link>
                 </Button>
-                <Button asChild variant="outline" size="lg" className="flex-1">
+                <Button asChild variant="ghost" size="lg" className="flex-1">
                   <Link to={`/contact?type=sample&product=${product.slug}`}>
                     <span className="flex items-center gap-2">
                       Sample Aanvragen
