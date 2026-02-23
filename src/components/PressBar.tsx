@@ -4,12 +4,11 @@ const outlets = [
   "Elsevier Weekblad", "Metro", "Reformatorisch Dagblad", "Dagblad van het Noorden",
 ];
 
-// Duplicate for seamless loop
 const items = [...outlets, ...outlets];
 
 const PressBar = () => (
-  <section className="bg-foreground overflow-hidden py-3 select-none" aria-label="Bekend van">
-    <p className="text-center text-[10px] uppercase tracking-[0.25em] text-muted-foreground/60 mb-2.5 font-medium">
+  <div className="bg-secondary border-b border-border overflow-hidden py-2 select-none sticky top-14 sm:top-16 z-40" aria-label="Bekend van">
+    <p className="text-center text-[10px] uppercase tracking-[0.25em] text-muted-foreground mb-1.5 font-medium">
       Bekend van
     </p>
     <div className="relative">
@@ -17,14 +16,14 @@ const PressBar = () => (
         {items.map((name, i) => (
           <span
             key={`${name}-${i}`}
-            className="text-sm font-serif font-semibold text-muted-foreground/40 tracking-wide uppercase shrink-0"
+            className="text-sm font-serif font-semibold text-foreground/50 tracking-wide uppercase shrink-0"
           >
             {name}
           </span>
         ))}
       </div>
     </div>
-  </section>
+  </div>
 );
 
 export default PressBar;
