@@ -1,28 +1,38 @@
 
-# Top Bar Restyling: Wit met Oranje Letters + Google Logo
+# Visuele Upgrade: 4 Homepage Secties met Achtergrondbeelden
 
-## Wat verandert er?
+## Probleem
+De vier secties (Blog, Ontwerp Tools, Downloads, FAQ) zijn platte, tekstgebaseerde strips zonder visueel onderscheid -- saai en repetitief.
 
-De bovenste balk van de header (boven de navigatie) wordt aangepast naar een **witte achtergrond** met **oranje tekst** (accent kleur), vergelijkbaar met het referentiebeeld. Daarnaast wordt het Google "G"-logo als SVG inline gerenderd naast de review-score, in de officiële Google-kleuren.
+## Oplossing
+Elke sectie krijgt een unieke visuele behandeling met achtergrondbeelden, overlays en/of kaarten met foto's, zodat ze er premium en onderscheidend uitzien terwijl alle content behouden blijft.
 
-## Wijzigingen
+### 1. Kenniscentrum & Blog
+- Achtergrondafbeelding van een tuin/terras setting met een donkere overlay
+- Witte tekst bovenop, vergelijkbaar met de CTA-sectie stijl
+- Knoppen worden licht/transparant gestyled tegen de donkere achtergrond
 
-### `src/components/Header.tsx`
+### 2. Gratis Ontwerp Tools
+- De twee kaarten krijgen elk een grote achtergrondafbeelding (terras foto voor TerrasDesigner, schutting foto voor SchuttingPlanner)
+- Gradient overlay van onder naar boven zodat tekst leesbaar blijft
+- Tekst en knoppen worden wit, gepositioneerd onderaan de kaart
+- Kaarten worden hoger (aspect-ratio) zodat de foto's impact hebben
 
-**Top bar styling aanpassen:**
-- Achtergrondkleur: `bg-primary` wordt `bg-white` met een subtiele `border-b border-border`
-- Tekstkleur: `text-primary-foreground` wordt `text-accent` (oranje)
-- De sterren-icoon wordt vervangen door een inline SVG van het Google "G"-logo in de officiële kleuren (blauw, rood, geel, groen)
-- De reviewtekst wordt: Google logo + oranje sterren (unicode of lucide) + "4.9/5 (220)"
-- Overige USP-items (Snelle levering, 15 jaar garantie, Gratis offerte) blijven, maar in oranje tekst op witte achtergrond
+### 3. Gidsen & Checklists (Downloads)
+- Split layout: links een grote sfeervolle afbeelding (composiet close-up), rechts de tekst en CTA
+- Geeft de sectie meer gewicht en visuele aantrekkingskracht in plaats van gecentreerde tekst
 
-**Technische details:**
-- Het Google "G"-logo wordt als inline SVG component direct in de Header gerenderd (geen externe afbeelding nodig)
-- De 5 sterren worden getoond als oranje gevulde Star-iconen uit lucide-react
-- Geen nieuwe bestanden of dependencies nodig
+### 4. Veelgestelde Vragen (FAQ)
+- Subtiele achtergrondafbeelding met sterke lichte overlay zodat de FAQ-kaarten eroverheen zweven
+- Geeft diepte zonder de leesbaarheid te compromitteren
+
+## Technische details
 
 ### Bestanden
 
 | Bestand | Wijziging |
 |---------|-----------|
-| `src/components/Header.tsx` | Top bar: witte achtergrond, oranje tekst, Google G-logo SVG, oranje sterren |
+| `src/pages/Index.tsx` | Blog sectie: achtergrondafbeelding + overlay + witte tekst. Ontwerp Tools: kaarten met achtergrondafbeeldingen + gradient overlay + witte tekst. Downloads: split layout met afbeelding links. |
+| `src/components/FAQSection.tsx` | Subtiele achtergrondafbeelding met lichte overlay |
+
+Alle afbeeldingen worden via externe URLs geladen (Silvadec/Unsplash composiet-gerelateerde beelden) -- consistent met het bestaande patroon in de "Waarom composiet" sectie.
