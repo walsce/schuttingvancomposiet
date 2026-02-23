@@ -32,7 +32,7 @@ export const downloads: DownloadGuide[] = [
     title: "Montagehandleiding: composiet schutting plaatsen",
     slug: "montagehandleiding-composiet-schutting",
     description:
-      "Volledige stap-voor-stap montagehandleiding voor het plaatsen van Silvadec composiet schuttingen. Inclusief onderdelenlijst, gereedschap en technische specificaties.",
+      "Volledige stap-voor-stap montagehandleiding voor het plaatsen van composiet schuttingen. Inclusief onderdelenlijst, gereedschap en technische specificaties.",
     bulletPoints: [
       "Onderdelenlijst & technische specificaties",
       "Paalplaatsing met voetplaten of betonpoeren",
@@ -52,7 +52,7 @@ export const downloads: DownloadGuide[] = [
     title: "Montagehandleiding: aluminium schutting plaatsen",
     slug: "montagehandleiding-aluminium-schutting",
     description:
-      "Gedetailleerde installatiehandleiding voor Silvadec aluminium schuttingen. Van voetplaatmontage tot afwerking met afdekkapjes.",
+      "Gedetailleerde installatiehandleiding voor aluminium schuttingen. Van voetplaatmontage tot afwerking met afdekkapjes.",
     bulletPoints: [
       "Enkele & dubbele schaalvoetplaten uitgelegd",
       "Palen zagen op maat & marges berekenen",
@@ -72,7 +72,7 @@ export const downloads: DownloadGuide[] = [
     title: "Montagehandleiding: aluminium poort installeren",
     slug: "montagehandleiding-aluminium-poort",
     description:
-      "Installatiehandleiding voor de Silvadec aluminium poort. Inclusief afmetingen, scharnieren en slotmontage.",
+      "Installatiehandleiding voor de aluminium poort. Inclusief afmetingen, scharnieren en slotmontage.",
     bulletPoints: [
       "Poortafmetingen: 1000 × 1682 × 40 mm",
       "Palen voor inbetonneren (100 × 100 mm)",
@@ -92,7 +92,7 @@ export const downloads: DownloadGuide[] = [
     title: "Montagehandleiding: Atmosphere 175 gevelbekleding",
     slug: "montagehandleiding-atmosphere-175-gevelbekleding",
     description:
-      "Volledige montagehandleiding voor Silvadec Atmosphere 175 gevelbekledingsplanken. Van onderconstructie tot afwerking.",
+      "Volledige montagehandleiding voor Atmosphere 175 gevelbekledingsplanken. Van onderconstructie tot afwerking.",
     bulletPoints: [
       "Eurocode 1 & 5 normen uitgelegd",
       "Clips, start- & eindprofielen monteren",
@@ -152,7 +152,7 @@ export const downloads: DownloadGuide[] = [
     title: "Montagehandleiding: aluminium onderbalken voor vlonders",
     slug: "montagehandleiding-aluminium-onderbalken",
     description:
-      "Gedetailleerde installatiehandleiding voor Silvadec Reversil aluminium onderbalken. Voor toepassing op plots of rubberstroken.",
+      "Gedetailleerde installatiehandleiding voor Reversil aluminium onderbalken. Voor toepassing op plots of rubberstroken.",
     bulletPoints: [
       "Reversibel profiel: 63 × 40 × 3600 mm",
       "Montage op plots & rubberstroken",
@@ -172,7 +172,7 @@ export const downloads: DownloadGuide[] = [
     title: "Montagehandleiding: demonteerbare vlonderclip",
     slug: "montagehandleiding-demonteerbare-clip",
     description:
-      "Handleiding voor de Silvadec demonteerbare clip. Maak delen van je vlonder eenvoudig verwijderbaar voor toegang tot onderliggende installaties.",
+      "Handleiding voor de demonteerbare clip. Maak delen van je vlonder eenvoudig verwijderbaar voor toegang tot onderliggende installaties.",
     bulletPoints: [
       "Toegang tot waterproofing & elektra",
       "Stap-voor-stap montage & demontage",
@@ -193,7 +193,7 @@ export const downloads: DownloadGuide[] = [
     title: "Montagehandleiding: composiet vlonderplanken leggen",
     slug: "montagehandleiding-vlonderplanken",
     description:
-      "De complete montagehandleiding voor Silvadec composiet vlonderplanken. Van planning en lay-out tot de laatste afwerking.",
+      "De complete montagehandleiding voor composiet vlonderplanken. Van planning en lay-out tot de laatste afwerking.",
     bulletPoints: [
       "Lay-out berekenen: materiaal per m²",
       "Onderconstructie & balkafstanden (max. 40 cm)",
@@ -213,7 +213,7 @@ export const downloads: DownloadGuide[] = [
     title: "Montagehandleiding: vlonder accessoires & afwerking",
     slug: "montagehandleiding-vlonder-accessoires",
     description:
-      "Installatiehandleiding voor Silvadec vlonder accessoires: aluminium balken, plots, rubberstroken, afwerkingsprofielen en randafwerking.",
+      "Installatiehandleiding voor vlonder accessoires: aluminium balken, plots, rubberstroken, afwerkingsprofielen en randafwerking.",
     bulletPoints: [
       "Aluminium balken op plots of rubberstroken",
       "Plotafstanden: max. 90 cm privé / 60 cm openbaar",
@@ -233,7 +233,7 @@ export const downloads: DownloadGuide[] = [
     title: "Snelstartgids: vlonder monteren in 4 m²/uur",
     slug: "snelstartgids-vlonder-montage",
     description:
-      "Visuele snelstartgids met de belangrijkste montagestappen voor Silvadec composiet vlonders. Perfect als naslagwerk op de bouwplaats.",
+      "Visuele snelstartgids met de belangrijkste montagestappen voor composiet vlonders. Perfect als naslagwerk op de bouwplaats.",
     bulletPoints: [
       "Overzichtelijke visuele montagestappen",
       "Balkinstallatie & clipmontage",
@@ -274,7 +274,7 @@ export const downloads: DownloadGuide[] = [
     title: "Onderhoudsadvies: Elegance & Emotion vlonderplanken",
     slug: "onderhoudsadvies-elegance-emotion",
     description:
-      "Officieel onderhoudsadvies voor Silvadec Elegance en Emotion vlonderplanken. Inclusief reinigingsmethoden, aanbevolen apparatuur en seizoensschema.",
+      "Officieel onderhoudsadvies voor Elegance en Emotion vlonderplanken. Inclusief reinigingsmethoden, aanbevolen apparatuur en seizoensschema.",
     bulletPoints: [
       "Jaarlijkse wasbeurt met warm zeepwater",
       "Kärcher schrobmachine aanbevelingen",
@@ -294,7 +294,7 @@ export const downloads: DownloadGuide[] = [
     title: "Milieuverklaring (EPD): composiet vlonderplanken",
     slug: "milieu-productverklaring-vlonderplanken",
     description:
-      "Officiële Environmental Product Declaration (EPD) voor Silvadec composiet vlonderplanken. Conform NF EN ISO 14025 en NF EN 15804+A2.",
+      "Officiële Environmental Product Declaration (EPD) voor composiet vlonderplanken. Conform NF EN ISO 14025 en NF EN 15804+A2.",
     bulletPoints: [
       "Levenscyclusanalyse (LCA) conform Eurocode",
       "CO₂-voetafdruk & milieu-impactdata",
@@ -319,7 +319,7 @@ export const downloads: DownloadGuide[] = [
       "Anti-mos behandeling zonder bleekmiddel",
       "Geen naspoelen nodig",
       "Test eerst op een klein oppervlak",
-      "Speciaal ontwikkeld door Silvadec",
+      "Speciaal ontwikkeld voor composiet oppervlakken",
     ],
     category: "onderhoud",
     image: "https://en.silvadec.com/sites/default/files/2022-09/sinet1801_silvaction_recto_0.jpg",
@@ -335,7 +335,7 @@ export const downloads: DownloadGuide[] = [
     title: "Video: composiet vlonder monteren",
     slug: "video-composiet-vlonder-montage",
     description:
-      "Bekijk hoe een Silvadec composiet vlonder van A tot Z wordt geïnstalleerd. Van onderconstructie tot de laatste plank.",
+      "Bekijk hoe een composiet vlonder van A tot Z wordt geïnstalleerd. Van onderconstructie tot de laatste plank.",
     bulletPoints: [
       "Onderconstructie & paalafstanden",
       "Clips plaatsen & planken leggen",
@@ -355,7 +355,7 @@ export const downloads: DownloadGuide[] = [
     title: "Video: composiet schutting monteren",
     slug: "video-composiet-schutting-montage",
     description:
-      "Stap-voor-stap videogids voor het plaatsen van een Silvadec composiet schutting. Van paalplaatsing tot de laatste plank.",
+      "Stap-voor-stap videogids voor het plaatsen van een composiet schutting. Van paalplaatsing tot de laatste plank.",
     bulletPoints: [
       "Voetplaten positioneren & verankeren",
       "Palen plaatsen & uitlijnen",
@@ -375,7 +375,7 @@ export const downloads: DownloadGuide[] = [
     title: "Video: gevelbekleding monteren",
     slug: "video-gevelbekleding-montage",
     description:
-      "Professionele installatievideo voor Silvadec gevelbekleding. Leer de juiste technieken voor een duurzaam en strak resultaat.",
+      "Professionele installatievideo voor composiet gevelbekleding. Leer de juiste technieken voor een duurzaam en strak resultaat.",
     bulletPoints: [
       "Onderconstructie & latwerk voorbereiden",
       "Start- & eindprofielen plaatsen",
@@ -391,7 +391,7 @@ export const downloads: DownloadGuide[] = [
     relatedCategory: "gevelbekleding",
   },
 
-  // ─── GIDSEN & CHECKLISTS (kept/updated) ────────────────────────────────
+  // ─── GIDSEN & CHECKLISTS ────────────────────────────────────────────────
   {
     id: "checklist-schutting-plaatsen",
     title: "Checklist: composiet schutting plaatsen",
