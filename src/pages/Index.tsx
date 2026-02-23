@@ -12,8 +12,6 @@ import { ArrowRight, Shield, Truck, ThumbsUp, Wrench } from "lucide-react";
 import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-composite.jpg";
 
-const HERO_VIDEO_ID = "InRwr4SPnB4";
-
 const usps = [
   { icon: Truck, title: "Snelle levering", desc: "Eigen bezorgservice door heel Nederland en België" },
   { icon: Shield, title: "15 jaar garantie", desc: "Op al onze composiet producten" },
@@ -61,13 +59,13 @@ const Index = () => {
               alt=""
               className="absolute inset-0 w-full h-full object-cover"
             />
-            <iframe
-              src={`https://www.youtube.com/embed/${HERO_VIDEO_ID}?autoplay=1&mute=1&loop=1&playlist=${HERO_VIDEO_ID}&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1&origin=${window.location.origin}`}
-              title="Composiet producten video"
-              allow="autoplay; encrypted-media"
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300%] h-[300%] sm:w-[200%] sm:h-[200%] min-w-full min-h-full"
-              style={{ border: 0 }}
-              loading="eager"
+            <video
+              src="/videos/hero-silvadec.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
             />
             {/* Gradient overlay */}
             <div className="absolute inset-0 bg-gradient-to-r from-foreground/85 via-foreground/60 to-foreground/30" />
