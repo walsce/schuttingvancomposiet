@@ -6,7 +6,7 @@ const Footer = () => (
       <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
         <div>
           <span className="font-serif text-xl font-bold text-background tracking-tight">
-            Schuttingenvan<span className="text-accent">Composiet</span>.nl
+            Schuttingvan<span className="text-accent">Composiet</span>.nl
           </span>
           <p className="mt-4 text-sm leading-relaxed text-background/60">
             Dé specialist in composiet schuttingen, gevelbekleding en tuinafscheidingen. Premium kwaliteit tegen eerlijke prijzen.
