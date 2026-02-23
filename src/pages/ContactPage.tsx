@@ -52,12 +52,14 @@ const ContactPage = () => {
 
     const fullName = [firstName, lastName].filter(Boolean).join(" ") || null;
 
+    const contactSource = isSample ? "sample_request" : isOfferte ? "quote_request" : "contact_form";
+
     // Upsert into CRM contacts
     const { error } = await supabase.from("crm_contacts").upsert({
       email,
       name: fullName,
       phone: phone || null,
-      source: "contact_form",
+      source: contactSource,
     }, { onConflict: "email" } as any);
 
     if (!error) {

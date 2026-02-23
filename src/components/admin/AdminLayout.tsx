@@ -11,6 +11,7 @@ import {
   LogOut,
   Users,
   BarChart3,
+  Mail,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -19,6 +20,7 @@ const navItems = [
   { label: "Dashboard", href: "/admin", icon: LayoutDashboard },
   { label: "CRM", href: "/admin/crm", icon: Users },
   { label: "Analytics", href: "/admin/analytics", icon: BarChart3 },
+  { label: "Automations", href: "/admin/automations", icon: Mail },
   { label: "Producten", href: "/admin/products", icon: Package },
   { label: "Categorieën", href: "/admin/categories", icon: FolderTree },
   { label: "Bestellingen", href: "/admin/orders", icon: ShoppingCart },

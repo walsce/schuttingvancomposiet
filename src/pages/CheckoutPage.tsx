@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -45,9 +45,10 @@ const idealBanks = [
 ];
 
 const CheckoutPage = () => {
-  const { items, subtotal, shippingCost, total, clearCart } = useCart();
+  const { items, subtotal, shippingCost, total, clearCart, trackCheckoutStarted, trackOrderCompleted } = useCart();
   const navigate = useNavigate();
   const [submitting, setSubmitting] = useState(false);
+  const [checkoutTracked, setCheckoutTracked] = useState(false);
 
   const {
     register,
@@ -61,6 +62,15 @@ const CheckoutPage = () => {
   });
 
   const paymentMethod = watch("paymentMethod");
+  const watchedEmail = watch("email");
+
+  // Track checkout started when email is entered
+  useEffect(() => {
+    if (watchedEmail && watchedEmail.includes("@") && !checkoutTracked) {
+      trackCheckoutStarted(watchedEmail);
+      setCheckoutTracked(true);
+    }
+  }, [watchedEmail, checkoutTracked, trackCheckoutStarted]);
 
   if (items.length === 0) {
     return (
@@ -127,6 +137,8 @@ const CheckoutPage = () => {
 
       await supabase.from("cms_order_items").insert(itemInserts);
 
+      // Cancel abandonment emails
+      trackOrderCompleted(data.email);
       clearCart();
       navigate(`/bestelling-bevestigd/${order.id}`);
     } catch (err: unknown) {
