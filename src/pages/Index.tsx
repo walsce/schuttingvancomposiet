@@ -229,23 +229,24 @@ const Index = () => {
         </section>
 
         {/* Gratis Ontwerp Tools */}
-        <section className="bg-accent/10 border-b border-border">
-          <div className="container py-10 sm:py-16 px-4 sm:px-6">
-            <div className="text-center mb-8 sm:mb-10">
+        <section className="bg-secondary">
+          <div className="container py-14 sm:py-20 md:py-28 px-4 sm:px-6">
+            <div className="text-center mb-10 sm:mb-14">
+              <span className="inline-block text-accent font-medium text-xs uppercase tracking-widest mb-2">Online configurators</span>
               <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
                 Gratis Ontwerp Tools
               </h2>
-              <p className="text-muted-foreground mt-2 max-w-lg mx-auto text-sm sm:text-base">
+              <p className="text-muted-foreground mt-3 max-w-lg mx-auto text-sm sm:text-base">
                 Ontwerp uw tuin online en ontvang direct een materiaallijst
               </p>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-3xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-8 max-w-3xl mx-auto">
               {/* Deck planner card */}
-              <div className="bg-card border border-border rounded-xl p-6 sm:p-8 flex flex-col items-center text-center space-y-4">
-                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center">
-                  <Wrench className="w-6 h-6 text-primary" />
+              <div className="bg-card border border-border rounded-2xl p-8 sm:p-10 flex flex-col items-center text-center space-y-5 shadow-sm hover:shadow-md transition-shadow">
+                <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center">
+                  <Wrench className="w-7 h-7 text-accent" />
                 </div>
-                <h3 className="font-serif font-bold text-lg text-foreground">TerrasDesigner Pro</h3>
+                <h3 className="font-serif font-bold text-xl text-foreground">TerrasDesigner Pro</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   Ontwerp uw composiet terras, kies materiaal en legpatroon, en ontvang een complete materiaallijst.
                 </p>
@@ -254,11 +255,11 @@ const Index = () => {
                 </Button>
               </div>
               {/* Fence planner card */}
-              <div className="bg-card border border-border rounded-xl p-6 sm:p-8 flex flex-col items-center text-center space-y-4">
-                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center">
-                  <Shield className="w-6 h-6 text-primary" />
+              <div className="bg-card border border-border rounded-2xl p-8 sm:p-10 flex flex-col items-center text-center space-y-5 shadow-sm hover:shadow-md transition-shadow">
+                <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center">
+                  <Shield className="w-7 h-7 text-accent" />
                 </div>
-                <h3 className="font-serif font-bold text-lg text-foreground">SchuttingPlanner Pro</h3>
+                <h3 className="font-serif font-bold text-xl text-foreground">SchuttingPlanner Pro</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   Configureer uw composiet schutting, kies systeem en kleur, en download de materiaallijst als CSV.
                 </p>
@@ -271,15 +272,16 @@ const Index = () => {
         </section>
 
         {/* Downloads teaser */}
-        <section className="bg-primary/5 border-b border-border">
-          <div className="container py-10 sm:py-12 px-4 sm:px-6 text-center">
+        <section className="bg-card border-y border-border">
+          <div className="container py-12 sm:py-16 px-4 sm:px-6 text-center">
+            <span className="inline-block text-accent font-medium text-xs uppercase tracking-widest mb-2">Gratis downloads</span>
             <h2 className="font-serif text-xl sm:text-2xl md:text-3xl font-bold text-foreground">
-              Gratis Gidsen & Checklists
+              Gidsen & Checklists
             </h2>
-            <p className="text-muted-foreground mt-2 max-w-lg mx-auto text-sm sm:text-base">
+            <p className="text-muted-foreground mt-3 max-w-lg mx-auto text-sm sm:text-base">
               Download praktische PDF's over vergunningen, grondvoorbereiding, kleurkeuze en meer.
             </p>
-            <Button asChild className="mt-5 sm:mt-6 bg-accent text-accent-foreground hover:bg-accent/90 w-full sm:w-auto">
+            <Button asChild className="mt-6 sm:mt-8 bg-accent text-accent-foreground hover:bg-accent/90 w-full sm:w-auto">
               <Link to="/downloads">Bekijk alle downloads <ArrowRight className="w-4 h-4 ml-1" /></Link>
             </Button>
           </div>
