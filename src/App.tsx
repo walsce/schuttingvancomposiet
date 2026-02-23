@@ -107,6 +107,15 @@ const App = () => (
               <Route path="/composiet-vs-hout-gevelbekleding" element={<SEOContentPage />} />
               <Route path="/gevelbekleding-kleuren" element={<SEOContentPage />} />
               <Route path="/composiet-gevelbekleding-zwart" element={<SEOContentPage />} />
+              {/* Pillar 4: Wat is composiet (Materiaal) */}
+              <Route path="/wat-is-composiet" element={<SEOContentPage />} />
+              <Route path="/composiet-samenstelling" element={<SEOContentPage />} />
+              <Route path="/composiet-duurzaamheid-milieu" element={<SEOContentPage />} />
+              <Route path="/composiet-vs-kunststof" element={<SEOContentPage />} />
+              <Route path="/composiet-recyclen" element={<SEOContentPage />} />
+              <Route path="/composiet-levensduur" element={<SEOContentPage />} />
+              <Route path="/composiet-garantie" element={<SEOContentPage />} />
+              <Route path="/co-extrusie-vs-composiet" element={<SEOContentPage />} />
               {/* Admin routes */}
               <Route path="/admin/login" element={<AdminLoginPage />} />
               <Route path="/admin" element={<AdminDashboard />} />
