@@ -102,7 +102,7 @@ const ContactPage = () => {
       ]} />
 
       <main>
-        <section className="container py-12 md:py-20">
+        <section className="container py-8 sm:py-12 md:py-20 px-4 sm:px-6">
           {(isSample || isOfferte) && product && (
             <div className="mb-8 rounded-xl border border-primary/30 bg-primary/5 p-4 flex items-start gap-3">
               <Package className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
@@ -118,7 +118,7 @@ const ContactPage = () => {
             </div>
           )}
 
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="grid md:grid-cols-2 gap-8 sm:gap-12">
             <div>
               <h1 className="font-serif text-3xl md:text-4xl font-bold text-foreground">
                 {isSample ? "Sample Aanvragen" : isOfferte ? "Offerte Aanvragen" : "Contact & Offerte"}
@@ -167,7 +167,7 @@ const ContactPage = () => {
               </div>
             </div>
 
-            <div className="bg-card rounded-xl border border-border p-6 md:p-8">
+            <div className="bg-card rounded-xl border border-border p-5 sm:p-6 md:p-8">
               <h2 className="font-serif text-xl font-bold text-foreground mb-6">
                 {isSample ? "Sample aanvraagformulier" : "Stuur ons een bericht"}
               </h2>

@@ -52,7 +52,7 @@ const BlogArticlePage = () => {
 
       <main>
         {/* Article header */}
-        <section className="container py-10 md:py-14">
+        <section className="container py-8 sm:py-10 md:py-14 px-4 sm:px-6">
           <div className="max-w-3xl mx-auto">
             <div className="flex items-center gap-3 mb-4 flex-wrap">
               <Badge variant="secondary">{categoryLabels[article.category]}</Badge>
@@ -68,7 +68,7 @@ const BlogArticlePage = () => {
                 })}
               </span>
             </div>
-            <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight">
+            <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight">
               {article.title}
             </h1>
             <p className="text-lg text-muted-foreground mt-4">{article.excerpt}</p>
@@ -83,7 +83,7 @@ const BlogArticlePage = () => {
         </section>
 
         {/* Hero image */}
-        <div className="container max-w-4xl mb-12">
+        <div className="container max-w-4xl mb-8 sm:mb-12 px-4 sm:px-6">
           <div className="rounded-xl overflow-hidden aspect-[2/1]">
             <img
               src={article.image}
@@ -94,7 +94,7 @@ const BlogArticlePage = () => {
         </div>
 
         {/* Content */}
-        <article className="container max-w-3xl pb-16">
+        <article className="container max-w-3xl pb-12 sm:pb-16 px-4 sm:px-6">
           <div className="prose prose-lg max-w-none
             prose-headings:font-serif prose-headings:text-foreground
             prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4
