@@ -270,6 +270,46 @@ export const downloads: DownloadGuide[] = [
     videoId: "vn3ramnJ4KI",
   },
   {
+    id: "onderhoud-elegance-emotion",
+    title: "Onderhoudsadvies: Elegance & Emotion vlonderplanken",
+    slug: "onderhoudsadvies-elegance-emotion",
+    description:
+      "Officieel onderhoudsadvies voor Silvadec Elegance en Emotion vlonderplanken. Inclusief reinigingsmethoden, aanbevolen apparatuur en seizoensschema.",
+    bulletPoints: [
+      "Jaarlijkse wasbeurt met warm zeepwater",
+      "Kärcher schrobmachine aanbevelingen",
+      "Reinigingstips per planktype (glad, gegroefd, embossed)",
+      "Tussen de planken schoonmaken voor ventilatie",
+    ],
+    category: "onderhoud",
+    image: "https://www.silvadec.com/sites/default/files/styles/max_1300x1300/public/2024-11/terrasse-silvadec-bois-composite-atmosphere-rio-brun-ambiance.jpg",
+    relatedLinks: [
+      { label: "Vlonderplanken bekijken", href: "/categorie/vlonderplanken" },
+    ],
+    pdfPath: "/downloads/onderhoudsadvies-elegance-emotion-vlonder.pdf",
+    relatedCategory: "vlonderplanken",
+  },
+  {
+    id: "epd-vlonderplanken",
+    title: "Milieuverklaring (EPD): composiet vlonderplanken",
+    slug: "milieu-productverklaring-vlonderplanken",
+    description:
+      "Officiële Environmental Product Declaration (EPD) voor Silvadec composiet vlonderplanken. Conform NF EN ISO 14025 en NF EN 15804+A2.",
+    bulletPoints: [
+      "Levenscyclusanalyse (LCA) conform Eurocode",
+      "CO₂-voetafdruk & milieu-impactdata",
+      "Recyclebaarheid & circulaire economie",
+      "INIES geregistreerd (nr. 20240337404)",
+    ],
+    category: "gids",
+    image: "https://www.silvadec.com/sites/default/files/styles/max_1300x1300/public/2024-11/terrasse-silvadec-bois-composite-nuances-chene-clair-ambiance.jpg",
+    relatedLinks: [
+      { label: "Vlonderplanken bekijken", href: "/categorie/vlonderplanken" },
+    ],
+    pdfPath: "/downloads/milieu-productverklaring-vlonderplanken.pdf",
+    relatedCategory: "vlonderplanken",
+  },
+  {
     id: "onderhoud-silvaction",
     title: "Onderhoudsgids: Silvaction anti-mos behandeling",
     slug: "onderhoudsgids-silvaction",
