@@ -79,6 +79,8 @@ const App = () => (
               <Route path="/antraciet-composiet-schutting" element={<SEOContentPage />} />
               <Route path="/hornbach-composiet-schutting" element={<SEOContentPage />} />
               <Route path="/gamma-composiet-schutting" element={<SEOContentPage />} />
+              <Route path="/composiet-schutting-met-beton" element={<SEOContentPage />} />
+              <Route path="/elephant-schutting" element={<SEOContentPage />} />
               {/* Admin routes */}
               <Route path="/admin/login" element={<AdminLoginPage />} />
               <Route path="/admin" element={<AdminDashboard />} />
