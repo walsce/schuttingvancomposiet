@@ -82,6 +82,13 @@ const App = () => (
               <Route path="/gamma-composiet-schutting" element={<SEOContentPage />} />
               <Route path="/composiet-schutting-met-beton" element={<SEOContentPage />} />
               <Route path="/elephant-schutting" element={<SEOContentPage />} />
+              <Route path="/composiet-schutting-plaatsen" element={<SEOContentPage />} />
+              <Route path="/composiet-schutting-zelf-maken" element={<SEOContentPage />} />
+              <Route path="/composiet-schutting-levensduur" element={<SEOContentPage />} />
+              <Route path="/composiet-schutting-180-hoog" element={<SEOContentPage />} />
+              <Route path="/composiet-tuinscherm" element={<SEOContentPage />} />
+              <Route path="/praxis-composiet-schutting" element={<SEOContentPage />} />
+              <Route path="/karwei-composiet-schutting" element={<SEOContentPage />} />
               {/* Pillar 2: Vlonderplanken */}
               <Route path="/composiet-vlonderplanken" element={<SEOContentPage />} />
               <Route path="/composiet-vlonder-prijs" element={<SEOContentPage />} />
