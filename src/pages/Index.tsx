@@ -49,6 +49,7 @@ const Index = () => {
       />
       <JsonLd data={[organizationSchema, websiteSchema]} />
       <Header />
+      <PressBar />
 
       <main>
         {/* Hero */}
@@ -97,8 +98,6 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Press / Bekend van bar */}
-        <PressBar />
 
         {/* USPs */}
         <section className="border-b border-border bg-card">
