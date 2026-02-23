@@ -1,102 +1,102 @@
 
+# Kleur- en Maatvarianten toevoegen aan Producten
 
-# Volledige Winkelervaring: Van Product tot Bestelling
+## Wat wordt er gedaan?
 
-## Wat wordt er gebouwd?
-
-Een complete winkelflow waarmee klanten producten kunnen bestellen -- van het toevoegen aan de winkelwagen tot het afronden van de bestelling met een bevestigingspagina. Geen Mollie API key nodig; de betaling wordt gesimuleerd met een "demo" modus zodat de volledige flow werkend is.
+Producten die tot dezelfde productlijn behoren (bijv. alle "Atmosphere Schuttingplanken" in verschillende kleuren, of "Elegance vlonderplanken" in verschillende breedtes en afwerkingen) worden aan elkaar gekoppeld. Op de productpagina verschijnen dan kleur-swatches en/of maatselectoren waarmee de bezoeker direct naar de juiste variant navigeert, zoals op Silvadec.com.
 
 ---
 
-## Klantflow (stap voor stap)
+## Silvadec Portfolio-afstemming
+
+Op basis van het daadwerkelijke Silvadec-assortiment worden de volgende uitbreidingen gemaakt:
+
+### Schuttingplanken (Afsluiting)
+Silvadec biedt de Atmosphere schermplank in 5 kleuren: Antraciet Grijs, Licht Grijs, Wild Grijs, Zonnig Bruin, Licht Eiken. **Reeds aanwezig** -- deze worden nu gegroepeerd als varianten.
+
+Aluminium schermplanken in 3 kleuren: Antraciet Grijs, Metaal Grijs, Zwart. **Reeds aanwezig** -- worden gegroepeerd.
+
+### Vlonderplanken (Terras)
+Silvadec biedt meerdere breedtes per kleur:
+- **Atmosphere**: 138 mm en 180 mm breed
+- **Elegance**: 138 mm gegroefde, 138 mm glad, 180 mm glad
+
+Momenteel bestaan alleen 138 mm varianten. **Er worden 180 mm brede varianten toegevoegd** voor de belangrijkste kleuren, plus gladde Elegance varianten naast de gegroefde.
+
+### Gevelbekleding
+Atmosphere 175 bestaat al in Wit, Zonnig Bruin, Donker Bruin. **Antraciet Grijs** wordt toegevoegd als variant (ontbreekt, maar Silvadec biedt dit wel).
+
+---
+
+## Technische Aanpak
+
+### 1. Nieuw veld: `variantGroup` op het Product-model
+
+Producten die tot dezelfde productlijn behoren krijgen hetzelfde `variantGroup`-ID. Dit wordt puur in de front-end data gebruikt (geen databasewijziging nodig).
 
 ```text
-Productpagina              Winkelwagen             Afrekenen                Bevestiging
-+-----------------+     +----------------+     +-------------------+     +----------------+
-| Product info    |     | Overzicht items|     | Klantgegevens     |     | Bedankt!       |
-| Aantal kiezen   |---->| Aantal wijzigen|---->| Adres             |---->| Ordernummer    |
-| [In wagen] btn  |     | Verwijderen    |     | Betaalmethode     |     | Samenvatting   |
-|                 |     | Totaalprijs    |     | [Bestelling       |     | [Verder winkelen|
-|                 |     | [Afrekenen] btn|     |  plaatsen] btn    |     |  ] btn         |
-+-----------------+     +----------------+     +-------------------+     +----------------+
+Product Interface uitbreiding:
+  variantGroup?: string    // bijv. "atmosphere-schutting", "elegance-vlonder"
+  variantLabel?: string    // korte label: "Antraciet Grijs" of "180 mm breed"
 ```
 
----
+### 2. Variant Selector component
 
-## Onderdelen
+Een nieuw component `VariantSelector` dat op de productpagina verschijnt:
 
-### 1. Winkelwagen (localStorage)
-- **Context Provider** (`CartContext`) die de winkelwagen beheert
-- Opslaan in `localStorage` zodat het behouden blijft tussen sessies
-- Functies: toevoegen, verwijderen, aantal wijzigen, leegmaken
-- Winkelmand-teller op het winkelwagen-icoon in de Header
+- **Kleurvarianten**: Ronde kleur-swatches met tooltip en link naar de andere kleurvariant
+- **Maatvarianten**: Knoppen met de afmeting (bijv. "138 mm" / "180 mm")
+- Klikken navigeert naar de andere productpagina (ze zijn afzonderlijke producten met eigen slug)
 
-### 2. Realistische Prijzen
-- Alle producten krijgen marktconforme prijzen op basis van gangbare composiet-prijzen:
-  - Gevelbekleding planken: ~EUR 32-45 per stuk
-  - Schuttingpanelen: ~EUR 89-249 per paneel
-  - Vlonderplanken: ~EUR 29-55 per stuk
-  - Aluminium systemen: ~EUR 149-349
-- Prijzen zijn al redelijk realistisch; kleine aanpassingen waar nodig
+### 3. Productdata uitbreiding
 
-### 3. Productpagina uitbreiding
-- "Aantal" selector toevoegen
-- "In winkelwagen" knop (vervangt huidige offerte-CTA niet, wordt erbij gezet)
-- Toast-bevestiging bij toevoegen
+#### Nieuwe producten toevoegen (~8 stuks):
+| Product | Kleur | Breedte | Prijs |
+|---------|-------|---------|-------|
+| Atmosphere Ushuaia Grijs 180mm | Grijs | 180 mm | EUR 89/m2 |
+| Atmosphere Cayenne Grijs 180mm | Grijs | 180 mm | EUR 89/m2 |
+| Atmosphere Lima Bruin 180mm | Bruin | 180 mm | EUR 89/m2 |
+| Atmosphere Sao Paulo Bruin 180mm | Bruin | 180 mm | EUR 89/m2 |
+| Elegance Colorado Bruin Glad | Bruin | 138 mm | EUR 59/m2 |
+| Elegance Iroise Grijs Glad | Grijs | 138 mm | EUR 59/m2 |
+| Atmosphere 175 Antraciet Grijs (gevel) | Grijs | 175 mm | EUR 34,95 |
+| Elegance Antraciet Grijs Gegroefde | Grijs | 138 mm | EUR 59/m2 |
 
-### 4. Winkelwagenpagina (`/winkelwagen`)
-- Overzicht van alle items met afbeelding, naam, prijs
-- Aantal aanpassen (+/-)
-- Item verwijderen
-- Subtotaal, verzendkosten, totaal
-- "Afrekenen" knop
-- Lege-wagen weergave met link terug naar assortiment
+#### Bestaande producten updaten:
+- `variantGroup` en `variantLabel` toekennen aan alle producten die bij dezelfde lijn horen
 
-### 5. Checkout-pagina (`/afrekenen`) -- One-pager
-- **Stap 1 - Klantgegevens**: Naam, e-mail, telefoon
-- **Stap 2 - Bezorgadres**: Straat, huisnummer, postcode, plaats
-- **Stap 3 - Betaalmethode**: iDEAL (bankkeuze dropdown) of Creditcard (gesimuleerde velden)
-- **Orderoverzicht**: Sidebar/sectie met alle items, subtotaal, verzendkosten (EUR 0 boven EUR 500, anders EUR 49,95), totaal incl. BTW
-- Formuliervalidatie met `zod` + `react-hook-form`
-- Bij "Bestelling plaatsen": order opslaan in `cms_orders` + `cms_order_items`, winkelwagen legen, doorsturen naar bevestigingspagina
+### 4. VariantSelector groepering
 
-### 6. Bevestigingspagina (`/bestelling-bevestigd/:orderId`)
-- Ordernummer
-- Samenvatting van bestelde items
-- Geschatte levering
-- "Verder winkelen" knop
+```text
+Groepen:
+  "atmosphere-schutting"     -> sc-1, sc-2, sc-3, sc-4, sc-5 (5 kleuren)
+  "aluminium-schutting"      -> sc-6, sc-7, sc-8 (3 kleuren)
+  "atmosphere-175-gevel"     -> cl-1, cl-2, cl-3, cl-nieuw (4 kleuren)
+  "open-rhombus-gevel"       -> cl-4, cl-5, cl-6 (3 kleuren)
+  "nuances-vlonder"          -> vl-1, vl-2 (2 kleuren)
+  "atmosphere-vlonder-138"   -> vl-3..vl-8 (6 kleuren, 138mm)
+  "atmosphere-vlonder-180"   -> nieuwe 180mm varianten
+  "elegance-gegroefde"       -> vl-9, vl-10, + nieuw
+  "elegance-glad"            -> nieuwe gladde varianten
+  "emotion-vlonder"          -> vl-11, vl-12
+```
 
-### 7. Header aanpassing
-- Winkelwagen-icoon toont badge met aantal items
-- Klik gaat naar `/winkelwagen`
+Vlonderplanken met zowel 138mm als 180mm varianten tonen beide selectors: kleur EN breedte.
 
 ---
 
-## Technische Details
+## Bestanden
 
-### Nieuwe bestanden
+### Nieuw
 | Bestand | Doel |
 |---------|------|
-| `src/contexts/CartContext.tsx` | Cart state management met localStorage |
-| `src/pages/CartPage.tsx` | Winkelwagenpagina |
-| `src/pages/CheckoutPage.tsx` | One-page checkout formulier |
-| `src/pages/OrderConfirmationPage.tsx` | Bevestigingspagina |
+| `src/components/VariantSelector.tsx` | Kleur-swatches + maatknoppen component |
 
-### Aangepaste bestanden
+### Aangepast
 | Bestand | Wijziging |
 |---------|-----------|
-| `src/App.tsx` | CartProvider wrappen, nieuwe routes toevoegen |
-| `src/components/Header.tsx` | Winkelwagen badge met itemtelling |
-| `src/pages/ProductPage.tsx` | Aantal-selector en "In winkelwagen" knop |
-| `src/data/products.ts` | Prijzen controleren/aanpassen waar nodig |
+| `src/data/products.ts` | `variantGroup` en `variantLabel` toevoegen aan Product interface; ~8 nieuwe 180mm/gladde producten toevoegen; Antraciet Grijs gevel toevoegen |
+| `src/pages/ProductPage.tsx` | `VariantSelector` integreren boven de "In winkelwagen" knop |
 
-### Database
-- Gebruikt de bestaande `cms_orders` en `cms_order_items` tabellen (al aanwezig)
-- Orders worden opgeslagen met status "pending" (geen echte betaling)
-- RLS-beleid niet nodig: dit is een publieke webshop zonder gebruikersaccounts
-
-### Geen API key nodig
-- Betaling is gesimuleerd: na klik op "Bestelling plaatsen" wordt een korte laadanimatie getoond en wordt de order direct opgeslagen
-- iDEAL en Creditcard zijn visueel aanwezig maar verwerken geen echte betaling
-- Wanneer je later Mollie wilt koppelen, hoeft alleen de submit-functie vervangen te worden
-
+### Geen database-wijzigingen nodig
+De variant-koppeling is puur front-end (de `options` en `dimensions` kolommen in `cms_products` kunnen dit al opslaan als JSON). De statische data in `products.ts` wordt direct uitgebreid.
