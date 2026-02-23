@@ -10,43 +10,65 @@ import CTASection from "@/components/CTASection";
 import DownloadModal from "@/components/DownloadModal";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { downloads, categoryLabels, type DownloadGuide } from "@/data/downloads";
-import { Download } from "lucide-react";
+import { downloads, categoryLabels, type DownloadGuide, type DownloadCategory } from "@/data/downloads";
+import { Download, Play, FileText, Filter } from "lucide-react";
 
 const faqs = [
-  { q: "Zijn de gidsen echt gratis?", a: "Ja, alle gidsen en checklists zijn 100% gratis. Je ontvangt ze direct in je inbox na het invullen van je e-mailadres." },
-  { q: "In welk formaat ontvang ik de gids?", a: "Alle gidsen worden als PDF geleverd, zodat je ze makkelijk kunt opslaan, printen of delen." },
-  { q: "Kan ik de checklists uitprinten?", a: "Absoluut! Alle checklists zijn ontworpen om uitgeprint te worden, zodat je ze bij de hand hebt tijdens je project." },
-  { q: "Hoe actueel is de informatie?", a: "Onze gidsen worden regelmatig bijgewerkt. De vergunningengids bevat de meest recente Nederlandse regelgeving." },
+  { q: "Zijn de handleidingen gratis?", a: "Ja, alle montagehandleidingen en gidsen zijn 100% gratis te downloaden of te bekijken." },
+  { q: "In welk formaat zijn de handleidingen?", a: "Alle montagehandleidingen worden als PDF geleverd. Video's kun je direct op de pagina bekijken." },
+  { q: "Kan ik de handleidingen uitprinten?", a: "Absoluut! Alle PDF's zijn ontworpen om uitgeprint te worden, zodat je ze bij de hand hebt tijdens je project." },
+  { q: "Hoe actueel is de informatie?", a: "Onze handleidingen zijn afkomstig van Silvadec en worden regelmatig bijgewerkt met de nieuwste installatietechnieken." },
 ];
 
 const breadcrumbs = [
   { label: "Home", href: "/" },
-  { label: "Gratis Gidsen" },
+  { label: "Documentatie & Handleidingen" },
+];
+
+const categoryFilters: { key: DownloadCategory | "all"; label: string }[] = [
+  { key: "all", label: "Alles" },
+  { key: "handleiding", label: "Montagehandleidingen" },
+  { key: "onderhoud", label: "Onderhoud" },
+  { key: "video", label: "Video's" },
+  { key: "checklist", label: "Checklists" },
+  { key: "gids", label: "Gidsen" },
 ];
 
 const DownloadsPage = () => {
   const [selectedGuide, setSelectedGuide] = useState<DownloadGuide | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
+  const [activeFilter, setActiveFilter] = useState<DownloadCategory | "all">("all");
 
   const handleDownload = (guide: DownloadGuide) => {
+    if (guide.pdfPath) {
+      window.open(guide.pdfPath, "_blank");
+      return;
+    }
+    if (guide.videoId) {
+      window.open(`https://www.youtube.com/watch?v=${guide.videoId}`, "_blank");
+      return;
+    }
     setSelectedGuide(guide);
     setModalOpen(true);
   };
 
+  const filtered = activeFilter === "all"
+    ? downloads
+    : downloads.filter((d) => d.category === activeFilter);
+
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="Gratis gidsen & checklists | Schuttingvancomposiet.nl"
-        description="Download gratis checklists, vergelijkingen en gidsen over composiet schuttingen, vlonders en gevelbekleding. Van vergunningen tot onderhoud."
+        title="Documentatie & handleidingen | SchuttingenvanComposiet.nl"
+        description="Download gratis montagehandleidingen, bekijk installatievideo's en lees onderhoudsgidsen voor Silvadec composiet schuttingen, vlonders en gevelbekleding."
         canonical="/downloads"
       />
       <JsonLd
         data={{
           "@context": "https://schema.org",
           "@type": "CollectionPage",
-          name: "Gratis gidsen & checklists",
-          description: "Gratis downloadbare gidsen over composiet producten",
+          name: "Documentatie & handleidingen",
+          description: "Gratis montagehandleidingen, installatievideo's en onderhoudsgidsen voor Silvadec composiet producten",
           url: "https://schuttingvancomposiet.nl/downloads",
         }}
       />
@@ -62,23 +84,41 @@ const DownloadsPage = () => {
               <Breadcrumbs items={breadcrumbs} variant="dark" />
             </div>
             <h1 className="font-serif text-3xl md:text-5xl font-bold">
-              Gratis gidsen & checklists
+              Documentatie & handleidingen
             </h1>
             <p className="text-background/70 mt-4 max-w-xl text-lg">
-              Praktische PDF's vol tips, regels en checklists. Download gratis en start je composiet project goed voorbereid.
+              Montagehandleidingen, installatievideo's en onderhoudstips. Alles wat je nodig hebt voor een perfect composiet project.
             </p>
           </div>
         </section>
 
+        {/* Filter Bar */}
+        <section className="container pt-10 pb-4">
+          <div className="flex items-center gap-2 flex-wrap">
+            <Filter className="w-4 h-4 text-muted-foreground mr-1" />
+            {categoryFilters.map((f) => (
+              <Button
+                key={f.key}
+                variant={activeFilter === f.key ? "default" : "outline"}
+                size="sm"
+                onClick={() => setActiveFilter(f.key)}
+                className="text-xs"
+              >
+                {f.label}
+              </Button>
+            ))}
+          </div>
+        </section>
+
         {/* Download Cards */}
-        <section className="container py-16 md:py-24">
+        <section className="container pb-16 md:pb-24 pt-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {downloads.map((guide) => (
+            {filtered.map((guide) => (
               <div
                 key={guide.id}
                 className="group rounded-xl overflow-hidden border border-border bg-card shadow-sm hover:shadow-md transition-shadow flex flex-col"
               >
-                {/* Image section with gradient overlay */}
+                {/* Image / Video thumbnail */}
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <img
                     src={guide.image}
@@ -87,6 +127,13 @@ const DownloadsPage = () => {
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/20 to-transparent" />
+                  {guide.videoId && (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-14 h-14 rounded-full bg-accent/90 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                        <Play className="w-6 h-6 text-accent-foreground ml-0.5" />
+                      </div>
+                    </div>
+                  )}
                   <div className="absolute bottom-0 left-0 right-0 p-5">
                     <Badge variant="secondary" className="text-xs mb-2 bg-background/20 text-background border-none backdrop-blur-sm">
                       {categoryLabels[guide.category]}
@@ -97,7 +144,7 @@ const DownloadsPage = () => {
                   </div>
                 </div>
 
-                {/* Content section */}
+                {/* Content */}
                 <div className="p-5 flex flex-col flex-1">
                   <p className="text-sm text-muted-foreground mb-4">
                     {guide.description}
@@ -114,8 +161,22 @@ const DownloadsPage = () => {
                     onClick={() => handleDownload(guide)}
                     className="w-full bg-accent text-accent-foreground hover:bg-accent/90"
                   >
-                    <Download className="w-4 h-4 mr-2" />
-                    Download Gratis
+                    {guide.pdfPath ? (
+                      <>
+                        <FileText className="w-4 h-4 mr-2" />
+                        Download PDF
+                      </>
+                    ) : guide.videoId ? (
+                      <>
+                        <Play className="w-4 h-4 mr-2" />
+                        Bekijk Video
+                      </>
+                    ) : (
+                      <>
+                        <Download className="w-4 h-4 mr-2" />
+                        Download Gratis
+                      </>
+                    )}
                   </Button>
                 </div>
               </div>

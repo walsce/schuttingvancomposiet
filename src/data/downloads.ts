@@ -1,4 +1,4 @@
-export type DownloadCategory = "checklist" | "vergelijking" | "gids";
+export type DownloadCategory = "handleiding" | "onderhoud" | "video" | "checklist" | "gids";
 
 export interface DownloadGuide {
   id: string;
@@ -9,15 +9,288 @@ export interface DownloadGuide {
   category: DownloadCategory;
   image: string;
   relatedLinks: { label: string; href: string }[];
+  /** Direct PDF path (no email gate) */
+  pdfPath?: string;
+  /** YouTube video ID for embedded video content */
+  videoId?: string;
+  /** Related product categories */
+  relatedCategory?: "vlonderplanken" | "schuttingen" | "gevelbekleding";
 }
 
 export const categoryLabels: Record<DownloadCategory, string> = {
+  handleiding: "Montagehandleiding",
+  onderhoud: "Onderhoud",
+  video: "Video",
   checklist: "Checklist",
-  vergelijking: "Vergelijking",
   gids: "Gids",
 };
 
 export const downloads: DownloadGuide[] = [
+  // ─── MONTAGEHANDLEIDINGEN (Installation Guides) ────────────────────────
+  {
+    id: "handleiding-composiet-schutting",
+    title: "Montagehandleiding: composiet schutting plaatsen",
+    slug: "montagehandleiding-composiet-schutting",
+    description:
+      "Volledige stap-voor-stap montagehandleiding voor het plaatsen van Silvadec composiet schuttingen. Inclusief onderdelenlijst, gereedschap en technische specificaties.",
+    bulletPoints: [
+      "Onderdelenlijst & technische specificaties",
+      "Paalplaatsing met voetplaten of betonpoeren",
+      "Planken stapelen & kliksysteem uitgelegd",
+      "Windbelasting tot 100 km/u (max. 1815 mm hoogte)",
+    ],
+    category: "handleiding",
+    image: "https://www.silvadec.com/sites/default/files/styles/max_1300x1300/public/2024-11/cloture-silvadec-bois-composite-atmosphere-chene-clair-ambiance-portillon.jpg",
+    relatedLinks: [
+      { label: "Composiet schuttingen bekijken", href: "/categorie/schuttingen" },
+    ],
+    pdfPath: "/downloads/montagehandleiding-composiet-schutting.pdf",
+    relatedCategory: "schuttingen",
+  },
+  {
+    id: "handleiding-aluminium-schutting",
+    title: "Montagehandleiding: aluminium schutting plaatsen",
+    slug: "montagehandleiding-aluminium-schutting",
+    description:
+      "Gedetailleerde installatiehandleiding voor Silvadec aluminium schuttingen. Van voetplaatmontage tot afwerking met afdekkapjes.",
+    bulletPoints: [
+      "Enkele & dubbele schaalvoetplaten uitgelegd",
+      "Palen zagen op maat & marges berekenen",
+      "Hoekpalen verankeren voor windbestendigheid",
+      "Glad & geschuurd afwerkingsopties",
+    ],
+    category: "handleiding",
+    image: "https://www.silvadec.com/sites/default/files/styles/max_1300x1300/public/2024-11/cloture-silvadec-aluminium-anthracite-ambiance.jpg",
+    relatedLinks: [
+      { label: "Aluminium schuttingen bekijken", href: "/categorie/schuttingen" },
+    ],
+    pdfPath: "/downloads/montagehandleiding-aluminium-schutting.pdf",
+    relatedCategory: "schuttingen",
+  },
+  {
+    id: "handleiding-aluminium-poort",
+    title: "Montagehandleiding: aluminium poort installeren",
+    slug: "montagehandleiding-aluminium-poort",
+    description:
+      "Installatiehandleiding voor de Silvadec aluminium poort. Inclusief afmetingen, scharnieren en slotmontage.",
+    bulletPoints: [
+      "Poortafmetingen: 1000 × 1682 × 40 mm",
+      "Palen voor inbetonneren (100 × 100 mm)",
+      "Scharnieren & slot monteren",
+      "Integratie met 1,8 meter schuttingpanelen",
+    ],
+    category: "handleiding",
+    image: "https://www.silvadec.com/sites/default/files/styles/max_1300x1300/public/2024-11/cloture-silvadec-bois-composite-atmosphere-chene-clair-ambiance-portillon.jpg",
+    relatedLinks: [
+      { label: "Schuttingen bekijken", href: "/categorie/schuttingen" },
+    ],
+    pdfPath: "/downloads/montagehandleiding-aluminium-poort.pdf",
+    relatedCategory: "schuttingen",
+  },
+  {
+    id: "handleiding-atmosphere-175-gevelbekleding",
+    title: "Montagehandleiding: Atmosphere 175 gevelbekleding",
+    slug: "montagehandleiding-atmosphere-175-gevelbekleding",
+    description:
+      "Volledige montagehandleiding voor Silvadec Atmosphere 175 gevelbekledingsplanken. Van onderconstructie tot afwerking.",
+    bulletPoints: [
+      "Eurocode 1 & 5 normen uitgelegd",
+      "Clips, start- & eindprofielen monteren",
+      "Hoekprofielen & aansluitingen",
+      "Opslag & behandelingsvoorschriften",
+    ],
+    category: "handleiding",
+    image: "https://www.silvadec.com/sites/default/files/styles/max_1300x1300/public/2024-12/bardage-silvadec-bois-composite-atmosphere-175-brun-solaire-ambiance.jpg",
+    relatedLinks: [
+      { label: "Gevelbekleding bekijken", href: "/categorie/gevelbekleding" },
+    ],
+    pdfPath: "/downloads/montagehandleiding-atmosphere-175-gevelbekleding.pdf",
+    relatedCategory: "gevelbekleding",
+  },
+  {
+    id: "handleiding-open-rhombus-gevelbekleding",
+    title: "Montagehandleiding: open rhombus gevelbekleding",
+    slug: "montagehandleiding-open-rhombus-gevelbekleding",
+    description:
+      "Installatiehandleiding voor co-extrusie open rhombus gevelbekledingsprofielen. Inclusief lay-out berekeningen en clipmontage.",
+    bulletPoints: [
+      "Profielgewicht: 1,80 kg per strekkende meter",
+      "Lay-out & materiaalbehoefte per m²",
+      "Verborgen clipbevestiging (15 mm tussenruimte)",
+      "Hoekafwerking & aansluitprofielen",
+    ],
+    category: "handleiding",
+    image: "https://www.silvadec.com/sites/default/files/styles/max_1300x1300/public/2024-12/bardage-silvadec-bois-composite-atmosphere-claire-voie-brun-clair-ambiance.jpg",
+    relatedLinks: [
+      { label: "Open rhombus bekijken", href: "/categorie/gevelbekleding" },
+    ],
+    pdfPath: "/downloads/montagehandleiding-open-rhombus-gevelbekleding.pdf",
+    relatedCategory: "gevelbekleding",
+  },
+  {
+    id: "snelstartgids-open-rhombus",
+    title: "Snelstartgids: open rhombus gevelbekleding",
+    slug: "snelstartgids-open-rhombus",
+    description:
+      "Visuele snelstartgids met de belangrijkste montagestappen voor open rhombus gevelbekleding. Ideaal als naslagwerk op de bouwplaats.",
+    bulletPoints: [
+      "Overzichtelijke visuele stappen",
+      "Latwerk & onderconstructie",
+      "Plankmontage met clips",
+      "Afwerkingsopties & details",
+    ],
+    category: "handleiding",
+    image: "https://www.silvadec.com/sites/default/files/styles/max_1300x1300/public/2024-12/bardage-silvadec-bois-composite-atmosphere-claire-voie-anthracite-ambiance.jpg",
+    relatedLinks: [
+      { label: "Gevelbekleding bekijken", href: "/categorie/gevelbekleding" },
+    ],
+    pdfPath: "/downloads/snelstartgids-open-rhombus-gevelbekleding.pdf",
+    relatedCategory: "gevelbekleding",
+  },
+  {
+    id: "handleiding-aluminium-onderbalken",
+    title: "Montagehandleiding: aluminium onderbalken voor vlonders",
+    slug: "montagehandleiding-aluminium-onderbalken",
+    description:
+      "Gedetailleerde installatiehandleiding voor Silvadec Reversil aluminium onderbalken. Voor toepassing op plots of rubberstroken.",
+    bulletPoints: [
+      "Reversibel profiel: 63 × 40 × 3600 mm",
+      "Montage op plots & rubberstroken",
+      "Verbindingsstukken & hoekbeugels",
+      "Geluidsarm door diepere cliprail",
+    ],
+    category: "handleiding",
+    image: "https://www.silvadec.com/sites/default/files/styles/max_1300x1300/public/2024-11/terrasse-silvadec-bois-composite-atmosphere-ushuaia-gris-ambiance.jpg",
+    relatedLinks: [
+      { label: "Vlonderplanken bekijken", href: "/categorie/vlonderplanken" },
+    ],
+    pdfPath: "/downloads/montagehandleiding-aluminium-onderbalken-vlonder.pdf",
+    relatedCategory: "vlonderplanken",
+  },
+  {
+    id: "handleiding-demonteerbare-clip",
+    title: "Montagehandleiding: demonteerbare vlonderclip",
+    slug: "montagehandleiding-demonteerbare-clip",
+    description:
+      "Handleiding voor de Silvadec demonteerbare clip. Maak delen van je vlonder eenvoudig verwijderbaar voor toegang tot onderliggende installaties.",
+    bulletPoints: [
+      "Toegang tot waterproofing & elektra",
+      "Stap-voor-stap montage & demontage",
+      "Compatibel met alle composiet vlonderplanken",
+      "Niet compatibel met aluminium onderbalken",
+    ],
+    category: "handleiding",
+    image: "https://www.silvadec.com/sites/default/files/styles/max_1300x1300/public/2024-11/terrasse-silvadec-bois-composite-atmosphere-rio-brun-ambiance.jpg",
+    relatedLinks: [
+      { label: "Vlonderplanken bekijken", href: "/categorie/vlonderplanken" },
+    ],
+    pdfPath: "/downloads/montagehandleiding-demonteerbare-clip-vlonder.pdf",
+    relatedCategory: "vlonderplanken",
+  },
+
+  // ─── ONDERHOUD (Maintenance) ───────────────────────────────────────────
+  {
+    id: "onderhoud-silvawash",
+    title: "Onderhoudsgids: Silvawash reinigingsproduct",
+    slug: "onderhoudsgids-silvawash",
+    description:
+      "Alles over Silvawash, het kleigebaseerde reinigingsproduct voor composiet planken. 100% minerale oorsprong, ideaal voor vettige vlekken.",
+    bulletPoints: [
+      "Kleigebaseerd, 100% minerale oorsprong",
+      "Verwijdert vettige vlekken (BBQ, olie, ijs)",
+      "Droog te gebruiken — geen water nodig",
+      "Geschikt voor Elegance & Emotion Natural serie",
+    ],
+    category: "onderhoud",
+    image: "https://en.silvadec.com/sites/default/files/2024-12/silvawash.png",
+    relatedLinks: [
+      { label: "Vlonderplanken bekijken", href: "/categorie/vlonderplanken" },
+    ],
+    videoId: "vn3ramnJ4KI",
+  },
+  {
+    id: "onderhoud-silvaction",
+    title: "Onderhoudsgids: Silvaction anti-mos behandeling",
+    slug: "onderhoudsgids-silvaction",
+    description:
+      "Silvaction verwijdert mos en korstmos van composiet planken. Zonder bleekmiddel, zonder naspoelen.",
+    bulletPoints: [
+      "Anti-mos behandeling zonder bleekmiddel",
+      "Geen naspoelen nodig",
+      "Test eerst op een klein oppervlak",
+      "Speciaal ontwikkeld door Silvadec",
+    ],
+    category: "onderhoud",
+    image: "https://en.silvadec.com/sites/default/files/2022-09/sinet1801_silvaction_recto_0.jpg",
+    relatedLinks: [
+      { label: "Vlonderplanken bekijken", href: "/categorie/vlonderplanken" },
+    ],
+    videoId: "yWfPy8XrW6c",
+  },
+
+  // ─── VIDEO'S ───────────────────────────────────────────────────────────
+  {
+    id: "video-vlonder-montage",
+    title: "Video: composiet vlonder monteren",
+    slug: "video-composiet-vlonder-montage",
+    description:
+      "Bekijk hoe een Silvadec composiet vlonder van A tot Z wordt geïnstalleerd. Van onderconstructie tot de laatste plank.",
+    bulletPoints: [
+      "Onderconstructie & paalafstanden",
+      "Clips plaatsen & planken leggen",
+      "Afwerking & randprofielen",
+      "Professionele tips & trucs",
+    ],
+    category: "video",
+    image: "https://www.silvadec.com/sites/default/files/styles/max_1300x1300/public/2024-11/terrasse-silvadec-bois-composite-atmosphere-lima-brun-ambiance-piscine.jpg",
+    relatedLinks: [
+      { label: "Vlonderplanken bekijken", href: "/categorie/vlonderplanken" },
+    ],
+    videoId: "6GFUeQrltcg",
+    relatedCategory: "vlonderplanken",
+  },
+  {
+    id: "video-schutting-montage",
+    title: "Video: composiet schutting monteren",
+    slug: "video-composiet-schutting-montage",
+    description:
+      "Stap-voor-stap videogids voor het plaatsen van een Silvadec composiet schutting. Van paalplaatsing tot de laatste plank.",
+    bulletPoints: [
+      "Voetplaten positioneren & verankeren",
+      "Palen plaatsen & uitlijnen",
+      "Planken stapelen in het kliksysteem",
+      "Afdekkapjes & afwerking monteren",
+    ],
+    category: "video",
+    image: "https://www.silvadec.com/sites/default/files/styles/max_1300x1300/public/2024-11/cloture-silvadec-bois-composite-atmosphere-gris-sauvage-ambiance.jpg",
+    relatedLinks: [
+      { label: "Schuttingen bekijken", href: "/categorie/schuttingen" },
+    ],
+    videoId: "0inyKplzsR8",
+    relatedCategory: "schuttingen",
+  },
+  {
+    id: "video-gevelbekleding-montage",
+    title: "Video: gevelbekleding monteren",
+    slug: "video-gevelbekleding-montage",
+    description:
+      "Professionele installatievideo voor Silvadec gevelbekleding. Leer de juiste technieken voor een duurzaam en strak resultaat.",
+    bulletPoints: [
+      "Onderconstructie & latwerk voorbereiden",
+      "Start- & eindprofielen plaatsen",
+      "Planken clippen & uitlijnen",
+      "Hoekafwerking & details",
+    ],
+    category: "video",
+    image: "https://www.silvadec.com/sites/default/files/styles/max_1300x1300/public/2024-12/bardage-silvadec-bois-composite-atmosphere-175-brun-solaire-ambiance.jpg",
+    relatedLinks: [
+      { label: "Gevelbekleding bekijken", href: "/categorie/gevelbekleding" },
+    ],
+    videoId: "ms27m-E86Ug",
+    relatedCategory: "gevelbekleding",
+  },
+
+  // ─── GIDSEN & CHECKLISTS (kept/updated) ────────────────────────────────
   {
     id: "checklist-schutting-plaatsen",
     title: "Checklist: composiet schutting plaatsen",
@@ -31,27 +304,28 @@ export const downloads: DownloadGuide[] = [
       "Veelgemaakte fouten vermijden",
     ],
     category: "checklist",
-    image: "https://images.unsplash.com/photo-1504148455328-c376907d081c?w=600&h=400&fit=crop",
+    image: "https://www.silvadec.com/sites/default/files/styles/max_1300x1300/public/2024-11/cloture-silvadec-bois-composite-atmosphere-brun-solaire-ambiance.jpg",
     relatedLinks: [
       { label: "Schuttingen bekijken", href: "/categorie/schuttingen" },
     ],
+    relatedCategory: "schuttingen",
   },
   {
-    id: "composiet-vs-hout",
-    title: "Vergelijking: composiet vs. houten schuttingen",
-    slug: "composiet-vs-hout",
+    id: "grondvoorbereiding",
+    title: "Checklist: grondvoorbereiding voor schuttingen & vlonders",
+    slug: "grondvoorbereiding",
     description:
-      "Eerlijke vergelijking op prijs, levensduur, onderhoud, uitstraling en duurzaamheid.",
+      "De juiste fundering begint bij de grond. Leer alles over grondtypen, drainage en funderingsopties.",
     bulletPoints: [
-      "Kostenvergelijking over 20 jaar",
-      "Onderhoud & levensduur naast elkaar",
-      "Milieu-impact & recyclebaarheid",
-      "Garantievoorwaarden vergeleken",
+      "Grondtypen herkennen & beoordelen",
+      "Drainage & waterafvoer aanleggen",
+      "Betonpoeren vs. paaltjes kiezen",
+      "Hellingen & vorstdiepte berekenen",
     ],
-    category: "vergelijking",
-    image: "https://images.unsplash.com/photo-1621155346337-1d19476ba7d6?w=600&h=400&fit=crop",
+    category: "checklist",
+    image: "https://www.silvadec.com/sites/default/files/styles/max_1300x1300/public/2024-11/terrasse-silvadec-bois-composite-atmosphere-sao-paulo-brun-ambiance.jpg",
     relatedLinks: [
-      { label: "Lees: Composiet vs. Hout", href: "/blog/composiet-vs-hout-vergelijking" },
+      { label: "Vlonderplanken bekijken", href: "/categorie/vlonderplanken" },
     ],
   },
   {
@@ -67,27 +341,9 @@ export const downloads: DownloadGuide[] = [
       "Handige links naar gemeentewebsites",
     ],
     category: "gids",
-    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=400&fit=crop",
+    image: "https://www.silvadec.com/sites/default/files/styles/max_1300x1300/public/2024-11/cloture-silvadec-bois-composite-atmosphere-gris-clair-ambiance.jpg",
     relatedLinks: [
       { label: "Contact voor advies", href: "/contact" },
-    ],
-  },
-  {
-    id: "grondvoorbereiding",
-    title: "Checklist: grondvoorbereiding voor schuttingen & vlonders",
-    slug: "grondvoorbereiding",
-    description:
-      "De juiste fundering begint bij de grond. Leer alles over grondtypen, drainage en funderingsopties.",
-    bulletPoints: [
-      "Grondtypen herkennen & beoordelen",
-      "Drainage & waterafvoer aanleggen",
-      "Betonpoeren vs. paaltjes kiezen",
-      "Hellingen & vorstdiepte berekenen",
-    ],
-    category: "checklist",
-    image: "https://images.unsplash.com/photo-1578496480157-697fc14d2e55?w=600&h=400&fit=crop",
-    relatedLinks: [
-      { label: "Vlonderplanken bekijken", href: "/categorie/vlonderplanken" },
     ],
   },
   {
@@ -103,27 +359,9 @@ export const downloads: DownloadGuide[] = [
       "Stijlgids: modern, landelijk & stoer",
     ],
     category: "gids",
-    image: "https://images.unsplash.com/photo-1525909002-1b05e0c869d8?w=600&h=400&fit=crop",
+    image: "https://www.silvadec.com/sites/default/files/styles/max_1300x1300/public/2024-11/terrasse-silvadec-bois-composite-nuances-ipe-ambiance.jpg",
     relatedLinks: [
       { label: "Bekijk alle kleuren", href: "/assortiment" },
-    ],
-  },
-  {
-    id: "onderhoudsgids",
-    title: "Onderhoudsgids: composiet jarenlang mooi houden",
-    slug: "onderhoudsgids",
-    description:
-      "Seizoensgebonden onderhoudskalender en tips om jouw composiet er jarenlang als nieuw uit te laten zien.",
-    bulletPoints: [
-      "Seizoensgebonden onderhoudsschema",
-      "Schoonmaakinstructies per vlektype",
-      "Wat je absoluut moet vermijden",
-      "Garantievoorwaarden behouden",
-    ],
-    category: "checklist",
-    image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&h=400&fit=crop",
-    relatedLinks: [
-      { label: "Bekijk producten", href: "/assortiment" },
     ],
   },
 ];
