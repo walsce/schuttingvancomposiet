@@ -59,7 +59,7 @@ const DownloadsPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="Documentatie & handleidingen | SchuttingenvanComposiet.nl"
+        title="Documentatie & handleidingen | SchuttingvanComposiet.nl"
         description="Download gratis montagehandleidingen, bekijk installatievideo's en lees onderhoudsgidsen voor composiet schuttingen, vlonders en gevelbekleding."
         canonical="/downloads"
       />

@@ -323,7 +323,7 @@ const documents: BrandedDoc[] = [
 // This avoids needing jsPDF in Deno and keeps the function lightweight.
 
 function buildPdf(doc: BrandedDoc): Uint8Array {
-  const brandName = "SchuttingenvanComposiet.nl";
+  const brandName = "SchuttingvanComposiet.nl";
   const accentHex = "#D97706"; // amber-600
   const lines: string[] = [];
   let yPos = 750; // Start position (A4 = 595 x 842 points)
@@ -489,7 +489,7 @@ function buildPdf(doc: BrandedDoc): Uint8Array {
   // Footer
   checkSpace(30);
   currentPageContent += `0.7 0.7 0.7 rg\\n${leftMargin} 40 ${pageWidth} 0.5 re f\\n`;
-  currentPageContent += `BT /F1 8 Tf 0.5 0.5 0.5 rg ${leftMargin} 28 Td (${escapePdf(brandName + " | www.schuttingenvancomposiet.nl | info@schuttingenvancomposiet.nl")}) Tj ET\\n`;
+  currentPageContent += `BT /F1 8 Tf 0.5 0.5 0.5 rg ${leftMargin} 28 Td (${escapePdf(brandName + " | www.schuttingvancomposiet.nl | info@schuttingvancomposiet.nl")}) Tj ET\\n`;
 
   // Finalize last page
   newPage();

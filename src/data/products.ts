@@ -74,7 +74,7 @@ export const products: Product[] = [
     productType: 'plank',
     description: 'Elegante witte gevelbekleding met ceruse-afwerking. De Atmosphere 175 combineert een lichte, frisse uitstraling met de duurzaamheid van co-extrusie composiet.',
     seoTitle: 'Atmosphere 175 Wit Ceruse | Composiet Gevelbekleding',
-    seoDescription: 'Witte composiet gevelbekleding Atmosphere 175 Ceruse. Co-extrusie beschermlaag, geborsteld, 25 jaar garantie. Bestel bij SchuttingenvanComposiet.nl.',
+    seoDescription: 'Witte composiet gevelbekleding Atmosphere 175 Ceruse. Co-extrusie beschermlaag, geborsteld, 25 jaar garantie. Bestel bij SchuttingvanComposiet.nl.',
     longDescription: `## Atmosphere 175 Wit Ceruse Gevelbekleding
 
 Geef uw woning een frisse, eigentijdse uitstraling met de Atmosphere 175 in Wit Ceruse. Deze composiet gevelbekleding combineert de warme textuur van geborsteld hout met de duurzaamheid van co-extrusie technologie.
@@ -132,7 +132,7 @@ De Atmosphere 175 planken zijn eenvoudig te monteren op een aluminium of houten 
     productType: 'plank',
     description: 'Warme bruine gevelbekleding met zonverbrande houtlook. De Atmosphere 175 Zonnig Bruin biedt een natuurlijke, mediterrane uitstraling.',
     seoTitle: 'Atmosphere 175 Zonnig Bruin | Composiet Gevelbekleding',
-    seoDescription: 'Composiet gevelbekleding Atmosphere 175 Zonnig Bruin. Warme houtlook, co-extrusie, 25 jaar garantie. Bestel bij SchuttingenvanComposiet.nl.',
+    seoDescription: 'Composiet gevelbekleding Atmosphere 175 Zonnig Bruin. Warme houtlook, co-extrusie, 25 jaar garantie. Bestel bij SchuttingvanComposiet.nl.',
     longDescription: `## Atmosphere 175 Zonnig Bruin
 
 Breng de warmte van het zuiden naar uw gevel met de Atmosphere 175 in Zonnig Bruin. Deze composiet gevelbekleding heeft een prachtige, warme bruine tint die doet denken aan zongebleekt hout.
@@ -179,7 +179,7 @@ De brede plank van 175 mm zorgt voor een eigentijds gevelbeeld. Met een lengte v
     productType: 'plank',
     description: 'Diepe, rijke bruine gevelbekleding met de luxe uitstraling van tropisch hardhout. De Atmosphere 175 Donker Bruin is tijdloos en elegant.',
     seoTitle: 'Atmosphere 175 Donker Bruin | Composiet Gevelbekleding',
-    seoDescription: 'Composiet gevelbekleding Atmosphere 175 Donker Bruin. Luxe houtlook, co-extrusie, 25 jaar garantie. Bestel bij SchuttingenvanComposiet.nl.',
+    seoDescription: 'Composiet gevelbekleding Atmosphere 175 Donker Bruin. Luxe houtlook, co-extrusie, 25 jaar garantie. Bestel bij SchuttingvanComposiet.nl.',
     longDescription: `## Atmosphere 175 Donker Bruin
 
 De Atmosphere 175 Donker Bruin biedt de rijke, diepe kleur van tropisch hardhout zonder het onderhoud. Deze gevelbekleding geeft uw woning een tijdloze, luxueuze uitstraling.
@@ -220,7 +220,7 @@ Dankzij de co-extrusie technologie hoeft u nooit meer te schilderen of te beitse
     productType: 'profiel',
     description: 'Open rhombus gevelbekleding in licht bruin. Het open profiel zorgt voor natuurlijke ventilatie en een speels licht-schaduwspel op de gevel.',
     seoTitle: 'Open Rhombus Licht Bruin | Composiet Gevelbekleding',
-    seoDescription: 'Open Rhombus gevelbekleding Licht Bruin. Open profiel, co-extrusie, 25 jaar garantie. Bestel bij SchuttingenvanComposiet.nl.',
+    seoDescription: 'Open Rhombus gevelbekleding Licht Bruin. Open profiel, co-extrusie, 25 jaar garantie. Bestel bij SchuttingvanComposiet.nl.',
     longDescription: `## Open Rhombus Licht Bruin
 
 De Open Rhombus gevelbekleding in Licht Bruin creëert een uniek gevelbeeld met een dynamisch licht-schaduwspel. Het open profiel zorgt voor natuurlijke ventilatie achter de planken.
@@ -263,7 +263,7 @@ De lichtbruine kleur past bij vrijwel elke bouwstijl en omgeving. Van moderne ni
     productType: 'profiel',
     description: 'Open rhombus gevelbekleding in donker bruin. De diepe kleur combineert prachtig met het open profiel voor een krachtige, moderne gevel.',
     seoTitle: 'Open Rhombus Donker Bruin | Composiet Gevelbekleding',
-    seoDescription: 'Open Rhombus gevelbekleding Donker Bruin. Open profiel, co-extrusie, 25 jaar garantie. Bestel bij SchuttingenvanComposiet.nl.',
+    seoDescription: 'Open Rhombus gevelbekleding Donker Bruin. Open profiel, co-extrusie, 25 jaar garantie. Bestel bij SchuttingvanComposiet.nl.',
     longDescription: `## Open Rhombus Donker Bruin
 
 De donkerbruine variant van de Open Rhombus gevelbekleding biedt een krachtige, luxueuze geveloplossing. Het contrast tussen de donkere planken en de lichtinval door de openingen creëert een bijzonder architectonisch effect.
@@ -303,7 +303,7 @@ Het open profiel zorgt voor natuurlijke achterventilatie, wat condensvorming voo
     productType: 'profiel',
     description: 'Open rhombus gevelbekleding in antraciet grijs. De populairste kleur voor moderne architectuur, gecombineerd met het kenmerkende open profiel.',
     seoTitle: 'Open Rhombus Antraciet Grijs | Composiet Gevelbekleding',
-    seoDescription: 'Open Rhombus gevelbekleding Antraciet Grijs. Open profiel, co-extrusie, 25 jaar garantie. Bestel bij SchuttingenvanComposiet.nl.',
+    seoDescription: 'Open Rhombus gevelbekleding Antraciet Grijs. Open profiel, co-extrusie, 25 jaar garantie. Bestel bij SchuttingvanComposiet.nl.',
     longDescription: `## Open Rhombus Antraciet Grijs
 
 De antraciet grijze variant van de Open Rhombus is de populairste keuze voor moderne architectuur. De strakke grijze tint in combinatie met het open profiel geeft een eigentijds, architectonisch gevelbeeld.
@@ -345,7 +345,7 @@ Net als alle composiet producten is deze gevelbekleding voorzien van een co-extr
     productType: 'plank',
     description: 'Composiet schuttingplank in antraciet grijs met dubbelzijdige afwerking: één gladde en één gestructureerde zijde. De populairste kleur voor moderne tuinen.',
     seoTitle: 'Schutting Antraciet Grijs | Composiet Schuttingplank',
-    seoDescription: 'Atmosphere composiet schuttingplank Antraciet Grijs. Dubbelzijdig, co-extrusie, 25 jaar garantie. Bestel bij SchuttingenvanComposiet.nl.',
+    seoDescription: 'Atmosphere composiet schuttingplank Antraciet Grijs. Dubbelzijdig, co-extrusie, 25 jaar garantie. Bestel bij SchuttingvanComposiet.nl.',
     longDescription: `## Atmosphere Schutting Antraciet Grijs
 
 De Atmosphere schuttingplank in Antraciet Grijs is de meest gekozen kleur voor moderne tuinafscheidingen. Dankzij de dubbelzijdige afwerking — één gladde zijde en één gestructureerde zijde — kunt u zelf kiezen welke kant u naar buiten richt.
@@ -402,7 +402,7 @@ De planken schuiven eenvoudig in de aluminium paalprofielen. Geen schroeven, gee
     productType: 'plank',
     description: 'Composiet schuttingplank in licht grijs. Een lichte, frisse kleur die de tuin optisch vergroot en mooi combineert met groen.',
     seoTitle: 'Schutting Licht Grijs | Composiet Schuttingplank',
-    seoDescription: 'Atmosphere composiet schuttingplank Licht Grijs. Dubbelzijdig, co-extrusie, 25 jaar garantie. Bestel bij SchuttingenvanComposiet.nl.',
+    seoDescription: 'Atmosphere composiet schuttingplank Licht Grijs. Dubbelzijdig, co-extrusie, 25 jaar garantie. Bestel bij SchuttingvanComposiet.nl.',
     longDescription: `## Atmosphere Schutting Licht Grijs
 
 De lichtgrijze variant van de Atmosphere schuttingplank biedt een frisse, moderne uitstraling. De lichte kleur maakt de tuin optisch groter en combineert prachtig met groen en bloemen.
@@ -441,7 +441,7 @@ Net als alle Atmosphere schuttingplanken heeft deze plank twee afwerkingen: glad
     productType: 'plank',
     description: 'Composiet schuttingplank in wild grijs met een expressieve, natuurlijke houtnerf. Een gewaagde keuze voor tuinen met karakter.',
     seoTitle: 'Schutting Wild Grijs | Composiet Schuttingplank',
-    seoDescription: 'Atmosphere composiet schuttingplank Wild Grijs. Expressieve houtnerf, co-extrusie, 25 jaar garantie. Bestel bij SchuttingenvanComposiet.nl.',
+    seoDescription: 'Atmosphere composiet schuttingplank Wild Grijs. Expressieve houtnerf, co-extrusie, 25 jaar garantie. Bestel bij SchuttingvanComposiet.nl.',
     longDescription: `## Atmosphere Schutting Wild Grijs
 
 De Wild Grijs variant is de nieuwste toevoeging aan het schuttingassortiment. Met een expressieve, natuurlijke houtnerf en een levendige grijze tint is deze plank perfect voor tuinen met karakter.
@@ -480,7 +480,7 @@ Eén zijde heeft een gegroefde afwerking, de andere een gladde. Combineer naar w
     productType: 'plank',
     description: 'Composiet schuttingplank in zonnig bruin. Een warme, mediterrane kleur die sfeer brengt in elke tuin.',
     seoTitle: 'Schutting Zonnig Bruin | Composiet Schuttingplank',
-    seoDescription: 'Atmosphere composiet schuttingplank Zonnig Bruin. Warme houtlook, co-extrusie, 25 jaar garantie. Bestel bij SchuttingenvanComposiet.nl.',
+    seoDescription: 'Atmosphere composiet schuttingplank Zonnig Bruin. Warme houtlook, co-extrusie, 25 jaar garantie. Bestel bij SchuttingvanComposiet.nl.',
     longDescription: `## Atmosphere Schutting Zonnig Bruin
 
 Breng warmte en sfeer in uw tuin met de Atmosphere schuttingplank in Zonnig Bruin. Deze warme, zongebruinde tint past perfect bij groene tuinen en houten elementen.
@@ -519,7 +519,7 @@ Dankzij de co-extrusie beschermlaag behoudt de warme bruintint jarenlang zijn in
     productType: 'plank',
     description: 'Composiet schuttingplank in licht eiken met geborstelde afwerking. De authentieke eikenlook brengt warmte en karakter in uw tuin.',
     seoTitle: 'Schutting Licht Eiken | Composiet Schuttingplank',
-    seoDescription: 'Atmosphere composiet schuttingplank Licht Eiken. Geborsteld, co-extrusie, 25 jaar garantie. Bestel bij SchuttingenvanComposiet.nl.',
+    seoDescription: 'Atmosphere composiet schuttingplank Licht Eiken. Geborsteld, co-extrusie, 25 jaar garantie. Bestel bij SchuttingvanComposiet.nl.',
     longDescription: `## Atmosphere Schutting Licht Eiken
 
 De nieuwste toevoeging aan het schuttingassortiment: Licht Eiken met een prachtige geborstelde afwerking. Deze plank biedt de authentieke look van eikenhout zonder enig onderhoud.
@@ -559,7 +559,7 @@ Deze plank maakt gebruik van de nieuwste Nuances-technologie, die subtiele kleur
     productType: 'paneel',
     description: 'Aluminium schuttingplank in antraciet grijs (RAL 7016). Ultrastrak, modern en 100% onderhoudsvrij. De ultieme keuze voor een minimalistisch tuinontwerp.',
     seoTitle: 'Aluminium Schutting Antraciet Grijs | RAL 7016',
-    seoDescription: 'Aluminium schuttingplank Antraciet Grijs RAL 7016. Ultrastrak, modern, onderhoudsvrij. Bestel bij SchuttingenvanComposiet.nl.',
+    seoDescription: 'Aluminium schuttingplank Antraciet Grijs RAL 7016. Ultrastrak, modern, onderhoudsvrij. Bestel bij SchuttingvanComposiet.nl.',
     longDescription: `## Aluminium Schutting Antraciet Grijs
 
 De aluminium schutting in Antraciet Grijs (RAL 7016 mat) biedt de ultieme minimalistische tuinafscheiding. Aluminium is lichter dan composiet, roestvrij en volledig recycleerbaar.
@@ -603,7 +603,7 @@ Het geschuurde aluminium oppervlak geeft een perfecte, egale kleur zonder nerf o
     productType: 'paneel',
     description: 'Aluminium schuttingplank in metaal grijs (RAL 7042). Een lichtere grijstint dan antraciet, voor een industriële maar warme uitstraling.',
     seoTitle: 'Aluminium Schutting Metaal Grijs | RAL 7042',
-    seoDescription: 'Aluminium schuttingplank Metaal Grijs RAL 7042. Modern, licht, onderhoudsvrij. Bestel bij SchuttingenvanComposiet.nl.',
+    seoDescription: 'Aluminium schuttingplank Metaal Grijs RAL 7042. Modern, licht, onderhoudsvrij. Bestel bij SchuttingvanComposiet.nl.',
     longDescription: `## Aluminium Schutting Metaal Grijs
 
 De Metaal Grijs variant (RAL 7042 mat) biedt een lichter alternatief voor het populaire antraciet grijs. De warme metaaltint geeft een industriële maar uitnodigende sfeer.
@@ -638,7 +638,7 @@ Metaal Grijs is perfect voor wie de strakke uitstraling van aluminium wil maar e
     productType: 'paneel',
     description: 'Aluminium schuttingplank in diepzwart (RAL 2100). Een krachtige, elegante keuze voor een statement in uw tuin.',
     seoTitle: 'Aluminium Schutting Zwart | RAL 2100',
-    seoDescription: 'Aluminium schuttingplank Zwart RAL 2100. Krachtig, elegant, onderhoudsvrij. Bestel bij SchuttingenvanComposiet.nl.',
+    seoDescription: 'Aluminium schuttingplank Zwart RAL 2100. Krachtig, elegant, onderhoudsvrij. Bestel bij SchuttingvanComposiet.nl.',
     longDescription: `## Aluminium Schutting Zwart
 
 De zwarte aluminium schutting (RAL 2100 mat) maakt een krachtig statement in elke tuin. Het diepe zwart combineert luxe met minimalisme.
@@ -679,7 +679,7 @@ Net als alle aluminium schuttingen is deze plank licht, sterk, roestvrij en voll
     productType: 'plank',
     description: 'De Nuances Ipé vlonderplank biedt de exclusieve uitstraling van tropisch ipé hout met de voordelen van co-extrusie composiet. Subtiele kleurvariaties per plank voor een authentiek houteffect.',
     seoTitle: 'Nuances Ipé Vlonderplank | Composiet Terrasplank',
-    seoDescription: 'Nuances Ipé composiet vlonderplank. Exclusieve houtlook, co-extrusie, 25 jaar garantie. Bestel bij SchuttingenvanComposiet.nl.',
+    seoDescription: 'Nuances Ipé composiet vlonderplank. Exclusieve houtlook, co-extrusie, 25 jaar garantie. Bestel bij SchuttingvanComposiet.nl.',
     longDescription: `## Nuances Ipé Vlonderplank
 
 De Nuances Ipé is het vlaggenschip van het vlonderassortiment. Met de revolutionaire Nuances-technologie biedt deze plank subtiele kleurvariaties die de natuurlijke schoonheid van tropisch ipé hout nabootsen.
@@ -733,7 +733,7 @@ De plank is 138 mm breed en 23 mm dik — een stevig, massief profiel dat de deg
     productType: 'plank',
     description: 'De Nuances Licht Eiken vlonderplank brengt de warme, natuurlijke uitstraling van eikenhout naar uw terras. Met subtiele kleurvariaties dankzij de Nuances-technologie.',
     seoTitle: 'Nuances Licht Eiken Vlonderplank | Composiet Terrasplank',
-    seoDescription: 'Nuances Licht Eiken composiet vlonderplank. Authentieke eikenlook, co-extrusie, 25 jaar garantie. Bestel bij SchuttingenvanComposiet.nl.',
+    seoDescription: 'Nuances Licht Eiken composiet vlonderplank. Authentieke eikenlook, co-extrusie, 25 jaar garantie. Bestel bij SchuttingvanComposiet.nl.',
     longDescription: `## Nuances Licht Eiken Vlonderplank
 
 De Nuances Licht Eiken biedt de warme, veelzijdige uitstraling van eikenhout in een onderhoudsvrij composiet formaat. De Nuances-technologie zorgt voor subtiele kleurvariaties per plank.
@@ -773,7 +773,7 @@ Elke plank heeft subtiele kleurverschillen die een natuurlijk, authentiek houtbe
     productType: 'plank',
     description: 'De Atmosphere Ushuaia Grijs vlonderplank biedt een markante, diepgrijze tint met geborstelde afwerking. De donkerste grijstint in het Atmosphere assortiment.',
     seoTitle: 'Atmosphere Ushuaia Grijs | Composiet Vlonderplank',
-    seoDescription: 'Atmosphere Ushuaia Grijs composiet vlonderplank. Diepgrijs, co-extrusie, 25 jaar garantie. Bestel bij SchuttingenvanComposiet.nl.',
+    seoDescription: 'Atmosphere Ushuaia Grijs composiet vlonderplank. Diepgrijs, co-extrusie, 25 jaar garantie. Bestel bij SchuttingvanComposiet.nl.',
     longDescription: `## Atmosphere Ushuaia Grijs Vlonderplank
 
 De Ushuaia Grijs is de meest markante grijstint in het Atmosphere assortiment. Deze diepgrijze vlonderplank met geborstelde afwerking geeft uw terras een krachtige, eigentijdse uitstraling.
@@ -813,7 +813,7 @@ Elke Atmosphere plank is voorzien van de co-extrusie beschermlaag voor maximale 
     productType: 'plank',
     description: 'De Atmosphere Cayenne Grijs vlonderplank heeft een donkere, warme grijstint. Trendy en eigentijds.',
     seoTitle: 'Atmosphere Cayenne Grijs | Composiet Vlonderplank',
-    seoDescription: 'Atmosphere Cayenne Grijs composiet vlonderplank. Donkergrijs, co-extrusie, 25 jaar garantie. Bestel bij SchuttingenvanComposiet.nl.',
+    seoDescription: 'Atmosphere Cayenne Grijs composiet vlonderplank. Donkergrijs, co-extrusie, 25 jaar garantie. Bestel bij SchuttingvanComposiet.nl.',
     longDescription: `## Atmosphere Cayenne Grijs Vlonderplank
 
 Cayenne Grijs is een donkere, warme grijstint die uw terras een trendy, eigentijdse uitstraling geeft. Deze vlonderplank uit het Atmosphere assortiment combineert een moderne kleur met de beproefde co-extrusie technologie.
@@ -849,7 +849,7 @@ De donkergrijze tint met warme ondertoon is een van de meest gevraagde kleuren v
     productType: 'plank',
     description: 'De Atmosphere Belem Grijs vlonderplank is de lichtste grijstint in het assortiment. Fris, licht en ruimtelijk.',
     seoTitle: 'Atmosphere Belem Grijs | Composiet Vlonderplank',
-    seoDescription: 'Atmosphere Belem Grijs composiet vlonderplank. Lichtgrijs, co-extrusie, 25 jaar garantie. Bestel bij SchuttingenvanComposiet.nl.',
+    seoDescription: 'Atmosphere Belem Grijs composiet vlonderplank. Lichtgrijs, co-extrusie, 25 jaar garantie. Bestel bij SchuttingvanComposiet.nl.',
     longDescription: `## Atmosphere Belem Grijs Vlonderplank
 
 Belem Grijs is de lichtste grijstint in het Atmosphere assortiment. Deze frisse, lichte vlonderplank maakt uw terras optisch groter en lichter.
@@ -889,7 +889,7 @@ Lichte kleuren absorberen minder warmte dan donkere kleuren. Belem Grijs is daar
     productType: 'plank',
     description: 'De Atmosphere Lima Bruin vlonderplank heeft een rijke, donkerbruine tint. Warm, luxueus en tijdloos.',
     seoTitle: 'Atmosphere Lima Bruin | Composiet Vlonderplank',
-    seoDescription: 'Atmosphere Lima Bruin composiet vlonderplank. Donkerbruin, co-extrusie, 25 jaar garantie. Bestel bij SchuttingenvanComposiet.nl.',
+    seoDescription: 'Atmosphere Lima Bruin composiet vlonderplank. Donkerbruin, co-extrusie, 25 jaar garantie. Bestel bij SchuttingvanComposiet.nl.',
     longDescription: `## Atmosphere Lima Bruin Vlonderplank
 
 Lima Bruin is een rijke, donkerbruine tint die uw terras de luxueuze uitstraling van tropisch hardhout geeft. Deze Atmosphere vlonderplank combineert warmte en elegantie.
@@ -925,7 +925,7 @@ De donkerbruine kleur met geborstelde afwerking is nauwelijks te onderscheiden v
     productType: 'plank',
     description: 'De Atmosphere Sao Paulo Bruin vlonderplank heeft een middeldiepe bruine tint. Veelzijdig en warm.',
     seoTitle: 'Atmosphere Sao Paulo Bruin | Composiet Vlonderplank',
-    seoDescription: 'Atmosphere Sao Paulo Bruin composiet vlonderplank. Middenbruin, co-extrusie, 25 jaar garantie. Bestel bij SchuttingenvanComposiet.nl.',
+    seoDescription: 'Atmosphere Sao Paulo Bruin composiet vlonderplank. Middenbruin, co-extrusie, 25 jaar garantie. Bestel bij SchuttingvanComposiet.nl.',
     longDescription: `## Atmosphere Sao Paulo Bruin Vlonderplank
 
 Sao Paulo Bruin is een veelzijdige, middeldiepe bruine tint. Deze Atmosphere vlonderplank past bij vrijwel elke tuin en bouwstijl.
@@ -961,7 +961,7 @@ Niet te licht, niet te donker — Sao Paulo Bruin is de gouden middenweg voor wi
     productType: 'plank',
     description: 'De Atmosphere Rio Bruin vlonderplank heeft een warme, goudbruine tint. De lichtste bruintint in het Atmosphere assortiment.',
     seoTitle: 'Atmosphere Rio Bruin | Composiet Vlonderplank',
-    seoDescription: 'Atmosphere Rio Bruin composiet vlonderplank. Goudbruin, co-extrusie, 25 jaar garantie. Bestel bij SchuttingenvanComposiet.nl.',
+    seoDescription: 'Atmosphere Rio Bruin composiet vlonderplank. Goudbruin, co-extrusie, 25 jaar garantie. Bestel bij SchuttingvanComposiet.nl.',
     longDescription: `## Atmosphere Rio Bruin Vlonderplank
 
 Rio Bruin is de nieuwste bruine tint in het Atmosphere assortiment. Een warme, goudbruine kleur die doet denken aan zonbeschenen hout.
@@ -997,7 +997,7 @@ De levendige goudbruine tint voegt warmte en sfeer toe aan elk buitenproject. Pe
     productType: 'plank',
     description: 'De Elegance Colorado Bruin vlonderplank met gegroefde afwerking. Een bewezen klassiek design met uitstekende antislip-eigenschappen.',
     seoTitle: 'Elegance Colorado Bruin Gegroefde | Composiet Vlonderplank',
-    seoDescription: 'Elegance Colorado Bruin composiet vlonderplank, gegroefde afwerking. Antislip, 15 jaar garantie. Bestel bij SchuttingenvanComposiet.nl.',
+    seoDescription: 'Elegance Colorado Bruin composiet vlonderplank, gegroefde afwerking. Antislip, 15 jaar garantie. Bestel bij SchuttingvanComposiet.nl.',
     longDescription: `## Elegance Colorado Bruin Vlonderplank (Gegroefde)
 
 De Elegance Colorado Bruin met gegroefde afwerking is een klassiek terrasplankontwerp met uitstekende antislip-eigenschappen. De groeven in de plank bieden extra grip, vooral wanneer het oppervlak nat is.
@@ -1038,7 +1038,7 @@ De gegroefde afwerking biedt optimale grip, ook op natte oppervlakken. Ideaal vo
     productType: 'plank',
     description: 'De Elegance Iroise Grijs vlonderplank met gegroefde afwerking. Lichtgrijs, fris en ruimtelijk met antislip-eigenschappen.',
     seoTitle: 'Elegance Iroise Grijs Gegroefde | Composiet Vlonderplank',
-    seoDescription: 'Elegance Iroise Grijs composiet vlonderplank, gegroefde afwerking. Antislip, 15 jaar garantie. Bestel bij SchuttingenvanComposiet.nl.',
+    seoDescription: 'Elegance Iroise Grijs composiet vlonderplank, gegroefde afwerking. Antislip, 15 jaar garantie. Bestel bij SchuttingvanComposiet.nl.',
     longDescription: `## Elegance Iroise Grijs Vlonderplank (Gegroefde)
 
 Iroise Grijs is een lichte, frisse grijstint uit de Elegance lijn. De gegroefde afwerking biedt uitstekende grip en een klassiek terrasdesign.
@@ -1074,7 +1074,7 @@ De lichte grijstint maakt uw terras optisch groter en absorbeert minder warmte d
     productType: 'plank',
     description: 'De Emotion Savanne Bruin vlonderplank biedt een glad, strak oppervlak tegen een aantrekkelijke prijs. Ideaal als instapmodel.',
     seoTitle: 'Emotion Savanne Bruin | Composiet Vlonderplank',
-    seoDescription: 'Emotion Savanne Bruin composiet vlonderplank. Glad, budget-vriendelijk, 15 jaar garantie. Bestel bij SchuttingenvanComposiet.nl.',
+    seoDescription: 'Emotion Savanne Bruin composiet vlonderplank. Glad, budget-vriendelijk, 15 jaar garantie. Bestel bij SchuttingvanComposiet.nl.',
     longDescription: `## Emotion Savanne Bruin Vlonderplank
 
 De Emotion Savanne Bruin is het instapmodel in het vlonderassortiment. Met een glad oppervlak en een aantrekkelijke prijs biedt deze plank composiet kwaliteit voor elk budget.
@@ -1114,7 +1114,7 @@ De Emotion lijn biedt betrouwbare kwaliteit tegen een lagere prijs dan de Atmosp
     productType: 'plank',
     description: 'De Emotion Equateur Bruin vlonderplank heeft een donkere, warme bruine tint met glad oppervlak. Een aantrekkelijk instapmodel.',
     seoTitle: 'Emotion Equateur Bruin | Composiet Vlonderplank',
-    seoDescription: 'Emotion Equateur Bruin composiet vlonderplank. Donkerbruin, glad, budget-vriendelijk. Bestel bij SchuttingenvanComposiet.nl.',
+    seoDescription: 'Emotion Equateur Bruin composiet vlonderplank. Donkerbruin, glad, budget-vriendelijk. Bestel bij SchuttingvanComposiet.nl.',
     longDescription: `## Emotion Equateur Bruin Vlonderplank
 
 De Equateur Bruin is de donkere variant in de Emotion lijn. Een rijke, warme bruine tint met glad oppervlak die uw terras een luxe uitstraling geeft tegen een aantrekkelijke prijs.
@@ -1144,7 +1144,7 @@ export const categories = [
     image: 'https://cdn.silvadec.com/media/cache/product_image_full/uploads/product/Blanc_ceruse_1.jpg',
     slug: 'gevelbekleding',
     productCount: products.filter(p => p.category === 'gevelbekleding').length,
-    seoTitle: 'Composiet Gevelbekleding | SchuttingenvanComposiet.nl',
+    seoTitle: 'Composiet Gevelbekleding | SchuttingvanComposiet.nl',
     seoDescription: 'Ontdek ons assortiment composiet gevelbekleding. Atmosphere 175 en Open Rhombus profielen. Co-extrusie, 25 jaar garantie.',
     faq: [
       { question: 'Wat is het verschil tussen Atmosphere 175 en Open Rhombus?', answer: 'Atmosphere 175 is een brede, gesloten gevelplank. Open Rhombus heeft een smal, open profiel dat een licht-schaduwspel creëert.' },
@@ -1158,7 +1158,7 @@ export const categories = [
     image: 'https://cdn.silvadec.com/media/cache/product_image_full/uploads/product/silvadec_aluminium_C0039.png',
     slug: 'schuttingen',
     productCount: products.filter(p => p.category === 'schuttingen').length,
-    seoTitle: 'Composiet Schuttingen | SchuttingenvanComposiet.nl',
+    seoTitle: 'Composiet Schuttingen | SchuttingvanComposiet.nl',
     seoDescription: 'Ontdek ons assortiment composiet en aluminium schuttingplanken. Dubbelzijdig, co-extrusie, 25 jaar garantie.',
     faq: [
       { question: 'Wat is het verschil tussen composiet en aluminium schuttingen?', answer: 'Composiet schuttingen hebben een natuurlijke houtlook. Aluminium schuttingen zijn strakker en moderner. Beide zijn onderhoudsvrij.' },
@@ -1172,7 +1172,7 @@ export const categories = [
     image: 'https://cdn.silvadec.com/media/cache/product_image_full/uploads/product/Silvadec_atmosphere_nuances_ipe.jpg',
     slug: 'vlonderplanken',
     productCount: products.filter(p => p.category === 'vlonderplanken').length,
-    seoTitle: 'Composiet Vlonderplanken | SchuttingenvanComposiet.nl',
+    seoTitle: 'Composiet Vlonderplanken | SchuttingvanComposiet.nl',
     seoDescription: 'Ontdek ons assortiment composiet vlonderplanken. Nuances, Atmosphere, Elegance en Emotion lijnen. Tot 25 jaar garantie.',
     faq: [
       { question: 'Welke lijn past bij mij?', answer: 'Nuances en Atmosphere (co-extrusie) bieden de beste kleurvastheid en vlekbestendigheid. Elegance en Emotion (mono-extrusie) zijn budget-vriendelijker.' },
