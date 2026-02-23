@@ -239,8 +239,10 @@ Alle kleuren zijn doorlopend door het materiaal — krassen zijn daardoor nauwel
     { label: "Composiet schutting nadelen", href: "/composiet-schutting-nadelen" },
     { label: "Composiet schutting prijs per meter", href: "/composiet-schutting-prijs-per-meter" },
     { label: "Composiet vs hout", href: "/composiet-vs-hout-schutting" },
+    { label: "Composiet schutting met beton", href: "/composiet-schutting-met-beton" },
     { label: "Zwarte composiet schutting", href: "/zwarte-composiet-schutting" },
     { label: "Antraciet composiet schutting", href: "/antraciet-composiet-schutting" },
+    { label: "Elephant schutting vergelijking", href: "/elephant-schutting" },
     { label: "Bekijk ons assortiment", href: "/categorie/schuttingen" },
     { label: "Gratis offerte aanvragen", href: "/contact" },
     { label: "Schutting planner", href: "/schutting-planner" },
@@ -731,6 +733,119 @@ Bestel een [gratis sample](/contact?type=sample) om de exacte kleurtint thuis te
       { label: "Gratis offerte aanvragen", href: "/contact" },
     ],
   },
+  {
+    slug: "composiet-schutting-met-beton",
+    type: "cluster",
+    parentSlug: "schutting-van-composiet",
+    title: "Composiet schutting met beton: fundament, plaatsing en kosten",
+    metaTitle: "Composiet Schutting Met Beton | Fundament & Kosten",
+    metaDescription: "Composiet schutting op beton plaatsen? Alles over betonpoeren, betonplaten en fundering. Kosten, montage en praktische tips.",
+    author: defaultAuthor,
+    publishDate: "2025-12-05",
+    updatedDate: "2026-02-20",
+    readingTime: "7 min",
+    schemaTypes: ["Article", "FAQPage", "HowTo"],
+    intro: `Een **composiet schutting met beton** als fundament is de meest stabiele oplossing voor een langdurige erfafscheiding. Of je kiest voor betonpoeren, een betonnen onderplaat of een volle betonplaat — de juiste fundering bepaalt hoe lang je schutting er strak en stabiel bij staat. In dit artikel bespreken we alle opties, kosten en geven we een stapsgewijze montagehandleiding.`,
+    sections: [
+      {
+        heading: "Soorten betonfunderingen voor een composiet schutting",
+        content: `Er zijn drie veelgebruikte methoden om een composiet schutting op beton te plaatsen:
+
+**1. Betonpoeren (meest gebruikt)**
+Prefab betonblokken waarin de paal wordt geplaatst. Snel, betaalbaar en geschikt voor de meeste situaties.
+- Kosten: €12-€25 per poer
+- Voordeel: eenvoudig te plaatsen, geen graven nodig bij grondankers
+- Nadeel: minder stabiel op zeer losse grond
+
+**2. Betonplaat als onderbouw**
+Een doorlopende betonplaat (30 cm hoog) onderaan de schutting. Populair bij houten schuttingen, ook toepasbaar bij composiet.
+- Kosten: €18-€35 per strekkende meter
+- Voordeel: beschermt de onderkant, geeft extra hoogte
+- Nadeel: zware betonuitstraling aan de onderkant
+
+**3. Stortbeton rondom palen**
+De aluminium palen worden in gegoten beton gefundeerd. De sterkste methode.
+- Kosten: €20-€40 per paal (inclusief beton)
+- Voordeel: maximale stabiliteit, ideaal voor windgevoelige locaties
+- Nadeel: permanente plaatsing, moeilijk te verwijderen
+
+Onze aanbeveling: **betonpoeren** bieden de beste balans tussen kosten, stabiliteit en eenvoud. Lees ook onze [complete gids over composiet schuttingen](/schutting-van-composiet) voor meer montage-informatie.`,
+      },
+      {
+        heading: "Montage: composiet schutting op beton plaatsen",
+        content: `### Stap 1: Uitzetten en markeren
+
+Zet de lijn van je schutting uit met een spanlijn en piketpaaltjes. Markeer de posities van de palen (maximaal 180 cm hart-op-hart). Controleer de erfgrens.
+
+### Stap 2: Betonpoeren plaatsen
+
+Graaf een gat van circa 40 cm diep per poer-locatie. Plaats de betonpoer waterpas en vul rondom aan met zand of grind. Bij stortbeton: graaf 60 cm diep en giet beton rondom de paalhouder.
+
+### Stap 3: Palen monteren
+
+Plaats de aluminium palen in de betonpoeren of paalhouders. Controleer met een waterpas of elke paal perfect verticaal staat. Gebruik kilen om bij te stellen voordat het beton is uitgehard.
+
+### Stap 4: Composiet planken plaatsen
+
+Schuif de planken van onderaf in de profielen van de palen. Werk van onder naar boven. Houd 5 mm expansieruimte aan weerszijden.
+
+### Stap 5: Afwerking
+
+Monteer afdekkapjes op de palen en eventuele eindprofielen. Controleer het geheel op waterpas en stabiliteit.
+
+**Tijdsindicatie**: met twee personen circa 1,5 dag voor 10 strekkende meter.
+**Uithardtijd beton**: minimaal 24-48 uur voordat je de planken monteert.`,
+      },
+      {
+        heading: "Kosten composiet schutting met beton",
+        content: `| Component | Prijs per meter | Opmerking |
+|-----------|----------------|-----------|
+| Composiet planken (co-extrusie) | €120-€175 | Hoofdcomponent |
+| Aluminium palen | €35-€55 | Per meter (1 paal per 1,8m) |
+| Betonpoeren | €7-€14 | Per meter (1 poer per 1,8m) |
+| Betonplaat (optioneel) | €18-€35 | Doorlopende onderbouw |
+| Stortbeton (optioneel) | €11-€22 | Per paal, verdeeld per meter |
+| **Totaal materiaal** | **€162-€266** | Afhankelijk van funderingstype |
+| Plaatsingskosten | €55-€85 | Per meter, professioneel |
+
+### Rekenvoorbeeld: 12 meter met betonpoeren
+- Composiet planken (co-extrusie): 12 × €148 = **€1.776**
+- Aluminium palen (7 stuks): 7 × €72 = **€504**
+- Betonpoeren (7 stuks): 7 × €18 = **€126**
+- Afdekkapjes en clips: **€85**
+- **Totaal materiaal: circa €2.491**
+
+Gebruik onze [prijscalculator](/composiet-schutting-prijs-per-meter) voor een persoonlijke berekening of [vraag een offerte aan](/contact).`,
+      },
+      {
+        heading: "Betonpoeren vs stortbeton vs betonplaat",
+        content: `| Criterium | Betonpoeren | Stortbeton | Betonplaat |
+|-----------|-------------|------------|------------|
+| Kosten | Laag | Gemiddeld | Gemiddeld |
+| Stabiliteit | Goed | Uitstekend | Goed |
+| Plaatsingsgemak | Eenvoudig | Complex | Gemiddeld |
+| Verwijderbaarheid | Goed | Slecht | Gemiddeld |
+| Geschikt voor DIY | Ja | Met ervaring | Met hulp |
+| Geschikt voor klei/zand | Matig | Zeer goed | Goed |
+| Vorstbestendigheid | Goed | Zeer goed | Goed |
+
+**Voor de meeste tuinen** raden wij betonpoeren aan. Staat je schutting in een windrijke omgeving of op zeer zachte grond? Kies dan stortbeton.`,
+      },
+    ],
+    faqs: [
+      { q: "Heb ik altijd beton nodig voor een composiet schutting?", a: "Nee, maar het wordt sterk aanbevolen. Betonpoeren of stortbeton zorgen voor een stabiele, duurzame fundering. Zonder beton kan de schutting na verloop van tijd scheef gaan staan." },
+      { q: "Hoeveel betonpoeren heb ik nodig?", a: "Eén betonpoer per paal. Palen worden om de 180 cm geplaatst. Voor 10 meter schutting heb je dus 7 betonpoeren nodig." },
+      { q: "Kan ik een composiet schutting op een bestaande betonplaat plaatsen?", a: "Ja, met speciale voetplaten kun je aluminium palen direct op een bestaande betonplaat of -muur bevestigen." },
+      { q: "Hoe diep moeten de betonpoeren?", a: "Minimaal 40 cm diep voor standaard betonpoeren. Bij stortbeton raden wij 60 cm aan voor vorstvrije fundering." },
+    ],
+    internalLinks: [
+      { label: "Complete gids composiet schuttingen", href: "/schutting-van-composiet" },
+      { label: "Prijs per meter overzicht", href: "/composiet-schutting-prijs-per-meter" },
+      { label: "Composiet vs hout vergelijking", href: "/composiet-vs-hout-schutting" },
+      { label: "Schutting planner tool", href: "/schutting-planner" },
+      { label: "Offerte aanvragen", href: "/contact" },
+    ],
+  },
 ];
 
 // ── COMPARISON PAGES ────────────────────────────────────────────────────────
@@ -874,6 +989,105 @@ Gamma is iets goedkoper in het basissegment, maar biedt minder keuze en garantie
       { label: "Hornbach vergelijking", href: "/hornbach-composiet-schutting" },
       { label: "Prijzen per meter", href: "/composiet-schutting-prijs-per-meter" },
       { label: "Bekijk ons assortiment", href: "/categorie/schuttingen" },
+    ],
+  },
+  {
+    slug: "elephant-schutting",
+    type: "comparison",
+    parentSlug: "schutting-van-composiet",
+    title: "Elephant schutting: assortiment, kwaliteit en vergelijking",
+    metaTitle: "Elephant Schutting | Assortiment & Vergelijking 2026",
+    metaDescription: "Elephant composiet schutting kopen? Vergelijk assortiment, prijzen en kwaliteit van Elephant met andere merken. Onafhankelijk advies.",
+    author: defaultAuthor,
+    publishDate: "2026-01-10",
+    updatedDate: "2026-02-20",
+    readingTime: "7 min",
+    schemaTypes: ["Article", "FAQPage"],
+    intro: `**Elephant** is een van de bekendste merken op het gebied van tuinhout en composiet in de Benelux. Ze bieden een breed assortiment composiet schuttingen aan, verkrijgbaar bij diverse bouwmarkten en dealers. In dit artikel vergelijken we het Elephant-assortiment eerlijk met alternatieven en helpen we je de juiste keuze te maken.`,
+    sections: [
+      {
+        heading: "Elephant composiet schutting assortiment",
+        content: `Elephant biedt meerdere composiet schuttingsystemen aan:
+
+**Elephant Forte**
+- Compleet composiet schuttingsysteem
+- Beschikbaar in antraciet, grijs, bruin en teak
+- Plankbreedte: 21×175 mm
+- Systeemhoogte: 180 of 200 cm
+- Prijs: circa €110-€160 per meter
+
+**Elephant Design**
+- Strak designsysteem met smalle planken
+- Moderne, horizontale lijnen
+- Beschikbaar in antraciet en zwart
+- Prijs: circa €130-€180 per meter
+
+**Elephant Modular**
+- Modulair opbouwsysteem
+- Combineerbaar met glas, hout en aluminium panelen
+- Flexibel in hoogte en breedte
+- Prijs: circa €150-€220 per meter
+
+Elephant producten zijn verkrijgbaar bij bouwmarkten zoals Gamma, Praxis en bij gespecialiseerde dealers.`,
+      },
+      {
+        heading: "Vergelijking Elephant vs Silvadec",
+        content: `| Criterium | Elephant | Silvadec (SchuttingvanComposiet.nl) |
+|-----------|----------|--------------------------------------|
+| Type composiet | Mono- en co-extrusie | Voornamelijk co-extrusie |
+| Kleuropties | 4-6 | 8+ |
+| Garantie structureel | 10 jaar | 15-25 jaar |
+| Garantie kleur | 5 jaar | 10 jaar |
+| Herkomst | Nederland/België | Frankrijk (EU) |
+| Verkoopkanaal | Bouwmarkten + dealers | Specialist (direct) |
+| Persoonlijk advies | Via dealer | Direct van specialisten |
+| Montageservice | Via derden | In-house |
+| Prijs (co-extrusie) | €130-€180/m | €120-€175/m |
+
+**Analyse**: Elephant biedt degelijke producten met goede beschikbaarheid. Silvadec scoort beter op garantie, kleurkeuze en persoonlijk advies.`,
+      },
+      {
+        heading: "Kwaliteit en ervaringen",
+        content: `Elephant heeft een goede reputatie in de Benelux. Aandachtspunten:
+
+**Sterke punten Elephant:**
+- Breed dealernetwerk, overal verkrijgbaar
+- Goede basiskwaliteit
+- Nederlandse/Belgische klantenservice
+- Compleet systeemaanbod inclusief accessoires
+
+**Aandachtspunten:**
+- Garantietermijnen korter dan premium merken
+- Co-extrusie assortiment beperkter
+- Persoonlijk advies afhankelijk van de dealer
+- Prijzen bij bouwmarkten niet altijd de scherpste
+
+Gebruikerservaringen zijn overwegend positief, met name voor de Forte-lijn. De Design-lijn wordt geprezen om de strakke uitstraling. Bij problemen is de service via dealers wisselend.`,
+      },
+      {
+        heading: "Wanneer kies je Elephant?",
+        content: `Elephant is een goede keuze als:
+- Je een product wilt dat je fysiek in de winkel kunt bekijken
+- Je vertrouwt op een gevestigd Benelux-merk
+- Basiskwaliteit composiet voldoende is
+- Je zelf wilt monteren zonder specialistisch advies
+
+Wil je langere garantie, meer kleurkeuze of professionele montage? Bekijk dan ons [assortiment van Silvadec composiet schuttingen](/categorie/schuttingen) of lees onze [complete gids](/schutting-van-composiet).`,
+      },
+    ],
+    faqs: [
+      { q: "Is Elephant een goed merk voor composiet schuttingen?", a: "Ja, Elephant is een gevestigd merk met degelijke producten. De basiskwaliteit is goed. Voor premium co-extrusie en langere garantie zijn er betere opties beschikbaar." },
+      { q: "Waar kan ik Elephant schuttingen kopen?", a: "Elephant schuttingen zijn verkrijgbaar bij bouwmarkten zoals Gamma en Praxis, en bij gespecialiseerde tuinhoutdealers in heel Nederland en België." },
+      { q: "Wat kost een Elephant composiet schutting?", a: "Reken op €110-€220 per strekkende meter, afhankelijk van het systeem (Forte, Design of Modular) en de uitvoering." },
+      { q: "Hoe verhoudt Elephant zich tot Silvadec?", a: "Elephant biedt goede basiskwaliteit met brede beschikbaarheid. Silvadec scoort beter op co-extrusie kwaliteit, garantie (tot 25 jaar) en kleurkeuze." },
+    ],
+    internalLinks: [
+      { label: "Complete gids composiet schuttingen", href: "/schutting-van-composiet" },
+      { label: "Hornbach composiet schutting", href: "/hornbach-composiet-schutting" },
+      { label: "Gamma composiet schutting", href: "/gamma-composiet-schutting" },
+      { label: "Composiet schutting prijs per meter", href: "/composiet-schutting-prijs-per-meter" },
+      { label: "Bekijk ons assortiment", href: "/categorie/schuttingen" },
+      { label: "Offerte aanvragen", href: "/contact" },
     ],
   },
 ];
