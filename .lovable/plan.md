@@ -1,102 +1,114 @@
 
-# Kleur- en Maatvarianten toevoegen aan Producten
+# E-mail Automatisering & CRM Uitbreiding
 
-## Wat wordt er gedaan?
+## Overzicht
 
-Producten die tot dezelfde productlijn behoren (bijv. alle "Atmosphere Schuttingplanken" in verschillende kleuren, of "Elegance vlonderplanken" in verschillende breedtes en afwerkingen) worden aan elkaar gekoppeld. Op de productpagina verschijnen dan kleur-swatches en/of maatselectoren waarmee de bezoeker direct naar de juiste variant navigeert, zoals op Silvadec.com.
-
----
-
-## Silvadec Portfolio-afstemming
-
-Op basis van het daadwerkelijke Silvadec-assortiment worden de volgende uitbreidingen gemaakt:
-
-### Schuttingplanken (Afsluiting)
-Silvadec biedt de Atmosphere schermplank in 5 kleuren: Antraciet Grijs, Licht Grijs, Wild Grijs, Zonnig Bruin, Licht Eiken. **Reeds aanwezig** -- deze worden nu gegroepeerd als varianten.
-
-Aluminium schermplanken in 3 kleuren: Antraciet Grijs, Metaal Grijs, Zwart. **Reeds aanwezig** -- worden gegroepeerd.
-
-### Vlonderplanken (Terras)
-Silvadec biedt meerdere breedtes per kleur:
-- **Atmosphere**: 138 mm en 180 mm breed
-- **Elegance**: 138 mm gegroefde, 138 mm glad, 180 mm glad
-
-Momenteel bestaan alleen 138 mm varianten. **Er worden 180 mm brede varianten toegevoegd** voor de belangrijkste kleuren, plus gladde Elegance varianten naast de gegroefde.
-
-### Gevelbekleding
-Atmosphere 175 bestaat al in Wit, Zonnig Bruin, Donker Bruin. **Antraciet Grijs** wordt toegevoegd als variant (ontbreekt, maar Silvadec biedt dit wel).
+Er wordt een volledig e-mail automatiseringssysteem gebouwd met een admin-dashboard om alle geautomatiseerde e-mails te beheren. Daarnaast wordt het CRM uitgebreid zodat offerteaanvragen, contactverzoeken en bestellingen overzichtelijk op een Shopify-achtige manier zichtbaar zijn. De e-mails worden nu als placeholder gebouwd (HTML-templates, logging in de database) en zijn klaar om later met Resend of een andere provider te koppelen.
 
 ---
 
-## Technische Aanpak
+## Wat wordt er gebouwd?
 
-### 1. Nieuw veld: `variantGroup` op het Product-model
+### 1. E-mail Automations
 
-Producten die tot dezelfde productlijn behoren krijgen hetzelfde `variantGroup`-ID. Dit wordt puur in de front-end data gebruikt (geen databasewijziging nodig).
+Vier automatische e-mailflows:
 
-```text
-Product Interface uitbreiding:
-  variantGroup?: string    // bijv. "atmosphere-schutting", "elegance-vlonder"
-  variantLabel?: string    // korte label: "Antraciet Grijs" of "180 mm breed"
-```
+| Flow | Trigger | Timing |
+|------|---------|--------|
+| Orderbevestiging | Nieuwe bestelling geplaatst | Direct |
+| Cart abandonment #1 | Winkelwagen met items, geen checkout gestart | Na 1 uur |
+| Cart abandonment #2 | Geen reactie op eerste reminder | Na 24 uur |
+| Checkout abandonment #1 | Checkout gestart maar niet afgerond | Na 30 min |
+| Checkout abandonment #2 | Geen reactie op eerste reminder | Na 24 uur |
 
-### 2. Variant Selector component
+### 2. Database Uitbreiding
 
-Een nieuw component `VariantSelector` dat op de productpagina verschijnt:
+**Nieuwe tabel: `email_automations`**
+- `id`, `type` (order_confirmation, cart_abandonment_1, cart_abandonment_2, checkout_abandonment_1, checkout_abandonment_2)
+- `recipient_email`, `recipient_name`
+- `status` (queued, sent, failed, cancelled)
+- `scheduled_for` (wanneer te versturen)
+- `sent_at`, `metadata` (cart items, order details)
+- `created_at`
+- RLS: admin-only lezen/schrijven, insert voor iedereen (via triggers)
 
-- **Kleurvarianten**: Ronde kleur-swatches met tooltip en link naar de andere kleurvariant
-- **Maatvarianten**: Knoppen met de afmeting (bijv. "138 mm" / "180 mm")
-- Klikken navigeert naar de andere productpagina (ze zijn afzonderlijke producten met eigen slug)
+**Nieuwe tabel: `abandoned_carts`**
+- `id`, `session_id` (localStorage-based), `email` (nullable, pas bekend bij checkout)
+- `cart_data` (JSON met items), `checkout_started` (boolean)
+- `recovered` (boolean), `created_at`, `updated_at`
+- RLS: insert/update voor iedereen, admin-only lezen
 
-### 3. Productdata uitbreiding
+### 3. Edge Function: `send-email`
 
-#### Nieuwe producten toevoegen (~8 stuks):
-| Product | Kleur | Breedte | Prijs |
-|---------|-------|---------|-------|
-| Atmosphere Ushuaia Grijs 180mm | Grijs | 180 mm | EUR 89/m2 |
-| Atmosphere Cayenne Grijs 180mm | Grijs | 180 mm | EUR 89/m2 |
-| Atmosphere Lima Bruin 180mm | Bruin | 180 mm | EUR 89/m2 |
-| Atmosphere Sao Paulo Bruin 180mm | Bruin | 180 mm | EUR 89/m2 |
-| Elegance Colorado Bruin Glad | Bruin | 138 mm | EUR 59/m2 |
-| Elegance Iroise Grijs Glad | Grijs | 138 mm | EUR 59/m2 |
-| Atmosphere 175 Antraciet Grijs (gevel) | Grijs | 175 mm | EUR 34,95 |
-| Elegance Antraciet Grijs Gegroefde | Grijs | 138 mm | EUR 59/m2 |
+Een backend function die:
+- E-mails uit de queue pakt (`status = queued`, `scheduled_for <= now()`)
+- Per e-mail de juiste HTML-template rendert (orderbevestiging, cart reminder, checkout reminder)
+- **Placeholder modus**: Logt de e-mail naar `email_automations` met status `sent` (geen echte verzending)
+- Later te koppelen aan Resend API door simpelweg de placeholder-log te vervangen door een API-call
+- Wordt aangeroepen via een pg_cron job (elke 5 minuten)
 
-#### Bestaande producten updaten:
-- `variantGroup` en `variantLabel` toekennen aan alle producten die bij dezelfde lijn horen
+### 4. Edge Function: `track-cart`
 
-### 4. VariantSelector groepering
+Ontvangt cart-data vanuit de frontend:
+- Slaat winkelwagen op in `abandoned_carts`
+- Wanneer een e-mailadres bekend is (checkout gestart), plant automatisch cart/checkout abandonment e-mails
+- Bij succesvolle bestelling: annuleert openstaande abandonment e-mails
 
-```text
-Groepen:
-  "atmosphere-schutting"     -> sc-1, sc-2, sc-3, sc-4, sc-5 (5 kleuren)
-  "aluminium-schutting"      -> sc-6, sc-7, sc-8 (3 kleuren)
-  "atmosphere-175-gevel"     -> cl-1, cl-2, cl-3, cl-nieuw (4 kleuren)
-  "open-rhombus-gevel"       -> cl-4, cl-5, cl-6 (3 kleuren)
-  "nuances-vlonder"          -> vl-1, vl-2 (2 kleuren)
-  "atmosphere-vlonder-138"   -> vl-3..vl-8 (6 kleuren, 138mm)
-  "atmosphere-vlonder-180"   -> nieuwe 180mm varianten
-  "elegance-gegroefde"       -> vl-9, vl-10, + nieuw
-  "elegance-glad"            -> nieuwe gladde varianten
-  "emotion-vlonder"          -> vl-11, vl-12
-```
+### 5. Frontend: Cart Tracking
 
-Vlonderplanken met zowel 138mm als 180mm varianten tonen beide selectors: kleur EN breedte.
+In `CartContext.tsx`:
+- Bij elke cart-wijziging, stuur cart-data naar `track-cart` edge function
+- Genereer een `session_id` in localStorage als die er nog niet is
+- Bij checkout-start: stuur e-mailadres mee (zodra klant dat invult)
+
+In `CheckoutPage.tsx`:
+- Bij het invullen van e-mail: markeer checkout als gestart en koppel e-mail aan de cart session
+- Bij succesvolle bestelling: annuleer alle openstaande abandonment e-mails
+
+### 6. Admin: E-mail Automations Dashboard
+
+**Nieuwe pagina: `/admin/automations`**
+- Overzicht van alle geplande, verzonden en geannuleerde e-mails
+- Filters op type en status
+- Statistieken: verzonden, open rate (placeholder), conversies
+- Mogelijkheid om e-mails handmatig te annuleren
+- Preview van e-mail templates
+
+### 7. CRM Uitbreiding (Shopify-stijl)
+
+Het bestaande CRM (`/admin/crm`) wordt uitgebreid met:
+- **Bronfilter uitbreiding**: "Offerte aanvraag" en "Sample aanvraag" als aparte bronnen
+- **Quick-view kaarten** bovenaan: totaal contacten, nieuwe leads deze week, openstaande offertes, totale omzet
+- **Activiteiten-iconen** voor sample/offerte aanvragen
+- Sidebar-navigatie krijgt een **"Automations"** item
 
 ---
 
-## Bestanden
+## Technische Details
 
-### Nieuw
+### Bestanden
+
+#### Nieuw
 | Bestand | Doel |
 |---------|------|
-| `src/components/VariantSelector.tsx` | Kleur-swatches + maatknoppen component |
+| `supabase/functions/send-email/index.ts` | E-mail queue processor (placeholder) |
+| `supabase/functions/track-cart/index.ts` | Cart tracking endpoint |
+| `src/pages/admin/AdminAutomationsPage.tsx` | E-mail automations dashboard |
+| `src/components/admin/EmailPreviewModal.tsx` | Preview van e-mail templates |
 
-### Aangepast
+#### Aangepast
 | Bestand | Wijziging |
 |---------|-----------|
-| `src/data/products.ts` | `variantGroup` en `variantLabel` toevoegen aan Product interface; ~8 nieuwe 180mm/gladde producten toevoegen; Antraciet Grijs gevel toevoegen |
-| `src/pages/ProductPage.tsx` | `VariantSelector` integreren boven de "In winkelwagen" knop |
+| `src/contexts/CartContext.tsx` | Session ID generatie + cart tracking calls |
+| `src/pages/CheckoutPage.tsx` | Checkout-start tracking + e-mail koppeling + abandonment annulering bij succes |
+| `src/pages/ContactPage.tsx` | Bron differentiatie: "quote_request" vs "sample_request" vs "contact_form" |
+| `src/components/admin/AdminLayout.tsx` | Navigatie-item "Automations" toevoegen |
+| `src/App.tsx` | Route `/admin/automations` toevoegen |
+| `src/pages/admin/AdminCRMPage.tsx` | Statistiek-kaarten bovenaan, extra bronfilters |
+| `supabase/config.toml` | Nieuwe edge functions registreren |
 
-### Geen database-wijzigingen nodig
-De variant-koppeling is puur front-end (de `options` en `dimensions` kolommen in `cms_products` kunnen dit al opslaan als JSON). De statische data in `products.ts` wordt direct uitgebreid.
+#### Database migratie
+- `email_automations` tabel aanmaken met enum voor type en status
+- `abandoned_carts` tabel aanmaken
+- Database trigger op `cms_orders` INSERT: automatisch orderbevestiging e-mail inplannen
+- pg_cron job voor `send-email` functie (elke 5 minuten)
