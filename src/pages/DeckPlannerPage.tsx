@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import CTASection from "@/components/CTASection";
+
 import DeckCanvas from "@/components/planner/DeckCanvas";
 import ShapeSelector from "@/components/planner/ShapeSelector";
 import DimensionInputs from "@/components/planner/DimensionInputs";
@@ -339,7 +339,7 @@ const DeckPlannerPage = () => {
           </div>
         </section>
 
-        <CTASection />
+        
       </main>
 
       <Footer />

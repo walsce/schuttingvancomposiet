@@ -12,7 +12,7 @@ import ProductCard from "@/components/ProductCard";
 import SEOHead from "@/components/SEOHead";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import JsonLd, { productSchema, faqSchema } from "@/components/JsonLd";
-import CTASection from "@/components/CTASection";
+
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -422,8 +422,6 @@ const ProductPage = () => {
           </section>
         )}
 
-        {/* CTA Section */}
-        <CTASection />
       </main>
       <Footer />
     </div>

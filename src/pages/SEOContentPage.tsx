@@ -7,7 +7,7 @@ import SEOHead from "@/components/SEOHead";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import JsonLd, { faqSchema, breadcrumbSchema, articleSchema } from "@/components/JsonLd";
 import FAQSection from "@/components/FAQSection";
-import CTASection from "@/components/CTASection";
+
 import AuthorBlock from "@/components/seo/AuthorBlock";
 import PriceCalculator from "@/components/seo/PriceCalculator";
 import InternalLinkBlock from "@/components/seo/InternalLinkBlock";
@@ -211,15 +211,6 @@ const SEOContentPage = () => {
           />
         )}
 
-        {/* CTA */}
-        <CTASection
-          title="Advies nodig over jouw schutting?"
-          description="Onze composiet specialisten helpen je graag. Vraag een gratis, vrijblijvende offerte aan."
-          primaryLabel="Gratis Offerte Aanvragen"
-          primaryHref="/contact"
-          secondaryLabel="Bekijk Assortiment"
-          secondaryHref="/categorie/schuttingen"
-        />
       </main>
       <Footer />
     </div>

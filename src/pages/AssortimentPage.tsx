@@ -4,7 +4,7 @@ import CategoryCard from "@/components/CategoryCard";
 import ProductCard from "@/components/ProductCard";
 import SEOHead from "@/components/SEOHead";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import CTASection from "@/components/CTASection";
+
 import { categories, products } from "@/data/products";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -54,7 +54,7 @@ const AssortimentPage = () => {
           </div>
         </section>
 
-        <CTASection />
+        
       </main>
 
       <Footer />
