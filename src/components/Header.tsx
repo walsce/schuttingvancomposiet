@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ShoppingCart, Menu, X, Phone, Star, Truck, ShieldCheck } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { useCart } from "@/contexts/CartContext";
 
 const navLinks = [
   { label: "Assortiment", href: "/assortiment" },
@@ -14,6 +15,7 @@ const navLinks = [
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { totalItems } = useCart();
 
   return (
     <>
@@ -54,10 +56,25 @@ const Header = () => {
           </nav>
 
           <div className="flex items-center gap-2 sm:gap-3">
-            <Button variant="outline" size="sm" className="hidden sm:flex gap-2">
-              <ShoppingCart className="w-4 h-4" />
-              Winkelwagen
+            <Button asChild variant="outline" size="sm" className="hidden sm:flex gap-2 relative">
+              <Link to="/winkelwagen">
+                <ShoppingCart className="w-4 h-4" />
+                Winkelwagen
+                {totalItems > 0 && (
+                  <span className="absolute -top-1.5 -right-1.5 bg-accent text-accent-foreground text-[10px] font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                    {totalItems > 99 ? "99+" : totalItems}
+                  </span>
+                )}
+              </Link>
             </Button>
+            <Link to="/winkelwagen" className="sm:hidden p-2 text-foreground relative">
+              <ShoppingCart className="w-5 h-5" />
+              {totalItems > 0 && (
+                <span className="absolute -top-0.5 -right-0.5 bg-accent text-accent-foreground text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center">
+                  {totalItems > 99 ? "99+" : totalItems}
+                </span>
+              )}
+            </Link>
             <button
               className="lg:hidden p-2 text-foreground"
               onClick={() => setMobileOpen(!mobileOpen)}
@@ -83,9 +100,11 @@ const Header = () => {
                 </Link>
               ))}
               <div className="border-t border-border mt-2 pt-3">
-                <Button variant="outline" size="sm" className="w-full gap-2" onClick={() => setMobileOpen(false)}>
-                  <ShoppingCart className="w-4 h-4" />
-                  Winkelwagen
+                <Button asChild variant="outline" size="sm" className="w-full gap-2" onClick={() => setMobileOpen(false)}>
+                  <Link to="/winkelwagen">
+                    <ShoppingCart className="w-4 h-4" />
+                    Winkelwagen {totalItems > 0 && `(${totalItems})`}
+                  </Link>
                 </Button>
               </div>
             </nav>
