@@ -1,115 +1,102 @@
 
 
-# Remove Silvadec Branding and Create Branded PDFs
+# Volledige Winkelervaring: Van Product tot Bestelling
 
-## Overview
+## Wat wordt er gebouwd?
 
-Two major changes: (1) strip all "Silvadec" references across the entire site, replacing with generic composiet terminology or "SchuttingenvanComposiet.nl" where appropriate, and (2) generate new branded PDF documents from the extracted content using a server-side PDF generator.
-
----
-
-## Part 1: Remove "Silvadec" from All Content
-
-### Files affected
-
-| File | Occurrences | Change |
-|------|------------|--------|
-| `src/data/products.ts` | ~735 | Remove "Silvadec" from all product names, descriptions, longDescriptions, seoTitles, seoDescriptions, FAQs, and specifications (remove `Merk: 'Silvadec'`) |
-| `src/data/downloads.ts` | ~30 | Remove "Silvadec" from all download descriptions and bullet points |
-| `src/data/blogArticles.ts` | ~10 | Remove "Silvadec" from blog article content |
-| `src/pages/DownloadsPage.tsx` | ~3 | Remove from FAQ answers, SEO meta, and JSON-LD |
-
-### Naming convention after removal
-
-- "Silvadec Atmosphere 175 Wit Ceruse" becomes "Atmosphere 175 Wit Ceruse"
-- "Silvadec composiet schuttingen" becomes "composiet schuttingen"
-- "Silvadec Reversil aluminium onderbalken" becomes "Reversil aluminium onderbalken"
-- Product range names (Atmosphere, Elegance, Emotion, Nuances) stay -- these describe the product line, not the manufacturer
-- "Silvawash" and "Silvaction" product names stay as-is -- these are specific product names for cleaning/maintenance items
+Een complete winkelflow waarmee klanten producten kunnen bestellen -- van het toevoegen aan de winkelwagen tot het afronden van de bestelling met een bevestigingspagina. Geen Mollie API key nodig; de betaling wordt gesimuleerd met een "demo" modus zodat de volledige flow werkend is.
 
 ---
 
-## Part 2: Generate Branded PDFs
-
-Since the original PDFs contain complex technical diagrams that cannot be recreated, we will take a hybrid approach:
-
-### A. Text-based guides (checklists, gidsen) -- Generate new branded PDFs
-
-Create a backend function that generates branded PDF documents for the non-technical guides:
-- Checklist: composiet schutting plaatsen
-- Checklist: grondvoorbereiding
-- Gids: vergunningen en regels
-- Kleurengids
-- Milieuverklaring (EPD) summary
-- Onderhoudsadvies
-
-Each generated PDF will include:
-- SchuttingenvanComposiet.nl header with accent color branding
-- Dutch content extracted from the download data
-- Bullet points, tables, and structured sections
-- Footer with website URL and contact info
-- No Silvadec references
-
-### B. Technical installation PDFs -- Keep originals with disclaimer
-
-The 8 technical installation PDFs contain detailed engineering diagrams, exploded views, and measurement tables that cannot be programmatically recreated. These will:
-- Remain as-is in `public/downloads/`
-- Have their download card descriptions updated to say "Fabrikantdocumentatie" (manufacturer documentation) rather than referencing Silvadec by name
-
-### Technical approach for PDF generation
-
-- Create a backend function `generate-branded-pdf` using Deno + jsPDF (or similar)
-- The function takes a document ID, pulls content from a structured data source, and returns a branded PDF
-- Generated PDFs are stored in file storage and served from there
-- Download cards link to the generated PDFs instead of the originals
-
----
-
-## Implementation Order
-
-1. Strip "Silvadec" from `src/data/products.ts` (~28 products: names, descriptions, SEO, FAQs, specs)
-2. Strip "Silvadec" from `src/data/downloads.ts` (descriptions, bullet points)
-3. Strip "Silvadec" from `src/data/blogArticles.ts` (article content)
-4. Strip "Silvadec" from `src/pages/DownloadsPage.tsx` (FAQ, meta, JSON-LD)
-5. Create `generate-branded-pdf` backend function
-6. Generate branded PDFs for the 6 text-based guides
-7. Update download paths to point to new branded PDFs
-8. Update seed-products function to match de-branded data
-
----
-
-## Technical Details
-
-### Backend function: `generate-branded-pdf`
+## Klantflow (stap voor stap)
 
 ```text
-supabase/functions/generate-branded-pdf/index.ts
-
-- Uses jsPDF library for PDF generation
-- Accepts document config (title, sections, bullets, tables)
-- Applies branded header: "SchuttingenvanComposiet.nl" in accent color
-- Generates A4 PDF with proper margins
-- Uploads to Lovable Cloud file storage
-- Returns public URL
+Productpagina              Winkelwagen             Afrekenen                Bevestiging
++-----------------+     +----------------+     +-------------------+     +----------------+
+| Product info    |     | Overzicht items|     | Klantgegevens     |     | Bedankt!       |
+| Aantal kiezen   |---->| Aantal wijzigen|---->| Adres             |---->| Ordernummer    |
+| [In wagen] btn  |     | Verwijderen    |     | Betaalmethode     |     | Samenvatting   |
+|                 |     | Totaalprijs    |     | [Bestelling       |     | [Verder winkelen|
+|                 |     | [Afrekenen] btn|     |  plaatsen] btn    |     |  ] btn         |
++-----------------+     +----------------+     +-------------------+     +----------------+
 ```
 
-### Product name examples (before/after)
+---
 
-```text
-BEFORE: "Silvadec Atmosphere 175 Wit Ceruse"
-AFTER:  "Atmosphere 175 Wit Ceruse"
+## Onderdelen
 
-BEFORE: "Silvadec Nuances Ipe Vlonderplank"  
-AFTER:  "Nuances Ipe Vlonderplank"
+### 1. Winkelwagen (localStorage)
+- **Context Provider** (`CartContext`) die de winkelwagen beheert
+- Opslaan in `localStorage` zodat het behouden blijft tussen sessies
+- Functies: toevoegen, verwijderen, aantal wijzigen, leegmaken
+- Winkelmand-teller op het winkelwagen-icoon in de Header
 
-BEFORE: "Silvadec Aluminium Schutting Zwart"
-AFTER:  "Aluminium Schutting Zwart"
-```
+### 2. Realistische Prijzen
+- Alle producten krijgen marktconforme prijzen op basis van gangbare composiet-prijzen:
+  - Gevelbekleding planken: ~EUR 32-45 per stuk
+  - Schuttingpanelen: ~EUR 89-249 per paneel
+  - Vlonderplanken: ~EUR 29-55 per stuk
+  - Aluminium systemen: ~EUR 149-349
+- Prijzen zijn al redelijk realistisch; kleine aanpassingen waar nodig
 
-### SEO title examples (before/after)
+### 3. Productpagina uitbreiding
+- "Aantal" selector toevoegen
+- "In winkelwagen" knop (vervangt huidige offerte-CTA niet, wordt erbij gezet)
+- Toast-bevestiging bij toevoegen
 
-```text
-BEFORE: "Silvadec Atmosphere 175 Wit Ceruse | Composiet Gevelbekleding"
-AFTER:  "Atmosphere 175 Wit Ceruse | Composiet Gevelbekleding"
-```
+### 4. Winkelwagenpagina (`/winkelwagen`)
+- Overzicht van alle items met afbeelding, naam, prijs
+- Aantal aanpassen (+/-)
+- Item verwijderen
+- Subtotaal, verzendkosten, totaal
+- "Afrekenen" knop
+- Lege-wagen weergave met link terug naar assortiment
+
+### 5. Checkout-pagina (`/afrekenen`) -- One-pager
+- **Stap 1 - Klantgegevens**: Naam, e-mail, telefoon
+- **Stap 2 - Bezorgadres**: Straat, huisnummer, postcode, plaats
+- **Stap 3 - Betaalmethode**: iDEAL (bankkeuze dropdown) of Creditcard (gesimuleerde velden)
+- **Orderoverzicht**: Sidebar/sectie met alle items, subtotaal, verzendkosten (EUR 0 boven EUR 500, anders EUR 49,95), totaal incl. BTW
+- Formuliervalidatie met `zod` + `react-hook-form`
+- Bij "Bestelling plaatsen": order opslaan in `cms_orders` + `cms_order_items`, winkelwagen legen, doorsturen naar bevestigingspagina
+
+### 6. Bevestigingspagina (`/bestelling-bevestigd/:orderId`)
+- Ordernummer
+- Samenvatting van bestelde items
+- Geschatte levering
+- "Verder winkelen" knop
+
+### 7. Header aanpassing
+- Winkelwagen-icoon toont badge met aantal items
+- Klik gaat naar `/winkelwagen`
+
+---
+
+## Technische Details
+
+### Nieuwe bestanden
+| Bestand | Doel |
+|---------|------|
+| `src/contexts/CartContext.tsx` | Cart state management met localStorage |
+| `src/pages/CartPage.tsx` | Winkelwagenpagina |
+| `src/pages/CheckoutPage.tsx` | One-page checkout formulier |
+| `src/pages/OrderConfirmationPage.tsx` | Bevestigingspagina |
+
+### Aangepaste bestanden
+| Bestand | Wijziging |
+|---------|-----------|
+| `src/App.tsx` | CartProvider wrappen, nieuwe routes toevoegen |
+| `src/components/Header.tsx` | Winkelwagen badge met itemtelling |
+| `src/pages/ProductPage.tsx` | Aantal-selector en "In winkelwagen" knop |
+| `src/data/products.ts` | Prijzen controleren/aanpassen waar nodig |
+
+### Database
+- Gebruikt de bestaande `cms_orders` en `cms_order_items` tabellen (al aanwezig)
+- Orders worden opgeslagen met status "pending" (geen echte betaling)
+- RLS-beleid niet nodig: dit is een publieke webshop zonder gebruikersaccounts
+
+### Geen API key nodig
+- Betaling is gesimuleerd: na klik op "Bestelling plaatsen" wordt een korte laadanimatie getoond en wordt de order direct opgeslagen
+- iDEAL en Creditcard zijn visueel aanwezig maar verwerken geen echte betaling
+- Wanneer je later Mollie wilt koppelen, hoeft alleen de submit-functie vervangen te worden
 
