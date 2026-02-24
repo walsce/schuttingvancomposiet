@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
 import { AdminAuthProvider } from "./hooks/useAdminAuth";
 import { CartProvider } from "./contexts/CartContext";
+import ComingSoonPage from "./pages/ComingSoonPage";
 import Index from "./pages/Index";
 import CategoryPage from "./pages/CategoryPage";
 import AssortimentPage from "./pages/AssortimentPage";
@@ -55,7 +56,7 @@ const App = () => (
         <CartProvider>
           <AdminAuthProvider>
             <Routes>
-              <Route path="/" element={<Index />} />
+              <Route path="/" element={<ComingSoonPage />} />
               <Route path="/assortiment" element={<AssortimentPage />} />
               <Route path="/categorie/:slug" element={<CategoryPage />} />
               <Route path="/product/:slug" element={<ProductPage />} />
