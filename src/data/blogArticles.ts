@@ -21,7 +21,9 @@ export const categoryLabels: Record<BlogArticle["category"], string> = {
   inspiratie: "Inspiratie",
 };
 
-export const blogArticles: BlogArticle[] = [
+import { blogArticlesExpansion } from "./blogArticlesExpansion";
+
+const blogArticlesBase: BlogArticle[] = [
   {
     slug: "composiet-vlonderplanken-kiezen",
     title: "De ultieme koopgids: composiet vlonderplanken kiezen",
@@ -344,3 +346,5 @@ Een robuust composiet terras als basis voor een complete buitenkeuken met barbec
 **Tip:** Kies een donkere kleur rondom de kookzone — dit is het meest praktisch en geeft een professionele uitstraling.`,
   },
 ];
+
+export const blogArticles: BlogArticle[] = [...blogArticlesBase, ...blogArticlesExpansion];
