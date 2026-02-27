@@ -56,7 +56,7 @@ const App = () => (
         <CartProvider>
           <AdminAuthProvider>
             <Routes>
-              <Route path="/" element={<ComingSoonPage />} />
+              <Route path="/" element={<Index />} />
               <Route path="/assortiment" element={<AssortimentPage />} />
               <Route path="/categorie/:slug" element={<CategoryPage />} />
               <Route path="/product/:slug" element={<ProductPage />} />
