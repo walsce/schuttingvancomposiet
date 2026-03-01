@@ -5,12 +5,12 @@ export const STANDARD_PANEL_WIDTH = 182;
 export const PANEL_HEIGHT_CM = 180;
 
 export const panelStyles: PanelType[] = [
-  { id: "horizontal-planks", name: "Classic horizontaal", widthCm: STANDARD_PANEL_WIDTH, image: "https://gamratwpc.pl/wp-content/uploads/2025/04/gamrat-wpc-ogrodzenia-deska-classic-ciemny-braz.webp" },
-  { id: "decorative", name: "Premium horizontaal", widthCm: STANDARD_PANEL_WIDTH, image: "https://gamratwpc.pl/wp-content/uploads/2025/04/gamrat-wpc-ogrodzenia-deska-premium-ciemny-braz.webp" },
-  { id: "vertical-slats", name: "Verticale latten", widthCm: STANDARD_PANEL_WIDTH, image: "https://gamratwpc.pl/wp-content/uploads/2025/04/gamrat-wpc-ogrodzenia-1.webp" },
-  { id: "louvers", name: "Lamellen", widthCm: STANDARD_PANEL_WIDTH, image: "https://gamratwpc.pl/wp-content/uploads/2025/04/gamrat-wpc-ogrodzenia-2.webp" },
-  { id: "aluminium", name: "Aluminium", widthCm: STANDARD_PANEL_WIDTH, image: "https://gamratwpc.pl/wp-content/uploads/2025/04/gamrat-wpc-ogrodzenia-2.webp" },
-  { id: "glass-panel", name: "Matglas paneel", widthCm: STANDARD_PANEL_WIDTH, image: "https://gamratwpc.pl/wp-content/uploads/2025/04/gamrat-wpc-ogrodzenia-1.webp" },
+  { id: "horizontal-planks", name: "Classic horizontaal", widthCm: STANDARD_PANEL_WIDTH, image: "/images/gamrat/ogrodzeniowa-classic-ciemny-braz.webp" },
+  { id: "decorative", name: "Premium horizontaal", widthCm: STANDARD_PANEL_WIDTH, image: "/images/gamrat/ogrodzeniowa-premium-ciemny-braz.webp" },
+  { id: "vertical-slats", name: "Verticale latten", widthCm: STANDARD_PANEL_WIDTH, image: "/images/gamrat/baner-ogrodzenia.webp" },
+  { id: "louvers", name: "Lamellen", widthCm: STANDARD_PANEL_WIDTH, image: "/images/gamrat/gamrat-wpc-ogrodzenia-slider.webp" },
+  { id: "aluminium", name: "Aluminium", widthCm: STANDARD_PANEL_WIDTH, image: "/images/gamrat/gamrat-wpc-ogrodzenia-slider.webp" },
+  { id: "glass-panel", name: "Matglas paneel", widthCm: STANDARD_PANEL_WIDTH, image: "/images/gamrat/baner-ogrodzenia.webp" },
 ];
 
 // Color hex mapping from product tones

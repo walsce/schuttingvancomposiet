@@ -32,7 +32,7 @@ export const downloads: DownloadGuide[] = [
     title: "Montagehandleiding: composiet schutting plaatsen",
     slug: "montagehandleiding-composiet-schutting",
     description:
-      "Volledige stap-voor-stap montagehandleiding voor het plaatsen van Gamrat WPC composiet schuttingen. Inclusief onderdelenlijst en technische specificaties.",
+      "Volledige stap-voor-stap montagehandleiding voor het plaatsen van composiet schuttingen. Inclusief onderdelenlijst en technische specificaties.",
     bulletPoints: [
       "Onderdelenlijst & technische specificaties",
       "Paalplaatsing met voetplaten of betonpoeren",
@@ -40,7 +40,7 @@ export const downloads: DownloadGuide[] = [
       "Windbelasting tot 100 km/u (max. 2000 mm hoogte)",
     ],
     category: "handleiding",
-    image: "https://gamratwpc.pl/wp-content/uploads/2025/04/gamrat-wpc-ogrodzenia-2.webp",
+    image: "/images/gamrat/baner-ogrodzenia.webp",
     relatedLinks: [
       { label: "Composiet schuttingen bekijken", href: "/categorie/schuttingen" },
     ],
@@ -51,7 +51,7 @@ export const downloads: DownloadGuide[] = [
     title: "Montagehandleiding: composiet vlonderplanken leggen",
     slug: "montagehandleiding-vlonderplanken",
     description:
-      "De complete montagehandleiding voor Gamrat WPC composiet vlonderplanken. Van planning en lay-out tot de laatste afwerking.",
+      "De complete montagehandleiding voor composiet vlonderplanken. Van planning en lay-out tot de laatste afwerking.",
     bulletPoints: [
       "Lay-out berekenen: materiaal per m²",
       "Onderconstructie & balkafstanden (max. 40 cm)",
@@ -59,7 +59,7 @@ export const downloads: DownloadGuide[] = [
       "Komorowa, Classic, Premium & Elegance specificaties",
     ],
     category: "handleiding",
-    image: "https://gamratwpc.pl/wp-content/uploads/2025/04/gamrat-wpc-systemy-tarasowe-slider-2.webp",
+    image: "/images/gamrat/gamrat-wpc-systemy-tarasowe-slider-2.webp",
     relatedLinks: [
       { label: "Vlonderplanken bekijken", href: "/categorie/vlonderplanken" },
     ],
@@ -78,7 +78,7 @@ export const downloads: DownloadGuide[] = [
       "Verbindingsstukken & hoekbeugels",
     ],
     category: "handleiding",
-    image: "https://gamratwpc.pl/wp-content/uploads/2025/04/gamrat-wpc-systemy-tarasowe-slider-1.webp",
+    image: "/images/gamrat/gamrat-wpc-systemy-tarasowe-slider-1.webp",
     relatedLinks: [
       { label: "Vlonderplanken bekijken", href: "/categorie/vlonderplanken" },
       { label: "Accessoires bekijken", href: "/categorie/accessoires" },
@@ -98,7 +98,7 @@ export const downloads: DownloadGuide[] = [
       "Montagesets 2m² en 10m²",
     ],
     category: "handleiding",
-    image: "https://gamratwpc.pl/wp-content/uploads/2025/04/gamrat-wpc-systemy-tarasowe-slider-3.webp",
+    image: "/images/gamrat/akcesoria-gamrat-wpc.webp",
     relatedLinks: [
       { label: "Accessoires bekijken", href: "/categorie/accessoires" },
     ],
@@ -109,7 +109,7 @@ export const downloads: DownloadGuide[] = [
     title: "Snelstartgids: vlonder monteren in 4 m²/uur",
     slug: "snelstartgids-vlonder-montage",
     description:
-      "Visuele snelstartgids met de belangrijkste montagestappen voor Gamrat WPC composiet vlonders.",
+      "Visuele snelstartgids met de belangrijkste montagestappen voor composiet vlonders.",
     bulletPoints: [
       "Overzichtelijke visuele montagestappen",
       "Balkinstallatie & clipmontage",
@@ -117,7 +117,7 @@ export const downloads: DownloadGuide[] = [
       "Tempo: ca. 4 m² per uur",
     ],
     category: "handleiding",
-    image: "https://gamratwpc.pl/wp-content/uploads/2025/04/gamrat-wpc-realizacje-taras-2.webp",
+    image: "/images/gamrat/galeria-realizacje-1.webp",
     relatedLinks: [
       { label: "Vlonderplanken bekijken", href: "/categorie/vlonderplanken" },
     ],
@@ -127,10 +127,10 @@ export const downloads: DownloadGuide[] = [
   // ─── CATALOGI & GIDSEN ─────────────────────────────────────────────
   {
     id: "gamrat-catalogus",
-    title: "Gamrat WPC Productcatalogus 2026",
-    slug: "gamrat-wpc-catalogus",
+    title: "Productcatalogus 2026",
+    slug: "productcatalogus-2026",
     description:
-      "De complete Gamrat WPC productcatalogus met alle vlonderplanken, schuttingen en accessoires. Inclusief technische specificaties en kleuren.",
+      "De complete productcatalogus met alle vlonderplanken, schuttingen en accessoires. Inclusief technische specificaties en kleuren.",
     bulletPoints: [
       "7 vlonderplank-lijnen met alle kleurvarianten",
       "Compleet schuttingassortiment",
@@ -138,7 +138,7 @@ export const downloads: DownloadGuide[] = [
       "Technische specificaties per product",
     ],
     category: "gids",
-    image: "https://gamratwpc.pl/wp-content/uploads/2025/04/gamrat-wpc-systemy-tarasowe-slider-2.webp",
+    image: "/images/gamrat/gamrat-wpc-systemy-tarasowe-slider-2.webp",
     relatedLinks: [
       { label: "Bekijk alle producten", href: "/assortiment" },
     ],
@@ -146,10 +146,10 @@ export const downloads: DownloadGuide[] = [
   },
   {
     id: "gamrat-prijslijst",
-    title: "Gamrat WPC Prijslijst 2026",
-    slug: "gamrat-wpc-prijslijst",
+    title: "Prijslijst 2026",
+    slug: "prijslijst-2026",
     description:
-      "Actuele prijslijst voor alle Gamrat WPC producten. Inclusief staffelprijzen en leveringsvoorwaarden.",
+      "Actuele prijslijst voor alle producten. Inclusief staffelprijzen en leveringsvoorwaarden.",
     bulletPoints: [
       "Actuele prijzen per product",
       "Staffelprijzen voor grotere projecten",
@@ -157,7 +157,7 @@ export const downloads: DownloadGuide[] = [
       "Adviesverkoopprijzen",
     ],
     category: "gids",
-    image: "https://gamratwpc.pl/wp-content/uploads/2025/04/gamrat-wpc-realizacje-taras-1.webp",
+    image: "/images/gamrat/tarasy-kompozytowe.webp",
     relatedLinks: [
       { label: "Contact voor offerte", href: "/contact" },
     ],
@@ -167,10 +167,10 @@ export const downloads: DownloadGuide[] = [
   // ─── ONDERHOUD ──────────────────────────────────────────────────────
   {
     id: "onderhoud-composiet-vlonder",
-    title: "Onderhoudsadvies: Gamrat WPC vlonderplanken",
-    slug: "onderhoudsadvies-gamrat-wpc-vlonder",
+    title: "Onderhoudsadvies: composiet vlonderplanken",
+    slug: "onderhoudsadvies-composiet-vlonder",
     description:
-      "Officieel onderhoudsadvies voor Gamrat WPC vlonderplanken. Inclusief reinigingsmethoden en seizoensschema.",
+      "Officieel onderhoudsadvies voor composiet vlonderplanken. Inclusief reinigingsmethoden en seizoensschema.",
     bulletPoints: [
       "Jaarlijkse wasbeurt met warm zeepwater",
       "Reinigingstips per planktype",
@@ -178,7 +178,7 @@ export const downloads: DownloadGuide[] = [
       "Seizoensgebonden onderhoudstips",
     ],
     category: "onderhoud",
-    image: "https://gamratwpc.pl/wp-content/uploads/2025/04/gamrat-wpc-realizacje-taras-3.webp",
+    image: "/images/gamrat/galeria-1.webp",
     relatedLinks: [
       { label: "Vlonderplanken bekijken", href: "/categorie/vlonderplanken" },
     ],
@@ -191,7 +191,7 @@ export const downloads: DownloadGuide[] = [
     title: "Checklist: composiet schutting plaatsen",
     slug: "checklist-schutting-plaatsen",
     description:
-      "Stap-voor-stap checklist voor het plaatsen van een Gamrat WPC composiet schutting.",
+      "Stap-voor-stap checklist voor het plaatsen van een composiet schutting.",
     bulletPoints: [
       "Benodigd gereedschap & materialen",
       "Grondvoorbereiding & drainage",
@@ -199,7 +199,7 @@ export const downloads: DownloadGuide[] = [
       "Veelgemaakte fouten vermijden",
     ],
     category: "checklist",
-    image: "https://gamratwpc.pl/wp-content/uploads/2025/04/gamrat-wpc-ogrodzenia-1.webp",
+    image: "/images/gamrat/ogrodzenia-wizualizacja.webp",
     relatedLinks: [
       { label: "Schuttingen bekijken", href: "/categorie/schuttingen" },
     ],
@@ -218,7 +218,7 @@ export const downloads: DownloadGuide[] = [
       "Hellingen & vorstdiepte berekenen",
     ],
     category: "checklist",
-    image: "https://gamratwpc.pl/wp-content/uploads/2025/04/gamrat-wpc-systemy-tarasowe-slider-3.webp",
+    image: "/images/gamrat/galeria-4.webp",
     relatedLinks: [
       { label: "Vlonderplanken bekijken", href: "/categorie/vlonderplanken" },
     ],
@@ -236,7 +236,7 @@ export const downloads: DownloadGuide[] = [
       "Handige links naar gemeentewebsites",
     ],
     category: "gids",
-    image: "https://gamratwpc.pl/wp-content/uploads/2025/04/gamrat-wpc-ogrodzenia-2.webp",
+    image: "/images/gamrat/gamrat-wpc-ogrodzenia-slider.webp",
     relatedLinks: [
       { label: "Contact voor advies", href: "/contact" },
     ],
@@ -246,7 +246,7 @@ export const downloads: DownloadGuide[] = [
     title: "Kleurengids: het perfecte composiet voor jouw tuin",
     slug: "kleurengids",
     description:
-      "Kies de ideale kleur Gamrat WPC composiet die past bij jouw tuin, gevel en persoonlijke stijl.",
+      "Kies de ideale kleur composiet die past bij jouw tuin, gevel en persoonlijke stijl.",
     bulletPoints: [
       "Warme vs. koele tinten uitgelegd",
       "Kleuren combineren met tuinelementen",
@@ -254,7 +254,7 @@ export const downloads: DownloadGuide[] = [
       "Stijlgids: modern, landelijk & stoer",
     ],
     category: "gids",
-    image: "https://gamratwpc.pl/wp-content/uploads/2025/04/gamrat-wpc-realizacje-taras-2.webp",
+    image: "/images/gamrat/galeria-3.webp",
     relatedLinks: [
       { label: "Bekijk alle kleuren", href: "/assortiment" },
     ],

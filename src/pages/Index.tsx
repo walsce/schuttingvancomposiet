@@ -59,7 +59,7 @@ const Index = () => {
         <section className="relative overflow-hidden min-h-[70vh] sm:min-h-[80vh] flex items-center hero-landscape">
           <div className="absolute inset-0 pointer-events-none overflow-hidden">
             <img
-              src="https://gamratwpc.pl/wp-content/uploads/2025/04/gamrat-wpc-systemy-tarasowe-slider-2.webp"
+              src="/images/gamrat/gamrat-wpc-systemy-tarasowe-slider-2.webp"
               alt="Composiet vlonder terras met moderne uitstraling"
               className="absolute inset-0 w-full h-full object-cover"
             />
@@ -191,7 +191,7 @@ const Index = () => {
             </div>
             <div className="rounded-xl overflow-hidden">
               <img
-                src="https://gamratwpc.pl/wp-content/uploads/2025/04/gamrat-wpc-systemy-tarasowe-slider-1.webp"
+                src="/images/gamrat/gamrat-wpc-systemy-tarasowe-slider-1.webp"
                 alt="WPC composiet terras in tuin omgeving met moderne uitstraling"
                 className="w-full h-full object-cover"
                 loading="lazy"
