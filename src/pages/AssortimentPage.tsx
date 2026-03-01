@@ -15,7 +15,7 @@ const AssortimentPage = () => {
     <div className="min-h-screen bg-background">
       <SEOHead
         title="Composiet Assortiment | Alle Producten | Schuttingvancomposiet.nl"
-        description="Bekijk ons complete assortiment composiet gevelbekleding, schuttingen en vlonderplanken. Premium kwaliteit met 15 jaar garantie."
+        description="Bekijk ons complete assortiment composiet vlonderplanken, schuttingen en accessoires. Premium kwaliteit met 25 jaar garantie."
         canonical="/assortiment"
       />
       <Header />
@@ -28,7 +28,7 @@ const AssortimentPage = () => {
         <section className="container py-8 sm:py-12 md:py-20 px-4 sm:px-6">
           <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-2 sm:mb-3">Ons Assortiment</h1>
           <p className="text-muted-foreground mb-10 max-w-lg">
-            Ontdek onze complete collectie premium composiet producten voor tuin en gevel. Alle producten worden geleverd met 15 jaar garantie en eigen bezorgservice.
+            Ontdek onze complete collectie premium composiet producten voor tuin en terras. Alle producten worden geleverd met 25 jaar garantie en eigen bezorgservice.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
