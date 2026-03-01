@@ -186,9 +186,9 @@ Plaats afdekkapjes op de palen en monteer eventuele eindprofielen. Controleer al
 ### Garantie bij SchuttingvanComposiet.nl
 
 Wij bieden op al onze composiet schuttingen:
-- **15 jaar productgarantie** op structurele integriteit
+- **25 jaar productgarantie** op structurele integriteit
 - **10 jaar kleurgarantie** tegen extreme verkleuring
-- **25 jaar fabrieksgarantie** op co-extrusie producten (Silvadec)
+- **25 jaar fabrieksgarantie** op alle Gamrat WPC producten
 
 De garantie dekt:
 - Structureel falen (breken, splijten, delaminatie)
@@ -444,14 +444,14 @@ Er is veel variatie in kwaliteit. Goedkope composiet uit China kan snel verkleur
         heading: "Hoe je de nadelen beperkt",
         content: `- **Kies co-extrusie**: de extra beschermlaag minimaliseert verkleuring en krassen
 - **Monteer correct**: volg de montagehandleiding voor expansieruimte
-- **Kies een erkend merk**: wij werken uitsluitend met Silvadec (25 jaar garantie)
+- **Kies een erkend merk**: wij werken uitsluitend met Gamrat WPC (25 jaar garantie)
 - **Bestel een sample**: beoordeel kleur en kwaliteit thuis voordat je bestelt
 
 Lees ook onze [complete gids over composiet schuttingen](/schutting-van-composiet) voor een volledig overzicht van voor- en nadelen.`,
       },
     ],
     faqs: [
-      { q: "Is composiet echt zo slecht als sommigen beweren?", a: "Nee. De meeste klachten gaan over goedkoop composiet van onbekende merken. Kwaliteitscomposiet (co-extrusie) van merken als Silvadec heeft deze problemen niet." },
+      { q: "Is composiet echt zo slecht als sommigen beweren?", a: "Nee. De meeste klachten gaan over goedkoop composiet van onbekende merken. Kwaliteitscomposiet van merken als Gamrat WPC heeft deze problemen niet." },
       { q: "Verbuigt een composiet schutting in de zon?", a: "Kwalitatief composiet verbuigt niet. Goedkope mono-extrusie planken kunnen in extreme hitte iets verbuigen als ze niet correct gemonteerd zijn." },
       { q: "Kan ik een beschadigde composiet plank repareren?", a: "Kleine krassen kun je met een lichte schuurbehandeling bijwerken. Bij grotere schade moet de plank vervangen worden, wat met een insteeksysteem eenvoudig is." },
     ],
@@ -908,7 +908,7 @@ De prijzen bij Hornbach zijn vergelijkbaar voor basiskwaliteit. Het verschil zit
       {
         heading: "Wanneer kies je een specialist?",
         content: `Een specialist zoals SchuttingvanComposiet.nl is beter als:
-- Je premium kwaliteit wilt (co-extrusie, Silvadec)
+- Je premium kwaliteit wilt (Gamrat WPC)
 - Je persoonlijk advies en maatwerk nodig hebt
 - Je professionele montage wilt
 - Je een uitgebreide garantie (15-25 jaar) belangrijk vindt
@@ -1031,20 +1031,17 @@ Gamma is iets goedkoper in het basissegment, maar biedt minder keuze en garantie
 Elephant producten zijn verkrijgbaar bij bouwmarkten zoals Gamma, Praxis en bij gespecialiseerde dealers.`,
       },
       {
-        heading: "Vergelijking Elephant vs Silvadec",
-        content: `| Criterium | Elephant | Silvadec (SchuttingvanComposiet.nl) |
+        heading: "Vergelijking Elephant vs Gamrat WPC",
+        content: `| Criterium | Elephant | Gamrat WPC (SchuttingvanComposiet.nl) |
 |-----------|----------|--------------------------------------|
-| Type composiet | Mono- en co-extrusie | Voornamelijk co-extrusie |
-| Kleuropties | 4-6 | 8+ |
-| Garantie structureel | 10 jaar | 15-25 jaar |
-| Garantie kleur | 5 jaar | 10 jaar |
-| Herkomst | Nederland/België | Frankrijk (EU) |
-| Verkoopkanaal | Bouwmarkten + dealers | Specialist (direct) |
-| Persoonlijk advies | Via dealer | Direct van specialisten |
-| Montageservice | Via derden | In-house |
-| Prijs (co-extrusie) | €130-€180/m | €120-€175/m |
+| Type composiet | Mono- en co-extrusie | Massief en komorowa |
+| Garantie | 10-15 jaar | 25 jaar |
+| Kleuren | 4-6 kleuren | 5+ kleuren per lijn |
+| Advies | Via bouwmarktpersoneel | Persoonlijk specialist advies |
+| Montageservice | Via derden | Direct beschikbaar |
+| Prijs | €130-€180/m | Prijs op aanvraag |
 
-**Analyse**: Elephant biedt degelijke producten met goede beschikbaarheid. Silvadec scoort beter op garantie, kleurkeuze en persoonlijk advies.`,
+**Analyse**: Elephant biedt degelijke producten met goede beschikbaarheid. Gamrat WPC scoort beter op garantie, kleurkeuze en persoonlijk advies.`,
       },
       {
         heading: "Kwaliteit en ervaringen",
@@ -1072,14 +1069,14 @@ Gebruikerservaringen zijn overwegend positief, met name voor de Forte-lijn. De D
 - Basiskwaliteit composiet voldoende is
 - Je zelf wilt monteren zonder specialistisch advies
 
-Wil je langere garantie, meer kleurkeuze of professionele montage? Bekijk dan ons [assortiment van Silvadec composiet schuttingen](/categorie/schuttingen) of lees onze [complete gids](/schutting-van-composiet).`,
+Wil je langere garantie, meer kleurkeuze of professionele montage? Bekijk dan ons [assortiment van Gamrat WPC composiet schuttingen](/categorie/schuttingen) of lees onze [complete gids](/schutting-van-composiet).`,
       },
     ],
     faqs: [
       { q: "Is Elephant een goed merk voor composiet schuttingen?", a: "Ja, Elephant is een gevestigd merk met degelijke producten. De basiskwaliteit is goed. Voor premium co-extrusie en langere garantie zijn er betere opties beschikbaar." },
       { q: "Waar kan ik Elephant schuttingen kopen?", a: "Elephant schuttingen zijn verkrijgbaar bij bouwmarkten zoals Gamma en Praxis, en bij gespecialiseerde tuinhoutdealers in heel Nederland en België." },
       { q: "Wat kost een Elephant composiet schutting?", a: "Reken op €110-€220 per strekkende meter, afhankelijk van het systeem (Forte, Design of Modular) en de uitvoering." },
-      { q: "Hoe verhoudt Elephant zich tot Silvadec?", a: "Elephant biedt goede basiskwaliteit met brede beschikbaarheid. Silvadec scoort beter op co-extrusie kwaliteit, garantie (tot 25 jaar) en kleurkeuze." },
+      { q: "Hoe verhoudt Elephant zich tot Gamrat WPC?", a: "Elephant biedt goede basiskwaliteit met brede beschikbaarheid. Gamrat WPC scoort beter op kwaliteit, garantie (25 jaar) en kleurkeuze." },
     ],
     internalLinks: [
       { label: "Complete gids composiet schuttingen", href: "/schutting-van-composiet" },

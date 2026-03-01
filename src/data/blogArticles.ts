@@ -34,7 +34,7 @@ const blogArticlesBase: BlogArticle[] = [
     date: "2026-02-10",
     author: { name: "Mark de Vries", role: "Composiet specialist" },
     updatedDate: "2026-02-15",
-    relatedProducts: ["nuances-ipe-vlonderplank", "nuances-licht-eiken-vlonderplank", "atmosphere-ushuaia-grijs-vlonderplank"],
+    relatedProducts: ["gamrat-classic-donkerbruin", "gamrat-premium-grafiet", "gamrat-elegance-gorski-dab"],
     relatedCategories: ["vlonderplanken"],
     schemaType: "Article",
     content: `## Waarom composiet vlonderplanken?
@@ -45,96 +45,41 @@ Composiet vlonderplanken combineren de warme, natuurlijke uitstraling van hout m
 
 - **Onderhoudsvrij** — geen jaarlijks schuren, oliën of beitsen
 - **Splintervrij** — veilig voor kinderen en huisdieren
-- **Kleurvast** — UV-bestendige Co-Extrusie beschermlaag
+- **Kleurvast** — UV-bestendige beschermlaag
 - **Weerbestendig** — geen rot, schimmel of insectenvraat
 
 ## Waar moet je op letten?
 
-### 1. Co-extrusie vs. Mono-extrusie
+### 1. Massief vs. Komorowa (hol)
 
-**Co-extrusie planken** (zoals de Atmosphere en Nuances lijnen) hebben een extra beschermlaag die zorgt voor maximale kleurvastheid en vlekbestendigheid. **Mono-extrusie planken** (zoals Elegance en Emotion) zijn budget-vriendelijker maar ontwikkelen na verloop van tijd een patina.
+**Massief planken** (Classic, Premium) zijn volledig gevuld en bieden maximale sterkte. **Komorowa (holle) planken** zijn lichter en betaalbaarder, ideaal voor privégebruik.
 
 ### 2. Afwerking
 
-Kies tussen geborsteld, gegroefde, glad of gestructureerd. Geborsteld geeft de meest natuurlijke houtlook, gegroefde biedt optimale antislip-eigenschappen.
+Kies tussen geborsteld, fijn gegroefde of houtnerf-structuur. De Premium lijn biedt de meest natuurlijke houtlook, de Classic lijn een geborstelde afwerking.
 
 ### 3. Afmetingen
 
-Standaard lengtes variëren van 3,6 tot 4,0 meter. Bereken altijd je benodigde oppervlakte plus 10% extra voor zaagverlies.
+Standaard lengtes zijn 3 en 4 meter. De breedte varieert van 140 mm (Eco, Elegance) tot 185 mm (MAX). Bereken altijd je benodigde oppervlakte plus 10% extra voor zaagverlies.
 
 ### 4. Kleurkeuze
 
-Composiet vlonderplanken zijn beschikbaar in twee kleurenfamilies:
-- **Bruin** — van licht goudbruin tot diep donkerbruin
-- **Grijs** — van fris lichtgrijs tot diep antraciet
+Gamrat WPC vlonderplanken zijn beschikbaar in vijf basiskleuren:
+- **Donkerbruin** — klassieke warme houtlook
+- **Grafiet** — modern en strak
+- **Orzech (walnoot)** — rijke middenbruine tint
+- **Szary (grijs)** — neutraal en tijdloos
+- **Donkergrijs** — diep antraciet
+
+De Elegance lijn biedt exclusieve eiken-tinten met RENOLIT folie.
 
 ## Prijsindicatie
 
-Reken op €49–€89 per vierkante meter. Co-extrusie planken zijn duurder maar bieden langere garantie (25 jaar vs. 15 jaar).
+Neem contact op voor actuele prijzen. Gamrat WPC biedt 25 jaar garantie op alle producten.
 
 ## Conclusie
 
-Investeer in kwaliteit en kies voor composiet met co-extrusie beschermlaag als budget het toelaat. Je geniet jarenlang van een prachtig terras zonder gedoe.`,
-  },
-  {
-    slug: "gevelbekleding-installeren-stap-voor-stap",
-    title: "Composiet gevelbekleding installeren: stap-voor-stap handleiding",
-    excerpt: "Van voorbereiding tot afwerking — leer hoe je composiet gevelbekleding zelf monteert met deze uitgebreide installatiehandleiding.",
-    category: "installatie",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80",
-    readTime: 12,
-    date: "2026-02-05",
-    author: { name: "Jan Bakker", role: "Montage expert" },
-    updatedDate: "2026-02-12",
-    relatedProducts: ["atmosphere-175-wit-ceruse", "atmosphere-175-zonnig-bruin", "open-rhombus-antraciet-grijs"],
-    relatedCategories: ["gevelbekleding"],
-    schemaType: "HowTo",
-    content: `## Voorbereiding
-
-Een goede voorbereiding is het halve werk. Zorg dat je het volgende bij de hand hebt voordat je begint.
-
-### Benodigdheden
-
-- Composiet gevelbekledingsplanken
-- Aluminium startprofiel
-- RVS schroeven (meegeleverd)
-- Waterpas en meetlint
-- Accuboormachine
-- Verstekzaag of cirkelzaag
-- Vochtscherm / dampopen folie
-
-### Stap 1: Onderconstructie aanbrengen
-
-Breng eerst een houten of aluminium regelwerk aan op de gevel. Gebruik regels van minimaal 40×60 mm met een tussenafstand van maximaal 40 cm. Zorg dat de regels waterpas staan.
-
-### Stap 2: Vochtscherm plaatsen
-
-Breng een dampopen folie aan over het regelwerk. Dit beschermt de achterliggende muur tegen vocht en zorgt voor goede ventilatie.
-
-### Stap 3: Startprofiel monteren
-
-Schroef het aluminium startprofiel waterpas aan de onderzijde van de gevel. Dit profiel vormt de basis voor de eerste rij planken.
-
-### Stap 4: Planken bevestigen
-
-Klik de eerste plank in het startprofiel en schroef deze vast aan de regels. Gebruik de meegeleverde clips voor een onzichtbare bevestiging. Werk van onder naar boven.
-
-### Stap 5: Afwerken
-
-Gebruik hoekprofielen en eindstukken voor een strakke afwerking. Laat een dilatatievoeg van minimaal 5 mm aan beide uiteinden.
-
-## Tips voor een perfect resultaat
-
-- Laat de planken 48 uur acclimatiseren vóór montage
-- Werk bij temperaturen boven 5°C
-- Houd rekening met uitzetting: 2-3 mm per strekkende meter
-- Boor altijd voor bij de kopse kanten
-
-## Veelgemaakte fouten
-
-1. **Geen dilatatievoeg** — composiet zet uit en krimpt, zonder voeg kan dit tot vervorming leiden
-2. **Te weinig bevestigingspunten** — gebruik minimaal 2 schroeven per regel per plank
-3. **Verkeerde onderconstructie** — gebruik altijd onbehandeld of geïmpregneerd hout`,
+Investeer in kwaliteit en kies voor de juiste plank voor jouw situatie. Je geniet jarenlang van een prachtig terras zonder gedoe.`,
   },
   {
     slug: "composiet-schutting-plaatsen",
@@ -146,7 +91,7 @@ Gebruik hoekprofielen en eindstukken voor een strakke afwerking. Laat een dilata
     date: "2026-01-28",
     author: { name: "Jan Bakker", role: "Montage expert" },
     updatedDate: "2026-02-01",
-    relatedProducts: ["atmosphere-schutting-antraciet-grijs", "aluminium-schutting-zwart", "atmosphere-schutting-wild-grijs"],
+    relatedProducts: ["gamrat-schutting-classic-donkerbruin", "gamrat-schutting-premium-grafiet", "gamrat-paal-donkerbruin"],
     relatedCategories: ["schuttingen"],
     schemaType: "HowTo",
     content: `## De juiste fundering
@@ -161,9 +106,9 @@ Betonpoeren zijn de meest gebruikte methode. Graaf gaten van 40×40×60 cm en vu
 
 Schroefankers zijn sneller te plaatsen en geschikt voor stevige grond. Draai ze minimaal 60 cm de grond in.
 
-## Aluminium palen plaatsen
+## WPC palen plaatsen
 
-Gebruik altijd aluminium palen voor composiet schuttingen. Ze roesten niet en gaan net zo lang mee als de planken.
+Gebruik altijd WPC of aluminium palen voor composiet schuttingen. Ze roesten niet en gaan net zo lang mee als de planken.
 
 - Plaats de palen op maximaal 1,80 m tussenafstand
 - Controleer of elke paal loodrecht staat
@@ -171,7 +116,7 @@ Gebruik altijd aluminium palen voor composiet schuttingen. Ze roesten niet en ga
 
 ## Planken inschuiven
 
-Composiet schuttingplanken schuif je eenvoudig in de gleuf van de aluminium palen. Begin onderaan en werk naar boven.
+Composiet schuttingplanken schuif je eenvoudig in de gleuf van de palen. Begin onderaan en werk naar boven.
 
 ### Let op:
 - Houd 5 mm speling aan weerszijden voor uitzetting
@@ -180,7 +125,7 @@ Composiet schuttingplanken schuif je eenvoudig in de gleuf van de aluminium pale
 
 ## Afdekken en afwerken
 
-Plaats afdekkapjes op de aluminium palen en breng eventueel een afdekkap aan op de bovenste plank. Dit geeft een strakke, professionele uitstraling.
+Plaats afdekkapjes op de palen en breng eventueel een afdekkap aan op de bovenste plank. Dit geeft een strakke, professionele uitstraling.
 
 ## Onderhoud
 
@@ -199,8 +144,8 @@ Je composiet schutting heeft nauwelijks onderhoud nodig:
     date: "2026-01-20",
     author: { name: "Mark de Vries", role: "Composiet specialist" },
     updatedDate: "2026-01-25",
-    relatedProducts: ["atmosphere-175-zonnig-bruin", "nuances-ipe-vlonderplank"],
-    relatedCategories: ["gevelbekleding", "vlonderplanken", "schuttingen"],
+    relatedProducts: ["gamrat-premium-donkerbruin", "gamrat-classic-orzech"],
+    relatedCategories: ["vlonderplanken", "schuttingen"],
     schemaType: "Article",
     content: `## De grote vraag
 
@@ -218,7 +163,7 @@ Composiet is op lange termijn bijna altijd goedkoper.
 
 ## Duurzaamheid
 
-- **Composiet**: 20–25 jaar, geen rot of splinteren
+- **Composiet**: 25+ jaar, geen rot of splinteren
 - **Hardhout**: 15–25 jaar mits goed onderhouden
 - **Zachthout**: 5–10 jaar, gevoelig voor rot
 
@@ -228,11 +173,11 @@ Composiet wint hier met grote voorsprong. Waar hout jaarlijks geschuurd en behan
 
 ## Uitstraling
 
-Modern composiet is nauwelijks te onderscheiden van echt hout. De nerf- en kleurvariaties zijn zo realistisch dat zelfs kenners twee keer moeten kijken.
+Modern composiet is nauwelijks te onderscheiden van echt hout. Gamrat WPC Premium planken hebben een realistische houtnerf-structuur.
 
 ## Milieu-impact
 
-Composiet wordt deels gemaakt van gerecyclede materialen en is aan het einde van de levensduur volledig recycleerbaar. Hardhout komt vaak uit tropische bossen, al bestaan er FSC-gecertificeerde opties.
+Gamrat WPC composiet is 100% recycleerbaar en wordt geproduceerd door een Poolse fabrikant met duurzame productiemethoden. Het materiaal bestaat uit houtvezels en PVC.
 
 ## Ons advies
 
@@ -257,7 +202,7 @@ Kies hout als je:
     date: "2026-01-15",
     author: { name: "Lisa Jansen", role: "Onderhoud adviseur" },
     updatedDate: "2026-02-01",
-    relatedProducts: ["atmosphere-ushuaia-grijs-vlonderplank", "atmosphere-schutting-antraciet-grijs"],
+    relatedProducts: ["gamrat-classic-grafiet", "gamrat-schutting-classic-grafiet"],
     relatedCategories: ["vlonderplanken", "schuttingen"],
     schemaType: "Article",
     content: `## Voorjaar: grote schoonmaak
@@ -271,7 +216,7 @@ Na de winter is het tijd voor een grondige reiniging:
 
 ### Groene aanslag verwijderen
 
-Gebruik een speciaal composiet-reinigingsmiddel. Vermijd bleek of agressieve chemicaliën — deze kunnen de Co-Extrusie beschermlaag beschadigen.
+Gebruik een speciaal composiet-reinigingsmiddel. Vermijd bleek of agressieve chemicaliën — deze kunnen het oppervlak beschadigen.
 
 ## Zomer: genieten en beschermen
 
@@ -300,7 +245,7 @@ Gebruik een speciaal composiet-reinigingsmiddel. Vermijd bleek of agressieve che
 
 ## Professionele tip
 
-Breng jaarlijks een composiet-beschermer aan. Dit is geen noodzaak maar verlengt de levensduur en houdt de kleur intenser.`,
+Composiet van Gamrat WPC is ontworpen om extreme temperaturen te weerstaan en heeft geen extra beschermlaag nodig.`,
   },
   {
     slug: "tuin-inspiratie-composiet-terras",
@@ -312,24 +257,24 @@ Breng jaarlijks een composiet-beschermer aan. Dit is geen noodzaak maar verlengt
     date: "2026-01-08",
     author: { name: "Sophie van Dijk", role: "Tuin & design specialist" },
     updatedDate: "2026-01-20",
-    relatedProducts: ["nuances-ipe-vlonderplank", "atmosphere-rio-bruin-vlonderplank", "atmosphere-belem-grijs-vlonderplank"],
+    relatedProducts: ["gamrat-premium-donkerbruin", "gamrat-classic-grafiet", "gamrat-elegance-miodowy-dab"],
     relatedCategories: ["vlonderplanken"],
     schemaType: "Article",
     content: `## 1. Het minimalistische stadsterras
 
-Een strak terras in antraciet composiet, gecombineerd met witte plantenbakken en siergrassen. Perfect voor kleine stadstuinen waar elke vierkante meter telt.
+Een strak terras in grafiet composiet, gecombineerd met witte plantenbakken en siergrassen. Perfect voor kleine stadstuinen waar elke vierkante meter telt.
 
-**Tip:** Kies smalle planken (138 mm) voor een moderne uitstraling en leg ze in de lengterichting om de tuin groter te laten lijken.
+**Tip:** Kies smalle planken (140 mm) voor een moderne uitstraling en leg ze in de lengterichting om de tuin groter te laten lijken.
 
 ## 2. Het familievriendelijke tuinterras
 
-Een ruim terras in warm bruin composiet met een ingebouwde zandbak en speelhoek. Splintervrij en veilig voor de kleintjes.
+Een ruim terras in warm donkerbruin composiet met een ingebouwde zandbak en speelhoek. Splintervrij en veilig voor de kleintjes.
 
 **Tip:** Combineer verschillende niveaus voor een speels effect. Gebruik trapprofielen voor veilige overgangen.
 
 ## 3. De mediterrane loungehoek
 
-Lichte eiken composiet vlonders gecombineerd met een pergola, klimplanten en comfortabele loungesets. Breng de vakantiesfeer naar je eigen tuin.
+Lichte eiken composiet vlonders (Gamrat Elegance) gecombineerd met een pergola, klimplanten en comfortabele loungesets. Breng de vakantiesfeer naar je eigen tuin.
 
 **Tip:** Combineer composiet met natuursteen randen voor een luxe mediterraans gevoel.
 

@@ -22,7 +22,7 @@ const TrustCTA = ({
       </div>
       <div className="flex items-center gap-3">
         <ShieldCheck className="h-5 w-5 text-primary flex-shrink-0" />
-        <span className="text-sm text-foreground">15–25 jaar productgarantie</span>
+        <span className="text-sm text-foreground">25 jaar productgarantie</span>
       </div>
       <div className="flex items-center gap-3">
         <MessageCircle className="h-5 w-5 text-primary flex-shrink-0" />
