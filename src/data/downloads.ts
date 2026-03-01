@@ -14,7 +14,7 @@ export interface DownloadGuide {
   /** YouTube video ID for embedded video content */
   videoId?: string;
   /** Related product categories */
-  relatedCategory?: "vlonderplanken" | "schuttingen" | "gevelbekleding";
+  relatedCategory?: "vlonderplanken" | "schuttingen" | "accessoires";
 }
 
 export const categoryLabels: Record<DownloadCategory, string> = {
@@ -105,7 +105,7 @@ export const downloads: DownloadGuide[] = [
       { label: "Gevelbekleding bekijken", href: "/categorie/gevelbekleding" },
     ],
     pdfPath: "/downloads/montagehandleiding-atmosphere-175-gevelbekleding.pdf",
-    relatedCategory: "gevelbekleding",
+    relatedCategory: "accessoires",
   },
   {
     id: "handleiding-open-rhombus-gevelbekleding",
@@ -125,7 +125,7 @@ export const downloads: DownloadGuide[] = [
       { label: "Open rhombus bekijken", href: "/categorie/gevelbekleding" },
     ],
     pdfPath: "/downloads/montagehandleiding-open-rhombus-gevelbekleding.pdf",
-    relatedCategory: "gevelbekleding",
+    relatedCategory: "accessoires",
   },
   {
     id: "snelstartgids-open-rhombus",
@@ -145,7 +145,7 @@ export const downloads: DownloadGuide[] = [
       { label: "Gevelbekleding bekijken", href: "/categorie/gevelbekleding" },
     ],
     pdfPath: "/downloads/snelstartgids-open-rhombus-gevelbekleding.pdf",
-    relatedCategory: "gevelbekleding",
+    relatedCategory: "accessoires",
   },
   {
     id: "handleiding-aluminium-onderbalken",
@@ -388,7 +388,7 @@ export const downloads: DownloadGuide[] = [
       { label: "Gevelbekleding bekijken", href: "/categorie/gevelbekleding" },
     ],
     videoId: "ms27m-E86Ug",
-    relatedCategory: "gevelbekleding",
+    relatedCategory: "accessoires",
   },
 
   // ─── GIDSEN & CHECKLISTS ────────────────────────────────────────────────

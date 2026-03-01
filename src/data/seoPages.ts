@@ -1094,12 +1094,12 @@ Wil je langere garantie, meer kleurkeuze of professionele montage? Bekijk dan on
 
 // ── IMPORTS FROM SPLIT FILES ─────────────────────────────────────────────────
 import { allVlonderSEOPages } from "./seoVlonderPages";
-import { allGevelSEOPages } from "./seoGevelPages";
+// Gevelbekleding pages removed — no longer in catalog
 import { allMateriaalSEOPages } from "./seoMateriaalPages";
 import { allSchuttingExpansionPages } from "./seoSchuttingExpansion";
 
 // ── ALL PAGES COMBINED ──────────────────────────────────────────────────────
-export const allSEOPages: SEOPage[] = [pillarPage, ...clusterPages, ...comparisonPages, ...allVlonderSEOPages, ...allGevelSEOPages, ...allMateriaalSEOPages, ...allSchuttingExpansionPages];
+export const allSEOPages: SEOPage[] = [pillarPage, ...clusterPages, ...comparisonPages, ...allVlonderSEOPages, ...allMateriaalSEOPages, ...allSchuttingExpansionPages];
 
 export const getSEOPageBySlug = (slug: string): SEOPage | undefined =>
   allSEOPages.find((p) => p.slug === slug);
