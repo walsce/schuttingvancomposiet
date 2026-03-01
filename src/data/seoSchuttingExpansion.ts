@@ -284,7 +284,7 @@ Maar hoelang gaat composiet *echt* mee? En wat bepaalt of je schutting 20 of 30+
         content: `Diverse factoren bepalen hoelang jouw schutting meegaat:
 
 ### 1. Kwaliteit van het materiaal
-Premium merken zoals Silvadec gebruiken een hoger percentage houtvezels en betere polymeren dan budgetmerken. Dit resulteert in een stabieler en duurzamer product.
+Premium merken zoals Gamrat WPC gebruiken een hoger percentage houtvezels en betere polymeren dan budgetmerken. Dit resulteert in een stabieler en duurzamer product.
 
 ### 2. Montage
 Een correct geplaatste schutting gaat langer mee:
@@ -588,7 +588,7 @@ Het aanbod varieert per vestiging. Niet alle filialen hebben het volledige compo
 - Garantie via het merk (10-15 jaar)
 
 ### Specialist aanbod (SchuttingvanComposiet.nl)
-- Premium merken zoals Silvadec (Frans kwaliteitsmerk)
+- Premium merken zoals Gamrat WPC (Poolse kwaliteitsproducent)
 - Uitgebreid co-extrusie assortiment
 - Meer kleurkeuze (8+ kleuren)
 - Langere garantie (tot 25 jaar)
@@ -626,7 +626,7 @@ Bij een bouwmarkt ben je afhankelijk van de kennis van de medewerker. Bij een sp
     comparisonTable: {
       headers: ["Criterium", "Praxis", "SchuttingvanComposiet.nl"],
       rows: [
-        { aspect: "Merken", option1: "Elephant, Woodvision", option2: "Silvadec, premium co-extrusie" },
+        { aspect: "Merken", option1: "Elephant, Woodvision", option2: "Gamrat WPC, premium composiet" },
         { aspect: "Prijs (co-extrusie/m)", option1: "€135-€190", option2: "€120-€175" },
         { aspect: "Garantie", option1: "10-15 jaar", option2: "15-25 jaar" },
         { aspect: "Kleurkeuze", option1: "3-5 kleuren", option2: "8+ kleuren" },
@@ -730,7 +730,7 @@ Karwei hanteert bouwmarktprijzen die doorgaans iets hoger liggen dan bij special
     comparisonTable: {
       headers: ["Criterium", "Karwei", "SchuttingvanComposiet.nl"],
       rows: [
-        { aspect: "Merken", option1: "Elephant, huismerk", option2: "Silvadec, premium co-extrusie" },
+        { aspect: "Merken", option1: "Elephant, huismerk", option2: "Gamrat WPC, premium composiet" },
         { aspect: "Prijs (co-extrusie/m)", option1: "€140-€195", option2: "€120-€175" },
         { aspect: "Garantie", option1: "10-15 jaar", option2: "15-25 jaar" },
         { aspect: "Kleurkeuze", option1: "3-4 kleuren", option2: "8+ kleuren" },

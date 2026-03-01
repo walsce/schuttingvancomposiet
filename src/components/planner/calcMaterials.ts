@@ -18,8 +18,8 @@ export function calcMaterials(
   const product = products.find((p) => p.slug === productSlug);
   if (!product) return [];
 
-  const lengthM = parseFloat(product.specifications?.["Lengte"]?.replace(",", ".")) || 3.9;
-  const widthMM = parseFloat(product.specifications?.["Breedte"]?.replace(",", ".")) || 145;
+  const lengthM = parseFloat(product.specifications?.["Lengte"]?.replace(",", ".")) || 4.0;
+  const widthMM = parseFloat(product.specifications?.["Breedte"]?.replace(",", ".")) || 160;
   const widthM = widthMM > 10 ? widthMM / 1000 : widthMM;
   const coveragePerPlank = lengthM * widthM;
 

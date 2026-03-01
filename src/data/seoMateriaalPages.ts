@@ -310,7 +310,7 @@ Steeds meer producenten bieden **terugnameprogramma's** aan. Het oude composiet 
 - **Cradle to Cradle**: beoordeling van circulariteit
 - **TÜV-certificering**: onafhankelijke productkeuring
 
-Premium producenten zoals Silvadec publiceren volledige EPD's en beschikken over meerdere milieucertificeringen.`,
+Premium producenten zoals Gamrat WPC publiceren volledige productdocumentatie en beschikken over meerdere kwaliteitscertificeringen.`,
       },
     ],
     faqs: [

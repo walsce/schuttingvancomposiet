@@ -262,7 +262,7 @@ export const vlonderClusterPages: SEOPage[] = [
 | Mono-extrusie basis | €35 – €55 | ★★★☆☆ |
 | Mono-extrusie premium | €50 – €75 | ★★★★☆ |
 | Co-extrusie standaard | €65 – €90 | ★★★★☆ |
-| Co-extrusie premium (bijv. Silvadec) | €85 – €120 | ★★★★★ |
+| Co-extrusie premium (bijv. Gamrat Elegance) | €85 – €120 | ★★★★★ |
 | Massief composiet | €90 – €140 | ★★★★★ |
 
 **Let op**: dit zijn materiaalkosten exclusief onderconstructie, clips en montage.`,
@@ -1267,7 +1267,7 @@ Hornbach is bij instapproducten vergelijkbaar geprijsd. Bij premium co-extrusie 
         content: `Een gespecialiseerde composiet leverancier biedt voordelen die een bouwmarkt niet kan evenaren:
 
 - **Breder assortiment**: meer kleuren, types en afwerkingen
-- **Premium merken**: toegang tot merken als Silvadec die niet bij bouwmarkten verkrijgbaar zijn
+- **Premium merken**: toegang tot merken als Gamrat WPC die niet bij bouwmarkten verkrijgbaar zijn
 - **Persoonlijk advies**: specialistisch advies op maat, inclusief berekeningen
 - **Monsters**: gratis kleurmonsters om thuis te vergelijken
 - **Garantie**: langere garanties door directe relatie met fabrikant
