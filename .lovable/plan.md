@@ -1,217 +1,184 @@
 
-# Topical Authority Map: Composiet (Schuttingen, Vlonders & Gevelbekleding)
 
-## Huidige Situatie
+# Complete Website Overhaul: Silvadec to Gamrat WPC
 
-**Wat er al is:**
-- 1 Pillar page: "Schutting van composiet"
-- 8 Cluster pages (kunststof, onderhoudsvij, nadelen, prijs, vs hout, zwart, antraciet, met beton)
-- 3 Comparison pages (Hornbach, Gamma, Elephant)
-- 6 Blog artikelen (vlonderplanken kiezen, gevelbekleding, schutting plaatsen, composiet vs hout, onderhoud, inspiratie)
-- 3 productcategorieen: gevelbekleding, schuttingen, vlonderplanken
+## Context
 
-**Wat ontbreekt:**
-De huidige structuur richt zich bijna uitsluitend op "composiet schutting". Er is geen pillar/cluster-structuur voor vlonders of gevelbekleding, en er missen belangrijke commerciele en informatieve zoekintenten.
+The website currently sells Silvadec products (French manufacturer) with three categories: gevelbekleding, schuttingen, vlonderplanken. The new provider is **Gamrat WPC** (Polish manufacturer) with a different product structure: **Deski tarasowe** (decking boards), **Ogrodzenia** (fencing), and **Akcesoria** (accessories). Gamrat does NOT have gevelbekleding (cladding) products.
 
----
+## Scraped Data Summary
 
-## Voorgestelde Topical Authority Architectuur
+From gamratwpc.pl, the complete product catalog is:
 
-### Structuur: 4 Pillar Pages + 40 Cluster Pages + 10 Comparison Pages + 20 Blog Artikelen
+### Decking Boards (Deski tarasowe) - 7 products
+| Product | Dimensions | Colors | Structure |
+|---------|-----------|--------|-----------|
+| Komorowa (Chamber) | 25x160mm, 3/4m | Ciemny braz, Grafit, Orzech, Szary, Ciemny szary | Hollow, dual-sided grooves |
+| Classic (Solid) | 20x160mm, 3/4m | Ciemny braz, Grafit, Orzech + custom: Szary, Ciemny szary | Solid, brushed |
+| Premium (Solid) | 20x160mm, 3/4m | Ciemny braz, Grafit, Orzech + custom: Szary, Ciemny szary | Solid, wood-grain pattern |
+| Elegance | 25x140mm, 4m only | Gorski dab, Miodowy dab, Naturalny dab | RENOLIT foil + corundum layer |
+| Eco | 25x140mm, 3/4m | Ciemny braz, Grafit, Orzech + custom: Szary, Ciemny szary | Eco-friendly, fine groove |
+| Slim | 25x140mm, 3m | Ciemny braz, Grafit, Orzech | Budget, thin construction |
+| MAX | 20x185mm, 3/4m | Ciemny braz, Grafit, Orzech | Wide, pallet-only sales |
 
----
+### Fencing (Ogrodzenia) - 4 products
+| Product | Dimensions | Colors |
+|---------|-----------|--------|
+| Deska ogrodzeniowa Classic | 19x150mm, 2m | Ciemny braz, Grafit, Orzech |
+| Deska ogrodzeniowa Premium | 19x150mm, 2m | Ciemny braz, Grafit, Orzech |
+| Uniwersalny profil Classic/Premium | 19x150mm, 1.25/1.5/2m | Ciemny braz, Grafit, Orzech |
+| Ceownik WPC | 30x40mm, 2m | Ciemny braz, Grafit, Orzech |
+| Slupek ogrodzeniowy | 60x60mm, 2m | Ciemny braz, Grafit, Orzech |
 
-### PILLAR 1: Composiet Schutting (BESTAAND -- uitbreiden)
+### Accessories (Akcesoria)
+| Product | Details |
+|---------|---------|
+| Legar WPC | 50x30mm, 3m |
+| Legar aluminiowy niski | 36.4x24mm, 4m |
+| Legar aluminiowy wysoki | 38x51mm, 4m |
+| Zestawy montazowe | 2m² and 10m² sets |
+| Listwa plaska | Flat trim |
+| Listwa L kompozytowa | L-trim composite |
+| Listwa L aluminiowa | L-trim aluminum |
+| Wsporniki regulowane | 25-260mm height range |
 
-**Pillar:** `/schutting-van-composiet` (bestaand)
+### Brand USPs
+- 25 jaar garantie (25 year warranty)
+- Polski producent (Polish manufacturer)
+- 100% recykling
+- Brak koniecznosci impregnacji (no impregnation needed)
+- Wysoka klasa niepalnosci (high fire resistance)
+- Koekstruzja (co-extrusion)
 
-| # | Slug | Type | Zoekintent | Status |
-|---|------|------|-----------|--------|
-| 1 | `/kunststof-schutting` | Cluster | Informational | Bestaand |
-| 2 | `/onderhoudsvrije-schutting` | Cluster | Informational | Bestaand |
-| 3 | `/composiet-schutting-nadelen` | Cluster | Informational | Bestaand |
-| 4 | `/composiet-schutting-prijs-per-meter` | Cluster | Commercial | Bestaand |
-| 5 | `/composiet-vs-hout-schutting` | Cluster | Comparison | Bestaand |
-| 6 | `/zwarte-composiet-schutting` | Cluster | Commercial | Bestaand |
-| 7 | `/antraciet-composiet-schutting` | Cluster | Commercial | Bestaand |
-| 8 | `/composiet-schutting-met-beton` | Cluster | Informational | Bestaand |
-| 9 | `/composiet-schutting-plaatsen` | Cluster | HowTo | **Nieuw** |
-| 10 | `/composiet-schutting-zelf-maken` | Cluster | HowTo | **Nieuw** |
-| 11 | `/composiet-schutting-levensduur` | Cluster | Informational | **Nieuw** |
-| 12 | `/composiet-schutting-180-hoog` | Cluster | Commercial | **Nieuw** |
-| 13 | `/composiet-tuinscherm` | Cluster | Commercial | **Nieuw** |
-| 14 | `/hornbach-composiet-schutting` | Comparison | Commercial | Bestaand |
-| 15 | `/gamma-composiet-schutting` | Comparison | Commercial | Bestaand |
-| 16 | `/elephant-schutting` | Comparison | Commercial | Bestaand |
-| 17 | `/praxis-composiet-schutting` | Comparison | Commercial | **Nieuw** |
-| 18 | `/karwei-composiet-schutting` | Comparison | Commercial | **Nieuw** |
-
----
-
-### PILLAR 2: Composiet Vlonderplanken (NIEUW)
-
-**Pillar:** `/composiet-vlonderplanken`
-- H1: "Composiet vlonderplanken: alles over prijzen, soorten en leggen"
-- ~3000 woorden, FAQPage + Article schema
-
-| # | Slug | Type | Zoekintent |
-|---|------|------|-----------|
-| 1 | `/composiet-vlonder-prijs` | Cluster | Commercial |
-| 2 | `/composiet-terras-aanleggen` | Cluster | HowTo |
-| 3 | `/composiet-vlonder-onderhoud` | Cluster | Informational |
-| 4 | `/composiet-vlonderplanken-nadelen` | Cluster | Informational |
-| 5 | `/composiet-vs-hout-vlonder` | Cluster | Comparison |
-| 6 | `/composiet-vlonder-kleuren` | Cluster | Commercial |
-| 7 | `/co-extrusie-vlonderplanken` | Cluster | Informational |
-| 8 | `/composiet-vlonder-op-beton` | Cluster | HowTo |
-| 9 | `/composiet-vlonder-zelf-leggen` | Cluster | HowTo |
-| 10 | `/wpc-terrasplanken` | Cluster | Informational |
-| 11 | `/vlonder-onderconstructie` | Cluster | HowTo |
-| 12 | `/hornbach-composiet-vlonder` | Comparison | Commercial |
-| 13 | `/gamma-composiet-vlonder` | Comparison | Commercial |
+### Images from Gamrat CDN
+All product images are available at `gamratwpc.pl/wp-content/uploads/2025/...` in `.webp` format. Realization photos also available.
 
 ---
 
-### PILLAR 3: Composiet Gevelbekleding (NIEUW)
+## Implementation Plan
 
-**Pillar:** `/composiet-gevelbekleding`
-- H1: "Composiet gevelbekleding: soorten, prijzen en montage"
-- ~2500 woorden, FAQPage + Article schema
+### Phase 1: Replace Product Data (`src/data/products.ts`)
 
-| # | Slug | Type | Zoekintent |
-|---|------|------|-----------|
-| 1 | `/composiet-gevelbekleding-prijs` | Cluster | Commercial |
-| 2 | `/gevelbekleding-zonder-onderhoud` | Cluster | Informational |
-| 3 | `/rhombus-gevelbekleding-composiet` | Cluster | Commercial |
-| 4 | `/gevelbekleding-composiet-nadelen` | Cluster | Informational |
-| 5 | `/composiet-gevelplanken-monteren` | Cluster | HowTo |
-| 6 | `/composiet-vs-hout-gevelbekleding` | Cluster | Comparison |
-| 7 | `/gevelbekleding-kleuren` | Cluster | Commercial |
-| 8 | `/composiet-gevelbekleding-zwart` | Cluster | Commercial |
+**What changes:**
+- Remove ALL existing Silvadec products (~50 products)
+- Replace with Gamrat WPC products mapped to the existing `Product` interface
+- Change categories from `gevelbekleding | schuttingen | vlonderplanken` to `vlonderplanken | schuttingen | accessoires`
+  - Note: The Product type union needs updating
+- Each Gamrat decking board has multiple color variants, so each color = separate Product entry (same pattern as current variant system)
+- Update `categories` array with new Gamrat-specific data, images, descriptions, and FAQs
+- Update all `toneLabels` to match Gamrat color palette (bruin, grijs, zwart remain; add "eiken" for Elegance oak colors)
+- Update `durabilityLabels` to reflect Gamrat terminology (komorowa, pełna, co-extrusie)
+- All images hotlinked from `gamratwpc.pl/wp-content/uploads/...`
+- All content translated to Dutch (existing site language)
+- Prices: Since Gamrat is B2B ("zapytaj o produkt"), use "Prijs op aanvraag" or derive from the downloadable price list PDF
+
+**Estimated products after mapping:**
+- Vlonderplanken: ~25 products (7 board types x 3-5 colors each)
+- Schuttingen: ~12 products (fence boards Classic/Premium x 3 colors + profiles + posts)
+- Accessoires: ~8 products (legars, clips, trims, supports)
+- Total: ~45 products
+
+### Phase 2: Update Homepage Hero (`src/pages/Index.tsx`)
+
+**What changes:**
+- Remove the Silvadec video (`/videos/hero-silvadec.mp4`) and hero image reference
+- Replace with a static hero image from Gamrat: `https://gamratwpc.pl/wp-content/uploads/2025/04/gamrat-wpc-systemy-tarasowe-slider-2.webp`
+- Update hero copy from "Premium Composiet voor Tuin & Gevel" to "Premium Composiet Vlonderplanken & Schuttingen"
+- Update USPs: change "15 jaar garantie" to "25 jaar garantie", add "Polski producent" / "100% recycleerbaar"
+- Update `featuredSlugs` to reference new Gamrat product slugs
+- Remove gevelbekleding references from the homepage
+
+### Phase 3: Update Category Structure
+
+**Files affected:**
+- `src/data/products.ts` - category type union
+- `src/pages/CategoryPage.tsx` - no structural changes needed (data-driven)
+- `src/components/CategoryCard.tsx` - no changes (data-driven)
+- `src/pages/AssortimentPage.tsx` - no changes (data-driven)
+
+**What changes:**
+- Category type changes from `'gevelbekleding' | 'schuttingen' | 'vlonderplanken'` to `'vlonderplanken' | 'schuttingen' | 'accessoires'`
+- Add new category images from Gamrat CDN
+- Update category descriptions, SEO titles, and FAQs
+
+### Phase 4: Update Header Navigation & Footer
+
+**Files affected:**
+- `src/components/Header.tsx` - update nav links (remove "Gevelbekleding" references if any exist in navigation)
+- `src/components/Footer.tsx` - update company info, press bar
+
+### Phase 5: Update SEO Content Pages
+
+**Files affected:**
+- `src/data/seoPages.ts` - remove Silvadec-specific content from gevel pages
+- `src/data/seoGevelPages.ts` - this entire file becomes obsolete (no gevelbekleding)
+- `src/data/seoVlonderPages.ts` - update to reference Gamrat products
+- `src/data/seoSchuttingExpansion.ts` - update to reference Gamrat products
+- `src/data/seoMateriaalPages.ts` - update material composition (Gamrat uses 45% wood flour + 45% PVC + 10% additives)
+
+### Phase 6: Update Blog Articles
+
+**Files affected:**
+- `src/data/blogArticles.ts` / `blogArticlesExpansion.ts` - update product references, remove Silvadec brand mentions, update specifications
+
+### Phase 7: Update Planner Tools
+
+**Files affected:**
+- `src/components/planner/presets.ts` - update material options to Gamrat products
+- `src/components/planner/MaterialSelector.tsx` - update board options
+- `src/components/fence-planner/fencePresets.ts` - update fence options
+- `src/components/fence-planner/designerData.ts` - update panel dimensions
+
+### Phase 8: Update Downloads
+
+**Files affected:**
+- `src/data/downloads.ts` - replace Silvadec PDFs with Gamrat WPC PDFs:
+  - Katalog: `gamratwpc.pl/wp-content/uploads/2025/05/Katalog-Deski-2026-PL-_-podglad.pdf`
+  - Cennik: `gamratwpc.pl/wp-content/uploads/2026/01/CENNIK-PL-EDYCJA-1.2026-OD-01.2026.pdf`
+  - Montage instructions and certifications from scraped download links
+- Remove/replace local PDFs in `public/downloads/`
+
+### Phase 9: Update Remaining References
+
+- `src/components/PressBar.tsx` - update press outlets
+- `src/components/seo/` components - update brand references
+- `src/pages/ComparePage.tsx` - update comparison data
+- `public/robots.txt` - no change
+- `index.html` - update meta tags if needed
 
 ---
 
-### PILLAR 4: Composiet Materiaal (NIEUW -- Informatief/TOFU)
+## Technical Details
 
-**Pillar:** `/wat-is-composiet`
-- H1: "Wat is composiet? Alles over het materiaal, samenstelling en toepassingen"
-- ~2500 woorden, pure informatieve autoriteitsopbouw
-
-| # | Slug | Type | Zoekintent |
-|---|------|------|-----------|
-| 1 | `/composiet-samenstelling` | Cluster | Informational |
-| 2 | `/composiet-duurzaamheid-milieu` | Cluster | Informational |
-| 3 | `/composiet-vs-kunststof` | Cluster | Informational |
-| 4 | `/composiet-recyclen` | Cluster | Informational |
-| 5 | `/composiet-levensduur` | Cluster | Informational |
-| 6 | `/composiet-garantie` | Cluster | Informational |
-| 7 | `/co-extrusie-vs-composiet` | Cluster | Informational |
-
----
-
-### BLOG ARTIKELEN (Nieuw -- ter ondersteuning van clusters)
-
-| # | Slug | Categorie | Ondersteunt Pillar |
-|---|------|-----------|-------------------|
-| 1 | `kleine-tuin-met-composiet-terras` | Inspiratie | Vlonder |
-| 2 | `composiet-schutting-of-tuinscherm` | Koopgids | Schutting |
-| 3 | `composiet-terras-kosten-berekenen` | Koopgids | Vlonder |
-| 4 | `composiet-gevel-voor-na` | Inspiratie | Gevel |
-| 5 | `composiet-schutting-winter-tips` | Onderhoud | Schutting |
-| 6 | `duurzame-tuin-composiet-materialen` | Inspiratie | Materiaal |
-| 7 | `composiet-vlonder-poolgebied` | Onderhoud | Vlonder |
-| 8 | `kleurkeuze-composiet-schutting` | Koopgids | Schutting |
-| 9 | `gevelbekleding-isolatiewaarde` | Koopgids | Gevel |
-| 10 | `composiet-terras-verlichting` | Inspiratie | Vlonder |
-
----
-
-## Interne Linkstrategie
-
-```text
-                    ┌─────────────────────┐
-                    │   /wat-is-composiet  │  (Informatief Pillar)
-                    └─────────┬───────────┘
-                              │
-           ┌──────────────────┼──────────────────┐
-           │                  │                  │
-  ┌────────▼────────┐ ┌──────▼───────┐ ┌────────▼──────────┐
-  │ /schutting-van-  │ │ /composiet-  │ │ /composiet-       │
-  │  composiet       │ │ vlonder-     │ │ gevelbekleding    │
-  │  (Pillar 1)      │ │ planken      │ │ (Pillar 3)        │
-  │                  │ │ (Pillar 2)   │ │                   │
-  └───────┬──────────┘ └──────┬───────┘ └────────┬──────────┘
-          │                   │                  │
-    18 clusters          13 clusters         8 clusters
-          │                   │                  │
-     Blog artikelen      Blog artikelen     Blog artikelen
-          │                   │                  │
-          └───────────────────┼──────────────────┘
-                              │
-                    ┌─────────▼───────────┐
-                    │  Productpagina's     │
-                    │  /categorie/         │
-                    │  /product/           │
-                    └─────────────────────┘
+### Category Type Change
+The `Product` interface category field needs updating:
+```typescript
+category: 'vlonderplanken' | 'schuttingen' | 'accessoires';
 ```
+This is a breaking change that will cascade through:
+- `ProductFilters.tsx`
+- `CategoryPage.tsx`
+- All SEO data files
+- Admin pages
 
-Elke pagina linkt:
-- **Omhoog** naar zijn pillar
-- **Zijwaarts** naar verwante clusters (min. 3)
-- **Omlaag** naar productpagina's en tools
-- **Kruislings** naar clusters van andere pillars (max 2)
+### Image Strategy
+All images will be hotlinked from `gamratwpc.pl/wp-content/uploads/...` (same pattern as current Silvadec CDN hotlinking). Full-size `.webp` images available.
 
----
+### Pricing Strategy
+Gamrat WPC operates B2B with a downloadable price list. Options:
+1. Use "Prijs op aanvraag" (price on request)
+2. Extract prices from the PDF price list and display them
+3. Keep current pricing format but update values
 
-## E-E-A-T Standaard per Pagina
+### Implementation Order
+Due to the massive scope, this should be done in stages:
+1. Products data + category type change (foundation)
+2. Homepage hero replacement
+3. Category updates
+4. SEO pages cleanup
+5. Blog + downloads
+6. Planner tools
+7. Final review
 
-Elke pagina krijgt:
-- **Auteurblok** met naam, rol en jaren ervaring
-- **Publicatie- en bijwerkdatum**
-- **Leestijd**
-- **Bronvermeldingen** waar relevant (NEN-normen, milieucertificaten)
-- **Vergelijkingstabellen** met eigen data
-- **FAQ-blok** (min. 3 vragen) met FAQPage schema
-- **Inhoudsopgave** met ankerllinks
-- **Structured data**: Article, HowTo, FAQPage, of BreadcrumbList
+This is approximately 8-12 implementation messages to complete fully.
 
----
-
-## Samenvatting Aantallen
-
-| Onderdeel | Bestaand | Nieuw | Totaal |
-|-----------|----------|-------|--------|
-| Pillar pages | 1 | 3 | 4 |
-| Cluster pages | 8 | 30 | 38 |
-| Comparison pages | 3 | 4 | 7 |
-| Blog artikelen | 6 | 10 | 16 |
-| **Totaal content pages** | **18** | **47** | **65** |
-
----
-
-## Technische Implementatie
-
-### Bestanden die gewijzigd/aangemaakt worden
-
-| Bestand | Actie |
-|---------|-------|
-| `src/data/seoPages.ts` | 3 nieuwe pillar objecten + 30 nieuwe cluster objecten + 4 nieuwe comparison objecten toevoegen |
-| `src/data/blogArticles.ts` | 10 nieuwe blog artikelen toevoegen |
-| `src/App.tsx` | Routes toevoegen voor alle nieuwe slugs |
-| `src/pages/SEOContentPage.tsx` | Geen wijziging nodig -- pakt automatisch nieuwe data op via `getSEOPageBySlug()` |
-
-### Content per pagina
-- Pillar pages: 2500-3000 woorden
-- Cluster pages: 1200-1800 woorden
-- Comparison pages: 1500-2000 woorden
-- Blog artikelen: 800-1200 woorden
-
-Alle content in het Nederlands, geschreven vanuit specialistisch perspectief, met concrete prijsindicaties, vergelijkingstabellen en praktische stappen.
-
-### Implementatievolgorde
-1. Pillar 2 (Vlonderplanken) + clusters -- sluit aan bij bestaande producten
-2. Pillar 3 (Gevelbekleding) + clusters -- sluit aan bij bestaande producten
-3. Pillar 4 (Wat is composiet) + clusters -- bouwt overkoepelende autoriteit
-4. Nieuwe clusters voor Pillar 1 (Schutting) -- versterkt bestaande structuur
-5. Nieuwe comparison pages
-6. Nieuwe blog artikelen
