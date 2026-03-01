@@ -23,6 +23,357 @@ interface BrandedDoc {
 }
 
 const documents: BrandedDoc[] = [
+  // ─── MONTAGEHANDLEIDINGEN ────────────────────────────────────────
+  {
+    id: "handleiding-composiet-schutting",
+    title: "Montagehandleiding: composiet schutting plaatsen",
+    subtitle: "Volledige stap-voor-stap handleiding voor het plaatsen van composiet schuttingen",
+    sections: [
+      {
+        heading: "1. Benodigde materialen",
+        table: {
+          headers: ["Component", "Specificatie", "Opmerking"],
+          rows: [
+            ["Schuttingplanken", "Classic 19x150mm of Premium 19x150mm", "2 meter lengte"],
+            ["Universeel profiel", "19x150mm", "Verticale structuur, 1,25 / 1,5 / 2 m"],
+            ["Ceownik paalprofiel", "30x40mm WPC", "U-profiel voor planken"],
+            ["Schuttingpaal", "60x60mm WPC", "2 meter, per vak 1 paal"],
+            ["Voetplaat of beton", "-", "Afhankelijk van grondtype"],
+          ],
+        },
+      },
+      {
+        heading: "2. Benodigd gereedschap",
+        bullets: [
+          "Waterpas (minimaal 1 meter)",
+          "Accuboormachine met bitset",
+          "Meetlint en potlood",
+          "Verstekzaag of handcirkelzaag met fijntandblad",
+          "Schep en grondboor (voor inbetonneren)",
+          "Betontroffel en emmer",
+          "Slagkoord / snoer voor rechte lijn",
+        ],
+      },
+      {
+        heading: "3. Fundament voorbereiden",
+        paragraphs: [
+          "De stabiliteit van uw schutting begint bij een goed fundament. De paalgaten moeten minimaal 60 cm diep zijn (vorstdiepte in Nederland is 60-80 cm).",
+        ],
+        bullets: [
+          "Markeer de paalgaten op gelijke afstanden (max. 180 cm hart-op-hart)",
+          "Graaf paalgaten van minimaal 60 cm diep en 25x25 cm breed",
+          "Gebruik snelbeton of C20/25 beton voor verankering",
+          "Laat beton minimaal 24 uur uitharden voor montage",
+          "Alternatief: gebruik voetplaten op verharde ondergrond",
+        ],
+      },
+      {
+        heading: "4. Palen plaatsen",
+        bullets: [
+          "Plaats de eerste paal en controleer met waterpas in twee richtingen",
+          "Span een snoer tussen eerste en laatste paal voor een rechte lijn",
+          "Controleer hart-op-hart afstand (max. 180 cm)",
+          "Monteer ceownik U-profielen aan de palen met meegeleverde bevestiging",
+          "Hoekpalen extra verankeren — hier werkt de meeste windbelasting",
+        ],
+      },
+      {
+        heading: "5. Planken monteren",
+        bullets: [
+          "Begin onderaan en werk naar boven",
+          "Schuif de planken horizontaal in de ceownik U-profielen",
+          "Controleer regelmatig of de planken waterpas liggen",
+          "Laat 5mm ruimte tussen planken voor uitzetting",
+          "Zaag de bovenste plank op maat indien nodig",
+          "Tip: beide zijden zijn afgewerkt — kies de gewenste structuur (Classic: geborsteld / Premium: houtnerf)",
+        ],
+      },
+      {
+        heading: "6. Afwerking & controle",
+        bullets: [
+          "Plaats afdekkapjes op alle palen",
+          "Controleer alle verbindingen op stevigheid",
+          "Verwijder beschermfolie van de planken",
+          "Schutting kan windbelasting tot 100 km/u aan bij max. 2000mm hoogte",
+          "Maak eventuele bouwresten schoon",
+        ],
+      },
+      {
+        heading: "Technische specificaties",
+        table: {
+          headers: ["Eigenschap", "Classic plank", "Premium plank"],
+          rows: [
+            ["Afmeting", "19 x 150 mm", "19 x 150 mm"],
+            ["Lengte", "2000 mm", "2000 mm"],
+            ["Afwerking", "Geborsteld", "Houtnerf 3D"],
+            ["Dubbelzijdig", "Ja", "Ja"],
+            ["Max. schermhoogte", "2000 mm", "2000 mm"],
+            ["Windbelasting", "Tot 100 km/u", "Tot 100 km/u"],
+          ],
+        },
+      },
+    ],
+  },
+  {
+    id: "handleiding-vlonderplanken",
+    title: "Montagehandleiding: composiet vlonderplanken leggen",
+    subtitle: "Van planning en lay-out tot de laatste afwerking",
+    sections: [
+      {
+        heading: "1. Planning & lay-out",
+        paragraphs: [
+          "Een goede planning bespaart materiaal en tijd. Bereken het benodigde aantal planken op basis van uw terrasoppervlak en het legpatroon.",
+        ],
+        bullets: [
+          "Meet het terras nauwkeurig op (lengte x breedte)",
+          "Bereken materiaal: oppervlak / plankbreedte = aantal planken",
+          "Bestel 5-10% extra voor zaagverlies en eventuele beschadigingen",
+          "Kies het legpatroon: parallel, diagonaal of visgraat",
+        ],
+      },
+      {
+        heading: "2. Productlijnen en specificaties",
+        table: {
+          headers: ["Lijn", "Afmeting", "Constructie", "Bijzonderheid"],
+          rows: [
+            ["Slim", "25 x 140 mm (3m)", "Hol", "Budget instapmodel"],
+            ["Eco", "25 x 140 mm (3/4m)", "Hol", "Eco-vriendelijk"],
+            ["Komorowa", "25 x 160 mm (3/4m)", "Hol", "Dubbelzijdig profiel"],
+            ["MAX", "20 x 185 mm (3/4m)", "Massief", "Extra breed, palletverkoop"],
+            ["Classic", "20 x 160 mm (3/4m)", "Massief", "Geborsteld oppervlak"],
+            ["Premium", "20 x 160 mm (3/4m)", "Massief", "Houtnerf 3D patroon"],
+            ["Elegance", "25 x 140 mm (4m)", "Hol+RENOLIT", "Korund antislip, topmodel"],
+          ],
+        },
+      },
+      {
+        heading: "3. Onderconstructie",
+        paragraphs: [
+          "De onderconstructie is cruciaal voor de levensduur en stabiliteit van uw vlonder.",
+        ],
+        bullets: [
+          "Maximale balkafstand: 40 cm hart-op-hart",
+          "Kies WPC onderbalken (50x30mm, 3m) of aluminium leggers",
+          "Aluminium laag profiel (36x24mm) voor minimale opbouwhoogte",
+          "Aluminium hoog profiel (38x51mm) voor grotere overspanningen",
+          "Zorg voor minimaal 1% afschot voor waterafvoer (1 cm per meter)",
+          "Laat minimaal 20mm ventilatie onder de constructie",
+        ],
+      },
+      {
+        heading: "4. Montage vlonderplanken",
+        bullets: [
+          "Begin bij een rechte referentielijn (muur of gespannen snoer)",
+          "Bevestig de eerste plank met startclips",
+          "Gebruik tussenclips voor onzichtbare bevestiging",
+          "Laat 5-8mm expansieruimte tussen planken (gebruik spacers)",
+          "Laat 10-15mm ruimte langs muren en obstakels",
+          "Monteer van links naar rechts of van de muur af",
+          "Tempo: circa 4 m2 per uur bij ervaren montage",
+        ],
+      },
+      {
+        heading: "5. Afwerking",
+        bullets: [
+          "Monteer afwerklijsten (plat of L-profiel) langs de randen",
+          "Gebruik L-profielen bij treden en hoogverschillen",
+          "Controleer alle clipverbindingen op stevigheid",
+          "Verwijder alle beschermfolies en bouwresten",
+        ],
+      },
+      {
+        heading: "Montagesets",
+        table: {
+          headers: ["Set", "Dekking", "Inhoud"],
+          rows: [
+            ["Montageset 2m2", "2 m2", "Clips + schroeven voor 2m2"],
+            ["Montageset 10m2", "10 m2", "Clips + schroeven voor 10m2 (voordeliger)"],
+          ],
+        },
+      },
+    ],
+  },
+  {
+    id: "handleiding-aluminium-onderbalken",
+    title: "Montagehandleiding: aluminium onderbalken voor vlonders",
+    subtitle: "Gedetailleerde installatiehandleiding voor aluminium leggers",
+    sections: [
+      {
+        heading: "Productoverzicht",
+        table: {
+          headers: ["Type", "Afmeting", "Lengte", "Toepassing"],
+          rows: [
+            ["Laag profiel", "36,4 x 24 mm", "4 meter", "Balkons, dakterrassen, minimale opbouwhoogte"],
+            ["Hoog profiel", "38 x 51 mm", "4 meter", "Tuinterrassen, grotere overspanningen"],
+          ],
+        },
+      },
+      {
+        heading: "Voordelen aluminium onderconstructie",
+        bullets: [
+          "100% vochtbestendig — geen rotting mogelijk",
+          "Lichtgewicht en eenvoudig te verwerken",
+          "Onbeperkte levensduur bij normaal gebruik",
+          "Dimensioneel stabiel — geen uitzetting of krimp",
+          "Recyclebaar materiaal",
+        ],
+      },
+      {
+        heading: "Montage op verstelbare terrasdragers (plots)",
+        bullets: [
+          "Plaats terrasdragers op hart-op-hart afstand van max. 40 cm",
+          "Stel de gewenste hoogte in (25-260mm bereik)",
+          "Leg de aluminium leggers in de oplegpunten",
+          "Controleer waterpas en pas hoogtes aan",
+          "Verbind leggers met verbindingsstukken bij langere afstanden",
+          "Gebruik hoekbeugels bij hoekverbindingen",
+        ],
+      },
+      {
+        heading: "Montage op rubberstroken",
+        bullets: [
+          "Leg rubberstroken op de betonvloer of tegels",
+          "Plaats de aluminium leggers op de rubberstroken",
+          "Rubberstroken dempen geluid en voorkomen beschadiging",
+          "Controleer waterpas en corrigeer met extra rubberstroken",
+        ],
+      },
+      {
+        heading: "Aandachtspunten",
+        bullets: [
+          "Maximale balkafstand: 40 cm hart-op-hart",
+          "Minimaal 1% afschot richting de afwatering",
+          "Minimaal 20mm ruimte onder de constructie voor ventilatie",
+          "Gebruik alleen RVS of verzinkte schroeven (geen onbehandeld staal)",
+          "Bij combinatie met WPC planken: volg de montagehandleiding van de gekozen planklijn",
+        ],
+      },
+    ],
+  },
+  {
+    id: "handleiding-vlonder-accessoires",
+    title: "Montagehandleiding: vlonder accessoires & afwerking",
+    subtitle: "Installatiehandleiding voor onderbalken, clips, profielen en randafwerking",
+    sections: [
+      {
+        heading: "Onderbalken (leggers)",
+        table: {
+          headers: ["Product", "Specificatie", "Opmerking"],
+          rows: [
+            ["WPC onderbalk", "50 x 30 mm, 3 meter", "Standaard, composiet"],
+            ["Aluminium laag", "36,4 x 24 mm, 4 meter", "Voor lage opbouwhoogte"],
+            ["Aluminium hoog", "38 x 51 mm, 4 meter", "Voor grotere overspanningen"],
+          ],
+        },
+      },
+      {
+        heading: "Verstelbare terrasdragers",
+        paragraphs: [
+          "De verstelbare terrasdrager maakt het mogelijk om een perfect waterpas vlonder te creeren op ongelijke ondergronden.",
+        ],
+        bullets: [
+          "Hoogtebereik: 25 tot 260 mm",
+          "Draagvermogen: 1000 kg per stuk",
+          "Materiaal: polypropyleen (vorstbestendig)",
+          "Plaats 6-9 dragers per m2 afhankelijk van balkafstand",
+        ],
+      },
+      {
+        heading: "Montagesets (clips & schroeven)",
+        bullets: [
+          "Montageset 2m2: voor kleine projecten en reparaties",
+          "Montageset 10m2: voordeelverpakking voor grotere projecten",
+          "Clips zorgen voor onzichtbare bevestiging",
+          "Gebruik meegeleverde RVS schroeven",
+          "Circa 20-25 clips per m2",
+        ],
+      },
+      {
+        heading: "Afwerkingsprofielen",
+        table: {
+          headers: ["Profiel", "Materiaal", "Toepassing"],
+          rows: [
+            ["Platte afwerklijst", "WPC composiet", "Rechte randen, plintafwerking"],
+            ["L-profiel composiet", "WPC composiet", "Hoeken, treden, hoogverschillen"],
+            ["L-profiel aluminium", "Aluminium", "Strakke moderne randafwerking"],
+          ],
+        },
+      },
+      {
+        heading: "Montagetips afwerking",
+        bullets: [
+          "Monteer afwerklijsten na het leggen van alle vlonderplanken",
+          "Gebruik voorgeboorde gaten om splitsing te voorkomen",
+          "L-profielen bij treden: bevestig zowel horizontaal als verticaal",
+          "Laat 5mm ruimte tussen afwerklijsten voor uitzetting",
+        ],
+      },
+    ],
+  },
+  {
+    id: "snelstartgids-vlonder",
+    title: "Snelstartgids: vlonder monteren in 4 m2/uur",
+    subtitle: "Visuele snelstartgids met de belangrijkste montagestappen",
+    sections: [
+      {
+        heading: "Stap 1: Onderconstructie",
+        bullets: [
+          "Leg onderbalken op max. 40 cm hart-op-hart",
+          "Zorg voor 1% afschot richting afwatering",
+          "Controleer waterpas in beide richtingen",
+        ],
+      },
+      {
+        heading: "Stap 2: Eerste plank plaatsen",
+        bullets: [
+          "Begin bij een vaste referentielijn (muur of snoer)",
+          "Bevestig startclips aan de onderbalk",
+          "Klik de eerste plank in de startclips",
+          "Laat 10-15mm ruimte tot de muur",
+        ],
+      },
+      {
+        heading: "Stap 3: Planken doorleggen",
+        bullets: [
+          "Plaats tussenclips aan de onderbalk tegen de eerste plank",
+          "Klik de volgende plank in de clips",
+          "Herhaal tot het terras vol ligt",
+          "Gebruik spacers voor gelijkmatige voegen (5-8mm)",
+        ],
+      },
+      {
+        heading: "Stap 4: Afwerking",
+        bullets: [
+          "Zaag de laatste plank op maat",
+          "Monteer afwerklijsten langs alle zichtbare randen",
+          "Gebruik L-profielen bij hoogteverschillen en treden",
+          "Verwijder alle beschermfolies",
+        ],
+      },
+      {
+        heading: "Tempo-indicatie",
+        table: {
+          headers: ["Ervaring", "Tempo", "Opmerking"],
+          rows: [
+            ["Beginner", "2-3 m2/uur", "Inclusief meten en uitlijnen"],
+            ["Ervaren klusser", "4 m2/uur", "Na de eerste rij gaat het snel"],
+            ["Professional", "6-8 m2/uur", "Met twee personen nog sneller"],
+          ],
+        },
+      },
+      {
+        heading: "Veelgemaakte fouten",
+        bullets: [
+          "Geen expansieruimte laten (verbuiging bij warmte)",
+          "Balkafstand te groot (doorbuiging)",
+          "Geen afschot (waterophoping)",
+          "Metalen schroeven direct in composiet (roestplekken)",
+        ],
+      },
+    ],
+  },
+
+  // ─── BESTAANDE DOCUMENTEN ────────────────────────────────────────
   {
     id: "checklist-schutting-plaatsen",
     title: "Checklist: composiet schutting plaatsen",
@@ -188,8 +539,8 @@ const documents: BrandedDoc[] = [
       {
         heading: "Warme vs. koele tinten",
         paragraphs: [
-          "Warme tinten (Teak, Walnoot, Eiken) passen bij een landelijke of klassieke tuinstijl. Ze creëren een sfeervolle, uitnodigende uitstraling.",
-          "Koele tinten (Grijs, Zwart, Antraciet) passen bij een moderne of industriële stijl. Ze geven een strak en tijdloos resultaat.",
+          "Warme tinten (Teak, Walnoot, Eiken) passen bij een landelijke of klassieke tuinstijl. Ze creeren een sfeervolle, uitnodigende uitstraling.",
+          "Koele tinten (Grijs, Zwart, Antraciet) passen bij een moderne of industriele stijl. Ze geven een strak en tijdloos resultaat.",
         ],
       },
       {
@@ -202,16 +553,18 @@ const documents: BrandedDoc[] = [
         ],
       },
       {
-        heading: "Beschikbare kleuren",
+        heading: "Beschikbare kleuren vlonderplanken",
         table: {
-          headers: ["Kleur", "Categorie", "Stijl"],
+          headers: ["Kleur", "Categorie", "Beschikbaar in"],
           rows: [
-            ["Teak", "Warm", "Klassiek, landelijk"],
-            ["Walnoot", "Warm", "Rijk, luxe"],
-            ["Eiken", "Warm", "Natuurlijk, licht"],
-            ["Donker Grijs", "Koel", "Modern, strak"],
-            ["Zwart", "Koel", "Industrieel, gedurfd"],
-            ["Antraciet", "Koel", "Tijdloos, elegant"],
+            ["Donker Bruin", "Warm", "Alle lijnen"],
+            ["Walnoot", "Warm", "Alle lijnen"],
+            ["Grafiet", "Koel", "Alle lijnen"],
+            ["Grijs", "Koel", "Komorowa, Eco"],
+            ["Donker Grijs", "Koel", "Komorowa, Eco"],
+            ["Berg Eiken", "Warm", "Elegance"],
+            ["Honing Eiken", "Warm", "Elegance"],
+            ["Naturel Eiken", "Warm", "Elegance"],
           ],
         },
       },
@@ -224,7 +577,7 @@ const documents: BrandedDoc[] = [
     ],
   },
   {
-    id: "onderhoud-elegance-emotion",
+    id: "onderhoud-composiet-vlonder",
     title: "Onderhoudsadvies: composiet vlonderplanken",
     subtitle: "Houd uw vlonder mooi met deze onderhoudstips",
     sections: [
@@ -252,7 +605,7 @@ const documents: BrandedDoc[] = [
       {
         heading: "Aanbevolen apparatuur",
         bullets: [
-          "Schrobmachine (bijv. Kärcher PCL 4) — ideaal voor grote oppervlakken",
+          "Schrobmachine (bijv. Karcher PCL 4) — ideaal voor grote oppervlakken",
           "Hogedrukreiniger: maximaal 80 bar, 25 cm afstand, nooit stilhouden",
           "Zachte bezem voor regelmatig vegen",
         ],
@@ -262,7 +615,7 @@ const documents: BrandedDoc[] = [
         bullets: [
           "Voorjaar: grote schoonmaakbeurt na de winter",
           "Zomer: direct vlekken verwijderen (BBQ, ijs)",
-          "Herfst: bladeren en naaldden verwijderen",
+          "Herfst: bladeren en naalden verwijderen",
           "Winter: sneeuw ruimen met kunststof schep (geen metaal)",
         ],
       },
@@ -299,9 +652,9 @@ const documents: BrandedDoc[] = [
         },
       },
       {
-        heading: "Milieu-impact per m²",
+        heading: "Milieu-impact per m2",
         paragraphs: [
-          "De CO₂-voetafdruk van composiet vlonderplanken is significant lager dan die van tropisch hardhout, mede door het gebruik van gerecycled materiaal en het ontbreken van onderhoud met chemische middelen gedurende de levensduur.",
+          "De CO2-voetafdruk van composiet vlonderplanken is significant lager dan die van tropisch hardhout, mede door het gebruik van gerecycled materiaal en het ontbreken van onderhoud met chemische middelen gedurende de levensduur.",
         ],
       },
       {
@@ -315,18 +668,74 @@ const documents: BrandedDoc[] = [
       },
     ],
   },
+  {
+    id: "productcatalogus",
+    title: "Productcatalogus 2026: composiet vlonderplanken & schuttingen",
+    subtitle: "Compleet overzicht van alle productlijnen, specificaties en kleuren",
+    sections: [
+      {
+        heading: "Vlonderplanken overzicht",
+        table: {
+          headers: ["Lijn", "Type", "Afmeting (mm)", "Kleuren", "Prijs indicatie"],
+          rows: [
+            ["Slim", "Hol", "25x140, 3m", "3 kleuren", "Vanaf EUR 11,95/m"],
+            ["Eco", "Hol", "25x140, 3/4m", "5 kleuren", "Vanaf EUR 14,95/m"],
+            ["Komorowa", "Hol + co-extrusie", "25x160, 3/4m", "5 kleuren", "Vanaf EUR 18,95/m"],
+            ["MAX", "Massief", "20x185, 3/4m", "3 kleuren", "Vanaf EUR 19,95/m"],
+            ["Classic", "Massief + geborsteld", "20x160, 3/4m", "3 kleuren", "Vanaf EUR 26,95/m"],
+            ["Premium", "Massief + houtnerf", "20x160, 3/4m", "3 kleuren", "Vanaf EUR 28,95/m"],
+            ["Elegance", "RENOLIT + korund", "25x140, 4m", "3 kleuren", "Vanaf EUR 23,95/m"],
+          ],
+        },
+      },
+      {
+        heading: "Schuttingplanken overzicht",
+        table: {
+          headers: ["Lijn", "Afmeting (mm)", "Afwerking", "Kleuren", "Prijs indicatie"],
+          rows: [
+            ["Classic", "19x150, 2m", "Geborsteld", "3 kleuren", "Vanaf EUR 16,49/m"],
+            ["Premium", "19x150, 2m", "Houtnerf 3D", "3 kleuren", "Vanaf EUR 18,95/m"],
+            ["Universeel profiel", "19x150, div.", "Classic/Premium", "3 kleuren", "Vanaf EUR 16,49/m"],
+          ],
+        },
+      },
+      {
+        heading: "Accessoires overzicht",
+        table: {
+          headers: ["Product", "Specificatie", "Prijs indicatie"],
+          rows: [
+            ["WPC onderbalk", "50x30mm, 3m", "EUR 9,49/m"],
+            ["Alu legger laag", "36x24mm, 4m", "EUR 12,49/m"],
+            ["Alu legger hoog", "38x51mm, 4m", "EUR 16,95/m"],
+            ["Montageset 2m2", "Clips+schroeven", "EUR 19,95/set"],
+            ["Montageset 10m2", "Clips+schroeven", "EUR 94,95/set"],
+            ["Afwerklijst plat", "WPC", "EUR 6,95/m"],
+            ["L-profiel composiet", "WPC", "EUR 10,95/m"],
+            ["L-profiel aluminium", "Aluminium", "EUR 11,95/m"],
+            ["Terrasdrager", "25-260mm", "EUR 4,95/stuk"],
+          ],
+        },
+      },
+      {
+        heading: "Garantie & kwaliteit",
+        bullets: [
+          "25 jaar fabrieksgarantie op alle producten",
+          "Co-extrusie beschermlaag op Komorowa en Elegance",
+          "100% recycleerbaar materiaal",
+          "UV-bestendig en kleurvast",
+          "CE-markering conform Europese normen",
+        ],
+      },
+    ],
+  },
 ];
 
 /* ── Simple PDF builder (plain text, no external libs) ─────────── */
 
-// We generate a minimal valid PDF with branded layout using raw PDF operators.
-// This avoids needing jsPDF in Deno and keeps the function lightweight.
-
 function buildPdf(doc: BrandedDoc): Uint8Array {
   const brandName = "SchuttingvanComposiet.nl";
-  const accentHex = "#D97706"; // amber-600
   const lines: string[] = [];
-  let yPos = 750; // Start position (A4 = 595 x 842 points)
+  let yPos = 750;
   const leftMargin = 50;
   const rightMargin = 545;
   const pageWidth = rightMargin - leftMargin;
@@ -348,7 +757,6 @@ function buildPdf(doc: BrandedDoc): Uint8Array {
       .replace(/\(/g, "\\(")
       .replace(/\)/g, "\\)")
       .replace(/[^\\x20-\\x7E]/g, (ch) => {
-        // Replace non-ASCII with approximation
         const map: Record<string, string> = {
           "é": "e", "è": "e", "ë": "e", "ê": "e",
           "á": "a", "à": "a", "ä": "a", "â": "a",
@@ -359,7 +767,7 @@ function buildPdf(doc: BrandedDoc): Uint8Array {
           "²": "2", "³": "3",
           "€": "EUR",
           "–": "-", "—": "--",
-          "'": "'", "’": "'", "\"": "\\\"", "”": "\\\"",
+          "'": "'", "'": "'", "\"": "\\\"", "\u201C": "\\\"",
           "…": "...",
           "×": "x",
           "°": "o",
@@ -370,7 +778,7 @@ function buildPdf(doc: BrandedDoc): Uint8Array {
   }
 
   function wrapText(text: string, maxWidth: number, fontSize: number): string[] {
-    const charWidth = fontSize * 0.5; // approximate
+    const charWidth = fontSize * 0.5;
     const maxChars = Math.floor(maxWidth / charWidth);
     const words = text.split(" ");
     const result: string[] = [];
@@ -417,7 +825,6 @@ function buildPdf(doc: BrandedDoc): Uint8Array {
 
   // Header
   currentPageContent = "";
-  // Brand bar
   currentPageContent += `0.851 0.467 0.024 rg\\n${leftMargin} 800 ${pageWidth} 30 re f\\n`;
   currentPageContent += `BT /F2 11 Tf 1 1 1 rg ${leftMargin + 10} 810 Td (${escapePdf(brandName)}) Tj ET\\n`;
   yPos = 780;
@@ -460,7 +867,6 @@ function buildPdf(doc: BrandedDoc): Uint8Array {
 
       checkSpace((rows.length + 1) * (lineHeight + 4) + 10);
 
-      // Header row
       currentPageContent += `0.95 0.95 0.95 rg\\n${leftMargin} ${yPos - 2} ${pageWidth} ${lineHeight + 4} re f\\n`;
       for (let c = 0; c < colCount; c++) {
         const x = leftMargin + c * colWidth + 4;
@@ -468,13 +874,11 @@ function buildPdf(doc: BrandedDoc): Uint8Array {
       }
       yPos -= lineHeight + 4;
 
-      // Data rows
       for (const row of rows) {
         checkSpace(lineHeight + 4);
         for (let c = 0; c < colCount; c++) {
           const x = leftMargin + c * colWidth + 4;
           const cellText = row[c] || "";
-          // Truncate to fit column
           const maxChars = Math.floor((colWidth - 8) / 4.5);
           const display = cellText.length > maxChars ? cellText.slice(0, maxChars - 2) + ".." : cellText;
           currentPageContent += `BT /F1 9 Tf 0.2 0.2 0.2 rg ${x} ${yPos} Td (${escapePdf(display)}) Tj ET\\n`;
@@ -495,12 +899,6 @@ function buildPdf(doc: BrandedDoc): Uint8Array {
   newPage();
 
   // Build PDF structure
-  // Obj 1: Catalog
-  // Obj 2: Pages
-  // Obj 3: Font Helvetica
-  // Obj 4: Font Helvetica-Bold
-  // Then page objects, then streams
-
   const finalObjects: string[] = [];
   let finalObjCount = 0;
 
@@ -510,14 +908,13 @@ function buildPdf(doc: BrandedDoc): Uint8Array {
     return finalObjCount;
   }
 
-  const catalogRef = addFinalObj(""); // placeholder
-  const pagesRef = addFinalObj(""); // placeholder
+  const catalogRef = addFinalObj("");
+  const pagesRef = addFinalObj("");
   const fontRef = addFinalObj(`<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>`);
   const fontBoldRef = addFinalObj(`<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>`);
 
   const pageRefs: number[] = [];
   for (const page of pages) {
-    // Re-add streams
     const streamContent = objects[page.contentRef - 1];
     const streamRef = addFinalObj(streamContent);
 
@@ -527,12 +924,9 @@ function buildPdf(doc: BrandedDoc): Uint8Array {
     pageRefs.push(pageRef);
   }
 
-  // Update catalog
   finalObjects[catalogRef - 1] = `<< /Type /Catalog /Pages ${pagesRef} 0 R >>`;
-  // Update pages
   finalObjects[pagesRef - 1] = `<< /Type /Pages /Kids [${pageRefs.map((r) => `${r} 0 R`).join(" ")}] /Count ${pageRefs.length} >>`;
 
-  // Build output
   let pdf = "%PDF-1.4\\n";
   const offsets: number[] = [];
   for (let i = 0; i < finalObjects.length; i++) {
@@ -581,7 +975,6 @@ Deno.serve(async (req) => {
       const pdfBytes = buildPdf(doc);
       const fileName = `branded-pdfs/${doc.id}.pdf`;
 
-      // Upload to storage
       const { error: uploadError } = await supabase.storage
         .from("product-images")
         .upload(fileName, pdfBytes, {

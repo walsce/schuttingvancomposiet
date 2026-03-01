@@ -48,7 +48,7 @@ const allCategories: CompareCategory[] = ["vlonderplanken", "schuttingen", "acce
 
 const compareFaqs = [
   { q: "Welk composiet product is het goedkoopst?", a: "Alle prijzen zijn op aanvraag. De Slim en Eco vlonderplanken zijn de meest budget-vriendelijke opties, terwijl de Elegance lijn het premium segment bedient." },
-  { q: "Welk composiet product gaat het langst mee?", a: "Alle Gamrat WPC producten hebben 25 jaar fabrieksgarantie. De Elegance lijn met RENOLIT folie en korund biedt de beste bescherming tegen slijtage." },
+  { q: "Welk composiet product gaat het langst mee?", a: "Al onze composiet producten hebben 25 jaar fabrieksgarantie. De Elegance lijn met RENOLIT folie en korund biedt de beste bescherming tegen slijtage." },
   { q: "Kan ik verschillende composiet producten combineren?", a: "Absoluut! Veel klanten combineren bijvoorbeeld vlonderplanken met een bijpassende schutting in dezelfde kleur voor een uniforme uitstraling." },
 ];
 

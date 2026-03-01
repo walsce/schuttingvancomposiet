@@ -60,11 +60,11 @@ export const productTypeLabels: Record<ProductType, string> = {
   profiel: 'Accessoire / Onderdeel',
 };
 
-// ─── GAMRAT WPC PRODUCT CATALOG ────────────────────────────────────────────
+// ─── PRODUCT CATALOG ────────────────────────────────────────────────────────
 
-export const products: Product[] = [
+const _rawProducts: Product[] = [
   // ═══════════════════════════════════════════════════════════════════════════
-  // VLONDERPLANKEN (Decking Boards) — Gamrat WPC Deski Tarasowe
+  // VLONDERPLANKEN
   // ═══════════════════════════════════════════════════════════════════════════
 
   // ─── Komorowa (Chamber / Hollow) 25×160mm ─────────────────────────────────
@@ -762,7 +762,7 @@ De RENOLIT folie is een hoogwaardige decoratieve laag die perfect de textuur en 
   },
 
   // ═══════════════════════════════════════════════════════════════════════════
-  // SCHUTTINGEN (Fencing) — Gamrat WPC Ogrodzenia
+  // SCHUTTINGEN
   // ═══════════════════════════════════════════════════════════════════════════
 
   // ─── Schuttingplank Classic 19×150mm ───────────────────────────────────────
@@ -1076,7 +1076,7 @@ De planken worden horizontaal gestapeld in aluminium of WPC paalprofielen. Geen 
   },
 
   // ═══════════════════════════════════════════════════════════════════════════
-  // ACCESSOIRES — Gamrat WPC Akcesoria
+  // ACCESSOIRES
   // ═══════════════════════════════════════════════════════════════════════════
 
   {
@@ -1291,6 +1291,75 @@ De planken worden horizontaal gestapeld in aluminium of WPC paalprofielen. Geen 
   },
 ];
 
+// ─── BRAND CLEANING & IMAGE MAPPING ────────────────────────────────────────
+
+const externalImageMap: Record<string, string> = {
+  'deska-tarasowa-eco-ciemny-braz-gamrat.webp': 'deska-eco-ciemny-braz.webp',
+  'deska-tarasowa-eco-grafit-gamrat.webp': 'deska-eco-grafit.webp',
+  'deska-tarasowa-eco-orzech-gamrat.webp': 'deska-eco-orzech.webp',
+  'deska-tarasowa-eco-szary-gamrat.webp': 'deska-eco-szary.webp',
+  'deska-tarasowa-eco-ciemny-szary-gamrat.webp': 'deska-eco-ciemny-szary.webp',
+  'deska-tarasowa-slim-ciemny-braz-gamrat.webp': 'deska-slim-ciemny-braz.webp',
+  'deska-tarasowa-slim-grafit-gamrat.webp': 'deska-slim-grafit.webp',
+  'deska-tarasowa-slim-orzech-gamrat.webp': 'deska-slim-orzech.webp',
+  'deska-tarasowa-max-ciemny-braz-gamrat.webp': 'deska-max-ciemny-braz.webp',
+  'deska-tarasowa-max-grafit-gamrat.webp': 'deska-max-grafit.webp',
+  'deska-tarasowa-max-orzech-gamrat.webp': 'deska-max-orzech.webp',
+  'deska-ogrodzeniowa-classic-ciemny-braz-gamrat.webp': 'ogrodzeniowa-classic-ciemny-braz.webp',
+  'deska-ogrodzeniowa-classic-grafit-gamrat.webp': 'ogrodzeniowa-classic-grafit.webp',
+  'deska-ogrodzeniowa-classic-orzech-gamrat.webp': 'ogrodzeniowa-classic-orzech.webp',
+  'deska-ogrodzeniowa-premium-ciemny-braz-gamrat.webp': 'ogrodzeniowa-premium-ciemny-braz.webp',
+  'deska-ogrodzeniowa-premium-grafit-gamrat.webp': 'ogrodzeniowa-premium-grafit.webp',
+  'deska-ogrodzeniowa-premium-orzech-gamrat.webp': 'ogrodzeniowa-premium-orzech.webp',
+  'uniwersalny-profil-classic-premium-ciemny-braz-gamrat.webp': 'ogrodzeniowa-classic-premium.webp',
+  'uniwersalny-profil-classic-premium-grafit-gamrat.webp': 'ogrodzeniowa-classic-premium.webp',
+  'uniwersalny-profil-classic-premium-orzech-gamrat.webp': 'ogrodzeniowa-classic-premium.webp',
+  'ceownik-wpc-ciemny-braz-gamrat.webp': 'akcesoria-gamrat-wpc.webp',
+  'slupek-ogrodzeniowy-ciemny-braz-gamrat.webp': 'ogrodzenia-wizualizacja.webp',
+  'legar-wpc-gamrat.webp': 'legar-wpc.webp',
+  'legar-aluminiowy-niski-gamrat.webp': 'legary-aluminiowe.webp',
+  'legar-aluminiowy-wysoki-gamrat.webp': 'legary-aluminiowe.webp',
+  'zestaw-montazowy-2m2-gamrat.webp': 'montageset.webp',
+  'zestaw-montazowy-10m2-gamrat.webp': 'montageset.webp',
+  'listwa-plaska-gamrat.webp': 'akcesoria-gamrat-wpc.webp',
+  'listwa-l-kompozytowa-gamrat.webp': 'akcesoria-gamrat-wpc.webp',
+  'listwa-l-aluminiowa-gamrat.webp': 'akcesoria-gamrat-wpc.webp',
+  'wsporniki-regulowane-gamrat.webp': 'akcesoria-gamrat-wpc.webp',
+  'gamrat-wpc-systemy-tarasowe-slider-2.webp': 'gamrat-wpc-systemy-tarasowe-slider-2.webp',
+  'gamrat-wpc-systemy-tarasowe-slider-1.webp': 'gamrat-wpc-systemy-tarasowe-slider-1.webp',
+  'akcesoria-gamrat-wpc.webp': 'akcesoria-gamrat-wpc.webp',
+};
+
+function resolveImageUrl(url: string): string {
+  if (!url.startsWith('https://gamratwpc.pl/')) return url;
+  const filename = url.split('/').pop() || '';
+  const mapped = externalImageMap[filename];
+  return `/images/gamrat/${mapped || filename}`;
+}
+
+function cleanBrandText(text: string): string {
+  return text
+    .replace(/Gamrat WPC /g, '')
+    .replace(/Gamrat WPC/g, '')
+    .replace(/ van Gamrat WPC/g, '')
+    .replace(/ van Gamrat/g, '')
+    .replace(/van het Gamrat assortiment/g, 'van ons assortiment')
+    .replace(/het Gamrat assortiment/g, 'ons assortiment')
+    .replace(/Gamrat assortiment/g, 'ons assortiment')
+    .replace(/het veelzijdige instapmodel van Gamrat WPC/g, 'het veelzijdige instapmodel')
+    .replace(/het absolute topmodel van Gamrat WPC/g, 'het absolute topmodel')
+    .replace(/Gamrat/g, '');
+}
+
+export const products: Product[] = _rawProducts.map(p => ({
+  ...p,
+  seoDescription: cleanBrandText(p.seoDescription),
+  longDescription: cleanBrandText(p.longDescription),
+  description: cleanBrandText(p.description),
+  image: resolveImageUrl(p.image),
+  images: p.images.map(resolveImageUrl),
+}));
+
 // ─── CATEGORIES ─────────────────────────────────────────────────────────────
 
 export const categories = [
@@ -1298,11 +1367,11 @@ export const categories = [
     id: 'cat-vlond',
     name: 'Vlonderplanken',
     description: 'Composiet vlonderplanken voor terrassen, balkons en zwembaddecks. Van budget Slim tot premium Elegance met RENOLIT folie.',
-    image: 'https://gamratwpc.pl/wp-content/uploads/2025/04/gamrat-wpc-systemy-tarasowe-slider-2.webp',
+    image: '/images/gamrat/gamrat-wpc-systemy-tarasowe-slider-2.webp',
     slug: 'vlonderplanken',
     productCount: products.filter(p => p.category === 'vlonderplanken').length,
     seoTitle: 'Composiet Vlonderplanken | SchuttingvanComposiet.nl',
-    seoDescription: 'Ontdek ons assortiment Gamrat WPC composiet vlonderplanken. Komorowa, Classic, Premium, Elegance, Eco, Slim en MAX lijnen. 25 jaar garantie.',
+    seoDescription: 'Ontdek ons assortiment composiet vlonderplanken. Komorowa, Classic, Premium, Elegance, Eco, Slim en MAX lijnen. 25 jaar garantie.',
     faq: [
       { question: 'Welke lijn past bij mij?', answer: 'Slim en Eco zijn budget-vriendelijk. Classic en Premium bieden massieve kwaliteit. Elegance is het topmodel met RENOLIT folie en korund antislip. MAX is extra breed.' },
       { question: 'Wat is het verschil tussen Komorowa en Classic?', answer: 'Komorowa heeft een holle kern (lichter, voordeliger). Classic is volledig massief (sterker, zwaarder). Beide hebben co-extrusie beschermlaag.' },
@@ -1312,11 +1381,11 @@ export const categories = [
     id: 'cat-schut',
     name: 'Schuttingen',
     description: 'Composiet schuttingplanken en profielen voor een duurzame, stijlvolle tuinafscheiding. Classic en Premium afwerkingen.',
-    image: 'https://gamratwpc.pl/wp-content/uploads/2025/04/deska-ogrodzeniowa-premium-ciemny-braz-gamrat.webp',
+    image: '/images/gamrat/ogrodzeniowa-premium-ciemny-braz.webp',
     slug: 'schuttingen',
     productCount: products.filter(p => p.category === 'schuttingen').length,
     seoTitle: 'Composiet Schuttingen | SchuttingvanComposiet.nl',
-    seoDescription: 'Ontdek ons assortiment Gamrat WPC composiet schuttingplanken. Classic en Premium afwerkingen, 25 jaar garantie.',
+    seoDescription: 'Ontdek ons assortiment composiet schuttingplanken. Classic en Premium afwerkingen, 25 jaar garantie.',
     faq: [
       { question: 'Wat is het verschil tussen Classic en Premium schuttingplanken?', answer: 'Classic heeft een geborsteld oppervlak, Premium heeft een realistisch houtnerf (3D) patroon. Beide zijn dubbelzijdig afgewerkt.' },
       { question: 'Hoe monteer ik een composiet schutting?', answer: 'De planken worden horizontaal in het universele profiel of ceownik geschoven. Geen schroeven zichtbaar aan de buitenkant.' },
@@ -1326,11 +1395,11 @@ export const categories = [
     id: 'cat-acc',
     name: 'Accessoires',
     description: 'Onderbalken, montagesets, afwerklijsten en terrasdragers voor de complete montage van uw composiet vlonder of schutting.',
-    image: 'https://gamratwpc.pl/wp-content/uploads/2025/04/legar-wpc-gamrat.webp',
+    image: '/images/gamrat/akcesoria-gamrat-wpc.webp',
     slug: 'accessoires',
     productCount: products.filter(p => p.category === 'accessoires').length,
     seoTitle: 'Composiet Accessoires | SchuttingvanComposiet.nl',
-    seoDescription: 'Accessoires voor uw Gamrat WPC vlonder en schutting. Onderbalken, clips, afwerklijsten en verstelbare terrasdragers.',
+    seoDescription: 'Accessoires voor uw composiet vlonder en schutting. Onderbalken, clips, afwerklijsten en verstelbare terrasdragers.',
     faq: [
       { question: 'Welke onderbalk heb ik nodig?', answer: 'Kies de WPC legar voor standaard situaties, of aluminium laag profiel voor minimale opbouwhoogte (balkons). Het hoge aluminium profiel is voor grotere overspanningen.' },
       { question: 'Hoeveel clips heb ik nodig per m²?', answer: 'Reken op circa 20 clips per m². De montageset van 10m² bevat voldoende clips voor 10 vierkante meter vlonder.' },
