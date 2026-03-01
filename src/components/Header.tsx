@@ -6,9 +6,9 @@ import { useCart } from "@/contexts/CartContext";
 
 const navLinks = [
   { label: "Assortiment", href: "/assortiment" },
-  { label: "Gevelbekleding", href: "/categorie/gevelbekleding" },
-  { label: "Schuttingen", href: "/categorie/schuttingen" },
   { label: "Vlonderplanken", href: "/categorie/vlonderplanken" },
+  { label: "Schuttingen", href: "/categorie/schuttingen" },
+  { label: "Accessoires", href: "/categorie/accessoires" },
   { label: "Vergelijken", href: "/vergelijken" },
   { label: "Contact", href: "/contact" },
 ];
@@ -40,7 +40,7 @@ const Header = () => {
               <span className="text-muted-foreground">(220)</span>
             </span>
             <span className="flex items-center gap-1.5"><Truck className="w-3.5 h-3.5" /> Snelle levering</span>
-            <span className="hidden md:flex items-center gap-1.5"><ShieldCheck className="w-3.5 h-3.5" /> 15 jaar garantie</span>
+            <span className="hidden md:flex items-center gap-1.5"><ShieldCheck className="w-3.5 h-3.5" /> 25 jaar garantie</span>
           </div>
           <div className="flex items-center gap-2">
             <Phone className="w-3.5 h-3.5" />

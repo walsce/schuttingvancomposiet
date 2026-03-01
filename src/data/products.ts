@@ -9,7 +9,7 @@ export interface Product {
   price: number;
   priceLabel: string;
   image: string;
-  category: 'gevelbekleding' | 'schuttingen' | 'vlonderplanken';
+  category: 'vlonderplanken' | 'schuttingen' | 'accessoires';
   features: string[];
   guarantee: string;
   slug: string;
@@ -36,8 +36,8 @@ export interface Product {
   updatedDate?: string;
   variantGroup?: string;
   variantLabel?: string;
-  variantColor?: string; // hex color for swatch
-  variantWidth?: string; // e.g. "138 mm" or "180 mm"
+  variantColor?: string;
+  variantWidth?: string;
 }
 
 export const toneLabels: Record<Tone, string> = {
@@ -49,1527 +49,1291 @@ export const toneLabels: Record<Tone, string> = {
 };
 
 export const durabilityLabels: Record<Durability, string> = {
-  standaard: 'Standaard (Mono-extrusie)',
-  premium: 'Premium',
-  'co-extrusie': 'Co-extrusie (beschermlaag)',
+  standaard: 'Standaard (Komorowa)',
+  premium: 'Premium (Pełna)',
+  'co-extrusie': 'Co-extrusie (Elegance)',
 };
 
 export const productTypeLabels: Record<ProductType, string> = {
-  plank: 'Plank / Paneel',
-  paneel: 'Compleet Scherm',
-  profiel: 'Profiel / Onderdeel',
+  plank: 'Plank / Deski',
+  paneel: 'Profiel / Ceownik',
+  profiel: 'Accessoire / Onderdeel',
 };
 
+// ─── GAMRAT WPC PRODUCT CATALOG ────────────────────────────────────────────
+
 export const products: Product[] = [
-  // ─── GEVELBEKLEDING (Cladding) ──────────────────────────────────
-  {
-    id: 'cl-1',
-    updatedDate: '2026-02-20',
-    name: 'Atmosphere 175 Wit Ceruse',
-    price: 34.95,
-    priceLabel: '€34,95 per stuk',
-    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2022-01/Blanc_ceruse_1.jpg?itok=eUHNFBBV',
-    category: 'gevelbekleding',
-    features: ['Co-extrusie beschermlaag', 'Geborsteld oppervlak', '25 jaar garantie'],
-    guarantee: '25 jaar fabrieksgarantie',
-    slug: 'atmosphere-175-wit-ceruse',
-    tone: 'wit',
-    durability: 'co-extrusie',
-    productType: 'plank',
-    variantGroup: 'atmosphere-175-gevel',
-    variantLabel: 'Wit Ceruse',
-    variantColor: '#e8e4dc',
-    description: 'Elegante witte gevelbekleding met ceruse-afwerking. De Atmosphere 175 combineert een lichte, frisse uitstraling met de duurzaamheid van co-extrusie composiet.',
-    seoTitle: 'Atmosphere 175 Wit Ceruse | Composiet Gevelbekleding',
-    seoDescription: 'Witte composiet gevelbekleding Atmosphere 175 Ceruse. Co-extrusie beschermlaag, geborsteld, 25 jaar garantie. Bestel bij SchuttingvanComposiet.nl.',
-    longDescription: `## Atmosphere 175 Wit Ceruse Gevelbekleding
+  // ═══════════════════════════════════════════════════════════════════════════
+  // VLONDERPLANKEN (Decking Boards) — Gamrat WPC Deski Tarasowe
+  // ═══════════════════════════════════════════════════════════════════════════
 
-Geef uw woning een frisse, eigentijdse uitstraling met de Atmosphere 175 in Wit Ceruse. Deze composiet gevelbekleding combineert de warme textuur van geborsteld hout met de duurzaamheid van co-extrusie technologie.
+  // ─── Komorowa (Chamber / Hollow) 25×160mm ─────────────────────────────────
+  {
+    id: 'vl-k-1',
+    updatedDate: '2026-03-01',
+    name: 'Komorowa Donker Bruin Vlonderplank',
+    price: 0,
+    priceLabel: 'Prijs op aanvraag',
+    image: 'https://gamratwpc.pl/wp-content/uploads/2025/04/deska-tarasowa-komorowa-ciemny-braz-gamrat.webp',
+    category: 'vlonderplanken',
+    features: ['Komorowa (holle kern)', 'Dubbelzijdig groefprofiel', '25 jaar garantie', 'Co-extrusie beschermlaag'],
+    guarantee: '25 jaar fabrieksgarantie',
+    slug: 'komorowa-donker-bruin-vlonderplank',
+    tone: 'bruin',
+    durability: 'standaard',
+    productType: 'plank',
+    variantGroup: 'komorowa-vlonder',
+    variantLabel: 'Donker Bruin',
+    variantColor: '#5C3A1E',
+    description: 'Composiet vlonderplank met holle kern voor een lager gewicht. Dubbelzijdig groefprofiel: fijn en grof. Beschikbaar in 3 en 4 meter.',
+    seoTitle: 'Komorowa Donker Bruin Vlonderplank | Composiet Terrasplank',
+    seoDescription: 'Gamrat WPC Komorowa vlonderplank in Donker Bruin. Holle kern, dubbelzijdig profiel, 25×160mm, 25 jaar garantie. Bestel bij SchuttingvanComposiet.nl.',
+    longDescription: `## Komorowa Donker Bruin Vlonderplank
+
+De Komorowa vlonderplank is het veelzijdige instapmodel van Gamrat WPC. Dankzij de holle kernconstructie is deze plank lichter dan massieve varianten, wat transport en montage vergemakkelijkt.
+
+### Dubbelzijdig profiel
+
+Elke plank heeft twee bruikbare zijden: een fijn groefprofiel voor een strak uiterlijk en een grof groefprofiel voor extra grip. Draai de plank om naar uw voorkeur.
 
 ### Co-extrusie beschermlaag
 
-De gevorderde co-extrusie technologie omhult elke plank met een beschermende polymeerlaag. Dit garandeert:
-- **0% vochtopname** — geen zwelling of krimp
-- **Maximale UV-bestendigheid** — de witte kleur blijft jarenlang stralend
-- **Vlekbestendigheid** — eenvoudig schoon te maken
+De gevorderde co-extrusie technologie omhult de kern met een beschermende polymeerlaag:
+- **Minimale vochtopname** — geen zwelling of krimp
+- **UV-bestendig** — de kleur blijft jarenlang stabiel
+- **Krasbestendig** — geschikt voor intensief gebruik
 
-### Duurzaam en milieuvriendelijk
+### 100% recycleerbaar
 
-Onze producten bestaan uit meer dan 95% gerecyclede materialen. Het productieproces is CO₂-neutraal en er ontstaat geen afval. De planken zijn aan het einde van hun levensduur volledig recycleerbaar.
-
-### Montage
-
-De Atmosphere 175 planken zijn eenvoudig te monteren op een aluminium of houten regelwerk. Zowel horizontale als verticale montage is mogelijk. De brede plank van 175 mm zorgt voor een modern, strak gevelbeeld met minder naden.
-
-### Voordelen
-
-- Stralend witte ceruse-afwerking
-- 175 mm breed voor een ruim, modern gevoel
-- Co-extrusie beschermlaag voor maximale duurzaamheid
-- 25 jaar fabrieksgarantie
-- Onderhoudsvrij — nooit meer schilderen
-- Geschikt voor elk klimaat`,
-    specifications: { Lengte: '360 cm', Breedte: '17,5 cm', Dikte: '2,1 cm', Materiaal: 'Composiet met co-extrusie toplaag', Kleur: 'Wit Ceruse', Afwerking: 'Geborsteld' },
+Gamrat WPC producten bestaan uit 45% houtmeel en 45% PVC, aangevuld met additieven. Volledig recycleerbaar aan het einde van de levensduur.`,
+    specifications: { Lengte: '300 / 400 cm', Breedte: '16 cm', Dikte: '2,5 cm', Materiaal: 'WPC composiet met co-extrusie', Kleur: 'Ciemny Brąz (Donker Bruin)', Constructie: 'Komorowa (hol)', Gewicht: '±3,2 kg/m' },
     images: [
-      'https://en.silvadec.com/sites/default/files/styles/square/public/2022-01/Blanc_ceruse_1.jpg?itok=eUHNFBBV',
-      'https://en.silvadec.com/sites/default/files/styles/square/public/2022-01/Blanc_ceruse_2-001.jpg?itok=YgsC0UAa',
+      'https://gamratwpc.pl/wp-content/uploads/2025/04/deska-tarasowa-komorowa-ciemny-braz-gamrat.webp',
     ],
-    deliveryTime: '5-8 werkdagen',
-    highlights: ['Witte ceruse-afwerking', 'Co-extrusie beschermlaag', '175 mm breed', '25 jaar garantie', 'Onderhoudsvrij'],
-    dimensions: { length: '360 cm', width: '17,5 cm', thickness: '2,1 cm' },
+    deliveryTime: '5-10 werkdagen',
+    highlights: ['Holle kern — licht gewicht', 'Dubbelzijdig profiel', '25 jaar garantie', '100% recycleerbaar'],
+    dimensions: { length: '300 / 400 cm', width: '16 cm', thickness: '2,5 cm' },
     faq: [
-      { question: 'Vergeelt de witte kleur na verloop van tijd?', answer: 'Nee, dankzij de co-extrusie beschermlaag is de witte kleur maximaal UV-bestendig. Kleurvastheid is gegarandeerd gedurende 25 jaar.' },
-      { question: 'Is witte gevelbekleding moeilijker schoon te houden?', answer: 'Nee, de co-extrusie laag maakt het oppervlak vlekbestendig. Vuil hecht nauwelijks en is eenvoudig te verwijderen met water en een zachte borstel.' },
-      { question: 'Kan ik de planken zowel horizontaal als verticaal monteren?', answer: 'Ja, de Atmosphere 175 is geschikt voor zowel horizontale als verticale montage op een regelwerk.' },
+      { question: 'Wat is het verschil tussen Komorowa en Classic?', answer: 'Komorowa heeft een holle kern (lichter, voordeliger). Classic is massief (sterker, zwaarder). Beide hebben dezelfde co-extrusie beschermlaag.' },
+      { question: 'Kan ik de Komorowa plank omdraaien?', answer: 'Ja, beide zijden zijn afgewerkt. De ene zijde heeft een fijn groefprofiel, de andere een grof groefprofiel.' },
     ],
   },
   {
-    id: 'cl-2',
-    updatedDate: '2026-02-20',
-    name: 'Atmosphere 175 Zonnig Bruin',
-    price: 34.95,
-    priceLabel: '€34,95 per stuk',
-    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2022-01/Brun_soleil_2.jpg?itok=b6kdMuxY',
-    category: 'gevelbekleding',
-    features: ['Co-extrusie beschermlaag', 'Geborsteld oppervlak', '25 jaar garantie'],
+    id: 'vl-k-2',
+    updatedDate: '2026-03-01',
+    name: 'Komorowa Grafiet Vlonderplank',
+    price: 0,
+    priceLabel: 'Prijs op aanvraag',
+    image: 'https://gamratwpc.pl/wp-content/uploads/2025/04/deska-tarasowa-komorowa-grafit-gamrat.webp',
+    category: 'vlonderplanken',
+    features: ['Komorowa (holle kern)', 'Dubbelzijdig groefprofiel', '25 jaar garantie', 'Co-extrusie beschermlaag'],
     guarantee: '25 jaar fabrieksgarantie',
-    slug: 'atmosphere-175-zonnig-bruin',
-    tone: 'bruin',
-    durability: 'co-extrusie',
-    productType: 'plank',
-    variantGroup: 'atmosphere-175-gevel',
-    variantLabel: 'Zonnig Bruin',
-    variantColor: '#a07850',
-    description: 'Warme bruine gevelbekleding met zonverbrande houtlook. De Atmosphere 175 Zonnig Bruin biedt een natuurlijke, mediterrane uitstraling.',
-    seoTitle: 'Atmosphere 175 Zonnig Bruin | Composiet Gevelbekleding',
-    seoDescription: 'Composiet gevelbekleding Atmosphere 175 Zonnig Bruin. Warme houtlook, co-extrusie, 25 jaar garantie. Bestel bij SchuttingvanComposiet.nl.',
-    longDescription: `## Atmosphere 175 Zonnig Bruin
-
-Breng de warmte van het zuiden naar uw gevel met de Atmosphere 175 in Zonnig Bruin. Deze composiet gevelbekleding heeft een prachtige, warme bruine tint die doet denken aan zongebleekt hout.
-
-### Natuurlijke uitstraling
-
-Het geborstelde oppervlak geeft een authentieke houtstructuur die nauwelijks van echt hout te onderscheiden is. De warme bruine tint past perfect bij zowel moderne als landelijke architectuur.
-
-### Co-extrusie technologie
-
-Elke plank is omhuld met een beschermende co-extrusie laag die zorgt voor:
-- Maximale kleurvastheid
-- 0% vochtopname
-- Bescherming tegen krassen en vlekken
-
-### Specificaties
-
-De brede plank van 175 mm zorgt voor een eigentijds gevelbeeld. Met een lengte van 360 cm zijn er minder kopse naden nodig, wat het eindresultaat nog strakker maakt.`,
-    specifications: { Lengte: '360 cm', Breedte: '17,5 cm', Dikte: '2,1 cm', Materiaal: 'Composiet met co-extrusie toplaag', Kleur: 'Zonnig Bruin', Afwerking: 'Geborsteld' },
-    images: [
-      'https://en.silvadec.com/sites/default/files/styles/square/public/2022-01/Brun_soleil_2.jpg?itok=b6kdMuxY',
-    ],
-    deliveryTime: '5-8 werkdagen',
-    highlights: ['Warme zonnige bruintint', 'Co-extrusie beschermlaag', '175 mm breed', '25 jaar garantie'],
-    dimensions: { length: '360 cm', width: '17,5 cm', thickness: '2,1 cm' },
-    faq: [
-      { question: 'Past Zonnig Bruin bij een moderne woning?', answer: 'Absoluut. De warme bruintint combineert prachtig met strakke architectuur, aluminium kozijnen en donkere accenten.' },
-      { question: 'Wat is het verschil met Donker Bruin?', answer: 'Zonnig Bruin is lichter en warmer van tint, vergelijkbaar met zongebleekt hout. Donker Bruin is een diepere, rijkere tint.' },
-    ],
-  },
-  {
-    id: 'cl-3',
-    updatedDate: '2026-02-20',
-    name: 'Atmosphere 175 Donker Bruin',
-    price: 34.95,
-    priceLabel: '€34,95 per stuk',
-    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2022-01/Brun_Rio_1.jpg?itok=dVrQk1gw',
-    category: 'gevelbekleding',
-    features: ['Co-extrusie beschermlaag', 'Geborsteld oppervlak', '25 jaar garantie'],
-    guarantee: '25 jaar fabrieksgarantie',
-    slug: 'atmosphere-175-donker-bruin',
-    tone: 'bruin',
-    durability: 'co-extrusie',
-    productType: 'plank',
-    variantGroup: 'atmosphere-175-gevel',
-    variantLabel: 'Donker Bruin',
-    variantColor: '#5c3a1e',
-    description: 'Diepe, rijke bruine gevelbekleding met de luxe uitstraling van tropisch hardhout. De Atmosphere 175 Donker Bruin is tijdloos en elegant.',
-    seoTitle: 'Atmosphere 175 Donker Bruin | Composiet Gevelbekleding',
-    seoDescription: 'Composiet gevelbekleding Atmosphere 175 Donker Bruin. Luxe houtlook, co-extrusie, 25 jaar garantie. Bestel bij SchuttingvanComposiet.nl.',
-    longDescription: `## Atmosphere 175 Donker Bruin
-
-De Atmosphere 175 Donker Bruin biedt de rijke, diepe kleur van tropisch hardhout zonder het onderhoud. Deze gevelbekleding geeft uw woning een tijdloze, luxueuze uitstraling.
-
-### Rijke houtlook
-
-De donkerbruine tint met geborstelde afwerking is nauwelijks te onderscheiden van echt hardhout. De kleur is diep en warm, perfect voor een klassieke of moderne gevel.
-
-### Duurzaam zonder onderhoud
-
-Dankzij de co-extrusie technologie hoeft u nooit meer te schilderen of te beitsen. De plank is volledig bestand tegen weer, wind en UV-straling.`,
-    specifications: { Lengte: '360 cm', Breedte: '17,5 cm', Dikte: '2,1 cm', Materiaal: 'Composiet met co-extrusie toplaag', Kleur: 'Donker Bruin', Afwerking: 'Geborsteld' },
-    images: [
-      'https://en.silvadec.com/sites/default/files/styles/square/public/2022-01/Brun_Rio_1.jpg?itok=dVrQk1gw',
-      'https://en.silvadec.com/sites/default/files/styles/square/public/2022-01/product%20varation%20image%20ou%20side%20image%20sibarlam2101%20sibarlam2121%20.png?itok=P5hqv44z',
-    ],
-    deliveryTime: '5-8 werkdagen',
-    highlights: ['Diepe donkerbruine tint', 'Hardhout-look', 'Co-extrusie beschermlaag', '25 jaar garantie'],
-    dimensions: { length: '360 cm', width: '17,5 cm', thickness: '2,1 cm' },
-    faq: [
-      { question: 'Wordt de donkere kleur warm in de zon?', answer: 'Donkere kleuren absorberen meer warmte, maar de co-extrusie laag voorkomt vervorming. Voor gevelbekleding is dit geen probleem aangezien er geen direct contact is.' },
-      { question: 'Hoe onderhoud ik donkere gevelbekleding?', answer: 'Reinig eenvoudig met water en een zachte borstel. De co-extrusie laag maakt het oppervlak vlekbestendig.' },
-    ],
-  },
-  // NEW: Atmosphere 175 Antraciet Grijs (gevel)
-  {
-    id: 'cl-7',
-    updatedDate: '2026-02-23',
-    name: 'Atmosphere 175 Antraciet Grijs',
-    price: 34.95,
-    priceLabel: '€34,95 per stuk',
-    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2021-03/SIBARLAM1301L3%2C6_A.jpg?itok=-rexgs_K',
-    category: 'gevelbekleding',
-    features: ['Co-extrusie beschermlaag', 'Geborsteld oppervlak', '25 jaar garantie'],
-    guarantee: '25 jaar fabrieksgarantie',
-    slug: 'atmosphere-175-antraciet-grijs',
+    slug: 'komorowa-grafiet-vlonderplank',
     tone: 'grijs',
+    durability: 'standaard',
+    productType: 'plank',
+    variantGroup: 'komorowa-vlonder',
+    variantLabel: 'Grafiet',
+    variantColor: '#4A4A4A',
+    description: 'Composiet vlonderplank met holle kern in populaire grafiet grijstint. Dubbelzijdig groefprofiel.',
+    seoTitle: 'Komorowa Grafiet Vlonderplank | Composiet Terrasplank',
+    seoDescription: 'Gamrat WPC Komorowa vlonderplank in Grafiet. Holle kern, dubbelzijdig, 25×160mm. Bestel bij SchuttingvanComposiet.nl.',
+    longDescription: `## Komorowa Grafiet Vlonderplank\n\nDe grafiet variant van de populaire Komorowa lijn. Een moderne, donkere grijstint die past bij elke tuinstijl.`,
+    specifications: { Lengte: '300 / 400 cm', Breedte: '16 cm', Dikte: '2,5 cm', Materiaal: 'WPC composiet met co-extrusie', Kleur: 'Grafit (Grafiet)', Constructie: 'Komorowa (hol)' },
+    images: ['https://gamratwpc.pl/wp-content/uploads/2025/04/deska-tarasowa-komorowa-grafit-gamrat.webp'],
+    deliveryTime: '5-10 werkdagen',
+    highlights: ['Grafiet grijstint', 'Holle kern', 'Dubbelzijdig profiel', '25 jaar garantie'],
+    dimensions: { length: '300 / 400 cm', width: '16 cm', thickness: '2,5 cm' },
+  },
+  {
+    id: 'vl-k-3',
+    updatedDate: '2026-03-01',
+    name: 'Komorowa Walnoot Vlonderplank',
+    price: 0,
+    priceLabel: 'Prijs op aanvraag',
+    image: 'https://gamratwpc.pl/wp-content/uploads/2025/04/deska-tarasowa-komorowa-orzech-gamrat.webp',
+    category: 'vlonderplanken',
+    features: ['Komorowa (holle kern)', 'Dubbelzijdig groefprofiel', '25 jaar garantie', 'Co-extrusie beschermlaag'],
+    guarantee: '25 jaar fabrieksgarantie',
+    slug: 'komorowa-walnoot-vlonderplank',
+    tone: 'bruin',
+    durability: 'standaard',
+    productType: 'plank',
+    variantGroup: 'komorowa-vlonder',
+    variantLabel: 'Walnoot',
+    variantColor: '#6B4226',
+    description: 'Composiet vlonderplank met holle kern in warme walnoottint. Natuurlijke houtlook.',
+    seoTitle: 'Komorowa Walnoot Vlonderplank | Composiet Terrasplank',
+    seoDescription: 'Gamrat WPC Komorowa vlonderplank in Walnoot. Holle kern, 25×160mm, 25 jaar garantie. Bestel bij SchuttingvanComposiet.nl.',
+    longDescription: `## Komorowa Walnoot Vlonderplank\n\nDe walnoottint biedt een warme, natuurlijke houtlook. Perfect voor wie de uitstraling van hardhout wil zonder het onderhoud.`,
+    specifications: { Lengte: '300 / 400 cm', Breedte: '16 cm', Dikte: '2,5 cm', Materiaal: 'WPC composiet met co-extrusie', Kleur: 'Orzech (Walnoot)', Constructie: 'Komorowa (hol)' },
+    images: ['https://gamratwpc.pl/wp-content/uploads/2025/04/deska-tarasowa-komorowa-orzech-gamrat.webp'],
+    deliveryTime: '5-10 werkdagen',
+    highlights: ['Warme walnoottint', 'Holle kern', 'Dubbelzijdig profiel', '25 jaar garantie'],
+    dimensions: { length: '300 / 400 cm', width: '16 cm', thickness: '2,5 cm' },
+  },
+  {
+    id: 'vl-k-4',
+    updatedDate: '2026-03-01',
+    name: 'Komorowa Grijs Vlonderplank',
+    price: 0,
+    priceLabel: 'Prijs op aanvraag',
+    image: 'https://gamratwpc.pl/wp-content/uploads/2025/04/deska-tarasowa-komorowa-szary-gamrat.webp',
+    category: 'vlonderplanken',
+    features: ['Komorowa (holle kern)', 'Dubbelzijdig groefprofiel', '25 jaar garantie'],
+    guarantee: '25 jaar fabrieksgarantie',
+    slug: 'komorowa-grijs-vlonderplank',
+    tone: 'grijs',
+    durability: 'standaard',
+    productType: 'plank',
+    variantGroup: 'komorowa-vlonder',
+    variantLabel: 'Grijs',
+    variantColor: '#8A8A8A',
+    description: 'Composiet vlonderplank met holle kern in lichte grijstint.',
+    seoTitle: 'Komorowa Grijs Vlonderplank | Composiet Terrasplank',
+    seoDescription: 'Gamrat WPC Komorowa vlonderplank in Grijs. Holle kern, 25×160mm. Bestel bij SchuttingvanComposiet.nl.',
+    longDescription: `## Komorowa Grijs Vlonderplank\n\nDe lichte grijstint maakt uw terras optisch groter en absorbeert minder warmte dan donkere kleuren.`,
+    specifications: { Lengte: '300 / 400 cm', Breedte: '16 cm', Dikte: '2,5 cm', Kleur: 'Szary (Grijs)', Constructie: 'Komorowa (hol)' },
+    images: ['https://gamratwpc.pl/wp-content/uploads/2025/04/deska-tarasowa-komorowa-szary-gamrat.webp'],
+    deliveryTime: '5-10 werkdagen',
+    highlights: ['Lichte grijstint', 'Holle kern', 'Dubbelzijdig profiel'],
+    dimensions: { length: '300 / 400 cm', width: '16 cm', thickness: '2,5 cm' },
+  },
+  {
+    id: 'vl-k-5',
+    updatedDate: '2026-03-01',
+    name: 'Komorowa Donker Grijs Vlonderplank',
+    price: 0,
+    priceLabel: 'Prijs op aanvraag',
+    image: 'https://gamratwpc.pl/wp-content/uploads/2025/04/deska-tarasowa-komorowa-ciemny-szary-gamrat.webp',
+    category: 'vlonderplanken',
+    features: ['Komorowa (holle kern)', 'Dubbelzijdig groefprofiel', '25 jaar garantie'],
+    guarantee: '25 jaar fabrieksgarantie',
+    slug: 'komorowa-donker-grijs-vlonderplank',
+    tone: 'grijs',
+    durability: 'standaard',
+    productType: 'plank',
+    variantGroup: 'komorowa-vlonder',
+    variantLabel: 'Donker Grijs',
+    variantColor: '#5A5A5A',
+    description: 'Composiet vlonderplank met holle kern in donkere grijstint.',
+    seoTitle: 'Komorowa Donker Grijs Vlonderplank | Composiet Terrasplank',
+    seoDescription: 'Gamrat WPC Komorowa vlonderplank in Donker Grijs. Holle kern, 25×160mm. Bestel bij SchuttingvanComposiet.nl.',
+    longDescription: `## Komorowa Donker Grijs Vlonderplank\n\nEen diepere grijstint voor wie een strakke, moderne uitstraling zoekt.`,
+    specifications: { Lengte: '300 / 400 cm', Breedte: '16 cm', Dikte: '2,5 cm', Kleur: 'Ciemny Szary (Donker Grijs)', Constructie: 'Komorowa (hol)' },
+    images: ['https://gamratwpc.pl/wp-content/uploads/2025/04/deska-tarasowa-komorowa-ciemny-szary-gamrat.webp'],
+    deliveryTime: '5-10 werkdagen',
+    highlights: ['Donkere grijstint', 'Holle kern', 'Dubbelzijdig profiel'],
+    dimensions: { length: '300 / 400 cm', width: '16 cm', thickness: '2,5 cm' },
+  },
+
+  // ─── Classic (Solid / Pełna) 20×160mm ─────────────────────────────────────
+  {
+    id: 'vl-c-1',
+    updatedDate: '2026-03-01',
+    name: 'Classic Donker Bruin Vlonderplank',
+    price: 0,
+    priceLabel: 'Prijs op aanvraag',
+    image: 'https://gamratwpc.pl/wp-content/uploads/2025/04/deska-tarasowa-pelna-classic-ciemny-braz-gamrat.webp',
+    category: 'vlonderplanken',
+    features: ['Massief (pełna)', 'Geborsteld oppervlak', '25 jaar garantie', 'Co-extrusie beschermlaag'],
+    guarantee: '25 jaar fabrieksgarantie',
+    slug: 'classic-donker-bruin-vlonderplank',
+    tone: 'bruin',
+    durability: 'premium',
+    productType: 'plank',
+    variantGroup: 'classic-vlonder',
+    variantLabel: 'Donker Bruin',
+    variantColor: '#5C3A1E',
+    description: 'Massieve composiet vlonderplank met geborsteld oppervlak. Extra sterk en duurzaam dankzij de volle kern.',
+    seoTitle: 'Classic Donker Bruin Massief | Composiet Vlonderplank',
+    seoDescription: 'Gamrat WPC Classic massieve vlonderplank in Donker Bruin. Geborsteld, 20×160mm, 25 jaar garantie. Bestel bij SchuttingvanComposiet.nl.',
+    longDescription: `## Classic Donker Bruin Vlonderplank
+
+De Classic lijn is de massieve vlonderplank van Gamrat WPC. Door de volle kern is deze plank extra sterk en geschikt voor intensief gebruik.
+
+### Massieve constructie
+
+In tegenstelling tot de Komorowa (holle kern) is de Classic volledig massief. Dit biedt:
+- **Hogere draagkracht** — geschikt voor zwaardere belasting
+- **Minder doorbuiging** — ideaal voor grotere overspanningen
+- **Robuust gevoel** — stevig onder de voet
+
+### Geborsteld oppervlak
+
+Het geborstelde oppervlak geeft een authentieke houtstructuur met goede antislip-eigenschappen.`,
+    specifications: { Lengte: '300 / 400 cm', Breedte: '16 cm', Dikte: '2,0 cm', Materiaal: 'WPC composiet massief', Kleur: 'Ciemny Brąz (Donker Bruin)', Constructie: 'Pełna (massief)', Afwerking: 'Geborsteld' },
+    images: ['https://gamratwpc.pl/wp-content/uploads/2025/04/deska-tarasowa-pelna-classic-ciemny-braz-gamrat.webp'],
+    deliveryTime: '5-10 werkdagen',
+    highlights: ['Massieve kern', 'Geborsteld oppervlak', 'Extra sterk', '25 jaar garantie'],
+    dimensions: { length: '300 / 400 cm', width: '16 cm', thickness: '2,0 cm' },
+  },
+  {
+    id: 'vl-c-2',
+    updatedDate: '2026-03-01',
+    name: 'Classic Grafiet Vlonderplank',
+    price: 0,
+    priceLabel: 'Prijs op aanvraag',
+    image: 'https://gamratwpc.pl/wp-content/uploads/2025/04/deska-tarasowa-pelna-classic-grafit-gamrat.webp',
+    category: 'vlonderplanken',
+    features: ['Massief (pełna)', 'Geborsteld oppervlak', '25 jaar garantie'],
+    guarantee: '25 jaar fabrieksgarantie',
+    slug: 'classic-grafiet-vlonderplank',
+    tone: 'grijs',
+    durability: 'premium',
+    productType: 'plank',
+    variantGroup: 'classic-vlonder',
+    variantLabel: 'Grafiet',
+    variantColor: '#4A4A4A',
+    description: 'Massieve composiet vlonderplank in grafiet grijs met geborsteld oppervlak.',
+    seoTitle: 'Classic Grafiet Massief | Composiet Vlonderplank',
+    seoDescription: 'Gamrat WPC Classic massieve vlonderplank in Grafiet. Bestel bij SchuttingvanComposiet.nl.',
+    longDescription: `## Classic Grafiet Vlonderplank\n\nDe grafiet variant van de massieve Classic lijn. Modern, sterk en onderhoudsvrij.`,
+    specifications: { Lengte: '300 / 400 cm', Breedte: '16 cm', Dikte: '2,0 cm', Kleur: 'Grafit (Grafiet)', Constructie: 'Pełna (massief)', Afwerking: 'Geborsteld' },
+    images: ['https://gamratwpc.pl/wp-content/uploads/2025/04/deska-tarasowa-pelna-classic-grafit-gamrat.webp'],
+    deliveryTime: '5-10 werkdagen',
+    highlights: ['Grafiet grijs', 'Massieve kern', 'Geborsteld', '25 jaar garantie'],
+    dimensions: { length: '300 / 400 cm', width: '16 cm', thickness: '2,0 cm' },
+  },
+  {
+    id: 'vl-c-3',
+    updatedDate: '2026-03-01',
+    name: 'Classic Walnoot Vlonderplank',
+    price: 0,
+    priceLabel: 'Prijs op aanvraag',
+    image: 'https://gamratwpc.pl/wp-content/uploads/2025/04/deska-tarasowa-pelna-classic-orzech-gamrat.webp',
+    category: 'vlonderplanken',
+    features: ['Massief (pełna)', 'Geborsteld oppervlak', '25 jaar garantie'],
+    guarantee: '25 jaar fabrieksgarantie',
+    slug: 'classic-walnoot-vlonderplank',
+    tone: 'bruin',
+    durability: 'premium',
+    productType: 'plank',
+    variantGroup: 'classic-vlonder',
+    variantLabel: 'Walnoot',
+    variantColor: '#6B4226',
+    description: 'Massieve composiet vlonderplank in warme walnoottint met geborsteld oppervlak.',
+    seoTitle: 'Classic Walnoot Massief | Composiet Vlonderplank',
+    seoDescription: 'Gamrat WPC Classic massieve vlonderplank in Walnoot. Bestel bij SchuttingvanComposiet.nl.',
+    longDescription: `## Classic Walnoot Vlonderplank\n\nDe walnoottint in de massieve Classic uitvoering. Warmte en kracht gecombineerd.`,
+    specifications: { Lengte: '300 / 400 cm', Breedte: '16 cm', Dikte: '2,0 cm', Kleur: 'Orzech (Walnoot)', Constructie: 'Pełna (massief)', Afwerking: 'Geborsteld' },
+    images: ['https://gamratwpc.pl/wp-content/uploads/2025/04/deska-tarasowa-pelna-classic-orzech-gamrat.webp'],
+    deliveryTime: '5-10 werkdagen',
+    highlights: ['Walnoot', 'Massieve kern', 'Geborsteld', '25 jaar garantie'],
+    dimensions: { length: '300 / 400 cm', width: '16 cm', thickness: '2,0 cm' },
+  },
+
+  // ─── Premium (Solid / Pełna) 20×160mm ─────────────────────────────────────
+  {
+    id: 'vl-p-1',
+    updatedDate: '2026-03-01',
+    name: 'Premium Donker Bruin Vlonderplank',
+    price: 0,
+    priceLabel: 'Prijs op aanvraag',
+    image: 'https://gamratwpc.pl/wp-content/uploads/2025/04/deska-tarasowa-pelna-premium-ciemny-braz-gamrat.webp',
+    category: 'vlonderplanken',
+    features: ['Massief (pełna)', 'Houtnerf patroon', '25 jaar garantie', 'Co-extrusie beschermlaag'],
+    guarantee: '25 jaar fabrieksgarantie',
+    slug: 'premium-donker-bruin-vlonderplank',
+    tone: 'bruin',
+    durability: 'premium',
+    productType: 'plank',
+    variantGroup: 'premium-vlonder',
+    variantLabel: 'Donker Bruin',
+    variantColor: '#5C3A1E',
+    description: 'Premium massieve vlonderplank met realistisch houtnerf patroon. De meest authentieke houtlook in het assortiment.',
+    seoTitle: 'Premium Donker Bruin | Composiet Vlonderplank met Houtnerf',
+    seoDescription: 'Gamrat WPC Premium vlonderplank in Donker Bruin. Realistisch houtnerf patroon, massief, 25 jaar garantie. Bestel bij SchuttingvanComposiet.nl.',
+    longDescription: `## Premium Donker Bruin Vlonderplank
+
+De Premium lijn onderscheidt zich door het realistische houtnerf patroon. Elke plank is voorzien van een diep gestructureerd oppervlak dat nauwelijks van echt hout te onderscheiden is.
+
+### Houtnerf patroon
+
+Het 3D houtnerf patroon wordt aangebracht tijdens het productieproces en is daardoor permanent. Geen verf of coating die kan slijten.
+
+### Massief en sterk
+
+Net als de Classic is de Premium volledig massief. De combinatie van massieve kern en premium afwerking maakt dit de topkeuze in het assortiment.`,
+    specifications: { Lengte: '300 / 400 cm', Breedte: '16 cm', Dikte: '2,0 cm', Materiaal: 'WPC composiet massief', Kleur: 'Ciemny Brąz (Donker Bruin)', Constructie: 'Pełna (massief)', Afwerking: 'Houtnerf (3D)' },
+    images: ['https://gamratwpc.pl/wp-content/uploads/2025/04/deska-tarasowa-pelna-premium-ciemny-braz-gamrat.webp'],
+    deliveryTime: '5-10 werkdagen',
+    highlights: ['Realistisch houtnerf', 'Massieve kern', 'Premium afwerking', '25 jaar garantie'],
+    dimensions: { length: '300 / 400 cm', width: '16 cm', thickness: '2,0 cm' },
+  },
+  {
+    id: 'vl-p-2',
+    updatedDate: '2026-03-01',
+    name: 'Premium Grafiet Vlonderplank',
+    price: 0,
+    priceLabel: 'Prijs op aanvraag',
+    image: 'https://gamratwpc.pl/wp-content/uploads/2025/04/deska-tarasowa-pelna-premium-grafit-gamrat.webp',
+    category: 'vlonderplanken',
+    features: ['Massief (pełna)', 'Houtnerf patroon', '25 jaar garantie'],
+    guarantee: '25 jaar fabrieksgarantie',
+    slug: 'premium-grafiet-vlonderplank',
+    tone: 'grijs',
+    durability: 'premium',
+    productType: 'plank',
+    variantGroup: 'premium-vlonder',
+    variantLabel: 'Grafiet',
+    variantColor: '#4A4A4A',
+    description: 'Premium massieve vlonderplank in grafiet grijs met realistisch houtnerf patroon.',
+    seoTitle: 'Premium Grafiet | Composiet Vlonderplank met Houtnerf',
+    seoDescription: 'Gamrat WPC Premium vlonderplank in Grafiet. Houtnerf patroon, massief. Bestel bij SchuttingvanComposiet.nl.',
+    longDescription: `## Premium Grafiet Vlonderplank\n\nDe grafiet variant met premium houtnerf afwerking. Modern en luxe.`,
+    specifications: { Lengte: '300 / 400 cm', Breedte: '16 cm', Dikte: '2,0 cm', Kleur: 'Grafit (Grafiet)', Afwerking: 'Houtnerf (3D)' },
+    images: ['https://gamratwpc.pl/wp-content/uploads/2025/04/deska-tarasowa-pelna-premium-grafit-gamrat.webp'],
+    deliveryTime: '5-10 werkdagen',
+    highlights: ['Grafiet grijs', 'Houtnerf patroon', 'Massieve kern', '25 jaar garantie'],
+    dimensions: { length: '300 / 400 cm', width: '16 cm', thickness: '2,0 cm' },
+  },
+  {
+    id: 'vl-p-3',
+    updatedDate: '2026-03-01',
+    name: 'Premium Walnoot Vlonderplank',
+    price: 0,
+    priceLabel: 'Prijs op aanvraag',
+    image: 'https://gamratwpc.pl/wp-content/uploads/2025/04/deska-tarasowa-pelna-premium-orzech-gamrat.webp',
+    category: 'vlonderplanken',
+    features: ['Massief (pełna)', 'Houtnerf patroon', '25 jaar garantie'],
+    guarantee: '25 jaar fabrieksgarantie',
+    slug: 'premium-walnoot-vlonderplank',
+    tone: 'bruin',
+    durability: 'premium',
+    productType: 'plank',
+    variantGroup: 'premium-vlonder',
+    variantLabel: 'Walnoot',
+    variantColor: '#6B4226',
+    description: 'Premium massieve vlonderplank in walnoottint met realistisch houtnerf patroon.',
+    seoTitle: 'Premium Walnoot | Composiet Vlonderplank met Houtnerf',
+    seoDescription: 'Gamrat WPC Premium vlonderplank in Walnoot. Houtnerf patroon, massief. Bestel bij SchuttingvanComposiet.nl.',
+    longDescription: `## Premium Walnoot Vlonderplank\n\nDe walnoottint met premium houtnerf. De meest natuurlijke look in het assortiment.`,
+    specifications: { Lengte: '300 / 400 cm', Breedte: '16 cm', Dikte: '2,0 cm', Kleur: 'Orzech (Walnoot)', Afwerking: 'Houtnerf (3D)' },
+    images: ['https://gamratwpc.pl/wp-content/uploads/2025/04/deska-tarasowa-pelna-premium-orzech-gamrat.webp'],
+    deliveryTime: '5-10 werkdagen',
+    highlights: ['Walnoot', 'Houtnerf patroon', 'Massieve kern', '25 jaar garantie'],
+    dimensions: { length: '300 / 400 cm', width: '16 cm', thickness: '2,0 cm' },
+  },
+
+  // ─── Elegance 25×140mm (RENOLIT folie + korund) ───────────────────────────
+  {
+    id: 'vl-e-1',
+    updatedDate: '2026-03-01',
+    name: 'Elegance Berg Eiken Vlonderplank',
+    price: 0,
+    priceLabel: 'Prijs op aanvraag',
+    image: 'https://gamratwpc.pl/wp-content/uploads/2025/04/deska-tarasowa-elegance-gorski-dab-gamrat.webp',
+    category: 'vlonderplanken',
+    features: ['RENOLIT folie', 'Korund antislip laag', '25 jaar garantie', 'Co-extrusie'],
+    guarantee: '25 jaar fabrieksgarantie',
+    slug: 'elegance-berg-eiken-vlonderplank',
+    tone: 'eiken',
     durability: 'co-extrusie',
     productType: 'plank',
-    variantGroup: 'atmosphere-175-gevel',
-    variantLabel: 'Antraciet Grijs',
-    variantColor: '#4a4a4a',
-    description: 'Strakke antraciet grijze gevelbekleding in het brede 175 mm formaat. De populairste kleur voor moderne architectuur, nu ook als gesloten gevelplank.',
-    seoTitle: 'Atmosphere 175 Antraciet Grijs | Composiet Gevelbekleding',
-    seoDescription: 'Composiet gevelbekleding Atmosphere 175 Antraciet Grijs. Co-extrusie, geborsteld, 25 jaar garantie. Bestel bij SchuttingvanComposiet.nl.',
-    longDescription: `## Atmosphere 175 Antraciet Grijs Gevelbekleding
+    variantGroup: 'elegance-vlonder',
+    variantLabel: 'Berg Eiken',
+    variantColor: '#8B7355',
+    description: 'De Elegance lijn biedt de meest realistische houtlook dankzij RENOLIT folie met korund antislip laag. Berg Eiken heeft een donkere, robuuste eikenuitstraling.',
+    seoTitle: 'Elegance Berg Eiken | Premium Composiet Vlonderplank',
+    seoDescription: 'Gamrat WPC Elegance vlonderplank Berg Eiken. RENOLIT folie, korund antislip, 25×140mm, 25 jaar garantie. Bestel bij SchuttingvanComposiet.nl.',
+    longDescription: `## Elegance Berg Eiken Vlonderplank
 
-De Atmosphere 175 in Antraciet Grijs is dé keuze voor moderne architectuur. Deze brede gevelplank combineert de populairste kleur met de beproefde co-extrusie technologie.
+De Elegance lijn is het absolute topmodel van Gamrat WPC. Dankzij de RENOLIT folie met korund antislip laag biedt deze plank de meest realistische houtlook op de markt.
 
-### Modern en tijdloos
+### RENOLIT folie technologie
 
-Antraciet grijs is al jaren de meest gevraagde kleur voor gevelbekleding. Het past moeiteloos bij aluminium kozijnen, beton en glas.
+De RENOLIT folie is een hoogwaardige decoratieve laag die perfect de textuur en kleur van echt hout nabootst. Gecombineerd met een korund (aluminiumoxide) laag voor superieure antislip-eigenschappen.
 
-### Co-extrusie beschermlaag
+### Kenmerken
 
-De gevorderde beschermlaag garandeert maximale kleurvastheid en vlekbestendigheid gedurende 25 jaar.`,
-    specifications: { Lengte: '360 cm', Breedte: '17,5 cm', Dikte: '2,1 cm', Materiaal: 'Composiet met co-extrusie toplaag', Kleur: 'Antraciet Grijs', Afwerking: 'Geborsteld' },
-    images: [
-      'https://en.silvadec.com/sites/default/files/styles/square/public/2021-03/SIBARLAM1301L3%2C6_A.jpg?itok=-rexgs_K',
-    ],
-    deliveryTime: '5-8 werkdagen',
-    highlights: ['Antraciet grijs', 'Co-extrusie beschermlaag', '175 mm breed', '25 jaar garantie', 'Populairste kleur'],
-    dimensions: { length: '360 cm', width: '17,5 cm', thickness: '2,1 cm' },
-    faq: [
-      { question: 'Is Antraciet Grijs dezelfde kleur als bij de Open Rhombus?', answer: 'Ja, het is dezelfde antraciet grijze tint. U kunt beide profielen combineren voor een afwisselend gevelbeeld.' },
-    ],
+- **Ultrarealistisch** — niet te onderscheiden van echt eikenhout
+- **Korund antislip** — de hoogste antislip-klasse
+- **UV-bestendig** — kleur blijft tot 25 jaar stabiel
+- **Uitsluitend 4 meter** — voor optimale planklengte`,
+    specifications: { Lengte: '400 cm', Breedte: '14 cm', Dikte: '2,5 cm', Materiaal: 'WPC composiet met RENOLIT + korund', Kleur: 'Górski Dąb (Berg Eiken)', Afwerking: 'RENOLIT folie met korund' },
+    images: ['https://gamratwpc.pl/wp-content/uploads/2025/04/deska-tarasowa-elegance-gorski-dab-gamrat.webp'],
+    deliveryTime: '5-10 werkdagen',
+    highlights: ['RENOLIT folie', 'Korund antislip', 'Berg Eiken look', 'Topmodel', '25 jaar garantie'],
+    dimensions: { length: '400 cm', width: '14 cm', thickness: '2,5 cm' },
   },
   {
-    id: 'cl-4',
-    updatedDate: '2026-02-20',
-    name: 'Open Rhombus Licht Bruin',
-    price: 29.95,
-    priceLabel: '€29,95 per stuk',
-    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2021-03/SIBARLAM1305L3%2C6_A_%283%29.JPG?itok=ih1F056c',
-    category: 'gevelbekleding',
-    features: ['Co-extrusie beschermlaag', 'Open rhombus profiel', '25 jaar garantie'],
+    id: 'vl-e-2',
+    updatedDate: '2026-03-01',
+    name: 'Elegance Honing Eiken Vlonderplank',
+    price: 0,
+    priceLabel: 'Prijs op aanvraag',
+    image: 'https://gamratwpc.pl/wp-content/uploads/2025/04/deska-tarasowa-elegance-miodowy-dab-gamrat.webp',
+    category: 'vlonderplanken',
+    features: ['RENOLIT folie', 'Korund antislip laag', '25 jaar garantie', 'Co-extrusie'],
     guarantee: '25 jaar fabrieksgarantie',
-    slug: 'open-rhombus-licht-bruin',
-    tone: 'bruin',
+    slug: 'elegance-honing-eiken-vlonderplank',
+    tone: 'eiken',
     durability: 'co-extrusie',
-    productType: 'profiel',
-    variantGroup: 'open-rhombus-gevel',
-    variantLabel: 'Licht Bruin',
-    variantColor: '#b08860',
-    description: 'Open rhombus gevelbekleding in licht bruin. Het open profiel zorgt voor natuurlijke ventilatie en een speels licht-schaduwspel op de gevel.',
-    seoTitle: 'Open Rhombus Licht Bruin | Composiet Gevelbekleding',
-    seoDescription: 'Open Rhombus gevelbekleding Licht Bruin. Open profiel, co-extrusie, 25 jaar garantie. Bestel bij SchuttingvanComposiet.nl.',
-    longDescription: `## Open Rhombus Licht Bruin
-
-De Open Rhombus gevelbekleding in Licht Bruin creëert een uniek gevelbeeld met een dynamisch licht-schaduwspel. Het open profiel zorgt voor natuurlijke ventilatie achter de planken.
-
-### Open rhombus profiel
-
-Het kenmerkende rhombus-profiel met open naden geeft de gevel diepte en karakter. De schuine plaatsing van de planken zorgt voor:
-- Natuurlijke ventilatie
-- Regenwering ondanks de openingen
-- Een modern, architectonisch ontwerp
-
-### Lichte bruintint
-
-De lichtbruine kleur past bij vrijwel elke bouwstijl en omgeving. Van moderne nieuwbouw tot renovatie van bestaande woningen.`,
-    specifications: { Lengte: '360 cm', Breedte: '7,2 cm', Dikte: '2,6 cm', Materiaal: 'Composiet met co-extrusie toplaag', Kleur: 'Licht Bruin', Profiel: 'Open Rhombus' },
-    images: [
-      'https://en.silvadec.com/sites/default/files/styles/square/public/2021-03/SIBARLAM1305L3%2C6_A_%283%29.JPG?itok=ih1F056c',
-    ],
-    deliveryTime: '5-8 werkdagen',
-    highlights: ['Open rhombus profiel', 'Natuurlijke ventilatie', 'Licht bruin', 'Co-extrusie beschermlaag'],
-    dimensions: { length: '360 cm', width: '7,2 cm', thickness: '2,6 cm' },
-    faq: [
-      { question: 'Is het open profiel waterdicht?', answer: 'Het open rhombus profiel is ontworpen als regenscherm. De schuine plaatsing leidt water af. Achter de planken moet een waterkerende folie worden aangebracht.' },
-      { question: 'Hoeveel planken heb ik nodig per m²?', answer: 'Door het open profiel en de smalle breedte van 72 mm heeft u meer planken nodig dan bij gesloten gevelbekleding. Reken op circa 12-14 planken per m².' },
-    ],
+    productType: 'plank',
+    variantGroup: 'elegance-vlonder',
+    variantLabel: 'Honing Eiken',
+    variantColor: '#C4A56E',
+    description: 'Elegance vlonderplank in warme honingkleurige eikentint. RENOLIT folie met korund antislip.',
+    seoTitle: 'Elegance Honing Eiken | Premium Composiet Vlonderplank',
+    seoDescription: 'Gamrat WPC Elegance vlonderplank Honing Eiken. RENOLIT folie, korund antislip. Bestel bij SchuttingvanComposiet.nl.',
+    longDescription: `## Elegance Honing Eiken Vlonderplank\n\nDe Honing Eiken variant biedt een lichte, warme eikentint die uw terras een zonnige uitstraling geeft. De RENOLIT folie garandeert een ultrarealistisch uiterlijk.`,
+    specifications: { Lengte: '400 cm', Breedte: '14 cm', Dikte: '2,5 cm', Kleur: 'Miodowy Dąb (Honing Eiken)', Afwerking: 'RENOLIT folie met korund' },
+    images: ['https://gamratwpc.pl/wp-content/uploads/2025/04/deska-tarasowa-elegance-miodowy-dab-gamrat.webp'],
+    deliveryTime: '5-10 werkdagen',
+    highlights: ['Honing eikentint', 'RENOLIT folie', 'Korund antislip', '25 jaar garantie'],
+    dimensions: { length: '400 cm', width: '14 cm', thickness: '2,5 cm' },
   },
   {
-    id: 'cl-5',
-    updatedDate: '2026-02-20',
-    name: 'Open Rhombus Donker Bruin',
-    price: 29.95,
-    priceLabel: '€29,95 per stuk',
-    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2023-11/SIBARLAM1303L3%2C6_P%20%281%29.jpg?itok=nlL1yJg2',
-    category: 'gevelbekleding',
-    features: ['Co-extrusie beschermlaag', 'Open rhombus profiel', '25 jaar garantie'],
+    id: 'vl-e-3',
+    updatedDate: '2026-03-01',
+    name: 'Elegance Naturel Eiken Vlonderplank',
+    price: 0,
+    priceLabel: 'Prijs op aanvraag',
+    image: 'https://gamratwpc.pl/wp-content/uploads/2025/04/deska-tarasowa-elegance-naturalny-dab-gamrat.webp',
+    category: 'vlonderplanken',
+    features: ['RENOLIT folie', 'Korund antislip laag', '25 jaar garantie', 'Co-extrusie'],
     guarantee: '25 jaar fabrieksgarantie',
-    slug: 'open-rhombus-donker-bruin',
-    tone: 'bruin',
+    slug: 'elegance-naturel-eiken-vlonderplank',
+    tone: 'eiken',
     durability: 'co-extrusie',
-    productType: 'profiel',
-    variantGroup: 'open-rhombus-gevel',
+    productType: 'plank',
+    variantGroup: 'elegance-vlonder',
+    variantLabel: 'Naturel Eiken',
+    variantColor: '#A89070',
+    description: 'Elegance vlonderplank in natuurlijke eikentint. RENOLIT folie met korund antislip.',
+    seoTitle: 'Elegance Naturel Eiken | Premium Composiet Vlonderplank',
+    seoDescription: 'Gamrat WPC Elegance vlonderplank Naturel Eiken. RENOLIT folie, korund antislip. Bestel bij SchuttingvanComposiet.nl.',
+    longDescription: `## Elegance Naturel Eiken Vlonderplank\n\nDe Naturel Eiken biedt de meest authentieke eikenlook. Perfect voor wie een natuurlijke, rustieke uitstraling zoekt.`,
+    specifications: { Lengte: '400 cm', Breedte: '14 cm', Dikte: '2,5 cm', Kleur: 'Naturalny Dąb (Naturel Eiken)', Afwerking: 'RENOLIT folie met korund' },
+    images: ['https://gamratwpc.pl/wp-content/uploads/2025/04/deska-tarasowa-elegance-naturalny-dab-gamrat.webp'],
+    deliveryTime: '5-10 werkdagen',
+    highlights: ['Naturel eikentint', 'RENOLIT folie', 'Korund antislip', '25 jaar garantie'],
+    dimensions: { length: '400 cm', width: '14 cm', thickness: '2,5 cm' },
+  },
+
+  // ─── Eco 25×140mm ─────────────────────────────────────────────────────────
+  {
+    id: 'vl-eco-1',
+    updatedDate: '2026-03-01',
+    name: 'Eco Donker Bruin Vlonderplank',
+    price: 0,
+    priceLabel: 'Prijs op aanvraag',
+    image: 'https://gamratwpc.pl/wp-content/uploads/2025/04/deska-tarasowa-eco-ciemny-braz-gamrat.webp',
+    category: 'vlonderplanken',
+    features: ['Eco-vriendelijk', 'Fijn groefprofiel', '25 jaar garantie'],
+    guarantee: '25 jaar fabrieksgarantie',
+    slug: 'eco-donker-bruin-vlonderplank',
+    tone: 'bruin',
+    durability: 'standaard',
+    productType: 'plank',
+    variantGroup: 'eco-vlonder',
     variantLabel: 'Donker Bruin',
-    variantColor: '#5c3a1e',
-    description: 'Open rhombus gevelbekleding in donker bruin. De diepe kleur combineert prachtig met het open profiel voor een krachtige, moderne gevel.',
-    seoTitle: 'Open Rhombus Donker Bruin | Composiet Gevelbekleding',
-    seoDescription: 'Open Rhombus gevelbekleding Donker Bruin. Open profiel, co-extrusie, 25 jaar garantie. Bestel bij SchuttingvanComposiet.nl.',
-    longDescription: `## Open Rhombus Donker Bruin
-
-De donkerbruine variant van de Open Rhombus gevelbekleding biedt een krachtige, luxueuze geveloplossing. Het contrast tussen de donkere planken en de lichtinval door de openingen creëert een bijzonder architectonisch effect.
-
-### Krachtig en elegant
-
-De diepe bruine kleur geeft de gevel uitstraling en karakter. Het open rhombus profiel voegt dynamiek toe met zijn licht-schaduwspel.
-
-### Ventilatie en bescherming
-
-Het open profiel zorgt voor natuurlijke achterventilatie, wat condensvorming voorkomt en de levensduur van de onderconstructie verlengt.`,
-    specifications: { Lengte: '360 cm', Breedte: '7,2 cm', Dikte: '2,6 cm', Materiaal: 'Composiet met co-extrusie toplaag', Kleur: 'Donker Bruin', Profiel: 'Open Rhombus' },
-    images: [
-      'https://en.silvadec.com/sites/default/files/styles/square/public/2023-11/SIBARLAM1303L3%2C6_P%20%281%29.jpg?itok=nlL1yJg2',
-      'https://en.silvadec.com/sites/default/files/styles/square/public/2022-01/CVBF_ST_ANDEOL_LE_CHATEAU_%2840%29.JPG?itok=Xn2fRZFT',
-    ],
-    deliveryTime: '5-8 werkdagen',
-    highlights: ['Open rhombus profiel', 'Donker bruin', 'Luxe uitstraling', 'Co-extrusie beschermlaag'],
-    dimensions: { length: '360 cm', width: '7,2 cm', thickness: '2,6 cm' },
-    faq: [
-      { question: 'Kan ik open rhombus combineren met gesloten gevelbekleding?', answer: 'Ja, veel architecten combineren open rhombus met de Atmosphere 175 planken voor een afwisselend gevelbeeld.' },
-    ],
+    variantColor: '#5C3A1E',
+    description: 'Eco-vriendelijke composiet vlonderplank met fijn groefprofiel. Duurzaam geproduceerd.',
+    seoTitle: 'Eco Donker Bruin | Duurzame Composiet Vlonderplank',
+    seoDescription: 'Gamrat WPC Eco vlonderplank in Donker Bruin. Eco-vriendelijk, 25×140mm. Bestel bij SchuttingvanComposiet.nl.',
+    longDescription: `## Eco Donker Bruin Vlonderplank\n\nDe Eco lijn is het duurzaamste product in het Gamrat assortiment. Geproduceerd met maximaal hergebruik van materialen.`,
+    specifications: { Lengte: '300 / 400 cm', Breedte: '14 cm', Dikte: '2,5 cm', Kleur: 'Ciemny Brąz (Donker Bruin)', Afwerking: 'Fijn groefprofiel' },
+    images: ['https://gamratwpc.pl/wp-content/uploads/2025/04/deska-tarasowa-eco-ciemny-braz-gamrat.webp'],
+    deliveryTime: '5-10 werkdagen',
+    highlights: ['Eco-vriendelijk', 'Fijn groefprofiel', '100% recycleerbaar'],
+    dimensions: { length: '300 / 400 cm', width: '14 cm', thickness: '2,5 cm' },
   },
   {
-    id: 'cl-6',
-    updatedDate: '2026-02-20',
-    name: 'Open Rhombus Antraciet Grijs',
-    price: 29.95,
-    priceLabel: '€29,95 per stuk',
-    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2025-06/silvadec_atmopshere_SIBARLAM1301%20%284%29.jpg?itok=y1NneV3N',
-    category: 'gevelbekleding',
-    features: ['Co-extrusie beschermlaag', 'Open rhombus profiel', '25 jaar garantie'],
+    id: 'vl-eco-2',
+    updatedDate: '2026-03-01',
+    name: 'Eco Grafiet Vlonderplank',
+    price: 0,
+    priceLabel: 'Prijs op aanvraag',
+    image: 'https://gamratwpc.pl/wp-content/uploads/2025/04/deska-tarasowa-eco-grafit-gamrat.webp',
+    category: 'vlonderplanken',
+    features: ['Eco-vriendelijk', 'Fijn groefprofiel', '25 jaar garantie'],
     guarantee: '25 jaar fabrieksgarantie',
-    slug: 'open-rhombus-antraciet-grijs',
+    slug: 'eco-grafiet-vlonderplank',
     tone: 'grijs',
-    durability: 'co-extrusie',
-    productType: 'profiel',
-    variantGroup: 'open-rhombus-gevel',
-    variantLabel: 'Antraciet Grijs',
-    variantColor: '#4a4a4a',
-    description: 'Open rhombus gevelbekleding in antraciet grijs. De populairste kleur voor moderne architectuur, gecombineerd met het kenmerkende open profiel.',
-    seoTitle: 'Open Rhombus Antraciet Grijs | Composiet Gevelbekleding',
-    seoDescription: 'Open Rhombus gevelbekleding Antraciet Grijs. Open profiel, co-extrusie, 25 jaar garantie. Bestel bij SchuttingvanComposiet.nl.',
-    longDescription: `## Open Rhombus Antraciet Grijs
-
-De antraciet grijze variant van de Open Rhombus is de populairste keuze voor moderne architectuur. De strakke grijze tint in combinatie met het open profiel geeft een eigentijds, architectonisch gevelbeeld.
-
-### Modern en tijdloos
-
-Antraciet grijs is dé kleur voor hedendaagse architectuur. Het combineert moeiteloos met aluminium, glas en beton. Het open rhombus profiel voegt textuur en diepte toe.
-
-### Duurzaam en onderhoudsvrij
-
-Net als alle composiet producten is deze gevelbekleding voorzien van een co-extrusie beschermlaag. U geniet 25 jaar van een perfect gevelbeeld zonder onderhoud.`,
-    specifications: { Lengte: '360 cm', Breedte: '7,2 cm', Dikte: '2,6 cm', Materiaal: 'Composiet met co-extrusie toplaag', Kleur: 'Antraciet Grijs', Profiel: 'Open Rhombus' },
-    images: [
-      'https://en.silvadec.com/sites/default/files/styles/square/public/2025-06/silvadec_atmopshere_SIBARLAM1301%20%284%29.jpg?itok=y1NneV3N',
-      'https://en.silvadec.com/sites/default/files/styles/square/public/2021-03/SIBARLAM1301L3%2C6_A.jpg?itok=-rexgs_K',
-    ],
-    deliveryTime: '5-8 werkdagen',
-    highlights: ['Antraciet grijs', 'Open rhombus profiel', 'Populairste kleur', 'Co-extrusie beschermlaag'],
-    dimensions: { length: '360 cm', width: '7,2 cm', thickness: '2,6 cm' },
-    faq: [
-      { question: 'Past antraciet grijs bij elke woning?', answer: 'Antraciet grijs is een veelzijdige kleur die past bij vrijwel elke bouwstijl. Het combineert goed met zowel lichte als donkere materialen.' },
-    ],
+    durability: 'standaard',
+    productType: 'plank',
+    variantGroup: 'eco-vlonder',
+    variantLabel: 'Grafiet',
+    variantColor: '#4A4A4A',
+    description: 'Eco-vriendelijke composiet vlonderplank in grafiet grijs.',
+    seoTitle: 'Eco Grafiet | Duurzame Composiet Vlonderplank',
+    seoDescription: 'Gamrat WPC Eco vlonderplank in Grafiet. Eco-vriendelijk, 25×140mm. Bestel bij SchuttingvanComposiet.nl.',
+    longDescription: `## Eco Grafiet Vlonderplank\n\nDe grafiet variant van de Eco lijn. Duurzaam en modern.`,
+    specifications: { Lengte: '300 / 400 cm', Breedte: '14 cm', Dikte: '2,5 cm', Kleur: 'Grafit (Grafiet)', Afwerking: 'Fijn groefprofiel' },
+    images: ['https://gamratwpc.pl/wp-content/uploads/2025/04/deska-tarasowa-eco-grafit-gamrat.webp'],
+    deliveryTime: '5-10 werkdagen',
+    highlights: ['Eco-vriendelijk', 'Grafiet grijs', 'Fijn groefprofiel'],
+    dimensions: { length: '300 / 400 cm', width: '14 cm', thickness: '2,5 cm' },
+  },
+  {
+    id: 'vl-eco-3',
+    updatedDate: '2026-03-01',
+    name: 'Eco Walnoot Vlonderplank',
+    price: 0,
+    priceLabel: 'Prijs op aanvraag',
+    image: 'https://gamratwpc.pl/wp-content/uploads/2025/04/deska-tarasowa-eco-orzech-gamrat.webp',
+    category: 'vlonderplanken',
+    features: ['Eco-vriendelijk', 'Fijn groefprofiel', '25 jaar garantie'],
+    guarantee: '25 jaar fabrieksgarantie',
+    slug: 'eco-walnoot-vlonderplank',
+    tone: 'bruin',
+    durability: 'standaard',
+    productType: 'plank',
+    variantGroup: 'eco-vlonder',
+    variantLabel: 'Walnoot',
+    variantColor: '#6B4226',
+    description: 'Eco-vriendelijke composiet vlonderplank in walnoottint.',
+    seoTitle: 'Eco Walnoot | Duurzame Composiet Vlonderplank',
+    seoDescription: 'Gamrat WPC Eco vlonderplank in Walnoot. Eco-vriendelijk, 25×140mm. Bestel bij SchuttingvanComposiet.nl.',
+    longDescription: `## Eco Walnoot Vlonderplank\n\nDe walnoottint van de Eco lijn. Warm en duurzaam.`,
+    specifications: { Lengte: '300 / 400 cm', Breedte: '14 cm', Dikte: '2,5 cm', Kleur: 'Orzech (Walnoot)', Afwerking: 'Fijn groefprofiel' },
+    images: ['https://gamratwpc.pl/wp-content/uploads/2025/04/deska-tarasowa-eco-orzech-gamrat.webp'],
+    deliveryTime: '5-10 werkdagen',
+    highlights: ['Eco-vriendelijk', 'Walnoot', 'Fijn groefprofiel'],
+    dimensions: { length: '300 / 400 cm', width: '14 cm', thickness: '2,5 cm' },
   },
 
-  // ─── SCHUTTINGEN (Fencing) ──────────────────────────────────────
+  // ─── Slim 25×140mm ────────────────────────────────────────────────────────
   {
-    id: 'sc-1',
-    updatedDate: '2026-02-20',
-    name: 'Atmosphere Schutting Antraciet Grijs',
-    price: 32.95,
-    priceLabel: '€32,95 per plank',
-    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2024-01/silvadec_aluminium_C0039%20%281%29.png?itok=53TGCyiu',
+    id: 'vl-s-1',
+    updatedDate: '2026-03-01',
+    name: 'Slim Donker Bruin Vlonderplank',
+    price: 0,
+    priceLabel: 'Prijs op aanvraag',
+    image: 'https://gamratwpc.pl/wp-content/uploads/2025/04/deska-tarasowa-slim-ciemny-braz-gamrat.webp',
+    category: 'vlonderplanken',
+    features: ['Compacte constructie', 'Budget-vriendelijk', '25 jaar garantie'],
+    guarantee: '25 jaar fabrieksgarantie',
+    slug: 'slim-donker-bruin-vlonderplank',
+    tone: 'bruin',
+    durability: 'standaard',
+    productType: 'plank',
+    variantGroup: 'slim-vlonder',
+    variantLabel: 'Donker Bruin',
+    variantColor: '#5C3A1E',
+    description: 'Budget-vriendelijke composiet vlonderplank met compacte constructie. Ideaal instapmodel.',
+    seoTitle: 'Slim Donker Bruin | Budget Composiet Vlonderplank',
+    seoDescription: 'Gamrat WPC Slim vlonderplank in Donker Bruin. Budget-vriendelijk, 25×140mm. Bestel bij SchuttingvanComposiet.nl.',
+    longDescription: `## Slim Donker Bruin Vlonderplank\n\nDe Slim lijn is het budget-vriendelijke instapmodel. Compact, licht en eenvoudig te monteren. Uitsluitend beschikbaar in 3 meter.`,
+    specifications: { Lengte: '300 cm', Breedte: '14 cm', Dikte: '2,5 cm', Kleur: 'Ciemny Brąz (Donker Bruin)' },
+    images: ['https://gamratwpc.pl/wp-content/uploads/2025/04/deska-tarasowa-slim-ciemny-braz-gamrat.webp'],
+    deliveryTime: '5-10 werkdagen',
+    highlights: ['Budget-vriendelijk', 'Compact', 'Licht gewicht'],
+    dimensions: { length: '300 cm', width: '14 cm', thickness: '2,5 cm' },
+  },
+  {
+    id: 'vl-s-2',
+    updatedDate: '2026-03-01',
+    name: 'Slim Grafiet Vlonderplank',
+    price: 0,
+    priceLabel: 'Prijs op aanvraag',
+    image: 'https://gamratwpc.pl/wp-content/uploads/2025/04/deska-tarasowa-slim-grafit-gamrat.webp',
+    category: 'vlonderplanken',
+    features: ['Compacte constructie', 'Budget-vriendelijk', '25 jaar garantie'],
+    guarantee: '25 jaar fabrieksgarantie',
+    slug: 'slim-grafiet-vlonderplank',
+    tone: 'grijs',
+    durability: 'standaard',
+    productType: 'plank',
+    variantGroup: 'slim-vlonder',
+    variantLabel: 'Grafiet',
+    variantColor: '#4A4A4A',
+    description: 'Budget-vriendelijke composiet vlonderplank in grafiet grijs.',
+    seoTitle: 'Slim Grafiet | Budget Composiet Vlonderplank',
+    seoDescription: 'Gamrat WPC Slim vlonderplank in Grafiet. Budget-vriendelijk, 25×140mm. Bestel bij SchuttingvanComposiet.nl.',
+    longDescription: `## Slim Grafiet Vlonderplank\n\nDe grafiet variant van de Slim lijn. Modern en betaalbaar.`,
+    specifications: { Lengte: '300 cm', Breedte: '14 cm', Dikte: '2,5 cm', Kleur: 'Grafit (Grafiet)' },
+    images: ['https://gamratwpc.pl/wp-content/uploads/2025/04/deska-tarasowa-slim-grafit-gamrat.webp'],
+    deliveryTime: '5-10 werkdagen',
+    highlights: ['Budget-vriendelijk', 'Grafiet grijs', 'Compact'],
+    dimensions: { length: '300 cm', width: '14 cm', thickness: '2,5 cm' },
+  },
+  {
+    id: 'vl-s-3',
+    updatedDate: '2026-03-01',
+    name: 'Slim Walnoot Vlonderplank',
+    price: 0,
+    priceLabel: 'Prijs op aanvraag',
+    image: 'https://gamratwpc.pl/wp-content/uploads/2025/04/deska-tarasowa-slim-orzech-gamrat.webp',
+    category: 'vlonderplanken',
+    features: ['Compacte constructie', 'Budget-vriendelijk', '25 jaar garantie'],
+    guarantee: '25 jaar fabrieksgarantie',
+    slug: 'slim-walnoot-vlonderplank',
+    tone: 'bruin',
+    durability: 'standaard',
+    productType: 'plank',
+    variantGroup: 'slim-vlonder',
+    variantLabel: 'Walnoot',
+    variantColor: '#6B4226',
+    description: 'Budget-vriendelijke composiet vlonderplank in walnoottint.',
+    seoTitle: 'Slim Walnoot | Budget Composiet Vlonderplank',
+    seoDescription: 'Gamrat WPC Slim vlonderplank in Walnoot. Budget-vriendelijk, 25×140mm. Bestel bij SchuttingvanComposiet.nl.',
+    longDescription: `## Slim Walnoot Vlonderplank\n\nDe walnoottint van de Slim lijn. Warm en betaalbaar.`,
+    specifications: { Lengte: '300 cm', Breedte: '14 cm', Dikte: '2,5 cm', Kleur: 'Orzech (Walnoot)' },
+    images: ['https://gamratwpc.pl/wp-content/uploads/2025/04/deska-tarasowa-slim-orzech-gamrat.webp'],
+    deliveryTime: '5-10 werkdagen',
+    highlights: ['Budget-vriendelijk', 'Walnoot', 'Compact'],
+    dimensions: { length: '300 cm', width: '14 cm', thickness: '2,5 cm' },
+  },
+
+  // ─── MAX 20×185mm ─────────────────────────────────────────────────────────
+  {
+    id: 'vl-m-1',
+    updatedDate: '2026-03-01',
+    name: 'MAX Donker Bruin Vlonderplank',
+    price: 0,
+    priceLabel: 'Prijs op aanvraag',
+    image: 'https://gamratwpc.pl/wp-content/uploads/2025/04/deska-tarasowa-max-ciemny-braz-gamrat.webp',
+    category: 'vlonderplanken',
+    features: ['Extra breed (185mm)', 'Massief', '25 jaar garantie'],
+    guarantee: '25 jaar fabrieksgarantie',
+    slug: 'max-donker-bruin-vlonderplank',
+    tone: 'bruin',
+    durability: 'premium',
+    productType: 'plank',
+    variantGroup: 'max-vlonder',
+    variantLabel: 'Donker Bruin',
+    variantColor: '#5C3A1E',
+    description: 'De breedste vlonderplank in het assortiment: 185mm. Massief, sterk en indrukwekkend. Palletverkoop.',
+    seoTitle: 'MAX Donker Bruin | Extra Brede Composiet Vlonderplank',
+    seoDescription: 'Gamrat WPC MAX vlonderplank in Donker Bruin. Extra breed 185mm, massief. Bestel bij SchuttingvanComposiet.nl.',
+    longDescription: `## MAX Donker Bruin Vlonderplank\n\nDe MAX lijn is de breedste vlonderplank van Gamrat WPC: 185mm breed. Minder naden, snellere montage en een indrukwekkend eindresultaat. Uitsluitend beschikbaar als palletverkoop.`,
+    specifications: { Lengte: '300 / 400 cm', Breedte: '18,5 cm', Dikte: '2,0 cm', Kleur: 'Ciemny Brąz (Donker Bruin)', Verkoop: 'Alleen per pallet' },
+    images: ['https://gamratwpc.pl/wp-content/uploads/2025/04/deska-tarasowa-max-ciemny-braz-gamrat.webp'],
+    deliveryTime: '5-10 werkdagen',
+    highlights: ['Extra breed 185mm', 'Massief', 'Minder naden', 'Palletverkoop'],
+    dimensions: { length: '300 / 400 cm', width: '18,5 cm', thickness: '2,0 cm' },
+  },
+  {
+    id: 'vl-m-2',
+    updatedDate: '2026-03-01',
+    name: 'MAX Grafiet Vlonderplank',
+    price: 0,
+    priceLabel: 'Prijs op aanvraag',
+    image: 'https://gamratwpc.pl/wp-content/uploads/2025/04/deska-tarasowa-max-grafit-gamrat.webp',
+    category: 'vlonderplanken',
+    features: ['Extra breed (185mm)', 'Massief', '25 jaar garantie'],
+    guarantee: '25 jaar fabrieksgarantie',
+    slug: 'max-grafiet-vlonderplank',
+    tone: 'grijs',
+    durability: 'premium',
+    productType: 'plank',
+    variantGroup: 'max-vlonder',
+    variantLabel: 'Grafiet',
+    variantColor: '#4A4A4A',
+    description: 'Extra brede vlonderplank in grafiet grijs. 185mm breed, massief.',
+    seoTitle: 'MAX Grafiet | Extra Brede Composiet Vlonderplank',
+    seoDescription: 'Gamrat WPC MAX vlonderplank in Grafiet. Extra breed 185mm, massief. Bestel bij SchuttingvanComposiet.nl.',
+    longDescription: `## MAX Grafiet Vlonderplank\n\nDe grafiet variant van de extra brede MAX lijn. Modern en indrukwekkend.`,
+    specifications: { Lengte: '300 / 400 cm', Breedte: '18,5 cm', Dikte: '2,0 cm', Kleur: 'Grafit (Grafiet)', Verkoop: 'Alleen per pallet' },
+    images: ['https://gamratwpc.pl/wp-content/uploads/2025/04/deska-tarasowa-max-grafit-gamrat.webp'],
+    deliveryTime: '5-10 werkdagen',
+    highlights: ['Extra breed 185mm', 'Grafiet grijs', 'Massief'],
+    dimensions: { length: '300 / 400 cm', width: '18,5 cm', thickness: '2,0 cm' },
+  },
+  {
+    id: 'vl-m-3',
+    updatedDate: '2026-03-01',
+    name: 'MAX Walnoot Vlonderplank',
+    price: 0,
+    priceLabel: 'Prijs op aanvraag',
+    image: 'https://gamratwpc.pl/wp-content/uploads/2025/04/deska-tarasowa-max-orzech-gamrat.webp',
+    category: 'vlonderplanken',
+    features: ['Extra breed (185mm)', 'Massief', '25 jaar garantie'],
+    guarantee: '25 jaar fabrieksgarantie',
+    slug: 'max-walnoot-vlonderplank',
+    tone: 'bruin',
+    durability: 'premium',
+    productType: 'plank',
+    variantGroup: 'max-vlonder',
+    variantLabel: 'Walnoot',
+    variantColor: '#6B4226',
+    description: 'Extra brede vlonderplank in walnoottint. 185mm breed, massief.',
+    seoTitle: 'MAX Walnoot | Extra Brede Composiet Vlonderplank',
+    seoDescription: 'Gamrat WPC MAX vlonderplank in Walnoot. Extra breed 185mm, massief. Bestel bij SchuttingvanComposiet.nl.',
+    longDescription: `## MAX Walnoot Vlonderplank\n\nDe walnoottint van de MAX lijn. Breed, warm en indrukwekkend.`,
+    specifications: { Lengte: '300 / 400 cm', Breedte: '18,5 cm', Dikte: '2,0 cm', Kleur: 'Orzech (Walnoot)', Verkoop: 'Alleen per pallet' },
+    images: ['https://gamratwpc.pl/wp-content/uploads/2025/04/deska-tarasowa-max-orzech-gamrat.webp'],
+    deliveryTime: '5-10 werkdagen',
+    highlights: ['Extra breed 185mm', 'Walnoot', 'Massief'],
+    dimensions: { length: '300 / 400 cm', width: '18,5 cm', thickness: '2,0 cm' },
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // SCHUTTINGEN (Fencing) — Gamrat WPC Ogrodzenia
+  // ═══════════════════════════════════════════════════════════════════════════
+
+  // ─── Schuttingplank Classic 19×150mm ───────────────────────────────────────
+  {
+    id: 'sc-c-1',
+    updatedDate: '2026-03-01',
+    name: 'Schuttingplank Classic Donker Bruin',
+    price: 0,
+    priceLabel: 'Prijs op aanvraag',
+    image: 'https://gamratwpc.pl/wp-content/uploads/2025/04/deska-ogrodzeniowa-classic-ciemny-braz-gamrat.webp',
     category: 'schuttingen',
-    features: ['Co-extrusie beschermlaag', 'Dubbelzijdig: glad & reliëf', '25 jaar garantie'],
+    features: ['Geborsteld oppervlak', 'Dubbelzijdig', '25 jaar garantie'],
     guarantee: '25 jaar fabrieksgarantie',
-    slug: 'atmosphere-schutting-antraciet-grijs',
-    tone: 'grijs',
-    durability: 'co-extrusie',
+    slug: 'schuttingplank-classic-donker-bruin',
+    tone: 'bruin',
+    durability: 'standaard',
     productType: 'plank',
-    variantGroup: 'atmosphere-schutting',
-    variantLabel: 'Antraciet Grijs',
-    variantColor: '#4a4a4a',
-    description: 'Composiet schuttingplank in antraciet grijs met dubbelzijdige afwerking: één gladde en één gestructureerde zijde. De populairste kleur voor moderne tuinen.',
-    seoTitle: 'Schutting Antraciet Grijs | Composiet Schuttingplank',
-    seoDescription: 'Atmosphere composiet schuttingplank Antraciet Grijs. Dubbelzijdig, co-extrusie, 25 jaar garantie. Bestel bij SchuttingvanComposiet.nl.',
-    longDescription: `## Atmosphere Schutting Antraciet Grijs
+    variantGroup: 'schutting-classic',
+    variantLabel: 'Donker Bruin',
+    variantColor: '#5C3A1E',
+    description: 'Composiet schuttingplank met geborsteld oppervlak. 19×150mm, 2 meter lang. Dubbelzijdig afgewerkt.',
+    seoTitle: 'Schuttingplank Classic Donker Bruin | Composiet Schutting',
+    seoDescription: 'Gamrat WPC schuttingplank Classic in Donker Bruin. Geborsteld, dubbelzijdig, 19×150mm. Bestel bij SchuttingvanComposiet.nl.',
+    longDescription: `## Schuttingplank Classic Donker Bruin
 
-De Atmosphere schuttingplank in Antraciet Grijs is de meest gekozen kleur voor moderne tuinafscheidingen. Dankzij de dubbelzijdige afwerking — één gladde zijde en één gestructureerde zijde — kunt u zelf kiezen welke kant u naar buiten richt.
-
-### Dubbelzijdig design
-
-Elke plank heeft twee verschillende afwerkingen:
-- **Gladde zijde** — strak en modern
-- **Reliëf zijde** — natuurlijke houtstructuur
-
-U kiest zelf welke zijde zichtbaar is, of combineer beide voor een uniek ontwerp.
-
-### Co-extrusie beschermlaag
-
-De gevorderde co-extrusie technologie beschermt elke plank tegen:
-- UV-straling en verkleuring
-- Vochtopname (0%)
-- Krassen en vlekken
-- Schimmel en algen
+De Classic schuttingplank biedt een geborsteld oppervlak voor een natuurlijke houtlook. Dubbelzijdig afgewerkt zodat beide kanten van uw schutting er netjes uitzien.
 
 ### Eenvoudige montage
 
-De planken schuiven eenvoudig in de aluminium paalprofielen. Geen schroeven, geen boren — gewoon inschuiven en klaar.
-
-### 25 jaar fabrieksgarantie
-
-25 jaar garantie op kleurvastheid en structurele integriteit. Een investering voor het leven.`,
-    specifications: { Lengte: '180 cm', Breedte: '17,6 cm', Dikte: '2,1 cm', Materiaal: 'Composiet met co-extrusie toplaag', Kleur: 'Antraciet Grijs', Afwerking: 'Dubbelzijdig: glad & reliëf' },
-    images: [
-      'https://en.silvadec.com/sites/default/files/styles/square/public/2024-01/silvadec_aluminium_C0039%20%281%29.png?itok=53TGCyiu',
-    ],
-    deliveryTime: '5-8 werkdagen',
-    highlights: ['Antraciet grijs', 'Dubbelzijdig design', 'Co-extrusie beschermlaag', '25 jaar garantie', 'Eenvoudige montage'],
-    dimensions: { length: '180 cm', width: '17,6 cm', thickness: '2,1 cm' },
-    faq: [
-      { question: 'Hoeveel planken heb ik nodig per strekkende meter schutting?', answer: 'Bij een standaard schuttinghoogte van 180 cm heeft u ongeveer 10 planken per sectie nodig (17,6 cm breed per plank).' },
-      { question: 'Welke palen gebruik ik?', answer: 'Er zijn bijpassende aluminium paalprofielen waarin de planken eenvoudig inschuiven. Deze palen zijn verkrijgbaar in dezelfde kleuren.' },
-      { question: 'Kan ik de schutting zelf plaatsen?', answer: 'Ja, de schutting is ontworpen voor doe-het-zelf montage. Planken schuiven in de aluminium palen — geen speciaal gereedschap nodig.' },
-    ],
+De planken worden horizontaal gestapeld in aluminium of WPC paalprofielen. Geen schroeven zichtbaar.`,
+    specifications: { Lengte: '200 cm', Breedte: '15 cm', Dikte: '1,9 cm', Kleur: 'Ciemny Brąz (Donker Bruin)', Afwerking: 'Geborsteld' },
+    images: ['https://gamratwpc.pl/wp-content/uploads/2025/04/deska-ogrodzeniowa-classic-ciemny-braz-gamrat.webp'],
+    deliveryTime: '5-10 werkdagen',
+    highlights: ['Geborsteld oppervlak', 'Dubbelzijdig', '2 meter lang', '25 jaar garantie'],
+    dimensions: { length: '200 cm', width: '15 cm', thickness: '1,9 cm' },
   },
   {
-    id: 'sc-2',
-    updatedDate: '2026-02-20',
-    name: 'Atmosphere Schutting Licht Grijs',
-    price: 32.95,
-    priceLabel: '€32,95 per plank',
-    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/accessoires_claustra_decor_3d_decor_2_lame_gris_clair_mineral_gris_anthra_sable_HD.jpg?itok=NaiaPtfA',
+    id: 'sc-c-2',
+    updatedDate: '2026-03-01',
+    name: 'Schuttingplank Classic Grafiet',
+    price: 0,
+    priceLabel: 'Prijs op aanvraag',
+    image: 'https://gamratwpc.pl/wp-content/uploads/2025/04/deska-ogrodzeniowa-classic-grafit-gamrat.webp',
     category: 'schuttingen',
-    features: ['Co-extrusie beschermlaag', 'Dubbelzijdig: glad & reliëf', '25 jaar garantie'],
+    features: ['Geborsteld oppervlak', 'Dubbelzijdig', '25 jaar garantie'],
     guarantee: '25 jaar fabrieksgarantie',
-    slug: 'atmosphere-schutting-licht-grijs',
+    slug: 'schuttingplank-classic-grafiet',
     tone: 'grijs',
-    durability: 'co-extrusie',
+    durability: 'standaard',
     productType: 'plank',
-    variantGroup: 'atmosphere-schutting',
-    variantLabel: 'Licht Grijs',
-    variantColor: '#b0b0b0',
-    description: 'Composiet schuttingplank in licht grijs. Een lichte, frisse kleur die de tuin optisch vergroot en mooi combineert met groen.',
-    seoTitle: 'Schutting Licht Grijs | Composiet Schuttingplank',
-    seoDescription: 'Atmosphere composiet schuttingplank Licht Grijs. Dubbelzijdig, co-extrusie, 25 jaar garantie. Bestel bij SchuttingvanComposiet.nl.',
-    longDescription: `## Atmosphere Schutting Licht Grijs
-
-De lichtgrijze variant van de Atmosphere schuttingplank biedt een frisse, moderne uitstraling. De lichte kleur maakt de tuin optisch groter en combineert prachtig met groen en bloemen.
-
-### Ruimtelijk effect
-
-Licht grijs reflecteert meer licht dan donkere kleuren, waardoor uw tuin groter en lichter aanvoelt. Ideaal voor kleinere tuinen of schaduwrijke plekken.
-
-### Dubbelzijdig en veelzijdig
-
-Net als alle Atmosphere schuttingplanken heeft deze plank twee afwerkingen: glad en gestructureerd. U bepaalt zelf het eindresultaat.`,
-    specifications: { Lengte: '180 cm', Breedte: '17,6 cm', Dikte: '2,1 cm', Materiaal: 'Composiet met co-extrusie toplaag', Kleur: 'Licht Grijs', Afwerking: 'Dubbelzijdig: glad & reliëf' },
-    images: [
-      'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/accessoires_claustra_decor_3d_decor_2_lame_gris_clair_mineral_gris_anthra_sable_HD.jpg?itok=NaiaPtfA',
-    ],
-    deliveryTime: '5-8 werkdagen',
-    highlights: ['Licht grijs', 'Ruimtelijk effect', 'Dubbelzijdig design', 'Co-extrusie beschermlaag'],
-    dimensions: { length: '180 cm', width: '17,6 cm', thickness: '2,1 cm' },
-    faq: [
-      { question: 'Wordt licht grijs snel vies?', answer: 'Nee, dankzij de co-extrusie beschermlaag hecht vuil nauwelijks aan het oppervlak. Een jaarlijkse reiniging met water is voldoende.' },
-    ],
+    variantGroup: 'schutting-classic',
+    variantLabel: 'Grafiet',
+    variantColor: '#4A4A4A',
+    description: 'Composiet schuttingplank Classic in grafiet grijs met geborsteld oppervlak.',
+    seoTitle: 'Schuttingplank Classic Grafiet | Composiet Schutting',
+    seoDescription: 'Gamrat WPC schuttingplank Classic in Grafiet. Geborsteld, dubbelzijdig. Bestel bij SchuttingvanComposiet.nl.',
+    longDescription: `## Schuttingplank Classic Grafiet\n\nDe grafiet variant van de Classic schuttingplank. Modern en strak.`,
+    specifications: { Lengte: '200 cm', Breedte: '15 cm', Dikte: '1,9 cm', Kleur: 'Grafit (Grafiet)', Afwerking: 'Geborsteld' },
+    images: ['https://gamratwpc.pl/wp-content/uploads/2025/04/deska-ogrodzeniowa-classic-grafit-gamrat.webp'],
+    deliveryTime: '5-10 werkdagen',
+    highlights: ['Grafiet grijs', 'Geborsteld', 'Dubbelzijdig'],
+    dimensions: { length: '200 cm', width: '15 cm', thickness: '1,9 cm' },
   },
   {
-    id: 'sc-3',
-    updatedDate: '2026-02-20',
-    name: 'Atmosphere Schutting Wild Grijs',
-    price: 34.95,
-    priceLabel: '€34,95 per plank',
-    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2024-05/silvadec_atmosphere_b0041_c0141-compressed_7.jpg?itok=vZvJ8zUk',
+    id: 'sc-c-3',
+    updatedDate: '2026-03-01',
+    name: 'Schuttingplank Classic Walnoot',
+    price: 0,
+    priceLabel: 'Prijs op aanvraag',
+    image: 'https://gamratwpc.pl/wp-content/uploads/2025/04/deska-ogrodzeniowa-classic-orzech-gamrat.webp',
     category: 'schuttingen',
-    features: ['Co-extrusie beschermlaag', 'Gegroefde & gladde zijde', '25 jaar garantie'],
+    features: ['Geborsteld oppervlak', 'Dubbelzijdig', '25 jaar garantie'],
     guarantee: '25 jaar fabrieksgarantie',
-    slug: 'atmosphere-schutting-wild-grijs',
-    tone: 'grijs',
-    durability: 'co-extrusie',
-    productType: 'plank',
-    variantGroup: 'atmosphere-schutting',
-    variantLabel: 'Wild Grijs',
-    variantColor: '#7a7a72',
-    description: 'Composiet schuttingplank in wild grijs met een expressieve, natuurlijke houtnerf. Een gewaagde keuze voor tuinen met karakter.',
-    seoTitle: 'Schutting Wild Grijs | Composiet Schuttingplank',
-    seoDescription: 'Atmosphere composiet schuttingplank Wild Grijs. Expressieve houtnerf, co-extrusie, 25 jaar garantie. Bestel bij SchuttingvanComposiet.nl.',
-    longDescription: `## Atmosphere Schutting Wild Grijs
-
-De Wild Grijs variant is de nieuwste toevoeging aan het schuttingassortiment. Met een expressieve, natuurlijke houtnerf en een levendige grijze tint is deze plank perfect voor tuinen met karakter.
-
-### Levendig en natuurlijk
-
-De "wild" afwerking geeft elke plank een unieke, natuurlijke uitstraling. Geen twee planken zijn precies hetzelfde, wat een authentiek houteffect creëert.
-
-### Dubbelzijdig
-
-Eén zijde heeft een gegroefde afwerking, de andere een gladde. Combineer naar wens voor een persoonlijk tuinontwerp.`,
-    specifications: { Lengte: '180 cm', Breedte: '17,6 cm', Dikte: '2,1 cm', Materiaal: 'Composiet met co-extrusie toplaag', Kleur: 'Wild Grijs', Afwerking: 'Dubbelzijdig: gegroefde & glad' },
-    images: [
-      'https://en.silvadec.com/sites/default/files/styles/square/public/2024-05/silvadec_atmosphere_b0041_c0141-compressed_7.jpg?itok=vZvJ8zUk',
-    ],
-    deliveryTime: '5-8 werkdagen',
-    highlights: ['Wild grijs', 'Expressieve houtnerf', 'Unieke look', 'Co-extrusie beschermlaag'],
-    dimensions: { length: '180 cm', width: '17,6 cm', thickness: '2,1 cm' },
-    faq: [
-      { question: 'Wat maakt Wild Grijs anders dan gewoon grijs?', answer: 'Wild Grijs heeft een meer gevarieerde, levendige kleur met zichtbare nerf- en kleurvariaties. Het is een expressiever alternatief voor de uniforme grijstinten.' },
-    ],
-  },
-  {
-    id: 'sc-4',
-    updatedDate: '2026-02-20',
-    name: 'Atmosphere Schutting Zonnig Bruin',
-    price: 34.95,
-    priceLabel: '€34,95 per plank',
-    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2024-02/silvadec_atmosphere_B0040_13.jpg?itok=v_iEy2r1',
-    category: 'schuttingen',
-    features: ['Co-extrusie beschermlaag', 'Gegroefde & gladde zijde', '25 jaar garantie'],
-    guarantee: '25 jaar fabrieksgarantie',
-    slug: 'atmosphere-schutting-zonnig-bruin',
+    slug: 'schuttingplank-classic-walnoot',
     tone: 'bruin',
-    durability: 'co-extrusie',
+    durability: 'standaard',
     productType: 'plank',
-    variantGroup: 'atmosphere-schutting',
-    variantLabel: 'Zonnig Bruin',
-    variantColor: '#a07850',
-    description: 'Composiet schuttingplank in zonnig bruin. Een warme, mediterrane kleur die sfeer brengt in elke tuin.',
-    seoTitle: 'Schutting Zonnig Bruin | Composiet Schuttingplank',
-    seoDescription: 'Atmosphere composiet schuttingplank Zonnig Bruin. Warme houtlook, co-extrusie, 25 jaar garantie. Bestel bij SchuttingvanComposiet.nl.',
-    longDescription: `## Atmosphere Schutting Zonnig Bruin
-
-Breng warmte en sfeer in uw tuin met de Atmosphere schuttingplank in Zonnig Bruin. Deze warme, zongebruinde tint past perfect bij groene tuinen en houten elementen.
-
-### Warme uitstraling
-
-De zonnig bruine kleur doet denken aan zongebleekt hout en creëert een warme, uitnodigende sfeer in uw tuin. Perfect voor een landelijke of mediterrane tuinstijl.
-
-### Duurzaam en kleurvast
-
-Dankzij de co-extrusie beschermlaag behoudt de warme bruintint jarenlang zijn intensiteit. Geen verkleuring, geen onderhoud.`,
-    specifications: { Lengte: '180 cm', Breedte: '17,6 cm', Dikte: '2,1 cm', Materiaal: 'Composiet met co-extrusie toplaag', Kleur: 'Zonnig Bruin', Afwerking: 'Dubbelzijdig: gegroefde & glad' },
-    images: [
-      'https://en.silvadec.com/sites/default/files/styles/square/public/2024-02/silvadec_atmosphere_B0040_13.jpg?itok=v_iEy2r1',
-    ],
-    deliveryTime: '5-8 werkdagen',
-    highlights: ['Zonnig bruin', 'Warme houtlook', 'Mediterrane sfeer', 'Co-extrusie beschermlaag'],
-    dimensions: { length: '180 cm', width: '17,6 cm', thickness: '2,1 cm' },
-    faq: [
-      { question: 'Past Zonnig Bruin bij een groene tuin?', answer: 'Ja, de warme bruintint combineert prachtig met groen. Het creëert een natuurlijk, harmonieus tuinbeeld.' },
-    ],
+    variantGroup: 'schutting-classic',
+    variantLabel: 'Walnoot',
+    variantColor: '#6B4226',
+    description: 'Composiet schuttingplank Classic in walnoottint met geborsteld oppervlak.',
+    seoTitle: 'Schuttingplank Classic Walnoot | Composiet Schutting',
+    seoDescription: 'Gamrat WPC schuttingplank Classic in Walnoot. Geborsteld, dubbelzijdig. Bestel bij SchuttingvanComposiet.nl.',
+    longDescription: `## Schuttingplank Classic Walnoot\n\nDe walnoottint van de Classic schuttingplank. Warm en natuurlijk.`,
+    specifications: { Lengte: '200 cm', Breedte: '15 cm', Dikte: '1,9 cm', Kleur: 'Orzech (Walnoot)', Afwerking: 'Geborsteld' },
+    images: ['https://gamratwpc.pl/wp-content/uploads/2025/04/deska-ogrodzeniowa-classic-orzech-gamrat.webp'],
+    deliveryTime: '5-10 werkdagen',
+    highlights: ['Walnoot', 'Geborsteld', 'Dubbelzijdig'],
+    dimensions: { length: '200 cm', width: '15 cm', thickness: '1,9 cm' },
   },
+
+  // ─── Schuttingplank Premium 19×150mm ──────────────────────────────────────
   {
-    id: 'sc-5',
-    updatedDate: '2026-02-20',
-    name: 'Atmosphere Schutting Licht Eiken',
-    price: 34.95,
-    priceLabel: '€34,95 per plank',
-    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2026-01/Cloture_Nuances_Chene-1037207_RET-compressed.jpg?itok=j6gbrz1V',
+    id: 'sc-p-1',
+    updatedDate: '2026-03-01',
+    name: 'Schuttingplank Premium Donker Bruin',
+    price: 0,
+    priceLabel: 'Prijs op aanvraag',
+    image: 'https://gamratwpc.pl/wp-content/uploads/2025/04/deska-ogrodzeniowa-premium-ciemny-braz-gamrat.webp',
     category: 'schuttingen',
-    features: ['Co-extrusie beschermlaag', 'Geborsteld oppervlak', '25 jaar garantie'],
+    features: ['Houtnerf patroon', 'Dubbelzijdig', '25 jaar garantie'],
     guarantee: '25 jaar fabrieksgarantie',
-    slug: 'atmosphere-schutting-licht-eiken',
-    tone: 'eiken',
-    durability: 'co-extrusie',
+    slug: 'schuttingplank-premium-donker-bruin',
+    tone: 'bruin',
+    durability: 'premium',
     productType: 'plank',
-    variantGroup: 'atmosphere-schutting',
-    variantLabel: 'Licht Eiken',
-    variantColor: '#c8a870',
-    description: 'Composiet schuttingplank in licht eiken met geborstelde afwerking. De authentieke eikenlook brengt warmte en karakter in uw tuin.',
-    seoTitle: 'Schutting Licht Eiken | Composiet Schuttingplank',
-    seoDescription: 'Atmosphere composiet schuttingplank Licht Eiken. Geborsteld, co-extrusie, 25 jaar garantie. Bestel bij SchuttingvanComposiet.nl.',
-    longDescription: `## Atmosphere Schutting Licht Eiken
-
-De nieuwste toevoeging aan het schuttingassortiment: Licht Eiken met een prachtige geborstelde afwerking. Deze plank biedt de authentieke look van eikenhout zonder enig onderhoud.
-
-### Authentiek eikenhout gevoel
-
-Het geborstelde oppervlak geeft een tactiele, natuurlijke houtstructuur. De lichte eikenkleur is warm en veelzijdig — perfect voor zowel moderne als klassieke tuinen.
-
-### Nuances technologie
-
-Deze plank maakt gebruik van de nieuwste Nuances-technologie, die subtiele kleurvariaties creëert voor een nog natuurlijker eindresultaat.`,
-    specifications: { Lengte: '180 cm', Breedte: '17,6 cm', Dikte: '2,1 cm', Materiaal: 'Composiet met co-extrusie toplaag', Kleur: 'Licht Eiken', Afwerking: 'Geborsteld' },
-    images: [
-      'https://en.silvadec.com/sites/default/files/styles/square/public/2026-01/Cloture_Nuances_Chene-1037207_RET-compressed.jpg?itok=j6gbrz1V',
-      'https://en.silvadec.com/sites/default/files/styles/square/public/2025-12/nuances-chene-clair-D03737%20%281%29.jpg?itok=nJ5vw31M',
-    ],
-    deliveryTime: '5-8 werkdagen',
-    highlights: ['Licht eiken', 'Geborstelde afwerking', 'Nuances technologie', 'Co-extrusie beschermlaag'],
-    dimensions: { length: '180 cm', width: '17,6 cm', thickness: '2,1 cm' },
-    faq: [
-      { question: 'Wat is Nuances technologie?', answer: 'Nuances is de nieuwste productiemethode die subtiele kleurvariaties per plank creëert, voor een nog natuurlijker houteffect.' },
-    ],
+    variantGroup: 'schutting-premium',
+    variantLabel: 'Donker Bruin',
+    variantColor: '#5C3A1E',
+    description: 'Premium composiet schuttingplank met realistisch houtnerf patroon. 19×150mm, 2 meter lang.',
+    seoTitle: 'Schuttingplank Premium Donker Bruin | Composiet Schutting',
+    seoDescription: 'Gamrat WPC schuttingplank Premium in Donker Bruin. Houtnerf patroon, dubbelzijdig. Bestel bij SchuttingvanComposiet.nl.',
+    longDescription: `## Schuttingplank Premium Donker Bruin\n\nDe Premium schuttingplank met realistisch houtnerf patroon. De meest authentieke houtlook voor uw schutting.`,
+    specifications: { Lengte: '200 cm', Breedte: '15 cm', Dikte: '1,9 cm', Kleur: 'Ciemny Brąz (Donker Bruin)', Afwerking: 'Houtnerf (3D)' },
+    images: ['https://gamratwpc.pl/wp-content/uploads/2025/04/deska-ogrodzeniowa-premium-ciemny-braz-gamrat.webp'],
+    deliveryTime: '5-10 werkdagen',
+    highlights: ['Houtnerf patroon', 'Dubbelzijdig', 'Premium afwerking'],
+    dimensions: { length: '200 cm', width: '15 cm', thickness: '1,9 cm' },
   },
   {
-    id: 'sc-6',
-    updatedDate: '2026-02-20',
-    name: 'Aluminium Schutting Antraciet Grijs',
-    price: 39.95,
-    priceLabel: '€39,95 per plank',
-    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2023-05/SICLOTALU1801_lame_ecran_aluminium_sable_gris_anthracite_HD_0.jpg?itok=GI-ZQECY',
+    id: 'sc-p-2',
+    updatedDate: '2026-03-01',
+    name: 'Schuttingplank Premium Grafiet',
+    price: 0,
+    priceLabel: 'Prijs op aanvraag',
+    image: 'https://gamratwpc.pl/wp-content/uploads/2025/04/deska-ogrodzeniowa-premium-grafit-gamrat.webp',
     category: 'schuttingen',
-    features: ['Aluminium', 'Geschuurd oppervlak', 'RAL 7016 mat'],
-    guarantee: '25 jaar garantie',
-    slug: 'aluminium-schutting-antraciet-grijs',
+    features: ['Houtnerf patroon', 'Dubbelzijdig', '25 jaar garantie'],
+    guarantee: '25 jaar fabrieksgarantie',
+    slug: 'schuttingplank-premium-grafiet',
     tone: 'grijs',
     durability: 'premium',
-    productType: 'paneel',
-    variantGroup: 'aluminium-schutting',
-    variantLabel: 'Antraciet Grijs',
-    variantColor: '#4a4a4a',
-    description: 'Aluminium schuttingplank in antraciet grijs (RAL 7016). Ultrastrak, modern en 100% onderhoudsvrij. De ultieme keuze voor een minimalistisch tuinontwerp.',
-    seoTitle: 'Aluminium Schutting Antraciet Grijs | RAL 7016',
-    seoDescription: 'Aluminium schuttingplank Antraciet Grijs RAL 7016. Ultrastrak, modern, onderhoudsvrij. Bestel bij SchuttingvanComposiet.nl.',
-    longDescription: `## Aluminium Schutting Antraciet Grijs
-
-De aluminium schutting in Antraciet Grijs (RAL 7016 mat) biedt de ultieme minimalistische tuinafscheiding. Aluminium is lichter dan composiet, roestvrij en volledig recycleerbaar.
-
-### Ultrastrak design
-
-Het geschuurde aluminium oppervlak geeft een perfecte, egale kleur zonder nerf of textuur. Ideaal voor moderne architectuur en strakke tuinontwerpen.
-
-### Voordelen van aluminium
-
-- Extreem licht — eenvoudige montage
-- 100% roestvrij
-- Volledig recycleerbaar
-- Geen onderhoud nodig
-- RAL 7016 mat — de meest gevraagde kleur voor buitengebruik`,
-    specifications: { Lengte: '180 cm', Breedte: '15 cm', Dikte: '2,0 cm', Materiaal: 'Aluminium', Kleur: 'Antraciet Grijs (RAL 7016 mat)', Afwerking: 'Geschuurd' },
-    images: [
-      'https://en.silvadec.com/sites/default/files/styles/square/public/2023-05/SICLOTALU1801_lame_ecran_aluminium_sable_gris_anthracite_HD_0.jpg?itok=GI-ZQECY',
-    ],
-    deliveryTime: '5-8 werkdagen',
-    highlights: ['Aluminium', 'RAL 7016 mat', 'Ultrastrak', '100% recycleerbaar', 'Roestvrij'],
-    dimensions: { length: '180 cm', width: '15 cm', thickness: '2,0 cm' },
-    faq: [
-      { question: 'Is aluminium sterker dan composiet?', answer: 'Aluminium is lichter maar even sterk. Voor schuttingen biedt het een strakker, moderner eindresultaat.' },
-      { question: 'Kan ik aluminium en composiet planken combineren?', answer: 'Ja, aluminium planken passen in dezelfde paalprofielen als de composiet planken. U kunt ze naar wens combineren.' },
-    ],
+    productType: 'plank',
+    variantGroup: 'schutting-premium',
+    variantLabel: 'Grafiet',
+    variantColor: '#4A4A4A',
+    description: 'Premium composiet schuttingplank in grafiet grijs met houtnerf patroon.',
+    seoTitle: 'Schuttingplank Premium Grafiet | Composiet Schutting',
+    seoDescription: 'Gamrat WPC schuttingplank Premium in Grafiet. Houtnerf patroon, dubbelzijdig. Bestel bij SchuttingvanComposiet.nl.',
+    longDescription: `## Schuttingplank Premium Grafiet\n\nDe grafiet variant met premium houtnerf afwerking.`,
+    specifications: { Lengte: '200 cm', Breedte: '15 cm', Dikte: '1,9 cm', Kleur: 'Grafit (Grafiet)', Afwerking: 'Houtnerf (3D)' },
+    images: ['https://gamratwpc.pl/wp-content/uploads/2025/04/deska-ogrodzeniowa-premium-grafit-gamrat.webp'],
+    deliveryTime: '5-10 werkdagen',
+    highlights: ['Grafiet grijs', 'Houtnerf patroon', 'Dubbelzijdig'],
+    dimensions: { length: '200 cm', width: '15 cm', thickness: '1,9 cm' },
   },
   {
-    id: 'sc-7',
-    updatedDate: '2026-02-20',
-    name: 'Aluminium Schutting Metaal Grijs',
-    price: 39.95,
-    priceLabel: '€39,95 per plank',
-    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2023-10/SICLOTALU2001_lame_cloture_aluminium_gris_metal_120_ajouree_HD-compressed_3.jpg?itok=nTQnDDuW',
+    id: 'sc-p-3',
+    updatedDate: '2026-03-01',
+    name: 'Schuttingplank Premium Walnoot',
+    price: 0,
+    priceLabel: 'Prijs op aanvraag',
+    image: 'https://gamratwpc.pl/wp-content/uploads/2025/04/deska-ogrodzeniowa-premium-orzech-gamrat.webp',
     category: 'schuttingen',
-    features: ['Aluminium', 'Geschuurd oppervlak', 'RAL 7042 mat'],
-    guarantee: '25 jaar garantie',
-    slug: 'aluminium-schutting-metaal-grijs',
-    tone: 'grijs',
+    features: ['Houtnerf patroon', 'Dubbelzijdig', '25 jaar garantie'],
+    guarantee: '25 jaar fabrieksgarantie',
+    slug: 'schuttingplank-premium-walnoot',
+    tone: 'bruin',
     durability: 'premium',
-    productType: 'paneel',
-    variantGroup: 'aluminium-schutting',
-    variantLabel: 'Metaal Grijs',
-    variantColor: '#8a8a8a',
-    description: 'Aluminium schuttingplank in metaal grijs (RAL 7042). Een lichtere grijstint dan antraciet, voor een industriële maar warme uitstraling.',
-    seoTitle: 'Aluminium Schutting Metaal Grijs | RAL 7042',
-    seoDescription: 'Aluminium schuttingplank Metaal Grijs RAL 7042. Modern, licht, onderhoudsvrij. Bestel bij SchuttingvanComposiet.nl.',
-    longDescription: `## Aluminium Schutting Metaal Grijs
+    productType: 'plank',
+    variantGroup: 'schutting-premium',
+    variantLabel: 'Walnoot',
+    variantColor: '#6B4226',
+    description: 'Premium composiet schuttingplank in walnoottint met houtnerf patroon.',
+    seoTitle: 'Schuttingplank Premium Walnoot | Composiet Schutting',
+    seoDescription: 'Gamrat WPC schuttingplank Premium in Walnoot. Houtnerf patroon, dubbelzijdig. Bestel bij SchuttingvanComposiet.nl.',
+    longDescription: `## Schuttingplank Premium Walnoot\n\nDe walnoottint met premium houtnerf. Warm en authentiek.`,
+    specifications: { Lengte: '200 cm', Breedte: '15 cm', Dikte: '1,9 cm', Kleur: 'Orzech (Walnoot)', Afwerking: 'Houtnerf (3D)' },
+    images: ['https://gamratwpc.pl/wp-content/uploads/2025/04/deska-ogrodzeniowa-premium-orzech-gamrat.webp'],
+    deliveryTime: '5-10 werkdagen',
+    highlights: ['Walnoot', 'Houtnerf patroon', 'Dubbelzijdig'],
+    dimensions: { length: '200 cm', width: '15 cm', thickness: '1,9 cm' },
+  },
 
-De Metaal Grijs variant (RAL 7042 mat) biedt een lichter alternatief voor het populaire antraciet grijs. De warme metaaltint geeft een industriële maar uitnodigende sfeer.
-
-### Lichtere grijstint
-
-Metaal Grijs is perfect voor wie de strakke uitstraling van aluminium wil maar een minder donkere kleur prefereert. Het reflecteert meer licht en maakt de tuin optisch groter.`,
-    specifications: { Lengte: '180 cm', Breedte: '15 cm', Dikte: '2,0 cm', Materiaal: 'Aluminium', Kleur: 'Metaal Grijs (RAL 7042 mat)', Afwerking: 'Geschuurd' },
-    images: [
-      'https://en.silvadec.com/sites/default/files/styles/square/public/2023-10/SICLOTALU2001_lame_cloture_aluminium_gris_metal_120_ajouree_HD-compressed_3.jpg?itok=nTQnDDuW',
-    ],
-    deliveryTime: '5-8 werkdagen',
-    highlights: ['Aluminium', 'Metaal grijs', 'RAL 7042 mat', 'Industriële look'],
-    dimensions: { length: '180 cm', width: '15 cm', thickness: '2,0 cm' },
-    faq: [
-      { question: 'Wat is het verschil met Antraciet Grijs?', answer: 'Metaal Grijs (RAL 7042) is lichter en warmer van toon dan Antraciet Grijs (RAL 7016). Het geeft een meer industriële, minder strenge uitstraling.' },
-    ],
+  // ─── Universeel Profiel Classic/Premium 19×150mm ──────────────────────────
+  {
+    id: 'sc-up-1',
+    updatedDate: '2026-03-01',
+    name: 'Universeel Profiel Donker Bruin',
+    price: 0,
+    priceLabel: 'Prijs op aanvraag',
+    image: 'https://gamratwpc.pl/wp-content/uploads/2025/04/uniwersalny-profil-classic-premium-ciemny-braz-gamrat.webp',
+    category: 'schuttingen',
+    features: ['Past bij Classic & Premium', 'Meerdere lengtes', '25 jaar garantie'],
+    guarantee: '25 jaar fabrieksgarantie',
+    slug: 'universeel-profiel-donker-bruin',
+    tone: 'bruin',
+    durability: 'standaard',
+    productType: 'profiel',
+    variantGroup: 'universeel-profiel',
+    variantLabel: 'Donker Bruin',
+    variantColor: '#5C3A1E',
+    description: 'Universeel schuttingprofiel compatibel met Classic en Premium planken. Beschikbaar in 1,25m, 1,5m en 2m.',
+    seoTitle: 'Universeel Profiel Donker Bruin | Schutting Accessoire',
+    seoDescription: 'Gamrat WPC universeel schuttingprofiel in Donker Bruin. Past bij Classic en Premium planken. Bestel bij SchuttingvanComposiet.nl.',
+    longDescription: `## Universeel Profiel Donker Bruin\n\nHet universele profiel vormt de verticale structuur van uw schutting. Compatibel met zowel Classic als Premium schuttingplanken.`,
+    specifications: { Lengte: '125 / 150 / 200 cm', Breedte: '15 cm', Dikte: '1,9 cm', Kleur: 'Ciemny Brąz (Donker Bruin)' },
+    images: ['https://gamratwpc.pl/wp-content/uploads/2025/04/uniwersalny-profil-classic-premium-ciemny-braz-gamrat.webp'],
+    deliveryTime: '5-10 werkdagen',
+    highlights: ['Compatibel met Classic & Premium', 'Meerdere lengtes'],
+    dimensions: { length: '125 / 150 / 200 cm', width: '15 cm', thickness: '1,9 cm' },
   },
   {
-    id: 'sc-8',
-    updatedDate: '2026-02-20',
-    name: 'Aluminium Schutting Zwart',
-    price: 39.95,
-    priceLabel: '€39,95 per plank',
-    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2024-01/silvadec_aluminium_C0055-2%20%281%29-compressed.jpg?itok=LSY1pBVe',
+    id: 'sc-up-2',
+    updatedDate: '2026-03-01',
+    name: 'Universeel Profiel Grafiet',
+    price: 0,
+    priceLabel: 'Prijs op aanvraag',
+    image: 'https://gamratwpc.pl/wp-content/uploads/2025/04/uniwersalny-profil-classic-premium-grafit-gamrat.webp',
     category: 'schuttingen',
-    features: ['Aluminium', 'Geschuurd oppervlak', 'RAL 2100 mat'],
-    guarantee: '25 jaar garantie',
-    slug: 'aluminium-schutting-zwart',
+    features: ['Past bij Classic & Premium', 'Meerdere lengtes', '25 jaar garantie'],
+    guarantee: '25 jaar fabrieksgarantie',
+    slug: 'universeel-profiel-grafiet',
+    tone: 'grijs',
+    durability: 'standaard',
+    productType: 'profiel',
+    variantGroup: 'universeel-profiel',
+    variantLabel: 'Grafiet',
+    variantColor: '#4A4A4A',
+    description: 'Universeel schuttingprofiel in grafiet grijs.',
+    seoTitle: 'Universeel Profiel Grafiet | Schutting Accessoire',
+    seoDescription: 'Gamrat WPC universeel schuttingprofiel in Grafiet. Bestel bij SchuttingvanComposiet.nl.',
+    longDescription: `## Universeel Profiel Grafiet\n\nHet universele profiel in grafiet grijs.`,
+    specifications: { Lengte: '125 / 150 / 200 cm', Breedte: '15 cm', Dikte: '1,9 cm', Kleur: 'Grafit (Grafiet)' },
+    images: ['https://gamratwpc.pl/wp-content/uploads/2025/04/uniwersalny-profil-classic-premium-grafit-gamrat.webp'],
+    deliveryTime: '5-10 werkdagen',
+    highlights: ['Grafiet grijs', 'Compatibel met Classic & Premium'],
+    dimensions: { length: '125 / 150 / 200 cm', width: '15 cm', thickness: '1,9 cm' },
+  },
+  {
+    id: 'sc-up-3',
+    updatedDate: '2026-03-01',
+    name: 'Universeel Profiel Walnoot',
+    price: 0,
+    priceLabel: 'Prijs op aanvraag',
+    image: 'https://gamratwpc.pl/wp-content/uploads/2025/04/uniwersalny-profil-classic-premium-orzech-gamrat.webp',
+    category: 'schuttingen',
+    features: ['Past bij Classic & Premium', 'Meerdere lengtes', '25 jaar garantie'],
+    guarantee: '25 jaar fabrieksgarantie',
+    slug: 'universeel-profiel-walnoot',
+    tone: 'bruin',
+    durability: 'standaard',
+    productType: 'profiel',
+    variantGroup: 'universeel-profiel',
+    variantLabel: 'Walnoot',
+    variantColor: '#6B4226',
+    description: 'Universeel schuttingprofiel in walnoottint.',
+    seoTitle: 'Universeel Profiel Walnoot | Schutting Accessoire',
+    seoDescription: 'Gamrat WPC universeel schuttingprofiel in Walnoot. Bestel bij SchuttingvanComposiet.nl.',
+    longDescription: `## Universeel Profiel Walnoot\n\nHet universele profiel in walnoottint.`,
+    specifications: { Lengte: '125 / 150 / 200 cm', Breedte: '15 cm', Dikte: '1,9 cm', Kleur: 'Orzech (Walnoot)' },
+    images: ['https://gamratwpc.pl/wp-content/uploads/2025/04/uniwersalny-profil-classic-premium-orzech-gamrat.webp'],
+    deliveryTime: '5-10 werkdagen',
+    highlights: ['Walnoot', 'Compatibel met Classic & Premium'],
+    dimensions: { length: '125 / 150 / 200 cm', width: '15 cm', thickness: '1,9 cm' },
+  },
+
+  // ─── Ceownik WPC 30×40mm ──────────────────────────────────────────────────
+  {
+    id: 'sc-ceo-1',
+    updatedDate: '2026-03-01',
+    name: 'Ceownik WPC Paalprofiel Donker Bruin',
+    price: 0,
+    priceLabel: 'Prijs op aanvraag',
+    image: 'https://gamratwpc.pl/wp-content/uploads/2025/04/ceownik-wpc-ciemny-braz-gamrat.webp',
+    category: 'schuttingen',
+    features: ['Paalprofiel', 'WPC composiet', '25 jaar garantie'],
+    guarantee: '25 jaar fabrieksgarantie',
+    slug: 'ceownik-wpc-paalprofiel-donker-bruin',
+    tone: 'bruin',
+    durability: 'standaard',
+    productType: 'paneel',
+    variantGroup: 'ceownik-wpc',
+    variantLabel: 'Donker Bruin',
+    variantColor: '#5C3A1E',
+    description: 'WPC paalprofiel (ceownik) voor het vastzetten van schuttingplanken. 30×40mm, 2 meter.',
+    seoTitle: 'Ceownik WPC Paalprofiel | Schutting Montage',
+    seoDescription: 'Gamrat WPC ceownik paalprofiel in Donker Bruin. 30×40mm, 2m. Bestel bij SchuttingvanComposiet.nl.',
+    longDescription: `## Ceownik WPC Paalprofiel\n\nHet ceownik profiel is het U-vormige paalprofiel waarin de schuttingplanken worden geschoven. Eenvoudige montage zonder zichtbare bevestigingen.`,
+    specifications: { Lengte: '200 cm', Breedte: '4 cm', Dikte: '3 cm', Kleur: 'Ciemny Brąz (Donker Bruin)', Type: 'U-profiel (ceownik)' },
+    images: ['https://gamratwpc.pl/wp-content/uploads/2025/04/ceownik-wpc-ciemny-braz-gamrat.webp'],
+    deliveryTime: '5-10 werkdagen',
+    highlights: ['U-profiel', 'Eenvoudige montage', 'WPC composiet'],
+    dimensions: { length: '200 cm', width: '4 cm', thickness: '3 cm' },
+  },
+
+  // ─── Schuttingpaal 60×60mm ────────────────────────────────────────────────
+  {
+    id: 'sc-paal-1',
+    updatedDate: '2026-03-01',
+    name: 'Schuttingpaal WPC 60×60mm Donker Bruin',
+    price: 0,
+    priceLabel: 'Prijs op aanvraag',
+    image: 'https://gamratwpc.pl/wp-content/uploads/2025/04/slupek-ogrodzeniowy-ciemny-braz-gamrat.webp',
+    category: 'schuttingen',
+    features: ['60×60mm', 'WPC composiet', '25 jaar garantie'],
+    guarantee: '25 jaar fabrieksgarantie',
+    slug: 'schuttingpaal-wpc-donker-bruin',
+    tone: 'bruin',
+    durability: 'standaard',
+    productType: 'profiel',
+    description: 'WPC schuttingpaal 60×60mm, 2 meter lang. Stevig fundament voor uw composiet schutting.',
+    seoTitle: 'Schuttingpaal WPC 60×60mm | Schutting Montage',
+    seoDescription: 'Gamrat WPC schuttingpaal 60×60mm in Donker Bruin. Stevig, 2m. Bestel bij SchuttingvanComposiet.nl.',
+    longDescription: `## Schuttingpaal WPC\n\nDe stevige WPC schuttingpaal vormt het fundament van uw schutting. 60×60mm voor maximale stabiliteit.`,
+    specifications: { Lengte: '200 cm', Breedte: '6 cm', Dikte: '6 cm', Kleur: 'Ciemny Brąz (Donker Bruin)' },
+    images: ['https://gamratwpc.pl/wp-content/uploads/2025/04/slupek-ogrodzeniowy-ciemny-braz-gamrat.webp'],
+    deliveryTime: '5-10 werkdagen',
+    highlights: ['60×60mm', 'Stevig fundament', 'WPC composiet'],
+    dimensions: { length: '200 cm', width: '6 cm', thickness: '6 cm' },
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // ACCESSOIRES — Gamrat WPC Akcesoria
+  // ═══════════════════════════════════════════════════════════════════════════
+
+  {
+    id: 'acc-1',
+    updatedDate: '2026-03-01',
+    name: 'Legar WPC Onderbalk 50×30mm',
+    price: 0,
+    priceLabel: 'Prijs op aanvraag',
+    image: 'https://gamratwpc.pl/wp-content/uploads/2025/04/legar-wpc-gamrat.webp',
+    category: 'accessoires',
+    features: ['WPC composiet', '50×30mm', '3 meter'],
+    guarantee: '25 jaar fabrieksgarantie',
+    slug: 'legar-wpc-onderbalk',
     tone: 'zwart',
+    durability: 'standaard',
+    productType: 'profiel',
+    description: 'WPC composiet onderbalk (legar) voor de substructuur van uw vlonder. 50×30mm, 3 meter lang.',
+    seoTitle: 'Legar WPC Onderbalk | Vlonder Substructuur',
+    seoDescription: 'Gamrat WPC legar onderbalk 50×30mm, 3m. Composiet substructuur voor uw terras. Bestel bij SchuttingvanComposiet.nl.',
+    longDescription: `## Legar WPC Onderbalk\n\nDe WPC onderbalk vormt de substructuur waarop de vlonderplanken worden bevestigd. Gemaakt van hetzelfde duurzame WPC materiaal.`,
+    specifications: { Lengte: '300 cm', Breedte: '5 cm', Dikte: '3 cm', Materiaal: 'WPC composiet' },
+    images: ['https://gamratwpc.pl/wp-content/uploads/2025/04/legar-wpc-gamrat.webp'],
+    deliveryTime: '5-10 werkdagen',
+    highlights: ['WPC composiet', '3 meter', 'Rot-vrij'],
+    dimensions: { length: '300 cm', width: '5 cm', thickness: '3 cm' },
+  },
+  {
+    id: 'acc-2',
+    updatedDate: '2026-03-01',
+    name: 'Legar Aluminium Laag Profiel 36×24mm',
+    price: 0,
+    priceLabel: 'Prijs op aanvraag',
+    image: 'https://gamratwpc.pl/wp-content/uploads/2025/04/legar-aluminiowy-niski-gamrat.webp',
+    category: 'accessoires',
+    features: ['Aluminium', 'Laag profiel 24mm', '4 meter'],
+    guarantee: '25 jaar fabrieksgarantie',
+    slug: 'legar-aluminium-laag-profiel',
+    tone: 'grijs',
     durability: 'premium',
-    productType: 'paneel',
-    variantGroup: 'aluminium-schutting',
-    variantLabel: 'Zwart',
-    variantColor: '#1a1a1a',
-    description: 'Aluminium schuttingplank in diepzwart (RAL 2100). Een krachtige, elegante keuze voor een statement in uw tuin.',
-    seoTitle: 'Aluminium Schutting Zwart | RAL 2100',
-    seoDescription: 'Aluminium schuttingplank Zwart RAL 2100. Krachtig, elegant, onderhoudsvrij. Bestel bij SchuttingvanComposiet.nl.',
-    longDescription: `## Aluminium Schutting Zwart
-
-De zwarte aluminium schutting (RAL 2100 mat) maakt een krachtig statement in elke tuin. Diepzwart aluminium is de ultieme keuze voor een luxe, modern tuinontwerp.
-
-### Statement in zwart
-
-Zwart is de meest exclusieve kleurkeuze. Het creëert een dramatisch contrast met groen en geeft uw tuin een designerslook.`,
-    specifications: { Lengte: '180 cm', Breedte: '15 cm', Dikte: '2,0 cm', Materiaal: 'Aluminium', Kleur: 'Zwart (RAL 2100 mat)', Afwerking: 'Geschuurd' },
-    images: [
-      'https://en.silvadec.com/sites/default/files/styles/square/public/2024-01/silvadec_aluminium_C0055-2%20%281%29-compressed.jpg?itok=LSY1pBVe',
-    ],
-    deliveryTime: '5-8 werkdagen',
-    highlights: ['Diepzwart', 'Aluminium', 'RAL 2100 mat', 'Statement kleur', 'Exclusief design'],
-    dimensions: { length: '180 cm', width: '15 cm', thickness: '2,0 cm' },
-    faq: [
-      { question: 'Wordt zwart aluminium warm in de zon?', answer: 'Aluminium geleidt warmte goed, dus een zwarte schutting kan warm aanvoelen in direct zonlicht. Dit heeft geen invloed op de levensduur.' },
-    ],
-  },
-
-  // ─── VLONDERPLANKEN (Decking) ──────────────────────────────────
-  {
-    id: 'vl-1',
-    updatedDate: '2026-02-20',
-    name: 'Nuances Ipé Vlonderplank',
-    price: 89.00,
-    priceLabel: 'Vanaf €89,- per m²',
-    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2025-02/Silvadec_atmopshere_D0373_packshot_0.png?itok=VHdJ4VQX',
-    category: 'vlonderplanken',
-    features: ['Co-extrusie beschermlaag', 'Geborsteld oppervlak', '25 jaar garantie', 'Nuances technologie'],
-    guarantee: '25 jaar fabrieksgarantie',
-    slug: 'nuances-ipe-vlonderplank',
-    tone: 'bruin',
-    durability: 'co-extrusie',
-    productType: 'plank',
-    variantGroup: 'nuances-vlonder',
-    variantLabel: 'Ipé',
-    variantColor: '#6b4226',
-    description: 'De Nuances Ipé vlonderplank brengt de exclusieve uitstraling van tropisch ipé hardhout naar uw terras. Met subtiele kleurvariaties per plank dankzij de gepatenteerde Nuances-technologie.',
-    seoTitle: 'Nuances Ipé Vlonderplank | Composiet Terrasplank',
-    seoDescription: 'Nuances Ipé composiet vlonderplank. Authentieke hardhout-look, co-extrusie, 25 jaar garantie. Bestel bij SchuttingvanComposiet.nl.',
-    longDescription: `## Nuances Ipé Vlonderplank
-
-De Nuances Ipé is het paradepaardje van het vlonderassortiment. Met de gepatenteerde Nuances-technologie krijgt elke plank subtiele, natuurlijke kleurvariaties — precies zoals bij echt hardhout.
-
-### Nuances technologie
-
-De Nuances-technologie is een geavanceerd productieproces dat elke plank een unieke kleurvariatie geeft. Geen twee planken zijn precies hetzelfde, wat resulteert in een authentieke, natuurlijke uitstraling die nauwelijks van echt ipé-hardhout te onderscheiden is.
-
-### Co-extrusie beschermlaag
-
-Ondanks de natuurlijke uitstraling profiteert u van alle voordelen van co-extrusie composiet:
-- **0% vochtopname** — geen zwelling of krimp
-- **Maximale UV-bestendigheid** — behoud van kleurintensiteit
-- **Vlekbestendigheid** — wijn, olie, BBQ-vet: alles is eenvoudig te verwijderen
-- **Krasbestendigheid** — tafel- en stoelpoten beschadigen het oppervlak niet
-
-### Ipé hardhout-look
-
-De diepe, warme bruine tint met subtiele nerftekening is geïnspireerd op Braziliaans ipé hardhout — één van de meest gewilde houtsoorten ter wereld.
-
-De plank is 138 mm breed en 23 mm dik — een stevig, massief profiel dat de degelijkheid van echt hout evenaart. Beschikbaar in lengtes van 400 cm.
-
-### 25 jaar garantie
-
-25 jaar fabrieksgarantie op kleurvastheid, structurele integriteit en prestaties. Een investering voor het leven.`,
-    specifications: { Lengte: '400 cm', Breedte: '13,8 cm', Dikte: '2,3 cm', Materiaal: 'Composiet met co-extrusie toplaag', Kleur: 'Ipé', Afwerking: 'Geborsteld (Nuances)', Gewicht: '3,8 kg/m' },
-    images: [
-      'https://en.silvadec.com/sites/default/files/styles/square/public/2025-02/Silvadec_atmopshere_D0373_packshot_0.png?itok=VHdJ4VQX',
-      'https://en.silvadec.com/sites/default/files/styles/square/public/2025-04/Silvadec_atmosphere_nuances_ipe_b0035%20%2813%29-compressed.jpg?itok=jW47BaxI',
-    ],
-    deliveryTime: '5-8 werkdagen',
-    highlights: ['Nuances technologie', 'Ipé houtlook', 'Co-extrusie beschermlaag', '25 jaar garantie', 'Unieke kleurvariaties'],
-    dimensions: { length: '400 cm', width: '13,8 cm', thickness: '2,3 cm' },
-    faq: [
-      { question: 'Wat is het verschil tussen Nuances en Atmosphere?', answer: 'De Nuances-lijn gebruikt een geavanceerde technologie die subtiele kleurvariaties per plank creëert. Atmosphere heeft een uniforme kleur per plank.' },
-      { question: 'Is de Nuances Ipé geschikt voor rondom een zwembad?', answer: 'Ja, de co-extrusie beschermlaag maakt de plank chloor- en zoutwaterbestendig. Het geborstelde oppervlak biedt goede grip, ook als het nat is.' },
-      { question: 'Hoeveel planken heb ik nodig per m²?', answer: 'Bij een plankbreedte van 138 mm en een voegbreedte van 5 mm heeft u circa 7 planken per m² nodig. Reken 10% extra voor zaagverlies.' },
-    ],
+    productType: 'profiel',
+    description: 'Aluminium onderbalk met laag profiel (24mm) voor minimale opbouwhoogte. 4 meter lang.',
+    seoTitle: 'Legar Aluminium Laag Profiel | Vlonder Substructuur',
+    seoDescription: 'Gamrat aluminium legar laag profiel 36×24mm, 4m. Minimale opbouwhoogte. Bestel bij SchuttingvanComposiet.nl.',
+    longDescription: `## Legar Aluminium Laag Profiel\n\nVoor situaties waar minimale opbouwhoogte gewenst is. Het lage aluminium profiel van slechts 24mm is ideaal voor balkons en dakterrassen.`,
+    specifications: { Lengte: '400 cm', Breedte: '3,64 cm', Dikte: '2,4 cm', Materiaal: 'Aluminium' },
+    images: ['https://gamratwpc.pl/wp-content/uploads/2025/04/legar-aluminiowy-niski-gamrat.webp'],
+    deliveryTime: '5-10 werkdagen',
+    highlights: ['Aluminium', 'Slechts 24mm hoog', '4 meter'],
+    dimensions: { length: '400 cm', width: '3,64 cm', thickness: '2,4 cm' },
   },
   {
-    id: 'vl-2',
-    updatedDate: '2026-02-20',
-    name: 'Nuances Licht Eiken Vlonderplank',
-    price: 89.00,
-    priceLabel: 'Vanaf €89,- per m²',
-    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2025-05/nuancier-chene%20%282%29-compressed.jpg?itok=QXARKElr',
-    category: 'vlonderplanken',
-    features: ['Co-extrusie beschermlaag', 'Geborsteld oppervlak', '25 jaar garantie', 'Nuances technologie'],
+    id: 'acc-3',
+    updatedDate: '2026-03-01',
+    name: 'Legar Aluminium Hoog Profiel 38×51mm',
+    price: 0,
+    priceLabel: 'Prijs op aanvraag',
+    image: 'https://gamratwpc.pl/wp-content/uploads/2025/04/legar-aluminiowy-wysoki-gamrat.webp',
+    category: 'accessoires',
+    features: ['Aluminium', 'Hoog profiel 51mm', '4 meter'],
     guarantee: '25 jaar fabrieksgarantie',
-    slug: 'nuances-licht-eiken-vlonderplank',
-    tone: 'eiken',
-    durability: 'co-extrusie',
-    productType: 'plank',
-    variantGroup: 'nuances-vlonder',
-    variantLabel: 'Licht Eiken',
-    variantColor: '#c8a870',
-    description: 'De Nuances Licht Eiken vlonderplank brengt de warme, natuurlijke uitstraling van eikenhout naar uw terras. Met subtiele kleurvariaties dankzij de Nuances-technologie.',
-    seoTitle: 'Nuances Licht Eiken Vlonderplank | Composiet Terrasplank',
-    seoDescription: 'Nuances Licht Eiken composiet vlonderplank. Authentieke eikenlook, co-extrusie, 25 jaar garantie. Bestel bij SchuttingvanComposiet.nl.',
-    longDescription: `## Nuances Licht Eiken Vlonderplank
-
-De Nuances Licht Eiken biedt de warme, veelzijdige uitstraling van eikenhout in een onderhoudsvrij composiet formaat. De Nuances-technologie zorgt voor subtiele kleurvariaties per plank.
-
-### Warm en veelzijdig
-
-De lichte eikenkleur past bij vrijwel elke tuinstijl en architectuur. Van moderne stadstuin tot landelijk terras — eiken is altijd een goede keuze.
-
-### Nuances effect
-
-Elke plank heeft subtiele kleurverschillen die een natuurlijk, authentiek houtbeeld creëren. Het resultaat is een terras met de warmte van echt eikenhout.`,
-    specifications: { Lengte: '400 cm', Breedte: '13,8 cm', Dikte: '2,3 cm', Materiaal: 'Composiet met co-extrusie toplaag', Kleur: 'Licht Eiken', Afwerking: 'Geborsteld (Nuances)' },
-    images: [
-      'https://en.silvadec.com/sites/default/files/styles/square/public/2025-05/nuancier-chene%20%282%29-compressed.jpg?itok=QXARKElr',
-      'https://en.silvadec.com/sites/default/files/styles/square/public/2025-10/Silvadec_Nuances_Ch%C3%AAne_clair_D0373%20%2811%29.jpg?itok=MmNiiLsz',
-    ],
-    deliveryTime: '5-8 werkdagen',
-    highlights: ['Licht eiken', 'Nuances technologie', 'Warm en veelzijdig', 'Co-extrusie beschermlaag'],
-    dimensions: { length: '400 cm', width: '13,8 cm', thickness: '2,3 cm' },
-    faq: [
-      { question: 'Is Licht Eiken een populaire kleur?', answer: 'Ja, eiken is een tijdloze en veelzijdige kleur die bij vrijwel elke bouwstijl past. Het is een van de meest gevraagde tinten.' },
-    ],
-  },
-  // Atmosphere vlonder 138mm
-  {
-    id: 'vl-3',
-    updatedDate: '2026-02-20',
-    name: 'Atmosphere Ushuaia Grijs Vlonderplank 138mm',
-    price: 79.00,
-    priceLabel: 'Vanaf €79,- per m²',
-    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/SILAM1609_Lame_atmosphere_Gris_Ushua%C3%AFa.jpg?itok=fjbvR3Rh',
-    category: 'vlonderplanken',
-    features: ['Co-extrusie beschermlaag', 'Geborsteld oppervlak', '25 jaar garantie'],
-    guarantee: '25 jaar fabrieksgarantie',
-    slug: 'atmosphere-ushuaia-grijs-vlonderplank',
+    slug: 'legar-aluminium-hoog-profiel',
     tone: 'grijs',
-    durability: 'co-extrusie',
-    productType: 'plank',
-    variantGroup: 'atmosphere-vlonder',
-    variantLabel: 'Ushuaia Grijs',
-    variantColor: '#5e6066',
-    variantWidth: '138 mm',
-    description: 'De Atmosphere Ushuaia Grijs vlonderplank biedt een markante, diepgrijze tint met geborstelde afwerking. De donkerste grijstint in het Atmosphere assortiment.',
-    seoTitle: 'Atmosphere Ushuaia Grijs | Composiet Vlonderplank',
-    seoDescription: 'Atmosphere Ushuaia Grijs composiet vlonderplank. Diepgrijs, co-extrusie, 25 jaar garantie. Bestel bij SchuttingvanComposiet.nl.',
-    longDescription: `## Atmosphere Ushuaia Grijs Vlonderplank
-
-De Ushuaia Grijs is de meest markante grijstint in het Atmosphere assortiment. Deze diepgrijze vlonderplank met geborstelde afwerking geeft uw terras een krachtige, eigentijdse uitstraling.
-
-### Diepgrijze tint
-
-Ushuaia Grijs is donkerder dan Cayenne en Belem, maar lichter dan antraciet. Het is een warme, levendige grijstint die prachtig combineert met moderne architectuur.
-
-### Co-extrusie kwaliteit
-
-Elke Atmosphere plank is voorzien van de co-extrusie beschermlaag voor maximale duurzaamheid en kleurvastheid.`,
-    specifications: { Lengte: '400 cm', Breedte: '13,8 cm', Dikte: '2,3 cm', Materiaal: 'Composiet met co-extrusie toplaag', Kleur: 'Ushuaia Grijs', Afwerking: 'Geborsteld' },
-    images: [
-      'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/SILAM1609_Lame_atmosphere_Gris_Ushua%C3%AFa.jpg?itok=fjbvR3Rh',
-      'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/SILAM_1609_atmosphere_ushuaia_A.jpg?itok=nPxxgclu',
-    ],
-    deliveryTime: '5-8 werkdagen',
-    highlights: ['Ushuaia grijs', 'Diepgrijze tint', 'Geborsteld oppervlak', 'Co-extrusie beschermlaag'],
-    dimensions: { length: '400 cm', width: '13,8 cm', thickness: '2,3 cm' },
-    faq: [
-      { question: 'Hoe verschilt Ushuaia Grijs van Cayenne Grijs?', answer: 'Ushuaia is een diepere, meer blauwgrijze tint. Cayenne is donkerder met een warmere ondertoon. Bestel gratis samples om het verschil te zien.' },
-    ],
+    durability: 'premium',
+    productType: 'profiel',
+    description: 'Aluminium onderbalk met hoog profiel (51mm) voor grotere overspanningen. 4 meter lang.',
+    seoTitle: 'Legar Aluminium Hoog Profiel | Vlonder Substructuur',
+    seoDescription: 'Gamrat aluminium legar hoog profiel 38×51mm, 4m. Grotere overspanningen. Bestel bij SchuttingvanComposiet.nl.',
+    longDescription: `## Legar Aluminium Hoog Profiel\n\nVoor grotere overspanningen en ongelijke ondergronden. Het hoge aluminium profiel biedt extra stijfheid.`,
+    specifications: { Lengte: '400 cm', Breedte: '3,8 cm', Dikte: '5,1 cm', Materiaal: 'Aluminium' },
+    images: ['https://gamratwpc.pl/wp-content/uploads/2025/04/legar-aluminiowy-wysoki-gamrat.webp'],
+    deliveryTime: '5-10 werkdagen',
+    highlights: ['Aluminium', '51mm hoog', '4 meter', 'Extra stijf'],
+    dimensions: { length: '400 cm', width: '3,8 cm', thickness: '5,1 cm' },
   },
   {
-    id: 'vl-4',
-    updatedDate: '2026-02-20',
-    name: 'Atmosphere Cayenne Grijs Vlonderplank 138mm',
-    price: 79.00,
-    priceLabel: 'Vanaf €79,- per m²',
-    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/SILAM1603_packshot_rendu_Lame_atmosphere_Gris_Cayenne.jpg?itok=Wi-vzGPh',
-    category: 'vlonderplanken',
-    features: ['Co-extrusie beschermlaag', 'Geborsteld oppervlak', '25 jaar garantie'],
+    id: 'acc-4',
+    updatedDate: '2026-03-01',
+    name: 'Montageset WPC 2m²',
+    price: 0,
+    priceLabel: 'Prijs op aanvraag',
+    image: 'https://gamratwpc.pl/wp-content/uploads/2025/04/zestaw-montazowy-2m2-gamrat.webp',
+    category: 'accessoires',
+    features: ['Compleet montageset', 'Voor 2m²', 'Clips & schroeven'],
     guarantee: '25 jaar fabrieksgarantie',
-    slug: 'atmosphere-cayenne-grijs-vlonderplank',
-    tone: 'grijs',
-    durability: 'co-extrusie',
-    productType: 'plank',
-    variantGroup: 'atmosphere-vlonder',
-    variantLabel: 'Cayenne Grijs',
-    variantColor: '#6a6560',
-    variantWidth: '138 mm',
-    description: 'De Atmosphere Cayenne Grijs vlonderplank heeft een donkere, warme grijstint. Trendy en eigentijds.',
-    seoTitle: 'Atmosphere Cayenne Grijs | Composiet Vlonderplank',
-    seoDescription: 'Atmosphere Cayenne Grijs composiet vlonderplank. Donkergrijs, co-extrusie, 25 jaar garantie. Bestel bij SchuttingvanComposiet.nl.',
-    longDescription: `## Atmosphere Cayenne Grijs Vlonderplank
-
-Cayenne Grijs is een donkere, warme grijstint die uw terras een trendy, eigentijdse uitstraling geeft. Deze vlonderplank uit het Atmosphere assortiment combineert een moderne kleur met de beproefde co-extrusie technologie.
-
-### Trendy en eigentijds
-
-De donkergrijze tint met warme ondertoon is een van de meest gevraagde kleuren voor moderne terrassen. Het past perfect bij strakke architectuur en donkere kozijnen.`,
-    specifications: { Lengte: '400 cm', Breedte: '13,8 cm', Dikte: '2,3 cm', Materiaal: 'Composiet met co-extrusie toplaag', Kleur: 'Cayenne Grijs', Afwerking: 'Geborsteld' },
-    images: [
-      'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/SILAM1603_packshot_rendu_Lame_atmosphere_Gris_Cayenne.jpg?itok=Wi-vzGPh',
-      'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/SILAM1603_SILAM1810_atmopshere_cayenne_138_180_A_THD.jpg?itok=bdeBmG1Q',
-    ],
-    deliveryTime: '5-8 werkdagen',
-    highlights: ['Cayenne grijs', 'Donkere warme tint', 'Trendy kleur', 'Co-extrusie beschermlaag'],
-    dimensions: { length: '400 cm', width: '13,8 cm', thickness: '2,3 cm' },
-    faq: [
-      { question: 'Is Cayenne Grijs geschikt voor een zwembadterras?', answer: 'Ja, alle Atmosphere planken zijn chloor- en zoutwaterbestendig. Het geborstelde oppervlak biedt antislip-eigenschappen.' },
-    ],
+    slug: 'montageset-wpc-2m2',
+    tone: 'zwart',
+    durability: 'standaard',
+    productType: 'profiel',
+    description: 'Complete montageset met clips en schroeven voor 2m² vlonder. Alles wat u nodig heeft voor bevestiging.',
+    seoTitle: 'Montageset WPC 2m² | Vlonder Bevestiging',
+    seoDescription: 'Gamrat WPC montageset voor 2m² vlonder. Clips en schroeven inbegrepen. Bestel bij SchuttingvanComposiet.nl.',
+    longDescription: `## Montageset WPC 2m²\n\nAlles wat u nodig heeft om 2m² vlonder te bevestigen. Bevat clips voor onzichtbare bevestiging en bijbehorende schroeven.`,
+    specifications: { Inhoud: 'Clips + schroeven', Dekking: '2 m²', Type: 'Onzichtbare bevestiging' },
+    images: ['https://gamratwpc.pl/wp-content/uploads/2025/04/zestaw-montazowy-2m2-gamrat.webp'],
+    deliveryTime: '5-10 werkdagen',
+    highlights: ['Compleet pakket', 'Onzichtbare bevestiging', 'Voor 2m²'],
   },
   {
-    id: 'vl-5',
-    updatedDate: '2026-02-20',
-    name: 'Atmosphere Belem Grijs Vlonderplank 138mm',
-    price: 79.00,
-    priceLabel: 'Vanaf €79,- per m²',
-    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/SILAM1601_Lame_atmosphere_Gris_belem_0.jpg?itok=DdfYDLIU',
-    category: 'vlonderplanken',
-    features: ['Co-extrusie beschermlaag', 'Geborsteld oppervlak', '25 jaar garantie'],
+    id: 'acc-5',
+    updatedDate: '2026-03-01',
+    name: 'Montageset WPC 10m²',
+    price: 0,
+    priceLabel: 'Prijs op aanvraag',
+    image: 'https://gamratwpc.pl/wp-content/uploads/2025/04/zestaw-montazowy-10m2-gamrat.webp',
+    category: 'accessoires',
+    features: ['Compleet montageset', 'Voor 10m²', 'Clips & schroeven'],
     guarantee: '25 jaar fabrieksgarantie',
-    slug: 'atmosphere-belem-grijs-vlonderplank',
-    tone: 'grijs',
-    durability: 'co-extrusie',
-    productType: 'plank',
-    variantGroup: 'atmosphere-vlonder',
-    variantLabel: 'Belem Grijs',
-    variantColor: '#a0a098',
-    variantWidth: '138 mm',
-    description: 'De Atmosphere Belem Grijs vlonderplank is de lichtste grijstint in het assortiment. Fris, licht en ruimtelijk.',
-    seoTitle: 'Atmosphere Belem Grijs | Composiet Vlonderplank',
-    seoDescription: 'Atmosphere Belem Grijs composiet vlonderplank. Lichtgrijs, co-extrusie, 25 jaar garantie. Bestel bij SchuttingvanComposiet.nl.',
-    longDescription: `## Atmosphere Belem Grijs Vlonderplank
-
-Belem Grijs is de lichtste grijstint in het Atmosphere assortiment. Deze frisse, lichte vlonderplank maakt uw terras optisch groter en lichter.
-
-### Licht en fris
-
-De lichte grijstint reflecteert zonlicht en zorgt voor een fris, ruimtelijk gevoel. Ideaal voor balkons, kleine terrassen en schaduwrijke tuinen.
-
-### Minder warmte-absorptie
-
-Lichte kleuren absorberen minder warmte dan donkere kleuren. Belem Grijs is daarmee de ideale keuze voor terrassen die veel in de zon liggen.`,
-    specifications: { Lengte: '400 cm', Breedte: '13,8 cm', Dikte: '2,3 cm', Materiaal: 'Composiet met co-extrusie toplaag', Kleur: 'Belem Grijs', Afwerking: 'Geborsteld' },
-    images: [
-      'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/SILAM1601_Lame_atmosphere_Gris_belem_0.jpg?itok=DdfYDLIU',
-      'https://en.silvadec.com/sites/default/files/styles/square/public/2024-03/09072021-FB106327.jpg?itok=Pirjab_0',
-    ],
-    deliveryTime: '5-8 werkdagen',
-    highlights: ['Belem grijs', 'Lichtste grijstint', 'Fris en ruimtelijk', 'Minder warmte-absorptie'],
-    dimensions: { length: '400 cm', width: '13,8 cm', thickness: '2,3 cm' },
-    faq: [
-      { question: 'Is lichtgrijs moeilijker schoon te houden?', answer: 'Nee, de co-extrusie beschermlaag maakt het oppervlak vlekbestendig. Vuil hecht niet aan de beschermlaag en is eenvoudig te verwijderen.' },
-    ],
+    slug: 'montageset-wpc-10m2',
+    tone: 'zwart',
+    durability: 'standaard',
+    productType: 'profiel',
+    description: 'Complete montageset met clips en schroeven voor 10m² vlonder. Voordeliger dan kleinere sets.',
+    seoTitle: 'Montageset WPC 10m² | Vlonder Bevestiging',
+    seoDescription: 'Gamrat WPC montageset voor 10m² vlonder. Clips en schroeven, voordeelverpakking. Bestel bij SchuttingvanComposiet.nl.',
+    longDescription: `## Montageset WPC 10m²\n\nDe voordeelverpakking voor grotere projecten. Bevat voldoende clips en schroeven voor 10m² vlonder.`,
+    specifications: { Inhoud: 'Clips + schroeven', Dekking: '10 m²', Type: 'Onzichtbare bevestiging' },
+    images: ['https://gamratwpc.pl/wp-content/uploads/2025/04/zestaw-montazowy-10m2-gamrat.webp'],
+    deliveryTime: '5-10 werkdagen',
+    highlights: ['Voordeelverpakking', 'Onzichtbare bevestiging', 'Voor 10m²'],
   },
   {
-    id: 'vl-6',
-    updatedDate: '2026-02-20',
-    name: 'Atmosphere Lima Bruin Vlonderplank 138mm',
-    price: 79.00,
-    priceLabel: 'Vanaf €79,- per m²',
-    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/SILAM1607_packshot_rendu_lame_atmosphere_Brun_Lima.jpg?itok=uAPDw6KQ',
-    category: 'vlonderplanken',
-    features: ['Co-extrusie beschermlaag', 'Geborsteld oppervlak', '25 jaar garantie'],
+    id: 'acc-6',
+    updatedDate: '2026-03-01',
+    name: 'Afwerklijst Plat WPC',
+    price: 0,
+    priceLabel: 'Prijs op aanvraag',
+    image: 'https://gamratwpc.pl/wp-content/uploads/2025/04/listwa-plaska-gamrat.webp',
+    category: 'accessoires',
+    features: ['Platte afwerklijst', 'WPC composiet'],
     guarantee: '25 jaar fabrieksgarantie',
-    slug: 'atmosphere-lima-bruin-vlonderplank',
-    tone: 'bruin',
-    durability: 'co-extrusie',
-    productType: 'plank',
-    variantGroup: 'atmosphere-vlonder',
-    variantLabel: 'Lima Bruin',
-    variantColor: '#6b4226',
-    variantWidth: '138 mm',
-    description: 'De Atmosphere Lima Bruin vlonderplank heeft een rijke, donkerbruine tint. Warm, luxueus en tijdloos.',
-    seoTitle: 'Atmosphere Lima Bruin | Composiet Vlonderplank',
-    seoDescription: 'Atmosphere Lima Bruin composiet vlonderplank. Donkerbruin, co-extrusie, 25 jaar garantie. Bestel bij SchuttingvanComposiet.nl.',
-    longDescription: `## Atmosphere Lima Bruin Vlonderplank
-
-Lima Bruin is een rijke, donkerbruine tint die uw terras de luxueuze uitstraling van tropisch hardhout geeft. Deze Atmosphere vlonderplank combineert warmte en elegantie.
-
-### Luxe hardhout-look
-
-De donkerbruine kleur met geborstelde afwerking is nauwelijks te onderscheiden van echt tropisch hout. Lima Bruin is ideaal voor wie de uitstraling van hardhout wil zonder het onderhoud.`,
-    specifications: { Lengte: '400 cm', Breedte: '13,8 cm', Dikte: '2,3 cm', Materiaal: 'Composiet met co-extrusie toplaag', Kleur: 'Lima Bruin', Afwerking: 'Geborsteld' },
-    images: [
-      'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/SILAM1607_packshot_rendu_lame_atmosphere_Brun_Lima.jpg?itok=uAPDw6KQ',
-      'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/lima_fontenay_le_comte_%287%29.jpg?itok=c0JGb9di',
-    ],
-    deliveryTime: '5-8 werkdagen',
-    highlights: ['Lima bruin', 'Donkere hardhout-look', 'Warm en luxueus', 'Co-extrusie beschermlaag'],
-    dimensions: { length: '400 cm', width: '13,8 cm', thickness: '2,3 cm' },
-    faq: [
-      { question: 'Is Lima Bruin donkerder dan Sao Paulo Bruin?', answer: 'Ja, Lima Bruin is een donkerdere tint. Sao Paulo is iets lichter en warmer. Bestel gratis samples om het verschil te ervaren.' },
-    ],
-  },
-  {
-    id: 'vl-7',
-    updatedDate: '2026-02-20',
-    name: 'Atmosphere Sao Paulo Bruin Vlonderplank 138mm',
-    price: 79.00,
-    priceLabel: 'Vanaf €79,- per m²',
-    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2022-01/SILAM1602_packshot_rendu_lame_atmosphere_brun_sao_paulo_138.jpg?itok=nlWGrwmv',
-    category: 'vlonderplanken',
-    features: ['Co-extrusie beschermlaag', 'Geborsteld oppervlak', '25 jaar garantie'],
-    guarantee: '25 jaar fabrieksgarantie',
-    slug: 'atmosphere-sao-paulo-bruin-vlonderplank',
-    tone: 'bruin',
-    durability: 'co-extrusie',
-    productType: 'plank',
-    variantGroup: 'atmosphere-vlonder',
-    variantLabel: 'Sao Paulo Bruin',
-    variantColor: '#8b6b40',
-    variantWidth: '138 mm',
-    description: 'De Atmosphere Sao Paulo Bruin vlonderplank heeft een middeldiepe bruine tint. Veelzijdig en warm.',
-    seoTitle: 'Atmosphere Sao Paulo Bruin | Composiet Vlonderplank',
-    seoDescription: 'Atmosphere Sao Paulo Bruin composiet vlonderplank. Middenbruin, co-extrusie, 25 jaar garantie. Bestel bij SchuttingvanComposiet.nl.',
-    longDescription: `## Atmosphere Sao Paulo Bruin Vlonderplank
-
-Sao Paulo Bruin is een veelzijdige, middeldiepe bruine tint. Deze Atmosphere vlonderplank past bij vrijwel elke tuin en bouwstijl.
-
-### Veelzijdige bruintint
-
-Niet te licht, niet te donker — Sao Paulo Bruin is de gouden middenweg voor wie een warme bruine kleur zoekt die overal bij past.`,
-    specifications: { Lengte: '400 cm', Breedte: '13,8 cm', Dikte: '2,3 cm', Materiaal: 'Composiet met co-extrusie toplaag', Kleur: 'Sao Paulo Bruin', Afwerking: 'Geborsteld' },
-    images: [
-      'https://en.silvadec.com/sites/default/files/styles/square/public/2022-01/SILAM1602_packshot_rendu_lame_atmosphere_brun_sao_paulo_138.jpg?itok=nlWGrwmv',
-      'https://en.silvadec.com/sites/default/files/styles/square/public/2024-07/silvadec_atmosphere_silam1602%20%2811%29.jpg?itok=uGuw2IYp',
-    ],
-    deliveryTime: '5-8 werkdagen',
-    highlights: ['Sao Paulo bruin', 'Veelzijdige middenbruine tint', 'Warm en natuurlijk', 'Co-extrusie beschermlaag'],
-    dimensions: { length: '400 cm', width: '13,8 cm', thickness: '2,3 cm' },
-    faq: [
-      { question: 'Is Sao Paulo geschikt voor een poolterras?', answer: 'Ja, alle Atmosphere planken zijn bestand tegen chloor en zout. De middenbruine kleur absorbeert bovendien minder warmte dan donkere tinten.' },
-    ],
-  },
-  {
-    id: 'vl-8',
-    updatedDate: '2026-02-20',
-    name: 'Atmosphere Rio Bruin Vlonderplank 138mm',
-    price: 79.00,
-    priceLabel: 'Vanaf €79,- per m²',
-    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2022-01/SILAM1812_packshot_rendu_lame_atmosphere_brun_rio_138%20-%20retouche_0.jpg?itok=CBa8dZ-4',
-    category: 'vlonderplanken',
-    features: ['Co-extrusie beschermlaag', 'Geborsteld oppervlak', '25 jaar garantie'],
-    guarantee: '25 jaar fabrieksgarantie',
-    slug: 'atmosphere-rio-bruin-vlonderplank',
-    tone: 'bruin',
-    durability: 'co-extrusie',
-    productType: 'plank',
-    variantGroup: 'atmosphere-vlonder',
-    variantLabel: 'Rio Bruin',
-    variantColor: '#a08050',
-    variantWidth: '138 mm',
-    description: 'De Atmosphere Rio Bruin vlonderplank heeft een warme, goudbruine tint. De lichtste bruintint in het Atmosphere assortiment.',
-    seoTitle: 'Atmosphere Rio Bruin | Composiet Vlonderplank',
-    seoDescription: 'Atmosphere Rio Bruin composiet vlonderplank. Goudbruin, co-extrusie, 25 jaar garantie. Bestel bij SchuttingvanComposiet.nl.',
-    longDescription: `## Atmosphere Rio Bruin Vlonderplank
-
-Rio Bruin is de nieuwste bruine tint in het Atmosphere assortiment. Een warme, goudbruine kleur die doet denken aan zonbeschenen hout.
-
-### Warm goudbruin
-
-De levendige goudbruine tint voegt warmte en sfeer toe aan elk buitenproject. Perfect voor terrassen die een zonnige, uitnodigende uitstraling moeten hebben.`,
-    specifications: { Lengte: '400 cm', Breedte: '13,8 cm', Dikte: '2,3 cm', Materiaal: 'Composiet met co-extrusie toplaag', Kleur: 'Rio Bruin', Afwerking: 'Geborsteld' },
-    images: [
-      'https://en.silvadec.com/sites/default/files/styles/square/public/2022-01/SILAM1812_packshot_rendu_lame_atmosphere_brun_rio_138%20-%20retouche_0.jpg?itok=CBa8dZ-4',
-      'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/SILAM1812_france_paris_hotel_prince_de_galles_patio_restaurant_les_heures_rio_138_%285%29.jpg?itok=1axHGAdD',
-    ],
-    deliveryTime: '5-8 werkdagen',
-    highlights: ['Rio bruin', 'Goudbruine tint', 'Zonnige uitstraling', 'Co-extrusie beschermlaag'],
-    dimensions: { length: '400 cm', width: '13,8 cm', thickness: '2,3 cm' },
-    faq: [
-      { question: 'Is Rio Bruin een nieuwe kleur?', answer: 'Ja, Rio Bruin is een recente toevoeging aan het Atmosphere assortiment. Het vult de bruine kleurenfamilie aan met een warme, goudbruine tint.' },
-    ],
-  },
-  // NEW: Atmosphere vlonder 180mm variants
-  {
-    id: 'vl-13',
-    updatedDate: '2026-02-23',
-    name: 'Atmosphere Ushuaia Grijs Vlonderplank 180mm',
-    price: 89.00,
-    priceLabel: 'Vanaf €89,- per m²',
-    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/SILAM1609_Lame_atmosphere_Gris_Ushua%C3%AFa.jpg?itok=fjbvR3Rh',
-    category: 'vlonderplanken',
-    features: ['Co-extrusie beschermlaag', 'Geborsteld oppervlak', '25 jaar garantie', 'Extra breed 180mm'],
-    guarantee: '25 jaar fabrieksgarantie',
-    slug: 'atmosphere-ushuaia-grijs-vlonderplank-180',
-    tone: 'grijs',
-    durability: 'co-extrusie',
-    productType: 'plank',
-    variantGroup: 'atmosphere-vlonder',
-    variantLabel: 'Ushuaia Grijs',
-    variantColor: '#5e6066',
-    variantWidth: '180 mm',
-    description: 'De brede 180mm variant van de Atmosphere Ushuaia Grijs vlonderplank. Minder voegen, groter oppervlak, modernere uitstraling.',
-    seoTitle: 'Atmosphere Ushuaia Grijs 180mm | Brede Vlonderplank',
-    seoDescription: 'Atmosphere Ushuaia Grijs 180mm brede composiet vlonderplank. Co-extrusie, 25 jaar garantie. Bestel bij SchuttingvanComposiet.nl.',
-    longDescription: `## Atmosphere Ushuaia Grijs Vlonderplank 180mm
-
-De extra brede 180mm variant van de Ushuaia Grijs biedt een nog groter, strakker terrasbeeld. Minder voegen betekent een moderner, rustiger oppervlak.
-
-### Extra breed formaat
-
-Met 180 mm breedte heeft u minder planken per m² nodig en zijn er minder voegen zichtbaar. Het resultaat is een strakker, eigentijdser terras.
-
-### Zelfde co-extrusie kwaliteit
-
-Dezelfde beproefde co-extrusie beschermlaag als de 138mm variant, met identieke kleur en afwerking.`,
-    specifications: { Lengte: '400 cm', Breedte: '18,0 cm', Dikte: '2,3 cm', Materiaal: 'Composiet met co-extrusie toplaag', Kleur: 'Ushuaia Grijs', Afwerking: 'Geborsteld' },
-    images: [
-      'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/SILAM1609_Lame_atmosphere_Gris_Ushua%C3%AFa.jpg?itok=fjbvR3Rh',
-    ],
-    deliveryTime: '5-8 werkdagen',
-    highlights: ['180mm breed', 'Ushuaia grijs', 'Minder voegen', 'Co-extrusie beschermlaag'],
-    dimensions: { length: '400 cm', width: '18,0 cm', thickness: '2,3 cm' },
-    faq: [
-      { question: 'Wat is het voordeel van 180mm ten opzichte van 138mm?', answer: 'De bredere plank geeft een groter, rustiger oppervlak met minder voegen. Het resultaat is een modernere, strakkere terrasuitstraling.' },
-    ],
-  },
-  {
-    id: 'vl-14',
-    updatedDate: '2026-02-23',
-    name: 'Atmosphere Cayenne Grijs Vlonderplank 180mm',
-    price: 89.00,
-    priceLabel: 'Vanaf €89,- per m²',
-    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/SILAM1603_SILAM1810_atmopshere_cayenne_138_180_A_THD.jpg?itok=bdeBmG1Q',
-    category: 'vlonderplanken',
-    features: ['Co-extrusie beschermlaag', 'Geborsteld oppervlak', '25 jaar garantie', 'Extra breed 180mm'],
-    guarantee: '25 jaar fabrieksgarantie',
-    slug: 'atmosphere-cayenne-grijs-vlonderplank-180',
-    tone: 'grijs',
-    durability: 'co-extrusie',
-    productType: 'plank',
-    variantGroup: 'atmosphere-vlonder',
-    variantLabel: 'Cayenne Grijs',
-    variantColor: '#6a6560',
-    variantWidth: '180 mm',
-    description: 'De brede 180mm variant van de Atmosphere Cayenne Grijs vlonderplank. Strak, modern en met minder voegen.',
-    seoTitle: 'Atmosphere Cayenne Grijs 180mm | Brede Vlonderplank',
-    seoDescription: 'Atmosphere Cayenne Grijs 180mm brede composiet vlonderplank. Co-extrusie, 25 jaar garantie. Bestel bij SchuttingvanComposiet.nl.',
-    longDescription: `## Atmosphere Cayenne Grijs Vlonderplank 180mm
-
-De extra brede Cayenne Grijs in 180mm formaat. Dezelfde trendy, donkergrijze tint in een breder formaat voor een nog strakker terrasbeeld.`,
-    specifications: { Lengte: '400 cm', Breedte: '18,0 cm', Dikte: '2,3 cm', Materiaal: 'Composiet met co-extrusie toplaag', Kleur: 'Cayenne Grijs', Afwerking: 'Geborsteld' },
-    images: [
-      'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/SILAM1603_SILAM1810_atmopshere_cayenne_138_180_A_THD.jpg?itok=bdeBmG1Q',
-    ],
-    deliveryTime: '5-8 werkdagen',
-    highlights: ['180mm breed', 'Cayenne grijs', 'Minder voegen', 'Co-extrusie beschermlaag'],
-    dimensions: { length: '400 cm', width: '18,0 cm', thickness: '2,3 cm' },
-    faq: [
-      { question: 'Kan ik 138mm en 180mm planken combineren?', answer: 'Technisch is dit mogelijk, maar wij adviseren één breedte per terras voor een harmonisch eindresultaat.' },
-    ],
-  },
-  {
-    id: 'vl-15',
-    updatedDate: '2026-02-23',
-    name: 'Atmosphere Lima Bruin Vlonderplank 180mm',
-    price: 89.00,
-    priceLabel: 'Vanaf €89,- per m²',
-    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/SILAM1607_packshot_rendu_lame_atmosphere_Brun_Lima.jpg?itok=uAPDw6KQ',
-    category: 'vlonderplanken',
-    features: ['Co-extrusie beschermlaag', 'Geborsteld oppervlak', '25 jaar garantie', 'Extra breed 180mm'],
-    guarantee: '25 jaar fabrieksgarantie',
-    slug: 'atmosphere-lima-bruin-vlonderplank-180',
-    tone: 'bruin',
-    durability: 'co-extrusie',
-    productType: 'plank',
-    variantGroup: 'atmosphere-vlonder',
-    variantLabel: 'Lima Bruin',
-    variantColor: '#6b4226',
-    variantWidth: '180 mm',
-    description: 'De brede 180mm variant van de Atmosphere Lima Bruin vlonderplank. Luxe hardhout-look in extra breed formaat.',
-    seoTitle: 'Atmosphere Lima Bruin 180mm | Brede Vlonderplank',
-    seoDescription: 'Atmosphere Lima Bruin 180mm brede composiet vlonderplank. Co-extrusie, 25 jaar garantie. Bestel bij SchuttingvanComposiet.nl.',
-    longDescription: `## Atmosphere Lima Bruin Vlonderplank 180mm
-
-De brede 180mm variant van Lima Bruin. Dezelfde rijke, luxueuze hardhout-uitstraling in een groter formaat.`,
-    specifications: { Lengte: '400 cm', Breedte: '18,0 cm', Dikte: '2,3 cm', Materiaal: 'Composiet met co-extrusie toplaag', Kleur: 'Lima Bruin', Afwerking: 'Geborsteld' },
-    images: [
-      'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/SILAM1607_packshot_rendu_lame_atmosphere_Brun_Lima.jpg?itok=uAPDw6KQ',
-    ],
-    deliveryTime: '5-8 werkdagen',
-    highlights: ['180mm breed', 'Lima bruin', 'Luxe hardhout-look', 'Co-extrusie beschermlaag'],
-    dimensions: { length: '400 cm', width: '18,0 cm', thickness: '2,3 cm' },
-    faq: [
-      { question: 'Is de 180mm plank dikker dan de 138mm?', answer: 'Nee, beide varianten zijn 23 mm dik. Alleen de breedte verschilt.' },
-    ],
-  },
-  {
-    id: 'vl-16',
-    updatedDate: '2026-02-23',
-    name: 'Atmosphere Sao Paulo Bruin Vlonderplank 180mm',
-    price: 89.00,
-    priceLabel: 'Vanaf €89,- per m²',
-    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2024-07/silvadec_atmosphere_silam1602%20%2811%29.jpg?itok=uGuw2IYp',
-    category: 'vlonderplanken',
-    features: ['Co-extrusie beschermlaag', 'Geborsteld oppervlak', '25 jaar garantie', 'Extra breed 180mm'],
-    guarantee: '25 jaar fabrieksgarantie',
-    slug: 'atmosphere-sao-paulo-bruin-vlonderplank-180',
-    tone: 'bruin',
-    durability: 'co-extrusie',
-    productType: 'plank',
-    variantGroup: 'atmosphere-vlonder',
-    variantLabel: 'Sao Paulo Bruin',
-    variantColor: '#8b6b40',
-    variantWidth: '180 mm',
-    description: 'De brede 180mm variant van de Atmosphere Sao Paulo Bruin vlonderplank. Veelzijdig middenbruin in extra breed formaat.',
-    seoTitle: 'Atmosphere Sao Paulo Bruin 180mm | Brede Vlonderplank',
-    seoDescription: 'Atmosphere Sao Paulo Bruin 180mm brede composiet vlonderplank. Co-extrusie, 25 jaar garantie. Bestel bij SchuttingvanComposiet.nl.',
-    longDescription: `## Atmosphere Sao Paulo Bruin Vlonderplank 180mm
-
-De brede 180mm variant van Sao Paulo Bruin. De veelzijdige middenbruine tint in een groter, strakker formaat.`,
-    specifications: { Lengte: '400 cm', Breedte: '18,0 cm', Dikte: '2,3 cm', Materiaal: 'Composiet met co-extrusie toplaag', Kleur: 'Sao Paulo Bruin', Afwerking: 'Geborsteld' },
-    images: [
-      'https://en.silvadec.com/sites/default/files/styles/square/public/2024-07/silvadec_atmosphere_silam1602%20%2811%29.jpg?itok=uGuw2IYp',
-    ],
-    deliveryTime: '5-8 werkdagen',
-    highlights: ['180mm breed', 'Sao Paulo bruin', 'Veelzijdige tint', 'Co-extrusie beschermlaag'],
-    dimensions: { length: '400 cm', width: '18,0 cm', thickness: '2,3 cm' },
-    faq: [
-      { question: 'Hoeveel 180mm planken heb ik per m² nodig?', answer: 'Bij een plankbreedte van 180mm en voegbreedte van 5mm heeft u circa 5,4 planken per m² nodig. Reken 10% extra voor zaagverlies.' },
-    ],
-  },
-  // Elegance gegroefde
-  {
-    id: 'vl-9',
-    updatedDate: '2026-02-20',
-    name: 'Elegance Colorado Bruin Vlonderplank (Gegroefde)',
-    price: 59.00,
-    priceLabel: 'Vanaf €59,- per m²',
-    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/SILAM0501_lame_elegance_brun_colorado_rainur%C3%A9e_138.jpg?itok=Ahx_UC-g',
-    category: 'vlonderplanken',
-    features: ['Mono-extrusie', 'Gegroefde afwerking', 'Antislip'],
-    guarantee: '15 jaar garantie',
-    slug: 'elegance-colorado-bruin-vlonderplank',
+    slug: 'afwerklijst-plat-wpc',
     tone: 'bruin',
     durability: 'standaard',
-    productType: 'plank',
-    variantGroup: 'elegance-gegroefde',
-    variantLabel: 'Colorado Bruin',
-    variantColor: '#7a5230',
-    description: 'De Elegance Colorado Bruin vlonderplank met gegroefde afwerking. Een bewezen klassiek design met uitstekende antislip-eigenschappen.',
-    seoTitle: 'Elegance Colorado Bruin Gegroefde | Composiet Vlonderplank',
-    seoDescription: 'Elegance Colorado Bruin composiet vlonderplank, gegroefde afwerking. Antislip, 15 jaar garantie. Bestel bij SchuttingvanComposiet.nl.',
-    longDescription: `## Elegance Colorado Bruin Vlonderplank (Gegroefde)
-
-De Elegance Colorado Bruin met gegroefde afwerking is een klassiek terrasplankontwerp met uitstekende antislip-eigenschappen. De groeven in de plank bieden extra grip, vooral wanneer het oppervlak nat is.
-
-### Mono-extrusie
-
-De Elegance lijn gebruikt mono-extrusie technologie. Dit betekent dat de plank geen aparte beschermlaag heeft, maar uit één uniform materiaal bestaat. Het oppervlak ontwikkelt een mooie patina na verloop van tijd.
-
-### Antislip groeven
-
-De gegroefde afwerking biedt optimale grip, ook op natte oppervlakken. Ideaal voor terrassen rondom zwembaden of in regenrijke gebieden.`,
-    specifications: { Lengte: '400 cm', Breedte: '13,8 cm', Dikte: '2,3 cm', Materiaal: 'Composiet (mono-extrusie)', Kleur: 'Colorado Bruin', Afwerking: 'Gegroefde' },
-    images: [
-      'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/SILAM0501_lame_elegance_brun_colorado_rainur%C3%A9e_138.jpg?itok=Ahx_UC-g',
-      'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/SILAM0501_Camping_photo__BD.jpg?itok=jLSOaWe2',
-    ],
-    deliveryTime: '5-8 werkdagen',
-    highlights: ['Colorado bruin', 'Gegroefde antislip', 'Mono-extrusie', 'Klassiek design'],
-    dimensions: { length: '400 cm', width: '13,8 cm', thickness: '2,3 cm' },
-    faq: [
-      { question: 'Wat is het verschil tussen mono-extrusie en co-extrusie?', answer: 'Mono-extrusie planken bestaan uit één uniform materiaal. Co-extrusie planken hebben een extra beschermlaag. Co-extrusie biedt meer vlekbestendigheid en kleurvastheid.' },
-      { question: 'Verandert de kleur van mono-extrusie planken?', answer: 'Ja, mono-extrusie planken kunnen in de eerste maanden licht verkleuren tot een stabiele patina. Dit is een normaal proces dat bij alle composiet zonder beschermlaag optreedt.' },
-    ],
+    productType: 'profiel',
+    description: 'Platte WPC afwerklijst voor het netjes afwerken van vlonderranden.',
+    seoTitle: 'Afwerklijst Plat WPC | Vlonder Afwerking',
+    seoDescription: 'Gamrat WPC platte afwerklijst voor vlonderranden. Bestel bij SchuttingvanComposiet.nl.',
+    longDescription: `## Afwerklijst Plat WPC\n\nDe platte afwerklijst voor een nette randafwerking van uw vlonder.`,
+    specifications: { Materiaal: 'WPC composiet', Type: 'Plat' },
+    images: ['https://gamratwpc.pl/wp-content/uploads/2025/04/listwa-plaska-gamrat.webp'],
+    deliveryTime: '5-10 werkdagen',
+    highlights: ['Platte afwerking', 'WPC composiet'],
   },
   {
-    id: 'vl-10',
-    updatedDate: '2026-02-20',
-    name: 'Elegance Iroise Grijs Vlonderplank (Gegroefde)',
-    price: 59.00,
-    priceLabel: 'Vanaf €59,- per m²',
-    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/SILAM0502_lame_elegance_gris-iroise_rainur%C3%A9e_138.jpg?itok=MKohWFtR',
-    category: 'vlonderplanken',
-    features: ['Mono-extrusie', 'Gegroefde afwerking', 'Antislip'],
-    guarantee: '15 jaar garantie',
-    slug: 'elegance-iroise-grijs-vlonderplank',
-    tone: 'grijs',
-    durability: 'standaard',
-    productType: 'plank',
-    variantGroup: 'elegance-gegroefde',
-    variantLabel: 'Iroise Grijs',
-    variantColor: '#8a8a80',
-    description: 'De Elegance Iroise Grijs vlonderplank met gegroefde afwerking. Lichtgrijs, fris en ruimtelijk met antislip-eigenschappen.',
-    seoTitle: 'Elegance Iroise Grijs Gegroefde | Composiet Vlonderplank',
-    seoDescription: 'Elegance Iroise Grijs composiet vlonderplank, gegroefde afwerking. Antislip, 15 jaar garantie. Bestel bij SchuttingvanComposiet.nl.',
-    longDescription: `## Elegance Iroise Grijs Vlonderplank (Gegroefde)
-
-Iroise Grijs is een lichte, frisse grijstint uit de Elegance lijn. De gegroefde afwerking biedt uitstekende grip en een klassiek terrasdesign.
-
-### Licht en ruimtelijk
-
-De lichte grijstint maakt uw terras optisch groter en absorbeert minder warmte dan donkere kleuren.`,
-    specifications: { Lengte: '400 cm', Breedte: '13,8 cm', Dikte: '2,3 cm', Materiaal: 'Composiet (mono-extrusie)', Kleur: 'Iroise Grijs', Afwerking: 'Gegroefde' },
-    images: [
-      'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/SILAM0502_lame_elegance_gris-iroise_rainur%C3%A9e_138.jpg?itok=MKohWFtR',
-      'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/platelage_elegance_rainure_iroise_hotel_alicante_6_0.JPG?itok=bVzKyTm8',
-    ],
-    deliveryTime: '5-8 werkdagen',
-    highlights: ['Iroise grijs', 'Lichte frisse tint', 'Gegroefde antislip', 'Mono-extrusie'],
-    dimensions: { length: '400 cm', width: '13,8 cm', thickness: '2,3 cm' },
-    faq: [
-      { question: 'Is Iroise Grijs de lichtste grijstint?', answer: 'Ja, binnen de Elegance lijn is Iroise Grijs de lichtste optie. In het Atmosphere assortiment is Belem Grijs de lichtste.' },
-    ],
-  },
-  // NEW: Elegance Antraciet Grijs Gegroefde
-  {
-    id: 'vl-17',
-    updatedDate: '2026-02-23',
-    name: 'Elegance Antraciet Grijs Vlonderplank (Gegroefde)',
-    price: 59.00,
-    priceLabel: 'Vanaf €59,- per m²',
-    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/SILAM0502_lame_elegance_gris-iroise_rainur%C3%A9e_138.jpg?itok=MKohWFtR',
-    category: 'vlonderplanken',
-    features: ['Mono-extrusie', 'Gegroefde afwerking', 'Antislip'],
-    guarantee: '15 jaar garantie',
-    slug: 'elegance-antraciet-grijs-vlonderplank-gegroefde',
-    tone: 'grijs',
-    durability: 'standaard',
-    productType: 'plank',
-    variantGroup: 'elegance-gegroefde',
-    variantLabel: 'Antraciet Grijs',
-    variantColor: '#4a4a4a',
-    description: 'De Elegance Antraciet Grijs vlonderplank met gegroefde afwerking. Donkergrijs, modern en met uitstekende antislip-eigenschappen.',
-    seoTitle: 'Elegance Antraciet Grijs Gegroefde | Composiet Vlonderplank',
-    seoDescription: 'Elegance Antraciet Grijs composiet vlonderplank, gegroefde afwerking. Antislip, 15 jaar garantie. Bestel bij SchuttingvanComposiet.nl.',
-    longDescription: `## Elegance Antraciet Grijs Vlonderplank (Gegroefde)
-
-De Antraciet Grijs variant van de Elegance lijn biedt een donkere, moderne grijstint met de kenmerkende gegroefde antislip-afwerking.
-
-### Modern en betaalbaar
-
-Antraciet grijs in de betaalbare Elegance lijn. Ideaal voor wie een modern terras wil tegen een aantrekkelijke prijs.`,
-    specifications: { Lengte: '400 cm', Breedte: '13,8 cm', Dikte: '2,3 cm', Materiaal: 'Composiet (mono-extrusie)', Kleur: 'Antraciet Grijs', Afwerking: 'Gegroefde' },
-    images: [
-      'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/SILAM0502_lame_elegance_gris-iroise_rainur%C3%A9e_138.jpg?itok=MKohWFtR',
-    ],
-    deliveryTime: '5-8 werkdagen',
-    highlights: ['Antraciet grijs', 'Gegroefde antislip', 'Mono-extrusie', 'Budget-vriendelijk'],
-    dimensions: { length: '400 cm', width: '13,8 cm', thickness: '2,3 cm' },
-    faq: [
-      { question: 'Is deze plank geschikt voor een zwembadterras?', answer: 'Ja, de gegroefde afwerking biedt uitstekende grip, ook op natte oppervlakken.' },
-    ],
-  },
-  // NEW: Elegance glad
-  {
-    id: 'vl-18',
-    updatedDate: '2026-02-23',
-    name: 'Elegance Colorado Bruin Vlonderplank (Glad)',
-    price: 59.00,
-    priceLabel: 'Vanaf €59,- per m²',
-    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/SILAM0501_lame_elegance_brun_colorado_rainur%C3%A9e_138.jpg?itok=Ahx_UC-g',
-    category: 'vlonderplanken',
-    features: ['Mono-extrusie', 'Glad oppervlak', 'Strak design'],
-    guarantee: '15 jaar garantie',
-    slug: 'elegance-colorado-bruin-vlonderplank-glad',
+    id: 'acc-7',
+    updatedDate: '2026-03-01',
+    name: 'Afwerklijst L-Profiel Composiet',
+    price: 0,
+    priceLabel: 'Prijs op aanvraag',
+    image: 'https://gamratwpc.pl/wp-content/uploads/2025/04/listwa-l-kompozytowa-gamrat.webp',
+    category: 'accessoires',
+    features: ['L-profiel', 'WPC composiet'],
+    guarantee: '25 jaar fabrieksgarantie',
+    slug: 'afwerklijst-l-profiel-composiet',
     tone: 'bruin',
     durability: 'standaard',
-    productType: 'plank',
-    variantGroup: 'elegance-glad',
-    variantLabel: 'Colorado Bruin',
-    variantColor: '#7a5230',
-    description: 'De Elegance Colorado Bruin vlonderplank met glad oppervlak. Strak, modern design voor een eigentijds terras.',
-    seoTitle: 'Elegance Colorado Bruin Glad | Composiet Vlonderplank',
-    seoDescription: 'Elegance Colorado Bruin composiet vlonderplank, glad oppervlak. Strak design, 15 jaar garantie. Bestel bij SchuttingvanComposiet.nl.',
-    longDescription: `## Elegance Colorado Bruin Vlonderplank (Glad)
-
-De gladde variant van de Elegance Colorado Bruin biedt een strak, modern oppervlak. Ideaal voor overdekte terrassen en balkons.
-
-### Glad oppervlak
-
-Het gladde oppervlak geeft een eigentijdse, minimalistische uitstraling. Aangenaam onder blote voeten.`,
-    specifications: { Lengte: '400 cm', Breedte: '13,8 cm', Dikte: '2,3 cm', Materiaal: 'Composiet (mono-extrusie)', Kleur: 'Colorado Bruin', Afwerking: 'Glad' },
-    images: [
-      'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/SILAM0501_lame_elegance_brun_colorado_rainur%C3%A9e_138.jpg?itok=Ahx_UC-g',
-    ],
-    deliveryTime: '5-8 werkdagen',
-    highlights: ['Colorado bruin', 'Glad oppervlak', 'Strak design', 'Mono-extrusie'],
-    dimensions: { length: '400 cm', width: '13,8 cm', thickness: '2,3 cm' },
-    faq: [
-      { question: 'Is glad minder geschikt voor buiten?', answer: 'Het gladde oppervlak biedt iets minder grip dan de gegroefde variant. Voor overdekte terrassen is het perfect. Buiten adviseren we de gegroefde variant bij hellingen.' },
-    ],
+    productType: 'profiel',
+    description: 'L-vormige WPC afwerklijst voor hoekafwerking van vlonders en trappen.',
+    seoTitle: 'Afwerklijst L-Profiel Composiet | Vlonder Afwerking',
+    seoDescription: 'Gamrat WPC L-profiel afwerklijst voor hoeken en trappen. Bestel bij SchuttingvanComposiet.nl.',
+    longDescription: `## Afwerklijst L-Profiel Composiet\n\nHet L-profiel is ideaal voor hoekafwerking bij treden en vlonderranden.`,
+    specifications: { Materiaal: 'WPC composiet', Type: 'L-profiel' },
+    images: ['https://gamratwpc.pl/wp-content/uploads/2025/04/listwa-l-kompozytowa-gamrat.webp'],
+    deliveryTime: '5-10 werkdagen',
+    highlights: ['L-profiel', 'Hoekafwerking', 'WPC composiet'],
   },
   {
-    id: 'vl-19',
-    updatedDate: '2026-02-23',
-    name: 'Elegance Iroise Grijs Vlonderplank (Glad)',
-    price: 59.00,
-    priceLabel: 'Vanaf €59,- per m²',
-    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/SILAM0502_lame_elegance_gris-iroise_rainur%C3%A9e_138.jpg?itok=MKohWFtR',
-    category: 'vlonderplanken',
-    features: ['Mono-extrusie', 'Glad oppervlak', 'Strak design'],
-    guarantee: '15 jaar garantie',
-    slug: 'elegance-iroise-grijs-vlonderplank-glad',
+    id: 'acc-8',
+    updatedDate: '2026-03-01',
+    name: 'Afwerklijst L-Profiel Aluminium',
+    price: 0,
+    priceLabel: 'Prijs op aanvraag',
+    image: 'https://gamratwpc.pl/wp-content/uploads/2025/04/listwa-l-aluminiowa-gamrat.webp',
+    category: 'accessoires',
+    features: ['L-profiel', 'Aluminium'],
+    guarantee: '25 jaar fabrieksgarantie',
+    slug: 'afwerklijst-l-profiel-aluminium',
     tone: 'grijs',
-    durability: 'standaard',
-    productType: 'plank',
-    variantGroup: 'elegance-glad',
-    variantLabel: 'Iroise Grijs',
-    variantColor: '#8a8a80',
-    description: 'De Elegance Iroise Grijs vlonderplank met glad oppervlak. Licht, fris en strak voor een modern terras.',
-    seoTitle: 'Elegance Iroise Grijs Glad | Composiet Vlonderplank',
-    seoDescription: 'Elegance Iroise Grijs composiet vlonderplank, glad oppervlak. Strak design, 15 jaar garantie. Bestel bij SchuttingvanComposiet.nl.',
-    longDescription: `## Elegance Iroise Grijs Vlonderplank (Glad)
-
-De gladde variant van de Elegance Iroise Grijs biedt een strak, modern oppervlak in een lichte grijstint.`,
-    specifications: { Lengte: '400 cm', Breedte: '13,8 cm', Dikte: '2,3 cm', Materiaal: 'Composiet (mono-extrusie)', Kleur: 'Iroise Grijs', Afwerking: 'Glad' },
-    images: [
-      'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/SILAM0502_lame_elegance_gris-iroise_rainur%C3%A9e_138.jpg?itok=MKohWFtR',
-    ],
-    deliveryTime: '5-8 werkdagen',
-    highlights: ['Iroise grijs', 'Glad oppervlak', 'Strak design', 'Mono-extrusie'],
-    dimensions: { length: '400 cm', width: '13,8 cm', thickness: '2,3 cm' },
-    faq: [
-      { question: 'Kan ik gladde en gegroefde planken combineren?', answer: 'Technisch is dit mogelijk, maar voor een harmonisch resultaat adviseren wij één afwerking per terras.' },
-    ],
-  },
-  // Emotion vlonder
-  {
-    id: 'vl-11',
-    updatedDate: '2026-02-20',
-    name: 'Emotion Savanne Bruin Vlonderplank',
-    price: 49.00,
-    priceLabel: 'Vanaf €49,- per m²',
-    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/SILAM0901_emotion_.jpg?itok=3dKAr4sb',
-    category: 'vlonderplanken',
-    features: ['Mono-extrusie', 'Glad oppervlak', 'Budget-vriendelijk'],
-    guarantee: '15 jaar garantie',
-    slug: 'emotion-savanne-bruin-vlonderplank',
-    tone: 'bruin',
-    durability: 'standaard',
-    productType: 'plank',
-    variantGroup: 'emotion-vlonder',
-    variantLabel: 'Savanne Bruin',
-    variantColor: '#a08050',
-    description: 'De Emotion Savanne Bruin vlonderplank biedt een glad, strak oppervlak tegen een aantrekkelijke prijs. Ideaal als instapmodel.',
-    seoTitle: 'Emotion Savanne Bruin | Composiet Vlonderplank',
-    seoDescription: 'Emotion Savanne Bruin composiet vlonderplank. Glad, budget-vriendelijk, 15 jaar garantie. Bestel bij SchuttingvanComposiet.nl.',
-    longDescription: `## Emotion Savanne Bruin Vlonderplank
-
-De Emotion Savanne Bruin is het instapmodel in het vlonderassortiment. Met een glad oppervlak en een aantrekkelijke prijs biedt deze plank composiet kwaliteit voor elk budget.
-
-### Glad oppervlak
-
-Het gladde oppervlak geeft een strakke, moderne uitstraling. De Savanne bruine kleur is warm en veelzijdig.
-
-### Budget-vriendelijk
-
-De Emotion lijn biedt betrouwbare kwaliteit tegen een lagere prijs dan de Atmosphere en Nuances lijnen. Ideaal voor grote terrassen waar het budget een rol speelt.`,
-    specifications: { Lengte: '400 cm', Breedte: '13,8 cm', Dikte: '2,3 cm', Materiaal: 'Composiet (mono-extrusie)', Kleur: 'Savanne Bruin', Afwerking: 'Glad' },
-    images: [
-      'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/SILAM0901_emotion_.jpg?itok=3dKAr4sb',
-      'https://en.silvadec.com/sites/default/files/styles/square/public/2023-08/Silvadec_emotion_silam0901%20%281%29_1.jpg?itok=FA_2asjV',
-    ],
-    deliveryTime: '5-8 werkdagen',
-    highlights: ['Savanne bruin', 'Glad oppervlak', 'Budget-vriendelijk', 'Composiet kwaliteit'],
-    dimensions: { length: '400 cm', width: '13,8 cm', thickness: '2,3 cm' },
-    faq: [
-      { question: 'Is de Emotion lijn van mindere kwaliteit?', answer: 'Nee, alle planken voldoen aan dezelfde hoge kwaliteitsnormen. De Emotion lijn gebruikt mono-extrusie (zonder extra beschermlaag), waardoor de prijs lager is.' },
-    ],
+    durability: 'premium',
+    productType: 'profiel',
+    description: 'Aluminium L-profiel afwerklijst voor een strakke, moderne randafwerking.',
+    seoTitle: 'Afwerklijst L-Profiel Aluminium | Vlonder Afwerking',
+    seoDescription: 'Gamrat aluminium L-profiel afwerklijst. Strak en modern. Bestel bij SchuttingvanComposiet.nl.',
+    longDescription: `## Afwerklijst L-Profiel Aluminium\n\nHet aluminium L-profiel voor een strakke, moderne afwerking.`,
+    specifications: { Materiaal: 'Aluminium', Type: 'L-profiel' },
+    images: ['https://gamratwpc.pl/wp-content/uploads/2025/04/listwa-l-aluminiowa-gamrat.webp'],
+    deliveryTime: '5-10 werkdagen',
+    highlights: ['Aluminium', 'L-profiel', 'Strakke afwerking'],
   },
   {
-    id: 'vl-12',
-    updatedDate: '2026-02-20',
-    name: 'Emotion Equateur Bruin Vlonderplank',
-    price: 49.00,
-    priceLabel: 'Vanaf €49,- per m²',
-    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/SILAM0902_emotion_equateur.jpg?itok=6VNztnGf',
-    category: 'vlonderplanken',
-    features: ['Mono-extrusie', 'Glad oppervlak', 'Budget-vriendelijk'],
-    guarantee: '15 jaar garantie',
-    slug: 'emotion-equateur-bruin-vlonderplank',
-    tone: 'bruin',
+    id: 'acc-9',
+    updatedDate: '2026-03-01',
+    name: 'Verstelbare Terrasdrager 25-260mm',
+    price: 0,
+    priceLabel: 'Prijs op aanvraag',
+    image: 'https://gamratwpc.pl/wp-content/uploads/2025/04/wsporniki-regulowane-gamrat.webp',
+    category: 'accessoires',
+    features: ['Verstelbare hoogte', '25-260mm bereik', 'Voor ongelijke ondergrond'],
+    guarantee: '25 jaar fabrieksgarantie',
+    slug: 'verstelbare-terrasdrager',
+    tone: 'zwart',
     durability: 'standaard',
-    productType: 'plank',
-    variantGroup: 'emotion-vlonder',
-    variantLabel: 'Equateur Bruin',
-    variantColor: '#5c3820',
-    description: 'De Emotion Equateur Bruin vlonderplank heeft een donkere, warme bruine tint met glad oppervlak. Een aantrekkelijk instapmodel.',
-    seoTitle: 'Emotion Equateur Bruin | Composiet Vlonderplank',
-    seoDescription: 'Emotion Equateur Bruin composiet vlonderplank. Donkerbruin, glad, budget-vriendelijk. Bestel bij SchuttingvanComposiet.nl.',
-    longDescription: `## Emotion Equateur Bruin Vlonderplank
-
-De Equateur Bruin is de donkere variant in de Emotion lijn. Een rijke, warme bruine tint met glad oppervlak die uw terras een luxe uitstraling geeft tegen een aantrekkelijke prijs.
-
-### Donker en warm
-
-De diepe Equateur bruine kleur geeft een gevoel van luxe en warmte. Het gladde oppervlak versterkt de elegante uitstraling.`,
-    specifications: { Lengte: '400 cm', Breedte: '13,8 cm', Dikte: '2,3 cm', Materiaal: 'Composiet (mono-extrusie)', Kleur: 'Equateur Bruin', Afwerking: 'Glad' },
-    images: [
-      'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/SILAM0902_emotion_equateur.jpg?itok=6VNztnGf',
-      'https://en.silvadec.com/sites/default/files/styles/square/public/2021-02/equateur_%281%29.JPG?itok=OdCVQq9l',
-    ],
-    deliveryTime: '5-8 werkdagen',
-    highlights: ['Equateur bruin', 'Donkere warme tint', 'Glad oppervlak', 'Budget-vriendelijk'],
-    dimensions: { length: '400 cm', width: '13,8 cm', thickness: '2,3 cm' },
-    faq: [
-      { question: 'Wat is het verschil tussen Savanne en Equateur?', answer: 'Savanne is een lichtere, warmere bruine tint. Equateur is donkerder en dieper. Beide hebben een glad oppervlak en dezelfde mono-extrusie technologie.' },
-    ],
+    productType: 'profiel',
+    description: 'Verstelbare terrasdrager (wspornik) met hoogtebereik van 25 tot 260mm. Ideaal voor ongelijke ondergronden en dakterrassen.',
+    seoTitle: 'Verstelbare Terrasdrager | Vlonder Montage',
+    seoDescription: 'Gamrat verstelbare terrasdrager 25-260mm. Voor ongelijke ondergronden. Bestel bij SchuttingvanComposiet.nl.',
+    longDescription: `## Verstelbare Terrasdrager\n\nDe verstelbare terrasdrager maakt het mogelijk om een perfect waterpas vlonder te creëren op ongelijke ondergronden. Hoogte instelbaar van 25 tot 260mm.`,
+    specifications: { Hoogtebereik: '25-260 mm', Materiaal: 'Polypropyleen', Draagvermogen: '1000 kg' },
+    images: ['https://gamratwpc.pl/wp-content/uploads/2025/04/wsporniki-regulowane-gamrat.webp'],
+    deliveryTime: '5-10 werkdagen',
+    highlights: ['25-260mm hoogte', 'Verstelbaar', '1000kg draagkracht'],
   },
 ];
 
+// ─── CATEGORIES ─────────────────────────────────────────────────────────────
+
 export const categories = [
   {
-    id: 'cat-gevel',
-    name: 'Gevelbekleding',
-    description: 'Composiet gevelbekleding voor een moderne, onderhoudsvrije gevel. Van gesloten planken tot open rhombus profielen.',
-    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2022-01/Blanc_ceruse_2-001.jpg?itok=YgsC0UAa',
-    slug: 'gevelbekleding',
-    productCount: products.filter(p => p.category === 'gevelbekleding').length,
-    seoTitle: 'Composiet Gevelbekleding | SchuttingvanComposiet.nl',
-    seoDescription: 'Ontdek ons assortiment composiet gevelbekleding. Atmosphere 175 en Open Rhombus profielen. Co-extrusie, 25 jaar garantie.',
+    id: 'cat-vlond',
+    name: 'Vlonderplanken',
+    description: 'Composiet vlonderplanken voor terrassen, balkons en zwembaddecks. Van budget Slim tot premium Elegance met RENOLIT folie.',
+    image: 'https://gamratwpc.pl/wp-content/uploads/2025/04/gamrat-wpc-systemy-tarasowe-slider-2.webp',
+    slug: 'vlonderplanken',
+    productCount: products.filter(p => p.category === 'vlonderplanken').length,
+    seoTitle: 'Composiet Vlonderplanken | SchuttingvanComposiet.nl',
+    seoDescription: 'Ontdek ons assortiment Gamrat WPC composiet vlonderplanken. Komorowa, Classic, Premium, Elegance, Eco, Slim en MAX lijnen. 25 jaar garantie.',
     faq: [
-      { question: 'Wat is het verschil tussen Atmosphere 175 en Open Rhombus?', answer: 'Atmosphere 175 is een brede, gesloten gevelplank. Open Rhombus heeft een smal, open profiel dat een licht-schaduwspel creëert.' },
-      { question: 'Is composiet gevelbekleding geschikt voor elke woning?', answer: 'Ja, composiet gevelbekleding is geschikt voor nieuwbouw en renovatie. Het is licht, eenvoudig te monteren en past bij elke bouwstijl.' },
+      { question: 'Welke lijn past bij mij?', answer: 'Slim en Eco zijn budget-vriendelijk. Classic en Premium bieden massieve kwaliteit. Elegance is het topmodel met RENOLIT folie en korund antislip. MAX is extra breed.' },
+      { question: 'Wat is het verschil tussen Komorowa en Classic?', answer: 'Komorowa heeft een holle kern (lichter, voordeliger). Classic is volledig massief (sterker, zwaarder). Beide hebben co-extrusie beschermlaag.' },
     ],
   },
   {
     id: 'cat-schut',
     name: 'Schuttingen',
-    description: 'Composiet en aluminium schuttingplanken voor een duurzame, stijlvolle tuinafscheiding. Dubbelzijdige afwerking.',
-    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2024-05/silvadec_atmosphere_b0041_c0141-compressed_7.jpg?itok=vZvJ8zUk',
+    description: 'Composiet schuttingplanken en profielen voor een duurzame, stijlvolle tuinafscheiding. Classic en Premium afwerkingen.',
+    image: 'https://gamratwpc.pl/wp-content/uploads/2025/04/deska-ogrodzeniowa-premium-ciemny-braz-gamrat.webp',
     slug: 'schuttingen',
     productCount: products.filter(p => p.category === 'schuttingen').length,
     seoTitle: 'Composiet Schuttingen | SchuttingvanComposiet.nl',
-    seoDescription: 'Ontdek ons assortiment composiet en aluminium schuttingplanken. Dubbelzijdig, co-extrusie, 25 jaar garantie.',
+    seoDescription: 'Ontdek ons assortiment Gamrat WPC composiet schuttingplanken. Classic en Premium afwerkingen, 25 jaar garantie.',
     faq: [
-      { question: 'Wat is het verschil tussen composiet en aluminium schuttingen?', answer: 'Composiet schuttingen hebben een natuurlijke houtlook. Aluminium schuttingen zijn strakker en moderner. Beide zijn onderhoudsvrij.' },
-      { question: 'Kan ik composiet en aluminium planken combineren?', answer: 'Ja, alle schuttingplanken passen in dezelfde aluminium paalprofielen. U kunt ze naar wens combineren.' },
+      { question: 'Wat is het verschil tussen Classic en Premium schuttingplanken?', answer: 'Classic heeft een geborsteld oppervlak, Premium heeft een realistisch houtnerf (3D) patroon. Beide zijn dubbelzijdig afgewerkt.' },
+      { question: 'Hoe monteer ik een composiet schutting?', answer: 'De planken worden horizontaal in het universele profiel of ceownik geschoven. Geen schroeven zichtbaar aan de buitenkant.' },
     ],
   },
   {
-    id: 'cat-vlond',
-    name: 'Vlonderplanken',
-    description: 'Composiet vlonderplanken voor terrassen, balkons en zwembaddecks. Van budget tot premium met co-extrusie beschermlaag.',
-    image: 'https://en.silvadec.com/sites/default/files/styles/square/public/2025-04/Silvadec_atmosphere_nuances_ipe_b0035%20%2813%29-compressed.jpg?itok=jW47BaxI',
-    slug: 'vlonderplanken',
-    productCount: products.filter(p => p.category === 'vlonderplanken').length,
-    seoTitle: 'Composiet Vlonderplanken | SchuttingvanComposiet.nl',
-    seoDescription: 'Ontdek ons assortiment composiet vlonderplanken. Nuances, Atmosphere, Elegance en Emotion lijnen. Tot 25 jaar garantie.',
+    id: 'cat-acc',
+    name: 'Accessoires',
+    description: 'Onderbalken, montagesets, afwerklijsten en terrasdragers voor de complete montage van uw composiet vlonder of schutting.',
+    image: 'https://gamratwpc.pl/wp-content/uploads/2025/04/legar-wpc-gamrat.webp',
+    slug: 'accessoires',
+    productCount: products.filter(p => p.category === 'accessoires').length,
+    seoTitle: 'Composiet Accessoires | SchuttingvanComposiet.nl',
+    seoDescription: 'Accessoires voor uw Gamrat WPC vlonder en schutting. Onderbalken, clips, afwerklijsten en verstelbare terrasdragers.',
     faq: [
-      { question: 'Welke lijn past bij mij?', answer: 'Nuances en Atmosphere (co-extrusie) bieden de beste kleurvastheid en vlekbestendigheid. Elegance en Emotion (mono-extrusie) zijn budget-vriendelijker.' },
-      { question: 'Is composiet geschikt voor rondom een zwembad?', answer: 'Ja, met name de Atmosphere en Nuances lijnen met co-extrusie beschermlaag zijn bestand tegen chloor en zout.' },
+      { question: 'Welke onderbalk heb ik nodig?', answer: 'Kies de WPC legar voor standaard situaties, of aluminium laag profiel voor minimale opbouwhoogte (balkons). Het hoge aluminium profiel is voor grotere overspanningen.' },
+      { question: 'Hoeveel clips heb ik nodig per m²?', answer: 'Reken op circa 20 clips per m². De montageset van 10m² bevat voldoende clips voor 10 vierkante meter vlonder.' },
     ],
   },
 ];
