@@ -105,16 +105,7 @@ const App = () => (
               <Route path="/vlonder-onderconstructie" element={<SEOContentPage />} />
               <Route path="/hornbach-composiet-vlonder" element={<SEOContentPage />} />
               <Route path="/gamma-composiet-vlonder" element={<SEOContentPage />} />
-              {/* Pillar 3: Gevelbekleding */}
-              <Route path="/composiet-gevelbekleding" element={<SEOContentPage />} />
-              <Route path="/composiet-gevelbekleding-prijs" element={<SEOContentPage />} />
-              <Route path="/gevelbekleding-zonder-onderhoud" element={<SEOContentPage />} />
-              <Route path="/rhombus-gevelbekleding-composiet" element={<SEOContentPage />} />
-              <Route path="/gevelbekleding-composiet-nadelen" element={<SEOContentPage />} />
-              <Route path="/composiet-gevelplanken-monteren" element={<SEOContentPage />} />
-              <Route path="/composiet-vs-hout-gevelbekleding" element={<SEOContentPage />} />
-              <Route path="/gevelbekleding-kleuren" element={<SEOContentPage />} />
-              <Route path="/composiet-gevelbekleding-zwart" element={<SEOContentPage />} />
+              {/* Pillar 3: Gevelbekleding — REMOVED (no longer in catalog) */}
               {/* Pillar 4: Wat is composiet (Materiaal) */}
               <Route path="/wat-is-composiet" element={<SEOContentPage />} />
               <Route path="/composiet-samenstelling" element={<SEOContentPage />} />

@@ -10,7 +10,7 @@ import { Check, X, ArrowRight, Info } from "lucide-react";
 import { useState } from "react";
 import { categories } from "@/data/products";
 
-type CompareCategory = "gevelbekleding" | "schuttingen" | "vlonderplanken";
+type CompareCategory = "vlonderplanken" | "schuttingen" | "accessoires";
 
 interface ComparisonRow {
   label: string;
@@ -19,38 +19,37 @@ interface ComparisonRow {
 }
 
 const comparisonData: ComparisonRow[] = [
-  { label: "Toepassing", values: { gevelbekleding: "Gevel / wand", schuttingen: "Erfafscheiding / tuin", vlonderplanken: "Terras / vlonder" } },
-  { label: "Startprijs", values: { gevelbekleding: "Vanaf €25,95/stuk", schuttingen: "Vanaf €139,95/paneel", vlonderplanken: "Vanaf €16,95/plank" } },
-  { label: "Prijs per m²", values: { gevelbekleding: "± €40,95", schuttingen: "± €45,00", vlonderplanken: "± €35,00" } },
-  { label: "Garantie", values: { gevelbekleding: "15 jaar", schuttingen: "15 jaar", vlonderplanken: "15 jaar" } },
-  { label: "Levensduur", values: { gevelbekleding: "25+ jaar", schuttingen: "20-25 jaar", vlonderplanken: "15-25 jaar" } },
-  { label: "Co-Extrusie beschermlaag", values: { gevelbekleding: true, schuttingen: true, vlonderplanken: true } },
-  { label: "Onderhoudsvrij", values: { gevelbekleding: true, schuttingen: true, vlonderplanken: true } },
-  { label: "UV-bestendig", values: { gevelbekleding: true, schuttingen: true, vlonderplanken: true } },
-  { label: "Vochtbestendig", values: { gevelbekleding: true, schuttingen: true, vlonderplanken: true } },
-  { label: "Zelf te monteren", values: { gevelbekleding: true, schuttingen: true, vlonderplanken: true } },
-  { label: "Antislip coating", values: { gevelbekleding: false, schuttingen: false, vlonderplanken: true } },
-  { label: "Naadloze montage optie", values: { gevelbekleding: false, schuttingen: false, vlonderplanken: true } },
-  { label: "Rhombus profiel", values: { gevelbekleding: true, schuttingen: true, vlonderplanken: false } },
-  { label: "Verticale montage", values: { gevelbekleding: true, schuttingen: true, vlonderplanken: false } },
-  { label: "Beschikbare kleuren", values: { gevelbekleding: "8 kleuren", schuttingen: "10+ kleuren", vlonderplanken: "5 kleuren" } },
-  { label: "Massieve variant", values: { gevelbekleding: false, schuttingen: false, vlonderplanken: true } },
-  { label: "Gewicht", values: { gevelbekleding: "Licht", schuttingen: "Middel", vlonderplanken: "Middel" } },
-  { label: "Plankdikte", values: { gevelbekleding: "Standaard", schuttingen: "Extra dik (2,5cm)", vlonderplanken: "Standaard / Massief" } },
+  { label: "Toepassing", values: { vlonderplanken: "Terras / vlonder", schuttingen: "Erfafscheiding / tuin", accessoires: "Montage & afwerking" } },
+  { label: "Productlijnen", values: { vlonderplanken: "7 lijnen", schuttingen: "Classic & Premium", accessoires: "Onderbalken, clips, lijsten" } },
+  { label: "Garantie", values: { vlonderplanken: "25 jaar", schuttingen: "25 jaar", accessoires: "25 jaar" } },
+  { label: "Levensduur", values: { vlonderplanken: "25+ jaar", schuttingen: "25+ jaar", accessoires: "25+ jaar" } },
+  { label: "Co-Extrusie beschermlaag", values: { vlonderplanken: true, schuttingen: true, accessoires: false } },
+  { label: "Onderhoudsvrij", values: { vlonderplanken: true, schuttingen: true, accessoires: true } },
+  { label: "UV-bestendig", values: { vlonderplanken: true, schuttingen: true, accessoires: true } },
+  { label: "100% recycleerbaar", values: { vlonderplanken: true, schuttingen: true, accessoires: true } },
+  { label: "Zelf te monteren", values: { vlonderplanken: true, schuttingen: true, accessoires: true } },
+  { label: "Antislip (korund)", values: { vlonderplanken: "Elegance lijn", schuttingen: false, accessoires: false } },
+  { label: "RENOLIT folie", values: { vlonderplanken: "Elegance lijn", schuttingen: false, accessoires: false } },
+  { label: "Massieve variant", values: { vlonderplanken: "Classic, Premium, MAX", schuttingen: false, accessoires: false } },
+  { label: "Holle kern variant", values: { vlonderplanken: "Komorowa", schuttingen: false, accessoires: false } },
+  { label: "Dubbelzijdig profiel", values: { vlonderplanken: true, schuttingen: true, accessoires: false } },
+  { label: "Houtnerf patroon", values: { vlonderplanken: "Premium lijn", schuttingen: "Premium lijn", accessoires: false } },
+  { label: "Beschikbare kleuren", values: { vlonderplanken: "3-5 per lijn", schuttingen: "3 kleuren", accessoires: "Standaard" } },
+  { label: "Breedste plank", values: { vlonderplanken: "185 mm (MAX)", schuttingen: "150 mm", accessoires: "n.v.t." } },
 ];
 
 const categoryMeta: Record<CompareCategory, { name: string; tagline: string; slug: string }> = {
-  gevelbekleding: { name: "Gevelbekleding", tagline: "Moderne uitstraling voor je gevel", slug: "gevelbekleding" },
-  schuttingen: { name: "Schuttingen", tagline: "Privacy & stijl voor je tuin", slug: "schuttingen" },
   vlonderplanken: { name: "Vlonderplanken", tagline: "Luxe terras zonder onderhoud", slug: "vlonderplanken" },
+  schuttingen: { name: "Schuttingen", tagline: "Privacy & stijl voor je tuin", slug: "schuttingen" },
+  accessoires: { name: "Accessoires", tagline: "Montage & afwerking", slug: "accessoires" },
 };
 
-const allCategories: CompareCategory[] = ["gevelbekleding", "schuttingen", "vlonderplanken"];
+const allCategories: CompareCategory[] = ["vlonderplanken", "schuttingen", "accessoires"];
 
 const compareFaqs = [
-  { q: "Welk composiet product is het goedkoopst?", a: "Vlonderplanken zijn het meest voordelig met prijzen vanaf €16,95 per plank. Gevelbekleding begint bij €25,95 per stuk en schuttingpanelen vanaf €139,95." },
-  { q: "Welk composiet product gaat het langst mee?", a: "Composiet gevelbekleding heeft de langste levensduur (25+ jaar) doordat het minder belast wordt dan een terras of schutting. Alle producten hebben 15 jaar garantie." },
-  { q: "Kan ik verschillende composiet producten combineren?", a: "Absoluut! Veel klanten combineren bijvoorbeeld composiet gevelbekleding met een bijpassende schutting in dezelfde kleur voor een uniforme uitstraling." },
+  { q: "Welk composiet product is het goedkoopst?", a: "Alle prijzen zijn op aanvraag. De Slim en Eco vlonderplanken zijn de meest budget-vriendelijke opties, terwijl de Elegance lijn het premium segment bedient." },
+  { q: "Welk composiet product gaat het langst mee?", a: "Alle Gamrat WPC producten hebben 25 jaar fabrieksgarantie. De Elegance lijn met RENOLIT folie en korund biedt de beste bescherming tegen slijtage." },
+  { q: "Kan ik verschillende composiet producten combineren?", a: "Absoluut! Veel klanten combineren bijvoorbeeld vlonderplanken met een bijpassende schutting in dezelfde kleur voor een uniforme uitstraling." },
 ];
 
 const ComparePage = () => {
@@ -70,7 +69,7 @@ const ComparePage = () => {
     <div className="min-h-screen bg-background">
       <SEOHead
         title="Composiet Vergelijken | Schuttingvancomposiet.nl"
-        description="Vergelijk composiet gevelbekleding, schuttingen en vlonderplanken op prijs, eigenschappen en toepassingen. Vind het beste product voor jouw project."
+        description="Vergelijk composiet vlonderplanken, schuttingen en accessoires op eigenschappen en toepassingen. Vind het beste product voor jouw project."
         canonical="/vergelijken"
       />
       <Header />
@@ -87,7 +86,7 @@ const ComparePage = () => {
               Welk composiet product past bij jou?
             </h1>
             <p className="text-muted-foreground mt-3 leading-relaxed">
-              Vergelijk onze drie productcategorieën op prijs, eigenschappen en toepassingen om de beste keuze te maken voor jouw project.
+              Vergelijk onze drie productcategorieën op eigenschappen en toepassingen om de beste keuze te maken voor jouw project.
             </p>
           </div>
 
@@ -181,9 +180,9 @@ const ComparePage = () => {
             {allCategories.map((cat) => {
               const catData = categories.find((c) => c.slug === cat);
               const advice: Record<CompareCategory, { title: string; description: string }> = {
-                gevelbekleding: { title: "Gevel upgraden?", description: "Kies gevelbekleding voor een moderne, onderhoudsvriendelijke gevel die jarenlang mooi blijft." },
-                schuttingen: { title: "Privacy in de tuin?", description: "Composiet schuttingen bieden privacy met stijl. Extra dikke 2,5cm planken voor een robuust resultaat." },
-                vlonderplanken: { title: "Droomterras aanleggen?", description: "Vlonderplanken met antislip en naadloze montage. Splintervrij en veilig voor blote voeten." },
+                vlonderplanken: { title: "Droomterras aanleggen?", description: "7 vlonderlijnen van budget Slim tot premium Elegance met RENOLIT folie. Splintervrij en 25 jaar garantie." },
+                schuttingen: { title: "Privacy in de tuin?", description: "Classic en Premium schuttingplanken met dubbelzijdige afwerking. Eenvoudig te monteren in profielen." },
+                accessoires: { title: "Montage & afwerking?", description: "Onderbalken, montagesets, afwerklijsten en verstelbare terrasdragers voor de perfecte installatie." },
               };
               return (
                 <Link
