@@ -44,7 +44,6 @@ export const downloads: DownloadGuide[] = [
     relatedLinks: [
       { label: "Composiet schuttingen bekijken", href: "/categorie/schuttingen" },
     ],
-    pdfPath: "/downloads/montagehandleiding-composiet-schutting.pdf",
     relatedCategory: "schuttingen",
   },
   {
@@ -64,7 +63,6 @@ export const downloads: DownloadGuide[] = [
     relatedLinks: [
       { label: "Vlonderplanken bekijken", href: "/categorie/vlonderplanken" },
     ],
-    pdfPath: "/downloads/montagehandleiding-vlonderplanken.pdf",
     relatedCategory: "vlonderplanken",
   },
   {
@@ -85,7 +83,6 @@ export const downloads: DownloadGuide[] = [
       { label: "Vlonderplanken bekijken", href: "/categorie/vlonderplanken" },
       { label: "Accessoires bekijken", href: "/categorie/accessoires" },
     ],
-    pdfPath: "/downloads/montagehandleiding-aluminium-onderbalken-vlonder.pdf",
     relatedCategory: "accessoires",
   },
   {
@@ -105,7 +102,6 @@ export const downloads: DownloadGuide[] = [
     relatedLinks: [
       { label: "Accessoires bekijken", href: "/categorie/accessoires" },
     ],
-    pdfPath: "/downloads/montagehandleiding-vlonder-accessoires.pdf",
     relatedCategory: "accessoires",
   },
   {
@@ -125,7 +121,6 @@ export const downloads: DownloadGuide[] = [
     relatedLinks: [
       { label: "Vlonderplanken bekijken", href: "/categorie/vlonderplanken" },
     ],
-    pdfPath: "/downloads/snelstartgids-vlonder-montage.pdf",
     relatedCategory: "vlonderplanken",
   },
 
