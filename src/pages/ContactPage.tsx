@@ -164,7 +164,7 @@ const ContactPage = () => {
                   <span className="text-muted-foreground">·</span>
                   <Link to="/categorie/vlonderplanken" className="text-sm text-primary hover:underline">Vlonderplanken</Link>
                   <span className="text-muted-foreground">·</span>
-                  <Link to="/vergelijken" className="text-sm text-primary hover:underline">Vergelijken</Link>
+                  <Link to="/productadvies" className="text-sm text-primary hover:underline">Productadvies</Link>
                 </div>
               </div>
             </div>

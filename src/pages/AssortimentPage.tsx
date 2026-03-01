@@ -39,7 +39,7 @@ const AssortimentPage = () => {
 
           <div className="flex flex-wrap gap-3 mb-10">
             <Button asChild variant="outline">
-              <Link to="/vergelijken">Vergelijk categorieën <ArrowRight className="w-4 h-4 ml-1" /></Link>
+              <Link to="/productadvies">Keuzehulp <ArrowRight className="w-4 h-4 ml-1" /></Link>
             </Button>
             <Button asChild variant="outline">
               <Link to="/blog">Blog & Advies</Link>

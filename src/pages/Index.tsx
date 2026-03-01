@@ -125,7 +125,7 @@ const Index = () => {
           </div>
           <div className="text-center mt-6 sm:mt-8">
             <Button asChild variant="outline">
-              <Link to="/vergelijken">Vergelijk alle categorieën <ArrowRight className="w-4 h-4 ml-1" /></Link>
+              <Link to="/productadvies">Keuzehulp: welk composiet past bij mij? <ArrowRight className="w-4 h-4 ml-1" /></Link>
             </Button>
           </div>
         </section>

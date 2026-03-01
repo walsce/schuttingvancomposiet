@@ -360,7 +360,7 @@ const ProductPage = () => {
         <section className="max-w-6xl mx-auto px-4 pb-12">
           <div className="flex flex-wrap gap-3">
             <Button asChild variant="outline" size="sm">
-              <Link to="/vergelijken">Vergelijk categorieën</Link>
+              <Link to="/productadvies">Productadvies</Link>
             </Button>
             <Button asChild variant="outline" size="sm">
               <Link to="/blog">Blog & Advies</Link>

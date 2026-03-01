@@ -139,7 +139,7 @@ const BlogArticlePage = () => {
             )}
             <div className="flex flex-wrap gap-2">
               <Button asChild variant="outline" size="sm">
-                <Link to="/vergelijken">Vergelijk producten</Link>
+                <Link to="/productadvies">Productadvies</Link>
               </Button>
             </div>
           </div>

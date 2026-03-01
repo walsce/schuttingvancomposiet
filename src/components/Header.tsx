@@ -9,7 +9,7 @@ const navLinks = [
   { label: "Vlonderplanken", href: "/categorie/vlonderplanken" },
   { label: "Schuttingen", href: "/categorie/schuttingen" },
   { label: "Accessoires", href: "/categorie/accessoires" },
-  { label: "Vergelijken", href: "/vergelijken" },
+  { label: "Productadvies", href: "/productadvies" },
   { label: "Contact", href: "/contact" },
 ];
 

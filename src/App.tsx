@@ -11,7 +11,7 @@ import Index from "./pages/Index";
 import CategoryPage from "./pages/CategoryPage";
 import AssortimentPage from "./pages/AssortimentPage";
 import ContactPage from "./pages/ContactPage";
-import ComparePage from "./pages/ComparePage";
+import ProductAdvisorPage from "./pages/ProductAdvisorPage";
 import BlogPage from "./pages/BlogPage";
 import BlogArticlePage from "./pages/BlogArticlePage";
 import ProductPage from "./pages/ProductPage";
@@ -61,7 +61,7 @@ const App = () => (
               <Route path="/categorie/:slug" element={<CategoryPage />} />
               <Route path="/product/:slug" element={<ProductPage />} />
               <Route path="/contact" element={<ContactPage />} />
-              <Route path="/vergelijken" element={<ComparePage />} />
+              <Route path="/productadvies" element={<ProductAdvisorPage />} />
               <Route path="/blog" element={<BlogPage />} />
               <Route path="/blog/:slug" element={<BlogArticlePage />} />
               <Route path="/downloads" element={<DownloadsPage />} />
