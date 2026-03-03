@@ -39,27 +39,49 @@ const DownloadsPage = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [activeFilter, setActiveFilter] = useState<DownloadCategory | "all">("all");
 
+  const resolvePdfUrl = (guide: DownloadGuide) => {
+    if (!guide.pdfPath) return null;
+
+    const raw = guide.pdfPath.trim();
+    if (raw.startsWith("http://") || raw.startsWith("https://")) return raw;
+
+    const backendBase = import.meta.env.VITE_SUPABASE_URL ||
+      (import.meta.env.VITE_SUPABASE_PROJECT_ID
+        ? `https://${import.meta.env.VITE_SUPABASE_PROJECT_ID}.supabase.co`
+        : "");
+
+    if (raw.startsWith("/storage/")) {
+      return backendBase ? `${backendBase}${raw}` : raw;
+    }
+
+    const fileName = raw.split("/").filter(Boolean).pop();
+    if (!fileName) return raw;
+
+    return backendBase
+      ? `${backendBase}/storage/v1/object/public/product-images/branded-pdfs/${fileName}`
+      : `/storage/v1/object/public/product-images/branded-pdfs/${fileName}`;
+  };
+
   const handleDownload = (guide: DownloadGuide) => {
-    if (guide.pdfPath) {
-      const a = document.createElement("a");
-      a.href = guide.pdfPath;
-      a.target = "_blank";
-      a.rel = "noopener noreferrer";
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
+    const resolvedPdfUrl = resolvePdfUrl(guide);
+
+    if (resolvedPdfUrl) {
+      const popup = window.open(resolvedPdfUrl, "_blank", "noopener,noreferrer");
+      if (!popup) {
+        window.location.assign(resolvedPdfUrl);
+      }
       return;
     }
+
     if (guide.videoId) {
-      const a = document.createElement("a");
-      a.href = `https://www.youtube.com/watch?v=${guide.videoId}`;
-      a.target = "_blank";
-      a.rel = "noopener noreferrer";
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
+      const videoUrl = `https://www.youtube.com/watch?v=${guide.videoId}`;
+      const popup = window.open(videoUrl, "_blank", "noopener,noreferrer");
+      if (!popup) {
+        window.location.assign(videoUrl);
+      }
       return;
     }
+
     setSelectedGuide(guide);
     setModalOpen(true);
   };
