@@ -25,7 +25,16 @@ export const categoryLabels: Record<DownloadCategory, string> = {
   gids: "Gids",
 };
 
-const STORAGE_BASE = `${import.meta.env.VITE_SUPABASE_URL}/storage/v1/object/public/product-images/branded-pdfs`;
+const STORAGE_BASE = (() => {
+  const urlFromEnv = import.meta.env.VITE_SUPABASE_URL;
+  const projectId = import.meta.env.VITE_SUPABASE_PROJECT_ID;
+
+  if (urlFromEnv) return `${urlFromEnv}/storage/v1/object/public/product-images/branded-pdfs`;
+  if (projectId) return `https://${projectId}.supabase.co/storage/v1/object/public/product-images/branded-pdfs`;
+
+  return "/storage/v1/object/public/product-images/branded-pdfs";
+})();
+
 const pdfUrl = (id: string) => `${STORAGE_BASE}/${id}.pdf`;
 
 export const downloads: DownloadGuide[] = [
