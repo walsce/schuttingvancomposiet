@@ -41,11 +41,23 @@ const DownloadsPage = () => {
 
   const handleDownload = (guide: DownloadGuide) => {
     if (guide.pdfPath) {
-      window.open(guide.pdfPath, "_blank");
+      const a = document.createElement("a");
+      a.href = guide.pdfPath;
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
       return;
     }
     if (guide.videoId) {
-      window.open(`https://www.youtube.com/watch?v=${guide.videoId}`, "_blank");
+      const a = document.createElement("a");
+      a.href = `https://www.youtube.com/watch?v=${guide.videoId}`;
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
       return;
     }
     setSelectedGuide(guide);
