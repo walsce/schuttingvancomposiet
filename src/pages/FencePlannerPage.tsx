@@ -312,6 +312,17 @@ const FencePlannerPage = () => {
   return (
     <>
       <SEOHead {...SEO_PROPS} />
+      <JsonLd data={[
+        softwareApplicationSchema({
+          name: "SchuttingPlanner Pro",
+          description: "Gratis online composiet schutting planner met materiaalberekening.",
+          url: "/schutting-planner",
+        }),
+        breadcrumbSchema([
+          { name: "Home", url: "/" },
+          { name: "SchuttingPlanner Pro", url: "/schutting-planner" },
+        ]),
+      ]} />
       <div className="h-screen flex flex-col bg-muted/20 overflow-hidden">
         {/* App header bar */}
         <header className="h-14 border-b border-border bg-background flex items-center px-5 gap-3 flex-shrink-0 shadow-sm">
