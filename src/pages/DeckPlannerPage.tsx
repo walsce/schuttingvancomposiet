@@ -158,10 +158,21 @@ const DeckPlannerPage = () => {
   return (
     <div className="min-h-screen flex flex-col bg-background overflow-x-hidden">
       <SEOHead
-        title="TerrasDesigner Pro | Ontwerp je composiet terras online | Schuttingvancomposiet.nl"
-        description="Ontwerp je ideale composiet vlonder met onze gratis online planner. Kies je vorm, afmetingen en materiaal en ontvang direct een materiaallijst met prijsindicatie."
-        canonical="/vlonder-planner"
-      />
+          title="TerrasDesigner Pro | Gratis Composiet Terras Planner | 25 Jaar Garantie"
+          description="Ontwerp uw composiet vlonder gratis online met de TerrasDesigner Pro. Kies vorm, afmetingen en materiaal — ontvang direct een materiaallijst. ✓ 25 jaar garantie ✓ Inclusief onderconstructie"
+          canonical="/vlonder-planner"
+        />
+      <JsonLd data={[
+        softwareApplicationSchema({
+          name: "TerrasDesigner Pro",
+          description: "Gratis online composiet terras planner met materiaalberekening en onderconstructie.",
+          url: "/vlonder-planner",
+        }),
+        breadcrumbSchema([
+          { name: "Home", url: "/" },
+          { name: "TerrasDesigner Pro", url: "/vlonder-planner" },
+        ]),
+      ]} />
       <Header />
       <Breadcrumbs items={[
         { label: "Home", href: "/" },
