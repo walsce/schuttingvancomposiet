@@ -4,6 +4,10 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import JsonLd, { softwareApplicationSchema, breadcrumbSchema } from "@/components/JsonLd";
+import TrustCTA from "@/components/seo/TrustCTA";
+import InternalLinkBlock from "@/components/seo/InternalLinkBlock";
+import { Link } from "react-router-dom";
 
 import DeckCanvas from "@/components/planner/DeckCanvas";
 import ShapeSelector from "@/components/planner/ShapeSelector";
@@ -142,8 +146,8 @@ const DeckPlannerPage = () => {
     return (
       <>
         <SEOHead
-          title="TerrasDesigner Pro | Ontwerp je composiet terras online | Schuttingvancomposiet.nl"
-          description="Ontwerp je ideale composiet vlonder met onze gratis online planner. Kies je vorm, afmetingen en materiaal en ontvang direct een materiaallijst met prijsindicatie."
+          title="TerrasDesigner Pro | Gratis Composiet Terras Planner | 25 Jaar Garantie"
+          description="Ontwerp uw composiet vlonder gratis online met de TerrasDesigner Pro. Kies vorm, afmetingen en materiaal — ontvang direct een materiaallijst. ✓ 25 jaar garantie ✓ Inclusief onderconstructie"
           canonical="/vlonder-planner"
         />
         <DeckPlannerHero onStart={() => setStarted(true)} />
@@ -154,10 +158,21 @@ const DeckPlannerPage = () => {
   return (
     <div className="min-h-screen flex flex-col bg-background overflow-x-hidden">
       <SEOHead
-        title="TerrasDesigner Pro | Ontwerp je composiet terras online | Schuttingvancomposiet.nl"
-        description="Ontwerp je ideale composiet vlonder met onze gratis online planner. Kies je vorm, afmetingen en materiaal en ontvang direct een materiaallijst met prijsindicatie."
-        canonical="/vlonder-planner"
-      />
+          title="TerrasDesigner Pro | Gratis Composiet Terras Planner | 25 Jaar Garantie"
+          description="Ontwerp uw composiet vlonder gratis online met de TerrasDesigner Pro. Kies vorm, afmetingen en materiaal — ontvang direct een materiaallijst. ✓ 25 jaar garantie ✓ Inclusief onderconstructie"
+          canonical="/vlonder-planner"
+        />
+      <JsonLd data={[
+        softwareApplicationSchema({
+          name: "TerrasDesigner Pro",
+          description: "Gratis online composiet terras planner met materiaalberekening en onderconstructie.",
+          url: "/vlonder-planner",
+        }),
+        breadcrumbSchema([
+          { name: "Home", url: "/" },
+          { name: "TerrasDesigner Pro", url: "/vlonder-planner" },
+        ]),
+      ]} />
       <Header />
       <Breadcrumbs items={[
         { label: "Home", href: "/" },
@@ -337,6 +352,49 @@ const DeckPlannerPage = () => {
               </div>
             </div>
           </div>
+        </section>
+
+        {/* Below-tool CTA section */}
+        <section className="max-w-6xl mx-auto px-3 sm:px-4 pb-16 space-y-8">
+          <TrustCTA
+            title="Klaar met ontwerpen? Vraag een offerte aan"
+            primaryHref={`/contact?type=offerte&product=${selectedProduct}&area=${areaM2.toFixed(1)}`}
+            primaryLabel="Offerte aanvragen"
+          />
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <Link
+              to="/schutting-planner"
+              className="flex items-center gap-3 p-4 bg-card border border-border rounded-xl hover:border-primary/30 transition-colors"
+            >
+              <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <span className="text-primary font-bold text-sm">→</span>
+              </div>
+              <div>
+                <p className="font-serif font-bold text-sm text-foreground">SchuttingPlanner Pro</p>
+                <p className="text-xs text-muted-foreground">Ontwerp ook uw composiet schutting</p>
+              </div>
+            </Link>
+            <Link
+              to="/categorie/vlonderplanken"
+              className="flex items-center gap-3 p-4 bg-card border border-border rounded-xl hover:border-primary/30 transition-colors"
+            >
+              <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <span className="text-primary font-bold text-sm">→</span>
+              </div>
+              <div>
+                <p className="font-serif font-bold text-sm text-foreground">Vlonderplanken assortiment</p>
+                <p className="text-xs text-muted-foreground">Bekijk alle composiet vlonderplanken</p>
+              </div>
+            </Link>
+          </div>
+          <InternalLinkBlock
+            links={[
+              { label: "Composiet terras aanleggen", href: "/composiet-terras-aanleggen" },
+              { label: "Vlonder onderconstructie", href: "/vlonder-onderconstructie" },
+              { label: "Co-extrusie vlonderplanken", href: "/co-extrusie-vlonderplanken" },
+              { label: "Contact & offerte", href: "/contact" },
+            ]}
+          />
         </section>
 
         

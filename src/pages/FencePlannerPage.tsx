@@ -13,6 +13,13 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Diamond, ChevronRight, ChevronLeft, Plus, Minus, Settings2 } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import JsonLd, { softwareApplicationSchema, breadcrumbSchema } from "@/components/JsonLd";
+import TrustCTA from "@/components/seo/TrustCTA";
+import InternalLinkBlock from "@/components/seo/InternalLinkBlock";
+import { Link } from "react-router-dom";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 const DEFAULT_LENGTH = 600;
@@ -25,8 +32,8 @@ const MOBILE_STEPS = [
 ] as const;
 
 const SEO_PROPS = {
-  title: "SchuttingPlanner Pro | Schuttingvancomposiet.nl",
-  description: "Ontwerp uw composiet schutting online met onze gratis planner.",
+  title: "SchuttingPlanner Pro | Gratis Composiet Schutting Ontwerpen | Direct Materiaallijst",
+  description: "Ontwerp uw composiet schutting gratis online met de SchuttingPlanner Pro. Kies vorm, lengte en panelen — ontvang direct een materiaallijst. ✓ 25 jaar garantie ✓ Export naar CSV",
   canonical: "/schutting-planner",
 } as const;
 
@@ -305,6 +312,17 @@ const FencePlannerPage = () => {
   return (
     <>
       <SEOHead {...SEO_PROPS} />
+      <JsonLd data={[
+        softwareApplicationSchema({
+          name: "SchuttingPlanner Pro",
+          description: "Gratis online composiet schutting planner met materiaalberekening.",
+          url: "/schutting-planner",
+        }),
+        breadcrumbSchema([
+          { name: "Home", url: "/" },
+          { name: "SchuttingPlanner Pro", url: "/schutting-planner" },
+        ]),
+      ]} />
       <div className="h-screen flex flex-col bg-muted/20 overflow-hidden">
         {/* App header bar */}
         <header className="h-14 border-b border-border bg-background flex items-center px-5 gap-3 flex-shrink-0 shadow-sm">
