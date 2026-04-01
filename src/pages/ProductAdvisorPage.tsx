@@ -3,180 +3,89 @@ import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import FAQSection from "@/components/FAQSection";
-import { Button } from "@/components/ui/button";
+import JsonLd, { breadcrumbSchema, faqSchema } from "@/components/JsonLd";
+import AuthorBlock from "@/components/seo/AuthorBlock";
+import TrustCTA from "@/components/seo/TrustCTA";
+import InternalLinkBlock from "@/components/seo/InternalLinkBlock";
+import AdvisorQuiz from "@/components/advisor/AdvisorQuiz";
 import { Link } from "react-router-dom";
-import { ArrowRight, ArrowLeft, CheckCircle2, RotateCcw } from "lucide-react";
-import { useState, useMemo } from "react";
-import { products, categories } from "@/data/products";
-import ProductCard from "@/components/ProductCard";
-
-/* ── Quiz data ─────────────────────────────────── */
-
-interface QuizOption {
-  label: string;
-  value: string;
-  icon: string;
-}
-
-interface QuizStep {
-  id: string;
-  question: string;
-  options: QuizOption[];
-}
-
-const steps: QuizStep[] = [
-  {
-    id: "project",
-    question: "Wat wil je aanleggen?",
-    options: [
-      { label: "Een terras of vlonder", value: "vlonder", icon: "🪵" },
-      { label: "Een schutting of tuinscherm", value: "schutting", icon: "🏡" },
-      { label: "Ik weet het nog niet", value: "onzeker", icon: "🤔" },
-    ],
-  },
-  {
-    id: "budget",
-    question: "Wat is je budget-voorkeur?",
-    options: [
-      { label: "Zo voordelig mogelijk", value: "budget", icon: "💰" },
-      { label: "Goede prijs-kwaliteit", value: "mid", icon: "⚖️" },
-      { label: "Het allerbeste, prijs speelt geen rol", value: "premium", icon: "✨" },
-    ],
-  },
-  {
-    id: "look",
-    question: "Welke uitstraling spreekt je aan?",
-    options: [
-      { label: "Modern & strak", value: "modern", icon: "🔲" },
-      { label: "Warm & natuurlijk hout", value: "warm", icon: "🌳" },
-      { label: "Geen voorkeur", value: "any", icon: "🎨" },
-    ],
-  },
-  {
-    id: "use",
-    question: "Hoe wordt het gebruikt?",
-    options: [
-      { label: "Normaal gebruik (gezin)", value: "normaal", icon: "👨‍👩‍👧‍👦" },
-      { label: "Intensief (horeca / zwembad)", value: "intensief", icon: "🏊" },
-      { label: "Puur decoratief", value: "decoratief", icon: "🌺" },
-    ],
-  },
-];
-
-/* ── Recommendation engine ─────────────────────── */
-
-interface Recommendation {
-  lines: string[];
-  category: string;
-  reason: string;
-}
-
-function getRecommendation(answers: Record<string, string>): Recommendation {
-  const { project, budget, look, use } = answers;
-
-  // Schutting path
-  if (project === "schutting") {
-    if (budget === "premium") {
-      return { lines: ["Premium"], category: "schuttingen", reason: "De Premium schuttingplank heeft een realistisch 3D houtnerf patroon en is dubbelzijdig afgewerkt." };
-    }
-    return { lines: ["Classic"], category: "schuttingen", reason: "De Classic schuttingplank biedt een geborsteld oppervlak tegen een scherpe prijs. Dubbelzijdig afgewerkt." };
-  }
-
-  // Vlonder path
-  if (budget === "budget") {
-    return { lines: ["Slim", "Eco"], category: "vlonderplanken", reason: "Slim is het meest betaalbare instapmodel. Eco biedt iets meer kleurkeuze en is maximaal duurzaam geproduceerd." };
-  }
-
-  if (budget === "premium") {
-    if (use === "intensief") {
-      return { lines: ["Elegance"], category: "vlonderplanken", reason: "Elegance is het topmodel met RENOLIT folie en korund antislip — ideaal voor zwembaden en horeca." };
-    }
-    if (look === "warm") {
-      return { lines: ["Premium", "Elegance"], category: "vlonderplanken", reason: "Premium biedt een realistisch houtnerf patroon. Elegance met RENOLIT folie geeft de meest natuurlijke eiken-look." };
-    }
-    return { lines: ["Premium", "Classic"], category: "vlonderplanken", reason: "Beide zijn massief en extreem duurzaam. Premium heeft houtnerf, Classic een strak geborsteld oppervlak." };
-  }
-
-  // Mid budget
-  if (look === "modern") {
-    return { lines: ["Komorowa", "MAX"], category: "vlonderplanken", reason: "Komorowa biedt co-extrusie bescherming. MAX is extra breed (185mm) voor een strak, modern terras." };
-  }
-  if (look === "warm") {
-    return { lines: ["Komorowa", "Classic"], category: "vlonderplanken", reason: "Komorowa is licht en voordelig met dubbelzijdig profiel. Classic is massief met een warme geborstelde afwerking." };
-  }
-  return { lines: ["Komorowa", "MAX"], category: "vlonderplanken", reason: "Komorowa is de populairste keuze: co-extrusie beschermd, dubbelzijdig en verkrijgbaar in 5 kleuren." };
-}
+import { categories } from "@/data/products";
+import { ShieldCheck, Leaf, Ruler, Palette, Award, ClipboardCheck } from "lucide-react";
 
 /* ── FAQ ──────────────────────────────────────── */
 
 const faqs = [
-  { q: "Hoe weet ik welke composiet lijn bij mij past?", a: "Gebruik onze keuzehulp hierboven. Op basis van uw project, budget en stijlvoorkeur adviseren wij de beste productlijn." },
-  { q: "Kan ik composiet zelf monteren?", a: "Ja! Alle producten worden geleverd met montage-instructies. Met standaard gereedschap kunt u alles zelf installeren." },
-  { q: "Wat is het verschil tussen hol en massief?", a: "Holle planken (Komorowa, Eco, Slim) zijn lichter en voordeliger. Massieve planken (Classic, Premium, MAX) zijn sterker en zwaarder, ideaal voor intensief gebruik." },
-  { q: "Kan ik een gratis offerte aanvragen?", a: "Absoluut! Neem contact met ons op via de contactpagina of gebruik de TerrasDesigner of SchuttingPlanner om een materiaallijst te genereren." },
+  { q: "Hoe weet ik welke composiet lijn bij mij past?", a: "Gebruik onze keuzehulp hierboven. Op basis van uw project, budget en stijlvoorkeur adviseren wij de beste productlijn. Onze aanbevelingen zijn gebaseerd op jarenlange ervaring met honderden projecten in Nederland." },
+  { q: "Kan ik composiet zelf monteren?", a: "Ja! Alle producten worden geleverd met uitgebreide montage-instructies. Met standaard gereedschap (accuboormachine, verstekzaag, waterpas) kunt u alles zelf installeren. Voor grotere projecten raden wij professionele plaatsing aan." },
+  { q: "Wat is het verschil tussen hol en massief?", a: "Holle planken (Komorowa, Eco, Slim) zijn lichter en voordeliger. Massieve planken (Classic, Premium, MAX) zijn sterker, zwaarder en ideaal voor intensief gebruik zoals horeca of rondom zwembaden. Massieve planken hebben een langere levensduur bij zware belasting." },
+  { q: "Kan ik een gratis offerte aanvragen?", a: "Absoluut! Neem contact met ons op via de contactpagina of gebruik de TerrasDesigner of SchuttingPlanner om een gedetailleerde materiaallijst te genereren. Wij sturen u binnen 24 uur een vrijblijvende offerte." },
+  { q: "Hoe lang gaat composiet mee?", a: "Onze WPC-composietproducten gaan minimaal 25 jaar mee bij normaal gebruik. Alle producten worden geleverd met 25 jaar productgarantie. Door de samenstelling van 45% hout en 45% PVC is het materiaal bestand tegen rot, schimmel en insecten." },
+  { q: "Wat kost composiet per vierkante meter?", a: "De prijzen variëren per productlijn: instapmodellen zoals Slim beginnen vanaf ca. €35/m², terwijl topmodellen zoals Elegance rond €75/m² kosten. Gebruik onze keuzehulp voor een persoonlijk advies dat past bij uw budget." },
+  { q: "Is composiet onderhoudsvrij?", a: "Composiet is nagenoeg onderhoudsvrij. U hoeft niet te schuren, oliën of beitsen zoals bij hout. Een jaarlijkse reiniging met water en een zachte borstel is voldoende om het materiaal er als nieuw uit te laten zien." },
+  { q: "Welke kleuropties zijn beschikbaar?", a: "Afhankelijk van de productlijn zijn er 3 tot 7 kleuren beschikbaar, van warm teak en walnoot tot modern antraciet en zwart. Co-extrusie lijnen zoals Komorowa bieden de meeste kleurkeuze met 5 standaardkleuren." },
+];
+
+/* ── Internal links ──────────────────────────── */
+
+const internalLinks = [
+  { label: "Composiet vlonderplanken", href: "/categorie/vlonderplanken" },
+  { label: "Composiet schuttingen", href: "/categorie/schuttingen" },
+  { label: "TerrasDesigner", href: "/terras-designer" },
+  { label: "SchuttingPlanner", href: "/schutting-planner" },
+  { label: "Composiet schutting kopen", href: "/composiet-schutting" },
+  { label: "Composiet vlonderplanken vergelijken", href: "/composiet-vlonderplanken" },
+  { label: "Montagehandleidingen downloaden", href: "/downloads" },
+  { label: "Blog & inspiratie", href: "/blog" },
+  { label: "Contact & offerte", href: "/contact" },
+];
+
+/* ── Methodology steps ───────────────────────── */
+
+const methodologySteps = [
+  { icon: ClipboardCheck, title: "Projecttype bepalen", desc: "Vlonder, schutting of combinatie — elk project vraagt om andere materiaaleigenschappen." },
+  { icon: Ruler, title: "Budget & afmetingen", desc: "Uw budget bepaalt welke productlijnen in aanmerking komen. Van instap tot premium." },
+  { icon: Palette, title: "Uitstraling & kleur", desc: "Modern strak of warm natuurlijk — de juiste kleur en textuur maken het verschil." },
+  { icon: ShieldCheck, title: "Gebruiksintensiteit", desc: "Gezinstuin, horeca of zwembad — elk gebruik vraagt om specifieke eigenschappen." },
 ];
 
 /* ── Component ───────────────────────────────── */
 
 const ProductAdvisorPage = () => {
-  const [currentStep, setCurrentStep] = useState(0);
-  const [answers, setAnswers] = useState<Record<string, string>>({});
-  const [showResult, setShowResult] = useState(false);
-
-  const handleAnswer = (stepId: string, value: string) => {
-    const newAnswers = { ...answers, [stepId]: value };
-    setAnswers(newAnswers);
-
-    // Skip irrelevant steps
-    if (stepId === "project" && value === "schutting") {
-      // Skip "use" for schutting (not relevant)
-      if (currentStep < steps.length - 1) {
-        setCurrentStep(currentStep + 1);
-      }
-    } else if (currentStep < steps.length - 1) {
-      setCurrentStep(currentStep + 1);
-    } else {
-      setShowResult(true);
-    }
-  };
-
-  const handleBack = () => {
-    if (currentStep > 0) setCurrentStep(currentStep - 1);
-  };
-
-  const reset = () => {
-    setCurrentStep(0);
-    setAnswers({});
-    setShowResult(false);
-  };
-
-  const canShowResult = Object.keys(answers).length >= 2;
-
-  const recommendation = useMemo(() => {
-    if (!canShowResult) return null;
-    return getRecommendation(answers);
-  }, [answers, canShowResult]);
-
-  const recommendedProducts = useMemo(() => {
-    if (!recommendation) return [];
-    return products.filter(
-      (p) =>
-        p.category === recommendation.category &&
-        recommendation.lines.some((line) =>
-          p.name.toLowerCase().includes(line.toLowerCase())
-        )
-    );
-  }, [recommendation]);
-
-  const step = steps[currentStep];
-  const progress = showResult ? 100 : ((currentStep + 1) / steps.length) * 100;
+  const breadcrumbs = [
+    { name: "Home", url: "/" },
+    { name: "Productadvies", url: "/productadvies" },
+  ];
 
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="Productadvies | Welk composiet past bij jou? | Schuttingvancomposiet.nl"
-        description="Beantwoord 4 simpele vragen en ontvang persoonlijk productadvies voor jouw composiet terras of schutting. Gratis keuzehulp."
+        title="Productadvies Composiet | Welk WPC past bij jou? | SchuttingvanComposiet.nl"
+        description="Beantwoord 4 vragen en ontvang persoonlijk productadvies van composiet-specialisten. Gebaseerd op 500+ projecten. Gratis keuzehulp voor vlonderplanken & schuttingen."
         canonical="/productadvies"
+      />
+      <JsonLd
+        data={[
+          breadcrumbSchema(breadcrumbs),
+          faqSchema(faqs),
+          {
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            name: "Composiet Productadviseur",
+            description: "Interactieve keuzehulp voor WPC composiet vlonderplanken en schuttingen",
+            url: "https://schuttingvancomposiet.nl/productadvies",
+            applicationCategory: "DesignApplication",
+            operatingSystem: "Web",
+            offers: {
+              "@type": "Offer",
+              price: "0",
+              priceCurrency: "EUR",
+            },
+            provider: {
+              "@type": "Organization",
+              name: "SchuttingvanComposiet.nl",
+            },
+          },
+        ]}
       />
       <Header />
       <Breadcrumbs
@@ -187,118 +96,177 @@ const ProductAdvisorPage = () => {
       />
 
       <main>
-        <section className="container py-8 sm:py-12 md:py-20 px-4 sm:px-6">
-          <div className="max-w-2xl mx-auto">
-            <div className="text-center mb-8 sm:mb-12">
+        {/* ── Hero + Intro ── */}
+        <section className="container py-8 sm:py-12 md:py-16 px-4 sm:px-6">
+          <div className="max-w-3xl mx-auto">
+            <div className="text-center mb-6">
               <span className="text-accent text-sm font-medium uppercase tracking-wider">
                 Keuzehulp
               </span>
               <h1 className="font-serif text-3xl md:text-4xl font-bold text-foreground mt-2">
-                Welk composiet past bij jou?
+                Welk composiet past bij jouw project?
               </h1>
-              <p className="text-muted-foreground mt-3 leading-relaxed">
-                Beantwoord een paar vragen en ontvang direct een persoonlijk productadvies.
+              <p className="text-muted-foreground mt-3 leading-relaxed max-w-2xl mx-auto">
+                Niet elk composiet is hetzelfde. De juiste keuze hangt af van uw project, budget, gewenste uitstraling en gebruiksintensiteit. Onze keuzehulp helpt u in 4 stappen naar het perfecte product.
               </p>
             </div>
 
-            {/* Progress bar */}
-            <div className="w-full bg-muted rounded-full h-2 mb-8">
-              <div
-                className="bg-accent h-2 rounded-full transition-all duration-500"
-                style={{ width: `${progress}%` }}
-              />
-            </div>
-
-            {!showResult ? (
-              /* ── Quiz step ── */
-              <div className="space-y-6">
-                <h2 className="font-serif text-xl sm:text-2xl font-bold text-foreground text-center">
-                  {step.question}
-                </h2>
-                <div className="grid gap-3 sm:gap-4">
-                  {step.options.map((opt) => (
-                    <button
-                      key={opt.value}
-                      onClick={() => handleAnswer(step.id, opt.value)}
-                      className={`w-full flex items-center gap-4 p-4 sm:p-5 rounded-xl border-2 text-left transition-all ${
-                        answers[step.id] === opt.value
-                          ? "border-primary bg-primary/5 shadow-sm"
-                          : "border-border bg-card hover:border-primary/40 hover:shadow-sm"
-                      }`}
-                    >
-                      <span className="text-2xl">{opt.icon}</span>
-                      <span className="font-medium text-foreground">{opt.label}</span>
-                    </button>
-                  ))}
-                </div>
-                <div className="flex justify-between items-center pt-4">
-                  <Button
-                    variant="ghost"
-                    onClick={handleBack}
-                    disabled={currentStep === 0}
-                    className="text-muted-foreground"
-                  >
-                    <ArrowLeft className="w-4 h-4 mr-1" /> Vorige
-                  </Button>
-                  {canShowResult && !showResult && (
-                    <Button
-                      onClick={() => setShowResult(true)}
-                      className="bg-accent text-accent-foreground hover:bg-accent/90"
-                    >
-                      Bekijk advies <ArrowRight className="w-4 h-4 ml-1" />
-                    </Button>
-                  )}
-                </div>
-              </div>
-            ) : (
-              /* ── Result ── */
-              <div className="space-y-8">
-                <div className="rounded-2xl border-2 border-accent/30 bg-accent/5 p-6 sm:p-8 text-center">
-                  <CheckCircle2 className="w-10 h-10 text-accent mx-auto mb-4" />
-                  <h2 className="font-serif text-xl sm:text-2xl font-bold text-foreground">
-                    Ons advies: {recommendation?.lines.join(" & ")}
-                  </h2>
-                  <p className="text-muted-foreground mt-3 leading-relaxed max-w-lg mx-auto">
-                    {recommendation?.reason}
-                  </p>
-                  <div className="flex flex-col sm:flex-row justify-center gap-3 mt-6">
-                    <Button asChild className="bg-accent text-accent-foreground hover:bg-accent/90">
-                      <Link to={`/categorie/${recommendation?.category}`}>
-                        Bekijk producten <ArrowRight className="w-4 h-4 ml-1" />
-                      </Link>
-                    </Button>
-                    <Button asChild variant="outline">
-                      <Link to="/contact">Gratis offerte aanvragen</Link>
-                    </Button>
-                  </div>
-                </div>
-
-                {/* Recommended products */}
-                {recommendedProducts.length > 0 && (
-                  <div>
-                    <h3 className="font-serif text-lg font-bold text-foreground mb-4">
-                      Aanbevolen producten
-                    </h3>
-                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
-                      {recommendedProducts.slice(0, 6).map((p) => (
-                        <ProductCard key={p.id} product={p} />
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {/* Restart */}
-                <div className="text-center">
-                  <Button variant="ghost" onClick={reset} className="text-muted-foreground">
-                    <RotateCcw className="w-4 h-4 mr-1" /> Opnieuw beginnen
-                  </Button>
-                </div>
-              </div>
-            )}
+            <AuthorBlock
+              name="Daan Vermeulen"
+              role="Composiet specialist · 12+ jaar ervaring"
+              publishDate="2025-01-15"
+              updatedDate="2026-03-20"
+              readingTime="3 min"
+            />
           </div>
         </section>
 
-        {/* Category cards */}
+        {/* ── Expert context section ── */}
+        <section className="bg-secondary/30">
+          <div className="container py-10 sm:py-14 px-4 sm:px-6">
+            <div className="max-w-3xl mx-auto">
+              <h2 className="font-serif text-2xl font-bold text-foreground mb-4">
+                Waarom een productadviseur gebruiken?
+              </h2>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                Met 7 productlijnen en tientallen kleur- en afwerkingscombinaties is de keuze voor het juiste composiet niet altijd eenvoudig. Onze adviseur is ontwikkeld op basis van meer dan 500 afgeronde projecten in Nederland en België. We analyseren uw wensen en koppelen deze aan de technische specificaties van elke lijn — van de betaalbare Slim tot het premium Elegance met RENOLIT folie.
+              </p>
+
+              <h3 className="font-serif text-xl font-bold text-foreground mb-4">
+                Onze adviesmethodiek in 4 stappen
+              </h3>
+              <div className="grid sm:grid-cols-2 gap-4">
+                {methodologySteps.map((step) => (
+                  <div
+                    key={step.title}
+                    className="flex gap-3 p-4 bg-card rounded-xl border border-border"
+                  >
+                    <step.icon className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" />
+                    <div>
+                      <h4 className="font-medium text-foreground text-sm">{step.title}</h4>
+                      <p className="text-xs text-muted-foreground mt-1 leading-relaxed">{step.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Quiz ── */}
+        <section className="container py-10 sm:py-14 px-4 sm:px-6" id="keuzehulp">
+          <div className="text-center mb-8">
+            <h2 className="font-serif text-2xl font-bold text-foreground">
+              Start de keuzehulp
+            </h2>
+            <p className="text-muted-foreground mt-2">
+              Beantwoord de vragen en ontvang direct een persoonlijk productadvies.
+            </p>
+          </div>
+          <AdvisorQuiz />
+        </section>
+
+        {/* ── Product lines overview ── */}
+        <section className="bg-secondary/30">
+          <div className="container py-10 sm:py-14 px-4 sm:px-6">
+            <div className="max-w-3xl mx-auto">
+              <h2 className="font-serif text-2xl font-bold text-foreground mb-4">
+                Overzicht productlijnen
+              </h2>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                Alle composiet producten worden vervaardigd uit een combinatie van 45% hout en 45% PVC, aangevuld met UV-stabilisatoren en kleurpigmenten. Het verschil zit in de afwerking, structuur en beschermingslaag.
+              </p>
+
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm border-collapse">
+                  <thead>
+                    <tr className="border-b border-border">
+                      <th className="text-left py-3 px-2 font-medium text-foreground">Lijn</th>
+                      <th className="text-left py-3 px-2 font-medium text-foreground">Type</th>
+                      <th className="text-left py-3 px-2 font-medium text-foreground">Geschikt voor</th>
+                      <th className="text-left py-3 px-2 font-medium text-foreground">Segment</th>
+                    </tr>
+                  </thead>
+                  <tbody className="text-muted-foreground">
+                    <tr className="border-b border-border/50">
+                      <td className="py-2.5 px-2 font-medium text-foreground">Slim</td>
+                      <td className="py-2.5 px-2">Hol profiel</td>
+                      <td className="py-2.5 px-2">Balkons, kleine terrassen</td>
+                      <td className="py-2.5 px-2">Instap</td>
+                    </tr>
+                    <tr className="border-b border-border/50">
+                      <td className="py-2.5 px-2 font-medium text-foreground">Eco</td>
+                      <td className="py-2.5 px-2">Hol profiel</td>
+                      <td className="py-2.5 px-2">Duurzame terrassen</td>
+                      <td className="py-2.5 px-2">Instap</td>
+                    </tr>
+                    <tr className="border-b border-border/50">
+                      <td className="py-2.5 px-2 font-medium text-foreground">Komorowa</td>
+                      <td className="py-2.5 px-2">Co-extrusie</td>
+                      <td className="py-2.5 px-2">Gezinsterrassen, tuin</td>
+                      <td className="py-2.5 px-2">Midden</td>
+                    </tr>
+                    <tr className="border-b border-border/50">
+                      <td className="py-2.5 px-2 font-medium text-foreground">MAX</td>
+                      <td className="py-2.5 px-2">Massief, extra breed</td>
+                      <td className="py-2.5 px-2">Grote terrassen, modern</td>
+                      <td className="py-2.5 px-2">Midden–Premium</td>
+                    </tr>
+                    <tr className="border-b border-border/50">
+                      <td className="py-2.5 px-2 font-medium text-foreground">Classic</td>
+                      <td className="py-2.5 px-2">Massief, geborsteld</td>
+                      <td className="py-2.5 px-2">Allround, intensief</td>
+                      <td className="py-2.5 px-2">Premium</td>
+                    </tr>
+                    <tr className="border-b border-border/50">
+                      <td className="py-2.5 px-2 font-medium text-foreground">Premium</td>
+                      <td className="py-2.5 px-2">Massief, 3D houtnerf</td>
+                      <td className="py-2.5 px-2">Luxe terrassen, schuttingen</td>
+                      <td className="py-2.5 px-2">Premium</td>
+                    </tr>
+                    <tr>
+                      <td className="py-2.5 px-2 font-medium text-foreground">Elegance</td>
+                      <td className="py-2.5 px-2">RENOLIT folie + korund</td>
+                      <td className="py-2.5 px-2">Zwembad, horeca, luxe</td>
+                      <td className="py-2.5 px-2">Top</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Trust signals ── */}
+        <section className="container py-10 sm:py-14 px-4 sm:px-6">
+          <div className="max-w-3xl mx-auto space-y-8">
+            <div className="grid sm:grid-cols-3 gap-4 text-center">
+              <div className="p-5 bg-card rounded-xl border border-border">
+                <Award className="w-8 h-8 text-primary mx-auto mb-2" />
+                <p className="font-medium text-foreground text-sm">25 jaar garantie</p>
+                <p className="text-xs text-muted-foreground mt-1">Op alle productlijnen</p>
+              </div>
+              <div className="p-5 bg-card rounded-xl border border-border">
+                <Leaf className="w-8 h-8 text-primary mx-auto mb-2" />
+                <p className="font-medium text-foreground text-sm">100% recyclebaar</p>
+                <p className="text-xs text-muted-foreground mt-1">Circulaire productie</p>
+              </div>
+              <div className="p-5 bg-card rounded-xl border border-border">
+                <ShieldCheck className="w-8 h-8 text-primary mx-auto mb-2" />
+                <p className="font-medium text-foreground text-sm">500+ projecten</p>
+                <p className="text-xs text-muted-foreground mt-1">Ervaring in NL & BE</p>
+              </div>
+            </div>
+
+            <TrustCTA
+              title="Persoonlijk advies nodig?"
+              primaryHref="/contact"
+              primaryLabel="Gratis offerte aanvragen"
+            />
+          </div>
+        </section>
+
+        {/* ── Category cards ── */}
         <section className="bg-secondary/50">
           <div className="container py-12 sm:py-16 px-4 sm:px-6">
             <h2 className="font-serif text-2xl font-bold text-foreground text-center mb-8">
@@ -330,6 +298,14 @@ const ProductAdvisorPage = () => {
           </div>
         </section>
 
+        {/* ── Internal links ── */}
+        <section className="container py-10 px-4 sm:px-6">
+          <div className="max-w-3xl mx-auto">
+            <InternalLinkBlock links={internalLinks} title="Meer ontdekken" />
+          </div>
+        </section>
+
+        {/* ── FAQ ── */}
         <FAQSection faqs={faqs} />
       </main>
 
