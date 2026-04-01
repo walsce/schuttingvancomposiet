@@ -44,7 +44,7 @@ const OrderConfirmationPage = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
-      <SEOHead title="Bestelling bevestigd | SchuttingvanComposiet.nl" description="Je bestelling is ontvangen." canonical="/bestelling-bevestigd" />
+      <SEOHead title="Bestelling bevestigd | SchuttingvanComposiet.nl" description="Je bestelling is ontvangen." canonical="/bestelling-bevestigd" noindex />
       <Header />
       <main className="flex-1 max-w-3xl mx-auto w-full px-4 py-12">
         {loading ? (
