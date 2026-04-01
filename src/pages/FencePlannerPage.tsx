@@ -13,6 +13,13 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Diamond, ChevronRight, ChevronLeft, Plus, Minus, Settings2 } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import JsonLd, { softwareApplicationSchema, breadcrumbSchema } from "@/components/JsonLd";
+import TrustCTA from "@/components/seo/TrustCTA";
+import InternalLinkBlock from "@/components/seo/InternalLinkBlock";
+import { Link } from "react-router-dom";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 const DEFAULT_LENGTH = 600;
