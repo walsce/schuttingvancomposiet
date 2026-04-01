@@ -146,8 +146,8 @@ const DeckPlannerPage = () => {
     return (
       <>
         <SEOHead
-          title="TerrasDesigner Pro | Ontwerp je composiet terras online | Schuttingvancomposiet.nl"
-          description="Ontwerp je ideale composiet vlonder met onze gratis online planner. Kies je vorm, afmetingen en materiaal en ontvang direct een materiaallijst met prijsindicatie."
+          title="TerrasDesigner Pro | Gratis Composiet Terras Planner | 25 Jaar Garantie"
+          description="Ontwerp uw composiet vlonder gratis online met de TerrasDesigner Pro. Kies vorm, afmetingen en materiaal — ontvang direct een materiaallijst. ✓ 25 jaar garantie ✓ Inclusief onderconstructie"
           canonical="/vlonder-planner"
         />
         <DeckPlannerHero onStart={() => setStarted(true)} />
