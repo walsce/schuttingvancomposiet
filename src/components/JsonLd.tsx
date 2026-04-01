@@ -125,6 +125,30 @@ export const articleSchema = (article: {
   mainEntityOfPage: `https://schuttingvancomposiet.nl/blog/${article.slug}`,
 });
 
+export const softwareApplicationSchema = (app: {
+  name: string;
+  description: string;
+  url: string;
+  applicationCategory?: string;
+}) => ({
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: app.name,
+  description: app.description,
+  url: app.url.startsWith("http") ? app.url : `https://schuttingvancomposiet.nl${app.url}`,
+  applicationCategory: app.applicationCategory || "DesignApplication",
+  operatingSystem: "Web",
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "EUR",
+  },
+  provider: {
+    "@type": "Organization",
+    name: "Schuttingvancomposiet.nl",
+  },
+});
+
 export const howToSchema = (article: {
   title: string;
   excerpt: string;
