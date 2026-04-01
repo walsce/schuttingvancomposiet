@@ -32,8 +32,8 @@ const MOBILE_STEPS = [
 ] as const;
 
 const SEO_PROPS = {
-  title: "SchuttingPlanner Pro | Schuttingvancomposiet.nl",
-  description: "Ontwerp uw composiet schutting online met onze gratis planner.",
+  title: "SchuttingPlanner Pro | Gratis Composiet Schutting Ontwerpen | Direct Materiaallijst",
+  description: "Ontwerp uw composiet schutting gratis online met de SchuttingPlanner Pro. Kies vorm, lengte en panelen — ontvang direct een materiaallijst. ✓ 25 jaar garantie ✓ Export naar CSV",
   canonical: "/schutting-planner",
 } as const;
 
