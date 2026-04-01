@@ -4,6 +4,10 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import JsonLd, { softwareApplicationSchema, breadcrumbSchema } from "@/components/JsonLd";
+import TrustCTA from "@/components/seo/TrustCTA";
+import InternalLinkBlock from "@/components/seo/InternalLinkBlock";
+import { Link } from "react-router-dom";
 
 import DeckCanvas from "@/components/planner/DeckCanvas";
 import ShapeSelector from "@/components/planner/ShapeSelector";
