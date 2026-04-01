@@ -354,6 +354,49 @@ const DeckPlannerPage = () => {
           </div>
         </section>
 
+        {/* Below-tool CTA section */}
+        <section className="max-w-6xl mx-auto px-3 sm:px-4 pb-16 space-y-8">
+          <TrustCTA
+            title="Klaar met ontwerpen? Vraag een offerte aan"
+            primaryHref={`/contact?type=offerte&product=${selectedProduct}&area=${areaM2.toFixed(1)}`}
+            primaryLabel="Offerte aanvragen"
+          />
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <Link
+              to="/schutting-planner"
+              className="flex items-center gap-3 p-4 bg-card border border-border rounded-xl hover:border-primary/30 transition-colors"
+            >
+              <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <span className="text-primary font-bold text-sm">→</span>
+              </div>
+              <div>
+                <p className="font-serif font-bold text-sm text-foreground">SchuttingPlanner Pro</p>
+                <p className="text-xs text-muted-foreground">Ontwerp ook uw composiet schutting</p>
+              </div>
+            </Link>
+            <Link
+              to="/categorie/vlonderplanken"
+              className="flex items-center gap-3 p-4 bg-card border border-border rounded-xl hover:border-primary/30 transition-colors"
+            >
+              <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <span className="text-primary font-bold text-sm">→</span>
+              </div>
+              <div>
+                <p className="font-serif font-bold text-sm text-foreground">Vlonderplanken assortiment</p>
+                <p className="text-xs text-muted-foreground">Bekijk alle composiet vlonderplanken</p>
+              </div>
+            </Link>
+          </div>
+          <InternalLinkBlock
+            links={[
+              { label: "Composiet terras aanleggen", href: "/composiet-terras-aanleggen" },
+              { label: "Vlonder onderconstructie", href: "/vlonder-onderconstructie" },
+              { label: "Co-extrusie vlonderplanken", href: "/co-extrusie-vlonderplanken" },
+              { label: "Contact & offerte", href: "/contact" },
+            ]}
+          />
+        </section>
+
         
       </main>
 
