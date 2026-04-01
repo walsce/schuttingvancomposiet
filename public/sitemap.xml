@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Core pages -->
+  <url><loc>https://schuttingvancomposiet.nl/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/assortiment</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/contact</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/productadvies</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/blog</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/downloads</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/vlonder-planner</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/schutting-planner</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Category pages -->
+  <url><loc>https://schuttingvancomposiet.nl/categorie/vlonderplanken</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/categorie/schuttingen</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/categorie/accessoires</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <!-- Product pages -->
+  <url><loc>https://schuttingvancomposiet.nl/product/komorowa-donker-bruin-vlonderplank</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/product/komorowa-grafiet-vlonderplank</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/product/komorowa-walnoot-vlonderplank</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/product/komorowa-grijs-vlonderplank</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/product/komorowa-donker-grijs-vlonderplank</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/product/classic-donker-bruin-vlonderplank</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/product/classic-grafiet-vlonderplank</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/product/classic-walnoot-vlonderplank</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/product/premium-donker-bruin-vlonderplank</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/product/premium-grafiet-vlonderplank</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/product/premium-walnoot-vlonderplank</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/product/elegance-berg-eiken-vlonderplank</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/product/elegance-honing-eiken-vlonderplank</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/product/elegance-naturel-eiken-vlonderplank</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/product/eco-donker-bruin-vlonderplank</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/product/eco-grafiet-vlonderplank</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/product/eco-walnoot-vlonderplank</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/product/slim-donker-bruin-vlonderplank</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/product/slim-grafiet-vlonderplank</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/product/slim-walnoot-vlonderplank</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/product/max-donker-bruin-vlonderplank</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/product/max-grafiet-vlonderplank</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/product/max-walnoot-vlonderplank</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/product/schuttingplank-classic-donker-bruin</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/product/schuttingplank-classic-grafiet</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/product/schuttingplank-classic-walnoot</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/product/schuttingplank-premium-donker-bruin</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/product/schuttingplank-premium-grafiet</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/product/schuttingplank-premium-walnoot</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/product/universeel-profiel-donker-bruin</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/product/universeel-profiel-grafiet</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/product/universeel-profiel-walnoot</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/product/ceownik-wpc-paalprofiel-donker-bruin</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/product/schuttingpaal-wpc-donker-bruin</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/product/legar-wpc-onderbalk</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/product/legar-aluminium-laag-profiel</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/product/legar-aluminium-hoog-profiel</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/product/montageset-wpc-2m2</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/product/montageset-wpc-10m2</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/product/afwerklijst-plat-wpc</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/product/afwerklijst-l-profiel-composiet</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/product/afwerklijst-l-profiel-aluminium</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/product/verstelbare-terrasdrager</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+
+  <!-- Blog articles -->
+  <url><loc>https://schuttingvancomposiet.nl/blog/composiet-vlonderplanken-kiezen</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/blog/composiet-schutting-plaatsen</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/blog/composiet-vs-hout-vergelijking</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/blog/composiet-onderhouden-seizoenstips</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/blog/tuin-inspiratie-composiet-terras</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/blog/kleine-tuin-met-composiet-terras</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/blog/composiet-schutting-of-tuinscherm</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/blog/composiet-terras-kosten-berekenen</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/blog/composiet-schutting-winter-tips</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/blog/duurzame-tuin-composiet-materialen</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/blog/composiet-vlonder-poolgebied</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/blog/kleurkeuze-composiet-schutting</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/blog/composiet-terras-verlichting</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- SEO pillar & cluster pages -->
+  <url><loc>https://schuttingvancomposiet.nl/schutting-van-composiet</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/kunststof-schutting</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/onderhoudsvrije-schutting</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/composiet-schutting-nadelen</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/composiet-schutting-prijs-per-meter</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/composiet-vs-hout-schutting</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/zwarte-composiet-schutting</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/antraciet-composiet-schutting</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/hornbach-composiet-schutting</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/gamma-composiet-schutting</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/composiet-schutting-met-beton</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/elephant-schutting</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/composiet-schutting-plaatsen</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/composiet-schutting-zelf-maken</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/composiet-schutting-levensduur</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/composiet-schutting-180-hoog</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/composiet-tuinscherm</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/praxis-composiet-schutting</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/karwei-composiet-schutting</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/composiet-vlonderplanken</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/composiet-vlonder-prijs</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/composiet-terras-aanleggen</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/composiet-vlonder-onderhoud</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/composiet-vlonderplanken-nadelen</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/composiet-vs-hout-vlonder</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/composiet-vlonder-kleuren</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/co-extrusie-vlonderplanken</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/composiet-vlonder-op-beton</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/composiet-vlonder-zelf-leggen</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/wpc-terrasplanken</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/vlonder-onderconstructie</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/hornbach-composiet-vlonder</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/gamma-composiet-vlonder</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/wat-is-composiet</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/composiet-samenstelling</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/composiet-duurzaamheid-milieu</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/composiet-vs-kunststof</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/composiet-recyclen</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/composiet-levensduur</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/composiet-garantie</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://schuttingvancomposiet.nl/co-extrusie-vs-composiet</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+</urlset>
