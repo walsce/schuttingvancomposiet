@@ -65,9 +65,11 @@ const SEOHead = ({
     }
 
     return () => {
-      // Cleanup canonical on unmount
-      const el = document.querySelector('link[rel="canonical"]');
-      if (el) el.remove();
+      // Cleanup canonical and robots on unmount
+      const canon = document.querySelector('link[rel="canonical"]');
+      if (canon) canon.remove();
+      const robots = document.querySelector('meta[name="robots"]');
+      if (robots) robots.remove();
     };
   }, [title, description, canonical, ogTitle, ogDescription, ogImage, ogType, noindex]);
 
