@@ -31,11 +31,11 @@ const NotFound = () => {
             </Button>
           </div>
           <div className="mt-8 flex flex-wrap justify-center gap-3 text-sm">
-            <Link to="/categorie/gevelbekleding" className="text-primary hover:underline">Gevelbekleding</Link>
-            <span className="text-muted-foreground">·</span>
             <Link to="/categorie/schuttingen" className="text-primary hover:underline">Schuttingen</Link>
             <span className="text-muted-foreground">·</span>
             <Link to="/categorie/vlonderplanken" className="text-primary hover:underline">Vlonderplanken</Link>
+            <span className="text-muted-foreground">·</span>
+            <Link to="/productadvies" className="text-primary hover:underline">Productadvies</Link>
             <span className="text-muted-foreground">·</span>
             <Link to="/contact" className="text-primary hover:underline">Contact</Link>
           </div>
