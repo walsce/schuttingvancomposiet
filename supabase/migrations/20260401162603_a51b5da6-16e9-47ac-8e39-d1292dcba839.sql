@@ -1,0 +1,1 @@
+UPDATE cms_categories SET seo_description = replace(seo_description, '15 jaar', '25 jaar') WHERE seo_description LIKE '%15 jaar%';

@@ -14,7 +14,7 @@ const CartPage = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
-      <SEOHead title="Winkelwagen | SchuttingvanComposiet.nl" description="Bekijk je winkelwagen en ga verder naar afrekenen." canonical="/winkelwagen" />
+      <SEOHead title="Winkelwagen | SchuttingvanComposiet.nl" description="Bekijk je winkelwagen en ga verder naar afrekenen." canonical="/winkelwagen" noindex />
       <Header />
       <main className="flex-1 max-w-5xl mx-auto w-full px-4 py-8">
         <h1 className="font-serif text-2xl font-bold text-foreground mb-6">Winkelwagen {totalItems > 0 && <span className="text-muted-foreground font-normal text-lg">({totalItems} {totalItems === 1 ? "item" : "items"})</span>}</h1>

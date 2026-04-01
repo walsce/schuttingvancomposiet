@@ -1095,7 +1095,7 @@ WPC/composiet biedt de beste balans tussen prijs, uitstraling en levensduur.`,
     faqs: [
       { q: "Is WPC hetzelfde als composiet?", a: "Ja, WPC (Wood Plastic Composite) is de technische/internationale benaming voor composiet terrasplanken. In Nederland gebruiken we meestal de term 'composiet'." },
       { q: "Is BPC beter dan WPC?", a: "BPC (Bamboo Plastic Composite) gebruikt bamboevezels in plaats van houtvezels. Bamboe groeit sneller na, waardoor BPC iets duurzamer is. Qua prestaties zijn ze vergelijkbaar." },
-      { q: "Waar moet ik op letten bij het kopen van WPC?", a: "Let op: type (co-extrusie vs mono-extrusie), houtvezels percentage, garantieduur, en of er CE-markering is. Kies een gerenommeerd merk met minimaal 15 jaar garantie." },
+      { q: "Waar moet ik op letten bij het kopen van WPC?", a: "Let op: type (co-extrusie vs mono-extrusie), houtvezels percentage, garantieduur, en of er CE-markering is. Kies een gerenommeerd merk met minimaal 25 jaar garantie." },
     ],
     internalLinks: [
       { label: "Alles over composiet vlonderplanken", href: "/composiet-vlonderplanken" },
