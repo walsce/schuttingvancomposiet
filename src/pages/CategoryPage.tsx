@@ -52,7 +52,7 @@ const CategoryPage = () => {
     <div className="min-h-screen bg-background">
       <SEOHead
         title={category.seoTitle || `${category.name} Kopen | Schuttingvancomposiet.nl`}
-        description={category.seoDescription || `${category.description} Bekijk ons complete assortiment ${category.name.toLowerCase()} met 15 jaar garantie.`}
+        description={category.seoDescription || `${category.description} Bekijk ons complete assortiment ${category.name.toLowerCase()} met 25 jaar garantie.`}
         canonical={`/categorie/${slug}`}
       />
       <Header />
