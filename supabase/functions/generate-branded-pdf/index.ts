@@ -730,12 +730,26 @@ const documents: BrandedDoc[] = [
   },
 ];
 
-/* ── Simple PDF builder (plain text, no external libs) ─────────── */
+/* ── Branded PDF builder ────────────────────────────────────────── */
 
 function buildPdf(doc: BrandedDoc): Uint8Array {
   const brandName = "SchuttingvanComposiet.nl";
-  const lines: string[] = [];
-  let yPos = 750;
+  const tagline = "Composiet vlonderplanken & schuttingen | 25 jaar garantie";
+  const website = "www.schuttingvancomposiet.nl";
+  const email = "info@schuttingvancomposiet.nl";
+
+  // Brand colors (RGB 0-1) derived from site design tokens
+  const C = {
+    primaryR: 0.153, primaryG: 0.404, primaryB: 0.286,   // HSL 152 45% 28% — green
+    accentR: 0.851, accentG: 0.467, accentB: 0.149,      // HSL 28 70% 50% — orange
+    darkR: 0.094, darkG: 0.086, darkB: 0.078,             // foreground near-black
+    mutedR: 0.46, mutedG: 0.46, mutedB: 0.46,             // muted text
+    lightBgR: 0.965, lightBgG: 0.957, lightBgB: 0.945,    // warm off-white row
+    white: 1,
+    tableHeaderR: 0.153, tableHeaderG: 0.404, tableHeaderB: 0.286,
+    tableAltR: 0.96, tableAltG: 0.96, tableAltB: 0.955,
+  };
+
   const leftMargin = 50;
   const rightMargin = 545;
   const pageWidth = rightMargin - leftMargin;
@@ -744,6 +758,8 @@ function buildPdf(doc: BrandedDoc): Uint8Array {
   const pages: { contentRef: number; length: number }[] = [];
   let objCount = 0;
   let currentPageContent = "";
+  let yPos = 750;
+  let currentPageNum = 0;
 
   function addObj(content: string): number {
     objCount++;
@@ -756,7 +772,7 @@ function buildPdf(doc: BrandedDoc): Uint8Array {
       .replace(/\\/g, "\\\\")
       .replace(/\(/g, "\\(")
       .replace(/\)/g, "\\)")
-      .replace(/[^\\x20-\\x7E]/g, (ch) => {
+      .replace(/[^\x20-\x7E]/g, (ch) => {
         const map: Record<string, string> = {
           "é": "e", "è": "e", "ë": "e", "ê": "e",
           "á": "a", "à": "a", "ä": "a", "â": "a",
@@ -767,7 +783,7 @@ function buildPdf(doc: BrandedDoc): Uint8Array {
           "²": "2", "³": "3",
           "€": "EUR",
           "–": "-", "—": "--",
-          "'": "'", "'": "'", "\"": "\\\"", "\u201C": "\\\"",
+          "\u2018": "'", "\u2019": "'", "\u201C": "\"", "\u201D": "\"",
           "…": "...",
           "×": "x",
           "°": "o",
@@ -778,7 +794,7 @@ function buildPdf(doc: BrandedDoc): Uint8Array {
   }
 
   function wrapText(text: string, maxWidth: number, fontSize: number): string[] {
-    const charWidth = fontSize * 0.5;
+    const charWidth = fontSize * 0.48;
     const maxChars = Math.floor(maxWidth / charWidth);
     const words = text.split(" ");
     const result: string[] = [];
@@ -795,15 +811,43 @@ function buildPdf(doc: BrandedDoc): Uint8Array {
     return result;
   }
 
+  // ── Page chrome (header bar + footer) ──────────────────────────
+  function drawPageChrome() {
+    currentPageNum++;
+    // Top bar — green background full width
+    currentPageContent += `${C.primaryR} ${C.primaryG} ${C.primaryB} rg\n`;
+    currentPageContent += `0 808 595 34 re f\n`;
+    // Brand name in white on green bar
+    currentPageContent += `BT /F2 11 Tf ${C.white} ${C.white} ${C.white} rg ${leftMargin} 820 Td (${escapePdf(brandName)}) Tj ET\n`;
+    // Tagline right-aligned
+    currentPageContent += `BT /F1 7 Tf ${C.white} ${C.white} ${C.white} rg 310 820 Td (${escapePdf(tagline)}) Tj ET\n`;
+
+    // Orange accent stripe below header
+    currentPageContent += `${C.accentR} ${C.accentG} ${C.accentB} rg\n`;
+    currentPageContent += `0 805 595 3 re f\n`;
+
+    // Footer line
+    currentPageContent += `${C.primaryR} ${C.primaryG} ${C.primaryB} rg\n`;
+    currentPageContent += `${leftMargin} 42 ${pageWidth} 1 re f\n`;
+    // Footer text
+    currentPageContent += `BT /F1 7 Tf ${C.mutedR} ${C.mutedG} ${C.mutedB} rg ${leftMargin} 30 Td (${escapePdf(brandName + "  |  " + website + "  |  " + email)}) Tj ET\n`;
+    // Page number right
+    currentPageContent += `BT /F1 7 Tf ${C.mutedR} ${C.mutedG} ${C.mutedB} rg 510 30 Td (Pagina ${currentPageNum}) Tj ET\n`;
+    // Warranty badge
+    currentPageContent += `BT /F2 7 Tf ${C.accentR} ${C.accentG} ${C.accentB} rg 440 30 Td (25 jaar garantie) Tj ET\n`;
+  }
+
   function newPage() {
     if (currentPageContent) {
       const streamBytes = new TextEncoder().encode(currentPageContent);
       const streamRef = addObj(
-        `<< /Length ${streamBytes.length} >>\\nstream\\n${currentPageContent}\\nendstream`
+        `<< /Length ${streamBytes.length} >>\nstream\n${currentPageContent}\nendstream`
       );
       pages.push({ contentRef: streamRef, length: streamBytes.length });
     }
     currentPageContent = "";
+    yPos = 785;
+    drawPageChrome();
     yPos = 780;
   }
 
@@ -813,49 +857,119 @@ function buildPdf(doc: BrandedDoc): Uint8Array {
     }
   }
 
-  function addLine(text: string, fontSize: number, bold: boolean, r: number, g: number, b: number) {
-    const wrapped = wrapText(text, pageWidth, fontSize);
+  function addText(text: string, fontSize: number, font: string, r: number, g: number, b: number, x?: number) {
+    const xPos = x ?? leftMargin;
+    const maxW = rightMargin - xPos;
+    const wrapped = wrapText(text, maxW, fontSize);
     for (const line of wrapped) {
       checkSpace(lineHeight + 2);
-      const fontName = bold ? "/F2" : "/F1";
-      currentPageContent += `BT ${fontName} ${fontSize} Tf ${r} ${g} ${b} rg ${leftMargin} ${yPos} Td (${escapePdf(line)}) Tj ET\\n`;
+      currentPageContent += `BT ${font} ${fontSize} Tf ${r} ${g} ${b} rg ${xPos} ${yPos} Td (${escapePdf(line)}) Tj ET\n`;
       yPos -= lineHeight;
     }
   }
 
-  // Header
+  // ── COVER PAGE ──────────────────────────────────────────────────
   currentPageContent = "";
-  currentPageContent += `0.851 0.467 0.024 rg\\n${leftMargin} 800 ${pageWidth} 30 re f\\n`;
-  currentPageContent += `BT /F2 11 Tf 1 1 1 rg ${leftMargin + 10} 810 Td (${escapePdf(brandName)}) Tj ET\\n`;
+  currentPageNum++;
+
+  // Full green background top half
+  currentPageContent += `${C.primaryR} ${C.primaryG} ${C.primaryB} rg\n0 520 595 322 re f\n`;
+  // Orange accent band
+  currentPageContent += `${C.accentR} ${C.accentG} ${C.accentB} rg\n0 516 595 8 re f\n`;
+
+  // Brand name large, white
+  currentPageContent += `BT /F2 28 Tf ${C.white} ${C.white} ${C.white} rg ${leftMargin} 740 Td (${escapePdf(brandName)}) Tj ET\n`;
+  // Tagline below brand
+  currentPageContent += `BT /F1 11 Tf ${C.white} ${C.white} ${C.white} rg ${leftMargin} 715 Td (${escapePdf(tagline)}) Tj ET\n`;
+
+  // Decorative lines
+  currentPageContent += `${C.white} ${C.white} ${C.white} rg\n${leftMargin} 700 200 1 re f\n`;
+
+  // Document title — large on green
+  const titleWrapped = wrapText(doc.title, pageWidth, 22);
+  let titleY = 650;
+  for (const line of titleWrapped) {
+    currentPageContent += `BT /F2 22 Tf ${C.white} ${C.white} ${C.white} rg ${leftMargin} ${titleY} Td (${escapePdf(line)}) Tj ET\n`;
+    titleY -= 28;
+  }
+
+  // Subtitle below title
+  const subWrapped = wrapText(doc.subtitle, pageWidth, 12);
+  let subY = titleY - 10;
+  for (const line of subWrapped) {
+    currentPageContent += `BT /F1 12 Tf ${C.white} ${C.white} ${C.white} rg ${leftMargin} ${subY} Td (${escapePdf(line)}) Tj ET\n`;
+    subY -= 16;
+  }
+
+  // Bottom half — warm background
+  currentPageContent += `${C.lightBgR} ${C.lightBgG} ${C.lightBgB} rg\n0 0 595 516 re f\n`;
+
+  // Info box on cover
+  const boxY = 440;
+  currentPageContent += `${C.white} ${C.white} ${C.white} rg\n${leftMargin} ${boxY - 130} ${pageWidth} 140 re f\n`;
+  // Border on info box
+  currentPageContent += `${C.primaryR} ${C.primaryG} ${C.primaryB} rg\n${leftMargin} ${boxY - 130} 3 140 re f\n`;
+
+  const infoLines = [
+    "Dit document is eigendom van " + brandName,
+    "Website: " + website,
+    "E-mail: " + email,
+    "Alle producten worden geleverd met 25 jaar fabrieksgarantie.",
+    "Composiet: UV-bestendig, onderhoudsarm, 100% recyclebaar.",
+  ];
+  let infoY = boxY - 10;
+  for (const line of infoLines) {
+    currentPageContent += `BT /F1 9 Tf ${C.darkR} ${C.darkG} ${C.darkB} rg ${leftMargin + 14} ${infoY} Td (${escapePdf(line)}) Tj ET\n`;
+    infoY -= 16;
+  }
+
+  // Footer on cover
+  currentPageContent += `${C.primaryR} ${C.primaryG} ${C.primaryB} rg\n0 0 595 30 re f\n`;
+  currentPageContent += `BT /F1 8 Tf ${C.white} ${C.white} ${C.white} rg ${leftMargin} 10 Td (${escapePdf(brandName + "  |  " + website + "  |  25 jaar garantie op alle producten")}) Tj ET\n`;
+
+  // Close cover page
+  const coverBytes = new TextEncoder().encode(currentPageContent);
+  const coverRef = addObj(`<< /Length ${coverBytes.length} >>\nstream\n${currentPageContent}\nendstream`);
+  pages.push({ contentRef: coverRef, length: coverBytes.length });
+
+  // ── CONTENT PAGES ───────────────────────────────────────────────
+  currentPageContent = "";
+  yPos = 785;
+  drawPageChrome();
   yPos = 780;
 
-  // Title
-  addLine(doc.title, 18, true, 0.1, 0.1, 0.1);
-  yPos -= 4;
-  addLine(doc.subtitle, 11, false, 0.4, 0.4, 0.4);
-  yPos -= 12;
+  // Document title on first content page
+  addText(doc.title, 16, "/F2", C.primaryR, C.primaryG, C.primaryB);
+  yPos -= 2;
+  addText(doc.subtitle, 10, "/F1", C.mutedR, C.mutedG, C.mutedB);
+  yPos -= 6;
 
-  // Divider
-  currentPageContent += `0.851 0.467 0.024 rg\\n${leftMargin} ${yPos} ${pageWidth} 2 re f\\n`;
+  // Green divider
+  currentPageContent += `${C.primaryR} ${C.primaryG} ${C.primaryB} rg\n${leftMargin} ${yPos} ${pageWidth} 2 re f\n`;
   yPos -= 16;
 
   // Sections
   for (const section of doc.sections) {
-    checkSpace(40);
-    addLine(section.heading, 14, true, 0.1, 0.1, 0.1);
-    yPos -= 4;
+    checkSpace(50);
+
+    // Section heading — green left bar + bold text
+    currentPageContent += `${C.accentR} ${C.accentG} ${C.accentB} rg\n${leftMargin} ${yPos - 3} 3 16 re f\n`;
+    addText(section.heading, 13, "/F2", C.primaryR, C.primaryG, C.primaryB, leftMargin + 10);
+    yPos -= 6;
 
     if (section.paragraphs) {
       for (const p of section.paragraphs) {
-        addLine(p, 10, false, 0.2, 0.2, 0.2);
+        addText(p, 10, "/F1", C.darkR, C.darkG, C.darkB);
         yPos -= 4;
       }
     }
 
     if (section.bullets) {
       for (const b of section.bullets) {
-        checkSpace(lineHeight + 2);
-        addLine(`  - ${b}`, 10, false, 0.2, 0.2, 0.2);
+        checkSpace(lineHeight + 4);
+        // Orange bullet dot
+        currentPageContent += `${C.accentR} ${C.accentG} ${C.accentB} rg\n${leftMargin + 6} ${yPos + 3} 4 4 re f\n`;
+        addText(b, 10, "/F1", C.darkR, C.darkG, C.darkB, leftMargin + 16);
       }
       yPos -= 4;
     }
@@ -865,40 +979,49 @@ function buildPdf(doc: BrandedDoc): Uint8Array {
       const colCount = headers.length;
       const colWidth = pageWidth / colCount;
 
-      checkSpace((rows.length + 1) * (lineHeight + 4) + 10);
+      checkSpace((rows.length + 1) * (lineHeight + 4) + 16);
 
-      currentPageContent += `0.95 0.95 0.95 rg\\n${leftMargin} ${yPos - 2} ${pageWidth} ${lineHeight + 4} re f\\n`;
+      // Table header row — green background
+      currentPageContent += `${C.tableHeaderR} ${C.tableHeaderG} ${C.tableHeaderB} rg\n${leftMargin} ${yPos - 4} ${pageWidth} ${lineHeight + 6} re f\n`;
       for (let c = 0; c < colCount; c++) {
-        const x = leftMargin + c * colWidth + 4;
-        currentPageContent += `BT /F2 9 Tf 0.1 0.1 0.1 rg ${x} ${yPos} Td (${escapePdf(headers[c])}) Tj ET\\n`;
+        const x = leftMargin + c * colWidth + 6;
+        currentPageContent += `BT /F2 8.5 Tf ${C.white} ${C.white} ${C.white} rg ${x} ${yPos} Td (${escapePdf(headers[c])}) Tj ET\n`;
       }
-      yPos -= lineHeight + 4;
+      yPos -= lineHeight + 6;
 
-      for (const row of rows) {
+      // Table data rows — alternating
+      for (let ri = 0; ri < rows.length; ri++) {
         checkSpace(lineHeight + 4);
+        if (ri % 2 === 0) {
+          currentPageContent += `${C.tableAltR} ${C.tableAltG} ${C.tableAltB} rg\n${leftMargin} ${yPos - 3} ${pageWidth} ${lineHeight + 3} re f\n`;
+        }
         for (let c = 0; c < colCount; c++) {
-          const x = leftMargin + c * colWidth + 4;
-          const cellText = row[c] || "";
-          const maxChars = Math.floor((colWidth - 8) / 4.5);
+          const x = leftMargin + c * colWidth + 6;
+          const cellText = rows[ri][c] || "";
+          const maxChars = Math.floor((colWidth - 12) / 4.2);
           const display = cellText.length > maxChars ? cellText.slice(0, maxChars - 2) + ".." : cellText;
-          currentPageContent += `BT /F1 9 Tf 0.2 0.2 0.2 rg ${x} ${yPos} Td (${escapePdf(display)}) Tj ET\\n`;
+          currentPageContent += `BT /F1 8.5 Tf ${C.darkR} ${C.darkG} ${C.darkB} rg ${x} ${yPos} Td (${escapePdf(display)}) Tj ET\n`;
         }
         yPos -= lineHeight + 2;
       }
-      yPos -= 6;
+      // Bottom border on table
+      currentPageContent += `${C.primaryR} ${C.primaryG} ${C.primaryB} rg\n${leftMargin} ${yPos + 1} ${pageWidth} 1 re f\n`;
+      yPos -= 8;
     }
-    yPos -= 8;
+    yPos -= 10;
   }
 
-  // Footer
-  checkSpace(30);
-  currentPageContent += `0.7 0.7 0.7 rg\\n${leftMargin} 40 ${pageWidth} 0.5 re f\\n`;
-  currentPageContent += `BT /F1 8 Tf 0.5 0.5 0.5 rg ${leftMargin} 28 Td (${escapePdf(brandName + " | www.schuttingvancomposiet.nl | info@schuttingvancomposiet.nl")}) Tj ET\\n`;
+  // ── Closing page block ──────────────────────────────────────────
+  checkSpace(80);
+  // Green box at bottom
+  currentPageContent += `${C.primaryR} ${C.primaryG} ${C.primaryB} rg\n${leftMargin} ${yPos - 55} ${pageWidth} 60 re f\n`;
+  currentPageContent += `BT /F2 11 Tf ${C.white} ${C.white} ${C.white} rg ${leftMargin + 14} ${yPos - 14} Td (${escapePdf("Vragen? Neem contact op voor gratis advies!")}) Tj ET\n`;
+  currentPageContent += `BT /F1 9 Tf ${C.white} ${C.white} ${C.white} rg ${leftMargin + 14} ${yPos - 32} Td (${escapePdf(website + "  |  " + email + "  |  25 jaar fabrieksgarantie")}) Tj ET\n`;
 
   // Finalize last page
   newPage();
 
-  // Build PDF structure
+  // ── Build PDF byte structure ────────────────────────────────────
   const finalObjects: string[] = [];
   let finalObjCount = 0;
 
@@ -927,20 +1050,20 @@ function buildPdf(doc: BrandedDoc): Uint8Array {
   finalObjects[catalogRef - 1] = `<< /Type /Catalog /Pages ${pagesRef} 0 R >>`;
   finalObjects[pagesRef - 1] = `<< /Type /Pages /Kids [${pageRefs.map((r) => `${r} 0 R`).join(" ")}] /Count ${pageRefs.length} >>`;
 
-  let pdf = "%PDF-1.4\\n";
+  let pdf = "%PDF-1.4\n";
   const offsets: number[] = [];
   for (let i = 0; i < finalObjects.length; i++) {
     offsets.push(pdf.length);
-    pdf += `${i + 1} 0 obj\\n${finalObjects[i]}\\nendobj\\n`;
+    pdf += `${i + 1} 0 obj\n${finalObjects[i]}\nendobj\n`;
   }
 
   const xrefOffset = pdf.length;
-  pdf += `xref\\n0 ${finalObjects.length + 1}\\n`;
-  pdf += "0000000000 65535 f \\n";
+  pdf += `xref\n0 ${finalObjects.length + 1}\n`;
+  pdf += "0000000000 65535 f \n";
   for (const offset of offsets) {
-    pdf += `${String(offset).padStart(10, "0")} 00000 n \\n`;
+    pdf += `${String(offset).padStart(10, "0")} 00000 n \n`;
   }
-  pdf += `trailer\\n<< /Size ${finalObjects.length + 1} /Root ${catalogRef} 0 R >>\\nstartxref\\n${xrefOffset}\\n%%EOF`;
+  pdf += `trailer\n<< /Size ${finalObjects.length + 1} /Root ${catalogRef} 0 R >>\nstartxref\n${xrefOffset}\n%%EOF`;
 
   return new TextEncoder().encode(pdf);
 }
