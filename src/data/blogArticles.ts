@@ -34,7 +34,7 @@ const blogArticlesBase: BlogArticle[] = [
     date: "2026-02-10",
     author: { name: "Mark de Vries", role: "Composiet specialist" },
     updatedDate: "2026-02-15",
-    relatedProducts: ["gamrat-classic-donkerbruin", "gamrat-premium-grafiet", "gamrat-elegance-gorski-dab"],
+    relatedProducts: ["wpc-classic-donkerbruin", "wpc-premium-grafiet", "wpc-elegance-gorski-dab"],
     relatedCategories: ["vlonderplanken"],
     schemaType: "Article",
     content: `## Waarom composiet vlonderplanken?
@@ -64,7 +64,7 @@ Standaard lengtes zijn 3 en 4 meter. De breedte varieert van 140 mm (Eco, Elegan
 
 ### 4. Kleurkeuze
 
-Gamrat WPC vlonderplanken zijn beschikbaar in vijf basiskleuren:
+premium WPC composiet vlonderplanken zijn beschikbaar in vijf basiskleuren:
 - **Donkerbruin** — klassieke warme houtlook
 - **Grafiet** — modern en strak
 - **Orzech (walnoot)** — rijke middenbruine tint
@@ -75,7 +75,7 @@ De Elegance lijn biedt exclusieve eiken-tinten met RENOLIT folie.
 
 ## Prijsindicatie
 
-Neem contact op voor actuele prijzen. Gamrat WPC biedt 25 jaar garantie op alle producten.
+Neem contact op voor actuele prijzen. premium WPC composiet biedt 25 jaar garantie op alle producten.
 
 ## Conclusie
 
@@ -91,7 +91,7 @@ Investeer in kwaliteit en kies voor de juiste plank voor jouw situatie. Je genie
     date: "2026-01-28",
     author: { name: "Jan Bakker", role: "Montage expert" },
     updatedDate: "2026-02-01",
-    relatedProducts: ["gamrat-schutting-classic-donkerbruin", "gamrat-schutting-premium-grafiet", "gamrat-paal-donkerbruin"],
+    relatedProducts: ["wpc-schutting-classic-donkerbruin", "wpc-schutting-premium-grafiet", "wpc-paal-donkerbruin"],
     relatedCategories: ["schuttingen"],
     schemaType: "HowTo",
     content: `## De juiste fundering
@@ -144,7 +144,7 @@ Je composiet schutting heeft nauwelijks onderhoud nodig:
     date: "2026-01-20",
     author: { name: "Mark de Vries", role: "Composiet specialist" },
     updatedDate: "2026-01-25",
-    relatedProducts: ["gamrat-premium-donkerbruin", "gamrat-classic-orzech"],
+    relatedProducts: ["wpc-premium-donkerbruin", "wpc-classic-orzech"],
     relatedCategories: ["vlonderplanken", "schuttingen"],
     schemaType: "Article",
     content: `## De grote vraag
@@ -173,11 +173,11 @@ Composiet wint hier met grote voorsprong. Waar hout jaarlijks geschuurd en behan
 
 ## Uitstraling
 
-Modern composiet is nauwelijks te onderscheiden van echt hout. Gamrat WPC Premium planken hebben een realistische houtnerf-structuur.
+Modern composiet is nauwelijks te onderscheiden van echt hout. premium WPC composiet Premium planken hebben een realistische houtnerf-structuur.
 
 ## Milieu-impact
 
-Gamrat WPC composiet is 100% recycleerbaar en wordt geproduceerd door een Poolse fabrikant met duurzame productiemethoden. Het materiaal bestaat uit houtvezels en PVC.
+WPC composiet is 100% recycleerbaar en wordt geproduceerd door een Poolse fabrikant met duurzame productiemethoden. Het materiaal bestaat uit houtvezels en PVC.
 
 ## Ons advies
 
@@ -202,7 +202,7 @@ Kies hout als je:
     date: "2026-01-15",
     author: { name: "Lisa Jansen", role: "Onderhoud adviseur" },
     updatedDate: "2026-02-01",
-    relatedProducts: ["gamrat-classic-grafiet", "gamrat-schutting-classic-grafiet"],
+    relatedProducts: ["wpc-classic-grafiet", "wpc-schutting-classic-grafiet"],
     relatedCategories: ["vlonderplanken", "schuttingen"],
     schemaType: "Article",
     content: `## Voorjaar: grote schoonmaak
@@ -245,7 +245,7 @@ Gebruik een speciaal composiet-reinigingsmiddel. Vermijd bleek of agressieve che
 
 ## Professionele tip
 
-Composiet van Gamrat WPC is ontworpen om extreme temperaturen te weerstaan en heeft geen extra beschermlaag nodig.`,
+Composiet van premium WPC composiet is ontworpen om extreme temperaturen te weerstaan en heeft geen extra beschermlaag nodig.`,
   },
   {
     slug: "tuin-inspiratie-composiet-terras",
@@ -257,7 +257,7 @@ Composiet van Gamrat WPC is ontworpen om extreme temperaturen te weerstaan en he
     date: "2026-01-08",
     author: { name: "Sophie van Dijk", role: "Tuin & design specialist" },
     updatedDate: "2026-01-20",
-    relatedProducts: ["gamrat-premium-donkerbruin", "gamrat-classic-grafiet", "gamrat-elegance-miodowy-dab"],
+    relatedProducts: ["wpc-premium-donkerbruin", "wpc-classic-grafiet", "wpc-elegance-miodowy-dab"],
     relatedCategories: ["vlonderplanken"],
     schemaType: "Article",
     content: `## 1. Het minimalistische stadsterras
@@ -274,7 +274,7 @@ Een ruim terras in warm donkerbruin composiet met een ingebouwde zandbak en spee
 
 ## 3. De mediterrane loungehoek
 
-Lichte eiken composiet vlonders (Gamrat Elegance) gecombineerd met een pergola, klimplanten en comfortabele loungesets. Breng de vakantiesfeer naar je eigen tuin.
+Lichte eiken composiet vlonders (Elegance) gecombineerd met een pergola, klimplanten en comfortabele loungesets. Breng de vakantiesfeer naar je eigen tuin.
 
 **Tip:** Combineer composiet met natuursteen randen voor een luxe mediterraans gevoel.
 

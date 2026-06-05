@@ -11,7 +11,7 @@ export const blogArticlesExpansion: BlogArticle[] = [
     date: "2026-02-18",
     author: { name: "Sophie van Dijk", role: "Tuin & design specialist" },
     updatedDate: "2026-02-22",
-    relatedProducts: ["gamrat-eco-orzech", "gamrat-slim-grafiet"],
+    relatedProducts: ["wpc-eco-orzech", "wpc-slim-grafiet"],
     relatedCategories: ["vlonderplanken"],
     schemaType: "Article",
     content: `## Waarom composiet perfect is voor kleine tuinen
@@ -20,7 +20,7 @@ Een kleine tuin vraagt om slimme oplossingen. Composiet vlonderplanken bieden pr
 
 ### 1. Kies lichte kleuren
 
-Lichte composiet planken — zoals de Gamrat Elegance eiken-lijn — reflecteren meer licht en maken je tuin optisch groter.
+Lichte composiet planken — zoals de Elegance eiken-lijn — reflecteren meer licht en maken je tuin optisch groter.
 
 ### 2. Leg planken in de lengterichting
 
@@ -48,7 +48,7 @@ Integreer LED-strips in de randen van je composiet vlonder.
 
 ## Materiaaladvies
 
-Voor kleine tuinen raden wij de Gamrat Eco of Slim lijn aan (140 mm breed). Deze geven een fijnere tekening.
+Voor kleine tuinen raden wij de Eco of Slim lijn aan (140 mm breed). Deze geven een fijnere tekening.
 
 ## Conclusie
 
@@ -64,7 +64,7 @@ Een kleine tuin is geen beperking — het is een kans om creatief te zijn.`,
     date: "2026-02-16",
     author: { name: "Mark de Vries", role: "Composiet specialist" },
     updatedDate: "2026-02-20",
-    relatedProducts: ["gamrat-schutting-classic-donkerbruin", "gamrat-schutting-premium-grafiet"],
+    relatedProducts: ["wpc-schutting-classic-donkerbruin", "wpc-schutting-premium-grafiet"],
     relatedCategories: ["schuttingen"],
     schemaType: "Article",
     content: `## Schutting vs. tuinscherm: de basis
@@ -112,7 +112,7 @@ Combineer beide! Gebruik een dichte composiet schutting aan de straatzijde en si
     date: "2026-02-14",
     author: { name: "Mark de Vries", role: "Composiet specialist" },
     updatedDate: "2026-02-21",
-    relatedProducts: ["gamrat-classic-donkerbruin", "gamrat-premium-grafiet", "gamrat-elegance-gorski-dab"],
+    relatedProducts: ["wpc-classic-donkerbruin", "wpc-premium-grafiet", "wpc-elegance-gorski-dab"],
     relatedCategories: ["vlonderplanken"],
     schemaType: "Article",
     content: `## Kostenoverzicht composiet terras
@@ -121,7 +121,7 @@ De totale kosten hangen af van het oppervlakte, de materiaalkeuze en of je zelf 
 
 ### Materiaalkosten per m²
 
-Neem contact op voor exacte prijzen. Gamrat WPC biedt zeven productlijnen van budget (Slim, Eco) tot premium (Elegance, Premium).
+Neem contact op voor exacte prijzen. premium WPC composiet biedt zeven productlijnen van budget (Slim, Eco) tot premium (Elegance, Premium).
 
 ### Onderconstructie
 
@@ -138,7 +138,7 @@ Neem contact op voor exacte prijzen. Gamrat WPC biedt zeven productlijnen van bu
 
 1. **Zelf leggen** — bespaar op arbeidskosten
 2. **Rechthoekig ontwerp** — minder zaagverlies
-3. **Gamrat Eco of Slim** — budgetvriendelijke optie met dezelfde garantie
+3. **Eco of Slim** — budgetvriendelijke optie met dezelfde garantie
 
 ## Gebruik onze vlonderplanner
 
@@ -154,7 +154,7 @@ Bereken exact hoeveel materiaal je nodig hebt met onze gratis TerrasDesigner Pro
     date: "2026-02-08",
     author: { name: "Lisa Jansen", role: "Onderhoud adviseur" },
     updatedDate: "2026-02-17",
-    relatedProducts: ["gamrat-schutting-classic-grafiet", "gamrat-schutting-premium-donkerbruin"],
+    relatedProducts: ["wpc-schutting-classic-grafiet", "wpc-schutting-premium-donkerbruin"],
     relatedCategories: ["schuttingen"],
     schemaType: "Article",
     content: `## Winteronderhoud voor composiet schuttingen
@@ -192,7 +192,7 @@ Controleer of planken niet zijn verschoven en palen nog loodrecht staan.
 
 ## Conclusie
 
-Met minimale voorbereiding gaat je composiet schutting probleemloos de winter door. Gamrat WPC is ontworpen om extreme temperaturen (-20°C tot +60°C) te weerstaan.`,
+Met minimale voorbereiding gaat je composiet schutting probleemloos de winter door. premium WPC composiet is ontworpen om extreme temperaturen (-20°C tot +60°C) te weerstaan.`,
   },
   {
     slug: "duurzame-tuin-composiet-materialen",
@@ -204,7 +204,7 @@ Met minimale voorbereiding gaat je composiet schutting probleemloos de winter do
     date: "2026-02-06",
     author: { name: "Mark de Vries", role: "Composiet specialist" },
     updatedDate: "2026-02-15",
-    relatedProducts: ["gamrat-eco-donkerbruin", "gamrat-schutting-classic-grafiet"],
+    relatedProducts: ["wpc-eco-donkerbruin", "wpc-schutting-classic-grafiet"],
     relatedCategories: ["vlonderplanken", "schuttingen"],
     schemaType: "Article",
     content: `## Composiet en duurzaamheid
@@ -213,7 +213,7 @@ Duurzaamheid is meer dan een trend — het is een noodzaak. Composiet materialen
 
 ### Gerecyclede grondstoffen
 
-Gamrat WPC producten zijn 100% recycleerbaar. Het materiaal bestaat uit:
+premium WPC composiet producten zijn 100% recycleerbaar. Het materiaal bestaat uit:
 
 - **Houtvezels (45%)**: afkomstig van resthout
 - **PVC (45%)**: hoogwaardig kunststof
@@ -233,18 +233,18 @@ Composiet hoeft niet behandeld te worden met beits, lak, of houtverduurzamingsmi
 
 ### Volledig recycleerbaar
 
-Gamrat WPC composiet is aan het einde van de levensduur 100% recycleerbaar.
+WPC composiet is aan het einde van de levensduur 100% recycleerbaar.
 
 ## Milieu-certificeringen
 
-Gamrat WPC biedt:
+premium WPC composiet biedt:
 - Hoge brandklasse classificatie
 - 25 jaar productgarantie
 - 100% recyclebaar materiaal
 
 ## Conclusie
 
-Met Gamrat WPC composiet maak je een bewuste keuze voor mens en milieu.`,
+Met WPC composiet maak je een bewuste keuze voor mens en milieu.`,
   },
   {
     slug: "composiet-vlonder-poolgebied",
@@ -256,7 +256,7 @@ Met Gamrat WPC composiet maak je een bewuste keuze voor mens en milieu.`,
     date: "2026-02-04",
     author: { name: "Lisa Jansen", role: "Onderhoud adviseur" },
     updatedDate: "2026-02-13",
-    relatedProducts: ["gamrat-classic-grafiet", "gamrat-premium-orzech", "gamrat-elegance-miodowy-dab"],
+    relatedProducts: ["wpc-classic-grafiet", "wpc-premium-orzech", "wpc-elegance-miodowy-dab"],
     relatedCategories: ["vlonderplanken"],
     schemaType: "Article",
     content: `## Waarom composiet ideaal is bij het zwembad
@@ -275,7 +275,7 @@ Een pooldeck moet voldoen aan strenge eisen: antislip, splintervrij, water- en c
 
 ### 1. Kies de juiste plank
 
-Gamrat Classic of Premium planken zijn ideaal voor zwembaddecks dankzij hun massieve constructie en antislip groeven.
+Classic of Premium planken zijn ideaal voor zwembaddecks dankzij hun massieve constructie en antislip groeven.
 
 ### 2. Gebruik de juiste onderconstructie
 
@@ -311,12 +311,12 @@ Een composiet pooldeck is de veiligste, mooiste en meest praktische keuze voor r
     date: "2026-02-02",
     author: { name: "Sophie van Dijk", role: "Tuin & design specialist" },
     updatedDate: "2026-02-11",
-    relatedProducts: ["gamrat-schutting-classic-donkerbruin", "gamrat-schutting-premium-grafiet", "gamrat-schutting-classic-orzech"],
+    relatedProducts: ["wpc-schutting-classic-donkerbruin", "wpc-schutting-premium-grafiet", "wpc-schutting-classic-orzech"],
     relatedCategories: ["schuttingen"],
     schemaType: "Article",
     content: `## De populairste kleuren voor composiet schuttingen
 
-Gamrat WPC schuttingen zijn beschikbaar in drie kleuren: Donkerbruin, Grafiet en Orzech (walnoot).
+premium WPC composiet schuttingen zijn beschikbaar in drie kleuren: Donkerbruin, Grafiet en Orzech (walnoot).
 
 ### Donkerbruin (Ciemny brąz)
 
@@ -364,7 +364,7 @@ Grafiet is de veiligste keuze, maar orzech en donkerbruin bieden een warmer alte
     date: "2026-01-25",
     author: { name: "Sophie van Dijk", role: "Tuin & design specialist" },
     updatedDate: "2026-02-07",
-    relatedProducts: ["gamrat-premium-donkerbruin", "gamrat-classic-grafiet"],
+    relatedProducts: ["wpc-premium-donkerbruin", "wpc-classic-grafiet"],
     relatedCategories: ["vlonderplanken"],
     schemaType: "Article",
     content: `## Waarom terrasverlichting bij composiet?
