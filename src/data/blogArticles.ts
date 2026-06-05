@@ -34,7 +34,7 @@ const blogArticlesBase: BlogArticle[] = [
     date: "2026-02-10",
     author: { name: "Mark de Vries", role: "Composiet specialist" },
     updatedDate: "2026-02-15",
-    relatedProducts: ["wpc-classic-donkerbruin", "wpc-premium-grafiet", "wpc-elegance-gorski-dab"],
+    relatedProducts: ["composiet-vlonderplank-walnoot", "composiet-vlonderplank-donker-grijs", "composiet-vlonderplank-vergrijsd-eiken"],
     relatedCategories: ["vlonderplanken"],
     schemaType: "Article",
     content: `## Waarom composiet vlonderplanken?
@@ -56,7 +56,7 @@ Composiet vlonderplanken combineren de warme, natuurlijke uitstraling van hout m
 
 ### 2. Afwerking
 
-Kies tussen geborsteld, fijn gegroefde of houtnerf-structuur. De Premium lijn biedt de meest natuurlijke houtlook, de Classic lijn een geborstelde afwerking.
+Kies tussen geborsteld, fijn gegroefde of houtnerf-structuur. De Premium lijn biedt de meest natuurlijke houtlook, de standaard composiet lijn een geborstelde afwerking.
 
 ### 3. Afmetingen
 
@@ -66,12 +66,12 @@ Standaard lengtes zijn 3 en 4 meter. De breedte varieert van 140 mm (Eco, Elegan
 
 premium WPC composiet vlonderplanken zijn beschikbaar in vijf basiskleuren:
 - **Donkerbruin** — klassieke warme houtlook
-- **Grafiet** — modern en strak
-- **Orzech (walnoot)** — rijke middenbruine tint
-- **Szary (grijs)** — neutraal en tijdloos
+- **grijs** — modern en strak
+- **walnoot (walnoot)** — rijke middenbruine tint
+- **grijs (grijs)** — neutraal en tijdloos
 - **Donkergrijs** — diep antraciet
 
-De Elegance lijn biedt exclusieve eiken-tinten met RENOLIT folie.
+De Rhombus lijn biedt exclusieve eiken-tinten met RENOLIT folie.
 
 ## Prijsindicatie
 
@@ -91,7 +91,7 @@ Investeer in kwaliteit en kies voor de juiste plank voor jouw situatie. Je genie
     date: "2026-01-28",
     author: { name: "Jan Bakker", role: "Montage expert" },
     updatedDate: "2026-02-01",
-    relatedProducts: ["wpc-schutting-classic-donkerbruin", "wpc-schutting-premium-grafiet", "wpc-paal-donkerbruin"],
+    relatedProducts: ["composiet-schutting-walnoot", "composiet-schutting-grijs", "wpc-paal-donkerbruin"],
     relatedCategories: ["schuttingen"],
     schemaType: "HowTo",
     content: `## De juiste fundering
@@ -144,7 +144,7 @@ Je composiet schutting heeft nauwelijks onderhoud nodig:
     date: "2026-01-20",
     author: { name: "Mark de Vries", role: "Composiet specialist" },
     updatedDate: "2026-01-25",
-    relatedProducts: ["wpc-premium-donkerbruin", "wpc-classic-orzech"],
+    relatedProducts: ["composiet-vlonderplank-walnoot", "composiet-vlonderplank-walnoot"],
     relatedCategories: ["vlonderplanken", "schuttingen"],
     schemaType: "Article",
     content: `## De grote vraag
@@ -202,7 +202,7 @@ Kies hout als je:
     date: "2026-01-15",
     author: { name: "Lisa Jansen", role: "Onderhoud adviseur" },
     updatedDate: "2026-02-01",
-    relatedProducts: ["wpc-classic-grafiet", "wpc-schutting-classic-grafiet"],
+    relatedProducts: ["composiet-vlonderplank-donker-grijs", "composiet-schutting-grijs"],
     relatedCategories: ["vlonderplanken", "schuttingen"],
     schemaType: "Article",
     content: `## Voorjaar: grote schoonmaak
@@ -257,12 +257,12 @@ Composiet van premium WPC composiet is ontworpen om extreme temperaturen te weer
     date: "2026-01-08",
     author: { name: "Sophie van Dijk", role: "Tuin & design specialist" },
     updatedDate: "2026-01-20",
-    relatedProducts: ["wpc-premium-donkerbruin", "wpc-classic-grafiet", "wpc-elegance-miodowy-dab"],
+    relatedProducts: ["composiet-vlonderplank-walnoot", "composiet-vlonderplank-donker-grijs", "composiet-vlonderplank-teak"],
     relatedCategories: ["vlonderplanken"],
     schemaType: "Article",
     content: `## 1. Het minimalistische stadsterras
 
-Een strak terras in grafiet composiet, gecombineerd met witte plantenbakken en siergrassen. Perfect voor kleine stadstuinen waar elke vierkante meter telt.
+Een strak terras in grijs composiet, gecombineerd met witte plantenbakken en siergrassen. Perfect voor kleine stadstuinen waar elke vierkante meter telt.
 
 **Tip:** Kies smalle planken (140 mm) voor een moderne uitstraling en leg ze in de lengterichting om de tuin groter te laten lijken.
 

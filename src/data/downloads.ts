@@ -65,7 +65,7 @@ export const downloads: DownloadGuide[] = [
       "Lay-out berekenen: materiaal per m²",
       "Onderconstructie & balkafstanden (max. 40 cm)",
       "Clips plaatsen & planken monteren",
-      "Komorowa, Classic, Premium & Elegance specificaties",
+      "Standaard, naadloos massief & Rhombus specificaties",
     ],
     category: "handleiding",
     image: "/images/wpc/wpc-systemy-tarasowe-slider-2.webp",
