@@ -34,6 +34,7 @@ import AdminCRMPage from "./pages/admin/AdminCRMPage";
 import AdminContactDetailPage from "./pages/admin/AdminContactDetailPage";
 import AdminAnalyticsPage from "./pages/admin/AdminAnalyticsPage";
 import AdminAutomationsPage from "./pages/admin/AdminAutomationsPage";
+import AdminScrapePage from "./pages/admin/AdminScrapePage";
 import NotFound from "./pages/NotFound";
 import ChatWidget from "./components/ChatWidget";
 
@@ -128,6 +129,7 @@ const App = () => (
               <Route path="/admin/orders" element={<AdminOrdersPage />} />
               <Route path="/admin/feed" element={<AdminFeedPage />} />
               <Route path="/admin/settings" element={<AdminSettingsPage />} />
+              <Route path="/admin/scrape" element={<AdminScrapePage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </AdminAuthProvider>

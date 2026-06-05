@@ -12,6 +12,7 @@ import {
   Users,
   BarChart3,
   Mail,
+  DownloadCloud,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -24,6 +25,7 @@ const navItems = [
   { label: "Producten", href: "/admin/products", icon: Package },
   { label: "Categorieën", href: "/admin/categories", icon: FolderTree },
   { label: "Bestellingen", href: "/admin/orders", icon: ShoppingCart },
+  { label: "Scrape & Import", href: "/admin/scrape", icon: DownloadCloud },
   { label: "Google Feed", href: "/admin/feed", icon: Rss },
   { label: "Instellingen", href: "/admin/settings", icon: Settings },
 ];
