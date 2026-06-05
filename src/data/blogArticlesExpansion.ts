@@ -11,7 +11,7 @@ export const blogArticlesExpansion: BlogArticle[] = [
     date: "2026-02-18",
     author: { name: "Sophie van Dijk", role: "Tuin & design specialist" },
     updatedDate: "2026-02-22",
-    relatedProducts: ["wpc-eco-orzech", "wpc-slim-grafiet"],
+    relatedProducts: ["composiet-vlonderplank-walnoot", "composiet-vlonderplank-donker-grijs"],
     relatedCategories: ["vlonderplanken"],
     schemaType: "Article",
     content: `## Waarom composiet perfect is voor kleine tuinen
@@ -20,7 +20,7 @@ Een kleine tuin vraagt om slimme oplossingen. Composiet vlonderplanken bieden pr
 
 ### 1. Kies lichte kleuren
 
-Lichte composiet planken — zoals de Elegance eiken-lijn — reflecteren meer licht en maken je tuin optisch groter.
+Lichte composiet planken — zoals vergrijsd eiken of teak — reflecteren meer licht en maken je tuin optisch groter.
 
 ### 2. Leg planken in de lengterichting
 
@@ -48,7 +48,7 @@ Integreer LED-strips in de randen van je composiet vlonder.
 
 ## Materiaaladvies
 
-Voor kleine tuinen raden wij de Eco of Slim lijn aan (140 mm breed). Deze geven een fijnere tekening.
+Voor kleine tuinen raden wij de Standaard lijn aan (140 mm breed). Deze geven een fijnere tekening.
 
 ## Conclusie
 
@@ -64,7 +64,7 @@ Een kleine tuin is geen beperking — het is een kans om creatief te zijn.`,
     date: "2026-02-16",
     author: { name: "Mark de Vries", role: "Composiet specialist" },
     updatedDate: "2026-02-20",
-    relatedProducts: ["wpc-schutting-classic-donkerbruin", "wpc-schutting-premium-grafiet"],
+    relatedProducts: ["composiet-schutting-walnoot", "composiet-schutting-grijs"],
     relatedCategories: ["schuttingen"],
     schemaType: "Article",
     content: `## Schutting vs. tuinscherm: de basis
@@ -112,7 +112,7 @@ Combineer beide! Gebruik een dichte composiet schutting aan de straatzijde en si
     date: "2026-02-14",
     author: { name: "Mark de Vries", role: "Composiet specialist" },
     updatedDate: "2026-02-21",
-    relatedProducts: ["wpc-classic-donkerbruin", "wpc-premium-grafiet", "wpc-elegance-gorski-dab"],
+    relatedProducts: ["composiet-vlonderplank-walnoot", "composiet-vlonderplank-donker-grijs", "composiet-vlonderplank-vergrijsd-eiken"],
     relatedCategories: ["vlonderplanken"],
     schemaType: "Article",
     content: `## Kostenoverzicht composiet terras
@@ -121,7 +121,7 @@ De totale kosten hangen af van het oppervlakte, de materiaalkeuze en of je zelf 
 
 ### Materiaalkosten per m²
 
-Neem contact op voor exacte prijzen. premium WPC composiet biedt zeven productlijnen van budget (Slim, Eco) tot premium (Elegance, Premium).
+Neem contact op voor exacte prijzen. premium WPC composiet biedt zeven productlijnen van budget (smal, budget) tot premium (naadloos massief, Rhombus).
 
 ### Onderconstructie
 
@@ -138,7 +138,7 @@ Neem contact op voor exacte prijzen. premium WPC composiet biedt zeven productli
 
 1. **Zelf leggen** — bespaar op arbeidskosten
 2. **Rechthoekig ontwerp** — minder zaagverlies
-3. **Eco of Slim** — budgetvriendelijke optie met dezelfde garantie
+3. **Standaard** — budgetvriendelijke optie met dezelfde garantie
 
 ## Gebruik onze vlonderplanner
 
@@ -154,7 +154,7 @@ Bereken exact hoeveel materiaal je nodig hebt met onze gratis TerrasDesigner Pro
     date: "2026-02-08",
     author: { name: "Lisa Jansen", role: "Onderhoud adviseur" },
     updatedDate: "2026-02-17",
-    relatedProducts: ["wpc-schutting-classic-grafiet", "wpc-schutting-premium-donkerbruin"],
+    relatedProducts: ["composiet-schutting-grijs", "composiet-schutting-walnoot"],
     relatedCategories: ["schuttingen"],
     schemaType: "Article",
     content: `## Winteronderhoud voor composiet schuttingen
@@ -204,7 +204,7 @@ Met minimale voorbereiding gaat je composiet schutting probleemloos de winter do
     date: "2026-02-06",
     author: { name: "Mark de Vries", role: "Composiet specialist" },
     updatedDate: "2026-02-15",
-    relatedProducts: ["wpc-eco-donkerbruin", "wpc-schutting-classic-grafiet"],
+    relatedProducts: ["composiet-vlonderplank-walnoot", "composiet-schutting-grijs"],
     relatedCategories: ["vlonderplanken", "schuttingen"],
     schemaType: "Article",
     content: `## Composiet en duurzaamheid
@@ -256,7 +256,7 @@ Met WPC composiet maak je een bewuste keuze voor mens en milieu.`,
     date: "2026-02-04",
     author: { name: "Lisa Jansen", role: "Onderhoud adviseur" },
     updatedDate: "2026-02-13",
-    relatedProducts: ["wpc-classic-grafiet", "wpc-premium-orzech", "wpc-elegance-miodowy-dab"],
+    relatedProducts: ["composiet-vlonderplank-donker-grijs", "composiet-vlonderplank-walnoot", "composiet-vlonderplank-teak"],
     relatedCategories: ["vlonderplanken"],
     schemaType: "Article",
     content: `## Waarom composiet ideaal is bij het zwembad
@@ -275,7 +275,7 @@ Een pooldeck moet voldoen aan strenge eisen: antislip, splintervrij, water- en c
 
 ### 1. Kies de juiste plank
 
-Classic of Premium planken zijn ideaal voor zwembaddecks dankzij hun massieve constructie en antislip groeven.
+Naadloos massief planken zijn ideaal voor zwembaddecks dankzij hun massieve constructie en antislip groeven.
 
 ### 2. Gebruik de juiste onderconstructie
 
@@ -304,31 +304,31 @@ Een composiet pooldeck is de veiligste, mooiste en meest praktische keuze voor r
   {
     slug: "kleurkeuze-composiet-schutting",
     title: "Kleurkeuze composiet schutting: welke kleur past bij jouw tuin?",
-    excerpt: "Donkerbruin, grafiet of orzech? Ontdek welke kleur composiet schutting het beste past bij jouw huis en tuinstijl.",
+    excerpt: "Donkerbruin, grijs of walnoot? Ontdek welke kleur composiet schutting het beste past bij jouw huis en tuinstijl.",
     category: "koopgids",
     image: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80",
     readTime: 6,
     date: "2026-02-02",
     author: { name: "Sophie van Dijk", role: "Tuin & design specialist" },
     updatedDate: "2026-02-11",
-    relatedProducts: ["wpc-schutting-classic-donkerbruin", "wpc-schutting-premium-grafiet", "wpc-schutting-classic-orzech"],
+    relatedProducts: ["composiet-schutting-walnoot", "composiet-schutting-grijs", "composiet-schutting-walnoot"],
     relatedCategories: ["schuttingen"],
     schemaType: "Article",
     content: `## De populairste kleuren voor composiet schuttingen
 
-premium WPC composiet schuttingen zijn beschikbaar in drie kleuren: Donkerbruin, Grafiet en Orzech (walnoot).
+premium WPC composiet schuttingen zijn beschikbaar in drie kleuren: Donkerbruin, grijs en walnoot (walnoot).
 
-### Donkerbruin (Ciemny brąz)
+### Donkerbruin (walnoot)
 
 **De warme keuze.** Donkerbruin past bij klassieke en landelijke tuinen.
 
-### Grafiet
+### grijs
 
-**De bestseller.** Grafiet past bij vrijwel elke tuinstijl en woningkleur. Strak, modern en tijdloos.
+**De bestseller.** grijs past bij vrijwel elke tuinstijl en woningkleur. Strak, modern en tijdloos.
 
-### Orzech (Walnoot)
+### walnoot (Walnoot)
 
-**De naturel.** Orzech heeft een rijke, middenbruine tint die warmte uitstraalt.
+**De naturel.** walnoot heeft een rijke, middenbruine tint die warmte uitstraalt.
 
 ## Hoe kies je de juiste kleur?
 
@@ -352,7 +352,7 @@ Twijfel je? Bestel gratis kleurstalen en bekijk de kleuren in je eigen tuin.
 
 ## Conclusie
 
-Grafiet is de veiligste keuze, maar orzech en donkerbruin bieden een warmer alternatief.`,
+grijs is de veiligste keuze, maar walnoot en donkerbruin bieden een warmer alternatief.`,
   },
   {
     slug: "composiet-terras-verlichting",
@@ -364,7 +364,7 @@ Grafiet is de veiligste keuze, maar orzech en donkerbruin bieden een warmer alte
     date: "2026-01-25",
     author: { name: "Sophie van Dijk", role: "Tuin & design specialist" },
     updatedDate: "2026-02-07",
-    relatedProducts: ["wpc-premium-donkerbruin", "wpc-classic-grafiet"],
+    relatedProducts: ["composiet-vlonderplank-walnoot", "composiet-vlonderplank-donker-grijs"],
     relatedCategories: ["vlonderplanken"],
     schemaType: "Article",
     content: `## Waarom terrasverlichting bij composiet?
@@ -411,5 +411,92 @@ LED-strips of spots in elke trede van een composiet trap.
 ## Conclusie
 
 Terrasverlichting is een kleine investering met groot effect.`,
+  },
+  {
+    slug: "composiet-tuindeur-kiezen",
+    title: "Composiet tuindeur kiezen: Rhombus of dicht paneel?",
+    excerpt: "Welke composiet tuindeur past bij uw schutting? Vergelijk dichte panelen met het moderne Rhombus profiel — incl. tinten, slotkeuze en onderhoudstips.",
+    category: "koopgids",
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
+    readTime: 5,
+    date: "2026-06-05",
+    author: { name: "Mark de Vries", role: "Productspecialist" },
+    updatedDate: "2026-06-05",
+    relatedProducts: ["composiet-tuindeur-rhombus-zwart", "composiet-tuindeur-walnoot", "composiet-tuindeur-rhombus-eiken-verticaal"],
+    relatedCategories: ["tuindeuren", "schuttingen"],
+    schemaType: "Article",
+    content: `## Een tuindeur die naadloos aansluit op uw schutting
+
+Een composiet tuindeur is de logische voortzetting van uw schutting. Onze tuindeuren zijn beschikbaar in dezelfde vijf tinten als de schuttingen — **teak, eiken, walnoot, grijs en zwart** — en in twee profielen.
+
+### Dicht paneel
+Het dichte paneel volgt de horizontale planken van uw schutting. Klassiek, rustig en maximaal privacybiedend.
+
+### Rhombus (horizontaal of verticaal)
+Het Rhombus profiel heeft schuine ribbels die een uitgesproken, eigentijds beeld geven. Verticaal Rhombus maakt de deur optisch hoger; horizontaal Rhombus laat de deur opgaan in een Rhombus schutting.
+
+## Maatvoering
+
+Standaardmaten dekken vrijwel alle openingen. Voor afwijkende maten leveren wij op maat — gebruik onze [checklist op maat bestellen](/downloads).
+
+## Slot en scharnieren
+
+Alle tuindeuren worden geleverd met een corrosiebestendige scharnierset en een slotvoorbereiding. Combineer met een kruk- of knopgarnituur naar keuze.
+
+## Onderhoud
+
+Identiek aan de schutting: jaarlijks afspoelen met water en een zachte borstel. Smeer scharnieren en slot 1× per jaar.
+
+## Conclusie
+
+Kies dicht voor een rustig totaalbeeld, kies Rhombus voor een design-uitstraling. Twijfelt u? Vraag een [gratis sample](/categorie/tuindeuren) aan.`,
+  },
+  {
+    slug: "composiet-gevelbekleding-rhombus-gids",
+    title: "Composiet gevelbekleding Rhombus: complete gids",
+    excerpt: "Alles over composiet Rhombus gevelbekleding: aluminium regelwerk, ventilatieruimte, tinten en het combineren van kleurvlakken.",
+    category: "koopgids",
+    image: "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=800&q=80",
+    readTime: 7,
+    date: "2026-06-05",
+    author: { name: "Mark de Vries", role: "Productspecialist" },
+    updatedDate: "2026-06-05",
+    relatedProducts: ["composiet-gevelbekleding-rhombus-zwart", "composiet-gevelbekleding-rhombus-walnoot", "composiet-gevelbekleding-rhombus-teak-zwart"],
+    relatedCategories: ["gevelbekleding"],
+    schemaType: "Article",
+    content: `## Waarom composiet gevelbekleding?
+
+Composiet Rhombus gevelbekleding combineert de uitstraling van hout met de levensduur van WPC. **25 jaar garantie**, geen schilderwerk, geen rot.
+
+## Het Rhombus profiel
+
+De schuine ribbels werpen subtiele schaduwen die met het uur van de dag veranderen. Dat geeft een levendige gevel zonder rommelig te worden.
+
+## Beschikbare tinten
+
+- **Teak, Eiken, Walnoot, Grijs, Zwart** — solide tinten
+- **Combinaties** (teak/zwart, walnoot/zwart, eiken/zwart, grijs/zwart) — voor verticale accenten of een tweekleurige gevel
+
+## Aluminium regelwerk
+
+Wij leveren een passend aluminium regelwerk. Standaard hart-op-hart 50 cm. Houd minimaal 20 mm ventilatieruimte achter de bekleding en gebruik dampopen folie.
+
+## Hoek- en eindprofielen
+
+Voor een strakke afwerking zijn hoekprofielen en eindprofielen verkrijgbaar in alle tinten (teak, eiken, walnoot, zwart).
+
+## Montage in 5 stappen
+
+1. Aluminium regelwerk monteren (waterpas controleren).
+2. Dampopen folie aanbrengen achter de regels.
+3. Hoekprofielen plaatsen.
+4. Rhombus panelen klikken volgens richting.
+5. Eindprofielen afwerken.
+
+Volledige stappenplan? Download de [montagehandleiding](/downloads).
+
+## Conclusie
+
+Composiet Rhombus gevelbekleding is een toekomstvaste keuze voor bijgebouwen, schuurwanden of accentgevels — onderhoudsvrij en met design-uitstraling.`,
   },
 ];

@@ -45,6 +45,8 @@ const Footer = () => (
           <ul className="space-y-1.5 sm:space-y-2 text-sm">
             <li><Link to="/categorie/vlonderplanken" className="hover:text-background transition-colors">Vlonderplanken</Link></li>
             <li><Link to="/categorie/schuttingen" className="hover:text-background transition-colors">Schuttingen</Link></li>
+            <li><Link to="/categorie/tuindeuren" className="hover:text-background transition-colors">Tuindeuren</Link></li>
+            <li><Link to="/categorie/gevelbekleding" className="hover:text-background transition-colors">Gevelbekleding</Link></li>
             <li><Link to="/categorie/accessoires" className="hover:text-background transition-colors">Accessoires</Link></li>
             <li><Link to="/assortiment" className="hover:text-background transition-colors">Alle producten</Link></li>
             <li><Link to="/productadvies" className="hover:text-background transition-colors">Productadvies</Link></li>

@@ -14,7 +14,7 @@ export interface DownloadGuide {
   /** YouTube video ID for embedded video content */
   videoId?: string;
   /** Related product categories */
-  relatedCategory?: "vlonderplanken" | "schuttingen" | "accessoires";
+  relatedCategory?: "vlonderplanken" | "schuttingen" | "tuindeuren" | "gevelbekleding" | "accessoires";
 }
 
 export const categoryLabels: Record<DownloadCategory, string> = {
@@ -65,7 +65,7 @@ export const downloads: DownloadGuide[] = [
       "Lay-out berekenen: materiaal per m²",
       "Onderconstructie & balkafstanden (max. 40 cm)",
       "Clips plaatsen & planken monteren",
-      "Komorowa, Classic, Premium & Elegance specificaties",
+      "Standaard, naadloos massief & Rhombus specificaties",
     ],
     category: "handleiding",
     image: "/images/wpc/wpc-systemy-tarasowe-slider-2.webp",
@@ -135,8 +135,8 @@ export const downloads: DownloadGuide[] = [
     slug: "productcatalogus-2026",
     description: "De complete productcatalogus met alle vlonderplanken, schuttingen en accessoires. Inclusief technische specificaties en kleuren.",
     bulletPoints: [
-      "7 vlonderplank-lijnen met alle kleurvarianten",
-      "Compleet schuttingassortiment",
+      "Vlonderplanken: standaard & naadloos massief",
+      "Schuttingen, tuindeuren & gevelbekleding",
       "Alle accessoires en montagesets",
       "Technische specificaties per product",
     ],
@@ -246,5 +246,80 @@ export const downloads: DownloadGuide[] = [
     image: "/images/wpc/galeria-3.webp",
     relatedLinks: [{ label: "Bekijk alle kleuren", href: "/assortiment" }],
     pdfPath: pdfUrl("kleurengids"),
+  },
+
+  // ─── TUINDEUREN ─────────────────────────────────────────────────────
+  {
+    id: "handleiding-composiet-tuindeur",
+    title: "Montagehandleiding: composiet tuindeur plaatsen",
+    slug: "montagehandleiding-composiet-tuindeur",
+    description: "Stap-voor-stap montagehandleiding voor onze composiet tuindeuren (dicht of Rhombus). Inclusief scharnier- en slotset.",
+    bulletPoints: [
+      "Inhangen, uitlijnen en afhangen",
+      "Scharnierset & slotset monteren",
+      "Aansluiting op composiet schutting",
+      "Onderhoud van bewegende delen",
+    ],
+    category: "handleiding",
+    image: "/images/wpc/baner-ogrodzenia.webp",
+    relatedLinks: [{ label: "Tuindeuren bekijken", href: "/categorie/tuindeuren" }],
+    relatedCategory: "tuindeuren",
+    pdfPath: pdfUrl("handleiding-composiet-tuindeur"),
+  },
+  {
+    id: "checklist-tuindeur-op-maat",
+    title: "Checklist: composiet tuindeur op maat bestellen",
+    slug: "checklist-tuindeur-op-maat",
+    description: "Wat moet u opmeten en bepalen voordat u een composiet tuindeur op maat bestelt?",
+    bulletPoints: [
+      "Dagmaat & sponningmaat correct opmeten",
+      "Draairichting & scharnierzijde bepalen",
+      "Slot- en greepkeuze",
+      "Combinatie met bestaande schutting",
+    ],
+    category: "checklist",
+    image: "/images/wpc/ogrodzenia-wizualizacja.webp",
+    relatedLinks: [{ label: "Tuindeuren bekijken", href: "/categorie/tuindeuren" }],
+    relatedCategory: "tuindeuren",
+    pdfPath: pdfUrl("checklist-tuindeur-op-maat"),
+  },
+
+  // ─── GEVELBEKLEDING ─────────────────────────────────────────────────
+  {
+    id: "handleiding-composiet-gevelbekleding",
+    title: "Montagehandleiding: composiet gevelbekleding (Rhombus)",
+    slug: "montagehandleiding-composiet-gevelbekleding",
+    description: "Complete handleiding voor het monteren van composiet Rhombus gevelbekleding op een aluminium regelwerk.",
+    bulletPoints: [
+      "Aluminium regelwerk hart-op-hart 50 cm",
+      "Ventilatieruimte & dampopen folie",
+      "Hoek- en eindprofielen plaatsen",
+      "Combineren van Rhombus tinten",
+    ],
+    category: "handleiding",
+    image: "/images/wpc/wpc-systemy-tarasowe-slider-1.webp",
+    relatedLinks: [{ label: "Gevelbekleding bekijken", href: "/categorie/gevelbekleding" }],
+    relatedCategory: "gevelbekleding",
+    pdfPath: pdfUrl("handleiding-composiet-gevelbekleding"),
+  },
+  {
+    id: "onderhoud-rhombus-profielen",
+    title: "Onderhoudsgids: Rhombus profielen (schutting, deur & gevel)",
+    slug: "onderhoud-rhombus-profielen",
+    description: "Hoe houdt u Rhombus profielen jarenlang strak? Reiniging, controle en kleurherstel.",
+    bulletPoints: [
+      "Reinigen tussen de ribbels",
+      "Kleurherstel met lakbus spray",
+      "Controle van bevestiging & regelwerk",
+      "Jaarlijks onderhoudsschema",
+    ],
+    category: "onderhoud",
+    image: "/images/wpc/galeria-1.webp",
+    relatedLinks: [
+      { label: "Schuttingen bekijken", href: "/categorie/schuttingen" },
+      { label: "Gevelbekleding bekijken", href: "/categorie/gevelbekleding" },
+    ],
+    relatedCategory: "gevelbekleding",
+    pdfPath: pdfUrl("onderhoud-rhombus-profielen"),
   },
 ];

@@ -34,7 +34,7 @@ const blogArticlesBase: BlogArticle[] = [
     date: "2026-02-10",
     author: { name: "Mark de Vries", role: "Composiet specialist" },
     updatedDate: "2026-02-15",
-    relatedProducts: ["wpc-classic-donkerbruin", "wpc-premium-grafiet", "wpc-elegance-gorski-dab"],
+    relatedProducts: ["composiet-vlonderplank-walnoot", "composiet-vlonderplank-donker-grijs", "composiet-vlonderplank-vergrijsd-eiken"],
     relatedCategories: ["vlonderplanken"],
     schemaType: "Article",
     content: `## Waarom composiet vlonderplanken?
@@ -50,28 +50,30 @@ Composiet vlonderplanken combineren de warme, natuurlijke uitstraling van hout m
 
 ## Waar moet je op letten?
 
-### 1. Massief vs. Komorowa (hol)
+### 1. Massief vs. naadloos massief
 
-**Massief planken** (Classic, Premium) zijn volledig gevuld en bieden maximale sterkte. **Komorowa (holle) planken** zijn lichter en betaalbaarder, ideaal voor privégebruik.
+**Standaard composiet planken** zijn volledig gevuld en bieden een uitstekende sterkte. **Naadloos massieve planken** hebben geen zichtbare clipnaden en geven een strak, modern beeld — ideaal voor woonkamerterrassen en zwembaden.
 
 ### 2. Afwerking
 
-Kies tussen geborsteld, fijn gegroefde of houtnerf-structuur. De Premium lijn biedt de meest natuurlijke houtlook, de Classic lijn een geborstelde afwerking.
+Kies tussen geborsteld, fijn gegroefd of een uitgesproken Rhombus profiel. De Rhombus lijn biedt een eigentijdse, schuine ribbeling — populair voor moderne tuinen.
 
 ### 3. Afmetingen
 
-Standaard lengtes zijn 3 en 4 meter. De breedte varieert van 140 mm (Eco, Elegance) tot 185 mm (MAX). Bereken altijd je benodigde oppervlakte plus 10% extra voor zaagverlies.
+Standaard lengtes zijn 3 en 4 meter. Bereken altijd je benodigde oppervlakte plus 10% extra voor zaagverlies.
 
 ### 4. Kleurkeuze
 
-premium WPC composiet vlonderplanken zijn beschikbaar in vijf basiskleuren:
-- **Donkerbruin** — klassieke warme houtlook
-- **Grafiet** — modern en strak
-- **Orzech (walnoot)** — rijke middenbruine tint
-- **Szary (grijs)** — neutraal en tijdloos
-- **Donkergrijs** — diep antraciet
+Onze composiet vlonderplanken zijn beschikbaar in zeven tinten:
+- **Teak** — warme, klassieke houtlook
+- **Eiken** — natuurlijk en tijdloos
+- **Walnoot** — rijke middenbruine tint
+- **Grijs** — neutraal en strak
+- **Donker grijs** — diep antraciet
+- **Vergrijsd eiken** — verweerd, modern
+- **Zwart** — uitgesproken en strak
 
-De Elegance lijn biedt exclusieve eiken-tinten met RENOLIT folie.
+
 
 ## Prijsindicatie
 
@@ -91,7 +93,7 @@ Investeer in kwaliteit en kies voor de juiste plank voor jouw situatie. Je genie
     date: "2026-01-28",
     author: { name: "Jan Bakker", role: "Montage expert" },
     updatedDate: "2026-02-01",
-    relatedProducts: ["wpc-schutting-classic-donkerbruin", "wpc-schutting-premium-grafiet", "wpc-paal-donkerbruin"],
+    relatedProducts: ["composiet-schutting-walnoot", "composiet-schutting-grijs", "wpc-paal-donkerbruin"],
     relatedCategories: ["schuttingen"],
     schemaType: "HowTo",
     content: `## De juiste fundering
@@ -144,7 +146,7 @@ Je composiet schutting heeft nauwelijks onderhoud nodig:
     date: "2026-01-20",
     author: { name: "Mark de Vries", role: "Composiet specialist" },
     updatedDate: "2026-01-25",
-    relatedProducts: ["wpc-premium-donkerbruin", "wpc-classic-orzech"],
+    relatedProducts: ["composiet-vlonderplank-walnoot", "composiet-vlonderplank-walnoot"],
     relatedCategories: ["vlonderplanken", "schuttingen"],
     schemaType: "Article",
     content: `## De grote vraag
@@ -202,7 +204,7 @@ Kies hout als je:
     date: "2026-01-15",
     author: { name: "Lisa Jansen", role: "Onderhoud adviseur" },
     updatedDate: "2026-02-01",
-    relatedProducts: ["wpc-classic-grafiet", "wpc-schutting-classic-grafiet"],
+    relatedProducts: ["composiet-vlonderplank-donker-grijs", "composiet-schutting-grijs"],
     relatedCategories: ["vlonderplanken", "schuttingen"],
     schemaType: "Article",
     content: `## Voorjaar: grote schoonmaak
@@ -257,12 +259,12 @@ Composiet van premium WPC composiet is ontworpen om extreme temperaturen te weer
     date: "2026-01-08",
     author: { name: "Sophie van Dijk", role: "Tuin & design specialist" },
     updatedDate: "2026-01-20",
-    relatedProducts: ["wpc-premium-donkerbruin", "wpc-classic-grafiet", "wpc-elegance-miodowy-dab"],
+    relatedProducts: ["composiet-vlonderplank-walnoot", "composiet-vlonderplank-donker-grijs", "composiet-vlonderplank-teak"],
     relatedCategories: ["vlonderplanken"],
     schemaType: "Article",
     content: `## 1. Het minimalistische stadsterras
 
-Een strak terras in grafiet composiet, gecombineerd met witte plantenbakken en siergrassen. Perfect voor kleine stadstuinen waar elke vierkante meter telt.
+Een strak terras in grijs composiet, gecombineerd met witte plantenbakken en siergrassen. Perfect voor kleine stadstuinen waar elke vierkante meter telt.
 
 **Tip:** Kies smalle planken (140 mm) voor een moderne uitstraling en leg ze in de lengterichting om de tuin groter te laten lijken.
 
@@ -274,7 +276,7 @@ Een ruim terras in warm donkerbruin composiet met een ingebouwde zandbak en spee
 
 ## 3. De mediterrane loungehoek
 
-Lichte eiken composiet vlonders (Elegance) gecombineerd met een pergola, klimplanten en comfortabele loungesets. Breng de vakantiesfeer naar je eigen tuin.
+Lichte vergrijsd-eiken composiet vlonders gecombineerd met een pergola, klimplanten en comfortabele loungesets. Breng de vakantiesfeer naar je eigen tuin.
 
 **Tip:** Combineer composiet met natuursteen randen voor een luxe mediterraans gevoel.
 

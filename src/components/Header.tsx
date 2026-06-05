@@ -8,6 +8,8 @@ const navLinks = [
   { label: "Assortiment", href: "/assortiment" },
   { label: "Vlonderplanken", href: "/categorie/vlonderplanken" },
   { label: "Schuttingen", href: "/categorie/schuttingen" },
+  { label: "Tuindeuren", href: "/categorie/tuindeuren" },
+  { label: "Gevelbekleding", href: "/categorie/gevelbekleding" },
   { label: "Accessoires", href: "/categorie/accessoires" },
   { label: "Productadvies", href: "/productadvies" },
   { label: "Contact", href: "/contact" },

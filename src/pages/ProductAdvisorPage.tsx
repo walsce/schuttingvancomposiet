@@ -15,14 +15,14 @@ import { ShieldCheck, Leaf, Ruler, Palette, Award, ClipboardCheck } from "lucide
 /* ── FAQ ──────────────────────────────────────── */
 
 const faqs = [
-  { q: "Hoe weet ik welke composiet lijn bij mij past?", a: "Gebruik onze keuzehulp hierboven. Op basis van uw project, budget en stijlvoorkeur adviseren wij de beste productlijn. Onze aanbevelingen zijn gebaseerd op jarenlange ervaring met honderden projecten in Nederland." },
+  { q: "Hoe weet ik welk composiet product bij mij past?", a: "Gebruik onze keuzehulp hierboven. Op basis van uw project, budget en stijlvoorkeur adviseren wij het juiste product uit ons assortiment composiet vlonders, schuttingen, tuindeuren en gevelbekleding." },
   { q: "Kan ik composiet zelf monteren?", a: "Ja! Alle producten worden geleverd met uitgebreide montage-instructies. Met standaard gereedschap (accuboormachine, verstekzaag, waterpas) kunt u alles zelf installeren. Voor grotere projecten raden wij professionele plaatsing aan." },
-  { q: "Wat is het verschil tussen hol en massief?", a: "Holle planken (Komorowa, Eco, Slim) zijn lichter en voordeliger. Massieve planken (Classic, Premium, MAX) zijn sterker, zwaarder en ideaal voor intensief gebruik zoals horeca of rondom zwembaden. Massieve planken hebben een langere levensduur bij zware belasting." },
+  { q: "Wat is het verschil tussen standaard en naadloos massief?", a: "Standaard composiet wordt met clips gemonteerd waardoor een fijne voeg zichtbaar blijft. Naadloos massieve planken sluiten naadloos op elkaar aan en geven een strakker, eigentijds beeld — ideaal voor woonkamerterrassen en zwembaden." },
   { q: "Kan ik een gratis offerte aanvragen?", a: "Absoluut! Neem contact met ons op via de contactpagina of gebruik de TerrasDesigner of SchuttingPlanner om een gedetailleerde materiaallijst te genereren. Wij sturen u binnen 24 uur een vrijblijvende offerte." },
-  { q: "Hoe lang gaat composiet mee?", a: "Onze WPC-composietproducten gaan minimaal 25 jaar mee bij normaal gebruik. Alle producten worden geleverd met 25 jaar productgarantie. Door de samenstelling van 45% hout en 45% PVC is het materiaal bestand tegen rot, schimmel en insecten." },
-  { q: "Wat kost composiet per vierkante meter?", a: "De prijzen variëren per productlijn: instapmodellen zoals Slim beginnen vanaf ca. €35/m², terwijl topmodellen zoals Elegance rond €75/m² kosten. Gebruik onze keuzehulp voor een persoonlijk advies dat past bij uw budget." },
+  { q: "Hoe lang gaat composiet mee?", a: "Onze WPC-composietproducten gaan minimaal 25 jaar mee bij normaal gebruik. Alle producten worden geleverd met 25 jaar productgarantie. Door de samenstelling van ~45% hout en ~45% PVC is het materiaal bestand tegen rot, schimmel en insecten." },
+  { q: "Wat kost composiet per vierkante meter?", a: "Prijzen variëren per categorie en uitvoering. Vraag een persoonlijke offerte aan via de keuzehulp of contactpagina voor een actuele prijsindicatie op uw project." },
   { q: "Is composiet onderhoudsvrij?", a: "Composiet is nagenoeg onderhoudsvrij. U hoeft niet te schuren, oliën of beitsen zoals bij hout. Een jaarlijkse reiniging met water en een zachte borstel is voldoende om het materiaal er als nieuw uit te laten zien." },
-  { q: "Welke kleuropties zijn beschikbaar?", a: "Afhankelijk van de productlijn zijn er 3 tot 7 kleuren beschikbaar, van warm teak en walnoot tot modern antraciet en zwart. Co-extrusie lijnen zoals Komorowa bieden de meeste kleurkeuze met 5 standaardkleuren." },
+  { q: "Welke kleuropties zijn beschikbaar?", a: "Het volledige assortiment is beschikbaar in zeven tinten: teak, eiken, walnoot, grijs, donker grijs, vergrijsd eiken en zwart. De Rhombus uitvoering geeft een extra moderne uitstraling." },
 ];
 
 /* ── Internal links ──────────────────────────── */
@@ -129,7 +129,7 @@ const ProductAdvisorPage = () => {
                 Waarom een productadviseur gebruiken?
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                Met 7 productlijnen en tientallen kleur- en afwerkingscombinaties is de keuze voor het juiste composiet niet altijd eenvoudig. Onze adviseur is ontwikkeld op basis van meer dan 500 afgeronde projecten in Nederland en België. We analyseren uw wensen en koppelen deze aan de technische specificaties van elke lijn — van de betaalbare Slim tot het premium Elegance met RENOLIT folie.
+                Met composiet vlonders, schuttingen, tuindeuren en gevelbekleding in zeven tinten en meerdere profielen is de juiste keuze niet altijd eenvoudig. Onze adviseur is gebaseerd op honderden afgeronde projecten in Nederland en België. We koppelen uw wensen aan de technische specificaties — van standaard composiet en naadloos massief tot het moderne Rhombus profiel.
               </p>
 
               <h3 className="font-serif text-xl font-bold text-foreground mb-4">
@@ -171,64 +171,64 @@ const ProductAdvisorPage = () => {
           <div className="container py-10 sm:py-14 px-4 sm:px-6">
             <div className="max-w-3xl mx-auto">
               <h2 className="font-serif text-2xl font-bold text-foreground mb-4">
-                Overzicht productlijnen
+                Overzicht assortiment
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                Alle composiet producten worden vervaardigd uit een combinatie van 45% hout en 45% PVC, aangevuld met UV-stabilisatoren en kleurpigmenten. Het verschil zit in de afwerking, structuur en beschermingslaag.
+                Alle composiet producten worden vervaardigd uit een combinatie van ~45% hout en ~45% PVC, aangevuld met UV-stabilisatoren en kleurpigmenten. Het verschil zit in de afwerking, het profiel en het toepassingsgebied.
               </p>
 
               <div className="overflow-x-auto">
                 <table className="w-full text-sm border-collapse">
                   <thead>
                     <tr className="border-b border-border">
-                      <th className="text-left py-3 px-2 font-medium text-foreground">Lijn</th>
-                      <th className="text-left py-3 px-2 font-medium text-foreground">Type</th>
+                      <th className="text-left py-3 px-2 font-medium text-foreground">Categorie</th>
+                      <th className="text-left py-3 px-2 font-medium text-foreground">Profiel</th>
                       <th className="text-left py-3 px-2 font-medium text-foreground">Geschikt voor</th>
-                      <th className="text-left py-3 px-2 font-medium text-foreground">Segment</th>
+                      <th className="text-left py-3 px-2 font-medium text-foreground">Tinten</th>
                     </tr>
                   </thead>
                   <tbody className="text-muted-foreground">
                     <tr className="border-b border-border/50">
-                      <td className="py-2.5 px-2 font-medium text-foreground">Slim</td>
-                      <td className="py-2.5 px-2">Hol profiel</td>
-                      <td className="py-2.5 px-2">Balkons, kleine terrassen</td>
-                      <td className="py-2.5 px-2">Instap</td>
+                      <td className="py-2.5 px-2 font-medium text-foreground">Vlonderplanken</td>
+                      <td className="py-2.5 px-2">Standaard composiet</td>
+                      <td className="py-2.5 px-2">Terrassen, balkons</td>
+                      <td className="py-2.5 px-2">7 tinten</td>
                     </tr>
                     <tr className="border-b border-border/50">
-                      <td className="py-2.5 px-2 font-medium text-foreground">Eco</td>
-                      <td className="py-2.5 px-2">Hol profiel</td>
-                      <td className="py-2.5 px-2">Duurzame terrassen</td>
-                      <td className="py-2.5 px-2">Instap</td>
+                      <td className="py-2.5 px-2 font-medium text-foreground">Vlonderplanken</td>
+                      <td className="py-2.5 px-2">Naadloos massief</td>
+                      <td className="py-2.5 px-2">Luxe terras, zwembad</td>
+                      <td className="py-2.5 px-2">5 tinten</td>
                     </tr>
                     <tr className="border-b border-border/50">
-                      <td className="py-2.5 px-2 font-medium text-foreground">Komorowa</td>
-                      <td className="py-2.5 px-2">Co-extrusie</td>
-                      <td className="py-2.5 px-2">Gezinsterrassen, tuin</td>
-                      <td className="py-2.5 px-2">Midden</td>
+                      <td className="py-2.5 px-2 font-medium text-foreground">Schuttingen</td>
+                      <td className="py-2.5 px-2">Dichte planken</td>
+                      <td className="py-2.5 px-2">Privacy & windkering</td>
+                      <td className="py-2.5 px-2">5 tinten</td>
                     </tr>
                     <tr className="border-b border-border/50">
-                      <td className="py-2.5 px-2 font-medium text-foreground">MAX</td>
-                      <td className="py-2.5 px-2">Massief, extra breed</td>
-                      <td className="py-2.5 px-2">Grote terrassen, modern</td>
-                      <td className="py-2.5 px-2">Midden–Premium</td>
+                      <td className="py-2.5 px-2 font-medium text-foreground">Schuttingen</td>
+                      <td className="py-2.5 px-2">Rhombus (horizontaal/verticaal)</td>
+                      <td className="py-2.5 px-2">Modern, design</td>
+                      <td className="py-2.5 px-2">5 tinten + combinaties</td>
                     </tr>
                     <tr className="border-b border-border/50">
-                      <td className="py-2.5 px-2 font-medium text-foreground">Classic</td>
-                      <td className="py-2.5 px-2">Massief, geborsteld</td>
-                      <td className="py-2.5 px-2">Allround, intensief</td>
-                      <td className="py-2.5 px-2">Premium</td>
+                      <td className="py-2.5 px-2 font-medium text-foreground">Tuindeuren</td>
+                      <td className="py-2.5 px-2">Dicht of Rhombus</td>
+                      <td className="py-2.5 px-2">Doorgang in schutting</td>
+                      <td className="py-2.5 px-2">5 tinten</td>
                     </tr>
                     <tr className="border-b border-border/50">
-                      <td className="py-2.5 px-2 font-medium text-foreground">Premium</td>
-                      <td className="py-2.5 px-2">Massief, 3D houtnerf</td>
-                      <td className="py-2.5 px-2">Luxe terrassen, schuttingen</td>
-                      <td className="py-2.5 px-2">Premium</td>
+                      <td className="py-2.5 px-2 font-medium text-foreground">Gevelbekleding</td>
+                      <td className="py-2.5 px-2">Rhombus profiel</td>
+                      <td className="py-2.5 px-2">Bijgebouwen, gevels</td>
+                      <td className="py-2.5 px-2">5 tinten + combinaties</td>
                     </tr>
                     <tr>
-                      <td className="py-2.5 px-2 font-medium text-foreground">Elegance</td>
-                      <td className="py-2.5 px-2">RENOLIT folie + korund</td>
-                      <td className="py-2.5 px-2">Zwembad, horeca, luxe</td>
-                      <td className="py-2.5 px-2">Top</td>
+                      <td className="py-2.5 px-2 font-medium text-foreground">Accessoires</td>
+                      <td className="py-2.5 px-2">Profielen, palen, paalkappen</td>
+                      <td className="py-2.5 px-2">Afwerking & bevestiging</td>
+                      <td className="py-2.5 px-2">Aluminium / composiet</td>
                     </tr>
                   </tbody>
                 </table>

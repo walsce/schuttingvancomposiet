@@ -262,7 +262,7 @@ export const vlonderClusterPages: SEOPage[] = [
 | Mono-extrusie basis | €35 – €55 | ★★★☆☆ |
 | Mono-extrusie premium | €50 – €75 | ★★★★☆ |
 | Co-extrusie standaard | €65 – €90 | ★★★★☆ |
-| Co-extrusie premium (bijv. Elegance) | €85 – €120 | ★★★★★ |
+| Naadloos massieve premium plank | €85 – €120 | ★★★★★ |
 | Massief composiet | €90 – €140 | ★★★★★ |
 
 **Let op**: dit zijn materiaalkosten exclusief onderconstructie, clips en montage.`,

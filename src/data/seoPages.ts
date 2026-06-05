@@ -1034,7 +1034,7 @@ Elephant producten zijn verkrijgbaar bij bouwmarkten zoals Gamma, Praxis en bij 
         heading: "Vergelijking Elephant vs premium WPC composiet",
         content: `| Criterium | Elephant | premium WPC composiet (SchuttingvanComposiet.nl) |
 |-----------|----------|--------------------------------------|
-| Type composiet | Mono- en co-extrusie | Massief en komorowa |
+| Type composiet | Mono- en co-extrusie | Massief en hol |
 | Garantie | 10-15 jaar | 25 jaar |
 | Kleuren | 4-6 kleuren | 5+ kleuren per lijn |
 | Advies | Via bouwmarktpersoneel | Persoonlijk specialist advies |
