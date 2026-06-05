@@ -568,6 +568,45 @@ export type Database = {
         }
         Relationships: []
       }
+      scrape_staging: {
+        Row: {
+          category_slug: string | null
+          created_at: string
+          id: string
+          imported: boolean
+          kind: string
+          raw: Json
+          source: string
+          source_url: string
+          title: string | null
+          updated_at: string
+        }
+        Insert: {
+          category_slug?: string | null
+          created_at?: string
+          id?: string
+          imported?: boolean
+          kind: string
+          raw?: Json
+          source: string
+          source_url: string
+          title?: string | null
+          updated_at?: string
+        }
+        Update: {
+          category_slug?: string | null
+          created_at?: string
+          id?: string
+          imported?: boolean
+          kind?: string
+          raw?: Json
+          source?: string
+          source_url?: string
+          title?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           id: string
@@ -623,7 +662,12 @@ export type Database = {
         | "shipped"
         | "delivered"
         | "cancelled"
-      product_category: "gevelbekleding" | "schuttingen" | "vlonderplanken"
+      product_category:
+        | "gevelbekleding"
+        | "schuttingen"
+        | "vlonderplanken"
+        | "tuindeuren"
+        | "accessoires"
       product_durability: "standaard" | "premium" | "massief" | "co-extrusie"
       product_tone:
         | "teak"
@@ -787,7 +831,13 @@ export const Constants = {
         "delivered",
         "cancelled",
       ],
-      product_category: ["gevelbekleding", "schuttingen", "vlonderplanken"],
+      product_category: [
+        "gevelbekleding",
+        "schuttingen",
+        "vlonderplanken",
+        "tuindeuren",
+        "accessoires",
+      ],
       product_durability: ["standaard", "premium", "massief", "co-extrusie"],
       product_tone: [
         "teak",
