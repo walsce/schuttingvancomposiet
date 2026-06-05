@@ -14,7 +14,7 @@ export interface DownloadGuide {
   /** YouTube video ID for embedded video content */
   videoId?: string;
   /** Related product categories */
-  relatedCategory?: "vlonderplanken" | "schuttingen" | "accessoires";
+  relatedCategory?: "vlonderplanken" | "schuttingen" | "tuindeuren" | "gevelbekleding" | "accessoires";
 }
 
 export const categoryLabels: Record<DownloadCategory, string> = {
