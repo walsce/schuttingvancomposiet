@@ -60,7 +60,7 @@ const Index = () => {
         <section className="relative overflow-hidden min-h-[70vh] sm:min-h-[80vh] flex items-center hero-landscape">
           <div className="absolute inset-0 pointer-events-none overflow-hidden">
             <img
-              src="/images/wpc/wpc-systemy-tarasowe-slider-2.webp"
+              src="/images/wpc/hero-home.jpg"
               alt="Composiet vlonder terras met moderne uitstraling"
               className="absolute inset-0 w-full h-full object-cover"
             />
