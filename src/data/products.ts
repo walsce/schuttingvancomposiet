@@ -1291,74 +1291,8 @@ De planken worden horizontaal gestapeld in aluminium of WPC paalprofielen. Geen 
   },
 ];
 
-// ─── BRAND CLEANING & IMAGE MAPPING ────────────────────────────────────────
+export const products: Product[] = _rawProducts;
 
-const externalImageMap: Record<string, string> = {
-  'deska-tarasowa-eco-ciemny-braz-gamrat.webp': 'deska-eco-ciemny-braz.webp',
-  'deska-tarasowa-eco-grafit-gamrat.webp': 'deska-eco-grafit.webp',
-  'deska-tarasowa-eco-orzech-gamrat.webp': 'deska-eco-orzech.webp',
-  'deska-tarasowa-eco-szary-gamrat.webp': 'deska-eco-szary.webp',
-  'deska-tarasowa-eco-ciemny-szary-gamrat.webp': 'deska-eco-ciemny-szary.webp',
-  'deska-tarasowa-slim-ciemny-braz-gamrat.webp': 'deska-slim-ciemny-braz.webp',
-  'deska-tarasowa-slim-grafit-gamrat.webp': 'deska-slim-grafit.webp',
-  'deska-tarasowa-slim-orzech-gamrat.webp': 'deska-slim-orzech.webp',
-  'deska-tarasowa-max-ciemny-braz-gamrat.webp': 'deska-max-ciemny-braz.webp',
-  'deska-tarasowa-max-grafit-gamrat.webp': 'deska-max-grafit.webp',
-  'deska-tarasowa-max-orzech-gamrat.webp': 'deska-max-orzech.webp',
-  'deska-ogrodzeniowa-classic-ciemny-braz-gamrat.webp': 'ogrodzeniowa-classic-ciemny-braz.webp',
-  'deska-ogrodzeniowa-classic-grafit-gamrat.webp': 'ogrodzeniowa-classic-grafit.webp',
-  'deska-ogrodzeniowa-classic-orzech-gamrat.webp': 'ogrodzeniowa-classic-orzech.webp',
-  'deska-ogrodzeniowa-premium-ciemny-braz-gamrat.webp': 'ogrodzeniowa-premium-ciemny-braz.webp',
-  'deska-ogrodzeniowa-premium-grafit-gamrat.webp': 'ogrodzeniowa-premium-grafit.webp',
-  'deska-ogrodzeniowa-premium-orzech-gamrat.webp': 'ogrodzeniowa-premium-orzech.webp',
-  'uniwersalny-profil-classic-premium-ciemny-braz-gamrat.webp': 'ogrodzeniowa-classic-premium.webp',
-  'uniwersalny-profil-classic-premium-grafit-gamrat.webp': 'ogrodzeniowa-classic-premium.webp',
-  'uniwersalny-profil-classic-premium-orzech-gamrat.webp': 'ogrodzeniowa-classic-premium.webp',
-  'ceownik-wpc-ciemny-braz-gamrat.webp': 'akcesoria-wpc.webp',
-  'slupek-ogrodzeniowy-ciemny-braz-gamrat.webp': 'ogrodzenia-wizualizacja.webp',
-  'legar-wpc-gamrat.webp': 'legar-wpc.webp',
-  'legar-aluminiowy-niski-gamrat.webp': 'legary-aluminiowe.webp',
-  'legar-aluminiowy-wysoki-gamrat.webp': 'legary-aluminiowe.webp',
-  'zestaw-montazowy-2m2-gamrat.webp': 'montageset.webp',
-  'zestaw-montazowy-10m2-gamrat.webp': 'montageset.webp',
-  'listwa-plaska-gamrat.webp': 'akcesoria-wpc.webp',
-  'listwa-l-kompozytowa-gamrat.webp': 'akcesoria-wpc.webp',
-  'listwa-l-aluminiowa-gamrat.webp': 'akcesoria-wpc.webp',
-  'wsporniki-regulowane-gamrat.webp': 'akcesoria-wpc.webp',
-  'wpc-systemy-tarasowe-slider-2.webp': 'wpc-systemy-tarasowe-slider-2.webp',
-  'wpc-systemy-tarasowe-slider-1.webp': 'wpc-systemy-tarasowe-slider-1.webp',
-  'akcesoria-wpc.webp': 'akcesoria-wpc.webp',
-};
-
-function resolveImageUrl(url: string): string {
-  if (!url.startsWith('https://gamratwpc.pl/')) return url;
-  const filename = url.split('/').pop() || '';
-  const mapped = externalImageMap[filename];
-  return `/images/wpc/${mapped || filename}`;
-}
-
-function cleanBrandText(text: string): string {
-  return text
-    .replace(/premium WPC composiet /g, '')
-    .replace(/premium WPC composiet/g, '')
-    .replace(/ van premium WPC composiet/g, '')
-    .replace(/ van Gamrat/g, '')
-    .replace(/van het WPC assortiment/g, 'van ons assortiment')
-    .replace(/het WPC assortiment/g, 'ons assortiment')
-    .replace(/WPC assortiment/g, 'ons assortiment')
-    .replace(/het veelzijdige instapmodel van premium WPC composiet/g, 'het veelzijdige instapmodel')
-    .replace(/het absolute topmodel van premium WPC composiet/g, 'het absolute topmodel')
-    .replace(/Gamrat/g, '');
-}
-
-export const products: Product[] = _rawProducts.map(p => ({
-  ...p,
-  seoDescription: cleanBrandText(p.seoDescription),
-  longDescription: cleanBrandText(p.longDescription),
-  description: cleanBrandText(p.description),
-  image: resolveImageUrl(p.image),
-  images: p.images.map(resolveImageUrl),
-}));
 
 // ─── CATEGORIES ─────────────────────────────────────────────────────────────
 
