@@ -43,7 +43,7 @@ const faqs = [
   { q: "Is de TerrasDesigner Pro gratis?", a: "Ja, de planner is volledig gratis te gebruiken. U ontvangt direct een materiaallijst met prijsindicatie, zonder verplichtingen." },
   { q: "Hoe nauwkeurig is de materiaallijst?", a: "De materiaallijst geeft een nauwkeurige indicatie op basis van uw exacte afmetingen. Voor complexe vormen raden wij aan contact op te nemen met onze specialisten voor een definitieve berekening." },
   { q: "Kan ik mijn eigen plattegrond uploaden?", a: "Ja, u kunt een foto of plattegrond van uw tuin importeren als achtergrond. Zo tekent u uw terras exact op de juiste locatie." },
-  { q: "Welke vlonderplanken kan ik kiezen?", a: "U kunt kiezen uit ons volledige assortiment Gamrat WPC vlonderplanken, van de voordelige Slim-lijn tot de premium Elegance co-extrusie planken." },
+  { q: "Welke vlonderplanken kan ik kiezen?", a: "U kunt kiezen uit ons volledige assortiment premium WPC composiet vlonderplanken, van de voordelige Slim-lijn tot de premium Elegance co-extrusie planken." },
   { q: "Wordt de onderconstructie meeberekend?", a: "Ja, de planner berekent automatisch de benodigde liggers, clips en bevestigingsmaterialen op basis van uw gekozen onderconstructie." },
   { q: "Kan ik een offerte aanvragen op basis van mijn ontwerp?", a: "Absoluut. Na het ontwerpen kunt u direct een offerte aanvragen. Wij nemen binnen 24 uur contact met u op met een persoonlijk aanbod." },
 ];
@@ -59,7 +59,7 @@ const internalLinks = [
 ];
 
 const trustPoints = [
-  { icon: Shield, title: "25 jaar garantie", description: "Op alle Gamrat WPC vlonderplanken" },
+  { icon: Shield, title: "25 jaar garantie", description: "Op alle premium WPC composiet vlonderplanken" },
   { icon: Award, title: "500+ projecten", description: "Succesvol begeleid door heel Nederland" },
   { icon: Users, title: "Persoonlijk advies", description: "Onze specialisten helpen u graag" },
 ];
@@ -187,7 +187,7 @@ const DeckPlannerHero = ({ onStart }: DeckPlannerHeroProps) => {
             </p>
             <h3 className="font-serif text-lg font-bold text-foreground">Waarom een composiet vlonder?</h3>
             <p>
-              Composiet vlonderplanken van Gamrat WPC combineren de warme uitstraling van hout met het onderhoudsgemak van kunststof. Dankzij de samenstelling van 45% houtmeel en 45% PVC zijn de planken splintervrij, kleurvast en bestand tegen vocht en schimmel. Met een garantie van 25 jaar bent u verzekerd van jarenlang genieten zonder schuren, oliën of beitsen.
+              Composiet vlonderplanken van premium WPC composiet combineren de warme uitstraling van hout met het onderhoudsgemak van kunststof. Dankzij de samenstelling van 45% houtmeel en 45% PVC zijn de planken splintervrij, kleurvast en bestand tegen vocht en schimmel. Met een garantie van 25 jaar bent u verzekerd van jarenlang genieten zonder schuren, oliën of beitsen.
             </p>
             <h3 className="font-serif text-lg font-bold text-foreground">Van ontwerp naar realisatie</h3>
             <p>

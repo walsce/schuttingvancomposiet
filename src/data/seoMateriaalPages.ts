@@ -310,7 +310,7 @@ Steeds meer producenten bieden **terugnameprogramma's** aan. Het oude composiet 
 - **Cradle to Cradle**: beoordeling van circulariteit
 - **TÜV-certificering**: onafhankelijke productkeuring
 
-Premium producenten zoals Gamrat WPC publiceren volledige productdocumentatie en beschikken over meerdere kwaliteitscertificeringen.`,
+Premium producenten zoals premium WPC composiet publiceren volledige productdocumentatie en beschikken over meerdere kwaliteitscertificeringen.`,
       },
     ],
     faqs: [

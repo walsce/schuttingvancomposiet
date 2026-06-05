@@ -43,7 +43,7 @@ const faqs = [
   { q: "Is de SchuttingPlanner gratis?", a: "Ja, de planner is volledig gratis te gebruiken. U kunt direct aan de slag zonder account of registratie." },
   { q: "Hoe nauwkeurig is de materiaalberekening?", a: "De planner berekent op basis van uw exacte afmetingen hoeveel panelen, palen en accessoires u nodig heeft. Voor complexe situaties adviseren wij contact met onze specialisten." },
   { q: "Kan ik de materiaallijst exporteren?", a: "Ja, u kunt de complete materiaallijst exporteren naar CSV. Zo heeft u een handig overzicht voor uw aankoop of aannemer." },
-  { q: "Welke schuttingsystemen zijn beschikbaar?", a: "U kunt kiezen uit ons volledige assortiment Gamrat WPC schuttingpanelen, inclusief de Classic en Premium lijn in diverse kleuren." },
+  { q: "Welke schuttingsystemen zijn beschikbaar?", a: "U kunt kiezen uit ons volledige assortiment premium WPC composiet schuttingpanelen, inclusief de Classic en Premium lijn in diverse kleuren." },
   { q: "Kan ik ook een hoekschutting ontwerpen?", a: "Ja, de planner ondersteunt rechte schuttingen, L-vormen, U-vormen en zelfs volledig gesloten vormen. U kunt de hoekpunten vrij verslepen." },
   { q: "Hoe vraag ik een offerte aan na het ontwerpen?", a: "Na het ontwerpen kunt u direct een offerte aanvragen via onze contactpagina. Wij nemen binnen 24 uur contact met u op." },
 ];
@@ -59,7 +59,7 @@ const internalLinks = [
 ];
 
 const trustPoints = [
-  { icon: Shield, title: "25 jaar garantie", description: "Op alle Gamrat WPC schuttingpanelen" },
+  { icon: Shield, title: "25 jaar garantie", description: "Op alle premium WPC composiet schuttingpanelen" },
   { icon: Award, title: "500+ projecten", description: "Succesvol begeleid door heel Nederland" },
   { icon: Users, title: "Persoonlijk advies", description: "Onze specialisten helpen u graag" },
 ];
@@ -187,7 +187,7 @@ const FencePlannerHero = ({ onStart }: FencePlannerHeroProps) => {
             </p>
             <h3 className="font-serif text-lg font-bold text-foreground">Voordelen van een composiet schutting</h3>
             <p>
-              Composiet schuttingpanelen van Gamrat WPC zijn gemaakt van 45% houtmeel en 45% PVC, wat resulteert in een onderhoudsvrij product dat niet rot, splintert of verkleurt. Met een garantie van 25 jaar investeert u in een schutting die generaties meegaat. Geen jaarlijks beitsen of vervangen van rotte planken meer — composiet blijft mooi zonder onderhoud.
+              Composiet schuttingpanelen van premium WPC composiet zijn gemaakt van 45% houtmeel en 45% PVC, wat resulteert in een onderhoudsvrij product dat niet rot, splintert of verkleurt. Met een garantie van 25 jaar investeert u in een schutting die generaties meegaat. Geen jaarlijks beitsen of vervangen van rotte planken meer — composiet blijft mooi zonder onderhoud.
             </p>
             <h3 className="font-serif text-lg font-bold text-foreground">Van plan naar plaatsing</h3>
             <p>
