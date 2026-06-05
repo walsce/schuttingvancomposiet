@@ -20,7 +20,7 @@ Een kleine tuin vraagt om slimme oplossingen. Composiet vlonderplanken bieden pr
 
 ### 1. Kies lichte kleuren
 
-Lichte composiet planken — zoals de Elegance eiken-lijn — reflecteren meer licht en maken je tuin optisch groter.
+Lichte composiet planken — zoals vergrijsd eiken of teak — reflecteren meer licht en maken je tuin optisch groter.
 
 ### 2. Leg planken in de lengterichting
 
@@ -411,5 +411,92 @@ LED-strips of spots in elke trede van een composiet trap.
 ## Conclusie
 
 Terrasverlichting is een kleine investering met groot effect.`,
+  },
+  {
+    slug: "composiet-tuindeur-kiezen",
+    title: "Composiet tuindeur kiezen: Rhombus of dicht paneel?",
+    excerpt: "Welke composiet tuindeur past bij uw schutting? Vergelijk dichte panelen met het moderne Rhombus profiel — incl. tinten, slotkeuze en onderhoudstips.",
+    category: "advies",
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
+    readTime: 5,
+    date: "2026-06-05",
+    author: { name: "Mark de Vries", role: "Productspecialist" },
+    updatedDate: "2026-06-05",
+    relatedProducts: ["composiet-tuindeur-rhombus-zwart", "composiet-tuindeur-walnoot", "composiet-tuindeur-rhombus-eiken-verticaal"],
+    relatedCategories: ["tuindeuren", "schuttingen"],
+    schemaType: "Article",
+    content: `## Een tuindeur die naadloos aansluit op uw schutting
+
+Een composiet tuindeur is de logische voortzetting van uw schutting. Onze tuindeuren zijn beschikbaar in dezelfde vijf tinten als de schuttingen — **teak, eiken, walnoot, grijs en zwart** — en in twee profielen.
+
+### Dicht paneel
+Het dichte paneel volgt de horizontale planken van uw schutting. Klassiek, rustig en maximaal privacybiedend.
+
+### Rhombus (horizontaal of verticaal)
+Het Rhombus profiel heeft schuine ribbels die een uitgesproken, eigentijds beeld geven. Verticaal Rhombus maakt de deur optisch hoger; horizontaal Rhombus laat de deur opgaan in een Rhombus schutting.
+
+## Maatvoering
+
+Standaardmaten dekken vrijwel alle openingen. Voor afwijkende maten leveren wij op maat — gebruik onze [checklist op maat bestellen](/downloads).
+
+## Slot en scharnieren
+
+Alle tuindeuren worden geleverd met een corrosiebestendige scharnierset en een slotvoorbereiding. Combineer met een kruk- of knopgarnituur naar keuze.
+
+## Onderhoud
+
+Identiek aan de schutting: jaarlijks afspoelen met water en een zachte borstel. Smeer scharnieren en slot 1× per jaar.
+
+## Conclusie
+
+Kies dicht voor een rustig totaalbeeld, kies Rhombus voor een design-uitstraling. Twijfelt u? Vraag een [gratis sample](/categorie/tuindeuren) aan.`,
+  },
+  {
+    slug: "composiet-gevelbekleding-rhombus-gids",
+    title: "Composiet gevelbekleding Rhombus: complete gids",
+    excerpt: "Alles over composiet Rhombus gevelbekleding: aluminium regelwerk, ventilatieruimte, tinten en het combineren van kleurvlakken.",
+    category: "advies",
+    image: "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=800&q=80",
+    readTime: 7,
+    date: "2026-06-05",
+    author: { name: "Mark de Vries", role: "Productspecialist" },
+    updatedDate: "2026-06-05",
+    relatedProducts: ["composiet-gevelbekleding-rhombus-zwart", "composiet-gevelbekleding-rhombus-walnoot", "composiet-gevelbekleding-rhombus-teak-zwart"],
+    relatedCategories: ["gevelbekleding"],
+    schemaType: "Article",
+    content: `## Waarom composiet gevelbekleding?
+
+Composiet Rhombus gevelbekleding combineert de uitstraling van hout met de levensduur van WPC. **25 jaar garantie**, geen schilderwerk, geen rot.
+
+## Het Rhombus profiel
+
+De schuine ribbels werpen subtiele schaduwen die met het uur van de dag veranderen. Dat geeft een levendige gevel zonder rommelig te worden.
+
+## Beschikbare tinten
+
+- **Teak, Eiken, Walnoot, Grijs, Zwart** — solide tinten
+- **Combinaties** (teak/zwart, walnoot/zwart, eiken/zwart, grijs/zwart) — voor verticale accenten of een tweekleurige gevel
+
+## Aluminium regelwerk
+
+Wij leveren een passend aluminium regelwerk. Standaard hart-op-hart 50 cm. Houd minimaal 20 mm ventilatieruimte achter de bekleding en gebruik dampopen folie.
+
+## Hoek- en eindprofielen
+
+Voor een strakke afwerking zijn hoekprofielen en eindprofielen verkrijgbaar in alle tinten (teak, eiken, walnoot, zwart).
+
+## Montage in 5 stappen
+
+1. Aluminium regelwerk monteren (waterpas controleren).
+2. Dampopen folie aanbrengen achter de regels.
+3. Hoekprofielen plaatsen.
+4. Rhombus panelen klikken volgens richting.
+5. Eindprofielen afwerken.
+
+Volledige stappenplan? Download de [montagehandleiding](/downloads).
+
+## Conclusie
+
+Composiet Rhombus gevelbekleding is een toekomstvaste keuze voor bijgebouwen, schuurwanden of accentgevels — onderhoudsvrij en met design-uitstraling.`,
   },
 ];
