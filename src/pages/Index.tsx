@@ -6,7 +6,7 @@ import SEOHead from "@/components/SEOHead";
 import JsonLd, { organizationSchema, websiteSchema } from "@/components/JsonLd";
 import FAQSection from "@/components/FAQSection";
 
-import { categories, products } from "@/data/products";
+import { categories, products } from "@/data/cmsCatalog";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield, Truck, ThumbsUp, Wrench, Recycle } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -41,6 +41,7 @@ const featuredSlugs = [
 const featuredProducts = featuredSlugs
   .map(slug => products.find(p => p.slug === slug))
   .filter(Boolean) as typeof products;
+const homepageProducts = featuredProducts.length > 0 ? featuredProducts : products.slice(0, 6);
 
 const Index = () => {
   return (
@@ -143,7 +144,7 @@ const Index = () => {
               </Button>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
-              {featuredProducts.map((p) => (
+              {homepageProducts.map((p) => (
                 <ProductCard key={p.id} product={p} />
               ))}
             </div>
