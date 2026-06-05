@@ -1,6 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { useState } from "react";
-import { products, categories } from "@/data/products";
+import { products, categories } from "@/data/cmsCatalog";
 import { useCart } from "@/contexts/CartContext";
 import VariantSelector from "@/components/VariantSelector";
 import { toast } from "@/hooks/use-toast";

@@ -9,7 +9,7 @@ export interface Product {
   price: number;
   priceLabel: string;
   image: string;
-  category: 'vlonderplanken' | 'schuttingen' | 'accessoires';
+  category: 'vlonderplanken' | 'schuttingen' | 'accessoires' | 'tuindeuren' | 'gevelbekleding';
   features: string[];
   guarantee: string;
   slug: string;
