@@ -194,7 +194,7 @@ const DeckPlannerHero = ({ onStart }: DeckPlannerHeroProps) => {
               Na het ontwerpen van uw terras in de planner ontvangt u een complete materiaallijst. Deze kunt u direct gebruiken als basis voor een offerte. Onze specialisten controleren uw ontwerp graag en adviseren over de optimale onderconstructie voor uw situatie — of het nu gaat om een vlonder op tegels, beton of een houten frame.
             </p>
             <p>
-              Met co-extrusie planken uit de Elegance-lijn kiest u voor een extra beschermlaag die de plank nog beter beschermt tegen vlekken en verkleuring. Voor wie op zoek is naar de beste prijs-kwaliteitverhouding biedt de Komorowa kamerplank een uitstekend alternatief met dezelfde 25 jaar garantie.
+              Met naadloos massieve planken kiest u voor een strak terras zonder zichtbare clipnaden. Standaard composiet vlonderplanken bieden de beste prijs-kwaliteitverhouding, met dezelfde 25 jaar garantie.
             </p>
           </article>
         </div>
