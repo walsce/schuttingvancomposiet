@@ -1,103 +1,67 @@
-# Scrape & Replace: mthekwerken.nl Composiet Catalogus
+# Full alignment with the new catalog
 
-## ⚠️ Juridische disclaimer (lees eerst)
+The catalog was replaced with 66 mthekwerken-sourced composite products across 5 categories: **vlonderplanken, schuttingen, tuindeuren, gevelbekleding, accessoires**. Colors are now **teak, eiken, walnoot, grijs, donker grijs, vergrijsd eiken, zwart** and lines are **standard vs. Rhombus (horizontaal / verticaal)**.
 
-Je kiest voor het 1-op-1 overnemen van teksten + foto's van mthekwerken.nl. Dit is **juridisch risicovol**:
+A lot of supporting surfaces still reference the old Gamrat-style lines (Elegance / Classic / Premium / Slim / Max / Komorowa / Eco) and the old color names (orzech, grafit, gorski dab). This plan cleans every remaining surface.
 
-- Productfoto's en copy zijn auteursrechtelijk beschermd
-- Mthekwerken kan een sommatie/schadeclaim sturen
-- Google kan duplicate-content downranken
-Ik voer het uit zoals gevraagd, maar mijn sterke advies blijft: laat mij na de scrape de teksten herschrijven (kost 1 extra ronde) en gebruik de foto's tijdelijk tot je eigen foto's hebt. **Bevestig nogmaals dat je dit risico accepteert voor we uitvoeren.**
+## 1. Navigation & footer
 
-## Scope
+- `src/components/Header.tsx` — add **Tuindeuren** and **Gevelbekleding** to `navLinks`, in this order: Assortiment · Vlonderplanken · Schuttingen · Tuindeuren · Gevelbekleding · Accessoires · Productadvies · Contact. Collapse less-critical items behind a "Meer" dropdown on `lg` if width gets tight.
+- `src/components/Footer.tsx` — extend the Assortiment column with Tuindeuren and Gevelbekleding links.
+- `src/App.tsx` — confirm `/categorie/tuindeuren` and `/categorie/gevelbekleding` resolve via the existing `CategoryPage` route (param-based, no change needed if already dynamic; otherwise register the two slugs).
 
-Alle composiet-categorieën van mthekwerken.nl scrapen en de huidige Gamrat-catalogus volledig vervangen.
+## 2. Blog content (`src/data/blogArticles.ts`, `src/data/blogArticlesExpansion.ts`)
 
-Doel-categorieën:
+- Remove every mention of Elegance / Classic / Premium / Slim / Max / Eco / Komorowa / orzech / grafit / gorski dab / miodowy dab.
+- Rewrite affected paragraphs to talk about the new lines (**standaard composiet vs. Rhombus**) and new tones (teak, eiken, walnoot, grijs, donker grijs, vergrijsd eiken, zwart).
+- Re-map every `relatedProducts: [...]` array to slugs that actually exist in `cms_products` (e.g. `composiet-vlonderplank-teak`, `composiet-schutting-rhombus-walnoot`, `composiet-tuindeur-eiken`).
+- Add 2 new short articles to cover the new ranges:
+  - "Composiet tuindeur kiezen: Rhombus of dicht paneel?"
+  - "Composiet gevelbekleding Rhombus: complete gids"
+  Each follows the existing E-E-A-T template (author block, FAQ, internal links, schema).
 
-- Composiet schuttingen
-- Composiet tuindeuren
-- Composiet schutting onderdelen (palen, profielen, clips)
-- Composiet gevelbekleding (incl. onderdelen)
-- Composiet vlonderplanken (indien aanwezig op site)
+## 3. Downloads (`src/data/downloads.ts` + PDFs)
 
-## Aanpak
+- Edit each existing entry to drop Komorowa/Classic/Premium/Elegance bullets; replace with the actual specs of the live catalog (standaard massief, naadloos massief, Rhombus).
+- Replace `relatedCategory` typing to include `"tuindeuren" | "gevelbekleding"`.
+- Add four new guides:
+  1. Montagehandleiding composiet tuindeur (incl. scharnier/slotset)
+  2. Montagehandleiding composiet gevelbekleding Rhombus + aluminium regelwerk
+  3. Onderhoudsgids Rhombus profielen
+  4. Checklist: tuindeur op maat bestellen
+- Trigger `generate-branded-pdf` for the four new IDs after migration (handled in build mode via the existing edge function); placeholder cards display until PDFs are generated.
 
-### Stap 1 — Discovery scrape (edge function)
+## 4. SEO data files
 
-Nieuwe edge function `scrape-mthekwerken` die met **Firecrawl** (al beschikbaar als connector — moet linked worden):
+- `src/data/seoVlonderPages.ts`, `src/data/seoMateriaalPages.ts`, `src/data/seoSchuttingExpansion.ts`, `src/data/seoGevelPages.ts`, `src/data/seoPages.ts`:
+  - Strip all old line/color names.
+  - Update product references to live slugs.
+  - Add a **tuindeuren cluster** (new file `src/data/seoTuindeurPages.ts`) with 6 pages (Rhombus tuindeur, dichte tuindeur, tuindeur op maat, tuindeur met slot, tuindeur zwart, tuindeur teak) wired into `App.tsx` and `SEOContentPage`.
+  - Refresh the gevelbekleding cluster copy to reference Rhombus tones (teak/eiken/walnoot/grijs/zwart and combo zwart varianten) that exist in DB.
 
-1. `/map` op mthekwerken.nl → alle URLs onder `/composiet-*`
-2. Per productpagina `/scrape` met formats `markdown` + `links` + image URLs
-3. Resultaat opslaan als JSON in een nieuwe tabel `scrape_staging` (raw data) zodat we kunnen reviewen vóór overschrijven van `cms_products`
+## 5. Planners & advisor
 
-### Stap 2 — Image transfer
+- `src/components/fence-planner/designerData.ts` and `src/components/planner/presets.ts` / `MaterialSelector.tsx`: replace the old line/color presets with the new tones and the two structural choices (standaard vs. Rhombus).
+- `src/components/advisor/AdvisorQuiz.tsx` + `supabase/functions/chat-advisor/index.ts`: update the system prompt + recommendation rules to the new product taxonomy and slugs.
+- `src/data/products.ts`: confirm the `Product['category']` union already includes `tuindeuren` and `gevelbekleding` (it does); remove any remaining hard-coded old slugs in static featured arrays.
 
-Per product:
+## 6. Discoverability
 
-1. Download image URLs uit scrape resultaat
-2. Upload naar bestaande `product-images` bucket onder `mthekwerken/{slug}/{n}.jpg`
-3. Gebruik die nieuwe public URLs in `cms_product_images`
+- `public/sitemap.xml` (or `scripts/generate-sitemap.ts` if/when introduced): regenerate to include `/categorie/tuindeuren`, `/categorie/gevelbekleding`, all 66 product slugs, the new blog posts, the new SEO tuindeur pages and the new downloads.
+- `public/robots.txt`: keep open, ensure `Sitemap:` line points at the .nl domain.
+- `index.html`: refresh the homepage meta description + `Organization`/`WebSite` JSON-LD to list the five categories.
 
-(Geen hotlinks → eigen CDN, geen broken images als mthekwerken iets wijzigt.)
+## 7. Verification
 
-### Stap 3 — Categorie & Product migratie
+After edits:
+- `rg -i "gamrat|elegance|classic|premium|slim|max|komorowa|orzech|grafit|gorski|miodowy|naturalny|eco "` returns nothing in `src/`, `public/`, `supabase/functions/`.
+- Every `relatedProducts` slug in blog/SEO data exists in `cms_products` (cross-check via a quick psql query).
+- Visual pass on `/`, `/assortiment`, `/categorie/tuindeuren`, `/categorie/gevelbekleding`, `/downloads`, `/blog`, `/productadvies`.
 
-Migratiescript (edge function `import-mthekwerken-to-cms`) leest `scrape_staging` en:
+## Out of scope
 
-1. **TRUNCATE** `cms_product_images`, `cms_product_faqs`, `cms_products`, `cms_categories` (na bevestiging — destructief)
-2. Insert nieuwe categorieën (5 stuks) met slug, naam, seo-velden
-3. Insert producten met:
-  - `name`, `slug`, `short_description`, `long_description` (scraped)
-  - `category` enum mapping → bestaande enums (`schuttingen`, `accessoires`, etc.) — mogelijk nieuwe enum-waarden nodig (`gevelbekleding`, `tuindeuren`) via migration
-  - `price` + `price_label` (scraped indien zichtbaar)
-  - `specifications` JSON uit specs-tabel op productpagina
-  - `seo_title`, `seo_description` (scraped meta tags)
-  - `is_published = true`
-4. Insert `cms_product_images` per product
-5. Genereer FAQ-block per categorie indien aanwezig op bronpagina
+- Re-scraping or further product imports (catalog is already live).
+- Visual redesign — copy + data only, no layout changes.
+- Removing the temporary `/admin/scrape` tool (kept as ops utility).
 
-### Stap 4 — Frontend cleanup
-
-- `src/data/products.ts` en `src/data/seoVlonderPages.ts`/`seoGevelPages.ts` — controleren dat alle pagina's al via DB lezen (vlgs memory zou dit moeten); zo niet: aanpassen
-- `resolveImageUrl()` util uit `image-hosting` memory bypassen voor nieuwe records (gebruik directe Supabase URLs)
-- Sitemap regenereren via bestaande logica
-- Redirects: oude Gamrat product-slugs → 301 naar nieuwe equivalent (best-effort match op naam, anders → categoriepagina)
-
-### Stap 5 — QA
-
-- `supabase--read_query` om counts te checken (categorieën, producten, images)
-- Browser preview van `/assortiment`, een categoriepagina, een productpagina
-- Check sitemap.xml + robots
-
-## Technische details
-
-**Nieuwe / gewijzigde bestanden:**
-
-- `supabase/functions/scrape-mthekwerken/index.ts` (nieuw — Firecrawl map+scrape, schrijft naar `scrape_staging`)
-- `supabase/functions/import-mthekwerken-to-cms/index.ts` (nieuw — staging → cms_*)
-- `supabase/migrations/xxxx_scrape_staging.sql` (nieuwe tabel + GRANTs + RLS admin-only)
-- `supabase/migrations/xxxx_extend_category_enum.sql` (voeg `gevelbekleding`, `tuindeuren` toe aan category enum indien nodig)
-- `src/pages/admin/AdminScrapePage.tsx` (nieuw — knop "Start scrape" + "Import naar CMS" + log viewer)
-- `src/App.tsx` — route `/admin/scrape`
-- `src/components/admin/AdminLayout.tsx` — nav-item
-
-**Connector vereist:** Firecrawl (`FIRECRAWL_API_KEY`) — ik link 'm na goedkeuring plan.
-
-**Storage:** hergebruik bestaande public bucket `product-images`, nieuwe folder `mthekwerken/`.
-
-**Veiligheid:** beide edge functions admin-only (verify JWT + `has_role(uid, 'admin')` check).
-
-## Wat NIET in scope
-
-- Order-/cart-data (blijft intact)
-- CRM (blijft intact)
-- Planner-tools / blog / downloads (blijven intact) KLOPT MAAR MET COMPOSIET PRODUCTEN VAN MT 
-- Herschrijven van scraped teksten (jij koos voor 1-op-1 kopie)
-- Logo / branding wijzigingen 
-
-## Open vragen die ik nog NIET vraag (default tenzij anders)
-
-- Prijzen overnemen as-is incl. BTW zoals mthekwerken toont JA
-- Voorraad-status niet overnemen (alles `is_published = true`) JA
-- Geen multi-language — alleen NL JA
+Ready to switch to build mode and execute end-to-end?
