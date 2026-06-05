@@ -9,7 +9,8 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import FAQSection from "@/components/FAQSection";
 
 import JsonLd, { breadcrumbSchema } from "@/components/JsonLd";
-import { products, categories, Product } from "@/data/products";
+import type { Product } from "@/data/products";
+import { products, categories } from "@/data/cmsCatalog";
 import { blogArticles } from "@/data/blogArticles";
 import { downloads } from "@/data/downloads";
 import { Link } from "react-router-dom";

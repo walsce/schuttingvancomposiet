@@ -6,7 +6,7 @@ import SEOHead from "@/components/SEOHead";
 import JsonLd, { organizationSchema, websiteSchema } from "@/components/JsonLd";
 import FAQSection from "@/components/FAQSection";
 
-import { categories, products } from "@/data/products";
+import { categories, products } from "@/data/cmsCatalog";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield, Truck, ThumbsUp, Wrench, Recycle } from "lucide-react";
 import { Link } from "react-router-dom";
