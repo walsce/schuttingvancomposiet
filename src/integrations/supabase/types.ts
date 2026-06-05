@@ -637,6 +637,7 @@ export type Database = {
         }
         Returns: boolean
       }
+      import_composiet_bulk: { Args: { payload: Json }; Returns: number }
     }
     Enums: {
       app_role: "admin" | "moderator" | "user"
