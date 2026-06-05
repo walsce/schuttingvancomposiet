@@ -31,12 +31,12 @@ const faqs = [
 ];
 
 const featuredSlugs = [
-  'premium-donker-bruin-vlonderplank',
-  'elegance-berg-eiken-vlonderplank',
-  'komorowa-grafiet-vlonderplank',
-  'schuttingplank-premium-grafiet',
-  'classic-walnoot-vlonderplank',
-  'eco-donker-bruin-vlonderplank',
+  'composiet-vlonderplank-teak',
+  'composiet-vlonderplank-walnoot',
+  'composiet-vlonderplank-naadloos-massief-zwart',
+  'composiet-schutting-rhombus-walnoot',
+  'composiet-schutting-eiken',
+  'composiet-tuindeur-rhombus-zwart',
 ];
 const featuredProducts = featuredSlugs
   .map(slug => products.find(p => p.slug === slug))

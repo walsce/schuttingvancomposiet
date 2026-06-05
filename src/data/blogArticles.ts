@@ -50,28 +50,30 @@ Composiet vlonderplanken combineren de warme, natuurlijke uitstraling van hout m
 
 ## Waar moet je op letten?
 
-### 1. Massief vs. Komorowa (hol)
+### 1. Massief vs. naadloos massief
 
-**Massief planken** (Classic, Premium) zijn volledig gevuld en bieden maximale sterkte. **Komorowa (holle) planken** zijn lichter en betaalbaarder, ideaal voor privégebruik.
+**Standaard composiet planken** zijn volledig gevuld en bieden een uitstekende sterkte. **Naadloos massieve planken** hebben geen zichtbare clipnaden en geven een strak, modern beeld — ideaal voor woonkamerterrassen en zwembaden.
 
 ### 2. Afwerking
 
-Kies tussen geborsteld, fijn gegroefde of houtnerf-structuur. De Premium lijn biedt de meest natuurlijke houtlook, de standaard composiet lijn een geborstelde afwerking.
+Kies tussen geborsteld, fijn gegroefd of een uitgesproken Rhombus profiel. De Rhombus lijn biedt een eigentijdse, schuine ribbeling — populair voor moderne tuinen.
 
 ### 3. Afmetingen
 
-Standaard lengtes zijn 3 en 4 meter. De breedte varieert van 140 mm (Eco, Elegance) tot 185 mm (MAX). Bereken altijd je benodigde oppervlakte plus 10% extra voor zaagverlies.
+Standaard lengtes zijn 3 en 4 meter. Bereken altijd je benodigde oppervlakte plus 10% extra voor zaagverlies.
 
 ### 4. Kleurkeuze
 
-premium WPC composiet vlonderplanken zijn beschikbaar in vijf basiskleuren:
-- **Donkerbruin** — klassieke warme houtlook
-- **grijs** — modern en strak
-- **walnoot (walnoot)** — rijke middenbruine tint
-- **grijs (grijs)** — neutraal en tijdloos
-- **Donkergrijs** — diep antraciet
+Onze composiet vlonderplanken zijn beschikbaar in zeven tinten:
+- **Teak** — warme, klassieke houtlook
+- **Eiken** — natuurlijk en tijdloos
+- **Walnoot** — rijke middenbruine tint
+- **Grijs** — neutraal en strak
+- **Donker grijs** — diep antraciet
+- **Vergrijsd eiken** — verweerd, modern
+- **Zwart** — uitgesproken en strak
 
-De Rhombus lijn biedt exclusieve eiken-tinten met RENOLIT folie.
+
 
 ## Prijsindicatie
 
@@ -274,7 +276,7 @@ Een ruim terras in warm donkerbruin composiet met een ingebouwde zandbak en spee
 
 ## 3. De mediterrane loungehoek
 
-Lichte eiken composiet vlonders (Elegance) gecombineerd met een pergola, klimplanten en comfortabele loungesets. Breng de vakantiesfeer naar je eigen tuin.
+Lichte vergrijsd-eiken composiet vlonders gecombineerd met een pergola, klimplanten en comfortabele loungesets. Breng de vakantiesfeer naar je eigen tuin.
 
 **Tip:** Combineer composiet met natuursteen randen voor een luxe mediterraans gevoel.
 
