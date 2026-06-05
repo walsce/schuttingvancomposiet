@@ -70,33 +70,33 @@ function getRecommendation(answers: Record<string, string>): Recommendation {
   const { project, budget, look, use } = answers;
 
   if (project === "schutting") {
-    if (budget === "premium") {
-      return { lines: ["Premium"], category: "schuttingen", reason: "De Premium schuttingplank heeft een realistisch 3D houtnerf patroon en is dubbelzijdig afgewerkt." };
+    if (look === "modern") {
+      return { lines: ["Rhombus schutting"], category: "schuttingen", reason: "Het Rhombus profiel geeft een eigentijdse, design-uitstraling. Beschikbaar horizontaal en verticaal in vijf tinten." };
     }
-    return { lines: ["Classic"], category: "schuttingen", reason: "De Classic schuttingplank biedt een geborsteld oppervlak tegen een scherpe prijs. Dubbelzijdig afgewerkt." };
+    return { lines: ["Dichte composiet schutting"], category: "schuttingen", reason: "Onze dichte composiet schuttingplanken bieden maximale privacy en windkering met 25 jaar garantie." };
   }
 
   if (budget === "budget") {
-    return { lines: ["Slim", "Eco"], category: "vlonderplanken", reason: "Slim is het meest betaalbare instapmodel. Eco biedt iets meer kleurkeuze en is maximaal duurzaam geproduceerd." };
+    return { lines: ["Standaard composiet vlonderplank"], category: "vlonderplanken", reason: "Onze standaard composiet vlonderplanken bieden de beste prijs-kwaliteit voor terrassen en balkons." };
   }
 
   if (budget === "premium") {
     if (use === "intensief") {
-      return { lines: ["Elegance"], category: "vlonderplanken", reason: "Elegance is het topmodel met RENOLIT folie en korund antislip — ideaal voor zwembaden en horeca." };
+      return { lines: ["Naadloos massieve vlonderplank"], category: "vlonderplanken", reason: "Naadloos massieve planken zijn extreem sterk en hebben geen zichtbare clipnaden — ideaal voor zwembaden en horeca." };
     }
     if (look === "warm") {
-      return { lines: ["Premium", "Elegance"], category: "vlonderplanken", reason: "Premium biedt een realistisch houtnerf patroon. Elegance met RENOLIT folie geeft de meest natuurlijke eiken-look." };
+      return { lines: ["Naadloos massief teak", "Naadloos massief vergrijsd eiken"], category: "vlonderplanken", reason: "Beide tinten geven een natuurlijke, warme uitstraling met de strakheid van een naadloos massieve plank." };
     }
-    return { lines: ["Premium", "Classic"], category: "vlonderplanken", reason: "Beide zijn massief en extreem duurzaam. Premium heeft houtnerf, Classic een strak geborsteld oppervlak." };
+    return { lines: ["Naadloos massief zwart", "Naadloos massief donker grijs"], category: "vlonderplanken", reason: "Strakke, donkere tinten in een naadloos massieve plank — modern en tijdloos." };
   }
 
   if (look === "modern") {
-    return { lines: ["Komorowa", "MAX"], category: "vlonderplanken", reason: "Komorowa biedt co-extrusie bescherming. MAX is extra breed (185mm) voor een strak, modern terras." };
+    return { lines: ["Standaard composiet donker grijs", "Standaard composiet zwart"], category: "vlonderplanken", reason: "Donkere tinten geven een strak, modern beeld." };
   }
   if (look === "warm") {
-    return { lines: ["Komorowa", "Classic"], category: "vlonderplanken", reason: "Komorowa is licht en voordelig met dubbelzijdig profiel. Classic is massief met een warme geborstelde afwerking." };
+    return { lines: ["Standaard composiet teak", "Standaard composiet walnoot"], category: "vlonderplanken", reason: "Warme houttinten — populaire keuze voor gezinstuinen." };
   }
-  return { lines: ["Komorowa", "MAX"], category: "vlonderplanken", reason: "Komorowa is de populairste keuze: co-extrusie beschermd, dubbelzijdig en verkrijgbaar in 5 kleuren." };
+  return { lines: ["Standaard composiet eiken", "Standaard composiet vergrijsd eiken"], category: "vlonderplanken", reason: "Natuurlijke eikentinten passen bij vrijwel elke tuinstijl." };
 }
 
 /* ── Component ───────────────────────────────── */
