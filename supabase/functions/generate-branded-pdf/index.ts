@@ -1272,12 +1272,22 @@ Deno.serve(async (req) => {
   }
 
   try {
-    const { id, all } = await req.json().catch(() => ({ id: undefined, all: false }));
+    const { id, all, cleanup } = await req.json().catch(() => ({ id: undefined, all: false, cleanup: false }));
 
     const supabase = createClient(
       Deno.env.get("SUPABASE_URL")!,
       Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!
     );
+
+    if (cleanup) {
+      const valid = new Set(documents.map((d) => `branded-pdfs/${d.id}.pdf`));
+      const { data: files } = await supabase.storage.from("product-images").list("branded-pdfs", { limit: 1000 });
+      const orphans = (files ?? []).map((f) => `branded-pdfs/${f.name}`).filter((p) => !valid.has(p));
+      if (orphans.length) await supabase.storage.from("product-images").remove(orphans);
+      return new Response(JSON.stringify({ ok: true, removed: orphans }), {
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
 
     const docsToGenerate = all ? documents : documents.filter((d) => d.id === id);
 
