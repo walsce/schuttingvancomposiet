@@ -159,7 +159,7 @@ export const downloads: DownloadGuide[] = [
     category: "gids",
     image: "/images/wpc/tarasy-kompozytowe.webp",
     relatedLinks: [{ label: "Contact voor offerte", href: "/contact" }],
-    pdfPath: pdfUrl("productcatalogus"),
+    pdfPath: pdfUrl("prijslijst"),
   },
 
   // ─── ONDERHOUD ──────────────────────────────────────────────────────

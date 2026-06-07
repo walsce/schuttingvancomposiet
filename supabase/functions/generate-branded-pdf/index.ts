@@ -22,23 +22,26 @@ interface BrandedDoc {
   sections: Section[];
 }
 
+const TONES = "teak, eiken, walnoot, grijs, donker grijs, vergrijsd eiken en zwart";
+
 const documents: BrandedDoc[] = [
   // ─── MONTAGEHANDLEIDINGEN ────────────────────────────────────────
   {
     id: "handleiding-composiet-schutting",
     title: "Montagehandleiding: composiet schutting plaatsen",
-    subtitle: "Volledige stap-voor-stap handleiding voor het plaatsen van composiet schuttingen",
+    subtitle: "Stap-voor-stap installatiegids voor onze composiet schuttingen (standaard & Rhombus)",
     sections: [
       {
         heading: "1. Benodigde materialen",
         table: {
           headers: ["Component", "Specificatie", "Opmerking"],
           rows: [
-            ["Schuttingplanken", "Classic 19x150mm of Premium 19x150mm", "2 meter lengte"],
-            ["Universeel profiel", "19x150mm", "Verticale structuur, 1,25 / 1,5 / 2 m"],
-            ["Ceownik paalprofiel", "30x40mm WPC", "U-profiel voor planken"],
-            ["Schuttingpaal", "60x60mm WPC", "2 meter, per vak 1 paal"],
-            ["Voetplaat of beton", "-", "Afhankelijk van grondtype"],
+            ["Composiet schuttingplank", "21 x 150 mm, 180 cm", "Standaard of Rhombus profiel"],
+            ["U-paalprofiel (alu)", "60 x 60 mm", "Voor opname planken in paal"],
+            ["Composiet paal", "68 x 68 mm, 200 cm", "Per vak 1 paal"],
+            ["Voetplaat of betonpoer", "—", "Afhankelijk van ondergrond"],
+            ["Topafdekplank", "30 x 150 mm", "Afwerking bovenkant"],
+            ["Kleuren", TONES, "Match met schutting/gevelbekleding"],
           ],
         },
       },
@@ -47,24 +50,23 @@ const documents: BrandedDoc[] = [
         bullets: [
           "Waterpas (minimaal 1 meter)",
           "Accuboormachine met bitset",
-          "Meetlint en potlood",
-          "Verstekzaag of handcirkelzaag met fijntandblad",
-          "Schep en grondboor (voor inbetonneren)",
+          "Meetlint, potlood en slagkoord",
+          "Verstekzaag of handcirkelzaag met fijntandblad voor composiet",
+          "Schep en grondboor (bij inbetonneren)",
           "Betontroffel en emmer",
-          "Slagkoord / snoer voor rechte lijn",
         ],
       },
       {
         heading: "3. Fundament voorbereiden",
         paragraphs: [
-          "De stabiliteit van uw schutting begint bij een goed fundament. De paalgaten moeten minimaal 60 cm diep zijn (vorstdiepte in Nederland is 60-80 cm).",
+          "De stabiliteit van uw schutting begint bij een goed fundament. Paalgaten moeten minimaal 60 cm diep zijn (vorstdiepte in Nederland is 60-80 cm).",
         ],
         bullets: [
-          "Markeer de paalgaten op gelijke afstanden (max. 180 cm hart-op-hart)",
-          "Graaf paalgaten van minimaal 60 cm diep en 25x25 cm breed",
+          "Markeer paalposities op gelijke afstand (hart-op-hart maximaal 195 cm)",
+          "Graaf paalgaten van minimaal 60 cm diep en 25 x 25 cm breed",
           "Gebruik snelbeton of C20/25 beton voor verankering",
           "Laat beton minimaal 24 uur uitharden voor montage",
-          "Alternatief: gebruik voetplaten op verharde ondergrond",
+          "Alternatief: gebruik voetplaten op een verharde ondergrond",
         ],
       },
       {
@@ -72,43 +74,29 @@ const documents: BrandedDoc[] = [
         bullets: [
           "Plaats de eerste paal en controleer met waterpas in twee richtingen",
           "Span een snoer tussen eerste en laatste paal voor een rechte lijn",
-          "Controleer hart-op-hart afstand (max. 180 cm)",
-          "Monteer ceownik U-profielen aan de palen met meegeleverde bevestiging",
-          "Hoekpalen extra verankeren — hier werkt de meeste windbelasting",
+          "Controleer hart-op-hart afstand (max. 195 cm)",
+          "Hoekpalen en eindpalen extra verankeren - hier werkt de meeste windbelasting",
         ],
       },
       {
-        heading: "5. Planken monteren",
+        heading: "5. Planken stapelen",
         bullets: [
-          "Begin onderaan en werk naar boven",
-          "Schuif de planken horizontaal in de ceownik U-profielen",
-          "Controleer regelmatig of de planken waterpas liggen",
-          "Laat 5mm ruimte tussen planken voor uitzetting",
-          "Zaag de bovenste plank op maat indien nodig",
-          "Tip: beide zijden zijn afgewerkt — kies de gewenste structuur (Classic: geborsteld / Premium: houtnerf)",
+          "Schuif planken van bovenaf in het U-profiel van de paal",
+          "Begin met de onderste plank en werk omhoog",
+          "Houd 5 mm dilatatie aan bij doorlopende lengtes",
+          "Bij Rhombus profiel: let op de juiste richting van de schuine kant",
+          "Sluit af met de topafdekplank op de bovenkant",
         ],
       },
       {
-        heading: "6. Afwerking & controle",
-        bullets: [
-          "Plaats afdekkapjes op alle palen",
-          "Controleer alle verbindingen op stevigheid",
-          "Verwijder beschermfolie van de planken",
-          "Schutting kan windbelasting tot 100 km/u aan bij max. 2000mm hoogte",
-          "Maak eventuele bouwresten schoon",
-        ],
-      },
-      {
-        heading: "Technische specificaties",
+        heading: "6. Windbelasting & maximale hoogte",
         table: {
-          headers: ["Eigenschap", "Classic plank", "Premium plank"],
+          headers: ["Hoogte", "Max paalafstand", "Windklasse"],
           rows: [
-            ["Afmeting", "19 x 150 mm", "19 x 150 mm"],
-            ["Lengte", "2000 mm", "2000 mm"],
-            ["Afwerking", "Geborsteld", "Houtnerf 3D"],
-            ["Dubbelzijdig", "Ja", "Ja"],
-            ["Max. schermhoogte", "2000 mm", "2000 mm"],
-            ["Windbelasting", "Tot 100 km/u", "Tot 100 km/u"],
+            ["120 cm", "195 cm", "Tot 120 km/u"],
+            ["160 cm", "195 cm", "Tot 110 km/u"],
+            ["180 cm", "180 cm", "Tot 100 km/u"],
+            ["200 cm", "180 cm", "Tot 90 km/u (verankering kritisch)"],
           ],
         },
       },
@@ -117,135 +105,104 @@ const documents: BrandedDoc[] = [
   {
     id: "handleiding-vlonderplanken",
     title: "Montagehandleiding: composiet vlonderplanken leggen",
-    subtitle: "Van planning en lay-out tot de laatste afwerking",
+    subtitle: "Complete gids voor het leggen van standaard, naadloos massief en Rhombus vlonderplanken",
     sections: [
       {
-        heading: "1. Planning & lay-out",
-        paragraphs: [
-          "Een goede planning bespaart materiaal en tijd. Bereken het benodigde aantal planken op basis van uw terrasoppervlak en het legpatroon.",
-        ],
-        bullets: [
-          "Meet het terras nauwkeurig op (lengte x breedte)",
-          "Bereken materiaal: oppervlak / plankbreedte = aantal planken",
-          "Bestel 5-10% extra voor zaagverlies en eventuele beschadigingen",
-          "Kies het legpatroon: parallel, diagonaal of visgraat",
-        ],
-      },
-      {
-        heading: "2. Productlijnen en specificaties",
+        heading: "1. Plankenoverzicht",
         table: {
-          headers: ["Lijn", "Afmeting", "Constructie", "Bijzonderheid"],
+          headers: ["Type", "Afmeting", "Eigenschap"],
           rows: [
-            ["Slim", "25 x 140 mm (3m)", "Hol", "Budget instapmodel"],
-            ["Eco", "25 x 140 mm (3/4m)", "Hol", "Eco-vriendelijk"],
-            ["Komorowa", "25 x 160 mm (3/4m)", "Hol", "Dubbelzijdig profiel"],
-            ["MAX", "20 x 185 mm (3/4m)", "Massief", "Extra breed, palletverkoop"],
-            ["Classic", "20 x 160 mm (3/4m)", "Massief", "Geborsteld oppervlak"],
-            ["Premium", "20 x 160 mm (3/4m)", "Massief", "Houtnerf 3D patroon"],
-            ["Elegance", "25 x 140 mm (4m)", "Hol+RENOLIT", "Korund antislip, topmodel"],
+            ["Standaard composiet", "23 x 140 mm, 4 m", "Holle kern, snelle montage"],
+            ["Naadloos massief", "21 x 145 mm, 4 m", "100% massief, premium look"],
+            ["Rhombus profiel", "21 x 145 mm, 4 m", "Gegroefd, antislip"],
+            ["Kleuren", TONES, "Per kleur op voorraad"],
           ],
         },
       },
       {
-        heading: "3. Onderconstructie",
-        paragraphs: [
-          "De onderconstructie is cruciaal voor de levensduur en stabiliteit van uw vlonder.",
-        ],
+        heading: "2. Onderconstructie",
         bullets: [
-          "Maximale balkafstand: 40 cm hart-op-hart",
-          "Kies WPC onderbalken (50x30mm, 3m) of aluminium leggers",
-          "Aluminium laag profiel (36x24mm) voor minimale opbouwhoogte",
-          "Aluminium hoog profiel (38x51mm) voor grotere overspanningen",
-          "Zorg voor minimaal 1% afschot voor waterafvoer (1 cm per meter)",
-          "Laat minimaal 20mm ventilatie onder de constructie",
+          "Balkafstand maximaal 40 cm hart-op-hart (35 cm bij diagonaal leggen)",
+          "Gebruik aluminium leggers (4 m) of composiet onderbalken (3 m)",
+          "Plaats balken op terrasdragers (25-260 mm verstelbaar) of rubberstroken",
+          "Zorg voor minimaal 2% afschot voor waterafvoer",
+          "Ventilatieruimte onder de planken minimaal 30 mm",
         ],
       },
       {
-        heading: "4. Montage vlonderplanken",
+        heading: "3. Planken monteren met clips",
         bullets: [
-          "Begin bij een rechte referentielijn (muur of gespannen snoer)",
-          "Bevestig de eerste plank met startclips",
-          "Gebruik tussenclips voor onzichtbare bevestiging",
-          "Laat 5-8mm expansieruimte tussen planken (gebruik spacers)",
-          "Laat 10-15mm ruimte langs muren en obstakels",
-          "Monteer van links naar rechts of van de muur af",
-          "Tempo: circa 4 m2 per uur bij ervaren montage",
+          "Begin met startclip langs de gevel of randbalk",
+          "Plaats RVS clip op elke balk tussen de planken",
+          "Clips zorgen voor automatische voeg van 5 mm",
+          "Bij Rhombus en naadloos massief: gebruik specifieke clip per type",
+          "Eindplank vastzetten met eindclip of schroef in de zijkant",
         ],
+      },
+      {
+        heading: "4. Materiaal per m2",
+        table: {
+          headers: ["Component", "Verbruik per m2", "Opmerking"],
+          rows: [
+            ["Vlonderplanken", "ca. 7,2 lm", "Bij standaard 145 mm breed"],
+            ["Onderbalken", "ca. 2,5 lm", "Hart-op-hart 40 cm"],
+            ["Clips", "ca. 22 stuks", "Plus 4 start/eindclips per rij"],
+            ["Terrasdragers", "ca. 4 stuks", "Bij vlakke ondergrond"],
+          ],
+        },
       },
       {
         heading: "5. Afwerking",
         bullets: [
-          "Monteer afwerklijsten (plat of L-profiel) langs de randen",
-          "Gebruik L-profielen bij treden en hoogverschillen",
-          "Controleer alle clipverbindingen op stevigheid",
-          "Verwijder alle beschermfolies en bouwresten",
+          "Plaats afwerkingsprofielen (vlak of L-vorm) aan de randen",
+          "Reinig het oppervlak na montage met warm zeepwater",
+          "Eerste 6 weken: vermijd zware belasting op nieuwe planken",
         ],
-      },
-      {
-        heading: "Montagesets",
-        table: {
-          headers: ["Set", "Dekking", "Inhoud"],
-          rows: [
-            ["Montageset 2m2", "2 m2", "Clips + schroeven voor 2m2"],
-            ["Montageset 10m2", "10 m2", "Clips + schroeven voor 10m2 (voordeliger)"],
-          ],
-        },
       },
     ],
   },
   {
     id: "handleiding-aluminium-onderbalken",
-    title: "Montagehandleiding: aluminium onderbalken voor vlonders",
-    subtitle: "Gedetailleerde installatiehandleiding voor aluminium leggers",
+    title: "Montagehandleiding: aluminium onderbalken",
+    subtitle: "Installatie van aluminium leggers op plots, rubberstroken of vaste ondergrond",
     sections: [
       {
-        heading: "Productoverzicht",
+        heading: "Producten",
         table: {
-          headers: ["Type", "Afmeting", "Lengte", "Toepassing"],
+          headers: ["Profiel", "Afmeting", "Toepassing"],
           rows: [
-            ["Laag profiel", "36,4 x 24 mm", "4 meter", "Balkons, dakterrassen, minimale opbouwhoogte"],
-            ["Hoog profiel", "38 x 51 mm", "4 meter", "Tuinterrassen, grotere overspanningen"],
+            ["Alu legger laag", "36,4 x 24 mm, 4 m", "Op vlakke beton/tegels"],
+            ["Alu legger hoog", "38 x 51 mm, 4 m", "Op terrasdragers"],
+            ["Verbindingsstuk", "RVS", "Voor doorgaande lengtes"],
+            ["Hoekbeugel", "Alu", "Voor randafwerking"],
           ],
         },
       },
       {
-        heading: "Voordelen aluminium onderconstructie",
+        heading: "Montage op plots",
         bullets: [
-          "100% vochtbestendig — geen rotting mogelijk",
-          "Lichtgewicht en eenvoudig te verwerken",
-          "Onbeperkte levensduur bij normaal gebruik",
-          "Dimensioneel stabiel — geen uitzetting of krimp",
-          "Recyclebaar materiaal",
-        ],
-      },
-      {
-        heading: "Montage op verstelbare terrasdragers (plots)",
-        bullets: [
-          "Plaats terrasdragers op hart-op-hart afstand van max. 40 cm",
-          "Stel de gewenste hoogte in (25-260mm bereik)",
-          "Leg de aluminium leggers in de oplegpunten",
-          "Controleer waterpas en pas hoogtes aan",
-          "Verbind leggers met verbindingsstukken bij langere afstanden",
-          "Gebruik hoekbeugels bij hoekverbindingen",
+          "Verstelbare terrasdragers plaatsen op hart-op-hart 50 cm",
+          "Hoogte instellen met waterpas - controleer 2% afschot",
+          "Leggers vastzetten op de terrasdrager met meegeleverde schroef",
+          "Bij grote oppervlakken: dwarsverbindingen plaatsen voor stabiliteit",
         ],
       },
       {
         heading: "Montage op rubberstroken",
         bullets: [
-          "Leg rubberstroken op de betonvloer of tegels",
-          "Plaats de aluminium leggers op de rubberstroken",
-          "Rubberstroken dempen geluid en voorkomen beschadiging",
-          "Controleer waterpas en corrigeer met extra rubberstroken",
+          "Plaats rubberstroken h.o.h. 50 cm op een vlakke ondergrond",
+          "Leg de aluminium legger direct op de rubberstrook",
+          "Geen schroefverbinding nodig - gewicht houdt het vast",
+          "Ideaal voor balkons of dakterrassen waar boren niet kan",
         ],
       },
       {
-        heading: "Aandachtspunten",
+        heading: "Dilatatie en lengtes",
         bullets: [
-          "Maximale balkafstand: 40 cm hart-op-hart",
-          "Minimaal 1% afschot richting de afwatering",
-          "Minimaal 20mm ruimte onder de constructie voor ventilatie",
-          "Gebruik alleen RVS of verzinkte schroeven (geen onbehandeld staal)",
-          "Bij combinatie met WPC planken: volg de montagehandleiding van de gekozen planklijn",
+          "Doorgaande lengtes opbouwen met RVS verbindingsstuk",
+          "Houd 5 mm dilatatie aan bij elke verbinding",
+          "Maximale onbevestigde lengte: 4 meter",
+          "Bij temperaturen > 30 graden extra dilatatie aanhouden",
         ],
       },
     ],
@@ -253,59 +210,50 @@ const documents: BrandedDoc[] = [
   {
     id: "handleiding-vlonder-accessoires",
     title: "Montagehandleiding: vlonder accessoires & afwerking",
-    subtitle: "Installatiehandleiding voor onderbalken, clips, profielen en randafwerking",
+    subtitle: "Onderbalken, clips, afwerkingsprofielen en montagesets",
     sections: [
       {
-        heading: "Onderbalken (leggers)",
+        heading: "Accessoires overzicht",
         table: {
-          headers: ["Product", "Specificatie", "Opmerking"],
+          headers: ["Product", "Specificatie", "Prijs vanaf"],
           rows: [
-            ["WPC onderbalk", "50 x 30 mm, 3 meter", "Standaard, composiet"],
-            ["Aluminium laag", "36,4 x 24 mm, 4 meter", "Voor lage opbouwhoogte"],
-            ["Aluminium hoog", "38 x 51 mm, 4 meter", "Voor grotere overspanningen"],
+            ["WPC onderbalk", "50 x 30 mm, 3 m", "EUR 9,49/m"],
+            ["Alu legger laag", "36 x 24 mm, 4 m", "EUR 12,49/m"],
+            ["Alu legger hoog", "38 x 51 mm, 4 m", "EUR 16,95/m"],
+            ["Montageset 2 m2", "Clips + schroeven", "EUR 19,95/set"],
+            ["Montageset 10 m2", "Clips + schroeven", "EUR 94,95/set"],
+            ["Afwerklijst vlak", "WPC", "EUR 6,95/m"],
+            ["L-profiel composiet", "WPC", "EUR 10,95/m"],
+            ["L-profiel aluminium", "Alu", "EUR 11,95/m"],
+            ["Terrasdrager", "25-260 mm", "EUR 4,95/stuk"],
           ],
         },
       },
       {
-        heading: "Verstelbare terrasdragers",
-        paragraphs: [
-          "De verstelbare terrasdrager maakt het mogelijk om een perfect waterpas vlonder te creeren op ongelijke ondergronden.",
-        ],
+        heading: "Clips & schroeven",
         bullets: [
-          "Hoogtebereik: 25 tot 260 mm",
-          "Draagvermogen: 1000 kg per stuk",
-          "Materiaal: polypropyleen (vorstbestendig)",
-          "Plaats 6-9 dragers per m2 afhankelijk van balkafstand",
-        ],
-      },
-      {
-        heading: "Montagesets (clips & schroeven)",
-        bullets: [
-          "Montageset 2m2: voor kleine projecten en reparaties",
-          "Montageset 10m2: voordeelverpakking voor grotere projecten",
-          "Clips zorgen voor onzichtbare bevestiging",
-          "Gebruik meegeleverde RVS schroeven",
-          "Circa 20-25 clips per m2",
+          "RVS clips: A2 of A4 kwaliteit voor langdurige corrosiebestendigheid",
+          "Per montageset zit inbussleutel en alle schroeven inbegrepen",
+          "Startclip aan randbalk, eindclip aan laatste plank",
+          "Tussenclips zorgen automatisch voor 5 mm voeg",
         ],
       },
       {
         heading: "Afwerkingsprofielen",
-        table: {
-          headers: ["Profiel", "Materiaal", "Toepassing"],
-          rows: [
-            ["Platte afwerklijst", "WPC composiet", "Rechte randen, plintafwerking"],
-            ["L-profiel composiet", "WPC composiet", "Hoeken, treden, hoogverschillen"],
-            ["L-profiel aluminium", "Aluminium", "Strakke moderne randafwerking"],
-          ],
-        },
+        bullets: [
+          "Vlakke afwerklijst voor zijkanten en stootranden",
+          "L-profiel (composiet of aluminium) voor zichtzijden",
+          "Plintplanken voor verhoogde terrassen",
+          "Alle profielen in dezelfde tinten als de planken (zie kleurengids)",
+        ],
       },
       {
-        heading: "Montagetips afwerking",
+        heading: "Terrasdragers",
         bullets: [
-          "Monteer afwerklijsten na het leggen van alle vlonderplanken",
-          "Gebruik voorgeboorde gaten om splitsing te voorkomen",
-          "L-profielen bij treden: bevestig zowel horizontaal als verticaal",
-          "Laat 5mm ruimte tussen afwerklijsten voor uitzetting",
+          "Verstelbaar van 25 tot 260 mm",
+          "Geschikt voor balkons, dakterrassen en oneffen ondergrond",
+          "Plaats h.o.h. 50 cm onder elke balk",
+          "Inclusief rubber dempervoet voor geluiddemping",
         ],
       },
     ],
@@ -313,220 +261,386 @@ const documents: BrandedDoc[] = [
   {
     id: "snelstartgids-vlonder",
     title: "Snelstartgids: vlonder monteren in 4 m2/uur",
-    subtitle: "Visuele snelstartgids met de belangrijkste montagestappen",
+    subtitle: "De belangrijkste montagestappen in een visueel overzicht",
     sections: [
       {
-        heading: "Stap 1: Onderconstructie",
+        heading: "Stap 1 - Voorbereiden",
         bullets: [
-          "Leg onderbalken op max. 40 cm hart-op-hart",
-          "Zorg voor 1% afschot richting afwatering",
-          "Controleer waterpas in beide richtingen",
+          "Meet de ruimte op en bereken benodigd materiaal (ca. 7,2 lm planken per m2)",
+          "Controleer dat de ondergrond vlak en stabiel is",
+          "Zorg voor 2% afschot voor waterafvoer",
         ],
       },
       {
-        heading: "Stap 2: Eerste plank plaatsen",
+        heading: "Stap 2 - Onderconstructie",
         bullets: [
-          "Begin bij een vaste referentielijn (muur of snoer)",
-          "Bevestig startclips aan de onderbalk",
-          "Klik de eerste plank in de startclips",
-          "Laat 10-15mm ruimte tot de muur",
+          "Plaats aluminium of WPC onderbalken h.o.h. 40 cm",
+          "Gebruik terrasdragers of rubberstroken",
+          "Controleer waterpas in alle richtingen",
         ],
       },
       {
-        heading: "Stap 3: Planken doorleggen",
+        heading: "Stap 3 - Planken leggen",
         bullets: [
-          "Plaats tussenclips aan de onderbalk tegen de eerste plank",
-          "Klik de volgende plank in de clips",
-          "Herhaal tot het terras vol ligt",
-          "Gebruik spacers voor gelijkmatige voegen (5-8mm)",
+          "Start met startclip aan de randbalk",
+          "Schuif eerste plank op de clip",
+          "Plaats tussenclips op elke balk - automatische voeg van 5 mm",
+          "Werk plank voor plank tot de overkant",
         ],
       },
       {
-        heading: "Stap 4: Afwerking",
+        heading: "Stap 4 - Afwerken",
         bullets: [
-          "Zaag de laatste plank op maat",
-          "Monteer afwerklijsten langs alle zichtbare randen",
-          "Gebruik L-profielen bij hoogteverschillen en treden",
-          "Verwijder alle beschermfolies",
+          "Eindclip op de laatste plank",
+          "Randen afwerken met L-profiel of plintplank",
+          "Schoonmaken met warm zeepwater",
         ],
       },
       {
-        heading: "Tempo-indicatie",
-        table: {
-          headers: ["Ervaring", "Tempo", "Opmerking"],
-          rows: [
-            ["Beginner", "2-3 m2/uur", "Inclusief meten en uitlijnen"],
-            ["Ervaren klusser", "4 m2/uur", "Na de eerste rij gaat het snel"],
-            ["Professional", "6-8 m2/uur", "Met twee personen nog sneller"],
-          ],
-        },
-      },
-      {
-        heading: "Veelgemaakte fouten",
-        bullets: [
-          "Geen expansieruimte laten (verbuiging bij warmte)",
-          "Balkafstand te groot (doorbuiging)",
-          "Geen afschot (waterophoping)",
-          "Metalen schroeven direct in composiet (roestplekken)",
+        heading: "Tempo",
+        paragraphs: [
+          "Een ervaren doe-het-zelver legt ongeveer 4 m2 per uur. Een terras van 20 m2 doet u dus in een lange werkdag - mits onderconstructie en materiaal klaarliggen.",
         ],
       },
     ],
   },
 
-  // ─── BESTAANDE DOCUMENTEN ────────────────────────────────────────
+  // ─── CATALOGI & GIDSEN ──────────────────────────────────────────────
+  {
+    id: "productcatalogus",
+    title: "Productcatalogus 2026",
+    subtitle: "Alle composiet vlonderplanken, schuttingen, tuindeuren, gevelbekleding en accessoires",
+    sections: [
+      {
+        heading: "Categorieen",
+        bullets: [
+          "Vlonderplanken - standaard, naadloos massief en Rhombus",
+          "Schuttingen - dicht en Rhombus, hoogtes 120 tot 200 cm",
+          "Tuindeuren - dicht en Rhombus, standaard en op maat",
+          "Gevelbekleding - Rhombus profielen voor moderne gevels",
+          "Accessoires - palen, profielen, clips, onderconstructie",
+        ],
+      },
+      {
+        heading: "Vlonderplanken",
+        table: {
+          headers: ["Type", "Afmeting", "Vanaf prijs"],
+          rows: [
+            ["Standaard composiet", "23 x 140 mm, 4 m", "EUR 18,95/m"],
+            ["Naadloos massief", "21 x 145 mm, 4 m", "EUR 28,95/m"],
+            ["Rhombus profiel", "21 x 145 mm, 4 m", "EUR 26,95/m"],
+          ],
+        },
+      },
+      {
+        heading: "Schuttingen",
+        table: {
+          headers: ["Type", "Afmeting", "Vanaf prijs"],
+          rows: [
+            ["Composiet schuttingplank", "21 x 150 mm, 180 cm", "EUR 16,95/m"],
+            ["Rhombus schuttingplank", "21 x 150 mm, 180 cm", "EUR 21,95/m"],
+            ["Composiet paal", "68 x 68 mm, 200 cm", "EUR 49,95/st"],
+            ["U-paalprofiel alu", "60 x 60 mm", "EUR 12,95/m"],
+          ],
+        },
+      },
+      {
+        heading: "Tuindeuren",
+        table: {
+          headers: ["Type", "Afmeting", "Vanaf prijs"],
+          rows: [
+            ["Dichte tuindeur", "100 x 180 cm", "EUR 549,-"],
+            ["Rhombus tuindeur", "100 x 180 cm", "EUR 649,-"],
+            ["Tuindeur op maat", "Maatwerk", "Op aanvraag"],
+            ["Scharnier- en slotset", "RVS", "EUR 89,-/set"],
+          ],
+        },
+      },
+      {
+        heading: "Gevelbekleding",
+        table: {
+          headers: ["Type", "Afmeting", "Vanaf prijs"],
+          rows: [
+            ["Rhombus gevelplank", "21 x 145 mm, 4 m", "EUR 32,95/m"],
+            ["Aluminium regelwerk", "40 x 60 mm, 4 m", "EUR 11,95/m"],
+            ["Hoek- en eindprofiel", "Alu, op kleur", "EUR 14,95/m"],
+          ],
+        },
+      },
+      {
+        heading: "Kleuren",
+        paragraphs: [
+          `Alle producten leverbaar in: ${TONES}. Kleuren matchen tussen vlonder, schutting, tuindeur en gevelbekleding voor een geheel afgestemde buitenruimte.`,
+        ],
+      },
+    ],
+  },
+  {
+    id: "prijslijst",
+    title: "Prijslijst 2026",
+    subtitle: "Actuele prijzen, staffelkortingen en leveringsvoorwaarden",
+    sections: [
+      {
+        heading: "Vlonderplanken (per strekkende meter)",
+        table: {
+          headers: ["Type", "Afmeting", "Per m", "Per pak (4 m)"],
+          rows: [
+            ["Standaard composiet", "23 x 140 mm", "EUR 18,95", "EUR 75,80"],
+            ["Naadloos massief", "21 x 145 mm", "EUR 28,95", "EUR 115,80"],
+            ["Rhombus profiel", "21 x 145 mm", "EUR 26,95", "EUR 107,80"],
+          ],
+        },
+      },
+      {
+        heading: "Schuttingen (per strekkende meter)",
+        table: {
+          headers: ["Component", "Afmeting", "Per stuk/m"],
+          rows: [
+            ["Composiet schuttingplank", "21 x 150 mm, 180 cm", "EUR 16,95/m"],
+            ["Rhombus schuttingplank", "21 x 150 mm, 180 cm", "EUR 21,95/m"],
+            ["Composiet paal", "68 x 68 mm, 200 cm", "EUR 49,95/st"],
+            ["U-paalprofiel alu", "60 x 60 mm", "EUR 12,95/m"],
+            ["Topafdekplank", "30 x 150 mm", "EUR 9,95/m"],
+          ],
+        },
+      },
+      {
+        heading: "Tuindeuren",
+        table: {
+          headers: ["Type", "Afmeting", "Prijs"],
+          rows: [
+            ["Dichte tuindeur", "100 x 180 cm", "EUR 549,-"],
+            ["Rhombus tuindeur", "100 x 180 cm", "EUR 649,-"],
+            ["Tuindeur op maat", "Maatwerk", "Op aanvraag"],
+            ["Scharnier- en slotset", "RVS", "EUR 89,-/set"],
+          ],
+        },
+      },
+      {
+        heading: "Gevelbekleding",
+        table: {
+          headers: ["Component", "Afmeting", "Per m"],
+          rows: [
+            ["Rhombus gevelplank", "21 x 145 mm, 4 m", "EUR 32,95"],
+            ["Aluminium regelwerk", "40 x 60 mm, 4 m", "EUR 11,95"],
+            ["Hoek- en eindprofiel", "Op kleur", "EUR 14,95"],
+          ],
+        },
+      },
+      {
+        heading: "Staffelkortingen",
+        bullets: [
+          "Bestelling vanaf EUR 1.000: 3% korting",
+          "Bestelling vanaf EUR 2.500: 5% korting",
+          "Bestelling vanaf EUR 5.000: 7% korting + gratis levering",
+          "Aannemers en hoveniers: aparte zakelijke tarieven op aanvraag",
+        ],
+      },
+      {
+        heading: "Leveringsvoorwaarden",
+        bullets: [
+          "Levertijd standaard: 5-10 werkdagen",
+          "Levering door heel Nederland en Belgie",
+          "Gratis levering vanaf EUR 5.000",
+          "Onder EUR 5.000: verzendkosten op basis van postcode",
+          "25 jaar fabrieksgarantie op alle composiet producten",
+        ],
+      },
+    ],
+  },
+
+  // ─── ONDERHOUD ──────────────────────────────────────────────────────
+  {
+    id: "onderhoud-composiet-vlonder",
+    title: "Onderhoudsadvies: composiet vlonderplanken",
+    subtitle: "Hoe houdt u uw vlonder jarenlang strak? Reiniging, seizoenstips en kleurherstel.",
+    sections: [
+      {
+        heading: "Basisonderhoud",
+        paragraphs: [
+          "Composiet vlonderplanken zijn onderhoudsarm, maar niet onderhoudsvrij. Een jaarlijkse wasbeurt voorkomt aanslag en houdt de kleur strak.",
+        ],
+        bullets: [
+          "1x per jaar afspuiten met tuinslang en zachte borstel",
+          "Hardnekkig vuil: warm water met groene zeep",
+          "Geen agressieve middelen (geen chloor, geen oplosmiddelen)",
+          "Bij hogedrukreiniger: maximaal 100 bar op 30 cm afstand",
+        ],
+      },
+      {
+        heading: "Seizoensschema",
+        table: {
+          headers: ["Seizoen", "Actie"],
+          rows: [
+            ["Lente", "Grondige wasbeurt na de winter, controle clips en randen"],
+            ["Zomer", "Bij hitte: planken extra besproeien om dilatatie te beperken"],
+            ["Herfst", "Bladeren wegvegen voor schimmelvorming voorkomt"],
+            ["Winter", "Sneeuw verwijderen met kunststof schep (geen metaal)"],
+          ],
+        },
+      },
+      {
+        heading: "Groene aanslag verwijderen",
+        bullets: [
+          "Schaduwzijdes vatbaarder voor algen en mos",
+          "Reinig met groene zeep of speciaal composiet reiniger",
+          "Borstel altijd in de lengterichting van de plank",
+          "Naspoelen met schoon water",
+        ],
+      },
+      {
+        heading: "Kleurherstel",
+        bullets: [
+          "Kleine krassen: composiet kleurherstelspray in dezelfde tint",
+          "Diepe krassen: lichtjes opschuren met fijn schuurpapier (korrel 240)",
+          "Bij twijfel: contact opnemen voor advies of een vervangplank",
+        ],
+      },
+    ],
+  },
+
+  // ─── CHECKLISTS ─────────────────────────────────────────────────────
   {
     id: "checklist-schutting-plaatsen",
     title: "Checklist: composiet schutting plaatsen",
-    subtitle: "Stap-voor-stap checklist voor een succesvolle montage",
+    subtitle: "Doorloop deze checklist voor een vlekkeloze installatie",
     sections: [
       {
-        heading: "1. Voorbereiding",
+        heading: "Voorbereiding",
         bullets: [
-          "Controleer de erfgrens met uw buren en/of kadaster",
-          "Check gemeentelijke regelgeving (vergunning nodig bij > 2 meter)",
-          "Meet de totale lengte en bepaal het aantal schermen",
-          "Bestel 5-10% extra materiaal voor zaagverlies",
+          "Lengte en hoogte van de schutting opmeten",
+          "Aantal palen, planken en U-profielen bestellen",
+          "Kleur en profiel kiezen (dicht of Rhombus)",
+          "Gemeentelijke regels en burenrecht checken (zie gids vergunningen)",
         ],
       },
       {
-        heading: "2. Benodigd gereedschap",
+        heading: "Gereedschap",
         bullets: [
-          "Waterpas (minimaal 1 meter)",
-          "Accuboormachine met bitset",
-          "Meetlint en potlood",
-          "Verstekzaag of handcirkelzaag",
-          "Schep en grondboor (voor inbetonneren)",
-          "Betontroffel en emmer",
+          "Waterpas, meetlint en slagkoord",
+          "Accuboormachine met bits",
+          "Verstekzaag met fijntandblad",
+          "Grondboor of schep",
+          "Beton, troffel en emmer",
         ],
       },
       {
-        heading: "3. Grondvoorbereiding",
+        heading: "Tijdens montage",
         bullets: [
-          "Markeer de paalgaten op gelijke afstanden (max. 180 cm hart-op-hart)",
-          "Graaf paalgaten van minimaal 60 cm diep",
-          "Gebruik snelbeton of regulier beton voor verankering",
-          "Laat beton minimaal 24 uur uitharden",
+          "Eerste paal exact verticaal plaatsen (waterpas in 2 richtingen)",
+          "Snoer spannen voor rechte lijn over de hele lengte",
+          "Hart-op-hart paalafstand max. 195 cm aanhouden",
+          "Bij elke plank: 5 mm dilatatie aanhouden",
+          "Beton minimaal 24 uur laten uitharden voor belasting",
         ],
       },
       {
-        heading: "4. Palen plaatsen",
+        heading: "Afwerking",
         bullets: [
-          "Controleer of alle palen waterpas en in lijn staan",
-          "Gebruik tussenafstandhouders voor gelijke schermbreedtes",
-          "Monteer voetplaten als u niet wilt inbetonneren",
-          "Hoekpalen extra verankeren voor windbelasting",
+          "Topafdekplank plaatsen voor strakke bovenrand",
+          "Hoekpalen extra verankeren tegen windbelasting",
+          "Restmateriaal en afval afvoeren",
+          "Eerste reiniging met warm zeepwater",
         ],
       },
       {
-        heading: "5. Planken monteren",
+        heading: "Veelgemaakte fouten",
         bullets: [
-          "Begin onderaan en werk naar boven",
-          "Gebruik het kliksysteem voor snelle montage",
-          "Controleer regelmatig of de planken waterpas liggen",
-          "Zaag de laatste plank op maat indien nodig",
-        ],
-      },
-      {
-        heading: "6. Afwerking",
-        bullets: [
-          "Plaats afdekkapjes op alle palen",
-          "Controleer alle verbindingen op stevigheid",
-          "Verwijder beschermfolie van de planken",
-          "Maak eventuele bouwresten schoon",
+          "Te grote paalafstand - leidt tot doorbuiging en wind-trillingen",
+          "Geen dilatatie - planken zetten uit bij hitte",
+          "Beton niet laten uitharden - palen scheef na eerste storm",
+          "Verkeerd Rhombus profiel-richting - water blijft staan",
         ],
       },
     ],
   },
   {
     id: "grondvoorbereiding",
-    title: "Checklist: grondvoorbereiding",
-    subtitle: "De juiste fundering voor schuttingen en vlonders",
+    title: "Checklist: grondvoorbereiding voor schuttingen & vlonders",
+    subtitle: "De juiste fundering begint bij de ondergrond",
     sections: [
       {
         heading: "Grondtypen herkennen",
         table: {
-          headers: ["Grondtype", "Kenmerken", "Aandachtspunten"],
+          headers: ["Grondtype", "Geschikt voor", "Aandachtspunt"],
           rows: [
-            ["Zandgrond", "Licht, goed doorlatend", "Paalgaten kunnen invallen, gebruik bekisting"],
-            ["Kleigrond", "Zwaar, houdt water vast", "Extra drainage nodig, diepere fundering"],
-            ["Veengrond", "Zacht, kan zakken", "Gebruik langere palen of heipalen"],
-            ["Tuinaarde", "Gemengd, variabel", "Verwijder losse grond tot vaste ondergrond"],
+            ["Zandgrond", "Inbetonneren of voetplaten", "Goede drainage van nature"],
+            ["Kleigrond", "Inbetonneren met drainage", "Risico op verzakking, vorstgevoelig"],
+            ["Veengrond", "Heipalen of ankers vereist", "Niet draagkrachtig"],
+            ["Beton/tegels", "Voetplaten + chemisch ankeren", "Geen graafwerk nodig"],
           ],
         },
       },
       {
-        heading: "Drainage aanleggen",
+        heading: "Drainage",
         bullets: [
-          "Leg drainage bij klei- of veengrond",
-          "Gebruik grind of split onder funderingen",
-          "Zorg voor afschot van min. 1 cm per meter (vlonders)",
-          "Voorkom waterophoping bij paalgaten",
+          "Vlonder: 2% afschot naar tuin of afvoer",
+          "Schutting: paalgat met grindlaag van 10 cm onderaan",
+          "Bij hoge grondwaterstand: drainagebuis aanleggen",
         ],
       },
       {
-        heading: "Funderingsopties",
-        table: {
-          headers: ["Type", "Geschikt voor", "Voordeel"],
-          rows: [
-            ["Betonpoer", "Stevige grond", "Eenvoudig, geen graven"],
-            ["Inbetonneren", "Alle grondtypen", "Zeer stabiel"],
-            ["Schroefanker", "Zand/kleigrond", "Geen beton nodig"],
-            ["Paaltjes op voetplaat", "Verharde ondergrond", "Direct te monteren"],
-          ],
-        },
+        heading: "Vorstdiepte",
+        bullets: [
+          "Nederland: paalgaten minimaal 60-80 cm diep",
+          "Voorkomt opvriezen en scheefzakken van palen",
+          "Bij twijfel altijd dieper graven dan ondieper",
+        ],
       },
       {
-        heading: "Vorstdiepte",
-        paragraphs: [
-          "In Nederland is de vorstdiepte circa 60-80 cm. Zorg dat funderingen minimaal tot deze diepte reiken om vorstschade te voorkomen.",
+        heading: "Hellingen",
+        bullets: [
+          "Schutting op helling: stapsgewijs aanpassen per paalvak",
+          "Vlonder op helling: aluminium leggers met terrasdragers compenseren",
+          "Maximale helling per stap: 15 cm verschil tussen twee palen",
         ],
       },
     ],
   },
+
+  // ─── GIDSEN ─────────────────────────────────────────────────────────
   {
     id: "vergunningen-regels",
     title: "Gids: vergunningen & regels voor schuttingen",
-    subtitle: "Alles over gemeentelijke regels, erfgrenzen en burenrecht",
+    subtitle: "Wettelijke kaders, maximale hoogtes en burenrecht in Nederland",
     sections: [
       {
         heading: "Wanneer heb je een vergunning nodig?",
         bullets: [
-          "Schuttingen tot 2 meter in de achtertuin: meestal vergunningsvrij",
-          "Schuttingen tot 1 meter in de voortuin: meestal vergunningsvrij",
-          "Hoger dan 2 meter: altijd een omgevingsvergunning nodig",
-          "In beschermd stadsgezicht: altijd contact opnemen met de gemeente",
-          "Bij monumentale panden: aparte regels van toepassing",
+          "Tot 1 meter hoog op de erfgrens: vergunningsvrij",
+          "Tot 2 meter hoog mits achter de voorgevelrooilijn en op minimaal 1 m van openbare weg",
+          "Boven 2 meter: altijd omgevingsvergunning aanvragen",
+          "Beschermde dorpsgezichten en monumenten: extra regels gelden",
         ],
       },
       {
-        heading: "Erfgrens & burenrecht",
-        paragraphs: [
-          "Een schutting op de erfgrens is gezamenlijk eigendom. Beide buren moeten instemmen met plaatsing en verdelen de kosten. Plaats je de schutting volledig op eigen grond, dan ben jij de eigenaar en draag je alle kosten.",
-        ],
-        bullets: [
-          "Op de erfgrens: toestemming buren vereist",
-          "Op eigen grond: geen toestemming nodig, maar informeer buren uit beleefdheid",
-          "Minimale afstand tot openbare weg: raadpleeg gemeentelijk bestemmingsplan",
-        ],
-      },
-      {
-        heading: "Maximale hoogtes",
+        heading: "Maximale hoogtes per situatie",
         table: {
-          headers: ["Locatie", "Max. hoogte", "Opmerking"],
+          headers: ["Locatie", "Max hoogte vergunningsvrij"],
           rows: [
-            ["Achtertuin (achter verlengde voorgevel)", "2,00 m", "Vergunningsvrij"],
-            ["Voortuin", "1,00 m", "Vergunningsvrij"],
-            ["Zijtuin (grenzend aan openbaar)", "1,00 m", "Vergunningsvrij"],
-            ["Hoger dan bovenstaand", "Variabel", "Omgevingsvergunning vereist"],
+            ["Voortuin (voor voorgevel)", "1 meter"],
+            ["Zijtuin tot voorgevelrooilijn", "1 meter"],
+            ["Achtertuin en zijtuin achter voorgevel", "2 meter"],
+            ["Op de erfgrens met buren", "2 meter (in overleg)"],
           ],
         },
       },
       {
-        heading: "Handige links",
+        heading: "Erfgrens en burenrecht",
         bullets: [
-          "Omgevingsloket online: www.omgevingsloket.nl",
-          "Kadaster: www.kadaster.nl",
-          "Rijksoverheid bouwregelgeving: www.rijksoverheid.nl",
+          "Plaats schutting net binnen uw eigen erfgrens (5-10 cm)",
+          "Bij gedeelde schutting: schriftelijke afspraken maken over kosten en onderhoud",
+          "Burenrecht: buren mogen geen onredelijke hinder ondervinden",
+          "Bij conflict: mediation via de gemeente of buurtbemiddeling",
+        ],
+      },
+      {
+        heading: "Praktische tips",
+        bullets: [
+          "Check altijd het bestemmingsplan op www.ruimtelijkeplannen.nl",
+          "Vraag een omgevingsvergunning aan via www.omgevingsloket.nl",
+          "Bij onzekerheid: gratis vooroverleg met gemeente plannen",
+          "Bewaar offerte, fotos en eventuele schriftelijke buurakkoorden",
         ],
       },
     ],
@@ -534,197 +648,279 @@ const documents: BrandedDoc[] = [
   {
     id: "kleurengids",
     title: "Kleurengids: het perfecte composiet voor jouw tuin",
-    subtitle: "Kies de ideale kleur bij jouw gevel, tuin en stijl",
+    subtitle: "Kies de juiste tint voor schutting, vlonder, tuindeur en gevelbekleding",
     sections: [
       {
-        heading: "Warme vs. koele tinten",
-        paragraphs: [
-          "Warme tinten (Teak, Walnoot, Eiken) passen bij een landelijke of klassieke tuinstijl. Ze creeren een sfeervolle, uitnodigende uitstraling.",
-          "Koele tinten (Grijs, Zwart, Antraciet) passen bij een moderne of industriele stijl. Ze geven een strak en tijdloos resultaat.",
-        ],
-      },
-      {
-        heading: "Kleuren combineren",
-        bullets: [
-          "Donkere gevel + lichte schutting: mooi contrast",
-          "Lichte gevel + donkere schutting: modern en strak",
-          "Schutting en vlonder in dezelfde kleur: rustgevend geheel",
-          "Accentkleur in decorpanelen: speels effect",
-        ],
-      },
-      {
-        heading: "Beschikbare kleuren vlonderplanken",
+        heading: "Kleurenoverzicht",
         table: {
-          headers: ["Kleur", "Categorie", "Beschikbaar in"],
+          headers: ["Kleur", "Karakter", "Combineert met"],
           rows: [
-            ["Donker Bruin", "Warm", "Alle lijnen"],
-            ["Walnoot", "Warm", "Alle lijnen"],
-            ["Grafiet", "Koel", "Alle lijnen"],
-            ["Grijs", "Koel", "Komorowa, Eco"],
-            ["Donker Grijs", "Koel", "Komorowa, Eco"],
-            ["Berg Eiken", "Warm", "Elegance"],
-            ["Honing Eiken", "Warm", "Elegance"],
-            ["Naturel Eiken", "Warm", "Elegance"],
+            ["Teak", "Warm, klassiek", "Beige gevel, terracotta tegels"],
+            ["Eiken", "Natuurlijk, neutraal", "Bijna elke tuinstijl"],
+            ["Walnoot", "Warm, donker", "Witte gevel, moderne tuin"],
+            ["Vergrijsd eiken", "Verweerde look", "Strandhuis, landelijk"],
+            ["Grijs", "Modern, koel", "Antraciet kozijnen, betonlook"],
+            ["Donker grijs", "Stoer, contrastrijk", "Industriele en strakke tuin"],
+            ["Zwart", "Maximale impact", "Witte gevel, minimalistische tuin"],
           ],
         },
       },
       {
-        heading: "Kleurvastheid & UV-bestendigheid",
+        heading: "Warme vs koele tinten",
+        bullets: [
+          "Warme tinten (teak, walnoot, eiken): gezellige, klassieke uitstraling",
+          "Koele tinten (grijs, donker grijs, zwart): modern, strak en zakelijk",
+          "Vergrijsd eiken: in het midden, zowel warm als koel werkt",
+        ],
+      },
+      {
+        heading: "Combineren met de tuin",
+        bullets: [
+          "Donkere schutting + lichte vlonder = ruimtelijk effect",
+          "Donkere gevelbekleding rondom witte kozijnen = high-end look",
+          "Tuindeur in dezelfde tint als schutting = rustig en strak",
+          "Tuindeur in contrasterende tint = blikvanger",
+        ],
+      },
+      {
+        heading: "UV-bestendigheid",
         paragraphs: [
-          "Alle composiet producten zijn UV-bestendig. In de eerste weken kan een lichte kleurverandering optreden door weathering — dit is normaal en stabiliseert zich binnen 8-12 weken. Planken met co-extrusie beschermlaag behouden hun kleur het langst.",
+          "Alle tinten zijn voorzien van een UV-stabiele co-extrusielaag. In de eerste 8-12 weken vlakt de oorspronkelijke fabriekstint iets uit naar de duurzame eindkleur. Dit is normaal en garandeert juist de kleurvastheid voor 25 jaar.",
+        ],
+      },
+    ],
+  },
+
+  // ─── TUINDEUREN ─────────────────────────────────────────────────────
+  {
+    id: "handleiding-composiet-tuindeur",
+    title: "Montagehandleiding: composiet tuindeur plaatsen",
+    subtitle: "Inhangen, uitlijnen en monteren van dichte of Rhombus tuindeuren",
+    sections: [
+      {
+        heading: "Inhoud van uw set",
+        table: {
+          headers: ["Onderdeel", "Aantal", "Opmerking"],
+          rows: [
+            ["Tuindeurblad (dicht of Rhombus)", "1", "Standaard 100 x 180 cm"],
+            ["Scharnieren RVS", "3", "Verstelbaar in 3 richtingen"],
+            ["Slotkast met klink", "1", "Met cilinder en 3 sleutels"],
+            ["Sluitplaat", "1", "Voor in de paal of muur"],
+            ["Bevestigingsset", "1", "Bouten, ringen, schroeven"],
+          ],
+        },
+      },
+      {
+        heading: "1. Paalvoorbereiding",
+        bullets: [
+          "Zorg dat scharnier- en slotpaal stevig staan (extra verankering aanbevolen)",
+          "Controleer dat palen exact verticaal staan (waterpas in 2 richtingen)",
+          "Dagmaat tussen de palen: deurbreedte + 20 mm (10 mm speling per zijde)",
+          "Bij combinatie met schutting: deur op gelijke hoogte uitlijnen",
+        ],
+      },
+      {
+        heading: "2. Scharnieren monteren",
+        bullets: [
+          "Boven- en onderscharnier 20 cm vanaf de deurrand plaatsen",
+          "Middelste scharnier exact in het midden",
+          "Voorboren met 4 mm boor, daarna RVS schroeven indraaien",
+          "Scharnieren eerst aan deurblad, dan aan paal monteren",
+        ],
+      },
+      {
+        heading: "3. Deur inhangen en uitlijnen",
+        bullets: [
+          "Hang de deur in - tweede persoon helpt met dragen",
+          "Stel de scharnieren bij: hoogte, links/rechts en diepte",
+          "Controleer dat de deur soepel opent en sluit",
+          "Speling rondom: 5 mm boven en zijkanten, 10 mm onder",
+        ],
+      },
+      {
+        heading: "4. Slot en sluitplaat",
+        bullets: [
+          "Markeer positie sluitplaat op de tegenpaal",
+          "Frees of boor uitsparing voor de schoot",
+          "Sluitplaat vastschroeven met meegeleverde schroeven",
+          "Test de sluiting meerdere keren met de sleutel",
+        ],
+      },
+      {
+        heading: "Onderhoud bewegende delen",
+        bullets: [
+          "Scharnieren 1x per jaar smeren met siliconenspray (geen olie)",
+          "Slot 2x per jaar met grafietpoeder of speciale slotspray",
+          "Controle bevestigingsschroeven na het eerste seizoen",
+          "Bij stroef sluiten: scharnieren bijstellen, niet forceren",
         ],
       },
     ],
   },
   {
-    id: "onderhoud-composiet-vlonder",
-    title: "Onderhoudsadvies: composiet vlonderplanken",
-    subtitle: "Houd uw vlonder mooi met deze onderhoudstips",
+    id: "checklist-tuindeur-op-maat",
+    title: "Checklist: composiet tuindeur op maat bestellen",
+    subtitle: "Wat moet u opmeten en bepalen voor een perfect passende tuindeur?",
     sections: [
       {
-        heading: "Jaarlijks onderhoud",
+        heading: "Opmeten",
         bullets: [
-          "Was de vlonder minimaal 1x per jaar met warm zeepwater",
-          "Gebruik een zachte borstel of schrobmachine",
-          "Spoel na met schoon water",
-          "Verwijder bladeren en vuil uit de naden",
+          "Dagmaat: afstand tussen de palen of in de muursparing",
+          "Sponningmaat: alleen relevant bij metselwerk met sponning",
+          "Hoogte: standaard 180 cm, op maat tot 200 cm leverbaar",
+          "Houd rekening met 10 mm speling per zijde voor scharnier en slot",
+          "Meet altijd op 3 hoogtes (boven, midden, onder) - palen kunnen scheef staan",
         ],
       },
       {
-        heading: "Reinigingsmethoden per vlektype",
-        table: {
-          headers: ["Vlektype", "Methode", "Middel"],
-          rows: [
-            ["Vettige vlekken (BBQ, olie)", "Droog reinigen", "Kleigebaseerd reinigingsmiddel"],
-            ["Groene aanslag / mos", "Nat reinigen", "Anti-mos behandeling (zonder bleek)"],
-            ["Algemeen vuil", "Nat reinigen", "Warm zeepwater + zachte borstel"],
-            ["Roestplekken", "Lokaal behandelen", "Oxaalzuur oplossing"],
-          ],
-        },
-      },
-      {
-        heading: "Aanbevolen apparatuur",
+        heading: "Draairichting bepalen",
         bullets: [
-          "Schrobmachine (bijv. Karcher PCL 4) — ideaal voor grote oppervlakken",
-          "Hogedrukreiniger: maximaal 80 bar, 25 cm afstand, nooit stilhouden",
-          "Zachte bezem voor regelmatig vegen",
+          "Sta voor de deur aan de zijde waar deze naartoe opent",
+          "Scharnier links = linksdraaiende deur (DIN-links)",
+          "Scharnier rechts = rechtsdraaiende deur (DIN-rechts)",
+          "Bij twijfel: stuur een foto en wij adviseren u kosteloos",
         ],
       },
       {
-        heading: "Seizoenstips",
+        heading: "Slot- en greepkeuze",
         bullets: [
-          "Voorjaar: grote schoonmaakbeurt na de winter",
-          "Zomer: direct vlekken verwijderen (BBQ, ijs)",
-          "Herfst: bladeren en naalden verwijderen",
-          "Winter: sneeuw ruimen met kunststof schep (geen metaal)",
+          "Standaard: insteekslot met cilinder en 3 sleutels",
+          "Optioneel: gelijksluitend met uw voordeur (KeyAlike)",
+          "Greep aan binnen- en buitenzijde of alleen binnen",
+          "Bij dubbele tuindeur: bovenschuif voor de inactieve deur",
         ],
       },
       {
-        heading: "Ventilatie",
+        heading: "Kleur- en profielmatch",
+        bullets: [
+          "Kies dezelfde tint als uw schutting voor een rustige uitstraling",
+          "Of contrasterende tint voor een blikvanger",
+          "Dichte deur = klassieke uitstraling",
+          "Rhombus deur = moderne uitstraling, geeft licht door",
+        ],
+      },
+      {
+        heading: "Bestellen",
+        bullets: [
+          "Stuur de maten, draairichting en kleur naar info@schuttingvancomposiet.nl",
+          "Ontvang binnen 1 werkdag een vrijblijvende offerte op maat",
+          "Productietijd maatwerk: 3-4 weken",
+          "Levering inclusief alle benodigde scharnieren en slotset",
+        ],
+      },
+    ],
+  },
+
+  // ─── GEVELBEKLEDING ─────────────────────────────────────────────────
+  {
+    id: "handleiding-composiet-gevelbekleding",
+    title: "Montagehandleiding: composiet gevelbekleding (Rhombus)",
+    subtitle: "Aluminium regelwerk, ventilatie en montage van Rhombus profielen",
+    sections: [
+      {
+        heading: "Opbouw - van binnen naar buiten",
+        bullets: [
+          "Bestaande gevel of waterkerende folie",
+          "Aluminium regelwerk (40 x 60 mm) verticaal op h.o.h. 50 cm",
+          "Ventilatieruimte 30 mm achter de bekleding",
+          "Rhombus profielen horizontaal gemonteerd",
+        ],
+      },
+      {
+        heading: "1. Regelwerk plaatsen",
+        bullets: [
+          "Markeer verticale lijnen h.o.h. 50 cm op de gevel",
+          "Aluminium profielen vastzetten met geveldoppen (chemisch ankeren bij steen)",
+          "Stel met vulplaatjes uit tot een perfect vlak",
+          "Controleer met waterpas of richtsnoer dat alles op een lijn ligt",
+          "Onder elke profielrij: ventilatiegaas tegen ongedierte",
+        ],
+      },
+      {
+        heading: "2. Eerste rij Rhombus",
+        bullets: [
+          "Start onderaan met startprofiel of waterhol",
+          "Plaats eerste plank met de schuine kant naar boven (Rhombus richting)",
+          "Vastzetten met RVS gevelschroeven via de bovenrand (verdekt)",
+          "Controleer waterpas - foutjes hier herhalen zich naar boven",
+        ],
+      },
+      {
+        heading: "3. Doorlopende rijen",
+        bullets: [
+          "Volgende plank schuift met onderkant over de bovenkant van de vorige",
+          "Stootnaden verspringen: minimaal 60 cm uit elkaar in opvolgende rijen",
+          "Op elke regel een schroef - niet meer, voor dilatatie",
+          "Houd 5 mm dilatatie aan bij elke stootnaad",
+        ],
+      },
+      {
+        heading: "4. Hoek- en eindprofielen",
+        bullets: [
+          "Buitenhoeken: aluminium hoekprofiel in dezelfde tint",
+          "Binnenhoeken: kit-naad of L-profiel",
+          "Bovenkant: aflopend daktrim om water af te voeren",
+          "Rondom raamkozijnen: aluminium kozijnaansluiting",
+        ],
+      },
+      {
+        heading: "Tinten combineren",
         paragraphs: [
-          "Zorg dat de ruimte tussen en onder de planken vrij blijft van vuil. Goede ventilatie voorkomt vocht en verlengt de levensduur van uw vlonder.",
+          `Gevelbekleding leverbaar in: ${TONES}. Voor moderne projecten populair: zwart als hoofdkleur met een verticaal accent in walnoot of vergrijsd eiken.`,
         ],
       },
     ],
   },
   {
-    id: "epd-vlonderplanken",
-    title: "Milieuverklaring (EPD): composiet vlonderplanken",
-    subtitle: "Environmental Product Declaration conform NF EN ISO 14025",
+    id: "onderhoud-rhombus-profielen",
+    title: "Onderhoudsgids: Rhombus profielen",
+    subtitle: "Schutting, tuindeur en gevelbekleding met Rhombus profiel - jaarlijks onderhoud",
     sections: [
       {
-        heading: "Wat is een EPD?",
+        heading: "Waarom apart onderhoud voor Rhombus?",
         paragraphs: [
-          "Een Environmental Product Declaration (EPD) is een gestandaardiseerd document dat de milieu-impact van een product over de gehele levenscyclus beschrijft. Het is gebaseerd op een levenscyclusanalyse (LCA) conform Europese normen.",
+          "Rhombus profielen hebben een schuine zijde die water afvoert, maar tussen de ribbels kan vuil en mos blijven hangen. Met een eenvoudig jaarschema houdt u het profiel jarenlang strak en kleurvast.",
         ],
       },
       {
-        heading: "Kerngegevens",
-        table: {
-          headers: ["Kenmerk", "Waarde"],
-          rows: [
-            ["Materiaalsamenstelling", "50% houtvezels, 45% gerecycled kunststof, 5% additieven"],
-            ["Recycled content", "Tot 95% gerecycled materiaal"],
-            ["Levensduur (referentie)", "25 jaar"],
-            ["Recyclebaarheid", "100% recyclebaar na levensduur"],
-            ["Norm", "NF EN ISO 14025 & NF EN 15804+A2"],
-          ],
-        },
-      },
-      {
-        heading: "Milieu-impact per m2",
-        paragraphs: [
-          "De CO2-voetafdruk van composiet vlonderplanken is significant lager dan die van tropisch hardhout, mede door het gebruik van gerecycled materiaal en het ontbreken van onderhoud met chemische middelen gedurende de levensduur.",
-        ],
-      },
-      {
-        heading: "Circulaire economie",
+        heading: "Reinigen tussen de ribbels",
         bullets: [
-          "Productie met 95% gerecycled materiaal",
-          "Geen restmateriaal bij productie — 100% benut",
-          "Na levensduur volledig recyclebaar tot nieuw composiet",
-          "Geen chemische behandeling nodig tijdens gebruik",
+          "Gebruik een lange smalle borstel of oude tandenborstel",
+          "Werk in de lengterichting van de ribbel - nooit dwars",
+          "Spoel daarna ruim na met de tuinslang",
+          "Hardnekkig vuil: warm water met groene zeep",
+          "Geen agressieve middelen, geen chloor",
         ],
       },
-    ],
-  },
-  {
-    id: "productcatalogus",
-    title: "Productcatalogus 2026: composiet vlonderplanken & schuttingen",
-    subtitle: "Compleet overzicht van alle productlijnen, specificaties en kleuren",
-    sections: [
       {
-        heading: "Vlonderplanken overzicht",
-        table: {
-          headers: ["Lijn", "Type", "Afmeting (mm)", "Kleuren", "Prijs indicatie"],
-          rows: [
-            ["Slim", "Hol", "25x140, 3m", "3 kleuren", "Vanaf EUR 11,95/m"],
-            ["Eco", "Hol", "25x140, 3/4m", "5 kleuren", "Vanaf EUR 14,95/m"],
-            ["Komorowa", "Hol + co-extrusie", "25x160, 3/4m", "5 kleuren", "Vanaf EUR 18,95/m"],
-            ["MAX", "Massief", "20x185, 3/4m", "3 kleuren", "Vanaf EUR 19,95/m"],
-            ["Classic", "Massief + geborsteld", "20x160, 3/4m", "3 kleuren", "Vanaf EUR 26,95/m"],
-            ["Premium", "Massief + houtnerf", "20x160, 3/4m", "3 kleuren", "Vanaf EUR 28,95/m"],
-            ["Elegance", "RENOLIT + korund", "25x140, 4m", "3 kleuren", "Vanaf EUR 23,95/m"],
-          ],
-        },
-      },
-      {
-        heading: "Schuttingplanken overzicht",
-        table: {
-          headers: ["Lijn", "Afmeting (mm)", "Afwerking", "Kleuren", "Prijs indicatie"],
-          rows: [
-            ["Classic", "19x150, 2m", "Geborsteld", "3 kleuren", "Vanaf EUR 16,49/m"],
-            ["Premium", "19x150, 2m", "Houtnerf 3D", "3 kleuren", "Vanaf EUR 18,95/m"],
-            ["Universeel profiel", "19x150, div.", "Classic/Premium", "3 kleuren", "Vanaf EUR 16,49/m"],
-          ],
-        },
-      },
-      {
-        heading: "Accessoires overzicht",
-        table: {
-          headers: ["Product", "Specificatie", "Prijs indicatie"],
-          rows: [
-            ["WPC onderbalk", "50x30mm, 3m", "EUR 9,49/m"],
-            ["Alu legger laag", "36x24mm, 4m", "EUR 12,49/m"],
-            ["Alu legger hoog", "38x51mm, 4m", "EUR 16,95/m"],
-            ["Montageset 2m2", "Clips+schroeven", "EUR 19,95/set"],
-            ["Montageset 10m2", "Clips+schroeven", "EUR 94,95/set"],
-            ["Afwerklijst plat", "WPC", "EUR 6,95/m"],
-            ["L-profiel composiet", "WPC", "EUR 10,95/m"],
-            ["L-profiel aluminium", "Aluminium", "EUR 11,95/m"],
-            ["Terrasdrager", "25-260mm", "EUR 4,95/stuk"],
-          ],
-        },
-      },
-      {
-        heading: "Garantie & kwaliteit",
+        heading: "Mos en algen",
         bullets: [
-          "25 jaar fabrieksgarantie op alle producten",
-          "Co-extrusie beschermlaag op Komorowa en Elegance",
-          "100% recycleerbaar materiaal",
-          "UV-bestendig en kleurvast",
-          "CE-markering conform Europese normen",
+          "Schaduwzijdes en noordkant vatbaarder voor mos",
+          "Verwijderen met speciale composiet reiniger of groene zeep",
+          "Bij stevige aanslag: hogedrukreiniger op max. 100 bar, 30 cm afstand",
+          "Borstel altijd licht na om resten te verwijderen",
         ],
+      },
+      {
+        heading: "Kleurherstel",
+        bullets: [
+          "Kleine kleurverschillen: composiet kleurherstelspray in juiste tint",
+          "Spuit dun en gelijkmatig, laat drogen volgens instructies",
+          "Diepere krassen: lichtjes opschuren met korrel 240, daarna sprayen",
+          "Bij grote schade: contact opnemen voor vervangplank in dezelfde productiebatch",
+        ],
+      },
+      {
+        heading: "Jaarlijks controleschema",
+        table: {
+          headers: ["Maand", "Controle"],
+          rows: [
+            ["Maart", "Grondige wasbeurt na winter, controle van bevestigingen"],
+            ["Juni", "Visuele check ribbels, regelwerk en hoekprofielen"],
+            ["September", "Bladeren tussen ribbels verwijderen"],
+            ["December", "Sneeuw losborstelen, geen metalen schep gebruiken"],
+          ],
+        },
       },
     ],
   },
@@ -1076,12 +1272,22 @@ Deno.serve(async (req) => {
   }
 
   try {
-    const { id, all } = await req.json().catch(() => ({ id: undefined, all: false }));
+    const { id, all, cleanup } = await req.json().catch(() => ({ id: undefined, all: false, cleanup: false }));
 
     const supabase = createClient(
       Deno.env.get("SUPABASE_URL")!,
       Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!
     );
+
+    if (cleanup) {
+      const valid = new Set(documents.map((d) => `branded-pdfs/${d.id}.pdf`));
+      const { data: files } = await supabase.storage.from("product-images").list("branded-pdfs", { limit: 1000 });
+      const orphans = (files ?? []).map((f) => `branded-pdfs/${f.name}`).filter((p) => !valid.has(p));
+      if (orphans.length) await supabase.storage.from("product-images").remove(orphans);
+      return new Response(JSON.stringify({ ok: true, removed: orphans }), {
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
 
     const docsToGenerate = all ? documents : documents.filter((d) => d.id === id);
 
