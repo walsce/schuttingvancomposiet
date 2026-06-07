@@ -1,67 +1,67 @@
-# Full alignment with the new catalog
+# Update downloadable customer assets
 
-The catalog was replaced with 66 mthekwerken-sourced composite products across 5 categories: **vlonderplanken, schuttingen, tuindeuren, gevelbekleding, accessoires**. Colors are now **teak, eiken, walnoot, grijs, donker grijs, vergrijsd eiken, zwart** and lines are **standard vs. Rhombus (horizontaal / verticaal)**.
+## Audit findings
 
-A lot of supporting surfaces still reference the old Gamrat-style lines (Elegance / Classic / Premium / Slim / Max / Komorowa / Eco) and the old color names (orzech, grafit, gorski dab). This plan cleans every remaining surface.
+The downloads page lists **17 guides** with up-to-date copy in `src/data/downloads.ts`. However the actual PDF files are out of sync:
 
-## 1. Navigation & footer
+**1. Missing from storage (4 PDFs — cards currently 404 on download):**
+- `handleiding-composiet-tuindeur.pdf`
+- `checklist-tuindeur-op-maat.pdf`
+- `handleiding-composiet-gevelbekleding.pdf`
+- `onderhoud-rhombus-profielen.pdf`
 
-- `src/components/Header.tsx` — add **Tuindeuren** and **Gevelbekleding** to `navLinks`, in this order: Assortiment · Vlonderplanken · Schuttingen · Tuindeuren · Gevelbekleding · Accessoires · Productadvies · Contact. Collapse less-critical items behind a "Meer" dropdown on `lg` if width gets tight.
-- `src/components/Footer.tsx` — extend the Assortiment column with Tuindeuren and Gevelbekleding links.
-- `src/App.tsx` — confirm `/categorie/tuindeuren` and `/categorie/gevelbekleding` resolve via the existing `CategoryPage` route (param-based, no change needed if already dynamic; otherwise register the two slugs).
+**2. Stale generator content** — `supabase/functions/generate-branded-pdf/index.ts` (the source of all PDFs) still references the **old Gamrat lines and colours** we removed everywhere else:
+- Lines/products: Classic, Premium, Elegance, Komorowa, Eco, Slim, Max
+- Colours: Berg Eiken, Honing Eiken, Naturel Eiken, Orzech, Grafit
+- Outdated prices and spec tables
+- No definitions for the 4 new docs above
 
-## 2. Blog content (`src/data/blogArticles.ts`, `src/data/blogArticlesExpansion.ts`)
+So even the 13 PDFs that *do* exist in storage contain copy that contradicts the website. Customers downloading them today get the old catalog.
 
-- Remove every mention of Elegance / Classic / Premium / Slim / Max / Eco / Komorowa / orzech / grafit / gorski dab / miodowy dab.
-- Rewrite affected paragraphs to talk about the new lines (**standaard composiet vs. Rhombus**) and new tones (teak, eiken, walnoot, grijs, donker grijs, vergrijsd eiken, zwart).
-- Re-map every `relatedProducts: [...]` array to slugs that actually exist in `cms_products` (e.g. `composiet-vlonderplank-teak`, `composiet-schutting-rhombus-walnoot`, `composiet-tuindeur-eiken`).
-- Add 2 new short articles to cover the new ranges:
-  - "Composiet tuindeur kiezen: Rhombus of dicht paneel?"
-  - "Composiet gevelbekleding Rhombus: complete gids"
-  Each follows the existing E-E-A-T template (author block, FAQ, internal links, schema).
+**3. Orphan asset:** `branded-pdfs/onderhoud-elegance-emotion.pdf` in storage — no longer referenced anywhere. Delete.
 
-## 3. Downloads (`src/data/downloads.ts` + PDFs)
+**4. Minor data fix:** `wpc-prijslijst` currently re-uses `productcatalogus.pdf`. Should have its own `prijslijst.pdf` or be removed from the listing.
 
-- Edit each existing entry to drop Komorowa/Classic/Premium/Elegance bullets; replace with the actual specs of the live catalog (standaard massief, naadloos massief, Rhombus).
-- Replace `relatedCategory` typing to include `"tuindeuren" | "gevelbekleding"`.
-- Add four new guides:
-  1. Montagehandleiding composiet tuindeur (incl. scharnier/slotset)
-  2. Montagehandleiding composiet gevelbekleding Rhombus + aluminium regelwerk
-  3. Onderhoudsgids Rhombus profielen
-  4. Checklist: tuindeur op maat bestellen
-- Trigger `generate-branded-pdf` for the four new IDs after migration (handled in build mode via the existing edge function); placeholder cards display until PDFs are generated.
+**5. Styling:** the branded-PDF chrome itself (green header bar, orange accent stripe, 25-jaar garantie badge, footer) is on-brand and stays as-is — only the *content* sections need rewriting.
 
-## 4. SEO data files
+## Plan
 
-- `src/data/seoVlonderPages.ts`, `src/data/seoMateriaalPages.ts`, `src/data/seoSchuttingExpansion.ts`, `src/data/seoGevelPages.ts`, `src/data/seoPages.ts`:
-  - Strip all old line/color names.
-  - Update product references to live slugs.
-  - Add a **tuindeuren cluster** (new file `src/data/seoTuindeurPages.ts`) with 6 pages (Rhombus tuindeur, dichte tuindeur, tuindeur op maat, tuindeur met slot, tuindeur zwart, tuindeur teak) wired into `App.tsx` and `SEOContentPage`.
-  - Refresh the gevelbekleding cluster copy to reference Rhombus tones (teak/eiken/walnoot/grijs/zwart and combo zwart varianten) that exist in DB.
+### Step 1 — Rewrite `supabase/functions/generate-branded-pdf/index.ts`
 
-## 5. Planners & advisor
+Replace the `documents: BrandedDoc[]` array entirely so it contains exactly the **17 ids** from `src/data/downloads.ts`, in the same order. For each doc:
+- Strip every mention of Classic / Premium / Elegance / Komorowa / Eco / Slim / Max / Orzech / Grafit / Berg-Honing-Naturel Eiken / Miodowy / Gorski.
+- Rewrite spec tables and bullets around the live taxonomy: **standaard composiet vs. naadloos massief vs. Rhombus**, tones **teak / eiken / walnoot / grijs / donker grijs / vergrijsd eiken / zwart**, categories **vlonderplanken / schuttingen / tuindeuren / gevelbekleding / accessoires**.
+- Use real 2026 prices from the live catalog (pricing memory).
+- Add four brand-new doc bodies for the missing PDFs:
+  - `handleiding-composiet-tuindeur` — inhangen, scharnier-/slotset, aansluiting op schutting, onderhoud.
+  - `checklist-tuindeur-op-maat` — dagmaat/sponningmaat, draairichting, slot/greep, kleurmatch.
+  - `handleiding-composiet-gevelbekleding` — aluminium regelwerk h.o.h. 50 cm, ventilatie, hoek-/eindprofielen, tinten-combo.
+  - `onderhoud-rhombus-profielen` — reinigen tussen ribbels, lakbus kleurherstel, jaarschema.
+- Add a separate `wpc-prijslijst` body (or drop the card from `downloads.ts` — see Step 3).
 
-- `src/components/fence-planner/designerData.ts` and `src/components/planner/presets.ts` / `MaterialSelector.tsx`: replace the old line/color presets with the new tones and the two structural choices (standaard vs. Rhombus).
-- `src/components/advisor/AdvisorQuiz.tsx` + `supabase/functions/chat-advisor/index.ts`: update the system prompt + recommendation rules to the new product taxonomy and slugs.
-- `src/data/products.ts`: confirm the `Product['category']` union already includes `tuindeuren` and `gevelbekleding` (it does); remove any remaining hard-coded old slugs in static featured arrays.
+Keep the existing cover layout, page chrome, table renderer, footer and "25 jaar garantie" badge — purely a content swap.
 
-## 6. Discoverability
+### Step 2 — Regenerate every PDF
 
-- `public/sitemap.xml` (or `scripts/generate-sitemap.ts` if/when introduced): regenerate to include `/categorie/tuindeuren`, `/categorie/gevelbekleding`, all 66 product slugs, the new blog posts, the new SEO tuindeur pages and the new downloads.
-- `public/robots.txt`: keep open, ensure `Sitemap:` line points at the .nl domain.
-- `index.html`: refresh the homepage meta description + `Organization`/`WebSite` JSON-LD to list the five categories.
+Invoke the edge function once with `{ all: true }` so all 17 PDFs are rebuilt and uploaded to `product-images/branded-pdfs/` (upsert: true → overwrites the 13 stale ones and creates the 4 missing ones).
 
-## 7. Verification
+### Step 3 — Tidy `src/data/downloads.ts`
 
-After edits:
-- `rg -i "gamrat|elegance|classic|premium|slim|max|komorowa|orzech|grafit|gorski|miodowy|naturalny|eco "` returns nothing in `src/`, `public/`, `supabase/functions/`.
-- Every `relatedProducts` slug in blog/SEO data exists in `cms_products` (cross-check via a quick psql query).
-- Visual pass on `/`, `/assortiment`, `/categorie/tuindeuren`, `/categorie/gevelbekleding`, `/downloads`, `/blog`, `/productadvies`.
+- Point `wpc-prijslijst` at `pdfUrl("prijslijst")` (Step 1 generates it) instead of re-using `productcatalogus.pdf`.
+- No other data changes — the 17 cards, categories, images and bullets are already aligned with the new catalog.
+
+### Step 4 — Delete the orphan
+
+Remove `branded-pdfs/onderhoud-elegance-emotion.pdf` from storage so it can't be deep-linked.
+
+### Step 5 — Verify
+
+- `psql` list of `branded-pdfs/*` shows exactly 17 files matching the `downloads` ids.
+- Open `/downloads`, click through each card → PDF opens, cover shows correct title, no Classic/Premium/Elegance copy anywhere (`pdftotext` spot check on 3 PDFs).
+- Confirm PressBar / FAQ / SEO references aren't affected.
 
 ## Out of scope
 
-- Re-scraping or further product imports (catalog is already live).
-- Visual redesign — copy + data only, no layout changes.
-- Removing the temporary `/admin/scrape` tool (kept as ops utility).
-
-Ready to switch to build mode and execute end-to-end?
+- Changing the visual PDF template (header bar, fonts, colours) — already on brand.
+- Adding new download categories beyond the existing 17 entries.
+- Email-gated lead capture flow (already works).
