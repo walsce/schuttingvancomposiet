@@ -1,4 +1,13 @@
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+import {
+  PDFDocument,
+  PDFFont,
+  PDFPage,
+  rgb,
+  degrees,
+  StandardFonts,
+} from "https://esm.sh/pdf-lib@1.17.1";
+import fontkit from "https://esm.sh/@pdf-lib/fontkit@1.1.1";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -926,342 +935,949 @@ const documents: BrandedDoc[] = [
   },
 ];
 
-/* ── Branded PDF builder ────────────────────────────────────────── */
+/* ── Premium PDF builder (pdf-lib) ──────────────────────────────── */
 
-function buildPdf(doc: BrandedDoc): Uint8Array {
-  const brandName = "SchuttingvanComposiet.nl";
-  const tagline = "Composiet vlonderplanken & schuttingen | 25 jaar garantie";
-  const website = "www.schuttingvancomposiet.nl";
-  const email = "info@schuttingvancomposiet.nl";
+const BRAND = {
+  name: "SchuttingvanComposiet.nl",
+  tagline: "Composiet vlonderplanken, schuttingen, tuindeuren & gevelbekleding",
+  website: "www.schuttingvancomposiet.nl",
+  email: "info@schuttingvancomposiet.nl",
+  phone: "020 - 808 41 40",
+  edition: "Editie 2026",
+};
 
-  // Brand colors (RGB 0-1) derived from site design tokens
-  const C = {
-    primaryR: 0.153, primaryG: 0.404, primaryB: 0.286,   // HSL 152 45% 28% — green
-    accentR: 0.851, accentG: 0.467, accentB: 0.149,      // HSL 28 70% 50% — orange
-    darkR: 0.094, darkG: 0.086, darkB: 0.078,             // foreground near-black
-    mutedR: 0.46, mutedG: 0.46, mutedB: 0.46,             // muted text
-    lightBgR: 0.965, lightBgG: 0.957, lightBgB: 0.945,    // warm off-white row
-    white: 1,
-    tableHeaderR: 0.153, tableHeaderG: 0.404, tableHeaderB: 0.286,
-    tableAltR: 0.96, tableAltG: 0.96, tableAltB: 0.955,
-  };
+// Brand palette — RGB 0..1
+const COL = {
+  primary: rgb(0.184, 0.322, 0.2),         // #2F5233 deep forest
+  primaryDeep: rgb(0.114, 0.22, 0.137),    // darker forest
+  accent: rgb(0.851, 0.467, 0.149),        // warm orange
+  accentSoft: rgb(0.961, 0.886, 0.792),    // sand
+  cream: rgb(0.976, 0.965, 0.945),         // page cream
+  paper: rgb(1, 1, 1),
+  ink: rgb(0.094, 0.086, 0.078),           // near-black
+  body: rgb(0.18, 0.18, 0.16),
+  muted: rgb(0.46, 0.46, 0.44),
+  hairline: rgb(0.82, 0.8, 0.76),
+  zebra: rgb(0.972, 0.965, 0.95),
+};
 
-  const leftMargin = 50;
-  const rightMargin = 545;
-  const pageWidth = rightMargin - leftMargin;
-  const lineHeight = 14;
-  const objects: string[] = [];
-  const pages: { contentRef: number; length: number }[] = [];
-  let objCount = 0;
-  let currentPageContent = "";
-  let yPos = 750;
-  let currentPageNum = 0;
+const PAGE_W = 595.28;   // A4 portrait
+const PAGE_H = 841.89;
+const MARGIN_X = 56;
+const HEADER_Y = PAGE_H - 36;
+const FOOTER_Y = 38;
+const CONTENT_TOP = PAGE_H - 90;
+const CONTENT_BOTTOM = 80;
 
-  function addObj(content: string): number {
-    objCount++;
-    objects.push(content);
-    return objCount;
+// Public storage URL for cover images.
+const COVER_BASE =
+  `${Deno.env.get("SUPABASE_URL")}/storage/v1/object/public/product-images/pdf-covers`;
+
+// Map each document id to cover image + eyebrow + optional gallery.
+interface DocMeta {
+  cover: string;        // path under /images/pdf-covers/
+  eyebrow: string;      // small-caps label on cover
+  gallery?: string[];   // optional inside gallery images
+}
+
+const META: Record<string, DocMeta> = {
+  // Schutting
+  "handleiding-composiet-schutting": {
+    cover: "baner-ogrodzenia.jpg",
+    eyebrow: "MONTAGEHANDLEIDING",
+    gallery: ["ogrodzeniowa-premium-orzech.jpg", "ogrodzeniowa-classic-grafit.jpg"],
+  },
+  "checklist-schutting-plaatsen": {
+    cover: "ogrodzenia-wizualizacja.jpg",
+    eyebrow: "CHECKLIST",
+  },
+  "grondvoorbereiding": {
+    cover: "galeria-realizacje-1.jpg",
+    eyebrow: "CHECKLIST",
+  },
+  "vergunningen-regels": {
+    cover: "galeria-4.jpg",
+    eyebrow: "GIDS",
+  },
+
+  // Vlonder
+  "handleiding-vlonderplanken": {
+    cover: "baner-hero-deski.jpg",
+    eyebrow: "MONTAGEHANDLEIDING",
+    gallery: ["deska-premium-orzech.jpg", "deska-eco-grafit.jpg"],
+  },
+  "handleiding-aluminium-onderbalken": {
+    cover: "legary-aluminiowe.jpg",
+    eyebrow: "MONTAGEHANDLEIDING",
+  },
+  "handleiding-vlonder-accessoires": {
+    cover: "montageset.jpg",
+    eyebrow: "MONTAGEHANDLEIDING",
+    gallery: ["legar-wpc.jpg", "legary-aluminiowe.jpg", "montageset.jpg"],
+  },
+  "snelstartgids-vlonder": {
+    cover: "tarasy-kompozytowe.jpg",
+    eyebrow: "SNELSTARTGIDS",
+  },
+  "onderhoud-composiet-vlonder": {
+    cover: "galeria-1.jpg",
+    eyebrow: "ONDERHOUDSGIDS",
+  },
+
+  // Tuindeur
+  "handleiding-composiet-tuindeur": {
+    cover: "wpc-oferta-schutting.jpg",
+    eyebrow: "MONTAGEHANDLEIDING",
+  },
+  "checklist-tuindeur-op-maat": {
+    cover: "galeria-3.jpg",
+    eyebrow: "CHECKLIST",
+  },
+
+  // Gevelbekleding & Rhombus
+  "handleiding-composiet-gevelbekleding": {
+    cover: "galeria-4.jpg",
+    eyebrow: "MONTAGEHANDLEIDING",
+  },
+  "onderhoud-rhombus-profielen": {
+    cover: "ogrodzeniowa-premium-orzech.jpg",
+    eyebrow: "ONDERHOUDSGIDS",
+  },
+
+  // Catalogi
+  "productcatalogus": {
+    cover: "baner-hero-deski.jpg",
+    eyebrow: "PRODUCTCATALOGUS",
+    gallery: [
+      "wpc-oferta-vlonder.jpg",
+      "wpc-oferta-schutting.jpg",
+      "wpc-oferta-accessoires.jpg",
+      "deska-premium-orzech.jpg",
+      "ogrodzeniowa-classic-grafit.jpg",
+      "tarasy-kompozytowe.jpg",
+    ],
+  },
+  "prijslijst": {
+    cover: "tarasy-kompozytowe.jpg",
+    eyebrow: "PRIJSLIJST 2026",
+  },
+  "kleurengids": {
+    cover: "deska-premium-orzech.jpg",
+    eyebrow: "KLEURENGIDS",
+  },
+};
+
+const DEFAULT_META: DocMeta = {
+  cover: "baner-hero-deski.jpg",
+  eyebrow: "DOCUMENTATIE",
+};
+
+// 7 tones for colour gids — RGB approximations of composite colours
+const SWATCHES: { name: string; hex: [number, number, number]; sub: string }[] = [
+  { name: "Teak",            hex: [0.62, 0.40, 0.22], sub: "Warm, klassiek" },
+  { name: "Eiken",           hex: [0.51, 0.39, 0.27], sub: "Natuurlijk neutraal" },
+  { name: "Walnoot",         hex: [0.32, 0.21, 0.14], sub: "Warm, donker" },
+  { name: "Vergrijsd eiken", hex: [0.55, 0.52, 0.46], sub: "Verweerde look" },
+  { name: "Grijs",           hex: [0.45, 0.46, 0.46], sub: "Modern, koel" },
+  { name: "Donker grijs",    hex: [0.24, 0.25, 0.25], sub: "Stoer, contrastrijk" },
+  { name: "Zwart",           hex: [0.09, 0.09, 0.09], sub: "Maximale impact" },
+];
+
+/* ── Asset cache (one fetch per cold-start) ───────────────────── */
+
+const assetCache = new Map<string, Uint8Array>();
+
+async function fetchBytes(url: string): Promise<Uint8Array | null> {
+  if (assetCache.has(url)) return assetCache.get(url)!;
+  try {
+    const res = await fetch(url);
+    if (!res.ok) {
+      console.warn("Asset fetch failed", url, res.status);
+      return null;
+    }
+    const buf = new Uint8Array(await res.arrayBuffer());
+    assetCache.set(url, buf);
+    return buf;
+  } catch (e) {
+    console.warn("Asset fetch error", url, e);
+    return null;
   }
+}
 
-  function escapePdf(text: string): string {
-    return text
-      .replace(/\\/g, "\\\\")
-      .replace(/\(/g, "\\(")
-      .replace(/\)/g, "\\)")
-      .replace(/[^\x20-\x7E]/g, (ch) => {
-        const map: Record<string, string> = {
-          "é": "e", "è": "e", "ë": "e", "ê": "e",
-          "á": "a", "à": "a", "ä": "a", "â": "a",
-          "ó": "o", "ò": "o", "ö": "o", "ô": "o",
-          "ú": "u", "ù": "u", "ü": "u", "û": "u",
-          "í": "i", "ì": "i", "ï": "i", "î": "i",
-          "ñ": "n", "ç": "c",
-          "²": "2", "³": "3",
-          "€": "EUR",
-          "–": "-", "—": "--",
-          "\u2018": "'", "\u2019": "'", "\u201C": "\"", "\u201D": "\"",
-          "…": "...",
-          "×": "x",
-          "°": "o",
-          "₂": "2",
-        };
-        return map[ch] || "?";
+/* ── Text helpers ─────────────────────────────────────────────── */
+
+function wrap(text: string, font: PDFFont, size: number, maxW: number): string[] {
+  const words = text.split(/\s+/);
+  const lines: string[] = [];
+  let cur = "";
+  for (const w of words) {
+    const test = cur ? cur + " " + w : w;
+    if (font.widthOfTextAtSize(test, size) <= maxW) {
+      cur = test;
+    } else {
+      if (cur) lines.push(cur);
+      // word longer than maxW — hard break
+      if (font.widthOfTextAtSize(w, size) > maxW) {
+        let chunk = "";
+        for (const ch of w) {
+          if (font.widthOfTextAtSize(chunk + ch, size) > maxW) {
+            lines.push(chunk);
+            chunk = ch;
+          } else chunk += ch;
+        }
+        cur = chunk;
+      } else cur = w;
+    }
+  }
+  if (cur) lines.push(cur);
+  return lines;
+}
+
+// Strip characters not in the font (avoids "WinAnsi cannot encode" errors).
+// pdf-lib's Helvetica/Times/etc support WinAnsi only; embedded TTFs support full unicode.
+function safeText(s: string): string {
+  return s.normalize("NFC");
+}
+
+/* ── Page chrome ──────────────────────────────────────────────── */
+
+interface Ctx {
+  pdf: PDFDocument;
+  page: PDFPage;
+  y: number;
+  pageNum: number;
+  serif: PDFFont;        // Playfair regular
+  serifBold: PDFFont;    // Playfair bold
+  sans: PDFFont;         // Inter regular
+  sansMed: PDFFont;      // Inter medium
+  sansBold: PDFFont;     // Inter bold
+  docTitle: string;
+}
+
+function drawHeader(ctx: Ctx) {
+  const { page, sans, sansMed, sansBold, docTitle, pageNum } = ctx;
+  // Brand wordmark left
+  page.drawText(safeText("SCHUTTING"), {
+    x: MARGIN_X, y: HEADER_Y, size: 8, font: sansBold,
+    color: COL.primary, characterSpacing: 1.4,
+  });
+  page.drawText(safeText("VAN COMPOSIET"), {
+    x: MARGIN_X + sansBold.widthOfTextAtSize("SCHUTTING", 8) + 4,
+    y: HEADER_Y, size: 8, font: sans,
+    color: COL.muted, characterSpacing: 1.4,
+  });
+  // Short doc title centered
+  const short = docTitle.length > 70 ? docTitle.slice(0, 67) + "..." : docTitle;
+  const w = sansMed.widthOfTextAtSize(short, 8);
+  page.drawText(safeText(short), {
+    x: (PAGE_W - w) / 2, y: HEADER_Y, size: 8, font: sansMed,
+    color: COL.muted, characterSpacing: 0.3,
+  });
+  // Page number right
+  const pn = `${pageNum.toString().padStart(2, "0")}`;
+  const pnW = sansMed.widthOfTextAtSize(pn, 8);
+  page.drawText(pn, {
+    x: PAGE_W - MARGIN_X - pnW, y: HEADER_Y, size: 8, font: sansMed,
+    color: COL.primary, characterSpacing: 0.8,
+  });
+  // Hairline rule under header
+  page.drawRectangle({
+    x: MARGIN_X, y: HEADER_Y - 8, width: PAGE_W - MARGIN_X * 2, height: 0.5,
+    color: COL.hairline,
+  });
+}
+
+function drawFooter(ctx: Ctx) {
+  const { page, sans, sansMed } = ctx;
+  // Orange thin rule
+  page.drawRectangle({
+    x: MARGIN_X, y: FOOTER_Y + 14, width: 32, height: 1.4, color: COL.accent,
+  });
+  // Footer text
+  page.drawText(safeText(BRAND.website), {
+    x: MARGIN_X, y: FOOTER_Y, size: 7.5, font: sansMed, color: COL.body,
+    characterSpacing: 0.4,
+  });
+  page.drawText(safeText(BRAND.email), {
+    x: MARGIN_X + 130, y: FOOTER_Y, size: 7.5, font: sans, color: COL.muted,
+  });
+  // Warranty badge right
+  const badge = "25 JAAR GARANTIE";
+  const w = sansMed.widthOfTextAtSize(badge, 7);
+  page.drawText(badge, {
+    x: PAGE_W - MARGIN_X - w, y: FOOTER_Y, size: 7, font: sansMed,
+    color: COL.accent, characterSpacing: 1.6,
+  });
+}
+
+function newPage(ctx: Ctx) {
+  ctx.page = ctx.pdf.addPage([PAGE_W, PAGE_H]);
+  ctx.pageNum += 1;
+  // Cream tint background — very subtle
+  ctx.page.drawRectangle({ x: 0, y: 0, width: PAGE_W, height: PAGE_H, color: COL.paper });
+  drawHeader(ctx);
+  drawFooter(ctx);
+  ctx.y = CONTENT_TOP;
+}
+
+function need(ctx: Ctx, h: number) {
+  if (ctx.y - h < CONTENT_BOTTOM) newPage(ctx);
+}
+
+/* ── Section renderers ────────────────────────────────────────── */
+
+function drawSectionHeading(ctx: Ctx, num: number, heading: string) {
+  need(ctx, 60);
+  const { page, serif, serifBold } = ctx;
+  const numStr = num.toString().padStart(2, "0");
+  // Large outline numeral
+  page.drawText(numStr, {
+    x: MARGIN_X, y: ctx.y - 28, size: 38, font: serif, color: COL.accentSoft,
+  });
+  // Heading text beside numeral
+  const headingX = MARGIN_X + 60;
+  const lines = wrap(heading, serifBold, 18, PAGE_W - headingX - MARGIN_X);
+  let hy = ctx.y - 12;
+  for (const ln of lines) {
+    page.drawText(safeText(ln), {
+      x: headingX, y: hy, size: 18, font: serifBold, color: COL.primary,
+    });
+    hy -= 21;
+  }
+  // Orange rule under
+  page.drawRectangle({
+    x: headingX, y: hy + 6, width: 36, height: 1.4, color: COL.accent,
+  });
+  ctx.y = Math.min(ctx.y - 28 - 8, hy - 4) - 16;
+}
+
+function drawParagraph(ctx: Ctx, text: string, opts?: { lead?: boolean }) {
+  const size = opts?.lead ? 10.5 : 9.5;
+  const lh = size * 1.5;
+  const lines = wrap(text, ctx.sans, size, PAGE_W - MARGIN_X * 2);
+  for (const ln of lines) {
+    need(ctx, lh);
+    ctx.page.drawText(safeText(ln), {
+      x: MARGIN_X, y: ctx.y - size, size, font: ctx.sans, color: COL.body,
+    });
+    ctx.y -= lh;
+  }
+  ctx.y -= 4;
+}
+
+function drawBullets(ctx: Ctx, items: string[]) {
+  const size = 9.5;
+  const lh = size * 1.55;
+  const indent = 16;
+  for (const it of items) {
+    const lines = wrap(it, ctx.sans, size, PAGE_W - MARGIN_X * 2 - indent);
+    const blockH = lines.length * lh + 2;
+    need(ctx, blockH);
+    // Orange square bullet
+    ctx.page.drawRectangle({
+      x: MARGIN_X + 2, y: ctx.y - size + 2, width: 4, height: 4, color: COL.accent,
+    });
+    let by = ctx.y;
+    for (const ln of lines) {
+      ctx.page.drawText(safeText(ln), {
+        x: MARGIN_X + indent, y: by - size, size, font: ctx.sans, color: COL.body,
       });
+      by -= lh;
+    }
+    ctx.y -= blockH;
   }
+  ctx.y -= 4;
+}
 
-  function wrapText(text: string, maxWidth: number, fontSize: number): string[] {
-    const charWidth = fontSize * 0.48;
-    const maxChars = Math.floor(maxWidth / charWidth);
-    const words = text.split(" ");
-    const result: string[] = [];
-    let current = "";
-    for (const word of words) {
-      if ((current + " " + word).trim().length > maxChars) {
-        if (current) result.push(current.trim());
-        current = word;
-      } else {
-        current = current ? current + " " + word : word;
+function drawTable(ctx: Ctx, headers: string[], rows: string[][]) {
+  const cols = headers.length;
+  const tableW = PAGE_W - MARGIN_X * 2;
+  // First column slightly wider, rest equal
+  const firstW = tableW * 0.42;
+  const restW = (tableW - firstW) / (cols - 1 || 1);
+  const widths = cols === 1 ? [tableW] : [firstW, ...Array(cols - 1).fill(restW)];
+  const xPos: number[] = [];
+  let acc = MARGIN_X;
+  for (const w of widths) { xPos.push(acc); acc += w; }
+
+  const padX = 8;
+  const headerH = 24;
+  const rowSize = 8.8;
+  const rowLH = rowSize * 1.45;
+
+  // Header
+  need(ctx, headerH + 12);
+  ctx.page.drawRectangle({
+    x: MARGIN_X, y: ctx.y - headerH, width: tableW, height: headerH, color: COL.primary,
+  });
+  for (let c = 0; c < cols; c++) {
+    const txt = headers[c];
+    ctx.page.drawText(safeText(txt), {
+      x: xPos[c] + padX, y: ctx.y - headerH + 8, size: 8.5, font: ctx.sansBold,
+      color: COL.paper, characterSpacing: 0.6,
+    });
+  }
+  ctx.y -= headerH;
+
+  // Rows
+  for (let r = 0; r < rows.length; r++) {
+    // Wrap each cell
+    const cellLines: string[][] = rows[r].map((c, i) =>
+      wrap(c ?? "", ctx.sans, rowSize, widths[i] - padX * 2)
+    );
+    const maxLines = Math.max(1, ...cellLines.map((l) => l.length));
+    const rowH = maxLines * rowLH + 8;
+    need(ctx, rowH + 4);
+
+    // Zebra
+    if (r % 2 === 1) {
+      ctx.page.drawRectangle({
+        x: MARGIN_X, y: ctx.y - rowH, width: tableW, height: rowH, color: COL.zebra,
+      });
+    }
+    // Bottom hairline
+    ctx.page.drawRectangle({
+      x: MARGIN_X, y: ctx.y - rowH, width: tableW, height: 0.4, color: COL.hairline,
+    });
+
+    for (let c = 0; c < cols; c++) {
+      const lines = cellLines[c];
+      let cy = ctx.y - 6;
+      const isNumeric = /^[€E]?\s*\d/.test((rows[r][c] || "").trim()) || c === cols - 1 && /\d/.test(rows[r][c] || "");
+      for (const ln of lines) {
+        const txt = ln;
+        const xT = isNumeric && c > 0
+          ? xPos[c] + widths[c] - padX - ctx.sansMed.widthOfTextAtSize(txt, rowSize)
+          : xPos[c] + padX;
+        ctx.page.drawText(safeText(txt), {
+          x: xT, y: cy - rowSize, size: rowSize,
+          font: c === 0 ? ctx.sansMed : ctx.sans,
+          color: c === 0 ? COL.ink : COL.body,
+        });
+        cy -= rowLH;
       }
     }
-    if (current) result.push(current.trim());
-    return result;
+    ctx.y -= rowH;
   }
+  // Bottom orange accent rule
+  ctx.page.drawRectangle({
+    x: MARGIN_X, y: ctx.y - 2, width: 40, height: 1.4, color: COL.accent,
+  });
+  ctx.y -= 16;
+}
 
-  // ── Page chrome (header bar + footer) ──────────────────────────
-  function drawPageChrome() {
-    currentPageNum++;
-    // Top bar — green background full width
-    currentPageContent += `${C.primaryR} ${C.primaryG} ${C.primaryB} rg\n`;
-    currentPageContent += `0 808 595 34 re f\n`;
-    // Brand name in white on green bar
-    currentPageContent += `BT /F2 11 Tf ${C.white} ${C.white} ${C.white} rg ${leftMargin} 820 Td (${escapePdf(brandName)}) Tj ET\n`;
-    // Tagline right-aligned
-    currentPageContent += `BT /F1 7 Tf ${C.white} ${C.white} ${C.white} rg 310 820 Td (${escapePdf(tagline)}) Tj ET\n`;
+/* ── Cover page ───────────────────────────────────────────────── */
 
-    // Orange accent stripe below header
-    currentPageContent += `${C.accentR} ${C.accentG} ${C.accentB} rg\n`;
-    currentPageContent += `0 805 595 3 re f\n`;
-
-    // Footer line
-    currentPageContent += `${C.primaryR} ${C.primaryG} ${C.primaryB} rg\n`;
-    currentPageContent += `${leftMargin} 42 ${pageWidth} 1 re f\n`;
-    // Footer text
-    currentPageContent += `BT /F1 7 Tf ${C.mutedR} ${C.mutedG} ${C.mutedB} rg ${leftMargin} 30 Td (${escapePdf(brandName + "  |  " + website + "  |  " + email)}) Tj ET\n`;
-    // Page number right
-    currentPageContent += `BT /F1 7 Tf ${C.mutedR} ${C.mutedG} ${C.mutedB} rg 510 30 Td (Pagina ${currentPageNum}) Tj ET\n`;
-    // Warranty badge
-    currentPageContent += `BT /F2 7 Tf ${C.accentR} ${C.accentG} ${C.accentB} rg 440 30 Td (25 jaar garantie) Tj ET\n`;
-  }
-
-  function newPage() {
-    if (currentPageContent) {
-      const streamBytes = new TextEncoder().encode(currentPageContent);
-      const streamRef = addObj(
-        `<< /Length ${streamBytes.length} >>\nstream\n${currentPageContent}\nendstream`
-      );
-      pages.push({ contentRef: streamRef, length: streamBytes.length });
+async function drawCover(ctx: Ctx, doc: BrandedDoc, meta: DocMeta) {
+  // pageNum already incremented to 1 by newPage when first called by caller
+  const page = ctx.page;
+  // Full-bleed photo (top 70%)
+  const heroH = PAGE_H * 0.66;
+  const coverBytes = await fetchBytes(`${COVER_BASE}/${meta.cover}`);
+  if (coverBytes) {
+    try {
+      const img = await ctx.pdf.embedJpg(coverBytes);
+      const dims = img.scaleToFit(PAGE_W, heroH * 1.4);
+      // center
+      page.drawImage(img, {
+        x: (PAGE_W - dims.width) / 2,
+        y: PAGE_H - heroH - (dims.height - heroH) / 2,
+        width: dims.width,
+        height: dims.height,
+      });
+    } catch (e) {
+      console.warn("Cover image embed failed", e);
+      page.drawRectangle({ x: 0, y: PAGE_H - heroH, width: PAGE_W, height: heroH, color: COL.primaryDeep });
     }
-    currentPageContent = "";
-    yPos = 785;
-    drawPageChrome();
-    yPos = 780;
+  } else {
+    page.drawRectangle({ x: 0, y: PAGE_H - heroH, width: PAGE_W, height: heroH, color: COL.primaryDeep });
+  }
+  // Dark gradient overlay simulated with two stacked rectangles + opacity
+  page.drawRectangle({
+    x: 0, y: PAGE_H - heroH, width: PAGE_W, height: heroH,
+    color: COL.ink, opacity: 0.35,
+  });
+  page.drawRectangle({
+    x: 0, y: PAGE_H - heroH, width: PAGE_W, height: heroH * 0.55,
+    color: COL.ink, opacity: 0.35,
+  });
+
+  // Top brand strip
+  page.drawText("SCHUTTING", {
+    x: MARGIN_X, y: PAGE_H - 50, size: 9.5, font: ctx.sansBold,
+    color: COL.paper, characterSpacing: 2,
+  });
+  page.drawText("VAN COMPOSIET", {
+    x: MARGIN_X + ctx.sansBold.widthOfTextAtSize("SCHUTTING", 9.5) + 6,
+    y: PAGE_H - 50, size: 9.5, font: ctx.sans,
+    color: rgb(1, 1, 1), opacity: 0.85, characterSpacing: 2,
+  });
+  page.drawRectangle({
+    x: MARGIN_X, y: PAGE_H - 58, width: 24, height: 1.2, color: COL.accent,
+  });
+  // Edition right
+  const edW = ctx.sansMed.widthOfTextAtSize(BRAND.edition.toUpperCase(), 8);
+  page.drawText(BRAND.edition.toUpperCase(), {
+    x: PAGE_W - MARGIN_X - edW, y: PAGE_H - 50, size: 8, font: ctx.sansMed,
+    color: COL.paper, characterSpacing: 2,
+  });
+
+  // Eyebrow (above title, on bottom half of hero)
+  const titleBoxY = PAGE_H - heroH + 40; // title block sits here
+  page.drawRectangle({
+    x: MARGIN_X, y: titleBoxY + 110, width: 28, height: 1.6, color: COL.accent,
+  });
+  page.drawText(safeText(meta.eyebrow), {
+    x: MARGIN_X + 36, y: titleBoxY + 106, size: 9, font: ctx.sansBold,
+    color: COL.paper, characterSpacing: 2.5,
+  });
+
+  // Big serif title (white) wrapping to 2 lines
+  const titleSize = doc.title.length > 50 ? 28 : 34;
+  const titleLines = wrap(doc.title, ctx.serifBold, titleSize, PAGE_W - MARGIN_X * 2 - 140);
+  let ty = titleBoxY + 70;
+  for (const ln of titleLines) {
+    page.drawText(safeText(ln), {
+      x: MARGIN_X, y: ty, size: titleSize, font: ctx.serifBold, color: COL.paper,
+    });
+    ty -= titleSize + 4;
+  }
+  // Subtitle
+  const subLines = wrap(doc.subtitle, ctx.sans, 11, PAGE_W - MARGIN_X * 2 - 140);
+  let sy = ty - 6;
+  for (const ln of subLines) {
+    page.drawText(safeText(ln), {
+      x: MARGIN_X, y: sy, size: 11, font: ctx.sans,
+      color: rgb(1, 1, 1), opacity: 0.88,
+    });
+    sy -= 16;
   }
 
-  function checkSpace(needed: number) {
-    if (yPos - needed < 60) {
-      newPage();
-    }
-  }
+  // 25-jaar garantie seal (vector) — bottom right of hero
+  const sealCX = PAGE_W - 90;
+  const sealCY = titleBoxY + 60;
+  const sealR = 38;
+  page.drawCircle({ x: sealCX, y: sealCY, size: sealR, color: COL.accent });
+  page.drawCircle({ x: sealCX, y: sealCY, size: sealR - 4, borderColor: COL.paper, borderWidth: 0.8, color: COL.accent });
+  // "25" centered
+  const num = "25";
+  const numW = ctx.serifBold.widthOfTextAtSize(num, 26);
+  page.drawText(num, {
+    x: sealCX - numW / 2, y: sealCY + 2, size: 26, font: ctx.serifBold, color: COL.paper,
+  });
+  // "JAAR" below
+  const jaar = "JAAR";
+  const jw = ctx.sansBold.widthOfTextAtSize(jaar, 7);
+  page.drawText(jaar, {
+    x: sealCX - jw / 2, y: sealCY - 12, size: 7, font: ctx.sansBold,
+    color: COL.paper, characterSpacing: 2,
+  });
+  const gar = "GARANTIE";
+  const gw = ctx.sansMed.widthOfTextAtSize(gar, 5.5);
+  page.drawText(gar, {
+    x: sealCX - gw / 2, y: sealCY - 20, size: 5.5, font: ctx.sansMed,
+    color: COL.paper, characterSpacing: 1.6,
+  });
 
-  function addText(text: string, fontSize: number, font: string, r: number, g: number, b: number, x?: number) {
-    const xPos = x ?? leftMargin;
-    const maxW = rightMargin - xPos;
-    const wrapped = wrapText(text, maxW, fontSize);
-    for (const line of wrapped) {
-      checkSpace(lineHeight + 2);
-      currentPageContent += `BT ${font} ${fontSize} Tf ${r} ${g} ${b} rg ${xPos} ${yPos} Td (${escapePdf(line)}) Tj ET\n`;
-      yPos -= lineHeight;
-    }
-  }
+  // ── Bottom cream block (34% of page) ────────────────────────
+  const blockH = PAGE_H - heroH;
+  page.drawRectangle({ x: 0, y: 0, width: PAGE_W, height: blockH, color: COL.cream });
 
-  // ── COVER PAGE ──────────────────────────────────────────────────
-  currentPageContent = "";
-  currentPageNum++;
-
-  // Full green background top half
-  currentPageContent += `${C.primaryR} ${C.primaryG} ${C.primaryB} rg\n0 520 595 322 re f\n`;
-  // Orange accent band
-  currentPageContent += `${C.accentR} ${C.accentG} ${C.accentB} rg\n0 516 595 8 re f\n`;
-
-  // Brand name large, white
-  currentPageContent += `BT /F2 28 Tf ${C.white} ${C.white} ${C.white} rg ${leftMargin} 740 Td (${escapePdf(brandName)}) Tj ET\n`;
-  // Tagline below brand
-  currentPageContent += `BT /F1 11 Tf ${C.white} ${C.white} ${C.white} rg ${leftMargin} 715 Td (${escapePdf(tagline)}) Tj ET\n`;
-
-  // Decorative lines
-  currentPageContent += `${C.white} ${C.white} ${C.white} rg\n${leftMargin} 700 200 1 re f\n`;
-
-  // Document title — large on green
-  const titleWrapped = wrapText(doc.title, pageWidth, 22);
-  let titleY = 650;
-  for (const line of titleWrapped) {
-    currentPageContent += `BT /F2 22 Tf ${C.white} ${C.white} ${C.white} rg ${leftMargin} ${titleY} Td (${escapePdf(line)}) Tj ET\n`;
-    titleY -= 28;
-  }
-
-  // Subtitle below title
-  const subWrapped = wrapText(doc.subtitle, pageWidth, 12);
-  let subY = titleY - 10;
-  for (const line of subWrapped) {
-    currentPageContent += `BT /F1 12 Tf ${C.white} ${C.white} ${C.white} rg ${leftMargin} ${subY} Td (${escapePdf(line)}) Tj ET\n`;
-    subY -= 16;
-  }
-
-  // Bottom half — warm background
-  currentPageContent += `${C.lightBgR} ${C.lightBgG} ${C.lightBgB} rg\n0 0 595 516 re f\n`;
-
-  // Info box on cover
-  const boxY = 440;
-  currentPageContent += `${C.white} ${C.white} ${C.white} rg\n${leftMargin} ${boxY - 130} ${pageWidth} 140 re f\n`;
-  // Border on info box
-  currentPageContent += `${C.primaryR} ${C.primaryG} ${C.primaryB} rg\n${leftMargin} ${boxY - 130} 3 140 re f\n`;
-
-  const infoLines = [
-    "Dit document is eigendom van " + brandName,
-    "Website: " + website,
-    "E-mail: " + email,
-    "Alle producten worden geleverd met 25 jaar fabrieksgarantie.",
-    "Composiet: UV-bestendig, onderhoudsarm, 100% recyclebaar.",
+  // Three-column info strip
+  const colY = blockH - 36;
+  const colW = (PAGE_W - MARGIN_X * 2) / 3;
+  const pillars = [
+    { label: "UITGAVE", value: BRAND.edition },
+    { label: "GARANTIE", value: "25 jaar fabrieksgarantie" },
+    { label: "ONLINE", value: BRAND.website },
   ];
-  let infoY = boxY - 10;
-  for (const line of infoLines) {
-    currentPageContent += `BT /F1 9 Tf ${C.darkR} ${C.darkG} ${C.darkB} rg ${leftMargin + 14} ${infoY} Td (${escapePdf(line)}) Tj ET\n`;
-    infoY -= 16;
+  for (let i = 0; i < pillars.length; i++) {
+    const x = MARGIN_X + i * colW;
+    page.drawText(pillars[i].label, {
+      x, y: colY, size: 7, font: ctx.sansBold, color: COL.accent, characterSpacing: 2,
+    });
+    page.drawText(safeText(pillars[i].value), {
+      x, y: colY - 14, size: 10, font: ctx.serifBold, color: COL.primary,
+    });
+    if (i < pillars.length - 1) {
+      page.drawRectangle({
+        x: x + colW - 12, y: colY - 18, width: 0.5, height: 28, color: COL.hairline,
+      });
+    }
   }
 
-  // Footer on cover
-  currentPageContent += `${C.primaryR} ${C.primaryG} ${C.primaryB} rg\n0 0 595 30 re f\n`;
-  currentPageContent += `BT /F1 8 Tf ${C.white} ${C.white} ${C.white} rg ${leftMargin} 10 Td (${escapePdf(brandName + "  |  " + website + "  |  25 jaar garantie op alle producten")}) Tj ET\n`;
+  // Tagline + contact bar at the bottom
+  const tagY = 60;
+  page.drawText(safeText(BRAND.tagline), {
+    x: MARGIN_X, y: tagY, size: 9.5, font: ctx.sans, color: COL.body,
+  });
+  page.drawRectangle({
+    x: MARGIN_X, y: tagY - 10, width: 28, height: 1.2, color: COL.accent,
+  });
 
-  // Close cover page
-  const coverBytes = new TextEncoder().encode(currentPageContent);
-  const coverRef = addObj(`<< /Length ${coverBytes.length} >>\nstream\n${currentPageContent}\nendstream`);
-  pages.push({ contentRef: coverRef, length: coverBytes.length });
+  // Footer dark bar
+  page.drawRectangle({ x: 0, y: 0, width: PAGE_W, height: 28, color: COL.primary });
+  const fLine = `${BRAND.website}  ·  ${BRAND.email}  ·  ${BRAND.phone}`;
+  page.drawText(safeText(fLine), {
+    x: MARGIN_X, y: 10, size: 8, font: ctx.sansMed,
+    color: COL.paper, characterSpacing: 0.6,
+  });
+  const seal2 = "25 JAAR GARANTIE";
+  const s2w = ctx.sansBold.widthOfTextAtSize(seal2, 8);
+  page.drawText(seal2, {
+    x: PAGE_W - MARGIN_X - s2w, y: 10, size: 8, font: ctx.sansBold,
+    color: COL.accent, characterSpacing: 2,
+  });
+}
 
-  // ── CONTENT PAGES ───────────────────────────────────────────────
-  currentPageContent = "";
-  yPos = 785;
-  drawPageChrome();
-  yPos = 780;
+/* ── Optional inside gallery (catalog/colour docs) ────────────── */
 
-  // Document title on first content page
-  addText(doc.title, 16, "/F2", C.primaryR, C.primaryG, C.primaryB);
-  yPos -= 2;
-  addText(doc.subtitle, 10, "/F1", C.mutedR, C.mutedG, C.mutedB);
-  yPos -= 6;
+async function drawGalleryPage(ctx: Ctx, meta: DocMeta) {
+  if (!meta.gallery || meta.gallery.length === 0) return;
+  newPage(ctx);
+  // Section heading
+  ctx.page.drawText("BEELDIMPRESSIE", {
+    x: MARGIN_X, y: ctx.y, size: 9, font: ctx.sansBold,
+    color: COL.accent, characterSpacing: 2.5,
+  });
+  ctx.y -= 14;
+  ctx.page.drawText("Composiet in de praktijk", {
+    x: MARGIN_X, y: ctx.y - 24, size: 26, font: ctx.serifBold, color: COL.primary,
+  });
+  ctx.y -= 40;
+  ctx.page.drawRectangle({
+    x: MARGIN_X, y: ctx.y + 6, width: 40, height: 1.4, color: COL.accent,
+  });
+  ctx.y -= 20;
 
-  // Green divider
-  currentPageContent += `${C.primaryR} ${C.primaryG} ${C.primaryB} rg\n${leftMargin} ${yPos} ${pageWidth} 2 re f\n`;
-  yPos -= 16;
+  // 2-col grid of images
+  const cols = 2;
+  const gap = 14;
+  const tileW = (PAGE_W - MARGIN_X * 2 - gap * (cols - 1)) / cols;
+  const tileH = tileW * 0.72;
+
+  let col = 0;
+  for (const g of meta.gallery) {
+    if (ctx.y - tileH < CONTENT_BOTTOM) {
+      newPage(ctx);
+      col = 0;
+    }
+    const x = MARGIN_X + col * (tileW + gap);
+    const bytes = await fetchBytes(`${COVER_BASE}/${g}`);
+    if (bytes) {
+      try {
+        const img = await ctx.pdf.embedJpg(bytes);
+        // Cover-fit
+        const ratioImg = img.width / img.height;
+        const ratioBox = tileW / tileH;
+        let drawW = tileW, drawH = tileH, ix = x, iy = ctx.y - tileH;
+        if (ratioImg > ratioBox) {
+          drawH = tileH;
+          drawW = tileH * ratioImg;
+          ix = x - (drawW - tileW) / 2;
+        } else {
+          drawW = tileW;
+          drawH = tileW / ratioImg;
+          iy = ctx.y - tileH - (drawH - tileH) / 2;
+        }
+        // Clip via overlay-rectangles trick is not available; draw at tile size letting overflow
+        ctx.page.drawImage(img, { x: ix, y: iy, width: drawW, height: drawH });
+        // Frame border
+        ctx.page.drawRectangle({
+          x, y: ctx.y - tileH, width: tileW, height: tileH,
+          borderColor: COL.hairline, borderWidth: 0.5,
+        });
+      } catch (e) {
+        ctx.page.drawRectangle({
+          x, y: ctx.y - tileH, width: tileW, height: tileH, color: COL.zebra,
+        });
+      }
+    } else {
+      ctx.page.drawRectangle({
+        x, y: ctx.y - tileH, width: tileW, height: tileH, color: COL.zebra,
+      });
+    }
+    col++;
+    if (col >= cols) {
+      col = 0;
+      ctx.y -= tileH + gap + 4;
+    }
+  }
+  if (col > 0) ctx.y -= tileH + gap + 4;
+}
+
+/* ── Colour swatch page (kleurengids) ─────────────────────────── */
+
+function drawColourSwatchPage(ctx: Ctx) {
+  newPage(ctx);
+  ctx.page.drawText("TINTENPALET", {
+    x: MARGIN_X, y: ctx.y, size: 9, font: ctx.sansBold,
+    color: COL.accent, characterSpacing: 2.5,
+  });
+  ctx.y -= 14;
+  ctx.page.drawText("De 7 collectiekleuren", {
+    x: MARGIN_X, y: ctx.y - 24, size: 26, font: ctx.serifBold, color: COL.primary,
+  });
+  ctx.y -= 40;
+  ctx.page.drawRectangle({ x: MARGIN_X, y: ctx.y + 6, width: 40, height: 1.4, color: COL.accent });
+  ctx.y -= 20;
+
+  // 2 cols of swatches
+  const cols = 2;
+  const gap = 14;
+  const tileW = (PAGE_W - MARGIN_X * 2 - gap * (cols - 1)) / cols;
+  const tileH = 64;
+  let col = 0;
+  for (const t of SWATCHES) {
+    if (ctx.y - tileH < CONTENT_BOTTOM) { newPage(ctx); col = 0; }
+    const x = MARGIN_X + col * (tileW + gap);
+    const y = ctx.y - tileH;
+    // Swatch
+    ctx.page.drawRectangle({
+      x, y, width: tileW * 0.45, height: tileH,
+      color: rgb(t.hex[0], t.hex[1], t.hex[2]),
+    });
+    // Info
+    const ix = x + tileW * 0.45 + 12;
+    ctx.page.drawText(safeText(t.name), {
+      x: ix, y: y + tileH - 22, size: 14, font: ctx.serifBold, color: COL.primary,
+    });
+    ctx.page.drawText(safeText(t.sub), {
+      x: ix, y: y + tileH - 38, size: 8.5, font: ctx.sans, color: COL.muted,
+    });
+    ctx.page.drawText("LEVERBAAR IN ALLE PROFIELEN", {
+      x: ix, y: y + 8, size: 6.5, font: ctx.sansBold, color: COL.accent, characterSpacing: 1.4,
+    });
+    col++;
+    if (col >= cols) { col = 0; ctx.y -= tileH + gap; }
+  }
+  if (col > 0) ctx.y -= tileH + gap;
+}
+
+/* ── Closing CTA page ─────────────────────────────────────────── */
+
+function drawClosingPage(ctx: Ctx) {
+  newPage(ctx);
+  // Full cream wash already drawn by newPage (paper). Lay a sand panel.
+  ctx.page.drawRectangle({
+    x: 0, y: 0, width: PAGE_W, height: PAGE_H, color: COL.cream,
+  });
+  // Re-draw header & footer over wash
+  drawHeader(ctx);
+  drawFooter(ctx);
+
+  // Centered title
+  const eyeb = "TOT SLOT";
+  const ew = ctx.sansBold.widthOfTextAtSize(eyeb, 9);
+  ctx.page.drawText(eyeb, {
+    x: (PAGE_W - ew) / 2, y: PAGE_H * 0.66, size: 9, font: ctx.sansBold,
+    color: COL.accent, characterSpacing: 3,
+  });
+  const title = "Klaar om te starten?";
+  const tw = ctx.serifBold.widthOfTextAtSize(title, 32);
+  ctx.page.drawText(safeText(title), {
+    x: (PAGE_W - tw) / 2, y: PAGE_H * 0.60, size: 32, font: ctx.serifBold, color: COL.primary,
+  });
+  const sub = "Vraag een gratis offerte op maat of bestel direct online.";
+  const sw = ctx.sans.widthOfTextAtSize(sub, 11);
+  ctx.page.drawText(safeText(sub), {
+    x: (PAGE_W - sw) / 2, y: PAGE_H * 0.56, size: 11, font: ctx.sans, color: COL.body,
+  });
+
+  // Three contact tiles
+  const tiles = [
+    { label: "BEL ONS", value: BRAND.phone },
+    { label: "MAIL", value: BRAND.email },
+    { label: "WEB", value: BRAND.website },
+  ];
+  const tileY = PAGE_H * 0.40;
+  const tileW = (PAGE_W - MARGIN_X * 2 - 24) / 3;
+  for (let i = 0; i < 3; i++) {
+    const x = MARGIN_X + i * (tileW + 12);
+    ctx.page.drawRectangle({
+      x, y: tileY, width: tileW, height: 90, color: COL.paper,
+      borderColor: COL.hairline, borderWidth: 0.5,
+    });
+    // Circle icon
+    ctx.page.drawCircle({ x: x + tileW / 2, y: tileY + 64, size: 14, color: COL.primary });
+    const initial = tiles[i].label[0];
+    const iw = ctx.serifBold.widthOfTextAtSize(initial, 14);
+    ctx.page.drawText(initial, {
+      x: x + tileW / 2 - iw / 2, y: tileY + 60, size: 14, font: ctx.serifBold, color: COL.paper,
+    });
+    const lw = ctx.sansBold.widthOfTextAtSize(tiles[i].label, 7);
+    ctx.page.drawText(tiles[i].label, {
+      x: x + tileW / 2 - lw / 2, y: tileY + 36, size: 7, font: ctx.sansBold,
+      color: COL.accent, characterSpacing: 2,
+    });
+    const vw = ctx.sansMed.widthOfTextAtSize(tiles[i].value, 9);
+    ctx.page.drawText(safeText(tiles[i].value), {
+      x: x + tileW / 2 - vw / 2, y: tileY + 20, size: 9, font: ctx.sansMed, color: COL.ink,
+    });
+  }
+
+  // Big CTA button
+  const btnW = 280;
+  const btnH = 44;
+  const btnX = (PAGE_W - btnW) / 2;
+  const btnY = PAGE_H * 0.22;
+  ctx.page.drawRectangle({
+    x: btnX, y: btnY, width: btnW, height: btnH, color: COL.accent,
+  });
+  const cta = "Vraag gratis advies aan";
+  const cw = ctx.sansBold.widthOfTextAtSize(cta, 12);
+  ctx.page.drawText(safeText(cta), {
+    x: btnX + (btnW - cw) / 2, y: btnY + 16, size: 12, font: ctx.sansBold,
+    color: COL.paper, characterSpacing: 0.8,
+  });
+  const urlS = BRAND.website;
+  const uw = ctx.sansMed.widthOfTextAtSize(urlS, 8);
+  ctx.page.drawText(urlS, {
+    x: (PAGE_W - uw) / 2, y: btnY - 14, size: 8, font: ctx.sansMed,
+    color: COL.muted, characterSpacing: 1.2,
+  });
+
+  // Small seal at bottom
+  const sealCX = PAGE_W / 2;
+  const sealCY = PAGE_H * 0.12;
+  ctx.page.drawCircle({ x: sealCX, y: sealCY, size: 26, color: COL.primary });
+  ctx.page.drawCircle({ x: sealCX, y: sealCY, size: 22, borderColor: COL.paper, borderWidth: 0.6, color: COL.primary });
+  const num = "25";
+  const nw = ctx.serifBold.widthOfTextAtSize(num, 18);
+  ctx.page.drawText(num, {
+    x: sealCX - nw / 2, y: sealCY + 1, size: 18, font: ctx.serifBold, color: COL.paper,
+  });
+  const jw = ctx.sansBold.widthOfTextAtSize("JAAR GARANTIE", 5);
+  ctx.page.drawText("JAAR GARANTIE", {
+    x: sealCX - jw / 2, y: sealCY - 13, size: 5, font: ctx.sansBold, color: COL.paper, characterSpacing: 1.4,
+  });
+}
+
+/* ── Build a single PDF ───────────────────────────────────────── */
+
+let cachedFontBytes: { serif: Uint8Array; sans: Uint8Array } | null = null;
+
+async function loadFontBytes() {
+  if (cachedFontBytes) return cachedFontBytes;
+  const serifUrl = "https://raw.githubusercontent.com/google/fonts/main/ofl/lora/Lora%5Bwght%5D.ttf";
+  const sansUrl = "https://raw.githubusercontent.com/google/fonts/main/ofl/manrope/Manrope%5Bwght%5D.ttf";
+  const [serifR, sansR] = await Promise.all([fetch(serifUrl), fetch(sansUrl)]);
+  if (!serifR.ok) throw new Error(`Serif fetch: ${serifR.status}`);
+  if (!sansR.ok) throw new Error(`Sans fetch: ${sansR.status}`);
+  cachedFontBytes = {
+    serif: new Uint8Array(await serifR.arrayBuffer()),
+    sans: new Uint8Array(await sansR.arrayBuffer()),
+  };
+  return cachedFontBytes;
+}
+
+// Fresh byte copy — pdf-lib mutates the buffer during embed; sharing causes glyph loss.
+function copyBytes(src: Uint8Array): Uint8Array {
+  const out = new Uint8Array(src.length);
+  out.set(src);
+  return out;
+}
+
+async function buildPdf(doc: BrandedDoc): Promise<Uint8Array> {
+  const pdf = await PDFDocument.create();
+  pdf.registerFontkit(fontkit);
+  pdf.setTitle(`${doc.title} — ${BRAND.name}`);
+  pdf.setAuthor(BRAND.name);
+  pdf.setSubject(doc.subtitle);
+  pdf.setProducer(BRAND.name);
+  pdf.setCreator(BRAND.name);
+
+  let serif: PDFFont, serifBold: PDFFont, sans: PDFFont, sansMed: PDFFont, sansBold: PDFFont;
+  try {
+    const f = await loadFontBytes();
+    // Embed without subsetting — variable-font subsetting in fontkit drops glyphs.
+    // Each embed gets its own byte copy to avoid the shared-buffer mutation bug.
+    serif = await pdf.embedFont(copyBytes(f.serif));
+    serifBold = await pdf.embedFont(copyBytes(f.serif));
+    sans = await pdf.embedFont(copyBytes(f.sans));
+    sansMed = await pdf.embedFont(copyBytes(f.sans));
+    sansBold = await pdf.embedFont(copyBytes(f.sans));
+  } catch (e) {
+    console.warn("TTF embed failed, falling back to standard fonts", e);
+    serif = await pdf.embedFont(StandardFonts.TimesRoman);
+    serifBold = await pdf.embedFont(StandardFonts.TimesRomanBold);
+    sans = await pdf.embedFont(StandardFonts.Helvetica);
+    sansMed = await pdf.embedFont(StandardFonts.Helvetica);
+    sansBold = await pdf.embedFont(StandardFonts.HelveticaBold);
+  }
+
+  const meta = META[doc.id] ?? DEFAULT_META;
+
+  // Cover page
+  const coverPage = pdf.addPage([PAGE_W, PAGE_H]);
+  const ctx: Ctx = {
+    pdf, page: coverPage, y: CONTENT_TOP, pageNum: 1,
+    serif, serifBold, sans, sansMed, sansBold, docTitle: doc.title,
+  };
+  await drawCover(ctx, doc, meta);
+
+  // Body pages — intro page with title repeat + sections
+  newPage(ctx);
+  // Eyebrow + lead title atop body
+  ctx.page.drawText(safeText(meta.eyebrow), {
+    x: MARGIN_X, y: ctx.y, size: 9, font: ctx.sansBold,
+    color: COL.accent, characterSpacing: 2.5,
+  });
+  ctx.y -= 14;
+  const tLines = wrap(doc.title, ctx.serifBold, 26, PAGE_W - MARGIN_X * 2);
+  for (const ln of tLines) {
+    ctx.page.drawText(safeText(ln), {
+      x: MARGIN_X, y: ctx.y - 26, size: 26, font: ctx.serifBold, color: COL.primary,
+    });
+    ctx.y -= 30;
+  }
+  ctx.y -= 6;
+  ctx.page.drawRectangle({ x: MARGIN_X, y: ctx.y, width: 48, height: 1.6, color: COL.accent });
+  ctx.y -= 18;
+  // Subtitle as a callout
+  const subLines = wrap(doc.subtitle, ctx.sans, 11, PAGE_W - MARGIN_X * 2 - 16);
+  ctx.page.drawRectangle({
+    x: MARGIN_X, y: ctx.y - (subLines.length * 16) - 8,
+    width: 2.5, height: subLines.length * 16 + 4, color: COL.accent,
+  });
+  for (const ln of subLines) {
+    ctx.page.drawText(safeText(ln), {
+      x: MARGIN_X + 14, y: ctx.y - 12, size: 11, font: ctx.sans, color: COL.body,
+    });
+    ctx.y -= 16;
+  }
+  ctx.y -= 20;
 
   // Sections
-  for (const section of doc.sections) {
-    checkSpace(50);
-
-    // Section heading — green left bar + bold text
-    currentPageContent += `${C.accentR} ${C.accentG} ${C.accentB} rg\n${leftMargin} ${yPos - 3} 3 16 re f\n`;
-    addText(section.heading, 13, "/F2", C.primaryR, C.primaryG, C.primaryB, leftMargin + 10);
-    yPos -= 6;
-
-    if (section.paragraphs) {
-      for (const p of section.paragraphs) {
-        addText(p, 10, "/F1", C.darkR, C.darkG, C.darkB);
-        yPos -= 4;
+  for (let i = 0; i < doc.sections.length; i++) {
+    const s = doc.sections[i];
+    // Strip leading "N. " or "Stap N - " patterns from source headings so the
+    // numbered marker doesn't double up ("04  4. Palen plaatsen").
+    const cleanHeading = s.heading.replace(/^\s*(?:\d+\.\s*|Stap\s+\d+\s*[-–—]\s*)/i, "");
+    drawSectionHeading(ctx, i + 1, cleanHeading);
+    if (s.paragraphs) {
+      for (let j = 0; j < s.paragraphs.length; j++) {
+        drawParagraph(ctx, s.paragraphs[j], { lead: j === 0 });
       }
     }
-
-    if (section.bullets) {
-      for (const b of section.bullets) {
-        checkSpace(lineHeight + 4);
-        // Orange bullet dot
-        currentPageContent += `${C.accentR} ${C.accentG} ${C.accentB} rg\n${leftMargin + 6} ${yPos + 3} 4 4 re f\n`;
-        addText(b, 10, "/F1", C.darkR, C.darkG, C.darkB, leftMargin + 16);
-      }
-      yPos -= 4;
-    }
-
-    if (section.table) {
-      const { headers, rows } = section.table;
-      const colCount = headers.length;
-      const colWidth = pageWidth / colCount;
-
-      checkSpace((rows.length + 1) * (lineHeight + 4) + 16);
-
-      // Table header row — green background
-      currentPageContent += `${C.tableHeaderR} ${C.tableHeaderG} ${C.tableHeaderB} rg\n${leftMargin} ${yPos - 4} ${pageWidth} ${lineHeight + 6} re f\n`;
-      for (let c = 0; c < colCount; c++) {
-        const x = leftMargin + c * colWidth + 6;
-        currentPageContent += `BT /F2 8.5 Tf ${C.white} ${C.white} ${C.white} rg ${x} ${yPos} Td (${escapePdf(headers[c])}) Tj ET\n`;
-      }
-      yPos -= lineHeight + 6;
-
-      // Table data rows — alternating
-      for (let ri = 0; ri < rows.length; ri++) {
-        checkSpace(lineHeight + 4);
-        if (ri % 2 === 0) {
-          currentPageContent += `${C.tableAltR} ${C.tableAltG} ${C.tableAltB} rg\n${leftMargin} ${yPos - 3} ${pageWidth} ${lineHeight + 3} re f\n`;
-        }
-        for (let c = 0; c < colCount; c++) {
-          const x = leftMargin + c * colWidth + 6;
-          const cellText = rows[ri][c] || "";
-          const maxChars = Math.floor((colWidth - 12) / 4.2);
-          const display = cellText.length > maxChars ? cellText.slice(0, maxChars - 2) + ".." : cellText;
-          currentPageContent += `BT /F1 8.5 Tf ${C.darkR} ${C.darkG} ${C.darkB} rg ${x} ${yPos} Td (${escapePdf(display)}) Tj ET\n`;
-        }
-        yPos -= lineHeight + 2;
-      }
-      // Bottom border on table
-      currentPageContent += `${C.primaryR} ${C.primaryG} ${C.primaryB} rg\n${leftMargin} ${yPos + 1} ${pageWidth} 1 re f\n`;
-      yPos -= 8;
-    }
-    yPos -= 10;
+    if (s.bullets && s.bullets.length) drawBullets(ctx, s.bullets);
+    if (s.table) drawTable(ctx, s.table.headers, s.table.rows);
+    ctx.y -= 8;
   }
 
-  // ── Closing page block ──────────────────────────────────────────
-  checkSpace(80);
-  // Green box at bottom
-  currentPageContent += `${C.primaryR} ${C.primaryG} ${C.primaryB} rg\n${leftMargin} ${yPos - 55} ${pageWidth} 60 re f\n`;
-  currentPageContent += `BT /F2 11 Tf ${C.white} ${C.white} ${C.white} rg ${leftMargin + 14} ${yPos - 14} Td (${escapePdf("Vragen? Neem contact op voor gratis advies!")}) Tj ET\n`;
-  currentPageContent += `BT /F1 9 Tf ${C.white} ${C.white} ${C.white} rg ${leftMargin + 14} ${yPos - 32} Td (${escapePdf(website + "  |  " + email + "  |  25 jaar fabrieksgarantie")}) Tj ET\n`;
-
-  // Finalize last page
-  newPage();
-
-  // ── Build PDF byte structure ────────────────────────────────────
-  const finalObjects: string[] = [];
-  let finalObjCount = 0;
-
-  function addFinalObj(content: string): number {
-    finalObjCount++;
-    finalObjects.push(content);
-    return finalObjCount;
+  // Gallery for catalog-style docs
+  if (meta.gallery && meta.gallery.length) {
+    await drawGalleryPage(ctx, meta);
+  }
+  // Colour swatch page for kleurengids
+  if (doc.id === "kleurengids") {
+    drawColourSwatchPage(ctx);
   }
 
-  const catalogRef = addFinalObj("");
-  const pagesRef = addFinalObj("");
-  const fontRef = addFinalObj(`<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>`);
-  const fontBoldRef = addFinalObj(`<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>`);
+  // Closing CTA
+  drawClosingPage(ctx);
 
-  const pageRefs: number[] = [];
-  for (const page of pages) {
-    const streamContent = objects[page.contentRef - 1];
-    const streamRef = addFinalObj(streamContent);
-
-    const pageRef = addFinalObj(
-      `<< /Type /Page /Parent ${pagesRef} 0 R /MediaBox [0 0 595 842] /Contents ${streamRef} 0 R /Resources << /Font << /F1 ${fontRef} 0 R /F2 ${fontBoldRef} 0 R >> >> >>`
-    );
-    pageRefs.push(pageRef);
-  }
-
-  finalObjects[catalogRef - 1] = `<< /Type /Catalog /Pages ${pagesRef} 0 R >>`;
-  finalObjects[pagesRef - 1] = `<< /Type /Pages /Kids [${pageRefs.map((r) => `${r} 0 R`).join(" ")}] /Count ${pageRefs.length} >>`;
-
-  let pdf = "%PDF-1.4\n";
-  const offsets: number[] = [];
-  for (let i = 0; i < finalObjects.length; i++) {
-    offsets.push(pdf.length);
-    pdf += `${i + 1} 0 obj\n${finalObjects[i]}\nendobj\n`;
-  }
-
-  const xrefOffset = pdf.length;
-  pdf += `xref\n0 ${finalObjects.length + 1}\n`;
-  pdf += "0000000000 65535 f \n";
-  for (const offset of offsets) {
-    pdf += `${String(offset).padStart(10, "0")} 00000 n \n`;
-  }
-  pdf += `trailer\n<< /Size ${finalObjects.length + 1} /Root ${catalogRef} 0 R >>\nstartxref\n${xrefOffset}\n%%EOF`;
-
-  return new TextEncoder().encode(pdf);
+  return await pdf.save();
 }
 
 /* ── HTTP handler ──────────────────────────────────────────────── */
@@ -1299,32 +1915,36 @@ Deno.serve(async (req) => {
     }
 
     const results: { id: string; url: string }[] = [];
+    const failures: { id: string; error: string }[] = [];
 
     for (const doc of docsToGenerate) {
-      const pdfBytes = buildPdf(doc);
-      const fileName = `branded-pdfs/${doc.id}.pdf`;
-
-      const { error: uploadError } = await supabase.storage
-        .from("product-images")
-        .upload(fileName, pdfBytes, {
-          contentType: "application/pdf",
-          upsert: true,
-        });
-
-      if (uploadError) {
-        console.error(`Upload error for ${doc.id}:`, uploadError);
-        continue;
+      try {
+        const pdfBytes = await buildPdf(doc);
+        const fileName = `branded-pdfs/${doc.id}.pdf`;
+        const { error: uploadError } = await supabase.storage
+          .from("product-images")
+          .upload(fileName, pdfBytes, {
+            contentType: "application/pdf",
+            upsert: true,
+          });
+        if (uploadError) {
+          console.error(`Upload error for ${doc.id}:`, uploadError);
+          failures.push({ id: doc.id, error: uploadError.message });
+          continue;
+        }
+        const { data: urlData } = supabase.storage
+          .from("product-images")
+          .getPublicUrl(fileName);
+        results.push({ id: doc.id, url: urlData.publicUrl });
+      } catch (e) {
+        const msg = e instanceof Error ? e.message : String(e);
+        console.error(`Build error for ${doc.id}:`, msg);
+        failures.push({ id: doc.id, error: msg });
       }
-
-      const { data: urlData } = supabase.storage
-        .from("product-images")
-        .getPublicUrl(fileName);
-
-      results.push({ id: doc.id, url: urlData.publicUrl });
     }
 
     return new Response(
-      JSON.stringify({ ok: true, generated: results }),
+      JSON.stringify({ ok: failures.length === 0, generated: results, failures }),
       { headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
   } catch (err) {
@@ -1335,3 +1955,4 @@ Deno.serve(async (req) => {
     );
   }
 });
+
