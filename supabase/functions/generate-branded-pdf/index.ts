@@ -1851,7 +1851,10 @@ async function buildPdf(doc: BrandedDoc): Promise<Uint8Array> {
   // Sections
   for (let i = 0; i < doc.sections.length; i++) {
     const s = doc.sections[i];
-    drawSectionHeading(ctx, i + 1, s.heading);
+    // Strip leading "N. " or "Stap N - " patterns from source headings so the
+    // numbered marker doesn't double up ("04  4. Palen plaatsen").
+    const cleanHeading = s.heading.replace(/^\s*(?:\d+\.\s*|Stap\s+\d+\s*[-–—]\s*)/i, "");
+    drawSectionHeading(ctx, i + 1, cleanHeading);
     if (s.paragraphs) {
       for (let j = 0; j < s.paragraphs.length; j++) {
         drawParagraph(ctx, s.paragraphs[j], { lead: j === 0 });
