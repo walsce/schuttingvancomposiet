@@ -1373,7 +1373,7 @@ async function drawCover(ctx: Ctx, doc: BrandedDoc, meta: DocMeta) {
   const page = ctx.page;
   // Full-bleed photo (top 70%)
   const heroH = PAGE_H * 0.66;
-  const coverBytes = await fetchBytes(`${COVER_ORIGIN}/images/pdf-covers/${meta.cover}`);
+  const coverBytes = await fetchBytes(`${COVER_BASE}/${meta.cover}`);
   if (coverBytes) {
     try {
       const img = await ctx.pdf.embedJpg(coverBytes);
@@ -1563,7 +1563,7 @@ async function drawGalleryPage(ctx: Ctx, meta: DocMeta) {
       col = 0;
     }
     const x = MARGIN_X + col * (tileW + gap);
-    const bytes = await fetchBytes(`${COVER_ORIGIN}/images/pdf-covers/${g}`);
+    const bytes = await fetchBytes(`${COVER_BASE}/${g}`);
     if (bytes) {
       try {
         const img = await ctx.pdf.embedJpg(bytes);
