@@ -969,9 +969,9 @@ const FOOTER_Y = 38;
 const CONTENT_TOP = PAGE_H - 90;
 const CONTENT_BOTTOM = 80;
 
-// Public origin for fetching cover images (deployed Vercel/Lovable host).
-const COVER_ORIGIN =
-  Deno.env.get("PDF_COVER_ORIGIN") ?? "https://schuttingvancomposiet.lovable.app";
+// Public storage URL for cover images.
+const COVER_BASE =
+  `${Deno.env.get("SUPABASE_URL")}/storage/v1/object/public/product-images/pdf-covers`;
 
 // Map each document id to cover image + eyebrow + optional gallery.
 interface DocMeta {
