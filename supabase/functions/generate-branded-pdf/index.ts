@@ -1755,33 +1755,27 @@ function drawClosingPage(ctx: Ctx) {
 
 /* ── Build a single PDF ───────────────────────────────────────── */
 
-let cachedFonts: { serif: Uint8Array; serifBold: Uint8Array; sans: Uint8Array; sansMed: Uint8Array; sansBold: Uint8Array } | null = null;
+let cachedFontBytes: { serif: Uint8Array; sans: Uint8Array } | null = null;
 
-async function loadFonts() {
-  if (cachedFonts) return cachedFonts;
-  const urls = {
-    // Crimson Pro (serif, broader unicode coverage than Playfair direct TTFs hosted on cdn)
-    serif: "https://github.com/google/fonts/raw/main/ofl/crimsonpro/CrimsonPro%5Bwght%5D.ttf",
-    serifBold: "https://github.com/google/fonts/raw/main/ofl/crimsonpro/CrimsonPro%5Bwght%5D.ttf",
-    sans: "https://github.com/google/fonts/raw/main/ofl/inter/Inter%5Bopsz%2Cwght%5D.ttf",
-    sansMed: "https://github.com/google/fonts/raw/main/ofl/inter/Inter%5Bopsz%2Cwght%5D.ttf",
-    sansBold: "https://github.com/google/fonts/raw/main/ofl/inter/Inter%5Bopsz%2Cwght%5D.ttf",
+async function loadFontBytes() {
+  if (cachedFontBytes) return cachedFontBytes;
+  const serifUrl = "https://raw.githubusercontent.com/google/fonts/main/ofl/lora/Lora%5Bwght%5D.ttf";
+  const sansUrl = "https://raw.githubusercontent.com/google/fonts/main/ofl/manrope/Manrope%5Bwght%5D.ttf";
+  const [serifR, sansR] = await Promise.all([fetch(serifUrl), fetch(sansUrl)]);
+  if (!serifR.ok) throw new Error(`Serif fetch: ${serifR.status}`);
+  if (!sansR.ok) throw new Error(`Sans fetch: ${sansR.status}`);
+  cachedFontBytes = {
+    serif: new Uint8Array(await serifR.arrayBuffer()),
+    sans: new Uint8Array(await sansR.arrayBuffer()),
   };
-  const fetched = await Promise.all(
-    Object.values(urls).map(async (u) => {
-      const r = await fetch(u);
-      if (!r.ok) throw new Error(`Font fetch failed: ${u} ${r.status}`);
-      return new Uint8Array(await r.arrayBuffer());
-    })
-  );
-  cachedFonts = {
-    serif: fetched[0],
-    serifBold: fetched[1],
-    sans: fetched[2],
-    sansMed: fetched[3],
-    sansBold: fetched[4],
-  };
-  return cachedFonts;
+  return cachedFontBytes;
+}
+
+// Fresh byte copy — pdf-lib mutates the buffer during embed; sharing causes glyph loss.
+function copyBytes(src: Uint8Array): Uint8Array {
+  const out = new Uint8Array(src.length);
+  out.set(src);
+  return out;
 }
 
 async function buildPdf(doc: BrandedDoc): Promise<Uint8Array> {
@@ -1795,12 +1789,14 @@ async function buildPdf(doc: BrandedDoc): Promise<Uint8Array> {
 
   let serif: PDFFont, serifBold: PDFFont, sans: PDFFont, sansMed: PDFFont, sansBold: PDFFont;
   try {
-    const f = await loadFonts();
-    serif = await pdf.embedFont(f.serif, { subset: true });
-    serifBold = await pdf.embedFont(f.serifBold, { subset: true });
-    sans = await pdf.embedFont(f.sans, { subset: true });
-    sansMed = await pdf.embedFont(f.sansMed, { subset: true });
-    sansBold = await pdf.embedFont(f.sansBold, { subset: true });
+    const f = await loadFontBytes();
+    // Embed without subsetting — variable-font subsetting in fontkit drops glyphs.
+    // Each embed gets its own byte copy to avoid the shared-buffer mutation bug.
+    serif = await pdf.embedFont(copyBytes(f.serif));
+    serifBold = await pdf.embedFont(copyBytes(f.serif));
+    sans = await pdf.embedFont(copyBytes(f.sans));
+    sansMed = await pdf.embedFont(copyBytes(f.sans));
+    sansBold = await pdf.embedFont(copyBytes(f.sans));
   } catch (e) {
     console.warn("TTF embed failed, falling back to standard fonts", e);
     serif = await pdf.embedFont(StandardFonts.TimesRoman);
