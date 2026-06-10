@@ -1073,7 +1073,7 @@ const DEFAULT_META: DocMeta = {
 };
 
 // 7 tones for colour gids — RGB approximations of composite colours
-const TONES: { name: string; hex: [number, number, number]; sub: string }[] = [
+const SWATCHES: { name: string; hex: [number, number, number]; sub: string }[] = [
   { name: "Teak",            hex: [0.62, 0.40, 0.22], sub: "Warm, klassiek" },
   { name: "Eiken",           hex: [0.51, 0.39, 0.27], sub: "Natuurlijk neutraal" },
   { name: "Walnoot",         hex: [0.32, 0.21, 0.14], sub: "Warm, donker" },
@@ -1628,7 +1628,7 @@ function drawColourSwatchPage(ctx: Ctx) {
   const tileW = (PAGE_W - MARGIN_X * 2 - gap * (cols - 1)) / cols;
   const tileH = 64;
   let col = 0;
-  for (const t of TONES) {
+  for (const t of SWATCHES) {
     if (ctx.y - tileH < CONTENT_BOTTOM) { newPage(ctx); col = 0; }
     const x = MARGIN_X + col * (tileW + gap);
     const y = ctx.y - tileH;
