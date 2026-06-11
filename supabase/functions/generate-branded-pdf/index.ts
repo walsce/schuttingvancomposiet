@@ -879,7 +879,7 @@ const documents: BrandedDoc[] = [
   {
     id: "onderhoud-rhombus-profielen",
     title: "Onderhoudsgids: Rhombus profielen",
-    subtitle: "Schutting, tuindeur en gevelbekleding met Rhombus profiel - jaarlijks onderhoud",
+    subtitle: "Schutting en tuindeur met Rhombus profiel - jaarlijks onderhoud voor 25 jaar kleurvastheid",
     sections: [
       {
         heading: "Waarom apart onderhoud voor Rhombus?",
