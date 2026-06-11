@@ -1308,19 +1308,21 @@ function drawTable(ctx: Ctx, headers: string[], rows: string[][]) {
   const rowSize = 8.8;
   const rowLH = rowSize * 1.45;
 
-  // Header
-  need(ctx, headerH + 12);
-  ctx.page.drawRectangle({
-    x: MARGIN_X, y: ctx.y - headerH, width: tableW, height: headerH, color: COL.primary,
-  });
-  for (let c = 0; c < cols; c++) {
-    const txt = headers[c];
-    ctx.page.drawText(safeText(txt), {
-      x: xPos[c] + padX, y: ctx.y - headerH + 8, size: 8.5, font: ctx.sansBold,
-      color: COL.paper, characterSpacing: 0.6,
+  // Header (reusable so we can reprint after a page break)
+  const drawHeaderRow = () => {
+    need(ctx, headerH + 12);
+    ctx.page.drawRectangle({
+      x: MARGIN_X, y: ctx.y - headerH, width: tableW, height: headerH, color: COL.primary,
     });
-  }
-  ctx.y -= headerH;
+    for (let c = 0; c < cols; c++) {
+      ctx.page.drawText(safeText(headers[c]), {
+        x: xPos[c] + padX, y: ctx.y - headerH + 8, size: 8.5, font: ctx.sansBold,
+        color: COL.paper, characterSpacing: 0.6,
+      });
+    }
+    ctx.y -= headerH;
+  };
+  drawHeaderRow();
 
   // Rows
   for (let r = 0; r < rows.length; r++) {
@@ -1330,7 +1332,12 @@ function drawTable(ctx: Ctx, headers: string[], rows: string[][]) {
     );
     const maxLines = Math.max(1, ...cellLines.map((l) => l.length));
     const rowH = maxLines * rowLH + 8;
-    need(ctx, rowH + 4);
+
+    // Page break mid-table → reprint header row so users never see a headerless table
+    if (ctx.y - rowH < CONTENT_BOTTOM) {
+      newPage(ctx);
+      drawHeaderRow();
+    }
 
     // Zebra
     if (r % 2 === 1) {
