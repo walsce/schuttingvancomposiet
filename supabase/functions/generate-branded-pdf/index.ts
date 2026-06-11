@@ -738,7 +738,7 @@ const documents: BrandedDoc[] = [
         heading: "Combineren met de tuin",
         bullets: [
           "Donkere schutting + lichte vlonder = ruimtelijk effect",
-          "Donkere gevelbekleding rondom witte kozijnen = high-end look",
+          "Donkere schutting + lichte vlonder = ruimtelijk en open effect",
           "Tuindeur in dezelfde tint als schutting = rustig en strak",
           "Tuindeur in contrasterende tint = blikvanger",
         ],
