@@ -1030,11 +1030,7 @@ const META: Record<string, DocMeta> = {
     eyebrow: "CHECKLIST",
   },
 
-  // Gevelbekleding & Rhombus
-  "handleiding-composiet-gevelbekleding": {
-    cover: "galeria-4.jpg",
-    eyebrow: "MONTAGEHANDLEIDING",
-  },
+  // Rhombus onderhoud (schutting + tuindeur)
   "onderhoud-rhombus-profielen": {
     cover: "ogrodzeniowa-premium-orzech.jpg",
     eyebrow: "ONDERHOUDSGIDS",
