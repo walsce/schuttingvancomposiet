@@ -1227,7 +1227,10 @@ function need(ctx: Ctx, h: number) {
 /* ── Section renderers ────────────────────────────────────────── */
 
 function drawSectionHeading(ctx: Ctx, num: number, heading: string) {
-  need(ctx, 60);
+  // Reserve generous space so the heading never lands within ~200pt of the
+  // page bottom — keeps the heading together with its first table/bullet block
+  // and avoids the orphan-heading / headerless-table bug.
+  need(ctx, 200);
   const { page, serif, serifBold } = ctx;
   const numStr = num.toString().padStart(2, "0");
   // Large outline numeral
