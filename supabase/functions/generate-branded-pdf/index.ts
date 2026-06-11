@@ -50,7 +50,7 @@ const documents: BrandedDoc[] = [
             ["Composiet paal", "68 x 68 mm, 200 cm", "Per vak 1 paal"],
             ["Voetplaat of betonpoer", "—", "Afhankelijk van ondergrond"],
             ["Topafdekplank", "30 x 150 mm", "Afwerking bovenkant"],
-            ["Kleuren", TONES, "Match met schutting/gevelbekleding"],
+            ["Kleuren", TONES, "Match met vlonder en tuindeur"],
           ],
         },
       },
