@@ -136,7 +136,7 @@ export const downloads: DownloadGuide[] = [
     description: "De complete productcatalogus met alle vlonderplanken, schuttingen en accessoires. Inclusief technische specificaties en kleuren.",
     bulletPoints: [
       "Vlonderplanken: standaard & naadloos massief",
-      "Schuttingen, tuindeuren & gevelbekleding",
+      "Schuttingen & tuindeuren (dicht en Rhombus)",
       "Alle accessoires en montagesets",
       "Technische specificaties per product",
     ],
@@ -284,42 +284,25 @@ export const downloads: DownloadGuide[] = [
     pdfPath: pdfUrl("checklist-tuindeur-op-maat"),
   },
 
-  // ─── GEVELBEKLEDING ─────────────────────────────────────────────────
-  {
-    id: "handleiding-composiet-gevelbekleding",
-    title: "Montagehandleiding: composiet gevelbekleding (Rhombus)",
-    slug: "montagehandleiding-composiet-gevelbekleding",
-    description: "Complete handleiding voor het monteren van composiet Rhombus gevelbekleding op een aluminium regelwerk.",
-    bulletPoints: [
-      "Aluminium regelwerk hart-op-hart 50 cm",
-      "Ventilatieruimte & dampopen folie",
-      "Hoek- en eindprofielen plaatsen",
-      "Combineren van Rhombus tinten",
-    ],
-    category: "handleiding",
-    image: "/images/wpc/wpc-systemy-tarasowe-slider-1.webp",
-    relatedLinks: [{ label: "Gevelbekleding bekijken", href: "/categorie/gevelbekleding" }],
-    relatedCategory: "gevelbekleding",
-    pdfPath: pdfUrl("handleiding-composiet-gevelbekleding"),
-  },
+  // ─── RHOMBUS ONDERHOUD ──────────────────────────────────────────────
   {
     id: "onderhoud-rhombus-profielen",
-    title: "Onderhoudsgids: Rhombus profielen (schutting, deur & gevel)",
+    title: "Onderhoudsgids: Rhombus profielen (schutting & tuindeur)",
     slug: "onderhoud-rhombus-profielen",
-    description: "Hoe houdt u Rhombus profielen jarenlang strak? Reiniging, controle en kleurherstel.",
+    description: "Hoe houdt u Rhombus profielen van schutting en tuindeur jarenlang strak? Reiniging, controle en kleurherstel.",
     bulletPoints: [
       "Reinigen tussen de ribbels",
       "Kleurherstel met lakbus spray",
-      "Controle van bevestiging & regelwerk",
+      "Controle van bevestiging & scharnieren",
       "Jaarlijks onderhoudsschema",
     ],
     category: "onderhoud",
     image: "/images/wpc/galeria-1.webp",
     relatedLinks: [
       { label: "Schuttingen bekijken", href: "/categorie/schuttingen" },
-      { label: "Gevelbekleding bekijken", href: "/categorie/gevelbekleding" },
+      { label: "Tuindeuren bekijken", href: "/categorie/tuindeuren" },
     ],
-    relatedCategory: "gevelbekleding",
+    relatedCategory: "schuttingen",
     pdfPath: pdfUrl("onderhoud-rhombus-profielen"),
   },
 ];

@@ -50,7 +50,7 @@ const documents: BrandedDoc[] = [
             ["Composiet paal", "68 x 68 mm, 200 cm", "Per vak 1 paal"],
             ["Voetplaat of betonpoer", "—", "Afhankelijk van ondergrond"],
             ["Topafdekplank", "30 x 150 mm", "Afwerking bovenkant"],
-            ["Kleuren", TONES, "Match met schutting/gevelbekleding"],
+            ["Kleuren", TONES, "Match met vlonder en tuindeur"],
           ],
         },
       },
@@ -318,68 +318,104 @@ const documents: BrandedDoc[] = [
   {
     id: "productcatalogus",
     title: "Productcatalogus 2026",
-    subtitle: "Alle composiet vlonderplanken, schuttingen, tuindeuren, gevelbekleding en accessoires",
+    subtitle: "De volledige Highlander composiet collectie — vlonderplanken, schuttingen, tuindeuren en accessoires met 25 jaar fabrieksgarantie.",
     sections: [
       {
-        heading: "Categorieen",
-        bullets: [
-          "Vlonderplanken - standaard, naadloos massief en Rhombus",
-          "Schuttingen - dicht en Rhombus, hoogtes 120 tot 200 cm",
-          "Tuindeuren - dicht en Rhombus, standaard en op maat",
-          "Gevelbekleding - Rhombus profielen voor moderne gevels",
-          "Accessoires - palen, profielen, clips, onderconstructie",
+        heading: "Over deze collectie",
+        paragraphs: [
+          "De Highlander collectie is ontwikkeld voor de Nederlandse en Belgische markt: bestand tegen extreme zon, vorst en aanhoudende regen. Elke plank, paal en deur uit deze catalogus heeft een co-extrusie beschermlaag rondom de kern en wordt geleverd met 25 jaar fabrieksgarantie tegen rotten, splinteren en kromtrekken.",
+          "Alle profielen — schuttingplanken, vlonderplanken en tuindeuren — zijn beschikbaar in dezelfde kleurfamilie. Zo bouwt u een volledig op elkaar afgestemde buitenruimte zonder kleurverschillen tussen leveranciers.",
         ],
       },
       {
-        heading: "Vlonderplanken",
+        heading: "Categorieen in een oogopslag",
+        bullets: [
+          "Vlonderplanken — standaard en naadloos massief, 5 kleurtonen, vanaf 19,95 euro per meter",
+          "Schuttingen — dicht en Rhombus (horizontaal en verticaal), 5 kleurtonen, vanaf 139,95 euro per element",
+          "Tuindeuren — dicht en Rhombus (horizontaal en verticaal), 4 tot 5 kleurtonen, vanaf 349 euro",
+          "Accessoires — palen, paalkappen, profielen, schroefsets en kleurherstelspray",
+          "Samples — bestel een fysiek sample voor 3,95 euro om kleur en voelkwaliteit te beoordelen",
+        ],
+      },
+      {
+        heading: "Vlonderplanken Highlander",
         table: {
-          headers: ["Type", "Afmeting", "Vanaf prijs"],
+          headers: ["Profiel", "Beschikbare kleuren", "Per meter"],
           rows: [
-            ["Standaard composiet", "23 x 140 mm, 4 m", "EUR 18,95/m"],
-            ["Naadloos massief", "21 x 145 mm, 4 m", "EUR 28,95/m"],
-            ["Rhombus profiel", "21 x 145 mm, 4 m", "EUR 26,95/m"],
+            ["Standaard composiet (hol)", "Walnoot, Teak, Vergrijsd Eiken, Donker Grijs, Zwart", "EUR 19,95"],
+            ["Naadloos massief (premium)", "Walnoot, Teak, Vergrijsd Eiken, Donker Grijs, Zwart", "EUR 37,95"],
+            ["Sample vlonderplank", "Op aanvraag, bezorgd in 5-10 werkdagen", "EUR 3,95"],
           ],
         },
       },
       {
-        heading: "Schuttingen",
+        heading: "Schuttingen Highlander",
         table: {
-          headers: ["Type", "Afmeting", "Vanaf prijs"],
+          headers: ["Profiel", "Beschikbare kleuren", "Per element"],
           rows: [
-            ["Composiet schuttingplank", "21 x 150 mm, 180 cm", "EUR 16,95/m"],
-            ["Rhombus schuttingplank", "21 x 150 mm, 180 cm", "EUR 21,95/m"],
-            ["Composiet paal", "68 x 68 mm, 200 cm", "EUR 49,95/st"],
-            ["U-paalprofiel alu", "60 x 60 mm", "EUR 12,95/m"],
+            ["Composiet schutting dicht", "Eiken, Walnoot, Teak, Grijs, Zwart", "EUR 139,95"],
+            ["Composiet schutting Rhombus", "Eiken, Walnoot, Grijs, Zwart", "EUR 149,95"],
+            ["Composiet schutting Rhombus Teak", "Teak", "EUR 159,95"],
+            ["Composiet schutting Rhombus Verticaal", "Eiken, Walnoot, Teak, Grijs, Zwart", "EUR 179,95"],
+            ["Aluminium composiet paal compleet", "Op kleur, inclusief montage-set", "EUR 69,95"],
+            ["Losse composiet schuttingplank", "Op kleur, voor uitbreiding/reparatie", "EUR 16,99"],
           ],
         },
       },
       {
-        heading: "Tuindeuren",
-        table: {
-          headers: ["Type", "Afmeting", "Vanaf prijs"],
-          rows: [
-            ["Dichte tuindeur", "100 x 180 cm", "EUR 549,-"],
-            ["Rhombus tuindeur", "100 x 180 cm", "EUR 649,-"],
-            ["Tuindeur op maat", "Maatwerk", "Op aanvraag"],
-            ["Scharnier- en slotset", "RVS", "EUR 89,-/set"],
-          ],
-        },
-      },
-      {
-        heading: "Gevelbekleding",
-        table: {
-          headers: ["Type", "Afmeting", "Vanaf prijs"],
-          rows: [
-            ["Rhombus gevelplank", "21 x 145 mm, 4 m", "EUR 32,95/m"],
-            ["Aluminium regelwerk", "40 x 60 mm, 4 m", "EUR 11,95/m"],
-            ["Hoek- en eindprofiel", "Alu, op kleur", "EUR 14,95/m"],
-          ],
-        },
-      },
-      {
-        heading: "Kleuren",
+        heading: "Tuindeuren Highlander",
         paragraphs: [
-          `Alle producten leverbaar in: ${TONES}. Kleuren matchen tussen vlonder, schutting, tuindeur en gevelbekleding voor een geheel afgestemde buitenruimte.`,
+          "Onze composiet tuindeuren worden geleverd op exact dezelfde hoogte en kleur als de schutting, voor een doorlopende lijn. Standaard inclusief RVS scharnierset en cilinderslot met drie sleutels. Maatwerk tot 200 cm hoog is mogelijk binnen 3-4 weken levertijd.",
+        ],
+        table: {
+          headers: ["Type", "Beschikbare kleuren", "Vanaf"],
+          rows: [
+            ["Tuindeur dicht", "Zwart, Teak, Grijs, Walnoot", "EUR 349,-"],
+            ["Tuindeur Rhombus", "Zwart, Teak, Grijs, Walnoot, Eiken", "EUR 369,-"],
+            ["Tuindeur Rhombus Verticaal", "Zwart, Teak, Grijs, Walnoot, Eiken", "EUR 399,-"],
+            ["Tuindeur op maat", "Maatwerk tot 200 cm hoog", "Op aanvraag"],
+          ],
+        },
+      },
+      {
+        heading: "Accessoires & afwerking",
+        table: {
+          headers: ["Onderdeel", "Toepassing", "Prijs"],
+          rows: [
+            ["Aluminium composiet schutting paal compleet", "Hoofdpaal + U-profiel + voetplaat", "EUR 69,95"],
+            ["Aluminium Onder/Boven Profiel", "Strakke afwerking boven- en onderzijde", "Op aanvraag"],
+            ["Paalkap rechthoek 60x40 mm met haak", "Afdek paal + haak voor verlichting", "Op aanvraag"],
+            ["Paalkap rond 60 mm met haak", "Afdek voor ronde paal", "Op aanvraag"],
+            ["Paalkap Aluminium Composiet Tuinpaal", "Strakke aluminium afwerking", "Op aanvraag"],
+            ["Afdekstrip Composiet Tuinpaal", "Verbergt schroefverbindingen", "Op aanvraag"],
+            ["Lakbus spray (kleurherstel)", "Bijwerken krassen en stootplekken", "EUR 14,95"],
+          ],
+        },
+      },
+      {
+        heading: "Kleurpalet 2026",
+        paragraphs: [
+          "Alle Highlander profielen worden geproduceerd in een vaste fabriekspalet zodat schutting, vlonder en tuindeur exact op elkaar aansluiten. Onder invloed van UV vlakt de kleur in de eerste 8 tot 12 weken licht af naar de duurzame eindtint — dit is normaal en garandeert juist de kleurvastheid voor 25 jaar.",
+        ],
+        bullets: [
+          "Teak — warme honingbruine tint, klassieke uitstraling, past bij beige gevels en terracotta",
+          "Eiken — natuurlijke neutrale houttint, combineert met bijna elke tuinstijl",
+          "Walnoot — diep warm donkerbruin, premium uitstraling tegen witte of lichte gevels",
+          "Vergrijsd Eiken — verweerde driftwood-look, modern en kustachtig",
+          "Grijs — koel modern grijs, voor strakke antraciet tuinen",
+          "Donker Grijs — stoer contrastrijk, perfect bij betonlook en industriele tuinen",
+          "Zwart — maximale impact, minimalistisch, blikvanger naast witte gevel",
+        ],
+      },
+      {
+        heading: "Levering & garantie",
+        bullets: [
+          "Standaard levertijd: 5 tot 10 werkdagen door heel Nederland en Belgie",
+          "Maatwerk tuindeuren: 3 tot 4 weken productietijd",
+          "Gratis levering vanaf 5.000 euro orderwaarde",
+          "Onder 5.000 euro: verzendkosten op basis van postcode en gewicht",
+          "25 jaar fabrieksgarantie tegen rotten, splinteren, kromtrekken en kleurverlies onder normale gebruiksomstandigheden",
+          "Snelle service: bij schade leveren we waar mogelijk een vervangplank uit dezelfde productiebatch",
         ],
       },
     ],
@@ -387,76 +423,92 @@ const documents: BrandedDoc[] = [
   {
     id: "prijslijst",
     title: "Prijslijst 2026",
-    subtitle: "Actuele prijzen, staffelkortingen en leveringsvoorwaarden",
+    subtitle: "Actuele Highlander prijzen, staffelkortingen en leveringsvoorwaarden — geldig vanaf 1 januari 2026.",
     sections: [
       {
         heading: "Vlonderplanken (per strekkende meter)",
         table: {
-          headers: ["Type", "Afmeting", "Per m", "Per pak (4 m)"],
+          headers: ["Profiel", "Kleur", "Per meter"],
           rows: [
-            ["Standaard composiet", "23 x 140 mm", "EUR 18,95", "EUR 75,80"],
-            ["Naadloos massief", "21 x 145 mm", "EUR 28,95", "EUR 115,80"],
-            ["Rhombus profiel", "21 x 145 mm", "EUR 26,95", "EUR 107,80"],
+            ["Vlonderplank standaard", "Walnoot", "EUR 19,95"],
+            ["Vlonderplank standaard", "Teak", "EUR 19,95"],
+            ["Vlonderplank standaard", "Vergrijsd Eiken", "EUR 19,95"],
+            ["Vlonderplank standaard", "Donker Grijs", "EUR 19,95"],
+            ["Vlonderplank naadloos massief", "Walnoot", "EUR 37,95"],
+            ["Vlonderplank naadloos massief", "Teak", "EUR 37,95"],
+            ["Vlonderplank naadloos massief", "Vergrijsd Eiken", "EUR 37,95"],
+            ["Vlonderplank naadloos massief", "Donker Grijs", "EUR 37,95"],
+            ["Vlonderplank naadloos massief", "Zwart", "EUR 37,95"],
+            ["Sample vlonderplank", "Op aanvraag", "EUR 3,95"],
           ],
         },
       },
       {
-        heading: "Schuttingen (per strekkende meter)",
+        heading: "Schuttingen (per element)",
         table: {
-          headers: ["Component", "Afmeting", "Per stuk/m"],
+          headers: ["Type", "Kleur", "Per element"],
           rows: [
-            ["Composiet schuttingplank", "21 x 150 mm, 180 cm", "EUR 16,95/m"],
-            ["Rhombus schuttingplank", "21 x 150 mm, 180 cm", "EUR 21,95/m"],
-            ["Composiet paal", "68 x 68 mm, 200 cm", "EUR 49,95/st"],
-            ["U-paalprofiel alu", "60 x 60 mm", "EUR 12,95/m"],
-            ["Topafdekplank", "30 x 150 mm", "EUR 9,95/m"],
+            ["Schutting dicht", "Eiken / Walnoot / Teak / Grijs / Zwart", "EUR 139,95"],
+            ["Schutting Rhombus horizontaal", "Eiken / Walnoot / Grijs / Zwart", "EUR 149,95"],
+            ["Schutting Rhombus horizontaal", "Teak", "EUR 159,95"],
+            ["Schutting Rhombus verticaal", "Eiken / Walnoot / Teak / Grijs / Zwart", "EUR 179,95"],
+            ["Composiet schuttingplank los", "Op kleur", "EUR 16,99"],
+            ["Aluminium composiet paal compleet", "Op kleur", "EUR 69,95"],
           ],
         },
       },
       {
         heading: "Tuindeuren",
         table: {
-          headers: ["Type", "Afmeting", "Prijs"],
+          headers: ["Type", "Kleur", "Prijs"],
           rows: [
-            ["Dichte tuindeur", "100 x 180 cm", "EUR 549,-"],
-            ["Rhombus tuindeur", "100 x 180 cm", "EUR 649,-"],
-            ["Tuindeur op maat", "Maatwerk", "Op aanvraag"],
-            ["Scharnier- en slotset", "RVS", "EUR 89,-/set"],
+            ["Tuindeur dicht (100 x 180 cm)", "Zwart / Teak / Grijs / Walnoot", "EUR 349,-"],
+            ["Tuindeur Rhombus (100 x 180 cm)", "Zwart / Teak / Grijs / Walnoot / Eiken", "EUR 369,-"],
+            ["Tuindeur Rhombus verticaal", "Zwart / Teak / Grijs / Walnoot / Eiken", "EUR 399,-"],
+            ["Tuindeur op maat tot 200 cm", "Op kleur, productietijd 3-4 weken", "Op aanvraag"],
           ],
         },
       },
       {
-        heading: "Gevelbekleding",
+        heading: "Accessoires & afwerking",
         table: {
-          headers: ["Component", "Afmeting", "Per m"],
+          headers: ["Onderdeel", "Specificatie", "Prijs"],
           rows: [
-            ["Rhombus gevelplank", "21 x 145 mm, 4 m", "EUR 32,95"],
-            ["Aluminium regelwerk", "40 x 60 mm, 4 m", "EUR 11,95"],
-            ["Hoek- en eindprofiel", "Op kleur", "EUR 14,95"],
+            ["Aluminium composiet paal compleet", "Met U-profiel en voetplaat", "EUR 69,95"],
+            ["Aluminium Onder/Boven Profiel", "Strakke aluminium afwerking", "Op aanvraag"],
+            ["Paalkap rechthoek 60x40 mm met haak", "Inclusief haak", "Op aanvraag"],
+            ["Paalkap rond 60 mm met haak", "Inclusief haak", "Op aanvraag"],
+            ["Paalkap Aluminium Tuinpaal", "Op kleur", "Op aanvraag"],
+            ["Afdekstrip Composiet Tuinpaal", "Verbergt schroefverbindingen", "Op aanvraag"],
+            ["Lakbus spray kleurherstel", "Per kleur, 400 ml", "EUR 14,95"],
+            ["Sample schutting", "Fysiek sample, bezorgd binnen 5-10 werkdagen", "EUR 3,95"],
           ],
         },
       },
       {
         heading: "Staffelkortingen",
         bullets: [
-          "Bestelling vanaf EUR 1.000: 3% korting",
-          "Bestelling vanaf EUR 2.500: 5% korting",
-          "Bestelling vanaf EUR 5.000: 7% korting + gratis levering",
-          "Aannemers en hoveniers: aparte zakelijke tarieven op aanvraag",
+          "Bestelling vanaf 1.000 euro: 3% korting op het netto materiaalbedrag",
+          "Bestelling vanaf 2.500 euro: 5% korting op het netto materiaalbedrag",
+          "Bestelling vanaf 5.000 euro: 7% korting + gratis levering door heel Nederland en Belgie",
+          "Aannemers, hoveniers en tuincentra: aparte zakelijke tarieven, vraag een account aan via info@schuttingvancomposiet.nl",
         ],
       },
       {
         heading: "Leveringsvoorwaarden",
         bullets: [
-          "Levertijd standaard: 5-10 werkdagen",
-          "Levering door heel Nederland en Belgie",
-          "Gratis levering vanaf EUR 5.000",
-          "Onder EUR 5.000: verzendkosten op basis van postcode",
-          "25 jaar fabrieksgarantie op alle composiet producten",
+          "Standaard levertijd: 5 tot 10 werkdagen na betaling",
+          "Maatwerk tuindeuren: 3 tot 4 weken productietijd",
+          "Bezorging door heel Nederland en Belgie met eigen vervoer of pallettransport",
+          "Onder 5.000 euro: verzendkosten op basis van postcode en gewicht — exacte bijdrage zichtbaar in de checkout",
+          "Schadeloos transport gegarandeerd: bij transportschade wordt direct vervangen",
+          "25 jaar fabrieksgarantie op alle Highlander composiet producten onder normaal gebruik",
         ],
       },
     ],
   },
+
+
 
   // ─── ONDERHOUD ──────────────────────────────────────────────────────
   {
@@ -657,7 +709,7 @@ const documents: BrandedDoc[] = [
   {
     id: "kleurengids",
     title: "Kleurengids: het perfecte composiet voor jouw tuin",
-    subtitle: "Kies de juiste tint voor schutting, vlonder, tuindeur en gevelbekleding",
+    subtitle: "Kies de juiste tint voor schutting, vlonder en tuindeur — voor een doorlopende, op elkaar afgestemde buitenruimte.",
     sections: [
       {
         heading: "Kleurenoverzicht",
@@ -686,7 +738,7 @@ const documents: BrandedDoc[] = [
         heading: "Combineren met de tuin",
         bullets: [
           "Donkere schutting + lichte vlonder = ruimtelijk effect",
-          "Donkere gevelbekleding rondom witte kozijnen = high-end look",
+          "Donkere schutting + lichte vlonder = ruimtelijk en open effect",
           "Tuindeur in dezelfde tint als schutting = rustig en strak",
           "Tuindeur in contrasterende tint = blikvanger",
         ],
@@ -820,70 +872,14 @@ const documents: BrandedDoc[] = [
     ],
   },
 
-  // ─── GEVELBEKLEDING ─────────────────────────────────────────────────
-  {
-    id: "handleiding-composiet-gevelbekleding",
-    title: "Montagehandleiding: composiet gevelbekleding (Rhombus)",
-    subtitle: "Aluminium regelwerk, ventilatie en montage van Rhombus profielen",
-    sections: [
-      {
-        heading: "Opbouw - van binnen naar buiten",
-        bullets: [
-          "Bestaande gevel of waterkerende folie",
-          "Aluminium regelwerk (40 x 60 mm) verticaal op h.o.h. 50 cm",
-          "Ventilatieruimte 30 mm achter de bekleding",
-          "Rhombus profielen horizontaal gemonteerd",
-        ],
-      },
-      {
-        heading: "1. Regelwerk plaatsen",
-        bullets: [
-          "Markeer verticale lijnen h.o.h. 50 cm op de gevel",
-          "Aluminium profielen vastzetten met geveldoppen (chemisch ankeren bij steen)",
-          "Stel met vulplaatjes uit tot een perfect vlak",
-          "Controleer met waterpas of richtsnoer dat alles op een lijn ligt",
-          "Onder elke profielrij: ventilatiegaas tegen ongedierte",
-        ],
-      },
-      {
-        heading: "2. Eerste rij Rhombus",
-        bullets: [
-          "Start onderaan met startprofiel of waterhol",
-          "Plaats eerste plank met de schuine kant naar boven (Rhombus richting)",
-          "Vastzetten met RVS gevelschroeven via de bovenrand (verdekt)",
-          "Controleer waterpas - foutjes hier herhalen zich naar boven",
-        ],
-      },
-      {
-        heading: "3. Doorlopende rijen",
-        bullets: [
-          "Volgende plank schuift met onderkant over de bovenkant van de vorige",
-          "Stootnaden verspringen: minimaal 60 cm uit elkaar in opvolgende rijen",
-          "Op elke regel een schroef - niet meer, voor dilatatie",
-          "Houd 5 mm dilatatie aan bij elke stootnaad",
-        ],
-      },
-      {
-        heading: "4. Hoek- en eindprofielen",
-        bullets: [
-          "Buitenhoeken: aluminium hoekprofiel in dezelfde tint",
-          "Binnenhoeken: kit-naad of L-profiel",
-          "Bovenkant: aflopend daktrim om water af te voeren",
-          "Rondom raamkozijnen: aluminium kozijnaansluiting",
-        ],
-      },
-      {
-        heading: "Tinten combineren",
-        paragraphs: [
-          `Gevelbekleding leverbaar in: ${TONES}. Voor moderne projecten populair: zwart als hoofdkleur met een verticaal accent in walnoot of vergrijsd eiken.`,
-        ],
-      },
-    ],
-  },
+  // ─── GEVELBEKLEDING is no longer part of the catalog ─────────────────
+  // (manual: composiet gevelbekleding handleiding has been deprecated)
+
+
   {
     id: "onderhoud-rhombus-profielen",
     title: "Onderhoudsgids: Rhombus profielen",
-    subtitle: "Schutting, tuindeur en gevelbekleding met Rhombus profiel - jaarlijks onderhoud",
+    subtitle: "Schutting en tuindeur met Rhombus profiel - jaarlijks onderhoud voor 25 jaar kleurvastheid",
     sections: [
       {
         heading: "Waarom apart onderhoud voor Rhombus?",
@@ -939,7 +935,7 @@ const documents: BrandedDoc[] = [
 
 const BRAND = {
   name: "SchuttingvanComposiet.nl",
-  tagline: "Composiet vlonderplanken, schuttingen, tuindeuren & gevelbekleding",
+  tagline: "Composiet vlonderplanken, schuttingen & tuindeuren met 25 jaar fabrieksgarantie",
   website: "www.schuttingvancomposiet.nl",
   email: "info@schuttingvancomposiet.nl",
   phone: "020 - 808 41 40",
@@ -1034,11 +1030,7 @@ const META: Record<string, DocMeta> = {
     eyebrow: "CHECKLIST",
   },
 
-  // Gevelbekleding & Rhombus
-  "handleiding-composiet-gevelbekleding": {
-    cover: "galeria-4.jpg",
-    eyebrow: "MONTAGEHANDLEIDING",
-  },
+  // Rhombus onderhoud (schutting + tuindeur)
   "onderhoud-rhombus-profielen": {
     cover: "ogrodzeniowa-premium-orzech.jpg",
     eyebrow: "ONDERHOUDSGIDS",
@@ -1227,7 +1219,10 @@ function need(ctx: Ctx, h: number) {
 /* ── Section renderers ────────────────────────────────────────── */
 
 function drawSectionHeading(ctx: Ctx, num: number, heading: string) {
-  need(ctx, 60);
+  // Reserve generous space so the heading never lands within ~200pt of the
+  // page bottom — keeps the heading together with its first table/bullet block
+  // and avoids the orphan-heading / headerless-table bug.
+  need(ctx, 200);
   const { page, serif, serifBold } = ctx;
   const numStr = num.toString().padStart(2, "0");
   // Large outline numeral
@@ -1305,19 +1300,21 @@ function drawTable(ctx: Ctx, headers: string[], rows: string[][]) {
   const rowSize = 8.8;
   const rowLH = rowSize * 1.45;
 
-  // Header
-  need(ctx, headerH + 12);
-  ctx.page.drawRectangle({
-    x: MARGIN_X, y: ctx.y - headerH, width: tableW, height: headerH, color: COL.primary,
-  });
-  for (let c = 0; c < cols; c++) {
-    const txt = headers[c];
-    ctx.page.drawText(safeText(txt), {
-      x: xPos[c] + padX, y: ctx.y - headerH + 8, size: 8.5, font: ctx.sansBold,
-      color: COL.paper, characterSpacing: 0.6,
+  // Header (reusable so we can reprint after a page break)
+  const drawHeaderRow = () => {
+    need(ctx, headerH + 12);
+    ctx.page.drawRectangle({
+      x: MARGIN_X, y: ctx.y - headerH, width: tableW, height: headerH, color: COL.primary,
     });
-  }
-  ctx.y -= headerH;
+    for (let c = 0; c < cols; c++) {
+      ctx.page.drawText(safeText(headers[c]), {
+        x: xPos[c] + padX, y: ctx.y - headerH + 8, size: 8.5, font: ctx.sansBold,
+        color: COL.paper, characterSpacing: 0.6,
+      });
+    }
+    ctx.y -= headerH;
+  };
+  drawHeaderRow();
 
   // Rows
   for (let r = 0; r < rows.length; r++) {
@@ -1327,7 +1324,12 @@ function drawTable(ctx: Ctx, headers: string[], rows: string[][]) {
     );
     const maxLines = Math.max(1, ...cellLines.map((l) => l.length));
     const rowH = maxLines * rowLH + 8;
-    need(ctx, rowH + 4);
+
+    // Page break mid-table → reprint header row so users never see a headerless table
+    if (ctx.y - rowH < CONTENT_BOTTOM) {
+      newPage(ctx);
+      drawHeaderRow();
+    }
 
     // Zebra
     if (r % 2 === 1) {
