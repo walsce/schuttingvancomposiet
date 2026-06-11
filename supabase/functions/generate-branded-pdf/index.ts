@@ -872,66 +872,10 @@ const documents: BrandedDoc[] = [
     ],
   },
 
-  // ─── GEVELBEKLEDING ─────────────────────────────────────────────────
-  {
-    id: "handleiding-composiet-gevelbekleding",
-    title: "Montagehandleiding: composiet gevelbekleding (Rhombus)",
-    subtitle: "Aluminium regelwerk, ventilatie en montage van Rhombus profielen",
-    sections: [
-      {
-        heading: "Opbouw - van binnen naar buiten",
-        bullets: [
-          "Bestaande gevel of waterkerende folie",
-          "Aluminium regelwerk (40 x 60 mm) verticaal op h.o.h. 50 cm",
-          "Ventilatieruimte 30 mm achter de bekleding",
-          "Rhombus profielen horizontaal gemonteerd",
-        ],
-      },
-      {
-        heading: "1. Regelwerk plaatsen",
-        bullets: [
-          "Markeer verticale lijnen h.o.h. 50 cm op de gevel",
-          "Aluminium profielen vastzetten met geveldoppen (chemisch ankeren bij steen)",
-          "Stel met vulplaatjes uit tot een perfect vlak",
-          "Controleer met waterpas of richtsnoer dat alles op een lijn ligt",
-          "Onder elke profielrij: ventilatiegaas tegen ongedierte",
-        ],
-      },
-      {
-        heading: "2. Eerste rij Rhombus",
-        bullets: [
-          "Start onderaan met startprofiel of waterhol",
-          "Plaats eerste plank met de schuine kant naar boven (Rhombus richting)",
-          "Vastzetten met RVS gevelschroeven via de bovenrand (verdekt)",
-          "Controleer waterpas - foutjes hier herhalen zich naar boven",
-        ],
-      },
-      {
-        heading: "3. Doorlopende rijen",
-        bullets: [
-          "Volgende plank schuift met onderkant over de bovenkant van de vorige",
-          "Stootnaden verspringen: minimaal 60 cm uit elkaar in opvolgende rijen",
-          "Op elke regel een schroef - niet meer, voor dilatatie",
-          "Houd 5 mm dilatatie aan bij elke stootnaad",
-        ],
-      },
-      {
-        heading: "4. Hoek- en eindprofielen",
-        bullets: [
-          "Buitenhoeken: aluminium hoekprofiel in dezelfde tint",
-          "Binnenhoeken: kit-naad of L-profiel",
-          "Bovenkant: aflopend daktrim om water af te voeren",
-          "Rondom raamkozijnen: aluminium kozijnaansluiting",
-        ],
-      },
-      {
-        heading: "Tinten combineren",
-        paragraphs: [
-          `Gevelbekleding leverbaar in: ${TONES}. Voor moderne projecten populair: zwart als hoofdkleur met een verticaal accent in walnoot of vergrijsd eiken.`,
-        ],
-      },
-    ],
-  },
+  // ─── GEVELBEKLEDING is no longer part of the catalog ─────────────────
+  // (manual: composiet gevelbekleding handleiding has been deprecated)
+
+
   {
     id: "onderhoud-rhombus-profielen",
     title: "Onderhoudsgids: Rhombus profielen",
