@@ -709,7 +709,7 @@ const documents: BrandedDoc[] = [
   {
     id: "kleurengids",
     title: "Kleurengids: het perfecte composiet voor jouw tuin",
-    subtitle: "Kies de juiste tint voor schutting, vlonder, tuindeur en gevelbekleding",
+    subtitle: "Kies de juiste tint voor schutting, vlonder en tuindeur — voor een doorlopende, op elkaar afgestemde buitenruimte.",
     sections: [
       {
         heading: "Kleurenoverzicht",
