@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { SelectedProduct } from "./types";
-import { products } from "@/data/products";
+import { products } from "@/data/cmsCatalog";
 import { toneColorMap } from "./designerData";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";

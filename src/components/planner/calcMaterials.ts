@@ -1,4 +1,4 @@
-import { products } from "@/data/products";
+import { products } from "@/data/cmsCatalog";
 import { MaterialLine, LayingPattern, SubstructureConfig, EdgeConfig } from "./types";
 
 /**
