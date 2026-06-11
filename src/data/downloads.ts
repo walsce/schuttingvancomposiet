@@ -136,7 +136,7 @@ export const downloads: DownloadGuide[] = [
     description: "De complete productcatalogus met alle vlonderplanken, schuttingen en accessoires. Inclusief technische specificaties en kleuren.",
     bulletPoints: [
       "Vlonderplanken: standaard & naadloos massief",
-      "Schuttingen, tuindeuren & gevelbekleding",
+      "Schuttingen & tuindeuren (dicht en Rhombus)",
       "Alle accessoires en montagesets",
       "Technische specificaties per product",
     ],
