@@ -935,7 +935,7 @@ const documents: BrandedDoc[] = [
 
 const BRAND = {
   name: "SchuttingvanComposiet.nl",
-  tagline: "Composiet vlonderplanken, schuttingen, tuindeuren & gevelbekleding",
+  tagline: "Composiet vlonderplanken, schuttingen & tuindeuren met 25 jaar fabrieksgarantie",
   website: "www.schuttingvancomposiet.nl",
   email: "info@schuttingvancomposiet.nl",
   phone: "020 - 808 41 40",
